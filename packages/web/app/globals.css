@@ -6,6 +6,50 @@
   :root {
     --font-inter: 'Inter', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
+
+    /* Background */
+    --bg-primary: #121212;
+    --bg-surface: #1E1E1E;
+    --bg-elevated: #2C2C2C;
+
+    /* Tennis Brand */
+    --tennis-green: #2E7D32;
+    --tennis-green-light: #4CAF50;
+    --tennis-green-dark: #1B5E20;
+
+    /* Accent */
+    --accent-gold: #FFD700;
+
+    /* Results */
+    --result-win: #00C853;
+    --result-loss: #FF1744;
+
+    /* Court Surfaces */
+    --surface-clay: #E65100;
+    --surface-grass: #43A047;
+    --surface-hard: #1565C0;
+
+    /* Text */
+    --text-primary: rgba(255, 255, 255, 0.87);
+    --text-secondary: rgba(255, 255, 255, 0.6);
+    --text-disabled: rgba(255, 255, 255, 0.38);
+
+    /* Divider */
+    --divider: rgba(255, 255, 255, 0.12);
+
+    /* Elevation */
+    --elevation-0: #121212;
+    --elevation-1: #1E1E1E;
+    --elevation-2: #2C2C2C;
+    --elevation-3: #383838;
+
+    /* Spacing (reference) */
+    --space-tight: 4px;
+    --space-compact: 8px;
+    --space-default: 12px;
+    --space-section: 16px;
+    --space-gap: 24px;
+    --space-major: 32px;
   }
 
   html {
@@ -13,12 +57,28 @@
   }
 
   body {
-    @apply bg-gray-950 text-gray-100 min-h-screen;
+    @apply bg-background text-text-primary min-h-screen;
   }
 }
 
 @layer components {
   .container-app {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-7xl mx-auto px-4;
+  }
+}
+
+@layer utilities {
+  .animate-pulse-live {
+    animation: pulse-live 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes pulse-live {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
   }
 }
