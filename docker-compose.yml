@@ -1,0 +1,73 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: tennishq-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: tennishq
+      POSTGRES_USER: tennishq
+      POSTGRES_PASSWORD: password
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U tennishq -d tennishq']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: ./packages/api
+      dockerfile: Dockerfile
+    container_name: tennishq-api
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://tennishq:password@postgres:5432/tennishq
+      PORT: 3001
+      NODE_ENV: development
+      CORS_ORIGIN: http://localhost:3000
+    ports:
+      - '3001:3001'
+    volumes:
+      - ./packages/api/src:/app/src
+    develop:
+      watch:
+        - action: sync
+          path: ./packages/api/src
+          target: /app/src
+
+  web:
+    build:
+      context: ./packages/web
+      dockerfile: Dockerfile
+    container_name: tennishq-web
+    restart: unless-stopped
+    depends_on:
+      - api
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:3001
+      NODE_ENV: development
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./packages/web/app:/app/app
+      - ./packages/web/components:/app/components
+      - ./packages/web/lib:/app/lib
+    develop:
+      watch:
+        - action: sync
+          path: ./packages/web
+          target: /app
+          ignore:
+            - node_modules/
+            - .next/
+
+volumes:
+  postgres_data:

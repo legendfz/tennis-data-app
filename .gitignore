@@ -1,2 +1,36 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+.next/
+out/
+*.tsbuildinfo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test
+coverage/
+
+# Docker
+postgres_data/
+
+# PocketBase data
+pocketbase/pb_data/
+
+# Agent config (keep out of product repo)
 souls/
-ARCHITECTURE.md
+scripts/
