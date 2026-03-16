@@ -44,10 +44,16 @@ const config: Config = {
           clay: '#E65100',
           grass: '#43A047',
           hard: '#1565C0',
+          carpet: '#7E57C2',
+          indoor: '#5C6BC0',
+        },
+        tour: {
+          atp: '#1565C0',
+          wta: '#9C27B0',
         },
         text: {
           primary: 'rgba(255,255,255,0.87)',
-          secondary: 'rgba(255,255,255,0.6)',
+          secondary: 'rgba(255,255,255,0.7)',
           disabled: 'rgba(255,255,255,0.38)',
         },
         divider: 'rgba(255,255,255,0.12)',
