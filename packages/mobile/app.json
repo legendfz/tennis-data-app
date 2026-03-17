@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "TennisHQ",
+    "slug": "tennishq",
+    "version": "1.0.0",
+    "scheme": "tennishq",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "backgroundColor": "#0D0F14"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.tennishq.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0D0F14"
+      },
+      "package": "com.tennishq.app"
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "plugins": ["expo-router"]
+  }
+}
