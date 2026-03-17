@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import {
   View,
   Text,
@@ -8,6 +8,7 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
+  RefreshControl,
 } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'expo-router';
@@ -19,7 +20,7 @@ export default function PlayersScreen() {
   const [search, setSearch] = useState('');
   const router = useRouter();
 
-  const { data, isLoading, error } = useQuery<{ data: Player[] }>({
+  const { data, isLoading, error, refetch } = useQuery<{ data: Player[] }>({
     queryKey: ['players'],
     queryFn: async () => {
       const res = await api.get('/api/players');
@@ -27,9 +28,15 @@ export default function PlayersScreen() {
     },
   });
 
+  const [refreshing, setRefreshing] = useState(false);
+  const onRefresh = useCallback(async () => {
+    setRefreshing(true);
+    await refetch();
+    setRefreshing(false);
+  }, [refetch]);
+
   const players = data?.data ?? (Array.isArray(data) ? data : []);
 
-  // Client-side filter for instant search
   const filtered = search.trim()
     ? players.filter((p: Player) =>
         p.name.toLowerCase().includes(search.toLowerCase())
@@ -55,11 +62,10 @@ export default function PlayersScreen() {
 
   return (
     <View style={styles.container}>
-      {/* Search Bar */}
       <View style={styles.searchContainer}>
         <TextInput
           style={styles.searchInput}
-          placeholder="Search players..."
+          placeholder="🔍 Search players..."
           placeholderTextColor="#6b7280"
           value={search}
           onChangeText={setSearch}
@@ -79,6 +85,14 @@ export default function PlayersScreen() {
       <FlatList
         data={filtered}
         keyExtractor={(item) => item.id.toString()}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            tintColor="#16a34a"
+            colors={['#16a34a']}
+          />
+        }
         renderItem={({ item }) => (
           <TouchableOpacity
             style={styles.playerCard}
@@ -174,7 +188,7 @@ const styles = StyleSheet.create({
   },
   playerName: {
     color: '#ffffff',
-    fontSize: 17,
+    fontSize: 16,
     fontWeight: '600',
     marginBottom: 3,
   },
@@ -184,7 +198,7 @@ const styles = StyleSheet.create({
   },
   rankBadge: {
     backgroundColor: '#16a34a',
-    borderRadius: 8,
+    borderRadius: 12,
     width: 44,
     height: 44,
     justifyContent: 'center',

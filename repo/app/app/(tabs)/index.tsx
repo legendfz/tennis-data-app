@@ -1,3 +1,4 @@
+import { useState, useCallback } from 'react';
 import {
   View,
   Text,
@@ -8,6 +9,7 @@ import {
   ActivityIndicator,
   FlatList,
   Dimensions,
+  RefreshControl,
 } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'expo-router';
@@ -21,7 +23,11 @@ const TOP_PLAYER_CARD_WIDTH = 120;
 export default function HomeScreen() {
   const router = useRouter();
 
-  const { data: playersData, isLoading: playersLoading } = useQuery<{ data: Player[] }>({
+  const {
+    data: playersData,
+    isLoading: playersLoading,
+    refetch: refetchPlayers,
+  } = useQuery<{ data: Player[] }>({
     queryKey: ['players'],
     queryFn: async () => {
       const res = await api.get('/api/players?limit=10');
@@ -29,7 +35,11 @@ export default function HomeScreen() {
     },
   });
 
-  const { data: matchesData, isLoading: matchesLoading } = useQuery<{ data: MatchWithPlayers[] }>({
+  const {
+    data: matchesData,
+    isLoading: matchesLoading,
+    refetch: refetchMatches,
+  } = useQuery<{ data: MatchWithPlayers[] }>({
     queryKey: ['matches-latest'],
     queryFn: async () => {
       const res = await api.get('/api/matches?limit=5');
@@ -37,11 +47,32 @@ export default function HomeScreen() {
     },
   });
 
-  const topPlayers: Player[] = playersData?.data ?? (Array.isArray(playersData) ? (playersData as Player[]).slice(0, 10) : []);
-  const latestMatches: MatchWithPlayers[] = matchesData?.data ?? (Array.isArray(matchesData) ? (matchesData as MatchWithPlayers[]).slice(0, 5) : []);
+  const [refreshing, setRefreshing] = useState(false);
+  const onRefresh = useCallback(async () => {
+    setRefreshing(true);
+    await Promise.all([refetchPlayers(), refetchMatches()]);
+    setRefreshing(false);
+  }, [refetchPlayers, refetchMatches]);
+
+  const topPlayers: Player[] =
+    playersData?.data ?? (Array.isArray(playersData) ? (playersData as Player[]).slice(0, 10) : []);
+  const latestMatches: MatchWithPlayers[] =
+    matchesData?.data ??
+    (Array.isArray(matchesData) ? (matchesData as MatchWithPlayers[]).slice(0, 5) : []);
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={styles.content}
+      refreshControl={
+        <RefreshControl
+          refreshing={refreshing}
+          onRefresh={onRefresh}
+          tintColor="#16a34a"
+          colors={['#16a34a']}
+        />
+      }
+    >
       {/* Header */}
       <View style={styles.header}>
         <Text style={styles.title}>🎾 TennisHQ</Text>
@@ -97,7 +128,6 @@ export default function HomeScreen() {
                 {match.tournament?.name || 'Tournament'} · {match.round}
               </Text>
               <View style={styles.matchPlayers}>
-                {/* Player 1 */}
                 <View style={styles.matchPlayerSide}>
                   <Image
                     source={{
@@ -120,7 +150,6 @@ export default function HomeScreen() {
 
                 <Text style={styles.matchVs}>vs</Text>
 
-                {/* Player 2 */}
                 <View style={styles.matchPlayerSide}>
                   <Image
                     source={{
@@ -200,7 +229,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     marginBottom: 12,
   },
-  // Top Players horizontal cards
   topPlayersList: {
     paddingHorizontal: 12,
     gap: 10,
@@ -236,17 +264,16 @@ const styles = StyleSheet.create({
   topPlayerFlag: {
     fontSize: 18,
   },
-  // Match cards
   matchCard: {
     backgroundColor: '#1a1a2e',
     borderRadius: 12,
-    padding: 14,
+    padding: 16,
     marginHorizontal: 16,
     marginBottom: 10,
   },
   matchTournament: {
     color: '#16a34a',
-    fontSize: 11,
+    fontSize: 12,
     fontWeight: '600',
     textTransform: 'uppercase',
     marginBottom: 10,
@@ -262,16 +289,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   matchAvatar: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    width: 44,
+    height: 44,
+    borderRadius: 22,
     borderWidth: 2,
     borderColor: '#16a34a',
     marginBottom: 4,
   },
   matchPlayerName: {
     color: '#ffffff',
-    fontSize: 13,
+    fontSize: 14,
     fontWeight: '500',
     textAlign: 'center',
   },
@@ -292,11 +319,10 @@ const styles = StyleSheet.create({
   },
   matchDate: {
     color: '#a0a0b0',
-    fontSize: 11,
+    fontSize: 12,
     textAlign: 'center',
     marginTop: 4,
   },
-  // Stats
   statsRow: {
     flexDirection: 'row',
     gap: 12,
@@ -305,7 +331,7 @@ const styles = StyleSheet.create({
   statBox: {
     backgroundColor: '#1a1a2e',
     borderRadius: 12,
-    padding: 18,
+    padding: 16,
     alignItems: 'center',
     flex: 1,
   },

@@ -1,3 +1,4 @@
+import { useState, useCallback } from 'react';
 import {
   View,
   Text,
@@ -5,6 +6,7 @@ import {
   StyleSheet,
   ActivityIndicator,
   TouchableOpacity,
+  RefreshControl,
 } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'expo-router';
@@ -28,13 +30,20 @@ function getSurfaceBaseColor(surface: string): string {
 export default function TournamentsScreen() {
   const router = useRouter();
 
-  const { data, isLoading, error } = useQuery<{ data: Tournament[] }>({
+  const { data, isLoading, error, refetch } = useQuery<{ data: Tournament[] }>({
     queryKey: ['tournaments'],
     queryFn: async () => {
       const res = await api.get('/api/tournaments');
       return res.data;
     },
   });
+
+  const [refreshing, setRefreshing] = useState(false);
+  const onRefresh = useCallback(async () => {
+    setRefreshing(true);
+    await refetch();
+    setRefreshing(false);
+  }, [refetch]);
 
   const tournaments = data?.data ?? (Array.isArray(data) ? data : []);
 
@@ -59,6 +68,14 @@ export default function TournamentsScreen() {
       <FlatList
         data={tournaments}
         keyExtractor={(item) => item.id.toString()}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            tintColor="#16a34a"
+            colors={['#16a34a']}
+          />
+        }
         renderItem={({ item }) => (
           <TouchableOpacity
             style={styles.card}
@@ -79,7 +96,7 @@ export default function TournamentsScreen() {
             <Text style={styles.category}>{item.category}</Text>
             <Text style={styles.location}>📍 {item.location}</Text>
             <Text style={styles.dates}>
-              {item.startDate} → {item.endDate}
+              📅 {item.startDate} → {item.endDate}
             </Text>
           </TouchableOpacity>
         )}

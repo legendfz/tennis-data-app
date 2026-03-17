@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import {
   View,
   Text,
@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
+  RefreshControl,
 } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'expo-router';
@@ -45,7 +46,7 @@ export default function MatchesScreen() {
   const [selectedTournament, setSelectedTournament] = useState<number | null>(null);
   const router = useRouter();
 
-  const { data: matchesData, isLoading } = useQuery<{ data: MatchWithPlayers[] }>({
+  const { data: matchesData, isLoading, refetch } = useQuery<{ data: MatchWithPlayers[] }>({
     queryKey: ['matches-all'],
     queryFn: async () => {
       const res = await api.get('/api/matches?limit=200');
@@ -61,8 +62,17 @@ export default function MatchesScreen() {
     },
   });
 
-  const matches: MatchWithPlayers[] = matchesData?.data ?? (Array.isArray(matchesData) ? matchesData as MatchWithPlayers[] : []);
-  const tournaments: Tournament[] = tournamentsData?.data ?? (Array.isArray(tournamentsData) ? tournamentsData as Tournament[] : []);
+  const [refreshing, setRefreshing] = useState(false);
+  const onRefresh = useCallback(async () => {
+    setRefreshing(true);
+    await refetch();
+    setRefreshing(false);
+  }, [refetch]);
+
+  const matches: MatchWithPlayers[] =
+    matchesData?.data ?? (Array.isArray(matchesData) ? (matchesData as MatchWithPlayers[]) : []);
+  const tournaments: Tournament[] =
+    tournamentsData?.data ?? (Array.isArray(tournamentsData) ? (tournamentsData as Tournament[]) : []);
 
   const filteredMatches = useMemo(() => {
     if (!selectedTournament) return matches;
@@ -135,6 +145,14 @@ export default function MatchesScreen() {
       <SectionList
         sections={sections}
         keyExtractor={(item) => item.id.toString()}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            tintColor="#16a34a"
+            colors={['#16a34a']}
+          />
+        }
         renderSectionHeader={({ section }) => (
           <Text style={styles.sectionHeader}>{section.title}</Text>
         )}
@@ -148,7 +166,6 @@ export default function MatchesScreen() {
               {item.tournament?.name || 'Tournament'} · {item.round}
             </Text>
             <View style={styles.versus}>
-              {/* Player 1 */}
               <View style={styles.playerSide}>
                 <Image
                   source={{
@@ -171,7 +188,6 @@ export default function MatchesScreen() {
 
               <Text style={styles.vs}>vs</Text>
 
-              {/* Player 2 */}
               <View style={styles.playerSide}>
                 <Image
                   source={{
@@ -261,12 +277,12 @@ const styles = StyleSheet.create({
   matchCard: {
     backgroundColor: '#1a1a2e',
     borderRadius: 12,
-    padding: 14,
+    padding: 16,
     marginBottom: 10,
   },
   tournament: {
     color: '#a0a0b0',
-    fontSize: 11,
+    fontSize: 12,
     fontWeight: '600',
     marginBottom: 10,
     textTransform: 'uppercase',
@@ -282,9 +298,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   matchAvatar: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    width: 44,
+    height: 44,
+    borderRadius: 22,
     borderWidth: 2,
     borderColor: '#2a2a4e',
     marginBottom: 4,

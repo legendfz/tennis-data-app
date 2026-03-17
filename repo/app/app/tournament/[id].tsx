@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import {
   View,
   Text,
@@ -8,6 +8,7 @@ import {
   Dimensions,
   ActivityIndicator,
   TouchableOpacity,
+  RefreshControl,
 } from 'react-native';
 import { useLocalSearchParams, Stack } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
@@ -16,7 +17,7 @@ import { getAvatarUrl } from '../../lib/avatars';
 import type { Player, MatchWithPlayers } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
-const MATCH_AVATAR_SIZE = 44;
+const MATCH_AVATAR_SIZE = 48;
 
 interface DrawMatch {
   player1Id: number;
@@ -55,7 +56,6 @@ interface TournamentDetail {
   matches?: MatchWithPlayers[];
 }
 
-// Round order for bracket display
 const ROUND_ORDER = [
   'Final',
   'Semi-Final',
@@ -65,6 +65,8 @@ const ROUND_ORDER = [
   'Round of 64',
   'Round Robin',
 ];
+
+const AVAILABLE_YEARS = [2024, 2023, 2022, 2021, 2020, 2019];
 
 function getSurfaceEmoji(surface: string): string {
   const s = surface.toLowerCase();
@@ -123,27 +125,93 @@ function PlayerSlot({
         </Text>
         {seed ? <Text style={styles.slotSeed}>[{seed}]</Text> : null}
       </View>
+      {isWinner && <Text style={styles.winIndicator}>✓</Text>}
     </View>
   );
 }
 
-function BracketMatch({ match }: { match: DrawMatch }) {
+// ─── Bracket Match with connector lines ──────────────────────────────
+function BracketMatch({ match, isFinal }: { match: DrawMatch; isFinal: boolean }) {
   return (
-    <View style={styles.bracketMatch}>
-      <PlayerSlot
-        player={match.player1}
-        seed={match.seed1}
-        isWinner={match.winnerId === match.player1Id}
-      />
-      <View style={styles.scoreDivider}>
-        <Text style={styles.scoreText}>{match.score}</Text>
+    <View style={styles.bracketMatchWrapper}>
+      {/* Left connector line */}
+      <View style={styles.connectorLine}>
+        <View style={styles.connectorVertical} />
+        <View style={styles.connectorHorizontal} />
       </View>
-      <PlayerSlot
-        player={match.player2}
-        seed={match.seed2}
-        isWinner={match.winnerId === match.player2Id}
-      />
+      <View style={[styles.bracketMatch, isFinal && styles.finalMatch]}>
+        {isFinal && (
+          <View style={styles.finalBanner}>
+            <Text style={styles.finalBannerText}>🏆 FINAL</Text>
+          </View>
+        )}
+        <PlayerSlot
+          player={match.player1}
+          seed={match.seed1}
+          isWinner={match.winnerId === match.player1Id}
+        />
+        <View style={styles.scoreDivider}>
+          <Text style={styles.scoreText}>{match.score}</Text>
+        </View>
+        <PlayerSlot
+          player={match.player2}
+          seed={match.seed2}
+          isWinner={match.winnerId === match.player2Id}
+        />
+      </View>
     </View>
+  );
+}
+
+// ─── Champion Card ───────────────────────────────────────────────────
+function ChampionCard({ match }: { match: DrawMatch }) {
+  const champion = match.winnerId === match.player1Id ? match.player1 : match.player2;
+  if (!champion) return null;
+
+  return (
+    <View style={styles.championCard}>
+      <Text style={styles.championLabel}>🏆 CHAMPION</Text>
+      <Image
+        source={{ uri: champion.photoUrl || getAvatarUrl(champion.name, 120) }}
+        style={styles.championAvatar}
+      />
+      <Text style={styles.championName}>
+        {champion.name} {champion.countryFlag}
+      </Text>
+      <Text style={styles.championScore}>{match.score}</Text>
+    </View>
+  );
+}
+
+// ─── Year Selector ───────────────────────────────────────────────────
+function YearSelector({
+  selectedYear,
+  onSelectYear,
+}: {
+  selectedYear: number;
+  onSelectYear: (year: number) => void;
+}) {
+  return (
+    <ScrollView
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      contentContainerStyle={styles.yearSelectorContent}
+      style={styles.yearSelector}
+    >
+      {AVAILABLE_YEARS.map((year) => (
+        <TouchableOpacity
+          key={year}
+          style={[styles.yearPill, selectedYear === year && styles.yearPillActive]}
+          onPress={() => onSelectYear(year)}
+        >
+          <Text
+            style={[styles.yearPillText, selectedYear === year && styles.yearPillTextActive]}
+          >
+            {year}
+          </Text>
+        </TouchableOpacity>
+      ))}
+    </ScrollView>
   );
 }
 
@@ -201,8 +269,8 @@ function ResultMatch({ match }: { match: MatchWithPlayers }) {
 export default function TournamentDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const [activeTab, setActiveTab] = useState<'bracket' | 'results'>('bracket');
+  const [selectedYear, setSelectedYear] = useState(2024);
 
-  // Fetch tournament info (includes matches for results tab)
   const { data: tournament } = useQuery<TournamentDetail>({
     queryKey: ['tournament', id],
     queryFn: async () => {
@@ -211,18 +279,25 @@ export default function TournamentDetailScreen() {
     },
   });
 
-  // Fetch draw data
   const {
     data: draw,
     isLoading,
     error,
+    refetch,
   } = useQuery<DrawData>({
-    queryKey: ['tournament-draw', id],
+    queryKey: ['tournament-draw', id, selectedYear],
     queryFn: async () => {
       const res = await api.get(`/api/tournaments/${id}/draw`);
       return res.data;
     },
   });
+
+  const [refreshing, setRefreshing] = useState(false);
+  const onRefresh = async () => {
+    setRefreshing(true);
+    await refetch();
+    setRefreshing(false);
+  };
 
   if (isLoading) {
     return (
@@ -235,14 +310,14 @@ export default function TournamentDetailScreen() {
   const tournamentName = tournament?.name || draw?.name || 'Tournament';
   const surfaceEmoji = tournament ? getSurfaceEmoji(tournament.surface) : '';
 
-  // Sort rounds in bracket order
   const sortedRounds = draw?.rounds
     ? [...draw.rounds].sort(
         (a, b) => ROUND_ORDER.indexOf(a.round) - ROUND_ORDER.indexOf(b.round)
       )
     : [];
 
-  // Group matches by round for results tab
+  const finalRound = sortedRounds.find((r) => r.round === 'Final');
+
   const matchesByRound: { round: string; matches: MatchWithPlayers[] }[] = [];
   if (tournament?.matches) {
     const grouped: Record<string, MatchWithPlayers[]> = {};
@@ -260,7 +335,17 @@ export default function TournamentDetailScreen() {
   return (
     <>
       <Stack.Screen options={{ title: tournamentName }} />
-      <ScrollView style={styles.container}>
+      <ScrollView
+        style={styles.container}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            tintColor="#16a34a"
+            colors={['#16a34a']}
+          />
+        }
+      >
         {/* Tournament Header */}
         <View style={styles.headerSection}>
           <Text style={styles.tournamentTitle}>
@@ -284,12 +369,10 @@ export default function TournamentDetailScreen() {
               </Text>
             </>
           )}
-          {draw && (
-            <View style={styles.yearBadge}>
-              <Text style={styles.yearText}>{draw.year}</Text>
-            </View>
-          )}
         </View>
+
+        {/* Year Selector */}
+        <YearSelector selectedYear={selectedYear} onSelectYear={setSelectedYear} />
 
         {/* Tabs: Bracket | Results */}
         <View style={styles.tabRow}>
@@ -320,27 +403,37 @@ export default function TournamentDetailScreen() {
             {error || !draw ? (
               <View style={styles.noDraw}>
                 <Text style={styles.noDrawText}>
-                  No bracket data available for this tournament
+                  No bracket data available for {selectedYear}
                 </Text>
               </View>
             ) : (
-              sortedRounds.map((round) => (
-                <View key={round.round} style={styles.roundSection}>
-                  <View style={styles.roundHeader}>
-                    <Text style={styles.roundTitle}>{round.round}</Text>
-                    <Text style={styles.roundAbbrev}>
-                      {getRoundAbbrev(round.round)}
-                    </Text>
+              <>
+                {/* Champion highlight */}
+                {finalRound && finalRound.matches.length > 0 && (
+                  <ChampionCard match={finalRound.matches[0]} />
+                )}
+
+                {sortedRounds.map((round) => (
+                  <View key={round.round} style={styles.roundSection}>
+                    <View style={styles.roundHeader}>
+                      <Text style={styles.roundTitle}>{round.round}</Text>
+                      <Text style={styles.roundAbbrev}>
+                        {getRoundAbbrev(round.round)}
+                      </Text>
+                    </View>
+                    {round.matches.map((match, idx) => (
+                      <BracketMatch
+                        key={idx}
+                        match={match}
+                        isFinal={round.round === 'Final'}
+                      />
+                    ))}
                   </View>
-                  {round.matches.map((match, idx) => (
-                    <BracketMatch key={idx} match={match} />
-                  ))}
-                </View>
-              ))
+                ))}
+              </>
             )}
           </>
         ) : (
-          /* Results Tab */
           <>
             {matchesByRound.length === 0 ? (
               <View style={styles.noDraw}>
@@ -366,6 +459,8 @@ export default function TournamentDetailScreen() {
             )}
           </>
         )}
+
+        <View style={{ height: 40 }} />
       </ScrollView>
     </>
   );
@@ -383,7 +478,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerSection: {
-    padding: 20,
+    padding: 16,
     alignItems: 'center',
     borderBottomWidth: 1,
     borderBottomColor: '#2a2a4e',
@@ -430,19 +525,42 @@ const styles = StyleSheet.create({
   tournamentDates: {
     fontSize: 13,
     color: '#a0a0b0',
-    marginBottom: 8,
   },
-  yearBadge: {
+
+  // ── Year Selector ──
+  yearSelector: {
+    maxHeight: 52,
+    borderBottomWidth: 1,
+    borderBottomColor: '#2a2a4e',
+  },
+  yearSelectorContent: {
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    gap: 8,
+  },
+  yearPill: {
+    backgroundColor: '#1a1a2e',
+    borderRadius: 20,
+    paddingHorizontal: 18,
+    paddingVertical: 8,
+    borderWidth: 1,
+    borderColor: '#2a2a4e',
+  },
+  yearPillActive: {
     backgroundColor: '#16a34a',
-    borderRadius: 8,
-    paddingHorizontal: 14,
-    paddingVertical: 4,
+    borderColor: '#16a34a',
   },
-  yearText: {
-    color: '#ffffff',
+  yearPillText: {
     fontSize: 14,
+    color: '#a0a0b0',
+    fontWeight: '600',
+  },
+  yearPillTextActive: {
+    color: '#ffffff',
     fontWeight: 'bold',
   },
+
+  // ── Tabs ──
   tabRow: {
     flexDirection: 'row',
     paddingHorizontal: 16,
@@ -452,7 +570,7 @@ const styles = StyleSheet.create({
   tab: {
     flex: 1,
     paddingVertical: 10,
-    borderRadius: 8,
+    borderRadius: 12,
     backgroundColor: '#1a1a2e',
     alignItems: 'center',
   },
@@ -475,6 +593,46 @@ const styles = StyleSheet.create({
     color: '#a0a0b0',
     fontSize: 14,
   },
+
+  // ── Champion Card ──
+  championCard: {
+    backgroundColor: '#1a1a2e',
+    borderRadius: 12,
+    marginHorizontal: 16,
+    marginTop: 16,
+    padding: 20,
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: '#16a34a',
+  },
+  championLabel: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#16a34a',
+    marginBottom: 12,
+    letterSpacing: 2,
+  },
+  championAvatar: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    borderWidth: 3,
+    borderColor: '#16a34a',
+    marginBottom: 10,
+  },
+  championName: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#ffffff',
+    marginBottom: 4,
+  },
+  championScore: {
+    fontSize: 14,
+    color: '#a0a0b0',
+    fontWeight: '600',
+  },
+
+  // ── Round ──
   roundSection: {
     marginTop: 16,
     paddingHorizontal: 16,
@@ -503,11 +661,51 @@ const styles = StyleSheet.create({
     color: '#6b7280',
     marginLeft: 'auto',
   },
+
+  // ── Bracket Match ──
+  bracketMatchWrapper: {
+    flexDirection: 'row',
+    marginBottom: 10,
+  },
+  connectorLine: {
+    width: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  connectorVertical: {
+    position: 'absolute',
+    width: 2,
+    height: '100%',
+    backgroundColor: '#2a2a4e',
+    left: 6,
+  },
+  connectorHorizontal: {
+    position: 'absolute',
+    width: 10,
+    height: 2,
+    backgroundColor: '#2a2a4e',
+    left: 6,
+  },
   bracketMatch: {
+    flex: 1,
     backgroundColor: '#1a1a2e',
     borderRadius: 12,
-    marginBottom: 10,
     overflow: 'hidden',
+  },
+  finalMatch: {
+    borderWidth: 1,
+    borderColor: '#16a34a',
+  },
+  finalBanner: {
+    backgroundColor: '#16a34a',
+    paddingVertical: 4,
+    alignItems: 'center',
+  },
+  finalBannerText: {
+    color: '#ffffff',
+    fontSize: 12,
+    fontWeight: 'bold',
+    letterSpacing: 1,
   },
   playerSlot: {
     flexDirection: 'row',
@@ -538,7 +736,7 @@ const styles = StyleSheet.create({
   slotName: {
     fontSize: 15,
     color: '#ffffff',
-    fontWeight: '500',
+    fontWeight: '600',
     flexShrink: 1,
   },
   slotNameEmpty: {
@@ -548,6 +746,12 @@ const styles = StyleSheet.create({
   winnerName: {
     color: '#16a34a',
     fontWeight: 'bold',
+  },
+  winIndicator: {
+    color: '#16a34a',
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginRight: 8,
   },
   slotSeed: {
     fontSize: 12,
@@ -582,9 +786,9 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   resultAvatar: {
-    width: 30,
-    height: 30,
-    borderRadius: 15,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
     borderWidth: 1,
     borderColor: '#16a34a',
   },
