@@ -1,0 +1,16 @@
+[
+  {"id":1,"name":"Australian Open","surface":"Hard","category":"Grand Slam","location":"Melbourne, Australia","startDate":"2024-01-14","endDate":"2024-01-28","year":2024,"drawSize":128},
+  {"id":2,"name":"Roland Garros","surface":"Clay","category":"Grand Slam","location":"Paris, France","startDate":"2024-05-26","endDate":"2024-06-09","year":2024,"drawSize":128},
+  {"id":3,"name":"Wimbledon","surface":"Grass","category":"Grand Slam","location":"London, UK","startDate":"2024-07-01","endDate":"2024-07-14","year":2024,"drawSize":128},
+  {"id":4,"name":"US Open","surface":"Hard","category":"Grand Slam","location":"New York, USA","startDate":"2024-08-26","endDate":"2024-09-08","year":2024,"drawSize":128},
+  {"id":5,"name":"Indian Wells Masters","surface":"Hard","category":"Masters 1000","location":"Indian Wells, USA","startDate":"2024-03-06","endDate":"2024-03-17","year":2024,"drawSize":96},
+  {"id":6,"name":"Miami Open","surface":"Hard","category":"Masters 1000","location":"Miami, USA","startDate":"2024-03-20","endDate":"2024-03-31","year":2024,"drawSize":96},
+  {"id":7,"name":"Monte-Carlo Masters","surface":"Clay","category":"Masters 1000","location":"Monte Carlo, Monaco","startDate":"2024-04-07","endDate":"2024-04-14","year":2024,"drawSize":56},
+  {"id":8,"name":"Madrid Open","surface":"Clay","category":"Masters 1000","location":"Madrid, Spain","startDate":"2024-04-22","endDate":"2024-05-05","year":2024,"drawSize":56},
+  {"id":9,"name":"Italian Open","surface":"Clay","category":"Masters 1000","location":"Rome, Italy","startDate":"2024-05-08","endDate":"2024-05-19","year":2024,"drawSize":56},
+  {"id":10,"name":"Canadian Open","surface":"Hard","category":"Masters 1000","location":"Montreal, Canada","startDate":"2024-08-06","endDate":"2024-08-12","year":2024,"drawSize":56},
+  {"id":11,"name":"Cincinnati Masters","surface":"Hard","category":"Masters 1000","location":"Cincinnati, USA","startDate":"2024-08-12","endDate":"2024-08-19","year":2024,"drawSize":56},
+  {"id":12,"name":"Shanghai Masters","surface":"Hard","category":"Masters 1000","location":"Shanghai, China","startDate":"2024-10-02","endDate":"2024-10-13","year":2024,"drawSize":96},
+  {"id":13,"name":"Paris Masters","surface":"Hard (Indoor)","category":"Masters 1000","location":"Paris, France","startDate":"2024-10-28","endDate":"2024-11-03","year":2024,"drawSize":56},
+  {"id":14,"name":"ATP Finals","surface":"Hard (Indoor)","category":"ATP Finals","location":"Turin, Italy","startDate":"2024-11-10","endDate":"2024-11-17","year":2024,"drawSize":8}
+]

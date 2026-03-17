@@ -153,6 +153,49 @@ app.get<{ Params: { id: string; seasonId: string } }>(
   },
 );
 
+// Image proxies (hide RapidAPI key from client)
+const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY ?? '';
+const RAPIDAPI_HOST = process.env.RAPIDAPI_HOST_TENNIS ?? 'tennisapi1.p.rapidapi.com';
+
+app.get<{ Params: { id: string } }>('/api/images/player/:id', async (req, reply) => {
+  try {
+    const resp = await fetch(`https://${RAPIDAPI_HOST}/api/tennis/player/${req.params.id}/image`, {
+      headers: { 'x-rapidapi-key': RAPIDAPI_KEY, 'x-rapidapi-host': RAPIDAPI_HOST },
+    });
+    if (!resp.ok) return reply.status(404).send({ error: 'Image not found' });
+    reply.header('Content-Type', resp.headers.get('content-type') ?? 'image/png');
+    reply.header('Cache-Control', 'public, max-age=86400');
+    const buffer = Buffer.from(await resp.arrayBuffer());
+    return reply.send(buffer);
+  } catch { return reply.status(500).send({ error: 'Image proxy failed' }); }
+});
+
+app.get<{ Params: { code: string } }>('/api/images/flag/:code', async (req, reply) => {
+  try {
+    const resp = await fetch(`https://${RAPIDAPI_HOST}/api/img/flag/${req.params.code}`, {
+      headers: { 'x-rapidapi-key': RAPIDAPI_KEY, 'x-rapidapi-host': RAPIDAPI_HOST },
+    });
+    if (!resp.ok) return reply.status(404).send({ error: 'Flag not found' });
+    reply.header('Content-Type', resp.headers.get('content-type') ?? 'image/png');
+    reply.header('Cache-Control', 'public, max-age=604800');
+    const buffer = Buffer.from(await resp.arrayBuffer());
+    return reply.send(buffer);
+  } catch { return reply.status(500).send({ error: 'Image proxy failed' }); }
+});
+
+app.get<{ Params: { id: string } }>('/api/images/tournament/:id', async (req, reply) => {
+  try {
+    const resp = await fetch(`https://${RAPIDAPI_HOST}/api/tennis/tournament/${req.params.id}/logo`, {
+      headers: { 'x-rapidapi-key': RAPIDAPI_KEY, 'x-rapidapi-host': RAPIDAPI_HOST },
+    });
+    if (!resp.ok) return reply.status(404).send({ error: 'Logo not found' });
+    reply.header('Content-Type', resp.headers.get('content-type') ?? 'image/png');
+    reply.header('Cache-Control', 'public, max-age=604800');
+    const buffer = Buffer.from(await resp.arrayBuffer());
+    return reply.send(buffer);
+  } catch { return reply.status(500).send({ error: 'Image proxy failed' }); }
+});
+
 // Start
 const PORT = parseInt(process.env.PORT ?? '3001');
 await app.listen({ port: PORT, host: '0.0.0.0' });

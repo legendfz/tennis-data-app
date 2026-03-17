@@ -2,6 +2,7 @@ export interface Player {
   id: number;
   name: string;
   country: string;
+  countryFlag: string;
   photoUrl: string | null;
   ranking: number;
   birthdate: string;
@@ -10,6 +11,10 @@ export interface Player {
   plays: string;
   backhand: string;
   turnedPro: number;
+  titles: number;
+  grandSlams: number;
+  careerHigh: number;
+  prizeMoney: string;
 }
 
 export interface Tournament {
@@ -20,6 +25,8 @@ export interface Tournament {
   location: string;
   startDate: string;
   endDate: string;
+  year: number;
+  drawSize: number;
 }
 
 export interface Match {
@@ -31,15 +38,43 @@ export interface Match {
   winnerId: number;
   round: string;
   date: string;
-  statsJson: Record<string, any> | null;
+  court?: string;
+  statsJson?: Record<string, any> | null;
+}
+
+export interface MatchWithPlayers extends Match {
+  player1: Player;
+  player2: Player;
+  winner: Player;
+  tournament: Tournament;
+}
+
+export interface DrawRoundMatch {
+  player1Id: number;
+  player2Id: number;
+  winnerId: number;
+  score: string;
+  seed1: number | null;
+  seed2: number | null;
+}
+
+export interface DrawRound {
+  round: string;
+  matches: DrawRoundMatch[];
 }
 
 export interface TournamentDraw {
-  id: number;
   tournamentId: number;
   year: number;
-  round: string;
-  position: number;
-  playerId: number;
-  seed: number | null;
+  name: string;
+  rounds: DrawRound[];
+}
+
+export interface PlayerDetail extends Player {
+  recentMatches: MatchWithPlayers[];
+  stats: {
+    winLoss: string;
+    titlesThisYear: number;
+    bestResult: string;
+  };
 }
