@@ -1,31 +1,169 @@
-import { View, Text, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+  ActivityIndicator,
+  FlatList,
+  Dimensions,
+} from 'react-native';
+import { useQuery } from '@tanstack/react-query';
+import { useRouter } from 'expo-router';
+import api from '../../lib/api';
+import { getAvatarUrl } from '../../lib/avatars';
+import type { Player, MatchWithPlayers } from '../../../shared/types';
+
+const SCREEN_WIDTH = Dimensions.get('window').width;
+const TOP_PLAYER_CARD_WIDTH = 120;
 
 export default function HomeScreen() {
+  const router = useRouter();
+
+  const { data: playersData, isLoading: playersLoading } = useQuery<{ data: Player[] }>({
+    queryKey: ['players'],
+    queryFn: async () => {
+      const res = await api.get('/api/players?limit=10');
+      return res.data;
+    },
+  });
+
+  const { data: matchesData, isLoading: matchesLoading } = useQuery<{ data: MatchWithPlayers[] }>({
+    queryKey: ['matches-latest'],
+    queryFn: async () => {
+      const res = await api.get('/api/matches?limit=5');
+      return res.data;
+    },
+  });
+
+  const topPlayers: Player[] = playersData?.data ?? (Array.isArray(playersData) ? (playersData as Player[]).slice(0, 10) : []);
+  const latestMatches: MatchWithPlayers[] = matchesData?.data ?? (Array.isArray(matchesData) ? (matchesData as MatchWithPlayers[]).slice(0, 5) : []);
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>🎾 TennisHQ</Text>
-      <Text style={styles.subtitle}>Your Tennis Command Center</Text>
-      <View style={styles.card}>
-        <Text style={styles.cardTitle}>Welcome</Text>
-        <Text style={styles.cardText}>
-          Track players, matches, and tournaments all in one place.
-        </Text>
+    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      {/* Header */}
+      <View style={styles.header}>
+        <Text style={styles.title}>🎾 TennisHQ</Text>
+        <Text style={styles.subtitle}>Your Tennis Command Center</Text>
       </View>
+
+      {/* Top Players - Horizontal Scroll */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Top Players</Text>
+        {playersLoading ? (
+          <ActivityIndicator size="small" color="#16a34a" style={{ padding: 20 }} />
+        ) : (
+          <FlatList
+            data={topPlayers}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            keyExtractor={(item) => item.id.toString()}
+            contentContainerStyle={styles.topPlayersList}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                style={styles.topPlayerCard}
+                onPress={() => router.push(`/player/${item.id}`)}
+                activeOpacity={0.7}
+              >
+                <Image
+                  source={{
+                    uri: item.photoUrl || getAvatarUrl(item.name, 160),
+                  }}
+                  style={styles.topPlayerAvatar}
+                />
+                <Text style={styles.topPlayerRank}>#{item.ranking}</Text>
+                <Text style={styles.topPlayerName} numberOfLines={2}>
+                  {item.name}
+                </Text>
+                <Text style={styles.topPlayerFlag}>{item.countryFlag}</Text>
+              </TouchableOpacity>
+            )}
+          />
+        )}
+      </View>
+
+      {/* Latest Matches */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Latest Matches</Text>
+        {matchesLoading ? (
+          <ActivityIndicator size="small" color="#16a34a" style={{ padding: 20 }} />
+        ) : latestMatches.length === 0 ? (
+          <Text style={styles.emptyText}>No recent matches</Text>
+        ) : (
+          latestMatches.map((match) => (
+            <View key={match.id} style={styles.matchCard}>
+              <Text style={styles.matchTournament}>
+                {match.tournament?.name || 'Tournament'} · {match.round}
+              </Text>
+              <View style={styles.matchPlayers}>
+                {/* Player 1 */}
+                <View style={styles.matchPlayerSide}>
+                  <Image
+                    source={{
+                      uri:
+                        match.player1?.photoUrl ||
+                        getAvatarUrl(match.player1?.name || 'P1', 80),
+                    }}
+                    style={styles.matchAvatar}
+                  />
+                  <Text
+                    style={[
+                      styles.matchPlayerName,
+                      match.winnerId === match.player1Id && styles.matchWinner,
+                    ]}
+                    numberOfLines={1}
+                  >
+                    {match.player1?.name || `Player ${match.player1Id}`}
+                  </Text>
+                </View>
+
+                <Text style={styles.matchVs}>vs</Text>
+
+                {/* Player 2 */}
+                <View style={styles.matchPlayerSide}>
+                  <Image
+                    source={{
+                      uri:
+                        match.player2?.photoUrl ||
+                        getAvatarUrl(match.player2?.name || 'P2', 80),
+                    }}
+                    style={styles.matchAvatar}
+                  />
+                  <Text
+                    style={[
+                      styles.matchPlayerName,
+                      match.winnerId === match.player2Id && styles.matchWinner,
+                    ]}
+                    numberOfLines={1}
+                  >
+                    {match.player2?.name || `Player ${match.player2Id}`}
+                  </Text>
+                </View>
+              </View>
+              <Text style={styles.matchScore}>{match.score}</Text>
+              <Text style={styles.matchDate}>{match.date}</Text>
+            </View>
+          ))
+        )}
+      </View>
+
+      {/* Quick Stats */}
       <View style={styles.statsRow}>
         <View style={styles.statBox}>
-          <Text style={styles.statNumber}>5</Text>
+          <Text style={styles.statNumber}>50</Text>
           <Text style={styles.statLabel}>Players</Text>
         </View>
         <View style={styles.statBox}>
-          <Text style={styles.statNumber}>3</Text>
+          <Text style={styles.statNumber}>14</Text>
           <Text style={styles.statLabel}>Tournaments</Text>
         </View>
         <View style={styles.statBox}>
-          <Text style={styles.statNumber}>3</Text>
+          <Text style={styles.statNumber}>105</Text>
           <Text style={styles.statLabel}>Matches</Text>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -33,52 +171,146 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#0f0f23',
-    padding: 20,
+  },
+  content: {
+    paddingBottom: 40,
+  },
+  header: {
     alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: 20,
+    paddingBottom: 16,
   },
   title: {
-    fontSize: 36,
+    fontSize: 32,
     fontWeight: 'bold',
     color: '#ffffff',
-    marginBottom: 8,
+    marginBottom: 4,
   },
   subtitle: {
-    fontSize: 16,
+    fontSize: 14,
     color: '#a0a0b0',
-    marginBottom: 40,
   },
-  card: {
+  section: {
+    marginBottom: 20,
+  },
+  sectionTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#16a34a',
+    paddingHorizontal: 16,
+    marginBottom: 12,
+  },
+  // Top Players horizontal cards
+  topPlayersList: {
+    paddingHorizontal: 12,
+    gap: 10,
+  },
+  topPlayerCard: {
     backgroundColor: '#1a1a2e',
     borderRadius: 12,
-    padding: 20,
-    width: '100%',
-    marginBottom: 24,
+    padding: 12,
+    width: TOP_PLAYER_CARD_WIDTH,
+    alignItems: 'center',
   },
-  cardTitle: {
-    fontSize: 20,
-    fontWeight: '600',
-    color: '#16a34a',
+  topPlayerAvatar: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+    borderWidth: 2,
+    borderColor: '#16a34a',
     marginBottom: 8,
   },
-  cardText: {
+  topPlayerRank: {
     fontSize: 14,
-    color: '#c0c0d0',
-    lineHeight: 20,
+    fontWeight: 'bold',
+    color: '#16a34a',
+    marginBottom: 2,
   },
+  topPlayerName: {
+    fontSize: 13,
+    color: '#ffffff',
+    fontWeight: '600',
+    textAlign: 'center',
+    marginBottom: 2,
+  },
+  topPlayerFlag: {
+    fontSize: 18,
+  },
+  // Match cards
+  matchCard: {
+    backgroundColor: '#1a1a2e',
+    borderRadius: 12,
+    padding: 14,
+    marginHorizontal: 16,
+    marginBottom: 10,
+  },
+  matchTournament: {
+    color: '#16a34a',
+    fontSize: 11,
+    fontWeight: '600',
+    textTransform: 'uppercase',
+    marginBottom: 10,
+  },
+  matchPlayers: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 8,
+  },
+  matchPlayerSide: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  matchAvatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    borderWidth: 2,
+    borderColor: '#16a34a',
+    marginBottom: 4,
+  },
+  matchPlayerName: {
+    color: '#ffffff',
+    fontSize: 13,
+    fontWeight: '500',
+    textAlign: 'center',
+  },
+  matchWinner: {
+    color: '#16a34a',
+    fontWeight: 'bold',
+  },
+  matchVs: {
+    color: '#a0a0b0',
+    fontSize: 12,
+    marginHorizontal: 8,
+  },
+  matchScore: {
+    color: '#ffffff',
+    fontSize: 14,
+    textAlign: 'center',
+    fontWeight: '600',
+  },
+  matchDate: {
+    color: '#a0a0b0',
+    fontSize: 11,
+    textAlign: 'center',
+    marginTop: 4,
+  },
+  // Stats
   statsRow: {
     flexDirection: 'row',
-    gap: 16,
+    gap: 12,
+    paddingHorizontal: 16,
   },
   statBox: {
     backgroundColor: '#1a1a2e',
     borderRadius: 12,
-    padding: 20,
+    padding: 18,
     alignItems: 'center',
     flex: 1,
   },
   statNumber: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: 'bold',
     color: '#16a34a',
   },
@@ -86,5 +318,11 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#a0a0b0',
     marginTop: 4,
+  },
+  emptyText: {
+    color: '#a0a0b0',
+    fontSize: 14,
+    textAlign: 'center',
+    padding: 20,
   },
 });

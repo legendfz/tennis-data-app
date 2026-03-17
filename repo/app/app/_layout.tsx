@@ -14,9 +14,29 @@ const queryClient = new QueryClient({
 export default function RootLayout() {
   return (
     <QueryClientProvider client={queryClient}>
-      <StatusBar style="auto" />
-      <Stack>
+      <StatusBar style="light" />
+      <Stack
+        screenOptions={{
+          headerStyle: { backgroundColor: '#1a1a2e' },
+          headerTintColor: '#ffffff',
+          contentStyle: { backgroundColor: '#0f0f23' },
+        }}
+      >
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="player/[id]"
+          options={{
+            title: 'Player',
+            headerBackTitle: 'Back',
+          }}
+        />
+        <Stack.Screen
+          name="tournament/[id]"
+          options={{
+            title: 'Tournament',
+            headerBackTitle: 'Back',
+          }}
+        />
       </Stack>
     </QueryClientProvider>
   );

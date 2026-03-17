@@ -1,5 +1,13 @@
-import { View, Text, FlatList, StyleSheet, ActivityIndicator } from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  ActivityIndicator,
+  TouchableOpacity,
+} from 'react-native';
 import { useQuery } from '@tanstack/react-query';
+import { useRouter } from 'expo-router';
 import api from '../../lib/api';
 import type { Tournament } from '../../../shared/types';
 
@@ -9,14 +17,26 @@ const SURFACE_COLORS: Record<string, string> = {
   Grass: '#22c55e',
 };
 
+function getSurfaceBaseColor(surface: string): string {
+  const lower = surface.toLowerCase();
+  if (lower.includes('clay')) return SURFACE_COLORS.Clay;
+  if (lower.includes('grass')) return SURFACE_COLORS.Grass;
+  if (lower.includes('hard')) return SURFACE_COLORS.Hard;
+  return '#6b7280';
+}
+
 export default function TournamentsScreen() {
-  const { data: tournaments, isLoading, error } = useQuery<Tournament[]>({
+  const router = useRouter();
+
+  const { data, isLoading, error } = useQuery<{ data: Tournament[] }>({
     queryKey: ['tournaments'],
     queryFn: async () => {
       const res = await api.get('/api/tournaments');
       return res.data;
     },
   });
+
+  const tournaments = data?.data ?? (Array.isArray(data) ? data : []);
 
   if (isLoading) {
     return (
@@ -40,13 +60,17 @@ export default function TournamentsScreen() {
         data={tournaments}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <View style={styles.card}>
+          <TouchableOpacity
+            style={styles.card}
+            onPress={() => router.push(`/tournament/${item.id}`)}
+            activeOpacity={0.7}
+          >
             <View style={styles.header}>
               <Text style={styles.name}>{item.name}</Text>
               <View
                 style={[
                   styles.surfaceBadge,
-                  { backgroundColor: SURFACE_COLORS[item.surface] || '#6b7280' },
+                  { backgroundColor: getSurfaceBaseColor(item.surface) },
                 ]}
               >
                 <Text style={styles.surfaceText}>{item.surface}</Text>
@@ -57,7 +81,7 @@ export default function TournamentsScreen() {
             <Text style={styles.dates}>
               {item.startDate} → {item.endDate}
             </Text>
-          </View>
+          </TouchableOpacity>
         )}
         contentContainerStyle={styles.list}
       />

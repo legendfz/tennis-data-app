@@ -1,16 +1,40 @@
-import { View, Text, FlatList, StyleSheet, ActivityIndicator } from 'react-native';
+import { useState } from 'react';
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  ActivityIndicator,
+  TextInput,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
 import { useQuery } from '@tanstack/react-query';
+import { useRouter } from 'expo-router';
 import api from '../../lib/api';
+import { getAvatarUrl } from '../../lib/avatars';
 import type { Player } from '../../../shared/types';
 
 export default function PlayersScreen() {
-  const { data: players, isLoading, error } = useQuery<Player[]>({
+  const [search, setSearch] = useState('');
+  const router = useRouter();
+
+  const { data, isLoading, error } = useQuery<{ data: Player[] }>({
     queryKey: ['players'],
     queryFn: async () => {
       const res = await api.get('/api/players');
       return res.data;
     },
   });
+
+  const players = data?.data ?? (Array.isArray(data) ? data : []);
+
+  // Client-side filter for instant search
+  const filtered = search.trim()
+    ? players.filter((p: Player) =>
+        p.name.toLowerCase().includes(search.toLowerCase())
+      )
+    : players;
 
   if (isLoading) {
     return (
@@ -31,23 +55,59 @@ export default function PlayersScreen() {
 
   return (
     <View style={styles.container}>
+      {/* Search Bar */}
+      <View style={styles.searchContainer}>
+        <TextInput
+          style={styles.searchInput}
+          placeholder="Search players..."
+          placeholderTextColor="#6b7280"
+          value={search}
+          onChangeText={setSearch}
+          autoCapitalize="none"
+          autoCorrect={false}
+        />
+        {search.length > 0 && (
+          <TouchableOpacity
+            onPress={() => setSearch('')}
+            style={styles.clearButton}
+          >
+            <Text style={styles.clearText}>✕</Text>
+          </TouchableOpacity>
+        )}
+      </View>
+
       <FlatList
-        data={players}
+        data={filtered}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <View style={styles.playerCard}>
+          <TouchableOpacity
+            style={styles.playerCard}
+            onPress={() => router.push(`/player/${item.id}`)}
+            activeOpacity={0.7}
+          >
+            <Image
+              source={{ uri: item.photoUrl || getAvatarUrl(item.name, 100) }}
+              style={styles.playerAvatar}
+            />
+            <View style={styles.playerInfo}>
+              <Text style={styles.playerName}>
+                {item.name} {item.countryFlag}
+              </Text>
+              <Text style={styles.playerDetails}>
+                #{item.ranking} · {item.country} · {item.plays}
+              </Text>
+            </View>
             <View style={styles.rankBadge}>
               <Text style={styles.rankText}>#{item.ranking}</Text>
             </View>
-            <View style={styles.playerInfo}>
-              <Text style={styles.playerName}>{item.name}</Text>
-              <Text style={styles.playerDetails}>
-                {item.country} · {item.plays} · Turned Pro: {item.turnedPro}
-              </Text>
-            </View>
-          </View>
+          </TouchableOpacity>
         )}
         contentContainerStyle={styles.list}
+        ListEmptyComponent={
+          <View style={styles.emptyContainer}>
+            <Text style={styles.emptyText}>No players found</Text>
+          </View>
+        }
       />
     </View>
   );
@@ -64,16 +124,63 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  searchContainer: {
+    paddingHorizontal: 16,
+    paddingTop: 12,
+    paddingBottom: 8,
+    position: 'relative',
+  },
+  searchInput: {
+    backgroundColor: '#1a1a2e',
+    borderRadius: 12,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    fontSize: 16,
+    color: '#ffffff',
+    borderWidth: 1,
+    borderColor: '#2a2a4e',
+  },
+  clearButton: {
+    position: 'absolute',
+    right: 28,
+    top: 24,
+  },
+  clearText: {
+    color: '#a0a0b0',
+    fontSize: 16,
+  },
   list: {
     padding: 16,
+    paddingTop: 8,
   },
   playerCard: {
     backgroundColor: '#1a1a2e',
     borderRadius: 12,
-    padding: 16,
-    marginBottom: 12,
+    padding: 12,
+    marginBottom: 10,
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  playerAvatar: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    marginRight: 12,
+    borderWidth: 2,
+    borderColor: '#16a34a',
+  },
+  playerInfo: {
+    flex: 1,
+  },
+  playerName: {
+    color: '#ffffff',
+    fontSize: 17,
+    fontWeight: '600',
+    marginBottom: 3,
+  },
+  playerDetails: {
+    color: '#a0a0b0',
+    fontSize: 13,
   },
   rankBadge: {
     backgroundColor: '#16a34a',
@@ -82,25 +189,11 @@ const styles = StyleSheet.create({
     height: 44,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 12,
   },
   rankText: {
     color: '#ffffff',
     fontWeight: 'bold',
     fontSize: 14,
-  },
-  playerInfo: {
-    flex: 1,
-  },
-  playerName: {
-    color: '#ffffff',
-    fontSize: 18,
-    fontWeight: '600',
-    marginBottom: 4,
-  },
-  playerDetails: {
-    color: '#a0a0b0',
-    fontSize: 13,
   },
   errorText: {
     color: '#ef4444',
@@ -111,5 +204,13 @@ const styles = StyleSheet.create({
     color: '#a0a0b0',
     fontSize: 12,
     marginTop: 8,
+  },
+  emptyContainer: {
+    alignItems: 'center',
+    paddingTop: 40,
+  },
+  emptyText: {
+    color: '#a0a0b0',
+    fontSize: 16,
   },
 });
