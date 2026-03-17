@@ -15,6 +15,19 @@ export interface Player {
   grandSlams: number;
   careerHigh: number;
   prizeMoney: string;
+  birthplace?: string;
+  coach?: string;
+  recentForm?: string;
+  rankingHistory?: { month: string; ranking: number }[];
+  record?: {
+    career: { wins: number; losses: number };
+    season: { wins: number; losses: number };
+    bySurface: {
+      hard: { wins: number; losses: number };
+      clay: { wins: number; losses: number };
+      grass: { wins: number; losses: number };
+    };
+  };
 }
 
 export interface Tournament {
@@ -70,11 +83,19 @@ export interface TournamentDraw {
   rounds: DrawRound[];
 }
 
+export interface WinLossBySurface {
+  surface: string;
+  wins: number;
+  losses: number;
+}
+
 export interface PlayerDetail extends Player {
   recentMatches: MatchWithPlayers[];
   stats: {
     winLoss: string;
     titlesThisYear: number;
     bestResult: string;
+    seasonWinLoss: string;
+    winLossBySurface: WinLossBySurface[];
   };
 }

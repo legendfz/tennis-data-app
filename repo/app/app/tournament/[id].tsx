@@ -13,7 +13,7 @@ import { useLocalSearchParams, Stack } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
 import api from '../../lib/api';
 import { getAvatarUrl } from '../../lib/avatars';
-import type { Player } from '../../../shared/types';
+import type { Player, MatchWithPlayers } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const MATCH_AVATAR_SIZE = 44;
@@ -52,9 +52,10 @@ interface TournamentDetail {
   endDate: string;
   year: number;
   drawSize: number;
+  matches?: MatchWithPlayers[];
 }
 
-// Round order for bracket display (Final first on left)
+// Round order for bracket display
 const ROUND_ORDER = [
   'Final',
   'Semi-Final',
@@ -65,9 +66,17 @@ const ROUND_ORDER = [
   'Round Robin',
 ];
 
+function getSurfaceEmoji(surface: string): string {
+  const s = surface.toLowerCase();
+  if (s.includes('clay')) return '🟤';
+  if (s.includes('grass')) return '🟢';
+  if (s.includes('hard')) return '🔵';
+  return '⚪';
+}
+
 function getRoundAbbrev(round: string): string {
   const map: Record<string, string> = {
-    'Final': 'F',
+    Final: 'F',
     'Semi-Final': 'SF',
     'Quarter-Final': 'QF',
     'Round of 16': 'R16',
@@ -78,6 +87,12 @@ function getRoundAbbrev(round: string): string {
   return map[round] || round;
 }
 
+function getRoundSortKey(round: string): number {
+  const idx = ROUND_ORDER.indexOf(round);
+  return idx >= 0 ? idx : 99;
+}
+
+// ─── Player slot in bracket ──────────────────────────────────────────
 function PlayerSlot({
   player,
   seed,
@@ -103,13 +118,10 @@ function PlayerSlot({
         style={styles.slotAvatar}
       />
       <View style={styles.slotInfo}>
-        <Text
-          style={[styles.slotName, isWinner && styles.winnerName]}
-          numberOfLines={1}
-        >
+        <Text style={[styles.slotName, isWinner && styles.winnerName]} numberOfLines={1}>
           {player.name} {player.countryFlag}
         </Text>
-        {seed && <Text style={styles.slotSeed}>[{seed}]</Text>}
+        {seed ? <Text style={styles.slotSeed}>[{seed}]</Text> : null}
       </View>
     </View>
   );
@@ -135,11 +147,62 @@ function BracketMatch({ match }: { match: DrawMatch }) {
   );
 }
 
+// ─── Results match card ──────────────────────────────────────────────
+function ResultMatch({ match }: { match: MatchWithPlayers }) {
+  return (
+    <View style={styles.resultMatch}>
+      <View style={styles.resultPlayers}>
+        <View style={styles.resultPlayerRow}>
+          <Image
+            source={{
+              uri:
+                match.player1?.photoUrl ||
+                getAvatarUrl(match.player1?.name || 'P1', 60),
+            }}
+            style={styles.resultAvatar}
+          />
+          <Text
+            style={[
+              styles.resultName,
+              match.winnerId === match.player1Id && styles.winnerName,
+            ]}
+            numberOfLines={1}
+          >
+            {match.player1?.name || 'TBD'} {match.player1?.countryFlag || ''}
+          </Text>
+        </View>
+        <Text style={styles.resultScore}>{match.score}</Text>
+        <View style={styles.resultPlayerRow}>
+          <Image
+            source={{
+              uri:
+                match.player2?.photoUrl ||
+                getAvatarUrl(match.player2?.name || 'P2', 60),
+            }}
+            style={styles.resultAvatar}
+          />
+          <Text
+            style={[
+              styles.resultName,
+              match.winnerId === match.player2Id && styles.winnerName,
+            ]}
+            numberOfLines={1}
+          >
+            {match.player2?.name || 'TBD'} {match.player2?.countryFlag || ''}
+          </Text>
+        </View>
+      </View>
+      {match.date && <Text style={styles.resultDate}>{match.date}</Text>}
+    </View>
+  );
+}
+
+// ─── Main Screen ─────────────────────────────────────────────────────
 export default function TournamentDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const [activeTab, setActiveTab] = useState<'bracket' | 'info'>('bracket');
+  const [activeTab, setActiveTab] = useState<'bracket' | 'results'>('bracket');
 
-  // Fetch tournament info
+  // Fetch tournament info (includes matches for results tab)
   const { data: tournament } = useQuery<TournamentDetail>({
     queryKey: ['tournament', id],
     queryFn: async () => {
@@ -170,6 +233,7 @@ export default function TournamentDetailScreen() {
   }
 
   const tournamentName = tournament?.name || draw?.name || 'Tournament';
+  const surfaceEmoji = tournament ? getSurfaceEmoji(tournament.surface) : '';
 
   // Sort rounds in bracket order
   const sortedRounds = draw?.rounds
@@ -178,23 +242,45 @@ export default function TournamentDetailScreen() {
       )
     : [];
 
+  // Group matches by round for results tab
+  const matchesByRound: { round: string; matches: MatchWithPlayers[] }[] = [];
+  if (tournament?.matches) {
+    const grouped: Record<string, MatchWithPlayers[]> = {};
+    tournament.matches.forEach((m: MatchWithPlayers) => {
+      if (!grouped[m.round]) grouped[m.round] = [];
+      grouped[m.round].push(m);
+    });
+    Object.entries(grouped)
+      .sort(([a], [b]) => getRoundSortKey(a) - getRoundSortKey(b))
+      .forEach(([round, matches]) => {
+        matchesByRound.push({ round, matches });
+      });
+  }
+
   return (
     <>
       <Stack.Screen options={{ title: tournamentName }} />
       <ScrollView style={styles.container}>
         {/* Tournament Header */}
         <View style={styles.headerSection}>
-          <Text style={styles.tournamentTitle}>{tournamentName}</Text>
+          <Text style={styles.tournamentTitle}>
+            {surfaceEmoji} {tournamentName}
+          </Text>
           {tournament && (
             <>
-              <Text style={styles.tournamentMeta}>
-                {tournament.category} · {tournament.surface}
-              </Text>
-              <Text style={styles.tournamentLocation}>
-                📍 {tournament.location}
-              </Text>
+              <View style={styles.metaRow}>
+                <View style={styles.categoryBadge}>
+                  <Text style={styles.categoryText}>{tournament.category}</Text>
+                </View>
+                <View style={styles.surfaceBadge}>
+                  <Text style={styles.surfaceBadgeText}>
+                    {surfaceEmoji} {tournament.surface}
+                  </Text>
+                </View>
+              </View>
+              <Text style={styles.tournamentLocation}>📍 {tournament.location}</Text>
               <Text style={styles.tournamentDates}>
-                {tournament.startDate} → {tournament.endDate}
+                📅 {tournament.startDate} → {tournament.endDate}
               </Text>
             </>
           )}
@@ -205,32 +291,26 @@ export default function TournamentDetailScreen() {
           )}
         </View>
 
-        {/* Tabs */}
+        {/* Tabs: Bracket | Results */}
         <View style={styles.tabRow}>
           <TouchableOpacity
             style={[styles.tab, activeTab === 'bracket' && styles.activeTab]}
             onPress={() => setActiveTab('bracket')}
           >
             <Text
-              style={[
-                styles.tabText,
-                activeTab === 'bracket' && styles.activeTabText,
-              ]}
+              style={[styles.tabText, activeTab === 'bracket' && styles.activeTabText]}
             >
-              Bracket
+              🏆 Bracket
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.tab, activeTab === 'info' && styles.activeTab]}
-            onPress={() => setActiveTab('info')}
+            style={[styles.tab, activeTab === 'results' && styles.activeTab]}
+            onPress={() => setActiveTab('results')}
           >
             <Text
-              style={[
-                styles.tabText,
-                activeTab === 'info' && styles.activeTabText,
-              ]}
+              style={[styles.tabText, activeTab === 'results' && styles.activeTabText]}
             >
-              Info
+              📊 Results
             </Text>
           </TouchableOpacity>
         </View>
@@ -244,7 +324,6 @@ export default function TournamentDetailScreen() {
                 </Text>
               </View>
             ) : (
-              /* Bracket rounds */
               sortedRounds.map((round) => (
                 <View key={round.round} style={styles.roundSection}>
                   <View style={styles.roundHeader}>
@@ -261,30 +340,34 @@ export default function TournamentDetailScreen() {
             )}
           </>
         ) : (
-          /* Info Tab */
-          tournament && (
-            <View style={styles.infoSection}>
-              <InfoRow label="Category" value={tournament.category} />
-              <InfoRow label="Surface" value={tournament.surface} />
-              <InfoRow label="Location" value={tournament.location} />
-              <InfoRow label="Draw Size" value={String(tournament.drawSize)} />
-              <InfoRow label="Year" value={String(tournament.year)} />
-              <InfoRow label="Start" value={tournament.startDate} />
-              <InfoRow label="End" value={tournament.endDate} />
-            </View>
-          )
+          /* Results Tab */
+          <>
+            {matchesByRound.length === 0 ? (
+              <View style={styles.noDraw}>
+                <Text style={styles.noDrawText}>No match results available</Text>
+              </View>
+            ) : (
+              matchesByRound.map((group) => (
+                <View key={group.round} style={styles.roundSection}>
+                  <View style={styles.roundHeader}>
+                    <Text style={styles.roundTitle}>{group.round}</Text>
+                    <Text style={styles.roundAbbrev}>
+                      {getRoundAbbrev(group.round)}
+                    </Text>
+                    <Text style={styles.matchCount}>
+                      {group.matches.length} match{group.matches.length !== 1 ? 'es' : ''}
+                    </Text>
+                  </View>
+                  {group.matches.map((match) => (
+                    <ResultMatch key={match.id} match={match} />
+                  ))}
+                </View>
+              ))
+            )}
+          </>
         )}
       </ScrollView>
     </>
-  );
-}
-
-function InfoRow({ label, value }: { label: string; value: string }) {
-  return (
-    <View style={styles.infoRow}>
-      <Text style={styles.infoLabel}>{label}</Text>
-      <Text style={styles.infoValue}>{value}</Text>
-    </View>
   );
 }
 
@@ -310,21 +393,42 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#ffffff',
     textAlign: 'center',
-    marginBottom: 6,
+    marginBottom: 10,
   },
-  tournamentMeta: {
-    fontSize: 14,
-    color: '#16a34a',
+  metaRow: {
+    flexDirection: 'row',
+    gap: 8,
+    marginBottom: 8,
+  },
+  categoryBadge: {
+    backgroundColor: '#16a34a',
+    borderRadius: 6,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+  },
+  categoryText: {
+    color: '#ffffff',
+    fontSize: 12,
+    fontWeight: '700',
+  },
+  surfaceBadge: {
+    backgroundColor: '#2a2a4e',
+    borderRadius: 6,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+  },
+  surfaceBadgeText: {
+    color: '#ffffff',
+    fontSize: 12,
     fontWeight: '600',
-    marginBottom: 4,
   },
   tournamentLocation: {
-    fontSize: 13,
+    fontSize: 14,
     color: '#a0a0b0',
-    marginBottom: 2,
+    marginBottom: 4,
   },
   tournamentDates: {
-    fontSize: 12,
+    fontSize: 13,
     color: '#a0a0b0',
     marginBottom: 8,
   },
@@ -394,6 +498,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 6,
     paddingVertical: 2,
   },
+  matchCount: {
+    fontSize: 12,
+    color: '#6b7280',
+    marginLeft: 'auto',
+  },
   bracketMatch: {
     backgroundColor: '#1a1a2e',
     borderRadius: 12,
@@ -456,26 +565,49 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '600',
   },
-  infoSection: {
+
+  // ── Results styles ──
+  resultMatch: {
     backgroundColor: '#1a1a2e',
     borderRadius: 12,
-    margin: 16,
-    padding: 16,
+    marginBottom: 10,
+    padding: 12,
   },
-  infoRow: {
+  resultPlayers: {
+    gap: 8,
+  },
+  resultPlayerRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingVertical: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#2a2a4e',
+    alignItems: 'center',
+    gap: 10,
   },
-  infoLabel: {
-    fontSize: 14,
-    color: '#a0a0b0',
+  resultAvatar: {
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    borderWidth: 1,
+    borderColor: '#16a34a',
   },
-  infoValue: {
+  resultName: {
     fontSize: 14,
     color: '#ffffff',
-    fontWeight: '500',
+    flex: 1,
+  },
+  resultScore: {
+    textAlign: 'center',
+    color: '#ffffff',
+    fontSize: 13,
+    fontWeight: '700',
+    backgroundColor: '#2a2a4e',
+    borderRadius: 6,
+    paddingVertical: 4,
+    paddingHorizontal: 8,
+    alignSelf: 'center',
+  },
+  resultDate: {
+    textAlign: 'right',
+    color: '#6b7280',
+    fontSize: 11,
+    marginTop: 6,
   },
 });

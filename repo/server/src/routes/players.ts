@@ -3,6 +3,17 @@ import { mockPlayers, mockMatches, mockTournaments } from '../mock-data';
 
 const router = Router();
 
+// Surface classification helper
+function getSurface(tournamentId: number): string {
+  const t = mockTournaments.find((t) => t.id === tournamentId);
+  if (!t) return 'Unknown';
+  const s = t.surface.toLowerCase();
+  if (s.includes('clay')) return 'Clay';
+  if (s.includes('grass')) return 'Grass';
+  if (s.includes('hard')) return 'Hard';
+  return t.surface;
+}
+
 // GET /api/players — Player list with search and ranking sort
 router.get('/', (req: Request, res: Response) => {
   let players = [...mockPlayers];
@@ -68,6 +79,29 @@ router.get('/:id', (req: Request, res: Response) => {
   const wins = allPlayerMatches.filter((m) => m.winnerId === player.id).length;
   const losses = allPlayerMatches.length - wins;
 
+  // Win/loss by surface
+  const surfaceStats: Record<string, { wins: number; losses: number }> = {};
+  allPlayerMatches.forEach((m) => {
+    const surface = getSurface(m.tournamentId);
+    if (!surfaceStats[surface]) surfaceStats[surface] = { wins: 0, losses: 0 };
+    if (m.winnerId === player.id) {
+      surfaceStats[surface].wins++;
+    } else {
+      surfaceStats[surface].losses++;
+    }
+  });
+
+  const winLossBySurface = Object.entries(surfaceStats).map(([surface, stats]) => ({
+    surface,
+    wins: stats.wins,
+    losses: stats.losses,
+  }));
+
+  // Season win/loss (2024 matches)
+  const seasonMatches = allPlayerMatches.filter((m) => m.date.startsWith('2024'));
+  const seasonWins = seasonMatches.filter((m) => m.winnerId === player.id).length;
+  const seasonLosses = seasonMatches.length - seasonWins;
+
   res.json({
     ...player,
     recentMatches: playerMatches,
@@ -75,7 +109,15 @@ router.get('/:id', (req: Request, res: Response) => {
       winLoss: `${wins}-${losses}`,
       titlesThisYear: player.titles,
       bestResult: player.grandSlams > 0 ? `${player.grandSlams} Grand Slam titles` : `Career high #${player.careerHigh}`,
+      seasonWinLoss: `${seasonWins}-${seasonLosses}`,
+      winLossBySurface,
     },
+    // Pass through extended fields
+    rankingHistory: (player as any).rankingHistory || [],
+    record: (player as any).record || null,
+    birthplace: (player as any).birthplace || null,
+    coach: (player as any).coach || null,
+    recentForm: (player as any).recentForm || null,
   });
 });
 

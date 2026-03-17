@@ -15,7 +15,159 @@ import type { PlayerDetail, MatchWithPlayers } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const AVATAR_SIZE = Math.round(SCREEN_WIDTH * 0.4);
+const CHART_WIDTH = SCREEN_WIDTH - 64;
+const CHART_HEIGHT = 160;
 
+// ─── Ranking History Chart (pure View) ───────────────────────────────
+function RankingChart({ history }: { history: { month: string; ranking: number }[] }) {
+  if (!history || history.length < 2) return null;
+
+  const rankings = history.map((h) => h.ranking);
+  const maxRank = Math.max(...rankings, 1);
+  const minRank = Math.min(...rankings, 1);
+  const range = Math.max(maxRank - minRank, 1);
+
+  // Y-axis: ranking 1 at TOP, higher numbers at bottom (inverted)
+  const getY = (ranking: number) => {
+    return ((ranking - minRank) / range) * (CHART_HEIGHT - 20);
+  };
+
+  const barWidth = Math.max(Math.floor((CHART_WIDTH - 40) / history.length) - 4, 8);
+  const lastIdx = history.length - 1;
+
+  return (
+    <View style={styles.infoCard}>
+      <Text style={styles.sectionTitle}>Ranking History</Text>
+      <View style={styles.chartContainer}>
+        {/* Y-axis labels */}
+        <View style={styles.yAxis}>
+          <Text style={styles.yLabel}>#{minRank}</Text>
+          <Text style={styles.yLabel}>#{maxRank}</Text>
+        </View>
+        {/* Chart area */}
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.chartScroll}>
+          <View style={styles.chartArea}>
+            {/* Bars */}
+            <View style={styles.barsRow}>
+              {history.map((h, i) => {
+                const barH = Math.max(((maxRank - h.ranking + 1) / range) * (CHART_HEIGHT - 40), 8);
+                const isLast = i === lastIdx;
+                return (
+                  <View key={h.month} style={styles.barCol}>
+                    <Text style={[styles.barRankLabel, isLast && styles.barRankLabelActive]}>
+                      #{h.ranking}
+                    </Text>
+                    <View
+                      style={[
+                        styles.bar,
+                        { height: barH, width: barWidth },
+                        isLast && styles.barActive,
+                      ]}
+                    />
+                    <Text style={styles.monthLabel}>
+                      {h.month.slice(5)}
+                    </Text>
+                  </View>
+                );
+              })}
+            </View>
+          </View>
+        </ScrollView>
+      </View>
+    </View>
+  );
+}
+
+// ─── Record / Win-Loss Stats ─────────────────────────────────────────
+function RecordSection({ player }: { player: PlayerDetail }) {
+  const record = player.record;
+  if (!record) return null;
+
+  const surfaces = [
+    { label: 'Hard', emoji: '🔵', data: record.bySurface.hard },
+    { label: 'Clay', emoji: '🟤', data: record.bySurface.clay },
+    { label: 'Grass', emoji: '🟢', data: record.bySurface.grass },
+  ];
+
+  return (
+    <View style={styles.infoCard}>
+      <Text style={styles.sectionTitle}>Win / Loss Record</Text>
+
+      {/* Season vs Career row */}
+      <View style={styles.recordTopRow}>
+        <View style={styles.recordBox}>
+          <Text style={styles.recordWL}>
+            {record.season.wins}-{record.season.losses}
+          </Text>
+          <Text style={styles.recordLabel}>Season</Text>
+          <View style={styles.winBar}>
+            <View
+              style={[
+                styles.winBarFill,
+                {
+                  width: `${(record.season.wins / (record.season.wins + record.season.losses)) * 100}%`,
+                },
+              ]}
+            />
+          </View>
+        </View>
+        <View style={styles.recordBox}>
+          <Text style={styles.recordWL}>
+            {record.career.wins}-{record.career.losses}
+          </Text>
+          <Text style={styles.recordLabel}>Career</Text>
+          <View style={styles.winBar}>
+            <View
+              style={[
+                styles.winBarFill,
+                {
+                  width: `${(record.career.wins / (record.career.wins + record.career.losses)) * 100}%`,
+                },
+              ]}
+            />
+          </View>
+        </View>
+      </View>
+
+      {/* By surface */}
+      <Text style={styles.subSectionTitle}>By Surface</Text>
+      {surfaces.map((s) => (
+        <View key={s.label} style={styles.surfaceRow}>
+          <Text style={styles.surfaceLabel}>
+            {s.emoji} {s.label}
+          </Text>
+          <Text style={styles.surfaceWL}>
+            {s.data.wins}-{s.data.losses}
+          </Text>
+          <Text style={styles.surfacePct}>
+            {((s.data.wins / (s.data.wins + s.data.losses)) * 100).toFixed(0)}%
+          </Text>
+        </View>
+      ))}
+    </View>
+  );
+}
+
+// ─── Bio Section ─────────────────────────────────────────────────────
+function BioSection({ player }: { player: PlayerDetail }) {
+  if (!player.birthplace && !player.coach && !player.recentForm) return null;
+
+  return (
+    <View style={styles.infoCard}>
+      <Text style={styles.sectionTitle}>Bio</Text>
+      {player.birthplace && <InfoRow label="Birthplace" value={player.birthplace} />}
+      {player.coach && <InfoRow label="Coach" value={player.coach} />}
+      {player.recentForm && (
+        <View style={styles.recentFormContainer}>
+          <Text style={styles.recentFormLabel}>Recent Form</Text>
+          <Text style={styles.recentFormText}>{player.recentForm}</Text>
+        </View>
+      )}
+    </View>
+  );
+}
+
+// ─── Main Screen ─────────────────────────────────────────────────────
 export default function PlayerDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
 
@@ -51,10 +203,7 @@ export default function PlayerDetailScreen() {
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
         {/* Avatar Section */}
         <View style={styles.avatarSection}>
-          <Image
-            source={{ uri: avatarUrl }}
-            style={styles.avatar}
-          />
+          <Image source={{ uri: avatarUrl }} style={styles.avatar} />
           <Text style={styles.playerName}>
             {player.name} {player.countryFlag}
           </Text>
@@ -76,6 +225,17 @@ export default function PlayerDetailScreen() {
             <Text style={styles.highlightLabel}>Prize Money</Text>
           </View>
         </View>
+
+        {/* Bio */}
+        <BioSection player={player} />
+
+        {/* Ranking History Chart */}
+        {player.rankingHistory && player.rankingHistory.length > 0 && (
+          <RankingChart history={player.rankingHistory} />
+        )}
+
+        {/* Win/Loss Record */}
+        <RecordSection player={player} />
 
         {/* Player Info */}
         <View style={styles.infoCard}>
@@ -229,6 +389,13 @@ const styles = StyleSheet.create({
     color: '#16a34a',
     marginBottom: 12,
   },
+  subSectionTitle: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#a0a0b0',
+    marginTop: 12,
+    marginBottom: 8,
+  },
   infoRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -244,7 +411,142 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#ffffff',
     fontWeight: '500',
+    flexShrink: 1,
+    textAlign: 'right',
+    marginLeft: 12,
   },
+
+  // ── Chart styles ──
+  chartContainer: {
+    flexDirection: 'row',
+  },
+  yAxis: {
+    justifyContent: 'space-between',
+    paddingVertical: 4,
+    marginRight: 4,
+  },
+  yLabel: {
+    fontSize: 10,
+    color: '#a0a0b0',
+  },
+  chartScroll: {
+    flex: 1,
+  },
+  chartArea: {
+    paddingBottom: 4,
+  },
+  barsRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    height: CHART_HEIGHT,
+    gap: 4,
+  },
+  barCol: {
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+  },
+  bar: {
+    backgroundColor: '#2a4a3e',
+    borderRadius: 4,
+    minHeight: 8,
+  },
+  barActive: {
+    backgroundColor: '#16a34a',
+  },
+  barRankLabel: {
+    fontSize: 9,
+    color: '#a0a0b0',
+    marginBottom: 2,
+  },
+  barRankLabelActive: {
+    color: '#16a34a',
+    fontWeight: 'bold',
+  },
+  monthLabel: {
+    fontSize: 9,
+    color: '#6b7280',
+    marginTop: 4,
+  },
+
+  // ── Record styles ──
+  recordTopRow: {
+    flexDirection: 'row',
+    gap: 10,
+    marginBottom: 4,
+  },
+  recordBox: {
+    flex: 1,
+    backgroundColor: '#0f0f23',
+    borderRadius: 10,
+    padding: 12,
+    alignItems: 'center',
+  },
+  recordWL: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#ffffff',
+    marginBottom: 2,
+  },
+  recordLabel: {
+    fontSize: 11,
+    color: '#a0a0b0',
+    marginBottom: 6,
+  },
+  winBar: {
+    width: '100%',
+    height: 6,
+    backgroundColor: '#ef4444',
+    borderRadius: 3,
+    overflow: 'hidden',
+  },
+  winBarFill: {
+    height: '100%',
+    backgroundColor: '#16a34a',
+    borderRadius: 3,
+  },
+  surfaceRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: '#2a2a4e',
+  },
+  surfaceLabel: {
+    flex: 1,
+    fontSize: 14,
+    color: '#ffffff',
+  },
+  surfaceWL: {
+    fontSize: 14,
+    color: '#ffffff',
+    fontWeight: '600',
+    marginRight: 12,
+  },
+  surfacePct: {
+    fontSize: 13,
+    color: '#16a34a',
+    fontWeight: '600',
+    width: 40,
+    textAlign: 'right',
+  },
+
+  // ── Bio styles ──
+  recentFormContainer: {
+    paddingVertical: 8,
+  },
+  recentFormLabel: {
+    fontSize: 14,
+    color: '#a0a0b0',
+    marginBottom: 4,
+  },
+  recentFormText: {
+    fontSize: 13,
+    color: '#d0d0e0',
+    lineHeight: 20,
+    fontStyle: 'italic',
+  },
+
+  // ── Match styles ──
   matchItem: {
     paddingVertical: 12,
     borderBottomWidth: 1,

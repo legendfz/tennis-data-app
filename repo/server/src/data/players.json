@@ -1,52 +1,2442 @@
 [
-  {"id":1,"name":"Jannik Sinner","country":"ITA","countryFlag":"🇮🇹","photoUrl":null,"ranking":1,"birthdate":"2001-08-16","height":188,"weight":76,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2018,"titles":16,"grandSlams":1,"careerHigh":1,"prizeMoney":"$23,456,789"},
-  {"id":2,"name":"Novak Djokovic","country":"SRB","countryFlag":"🇷🇸","photoUrl":null,"ranking":2,"birthdate":"1987-05-22","height":188,"weight":77,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2003,"titles":99,"grandSlams":24,"careerHigh":1,"prizeMoney":"$182,654,321"},
-  {"id":3,"name":"Carlos Alcaraz","country":"ESP","countryFlag":"🇪🇸","photoUrl":null,"ranking":3,"birthdate":"2003-05-05","height":183,"weight":74,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2018,"titles":15,"grandSlams":4,"careerHigh":1,"prizeMoney":"$32,123,456"},
-  {"id":4,"name":"Alexander Zverev","country":"GER","countryFlag":"🇩🇪","photoUrl":null,"ranking":4,"birthdate":"1997-04-20","height":198,"weight":90,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2013,"titles":23,"grandSlams":0,"careerHigh":2,"prizeMoney":"$43,210,987"},
-  {"id":5,"name":"Daniil Medvedev","country":"RUS","countryFlag":"🇷🇺","photoUrl":null,"ranking":5,"birthdate":"1996-02-11","height":198,"weight":83,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2014,"titles":20,"grandSlams":1,"careerHigh":1,"prizeMoney":"$38,765,432"},
-  {"id":6,"name":"Andrey Rublev","country":"RUS","countryFlag":"🇷🇺","photoUrl":null,"ranking":6,"birthdate":"1997-10-20","height":188,"weight":75,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2014,"titles":16,"grandSlams":0,"careerHigh":5,"prizeMoney":"$22,345,678"},
-  {"id":7,"name":"Hubert Hurkacz","country":"POL","countryFlag":"🇵🇱","photoUrl":null,"ranking":7,"birthdate":"1997-02-11","height":196,"weight":83,"plays":"Right-Handed","backhand":"One-Handed","turnedPro":2015,"titles":8,"grandSlams":0,"careerHigh":6,"prizeMoney":"$13,456,789"},
-  {"id":8,"name":"Casper Ruud","country":"NOR","countryFlag":"🇳🇴","photoUrl":null,"ranking":8,"birthdate":"1998-12-22","height":183,"weight":77,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2017,"titles":10,"grandSlams":0,"careerHigh":2,"prizeMoney":"$17,890,123"},
-  {"id":9,"name":"Alex de Minaur","country":"AUS","countryFlag":"🇦🇺","photoUrl":null,"ranking":9,"birthdate":"1999-02-17","height":183,"weight":76,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2017,"titles":8,"grandSlams":0,"careerHigh":6,"prizeMoney":"$11,234,567"},
-  {"id":10,"name":"Grigor Dimitrov","country":"BUL","countryFlag":"🇧🇬","photoUrl":null,"ranking":10,"birthdate":"1991-05-16","height":191,"weight":80,"plays":"Right-Handed","backhand":"One-Handed","turnedPro":2008,"titles":10,"grandSlams":0,"careerHigh":3,"prizeMoney":"$25,678,901"},
-  {"id":11,"name":"Stefanos Tsitsipas","country":"GRE","countryFlag":"🇬🇷","photoUrl":null,"ranking":11,"birthdate":"1998-08-12","height":193,"weight":89,"plays":"Right-Handed","backhand":"One-Handed","turnedPro":2017,"titles":11,"grandSlams":0,"careerHigh":3,"prizeMoney":"$26,789,012"},
-  {"id":12,"name":"Taylor Fritz","country":"USA","countryFlag":"🇺🇸","photoUrl":null,"ranking":12,"birthdate":"1997-10-28","height":193,"weight":86,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2015,"titles":8,"grandSlams":0,"careerHigh":4,"prizeMoney":"$14,567,890"},
-  {"id":13,"name":"Tommy Paul","country":"USA","countryFlag":"🇺🇸","photoUrl":null,"ranking":13,"birthdate":"1997-05-17","height":185,"weight":82,"plays":"Right-Handed","backhand":"One-Handed","turnedPro":2015,"titles":4,"grandSlams":0,"careerHigh":11,"prizeMoney":"$8,901,234"},
-  {"id":14,"name":"Ben Shelton","country":"USA","countryFlag":"🇺🇸","photoUrl":null,"ranking":14,"birthdate":"2002-10-09","height":193,"weight":84,"plays":"Left-Handed","backhand":"Two-Handed","turnedPro":2022,"titles":3,"grandSlams":0,"careerHigh":13,"prizeMoney":"$5,678,901"},
-  {"id":15,"name":"Holger Rune","country":"DEN","countryFlag":"🇩🇰","photoUrl":null,"ranking":15,"birthdate":"2003-04-29","height":188,"weight":78,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2019,"titles":5,"grandSlams":0,"careerHigh":4,"prizeMoney":"$8,345,678"},
-  {"id":16,"name":"Ugo Humbert","country":"FRA","countryFlag":"🇫🇷","photoUrl":null,"ranking":16,"birthdate":"1998-06-26","height":188,"weight":73,"plays":"Left-Handed","backhand":"Two-Handed","turnedPro":2017,"titles":5,"grandSlams":0,"careerHigh":13,"prizeMoney":"$6,234,567"},
-  {"id":17,"name":"Sebastian Korda","country":"USA","countryFlag":"🇺🇸","photoUrl":null,"ranking":17,"birthdate":"2000-07-05","height":196,"weight":84,"plays":"Right-Handed","backhand":"One-Handed","turnedPro":2018,"titles":3,"grandSlams":0,"careerHigh":15,"prizeMoney":"$5,123,456"},
-  {"id":18,"name":"Nicolas Jarry","country":"CHI","countryFlag":"🇨🇱","photoUrl":null,"ranking":18,"birthdate":"1995-10-11","height":198,"weight":88,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2014,"titles":3,"grandSlams":0,"careerHigh":16,"prizeMoney":"$4,567,890"},
-  {"id":19,"name":"Karen Khachanov","country":"RUS","countryFlag":"🇷🇺","photoUrl":null,"ranking":19,"birthdate":"1996-05-21","height":198,"weight":88,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2013,"titles":7,"grandSlams":0,"careerHigh":8,"prizeMoney":"$14,890,123"},
-  {"id":20,"name":"Felix Auger-Aliassime","country":"CAN","countryFlag":"🇨🇦","photoUrl":null,"ranking":20,"birthdate":"2000-08-08","height":193,"weight":89,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2017,"titles":4,"grandSlams":0,"careerHigh":6,"prizeMoney":"$13,456,789"},
-  {"id":21,"name":"Jack Draper","country":"GBR","countryFlag":"🇬🇧","photoUrl":null,"ranking":21,"birthdate":"2002-12-22","height":193,"weight":81,"plays":"Left-Handed","backhand":"Two-Handed","turnedPro":2018,"titles":2,"grandSlams":0,"careerHigh":15,"prizeMoney":"$4,234,567"},
-  {"id":22,"name":"Frances Tiafoe","country":"USA","countryFlag":"🇺🇸","photoUrl":null,"ranking":22,"birthdate":"1998-01-20","height":188,"weight":84,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2015,"titles":2,"grandSlams":0,"careerHigh":10,"prizeMoney":"$10,567,890"},
-  {"id":23,"name":"Lorenzo Musetti","country":"ITA","countryFlag":"🇮🇹","photoUrl":null,"ranking":23,"birthdate":"2002-03-03","height":185,"weight":76,"plays":"Right-Handed","backhand":"One-Handed","turnedPro":2019,"titles":2,"grandSlams":0,"careerHigh":15,"prizeMoney":"$4,890,123"},
-  {"id":24,"name":"Alejandro Tabilo","country":"CHI","countryFlag":"🇨🇱","photoUrl":null,"ranking":24,"birthdate":"1997-06-02","height":183,"weight":80,"plays":"Left-Handed","backhand":"Two-Handed","turnedPro":2017,"titles":3,"grandSlams":0,"careerHigh":19,"prizeMoney":"$3,234,567"},
-  {"id":25,"name":"Adrian Mannarino","country":"FRA","countryFlag":"🇫🇷","photoUrl":null,"ranking":25,"birthdate":"1988-06-17","height":183,"weight":80,"plays":"Left-Handed","backhand":"Two-Handed","turnedPro":2005,"titles":1,"grandSlams":0,"careerHigh":22,"prizeMoney":"$10,123,456"},
-  {"id":26,"name":"Tomas Machac","country":"CZE","countryFlag":"🇨🇿","photoUrl":null,"ranking":26,"birthdate":"2000-10-01","height":188,"weight":80,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2018,"titles":2,"grandSlams":0,"careerHigh":25,"prizeMoney":"$3,123,456"},
-  {"id":27,"name":"Flavio Cobolli","country":"ITA","countryFlag":"🇮🇹","photoUrl":null,"ranking":27,"birthdate":"2002-05-30","height":183,"weight":73,"plays":"Left-Handed","backhand":"Two-Handed","turnedPro":2019,"titles":1,"grandSlams":0,"careerHigh":27,"prizeMoney":"$2,345,678"},
-  {"id":28,"name":"Francisco Cerundolo","country":"ARG","countryFlag":"🇦🇷","photoUrl":null,"ranking":28,"birthdate":"1998-11-15","height":180,"weight":74,"plays":"Left-Handed","backhand":"Two-Handed","turnedPro":2017,"titles":2,"grandSlams":0,"careerHigh":22,"prizeMoney":"$3,890,123"},
-  {"id":29,"name":"Matteo Berrettini","country":"ITA","countryFlag":"🇮🇹","photoUrl":null,"ranking":29,"birthdate":"1996-04-12","height":196,"weight":95,"plays":"Right-Handed","backhand":"One-Handed","turnedPro":2015,"titles":10,"grandSlams":0,"careerHigh":6,"prizeMoney":"$13,567,890"},
-  {"id":30,"name":"Tallon Griekspoor","country":"NED","countryFlag":"🇳🇱","photoUrl":null,"ranking":30,"birthdate":"1996-07-02","height":188,"weight":82,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2015,"titles":2,"grandSlams":0,"careerHigh":21,"prizeMoney":"$4,567,890"},
-  {"id":31,"name":"Jan-Lennard Struff","country":"GER","countryFlag":"🇩🇪","photoUrl":null,"ranking":31,"birthdate":"1990-04-25","height":196,"weight":86,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2009,"titles":1,"grandSlams":0,"careerHigh":29,"prizeMoney":"$8,123,456"},
-  {"id":32,"name":"Arthur Fils","country":"FRA","countryFlag":"🇫🇷","photoUrl":null,"ranking":32,"birthdate":"2004-03-08","height":188,"weight":80,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2021,"titles":2,"grandSlams":0,"careerHigh":20,"prizeMoney":"$2,890,123"},
-  {"id":33,"name":"Jiri Lehecka","country":"CZE","countryFlag":"🇨🇿","photoUrl":null,"ranking":33,"birthdate":"2001-11-08","height":186,"weight":80,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2019,"titles":1,"grandSlams":0,"careerHigh":24,"prizeMoney":"$3,456,789"},
-  {"id":34,"name":"Jordan Thompson","country":"AUS","countryFlag":"🇦🇺","photoUrl":null,"ranking":34,"birthdate":"1994-04-20","height":183,"weight":79,"plays":"Right-Handed","backhand":"One-Handed","turnedPro":2013,"titles":1,"grandSlams":0,"careerHigh":25,"prizeMoney":"$5,678,901"},
-  {"id":35,"name":"Matteo Arnaldi","country":"ITA","countryFlag":"🇮🇹","photoUrl":null,"ranking":35,"birthdate":"2001-02-22","height":191,"weight":76,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2019,"titles":0,"grandSlams":0,"careerHigh":30,"prizeMoney":"$2,123,456"},
-  {"id":36,"name":"Giovanni Mpetshi Perricard","country":"FRA","countryFlag":"🇫🇷","photoUrl":null,"ranking":36,"birthdate":"2003-10-21","height":203,"weight":90,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2022,"titles":2,"grandSlams":0,"careerHigh":30,"prizeMoney":"$1,890,123"},
-  {"id":37,"name":"Alejandro Davidovich Fokina","country":"ESP","countryFlag":"🇪🇸","photoUrl":null,"ranking":37,"birthdate":"1999-06-05","height":183,"weight":76,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2017,"titles":2,"grandSlams":0,"careerHigh":21,"prizeMoney":"$5,234,567"},
-  {"id":38,"name":"Alexander Bublik","country":"KAZ","countryFlag":"🇰🇿","photoUrl":null,"ranking":38,"birthdate":"1997-06-17","height":196,"weight":82,"plays":"Right-Handed","backhand":"One-Handed","turnedPro":2016,"titles":4,"grandSlams":0,"careerHigh":15,"prizeMoney":"$6,789,012"},
-  {"id":39,"name":"Roberto Bautista Agut","country":"ESP","countryFlag":"🇪🇸","photoUrl":null,"ranking":39,"birthdate":"1988-04-14","height":183,"weight":80,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2005,"titles":11,"grandSlams":0,"careerHigh":9,"prizeMoney":"$22,567,890"},
-  {"id":40,"name":"Luciano Darderi","country":"ITA","countryFlag":"🇮🇹","photoUrl":null,"ranking":40,"birthdate":"2002-02-14","height":180,"weight":73,"plays":"Left-Handed","backhand":"Two-Handed","turnedPro":2019,"titles":2,"grandSlams":0,"careerHigh":33,"prizeMoney":"$1,678,901"},
-  {"id":41,"name":"Denis Shapovalov","country":"CAN","countryFlag":"🇨🇦","photoUrl":null,"ranking":41,"birthdate":"1999-04-15","height":183,"weight":75,"plays":"Left-Handed","backhand":"One-Handed","turnedPro":2017,"titles":2,"grandSlams":0,"careerHigh":10,"prizeMoney":"$12,345,678"},
-  {"id":42,"name":"Nuno Borges","country":"POR","countryFlag":"🇵🇹","photoUrl":null,"ranking":42,"birthdate":"1997-03-29","height":180,"weight":76,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2019,"titles":1,"grandSlams":0,"careerHigh":33,"prizeMoney":"$2,567,890"},
-  {"id":43,"name":"Pablo Carreno Busta","country":"ESP","countryFlag":"🇪🇸","photoUrl":null,"ranking":43,"birthdate":"1991-07-12","height":188,"weight":78,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2009,"titles":7,"grandSlams":0,"careerHigh":10,"prizeMoney":"$16,789,012"},
-  {"id":44,"name":"Marcos Giron","country":"USA","countryFlag":"🇺🇸","photoUrl":null,"ranking":44,"birthdate":"1993-07-24","height":185,"weight":80,"plays":"Left-Handed","backhand":"Two-Handed","turnedPro":2014,"titles":0,"grandSlams":0,"careerHigh":36,"prizeMoney":"$3,456,789"},
-  {"id":45,"name":"Thanasi Kokkinakis","country":"AUS","countryFlag":"🇦🇺","photoUrl":null,"ranking":45,"birthdate":"1996-04-10","height":193,"weight":85,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2013,"titles":1,"grandSlams":0,"careerHigh":40,"prizeMoney":"$3,890,123"},
-  {"id":46,"name":"Daniel Evans","country":"GBR","countryFlag":"🇬🇧","photoUrl":null,"ranking":46,"birthdate":"1990-05-23","height":180,"weight":75,"plays":"Right-Handed","backhand":"One-Handed","turnedPro":2006,"titles":2,"grandSlams":0,"careerHigh":21,"prizeMoney":"$8,901,234"},
-  {"id":47,"name":"Zhizhen Zhang","country":"CHN","countryFlag":"🇨🇳","photoUrl":null,"ranking":47,"birthdate":"1997-02-16","height":193,"weight":83,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2014,"titles":1,"grandSlams":0,"careerHigh":33,"prizeMoney":"$2,345,678"},
-  {"id":48,"name":"Alexei Popyrin","country":"AUS","countryFlag":"🇦🇺","photoUrl":null,"ranking":48,"birthdate":"1999-08-05","height":196,"weight":84,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2018,"titles":2,"grandSlams":0,"careerHigh":24,"prizeMoney":"$3,678,901"},
-  {"id":49,"name":"Christopher Eubanks","country":"USA","countryFlag":"🇺🇸","photoUrl":null,"ranking":49,"birthdate":"1996-04-18","height":201,"weight":91,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2018,"titles":1,"grandSlams":0,"careerHigh":29,"prizeMoney":"$3,123,456"},
-  {"id":50,"name":"Miomir Kecmanovic","country":"SRB","countryFlag":"🇷🇸","photoUrl":null,"ranking":50,"birthdate":"1999-08-31","height":191,"weight":80,"plays":"Right-Handed","backhand":"Two-Handed","turnedPro":2017,"titles":0,"grandSlams":0,"careerHigh":28,"prizeMoney":"$5,234,567"}
+  {
+    "id": 1,
+    "name": "Jannik Sinner",
+    "country": "ITA",
+    "countryFlag": "🇮🇹",
+    "photoUrl": null,
+    "ranking": 1,
+    "birthdate": "2001-08-16",
+    "height": 188,
+    "weight": 76,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2018,
+    "titles": 16,
+    "grandSlams": 1,
+    "careerHigh": 1,
+    "prizeMoney": "$23,456,789",
+    "birthplace": "San Candido, Italy",
+    "coach": "Darren Cahill & Simone Vagnozzi",
+    "recentForm": "Dominant season with Australian Open and US Open titles. Consistent top form on hard courts.",
+    "rankingHistory": [
+      {
+        "month": "2024-01",
+        "ranking": 4
+      },
+      {
+        "month": "2024-02",
+        "ranking": 3
+      },
+      {
+        "month": "2024-03",
+        "ranking": 2
+      },
+      {
+        "month": "2024-04",
+        "ranking": 2
+      },
+      {
+        "month": "2024-05",
+        "ranking": 2
+      },
+      {
+        "month": "2024-06",
+        "ranking": 1
+      },
+      {
+        "month": "2024-07",
+        "ranking": 1
+      },
+      {
+        "month": "2024-08",
+        "ranking": 1
+      },
+      {
+        "month": "2024-09",
+        "ranking": 1
+      },
+      {
+        "month": "2024-10",
+        "ranking": 1
+      },
+      {
+        "month": "2024-11",
+        "ranking": 1
+      },
+      {
+        "month": "2024-12",
+        "ranking": 1
+      }
+    ],
+    "record": {
+      "career": {
+        "wins": 320,
+        "losses": 98
+      },
+      "season": {
+        "wins": 73,
+        "losses": 6
+      },
+      "bySurface": {
+        "hard": {
+          "wins": 180,
+          "losses": 55
+        },
+        "clay": {
+          "wins": 90,
+          "losses": 30
+        },
+        "grass": {
+          "wins": 50,
+          "losses": 13
+        }
+      }
+    }
+  },
+  {
+    "id": 2,
+    "name": "Novak Djokovic",
+    "country": "SRB",
+    "countryFlag": "🇷🇸",
+    "photoUrl": null,
+    "ranking": 2,
+    "birthdate": "1987-05-22",
+    "height": 188,
+    "weight": 77,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2003,
+    "titles": 99,
+    "grandSlams": 24,
+    "careerHigh": 1,
+    "prizeMoney": "$182,654,321",
+    "birthplace": "Belgrade, Serbia",
+    "coach": "Goran Ivanisevic (former)",
+    "recentForm": "Still competitive at 37, reaching Grand Slam semis. Legendary consistency continues.",
+    "rankingHistory": [
+      {
+        "month": "2024-01",
+        "ranking": 1
+      },
+      {
+        "month": "2024-02",
+        "ranking": 1
+      },
+      {
+        "month": "2024-03",
+        "ranking": 1
+      },
+      {
+        "month": "2024-04",
+        "ranking": 1
+      },
+      {
+        "month": "2024-05",
+        "ranking": 1
+      },
+      {
+        "month": "2024-06",
+        "ranking": 2
+      },
+      {
+        "month": "2024-07",
+        "ranking": 2
+      },
+      {
+        "month": "2024-08",
+        "ranking": 2
+      },
+      {
+        "month": "2024-09",
+        "ranking": 3
+      },
+      {
+        "month": "2024-10",
+        "ranking": 3
+      },
+      {
+        "month": "2024-11",
+        "ranking": 2
+      },
+      {
+        "month": "2024-12",
+        "ranking": 2
+      }
+    ],
+    "record": {
+      "career": {
+        "wins": 1100,
+        "losses": 210
+      },
+      "season": {
+        "wins": 38,
+        "losses": 9
+      },
+      "bySurface": {
+        "hard": {
+          "wins": 450,
+          "losses": 85
+        },
+        "clay": {
+          "wins": 350,
+          "losses": 65
+        },
+        "grass": {
+          "wins": 200,
+          "losses": 35
+        }
+      }
+    }
+  },
+  {
+    "id": 3,
+    "name": "Carlos Alcaraz",
+    "country": "ESP",
+    "countryFlag": "🇪🇸",
+    "photoUrl": null,
+    "ranking": 3,
+    "birthdate": "2003-05-05",
+    "height": 183,
+    "weight": 74,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2018,
+    "titles": 15,
+    "grandSlams": 4,
+    "careerHigh": 1,
+    "prizeMoney": "$32,123,456",
+    "birthplace": "El Palmar, Spain",
+    "coach": "Juan Carlos Ferrero",
+    "recentForm": "Won Roland Garros and Wimbledon back-to-back. Explosive power and shot variety.",
+    "rankingHistory": [
+      {
+        "month": "2024-01",
+        "ranking": 2
+      },
+      {
+        "month": "2024-02",
+        "ranking": 2
+      },
+      {
+        "month": "2024-03",
+        "ranking": 2
+      },
+      {
+        "month": "2024-04",
+        "ranking": 3
+      },
+      {
+        "month": "2024-05",
+        "ranking": 3
+      },
+      {
+        "month": "2024-06",
+        "ranking": 3
+      },
+      {
+        "month": "2024-07",
+        "ranking": 3
+      },
+      {
+        "month": "2024-08",
+        "ranking": 3
+      },
+      {
+        "month": "2024-09",
+        "ranking": 3
+      },
+      {
+        "month": "2024-10",
+        "ranking": 3
+      },
+      {
+        "month": "2024-11",
+        "ranking": 3
+      },
+      {
+        "month": "2024-12",
+        "ranking": 3
+      }
+    ],
+    "record": {
+      "career": {
+        "wins": 510,
+        "losses": 135
+      },
+      "season": {
+        "wins": 62,
+        "losses": 13
+      },
+      "bySurface": {
+        "hard": {
+          "wins": 230,
+          "losses": 60
+        },
+        "clay": {
+          "wins": 180,
+          "losses": 50
+        },
+        "grass": {
+          "wins": 100,
+          "losses": 25
+        }
+      }
+    }
+  },
+  {
+    "id": 4,
+    "name": "Alexander Zverev",
+    "country": "GER",
+    "countryFlag": "🇩🇪",
+    "photoUrl": null,
+    "ranking": 4,
+    "birthdate": "1997-04-20",
+    "height": 198,
+    "weight": 90,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2013,
+    "titles": 23,
+    "grandSlams": 0,
+    "careerHigh": 2,
+    "prizeMoney": "$43,210,987",
+    "birthplace": "Hamburg, Germany",
+    "coach": "Sergi Bruguera",
+    "recentForm": "Strong Masters results, reaching multiple finals. Still seeking first Grand Slam.",
+    "rankingHistory": [
+      {
+        "month": "2024-01",
+        "ranking": 6
+      },
+      {
+        "month": "2024-02",
+        "ranking": 6
+      },
+      {
+        "month": "2024-03",
+        "ranking": 5
+      },
+      {
+        "month": "2024-04",
+        "ranking": 5
+      },
+      {
+        "month": "2024-05",
+        "ranking": 4
+      },
+      {
+        "month": "2024-06",
+        "ranking": 4
+      },
+      {
+        "month": "2024-07",
+        "ranking": 4
+      },
+      {
+        "month": "2024-08",
+        "ranking": 4
+      },
+      {
+        "month": "2024-09",
+        "ranking": 4
+      },
+      {
+        "month": "2024-10",
+        "ranking": 4
+      },
+      {
+        "month": "2024-11",
+        "ranking": 4
+      },
+      {
+        "month": "2024-12",
+        "ranking": 4
+      }
+    ],
+    "record": {
+      "career": {
+        "wins": 410,
+        "losses": 130
+      },
+      "season": {
+        "wins": 55,
+        "losses": 14
+      },
+      "bySurface": {
+        "hard": {
+          "wins": 200,
+          "losses": 65
+        },
+        "clay": {
+          "wins": 130,
+          "losses": 40
+        },
+        "grass": {
+          "wins": 80,
+          "losses": 25
+        }
+      }
+    }
+  },
+  {
+    "id": 5,
+    "name": "Daniil Medvedev",
+    "country": "RUS",
+    "countryFlag": "🇷🇺",
+    "photoUrl": null,
+    "ranking": 5,
+    "birthdate": "1996-02-11",
+    "height": 198,
+    "weight": 83,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2014,
+    "titles": 20,
+    "grandSlams": 1,
+    "careerHigh": 1,
+    "prizeMoney": "$38,765,432",
+    "birthplace": "Moscow, Russia",
+    "coach": "Gilles Cervara",
+    "recentForm": "Consistent presence in late rounds of Slams. Reached Australian Open final.",
+    "rankingHistory": [
+      {
+        "month": "2024-01",
+        "ranking": 3
+      },
+      {
+        "month": "2024-02",
+        "ranking": 4
+      },
+      {
+        "month": "2024-03",
+        "ranking": 4
+      },
+      {
+        "month": "2024-04",
+        "ranking": 4
+      },
+      {
+        "month": "2024-05",
+        "ranking": 5
+      },
+      {
+        "month": "2024-06",
+        "ranking": 5
+      },
+      {
+        "month": "2024-07",
+        "ranking": 5
+      },
+      {
+        "month": "2024-08",
+        "ranking": 5
+      },
+      {
+        "month": "2024-09",
+        "ranking": 5
+      },
+      {
+        "month": "2024-10",
+        "ranking": 5
+      },
+      {
+        "month": "2024-11",
+        "ranking": 5
+      },
+      {
+        "month": "2024-12",
+        "ranking": 5
+      }
+    ],
+    "record": {
+      "career": {
+        "wins": 295,
+        "losses": 95
+      },
+      "season": {
+        "wins": 48,
+        "losses": 11
+      },
+      "bySurface": {
+        "hard": {
+          "wins": 160,
+          "losses": 48
+        },
+        "clay": {
+          "wins": 80,
+          "losses": 28
+        },
+        "grass": {
+          "wins": 55,
+          "losses": 19
+        }
+      }
+    }
+  },
+  {
+    "id": 6,
+    "name": "Andrey Rublev",
+    "country": "RUS",
+    "countryFlag": "🇷🇺",
+    "photoUrl": null,
+    "ranking": 6,
+    "birthdate": "1997-10-20",
+    "height": 188,
+    "weight": 75,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2014,
+    "titles": 16,
+    "grandSlams": 0,
+    "careerHigh": 5,
+    "prizeMoney": "$22,345,678",
+    "birthplace": "Moscow, Russia",
+    "coach": "Fernando Vicente",
+    "recentForm": "Solid results on hard courts, but struggling in Grand Slams beyond QF.",
+    "rankingHistory": [
+      {
+        "month": "2024-01",
+        "ranking": 5
+      },
+      {
+        "month": "2024-02",
+        "ranking": 5
+      },
+      {
+        "month": "2024-03",
+        "ranking": 6
+      },
+      {
+        "month": "2024-04",
+        "ranking": 6
+      },
+      {
+        "month": "2024-05",
+        "ranking": 6
+      },
+      {
+        "month": "2024-06",
+        "ranking": 6
+      },
+      {
+        "month": "2024-07",
+        "ranking": 7
+      },
+      {
+        "month": "2024-08",
+        "ranking": 7
+      },
+      {
+        "month": "2024-09",
+        "ranking": 6
+      },
+      {
+        "month": "2024-10",
+        "ranking": 6
+      },
+      {
+        "month": "2024-11",
+        "ranking": 6
+      },
+      {
+        "month": "2024-12",
+        "ranking": 6
+      }
+    ],
+    "record": {
+      "career": {
+        "wins": 245,
+        "losses": 85
+      },
+      "season": {
+        "wins": 45,
+        "losses": 15
+      },
+      "bySurface": {
+        "hard": {
+          "wins": 130,
+          "losses": 40
+        },
+        "clay": {
+          "wins": 70,
+          "losses": 28
+        },
+        "grass": {
+          "wins": 45,
+          "losses": 17
+        }
+      }
+    }
+  },
+  {
+    "id": 7,
+    "name": "Hubert Hurkacz",
+    "country": "POL",
+    "countryFlag": "🇵🇱",
+    "photoUrl": null,
+    "ranking": 7,
+    "birthdate": "1997-02-11",
+    "height": 196,
+    "weight": 83,
+    "plays": "Right-Handed",
+    "backhand": "One-Handed",
+    "turnedPro": 2015,
+    "titles": 8,
+    "grandSlams": 0,
+    "careerHigh": 6,
+    "prizeMoney": "$13,456,789",
+    "birthplace": "Wroclaw, Poland",
+    "coach": "Craig Boynton",
+    "recentForm": "Big server making deep runs. Breakthrough at Masters level.",
+    "rankingHistory": [
+      {
+        "month": "2024-01",
+        "ranking": 9
+      },
+      {
+        "month": "2024-02",
+        "ranking": 9
+      },
+      {
+        "month": "2024-03",
+        "ranking": 8
+      },
+      {
+        "month": "2024-04",
+        "ranking": 8
+      },
+      {
+        "month": "2024-05",
+        "ranking": 8
+      },
+      {
+        "month": "2024-06",
+        "ranking": 7
+      },
+      {
+        "month": "2024-07",
+        "ranking": 7
+      },
+      {
+        "month": "2024-08",
+        "ranking": 7
+      },
+      {
+        "month": "2024-09",
+        "ranking": 7
+      },
+      {
+        "month": "2024-10",
+        "ranking": 7
+      },
+      {
+        "month": "2024-11",
+        "ranking": 7
+      },
+      {
+        "month": "2024-12",
+        "ranking": 7
+      }
+    ],
+    "record": {
+      "career": {
+        "wins": 310,
+        "losses": 110
+      },
+      "season": {
+        "wins": 52,
+        "losses": 12
+      },
+      "bySurface": {
+        "hard": {
+          "wins": 160,
+          "losses": 55
+        },
+        "clay": {
+          "wins": 95,
+          "losses": 32
+        },
+        "grass": {
+          "wins": 55,
+          "losses": 23
+        }
+      }
+    }
+  },
+  {
+    "id": 8,
+    "name": "Casper Ruud",
+    "country": "NOR",
+    "countryFlag": "🇳🇴",
+    "photoUrl": null,
+    "ranking": 8,
+    "birthdate": "1998-12-22",
+    "height": 183,
+    "weight": 77,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2017,
+    "titles": 10,
+    "grandSlams": 0,
+    "careerHigh": 2,
+    "prizeMoney": "$17,890,123",
+    "birthplace": "Snaroya, Norway",
+    "coach": "Christian Ruud (father)",
+    "recentForm": "Clay court specialist with improving hard court results.",
+    "rankingHistory": [
+      {
+        "month": "2024-01",
+        "ranking": 7
+      },
+      {
+        "month": "2024-02",
+        "ranking": 7
+      },
+      {
+        "month": "2024-03",
+        "ranking": 7
+      },
+      {
+        "month": "2024-04",
+        "ranking": 7
+      },
+      {
+        "month": "2024-05",
+        "ranking": 8
+      },
+      {
+        "month": "2024-06",
+        "ranking": 8
+      },
+      {
+        "month": "2024-07",
+        "ranking": 8
+      },
+      {
+        "month": "2024-08",
+        "ranking": 8
+      },
+      {
+        "month": "2024-09",
+        "ranking": 8
+      },
+      {
+        "month": "2024-10",
+        "ranking": 8
+      },
+      {
+        "month": "2024-11",
+        "ranking": 8
+      },
+      {
+        "month": "2024-12",
+        "ranking": 8
+      }
+    ],
+    "record": {
+      "career": {
+        "wins": 270,
+        "losses": 100
+      },
+      "season": {
+        "wins": 44,
+        "losses": 13
+      },
+      "bySurface": {
+        "hard": {
+          "wins": 140,
+          "losses": 50
+        },
+        "clay": {
+          "wins": 85,
+          "losses": 30
+        },
+        "grass": {
+          "wins": 45,
+          "losses": 20
+        }
+      }
+    }
+  },
+  {
+    "id": 9,
+    "name": "Alex de Minaur",
+    "country": "AUS",
+    "countryFlag": "🇦🇺",
+    "photoUrl": null,
+    "ranking": 9,
+    "birthdate": "1999-02-17",
+    "height": 183,
+    "weight": 76,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2017,
+    "titles": 8,
+    "grandSlams": 0,
+    "careerHigh": 6,
+    "prizeMoney": "$11,234,567",
+    "birthplace": "Sydney, Australia",
+    "coach": "Adolfo Gutierrez",
+    "recentForm": "Quick and relentless from the baseline. Best season on tour.",
+    "rankingHistory": [
+      {
+        "month": "2024-01",
+        "ranking": 14
+      },
+      {
+        "month": "2024-02",
+        "ranking": 13
+      },
+      {
+        "month": "2024-03",
+        "ranking": 12
+      },
+      {
+        "month": "2024-04",
+        "ranking": 11
+      },
+      {
+        "month": "2024-05",
+        "ranking": 11
+      },
+      {
+        "month": "2024-06",
+        "ranking": 10
+      },
+      {
+        "month": "2024-07",
+        "ranking": 10
+      },
+      {
+        "month": "2024-08",
+        "ranking": 9
+      },
+      {
+        "month": "2024-09",
+        "ranking": 9
+      },
+      {
+        "month": "2024-10",
+        "ranking": 9
+      },
+      {
+        "month": "2024-11",
+        "ranking": 9
+      },
+      {
+        "month": "2024-12",
+        "ranking": 9
+      }
+    ],
+    "record": {
+      "career": {
+        "wins": 380,
+        "losses": 135
+      },
+      "season": {
+        "wins": 50,
+        "losses": 15
+      },
+      "bySurface": {
+        "hard": {
+          "wins": 190,
+          "losses": 65
+        },
+        "clay": {
+          "wins": 120,
+          "losses": 42
+        },
+        "grass": {
+          "wins": 70,
+          "losses": 28
+        }
+      }
+    }
+  },
+  {
+    "id": 10,
+    "name": "Grigor Dimitrov",
+    "country": "BUL",
+    "countryFlag": "🇧🇬",
+    "photoUrl": null,
+    "ranking": 10,
+    "birthdate": "1991-05-16",
+    "height": 191,
+    "weight": 80,
+    "plays": "Right-Handed",
+    "backhand": "One-Handed",
+    "turnedPro": 2008,
+    "titles": 10,
+    "grandSlams": 0,
+    "careerHigh": 3,
+    "prizeMoney": "$25,678,901",
+    "birthplace": "Haskovo, Bulgaria",
+    "coach": "Dante Bottini",
+    "recentForm": "Veteran finding late-career resurgence. Elegant one-handed backhand.",
+    "rankingHistory": [
+      {
+        "month": "2024-01",
+        "ranking": 15
+      },
+      {
+        "month": "2024-02",
+        "ranking": 14
+      },
+      {
+        "month": "2024-03",
+        "ranking": 12
+      },
+      {
+        "month": "2024-04",
+        "ranking": 11
+      },
+      {
+        "month": "2024-05",
+        "ranking": 11
+      },
+      {
+        "month": "2024-06",
+        "ranking": 10
+      },
+      {
+        "month": "2024-07",
+        "ranking": 10
+      },
+      {
+        "month": "2024-08",
+        "ranking": 10
+      },
+      {
+        "month": "2024-09",
+        "ranking": 10
+      },
+      {
+        "month": "2024-10",
+        "ranking": 10
+      },
+      {
+        "month": "2024-11",
+        "ranking": 10
+      },
+      {
+        "month": "2024-12",
+        "ranking": 10
+      }
+    ],
+    "record": {
+      "career": {
+        "wins": 220,
+        "losses": 80
+      },
+      "season": {
+        "wins": 42,
+        "losses": 14
+      },
+      "bySurface": {
+        "hard": {
+          "wins": 120,
+          "losses": 40
+        },
+        "clay": {
+          "wins": 60,
+          "losses": 25
+        },
+        "grass": {
+          "wins": 40,
+          "losses": 15
+        }
+      }
+    }
+  },
+  {
+    "id": 11,
+    "name": "Stefanos Tsitsipas",
+    "country": "GRE",
+    "countryFlag": "🇬🇷",
+    "photoUrl": null,
+    "ranking": 11,
+    "birthdate": "1998-08-12",
+    "height": 193,
+    "weight": 89,
+    "plays": "Right-Handed",
+    "backhand": "One-Handed",
+    "turnedPro": 2017,
+    "titles": 11,
+    "grandSlams": 0,
+    "careerHigh": 3,
+    "prizeMoney": "$26,789,012",
+    "birthplace": "Athens, Greece",
+    "coach": "Mark Philippoussis",
+    "recentForm": "Working to recapture top-5 form. Monte Carlo title shows potential.",
+    "rankingHistory": [
+      {
+        "month": "2024-01",
+        "ranking": 8
+      },
+      {
+        "month": "2024-02",
+        "ranking": 8
+      },
+      {
+        "month": "2024-03",
+        "ranking": 9
+      },
+      {
+        "month": "2024-04",
+        "ranking": 9
+      },
+      {
+        "month": "2024-05",
+        "ranking": 10
+      },
+      {
+        "month": "2024-06",
+        "ranking": 11
+      },
+      {
+        "month": "2024-07",
+        "ranking": 11
+      },
+      {
+        "month": "2024-08",
+        "ranking": 11
+      },
+      {
+        "month": "2024-09",
+        "ranking": 11
+      },
+      {
+        "month": "2024-10",
+        "ranking": 11
+      },
+      {
+        "month": "2024-11",
+        "ranking": 11
+      },
+      {
+        "month": "2024-12",
+        "ranking": 11
+      }
+    ],
+    "record": {
+      "career": {
+        "wins": 200,
+        "losses": 90
+      },
+      "season": {
+        "wins": 38,
+        "losses": 16
+      },
+      "bySurface": {
+        "hard": {
+          "wins": 110,
+          "losses": 45
+        },
+        "clay": {
+          "wins": 55,
+          "losses": 28
+        },
+        "grass": {
+          "wins": 35,
+          "losses": 17
+        }
+      }
+    }
+  },
+  {
+    "id": 12,
+    "name": "Taylor Fritz",
+    "country": "USA",
+    "countryFlag": "🇺🇸",
+    "photoUrl": null,
+    "ranking": 12,
+    "birthdate": "1997-10-28",
+    "height": 193,
+    "weight": 86,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2015,
+    "titles": 8,
+    "grandSlams": 0,
+    "careerHigh": 4,
+    "prizeMoney": "$14,567,890",
+    "birthplace": "Rancho Santa Fe, USA",
+    "coach": "Michael Russell",
+    "recentForm": "Breakout year with US Open final and career-high ranking.",
+    "rankingHistory": [
+      {
+        "month": "2024-01",
+        "ranking": 13
+      },
+      {
+        "month": "2024-02",
+        "ranking": 13
+      },
+      {
+        "month": "2024-03",
+        "ranking": 13
+      },
+      {
+        "month": "2024-04",
+        "ranking": 12
+      },
+      {
+        "month": "2024-05",
+        "ranking": 12
+      },
+      {
+        "month": "2024-06",
+        "ranking": 12
+      },
+      {
+        "month": "2024-07",
+        "ranking": 12
+      },
+      {
+        "month": "2024-08",
+        "ranking": 12
+      },
+      {
+        "month": "2024-09",
+        "ranking": 12
+      },
+      {
+        "month": "2024-10",
+        "ranking": 12
+      },
+      {
+        "month": "2024-11",
+        "ranking": 12
+      },
+      {
+        "month": "2024-12",
+        "ranking": 12
+      }
+    ],
+    "record": {
+      "career": {
+        "wins": 190,
+        "losses": 85
+      },
+      "season": {
+        "wins": 40,
+        "losses": 14
+      },
+      "bySurface": {
+        "hard": {
+          "wins": 100,
+          "losses": 42
+        },
+        "clay": {
+          "wins": 55,
+          "losses": 25
+        },
+        "grass": {
+          "wins": 35,
+          "losses": 18
+        }
+      }
+    }
+  },
+  {
+    "id": 13,
+    "name": "Tommy Paul",
+    "country": "USA",
+    "countryFlag": "🇺🇸",
+    "photoUrl": null,
+    "ranking": 13,
+    "birthdate": "1997-05-17",
+    "height": 185,
+    "weight": 82,
+    "plays": "Right-Handed",
+    "backhand": "One-Handed",
+    "turnedPro": 2015,
+    "titles": 4,
+    "grandSlams": 0,
+    "careerHigh": 11,
+    "prizeMoney": "$8,901,234",
+    "birthplace": "Greenville, USA",
+    "coach": "Brad Stine",
+    "recentForm": "Steady climb up the rankings. Strong on hard courts.",
+    "rankingHistory": [
+      {
+        "month": "2024-01",
+        "ranking": 16
+      },
+      {
+        "month": "2024-02",
+        "ranking": 15
+      },
+      {
+        "month": "2024-03",
+        "ranking": 14
+      },
+      {
+        "month": "2024-04",
+        "ranking": 14
+      },
+      {
+        "month": "2024-05",
+        "ranking": 14
+      },
+      {
+        "month": "2024-06",
+        "ranking": 14
+      },
+      {
+        "month": "2024-07",
+        "ranking": 13
+      },
+      {
+        "month": "2024-08",
+        "ranking": 13
+      },
+      {
+        "month": "2024-09",
+        "ranking": 13
+      },
+      {
+        "month": "2024-10",
+        "ranking": 13
+      },
+      {
+        "month": "2024-11",
+        "ranking": 13
+      },
+      {
+        "month": "2024-12",
+        "ranking": 13
+      }
+    ],
+    "record": {
+      "career": {
+        "wins": 350,
+        "losses": 125
+      },
+      "season": {
+        "wins": 46,
+        "losses": 15
+      },
+      "bySurface": {
+        "hard": {
+          "wins": 175,
+          "losses": 60
+        },
+        "clay": {
+          "wins": 110,
+          "losses": 38
+        },
+        "grass": {
+          "wins": 65,
+          "losses": 27
+        }
+      }
+    }
+  },
+  {
+    "id": 14,
+    "name": "Ben Shelton",
+    "country": "USA",
+    "countryFlag": "🇺🇸",
+    "photoUrl": null,
+    "ranking": 14,
+    "birthdate": "2002-10-09",
+    "height": 193,
+    "weight": 84,
+    "plays": "Left-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2022,
+    "titles": 3,
+    "grandSlams": 0,
+    "careerHigh": 13,
+    "prizeMoney": "$5,678,901",
+    "birthplace": "Atlanta, USA",
+    "coach": "Bryan Shelton (father)",
+    "recentForm": "Young power hitter with massive serve. Exciting future ahead.",
+    "rankingHistory": [
+      {
+        "month": "2024-01",
+        "ranking": 17
+      },
+      {
+        "month": "2024-02",
+        "ranking": 16
+      },
+      {
+        "month": "2024-03",
+        "ranking": 15
+      },
+      {
+        "month": "2024-04",
+        "ranking": 15
+      },
+      {
+        "month": "2024-05",
+        "ranking": 15
+      },
+      {
+        "month": "2024-06",
+        "ranking": 15
+      },
+      {
+        "month": "2024-07",
+        "ranking": 14
+      },
+      {
+        "month": "2024-08",
+        "ranking": 14
+      },
+      {
+        "month": "2024-09",
+        "ranking": 14
+      },
+      {
+        "month": "2024-10",
+        "ranking": 14
+      },
+      {
+        "month": "2024-11",
+        "ranking": 14
+      },
+      {
+        "month": "2024-12",
+        "ranking": 14
+      }
+    ],
+    "record": {
+      "career": {
+        "wins": 420,
+        "losses": 145
+      },
+      "season": {
+        "wins": 42,
+        "losses": 16
+      },
+      "bySurface": {
+        "hard": {
+          "wins": 210,
+          "losses": 70
+        },
+        "clay": {
+          "wins": 130,
+          "losses": 45
+        },
+        "grass": {
+          "wins": 80,
+          "losses": 30
+        }
+      }
+    }
+  },
+  {
+    "id": 15,
+    "name": "Holger Rune",
+    "country": "DEN",
+    "countryFlag": "🇩🇰",
+    "photoUrl": null,
+    "ranking": 15,
+    "birthdate": "2003-04-29",
+    "height": 188,
+    "weight": 78,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2019,
+    "titles": 5,
+    "grandSlams": 0,
+    "careerHigh": 4,
+    "prizeMoney": "$8,345,678",
+    "birthplace": "Gentofte, Denmark",
+    "coach": "Patrick Mouratoglou",
+    "recentForm": "Talented but inconsistent. Flashes of brilliance in big tournaments.",
+    "rankingHistory": [
+      {
+        "month": "2024-01",
+        "ranking": 10
+      },
+      {
+        "month": "2024-02",
+        "ranking": 10
+      },
+      {
+        "month": "2024-03",
+        "ranking": 11
+      },
+      {
+        "month": "2024-04",
+        "ranking": 13
+      },
+      {
+        "month": "2024-05",
+        "ranking": 13
+      },
+      {
+        "month": "2024-06",
+        "ranking": 14
+      },
+      {
+        "month": "2024-07",
+        "ranking": 14
+      },
+      {
+        "month": "2024-08",
+        "ranking": 15
+      },
+      {
+        "month": "2024-09",
+        "ranking": 15
+      },
+      {
+        "month": "2024-10",
+        "ranking": 15
+      },
+      {
+        "month": "2024-11",
+        "ranking": 15
+      },
+      {
+        "month": "2024-12",
+        "ranking": 15
+      }
+    ],
+    "record": {
+      "career": {
+        "wins": 285,
+        "losses": 105
+      },
+      "season": {
+        "wins": 44,
+        "losses": 13
+      },
+      "bySurface": {
+        "hard": {
+          "wins": 150,
+          "losses": 50
+        },
+        "clay": {
+          "wins": 85,
+          "losses": 35
+        },
+        "grass": {
+          "wins": 50,
+          "losses": 20
+        }
+      }
+    }
+  },
+  {
+    "id": 16,
+    "name": "Ugo Humbert",
+    "country": "FRA",
+    "countryFlag": "🇫🇷",
+    "photoUrl": null,
+    "ranking": 16,
+    "birthdate": "1998-06-26",
+    "height": 188,
+    "weight": 73,
+    "plays": "Left-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2017,
+    "titles": 5,
+    "grandSlams": 0,
+    "careerHigh": 13,
+    "prizeMoney": "$6,234,567",
+    "birthplace": "Metz, France",
+    "coach": "Thierry Ascione",
+    "recentForm": "Left-handed serve and volley game. Rising on fast courts.",
+    "rankingHistory": [
+      {
+        "month": "2024-01",
+        "ranking": 20
+      },
+      {
+        "month": "2024-02",
+        "ranking": 19
+      },
+      {
+        "month": "2024-03",
+        "ranking": 18
+      },
+      {
+        "month": "2024-04",
+        "ranking": 17
+      },
+      {
+        "month": "2024-05",
+        "ranking": 17
+      },
+      {
+        "month": "2024-06",
+        "ranking": 16
+      },
+      {
+        "month": "2024-07",
+        "ranking": 16
+      },
+      {
+        "month": "2024-08",
+        "ranking": 16
+      },
+      {
+        "month": "2024-09",
+        "ranking": 16
+      },
+      {
+        "month": "2024-10",
+        "ranking": 16
+      },
+      {
+        "month": "2024-11",
+        "ranking": 16
+      },
+      {
+        "month": "2024-12",
+        "ranking": 16
+      }
+    ],
+    "record": {
+      "career": {
+        "wins": 230,
+        "losses": 90
+      },
+      "season": {
+        "wins": 39,
+        "losses": 14
+      },
+      "bySurface": {
+        "hard": {
+          "wins": 125,
+          "losses": 45
+        },
+        "clay": {
+          "wins": 65,
+          "losses": 28
+        },
+        "grass": {
+          "wins": 40,
+          "losses": 17
+        }
+      }
+    }
+  },
+  {
+    "id": 17,
+    "name": "Sebastian Korda",
+    "country": "USA",
+    "countryFlag": "🇺🇸",
+    "photoUrl": null,
+    "ranking": 17,
+    "birthdate": "2000-07-05",
+    "height": 196,
+    "weight": 84,
+    "plays": "Right-Handed",
+    "backhand": "One-Handed",
+    "turnedPro": 2018,
+    "titles": 3,
+    "grandSlams": 0,
+    "careerHigh": 15,
+    "prizeMoney": "$5,123,456",
+    "birthplace": "Bradenton, USA",
+    "coach": "Radek Stepanek",
+    "recentForm": "Son of Petr Korda, showing Grand Slam pedigree.",
+    "rankingHistory": [
+      {
+        "month": "2024-01",
+        "ranking": 22
+      },
+      {
+        "month": "2024-02",
+        "ranking": 21
+      },
+      {
+        "month": "2024-03",
+        "ranking": 20
+      },
+      {
+        "month": "2024-04",
+        "ranking": 19
+      },
+      {
+        "month": "2024-05",
+        "ranking": 18
+      },
+      {
+        "month": "2024-06",
+        "ranking": 18
+      },
+      {
+        "month": "2024-07",
+        "ranking": 17
+      },
+      {
+        "month": "2024-08",
+        "ranking": 17
+      },
+      {
+        "month": "2024-09",
+        "ranking": 17
+      },
+      {
+        "month": "2024-10",
+        "ranking": 17
+      },
+      {
+        "month": "2024-11",
+        "ranking": 17
+      },
+      {
+        "month": "2024-12",
+        "ranking": 17
+      }
+    ],
+    "record": {
+      "career": {
+        "wins": 210,
+        "losses": 88
+      },
+      "season": {
+        "wins": 41,
+        "losses": 15
+      },
+      "bySurface": {
+        "hard": {
+          "wins": 115,
+          "losses": 42
+        },
+        "clay": {
+          "wins": 58,
+          "losses": 28
+        },
+        "grass": {
+          "wins": 37,
+          "losses": 18
+        }
+      }
+    }
+  },
+  {
+    "id": 18,
+    "name": "Nicolas Jarry",
+    "country": "CHI",
+    "countryFlag": "🇨🇱",
+    "photoUrl": null,
+    "ranking": 18,
+    "birthdate": "1995-10-11",
+    "height": 198,
+    "weight": 88,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2014,
+    "titles": 3,
+    "grandSlams": 0,
+    "careerHigh": 16,
+    "prizeMoney": "$4,567,890",
+    "birthplace": "Santiago, Chile",
+    "coach": "Horacio De La Pena",
+    "recentForm": "Powerful game with career-best results this season.",
+    "rankingHistory": [
+      {
+        "month": "2024-01",
+        "ranking": 25
+      },
+      {
+        "month": "2024-02",
+        "ranking": 23
+      },
+      {
+        "month": "2024-03",
+        "ranking": 22
+      },
+      {
+        "month": "2024-04",
+        "ranking": 20
+      },
+      {
+        "month": "2024-05",
+        "ranking": 19
+      },
+      {
+        "month": "2024-06",
+        "ranking": 19
+      },
+      {
+        "month": "2024-07",
+        "ranking": 18
+      },
+      {
+        "month": "2024-08",
+        "ranking": 18
+      },
+      {
+        "month": "2024-09",
+        "ranking": 18
+      },
+      {
+        "month": "2024-10",
+        "ranking": 18
+      },
+      {
+        "month": "2024-11",
+        "ranking": 18
+      },
+      {
+        "month": "2024-12",
+        "ranking": 18
+      }
+    ],
+    "record": {
+      "career": {
+        "wins": 260,
+        "losses": 98
+      },
+      "season": {
+        "wins": 43,
+        "losses": 14
+      },
+      "bySurface": {
+        "hard": {
+          "wins": 135,
+          "losses": 48
+        },
+        "clay": {
+          "wins": 80,
+          "losses": 30
+        },
+        "grass": {
+          "wins": 45,
+          "losses": 20
+        }
+      }
+    }
+  },
+  {
+    "id": 19,
+    "name": "Karen Khachanov",
+    "country": "RUS",
+    "countryFlag": "🇷🇺",
+    "photoUrl": null,
+    "ranking": 19,
+    "birthdate": "1996-05-21",
+    "height": 198,
+    "weight": 88,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2013,
+    "titles": 7,
+    "grandSlams": 0,
+    "careerHigh": 8,
+    "prizeMoney": "$14,890,123",
+    "birthplace": "Moscow, Russia",
+    "coach": "Vedran Martic",
+    "recentForm": "Big-hitting baseline game. Olympic silver medalist.",
+    "rankingHistory": [
+      {
+        "month": "2024-01",
+        "ranking": 18
+      },
+      {
+        "month": "2024-02",
+        "ranking": 18
+      },
+      {
+        "month": "2024-03",
+        "ranking": 19
+      },
+      {
+        "month": "2024-04",
+        "ranking": 19
+      },
+      {
+        "month": "2024-05",
+        "ranking": 19
+      },
+      {
+        "month": "2024-06",
+        "ranking": 19
+      },
+      {
+        "month": "2024-07",
+        "ranking": 19
+      },
+      {
+        "month": "2024-08",
+        "ranking": 19
+      },
+      {
+        "month": "2024-09",
+        "ranking": 19
+      },
+      {
+        "month": "2024-10",
+        "ranking": 19
+      },
+      {
+        "month": "2024-11",
+        "ranking": 19
+      },
+      {
+        "month": "2024-12",
+        "ranking": 19
+      }
+    ],
+    "record": {
+      "career": {
+        "wins": 180,
+        "losses": 75
+      },
+      "season": {
+        "wins": 36,
+        "losses": 13
+      },
+      "bySurface": {
+        "hard": {
+          "wins": 95,
+          "losses": 38
+        },
+        "clay": {
+          "wins": 52,
+          "losses": 22
+        },
+        "grass": {
+          "wins": 33,
+          "losses": 15
+        }
+      }
+    }
+  },
+  {
+    "id": 20,
+    "name": "Felix Auger-Aliassime",
+    "country": "CAN",
+    "countryFlag": "🇨🇦",
+    "photoUrl": null,
+    "ranking": 20,
+    "birthdate": "2000-08-08",
+    "height": 193,
+    "weight": 89,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2017,
+    "titles": 4,
+    "grandSlams": 0,
+    "careerHigh": 6,
+    "prizeMoney": "$13,456,789",
+    "birthplace": "Montreal, Canada",
+    "coach": "Frederic Fontang",
+    "recentForm": "Former prodigy working to fulfill immense potential.",
+    "rankingHistory": [
+      {
+        "month": "2024-01",
+        "ranking": 12
+      },
+      {
+        "month": "2024-02",
+        "ranking": 13
+      },
+      {
+        "month": "2024-03",
+        "ranking": 15
+      },
+      {
+        "month": "2024-04",
+        "ranking": 16
+      },
+      {
+        "month": "2024-05",
+        "ranking": 17
+      },
+      {
+        "month": "2024-06",
+        "ranking": 18
+      },
+      {
+        "month": "2024-07",
+        "ranking": 19
+      },
+      {
+        "month": "2024-08",
+        "ranking": 19
+      },
+      {
+        "month": "2024-09",
+        "ranking": 20
+      },
+      {
+        "month": "2024-10",
+        "ranking": 20
+      },
+      {
+        "month": "2024-11",
+        "ranking": 20
+      },
+      {
+        "month": "2024-12",
+        "ranking": 20
+      }
+    ],
+    "record": {
+      "career": {
+        "wins": 520,
+        "losses": 170
+      },
+      "season": {
+        "wins": 35,
+        "losses": 12
+      },
+      "bySurface": {
+        "hard": {
+          "wins": 250,
+          "losses": 80
+        },
+        "clay": {
+          "wins": 170,
+          "losses": 55
+        },
+        "grass": {
+          "wins": 100,
+          "losses": 35
+        }
+      }
+    }
+  },
+  {
+    "id": 21,
+    "name": "Jack Draper",
+    "country": "GBR",
+    "countryFlag": "🇬🇧",
+    "photoUrl": null,
+    "ranking": 21,
+    "birthdate": "2002-12-22",
+    "height": 193,
+    "weight": 81,
+    "plays": "Left-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2018,
+    "titles": 2,
+    "grandSlams": 0,
+    "careerHigh": 15,
+    "prizeMoney": "$4,234,567"
+  },
+  {
+    "id": 22,
+    "name": "Frances Tiafoe",
+    "country": "USA",
+    "countryFlag": "🇺🇸",
+    "photoUrl": null,
+    "ranking": 22,
+    "birthdate": "1998-01-20",
+    "height": 188,
+    "weight": 84,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2015,
+    "titles": 2,
+    "grandSlams": 0,
+    "careerHigh": 10,
+    "prizeMoney": "$10,567,890"
+  },
+  {
+    "id": 23,
+    "name": "Lorenzo Musetti",
+    "country": "ITA",
+    "countryFlag": "🇮🇹",
+    "photoUrl": null,
+    "ranking": 23,
+    "birthdate": "2002-03-03",
+    "height": 185,
+    "weight": 76,
+    "plays": "Right-Handed",
+    "backhand": "One-Handed",
+    "turnedPro": 2019,
+    "titles": 2,
+    "grandSlams": 0,
+    "careerHigh": 15,
+    "prizeMoney": "$4,890,123"
+  },
+  {
+    "id": 24,
+    "name": "Alejandro Tabilo",
+    "country": "CHI",
+    "countryFlag": "🇨🇱",
+    "photoUrl": null,
+    "ranking": 24,
+    "birthdate": "1997-06-02",
+    "height": 183,
+    "weight": 80,
+    "plays": "Left-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2017,
+    "titles": 3,
+    "grandSlams": 0,
+    "careerHigh": 19,
+    "prizeMoney": "$3,234,567"
+  },
+  {
+    "id": 25,
+    "name": "Adrian Mannarino",
+    "country": "FRA",
+    "countryFlag": "🇫🇷",
+    "photoUrl": null,
+    "ranking": 25,
+    "birthdate": "1988-06-17",
+    "height": 183,
+    "weight": 80,
+    "plays": "Left-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2005,
+    "titles": 1,
+    "grandSlams": 0,
+    "careerHigh": 22,
+    "prizeMoney": "$10,123,456"
+  },
+  {
+    "id": 26,
+    "name": "Tomas Machac",
+    "country": "CZE",
+    "countryFlag": "🇨🇿",
+    "photoUrl": null,
+    "ranking": 26,
+    "birthdate": "2000-10-01",
+    "height": 188,
+    "weight": 80,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2018,
+    "titles": 2,
+    "grandSlams": 0,
+    "careerHigh": 25,
+    "prizeMoney": "$3,123,456"
+  },
+  {
+    "id": 27,
+    "name": "Flavio Cobolli",
+    "country": "ITA",
+    "countryFlag": "🇮🇹",
+    "photoUrl": null,
+    "ranking": 27,
+    "birthdate": "2002-05-30",
+    "height": 183,
+    "weight": 73,
+    "plays": "Left-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2019,
+    "titles": 1,
+    "grandSlams": 0,
+    "careerHigh": 27,
+    "prizeMoney": "$2,345,678"
+  },
+  {
+    "id": 28,
+    "name": "Francisco Cerundolo",
+    "country": "ARG",
+    "countryFlag": "🇦🇷",
+    "photoUrl": null,
+    "ranking": 28,
+    "birthdate": "1998-11-15",
+    "height": 180,
+    "weight": 74,
+    "plays": "Left-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2017,
+    "titles": 2,
+    "grandSlams": 0,
+    "careerHigh": 22,
+    "prizeMoney": "$3,890,123"
+  },
+  {
+    "id": 29,
+    "name": "Matteo Berrettini",
+    "country": "ITA",
+    "countryFlag": "🇮🇹",
+    "photoUrl": null,
+    "ranking": 29,
+    "birthdate": "1996-04-12",
+    "height": 196,
+    "weight": 95,
+    "plays": "Right-Handed",
+    "backhand": "One-Handed",
+    "turnedPro": 2015,
+    "titles": 10,
+    "grandSlams": 0,
+    "careerHigh": 6,
+    "prizeMoney": "$13,567,890"
+  },
+  {
+    "id": 30,
+    "name": "Tallon Griekspoor",
+    "country": "NED",
+    "countryFlag": "🇳🇱",
+    "photoUrl": null,
+    "ranking": 30,
+    "birthdate": "1996-07-02",
+    "height": 188,
+    "weight": 82,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2015,
+    "titles": 2,
+    "grandSlams": 0,
+    "careerHigh": 21,
+    "prizeMoney": "$4,567,890"
+  },
+  {
+    "id": 31,
+    "name": "Jan-Lennard Struff",
+    "country": "GER",
+    "countryFlag": "🇩🇪",
+    "photoUrl": null,
+    "ranking": 31,
+    "birthdate": "1990-04-25",
+    "height": 196,
+    "weight": 86,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2009,
+    "titles": 1,
+    "grandSlams": 0,
+    "careerHigh": 29,
+    "prizeMoney": "$8,123,456"
+  },
+  {
+    "id": 32,
+    "name": "Arthur Fils",
+    "country": "FRA",
+    "countryFlag": "🇫🇷",
+    "photoUrl": null,
+    "ranking": 32,
+    "birthdate": "2004-03-08",
+    "height": 188,
+    "weight": 80,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2021,
+    "titles": 2,
+    "grandSlams": 0,
+    "careerHigh": 20,
+    "prizeMoney": "$2,890,123"
+  },
+  {
+    "id": 33,
+    "name": "Jiri Lehecka",
+    "country": "CZE",
+    "countryFlag": "🇨🇿",
+    "photoUrl": null,
+    "ranking": 33,
+    "birthdate": "2001-11-08",
+    "height": 186,
+    "weight": 80,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2019,
+    "titles": 1,
+    "grandSlams": 0,
+    "careerHigh": 24,
+    "prizeMoney": "$3,456,789"
+  },
+  {
+    "id": 34,
+    "name": "Jordan Thompson",
+    "country": "AUS",
+    "countryFlag": "🇦🇺",
+    "photoUrl": null,
+    "ranking": 34,
+    "birthdate": "1994-04-20",
+    "height": 183,
+    "weight": 79,
+    "plays": "Right-Handed",
+    "backhand": "One-Handed",
+    "turnedPro": 2013,
+    "titles": 1,
+    "grandSlams": 0,
+    "careerHigh": 25,
+    "prizeMoney": "$5,678,901"
+  },
+  {
+    "id": 35,
+    "name": "Matteo Arnaldi",
+    "country": "ITA",
+    "countryFlag": "🇮🇹",
+    "photoUrl": null,
+    "ranking": 35,
+    "birthdate": "2001-02-22",
+    "height": 191,
+    "weight": 76,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2019,
+    "titles": 0,
+    "grandSlams": 0,
+    "careerHigh": 30,
+    "prizeMoney": "$2,123,456"
+  },
+  {
+    "id": 36,
+    "name": "Giovanni Mpetshi Perricard",
+    "country": "FRA",
+    "countryFlag": "🇫🇷",
+    "photoUrl": null,
+    "ranking": 36,
+    "birthdate": "2003-10-21",
+    "height": 203,
+    "weight": 90,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2022,
+    "titles": 2,
+    "grandSlams": 0,
+    "careerHigh": 30,
+    "prizeMoney": "$1,890,123"
+  },
+  {
+    "id": 37,
+    "name": "Alejandro Davidovich Fokina",
+    "country": "ESP",
+    "countryFlag": "🇪🇸",
+    "photoUrl": null,
+    "ranking": 37,
+    "birthdate": "1999-06-05",
+    "height": 183,
+    "weight": 76,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2017,
+    "titles": 2,
+    "grandSlams": 0,
+    "careerHigh": 21,
+    "prizeMoney": "$5,234,567"
+  },
+  {
+    "id": 38,
+    "name": "Alexander Bublik",
+    "country": "KAZ",
+    "countryFlag": "🇰🇿",
+    "photoUrl": null,
+    "ranking": 38,
+    "birthdate": "1997-06-17",
+    "height": 196,
+    "weight": 82,
+    "plays": "Right-Handed",
+    "backhand": "One-Handed",
+    "turnedPro": 2016,
+    "titles": 4,
+    "grandSlams": 0,
+    "careerHigh": 15,
+    "prizeMoney": "$6,789,012"
+  },
+  {
+    "id": 39,
+    "name": "Roberto Bautista Agut",
+    "country": "ESP",
+    "countryFlag": "🇪🇸",
+    "photoUrl": null,
+    "ranking": 39,
+    "birthdate": "1988-04-14",
+    "height": 183,
+    "weight": 80,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2005,
+    "titles": 11,
+    "grandSlams": 0,
+    "careerHigh": 9,
+    "prizeMoney": "$22,567,890"
+  },
+  {
+    "id": 40,
+    "name": "Luciano Darderi",
+    "country": "ITA",
+    "countryFlag": "🇮🇹",
+    "photoUrl": null,
+    "ranking": 40,
+    "birthdate": "2002-02-14",
+    "height": 180,
+    "weight": 73,
+    "plays": "Left-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2019,
+    "titles": 2,
+    "grandSlams": 0,
+    "careerHigh": 33,
+    "prizeMoney": "$1,678,901"
+  },
+  {
+    "id": 41,
+    "name": "Denis Shapovalov",
+    "country": "CAN",
+    "countryFlag": "🇨🇦",
+    "photoUrl": null,
+    "ranking": 41,
+    "birthdate": "1999-04-15",
+    "height": 183,
+    "weight": 75,
+    "plays": "Left-Handed",
+    "backhand": "One-Handed",
+    "turnedPro": 2017,
+    "titles": 2,
+    "grandSlams": 0,
+    "careerHigh": 10,
+    "prizeMoney": "$12,345,678"
+  },
+  {
+    "id": 42,
+    "name": "Nuno Borges",
+    "country": "POR",
+    "countryFlag": "🇵🇹",
+    "photoUrl": null,
+    "ranking": 42,
+    "birthdate": "1997-03-29",
+    "height": 180,
+    "weight": 76,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2019,
+    "titles": 1,
+    "grandSlams": 0,
+    "careerHigh": 33,
+    "prizeMoney": "$2,567,890"
+  },
+  {
+    "id": 43,
+    "name": "Pablo Carreno Busta",
+    "country": "ESP",
+    "countryFlag": "🇪🇸",
+    "photoUrl": null,
+    "ranking": 43,
+    "birthdate": "1991-07-12",
+    "height": 188,
+    "weight": 78,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2009,
+    "titles": 7,
+    "grandSlams": 0,
+    "careerHigh": 10,
+    "prizeMoney": "$16,789,012"
+  },
+  {
+    "id": 44,
+    "name": "Marcos Giron",
+    "country": "USA",
+    "countryFlag": "🇺🇸",
+    "photoUrl": null,
+    "ranking": 44,
+    "birthdate": "1993-07-24",
+    "height": 185,
+    "weight": 80,
+    "plays": "Left-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2014,
+    "titles": 0,
+    "grandSlams": 0,
+    "careerHigh": 36,
+    "prizeMoney": "$3,456,789"
+  },
+  {
+    "id": 45,
+    "name": "Thanasi Kokkinakis",
+    "country": "AUS",
+    "countryFlag": "🇦🇺",
+    "photoUrl": null,
+    "ranking": 45,
+    "birthdate": "1996-04-10",
+    "height": 193,
+    "weight": 85,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2013,
+    "titles": 1,
+    "grandSlams": 0,
+    "careerHigh": 40,
+    "prizeMoney": "$3,890,123"
+  },
+  {
+    "id": 46,
+    "name": "Daniel Evans",
+    "country": "GBR",
+    "countryFlag": "🇬🇧",
+    "photoUrl": null,
+    "ranking": 46,
+    "birthdate": "1990-05-23",
+    "height": 180,
+    "weight": 75,
+    "plays": "Right-Handed",
+    "backhand": "One-Handed",
+    "turnedPro": 2006,
+    "titles": 2,
+    "grandSlams": 0,
+    "careerHigh": 21,
+    "prizeMoney": "$8,901,234"
+  },
+  {
+    "id": 47,
+    "name": "Zhizhen Zhang",
+    "country": "CHN",
+    "countryFlag": "🇨🇳",
+    "photoUrl": null,
+    "ranking": 47,
+    "birthdate": "1997-02-16",
+    "height": 193,
+    "weight": 83,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2014,
+    "titles": 1,
+    "grandSlams": 0,
+    "careerHigh": 33,
+    "prizeMoney": "$2,345,678"
+  },
+  {
+    "id": 48,
+    "name": "Alexei Popyrin",
+    "country": "AUS",
+    "countryFlag": "🇦🇺",
+    "photoUrl": null,
+    "ranking": 48,
+    "birthdate": "1999-08-05",
+    "height": 196,
+    "weight": 84,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2018,
+    "titles": 2,
+    "grandSlams": 0,
+    "careerHigh": 24,
+    "prizeMoney": "$3,678,901"
+  },
+  {
+    "id": 49,
+    "name": "Christopher Eubanks",
+    "country": "USA",
+    "countryFlag": "🇺🇸",
+    "photoUrl": null,
+    "ranking": 49,
+    "birthdate": "1996-04-18",
+    "height": 201,
+    "weight": 91,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2018,
+    "titles": 1,
+    "grandSlams": 0,
+    "careerHigh": 29,
+    "prizeMoney": "$3,123,456"
+  },
+  {
+    "id": 50,
+    "name": "Miomir Kecmanovic",
+    "country": "SRB",
+    "countryFlag": "🇷🇸",
+    "photoUrl": null,
+    "ranking": 50,
+    "birthdate": "1999-08-31",
+    "height": 191,
+    "weight": 80,
+    "plays": "Right-Handed",
+    "backhand": "Two-Handed",
+    "turnedPro": 2017,
+    "titles": 0,
+    "grandSlams": 0,
+    "careerHigh": 28,
+    "prizeMoney": "$5,234,567"
+  }
 ]

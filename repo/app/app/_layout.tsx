@@ -20,14 +20,16 @@ export default function RootLayout() {
           headerStyle: { backgroundColor: '#1a1a2e' },
           headerTintColor: '#ffffff',
           contentStyle: { backgroundColor: '#0f0f23' },
+          animation: 'slide_from_right',
         }}
       >
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false, animation: 'none' }} />
         <Stack.Screen
           name="player/[id]"
           options={{
             title: 'Player',
             headerBackTitle: 'Back',
+            animation: 'slide_from_right',
           }}
         />
         <Stack.Screen
@@ -35,6 +37,15 @@ export default function RootLayout() {
           options={{
             title: 'Tournament',
             headerBackTitle: 'Back',
+            animation: 'slide_from_right',
+          }}
+        />
+        <Stack.Screen
+          name="match/[id]"
+          options={{
+            title: 'Match',
+            headerBackTitle: 'Back',
+            animation: 'slide_from_right',
           }}
         />
       </Stack>
