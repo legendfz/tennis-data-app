@@ -15,7 +15,7 @@ import Svg, { Polyline, Circle, Line, Text as SvgText } from 'react-native-svg';
 import api from '../../lib/api';
 import { getAvatarUrl } from '../../lib/avatars';
 import { useLanguage } from '../../lib/i18n';
-import type { PlayerDetail, MatchWithPlayers } from '../../../shared/types';
+import type { PlayerDetail, MatchWithPlayers, SetStats } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const AVATAR_SIZE = Math.round(SCREEN_WIDTH * 0.4);
@@ -340,6 +340,54 @@ function BioSection({ player }: { player: PlayerDetail }) {
   );
 }
 
+// ─── Set Statistics Section ──────────────────────────────────────────
+function SetStatsSection({ player }: { player: PlayerDetail }) {
+  const setStats = (player as any).setStats as SetStats | undefined;
+  if (!setStats) return null;
+
+  const rows = [
+    { key: 'straightSets', label: 'Straight Sets 🔥', data: setStats.straightSets, highlight: false },
+    { key: 'threeSets', label: '3 Sets', data: setStats.threeSets, highlight: false },
+    { key: 'fourSets', label: '4 Sets', data: setStats.fourSets, highlight: false },
+    { key: 'fiveSets', label: '5 Sets', data: setStats.fiveSets, highlight: false },
+    { key: 'decidingSet', label: 'Deciding Set ⚡', data: setStats.decidingSet, highlight: true },
+  ];
+
+  return (
+    <View style={styles.infoCard}>
+      <Text style={styles.sectionTitle}>Set Statistics</Text>
+      {rows.map((row) => {
+        const losses = row.data.total - row.data.wins;
+        const barColor = row.highlight ? '#f59e0b' : '#16a34a';
+        const pctColor = row.highlight ? '#f59e0b' : '#16a34a';
+        return (
+          <View key={row.key} style={styles.setStatRow}>
+            <Text style={[styles.setStatLabel, row.highlight && styles.setStatLabelHighlight]}>
+              {row.label}
+            </Text>
+            <View style={styles.setStatBarContainer}>
+              <View style={styles.setStatBarBg}>
+                <View
+                  style={[
+                    styles.setStatBarFill,
+                    { width: `${row.data.winRate}%`, backgroundColor: barColor },
+                  ]}
+                />
+              </View>
+            </View>
+            <Text style={[styles.setStatPct, { color: pctColor }]}>
+              {row.data.winRate.toFixed(1)}%
+            </Text>
+            <Text style={styles.setStatRecord}>
+              ({row.data.wins}-{losses})
+            </Text>
+          </View>
+        );
+      })}
+    </View>
+  );
+}
+
 // ─── Main Screen ─────────────────────────────────────────────────────
 export default function PlayerDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -422,6 +470,9 @@ export default function PlayerDetailScreen() {
 
         {/* Win/Loss Record */}
         <RecordSection player={player} />
+
+        {/* Set Statistics */}
+        <SetStatsSection player={player} />
 
         {/* Player Info */}
         <View style={styles.infoCard}>
@@ -708,6 +759,50 @@ const styles = StyleSheet.create({
     color: '#16a34a',
     fontWeight: '600',
     width: 40,
+    textAlign: 'right',
+  },
+
+  // ── Set Stats styles ──
+  setStatRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: '#2a2a4e',
+  },
+  setStatLabel: {
+    width: 110,
+    fontSize: 13,
+    color: '#ffffff',
+  },
+  setStatLabelHighlight: {
+    color: '#f59e0b',
+    fontWeight: '600',
+  },
+  setStatBarContainer: {
+    flex: 1,
+    marginHorizontal: 8,
+  },
+  setStatBarBg: {
+    height: 8,
+    backgroundColor: '#2a2a4e',
+    borderRadius: 4,
+    overflow: 'hidden',
+  },
+  setStatBarFill: {
+    height: '100%',
+    borderRadius: 4,
+  },
+  setStatPct: {
+    width: 48,
+    fontSize: 13,
+    fontWeight: '700',
+    textAlign: 'right',
+  },
+  setStatRecord: {
+    width: 62,
+    fontSize: 12,
+    color: '#a0a0b0',
     textAlign: 'right',
   },
 

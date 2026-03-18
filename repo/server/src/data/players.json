@@ -419,6 +419,33 @@
         "L"
       ],
       "wins": 4
+    },
+    "setStats": {
+      "straightSets": {
+        "wins": 185,
+        "total": 260,
+        "winRate": 71.2
+      },
+      "threeSets": {
+        "wins": 78,
+        "total": 135,
+        "winRate": 57.8
+      },
+      "fourSets": {
+        "wins": 28,
+        "total": 42,
+        "winRate": 66.7
+      },
+      "fiveSets": {
+        "wins": 12,
+        "total": 20,
+        "winRate": 60.0
+      },
+      "decidingSet": {
+        "wins": 48,
+        "total": 78,
+        "winRate": 61.5
+      }
     }
   },
   {
@@ -429,8 +456,27 @@
     "photoUrl": null,
     "ranking": 2,
     "birthdate": "1987-05-22",
-    "surfaceRecord": {"hard":{"wins":450,"losses":85},"clay":{"wins":350,"losses":65},"grass":{"wins":200,"losses":35}},
-    "formHistory": [1,1,0,1,1],
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.84,
+        "matches": 535
+      },
+      "clay": {
+        "winRate": 0.84,
+        "matches": 415
+      },
+      "grass": {
+        "winRate": 0.85,
+        "matches": 235
+      }
+    },
+    "formHistory": [
+      1,
+      1,
+      0,
+      1,
+      1
+    ],
     "age": 39,
     "height": 188,
     "weight": 77,
@@ -1533,20 +1579,6 @@
       "es": "Novak Djokovic",
       "fr": "Novak Djokovic"
     },
-    "surfaceRecord": {
-      "hard": {
-        "winRate": 0.84,
-        "matches": 535
-      },
-      "clay": {
-        "winRate": 0.84,
-        "matches": 415
-      },
-      "grass": {
-        "winRate": 0.85,
-        "matches": 235
-      }
-    },
     "recentFormRecord": {
       "last5": [
         "W",
@@ -1556,6 +1588,33 @@
         "L"
       ],
       "wins": 3
+    },
+    "setStats": {
+      "straightSets": {
+        "wins": 312,
+        "total": 420,
+        "winRate": 74.3
+      },
+      "threeSets": {
+        "wins": 168,
+        "total": 280,
+        "winRate": 60.0
+      },
+      "fourSets": {
+        "wins": 55,
+        "total": 82,
+        "winRate": 67.1
+      },
+      "fiveSets": {
+        "wins": 28,
+        "total": 40,
+        "winRate": 70.0
+      },
+      "decidingSet": {
+        "wins": 72,
+        "total": 105,
+        "winRate": 68.6
+      }
     }
   },
   {
@@ -1566,8 +1625,27 @@
     "photoUrl": null,
     "ranking": 3,
     "birthdate": "2003-05-05",
-    "surfaceRecord": {"hard":{"wins":230,"losses":60},"clay":{"wins":180,"losses":50},"grass":{"wins":100,"losses":25}},
-    "formHistory": [1,1,1,0,1],
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.79,
+        "matches": 290
+      },
+      "clay": {
+        "winRate": 0.78,
+        "matches": 230
+      },
+      "grass": {
+        "winRate": 0.8,
+        "matches": 125
+      }
+    },
+    "formHistory": [
+      1,
+      1,
+      1,
+      0,
+      1
+    ],
     "age": 23,
     "height": 183,
     "weight": 74,
@@ -1950,20 +2028,6 @@
       "es": "Carlos Alcaraz",
       "fr": "Carlos Alcaraz"
     },
-    "surfaceRecord": {
-      "hard": {
-        "winRate": 0.79,
-        "matches": 290
-      },
-      "clay": {
-        "winRate": 0.78,
-        "matches": 230
-      },
-      "grass": {
-        "winRate": 0.8,
-        "matches": 125
-      }
-    },
     "recentFormRecord": {
       "last5": [
         "W",
@@ -1973,6 +2037,33 @@
         "W"
       ],
       "wins": 4
+    },
+    "setStats": {
+      "straightSets": {
+        "wins": 165,
+        "total": 230,
+        "winRate": 71.7
+      },
+      "threeSets": {
+        "wins": 70,
+        "total": 125,
+        "winRate": 56.0
+      },
+      "fourSets": {
+        "wins": 22,
+        "total": 38,
+        "winRate": 57.9
+      },
+      "fiveSets": {
+        "wins": 10,
+        "total": 18,
+        "winRate": 55.6
+      },
+      "decidingSet": {
+        "wins": 38,
+        "total": 68,
+        "winRate": 55.9
+      }
     }
   },
   {
@@ -1983,8 +2074,27 @@
     "photoUrl": null,
     "ranking": 4,
     "birthdate": "1997-04-20",
-    "surfaceRecord": {"hard":{"wins":200,"losses":65},"clay":{"wins":130,"losses":40},"grass":{"wins":80,"losses":25}},
-    "formHistory": [1,0,1,1,0],
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.75,
+        "matches": 265
+      },
+      "clay": {
+        "winRate": 0.76,
+        "matches": 170
+      },
+      "grass": {
+        "winRate": 0.76,
+        "matches": 105
+      }
+    },
+    "formHistory": [
+      1,
+      0,
+      1,
+      1,
+      0
+    ],
     "age": 29,
     "height": 198,
     "weight": 90,
@@ -2607,20 +2717,6 @@
       "es": "Alexander Zverev",
       "fr": "Alexander Zverev"
     },
-    "surfaceRecord": {
-      "hard": {
-        "winRate": 0.75,
-        "matches": 265
-      },
-      "clay": {
-        "winRate": 0.76,
-        "matches": 170
-      },
-      "grass": {
-        "winRate": 0.76,
-        "matches": 105
-      }
-    },
     "recentFormRecord": {
       "last5": [
         "W",
@@ -2630,6 +2726,33 @@
         "W"
       ],
       "wins": 4
+    },
+    "setStats": {
+      "straightSets": {
+        "wins": 198,
+        "total": 290,
+        "winRate": 68.3
+      },
+      "threeSets": {
+        "wins": 95,
+        "total": 170,
+        "winRate": 55.9
+      },
+      "fourSets": {
+        "wins": 30,
+        "total": 52,
+        "winRate": 57.7
+      },
+      "fiveSets": {
+        "wins": 8,
+        "total": 22,
+        "winRate": 36.4
+      },
+      "decidingSet": {
+        "wins": 35,
+        "total": 72,
+        "winRate": 48.6
+      }
     }
   },
   {
@@ -2640,8 +2763,27 @@
     "photoUrl": null,
     "ranking": 5,
     "birthdate": "1996-02-11",
-    "surfaceRecord": {"hard":{"wins":160,"losses":48},"clay":{"wins":80,"losses":28},"grass":{"wins":55,"losses":19}},
-    "formHistory": [1,1,0,1,0],
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.77,
+        "matches": 208
+      },
+      "clay": {
+        "winRate": 0.74,
+        "matches": 108
+      },
+      "grass": {
+        "winRate": 0.74,
+        "matches": 74
+      }
+    },
+    "formHistory": [
+      1,
+      1,
+      0,
+      1,
+      0
+    ],
     "age": 30,
     "height": 198,
     "weight": 83,
@@ -3216,20 +3358,6 @@
       "es": "Daniil Medvedev",
       "fr": "Daniil Medvedev"
     },
-    "surfaceRecord": {
-      "hard": {
-        "winRate": 0.77,
-        "matches": 208
-      },
-      "clay": {
-        "winRate": 0.74,
-        "matches": 108
-      },
-      "grass": {
-        "winRate": 0.74,
-        "matches": 74
-      }
-    },
     "recentFormRecord": {
       "last5": [
         "W",
@@ -3239,6 +3367,33 @@
         "W"
       ],
       "wins": 3
+    },
+    "setStats": {
+      "straightSets": {
+        "wins": 195,
+        "total": 285,
+        "winRate": 68.4
+      },
+      "threeSets": {
+        "wins": 92,
+        "total": 165,
+        "winRate": 55.8
+      },
+      "fourSets": {
+        "wins": 32,
+        "total": 50,
+        "winRate": 64.0
+      },
+      "fiveSets": {
+        "wins": 14,
+        "total": 25,
+        "winRate": 56.0
+      },
+      "decidingSet": {
+        "wins": 45,
+        "total": 80,
+        "winRate": 56.3
+      }
     }
   },
   {
@@ -3249,8 +3404,27 @@
     "photoUrl": null,
     "ranking": 6,
     "birthdate": "1997-10-20",
-    "surfaceRecord": {"hard":{"wins":130,"losses":40},"clay":{"wins":70,"losses":28},"grass":{"wins":45,"losses":17}},
-    "formHistory": [0,1,1,0,1],
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.76,
+        "matches": 170
+      },
+      "clay": {
+        "winRate": 0.71,
+        "matches": 98
+      },
+      "grass": {
+        "winRate": 0.73,
+        "matches": 62
+      }
+    },
+    "formHistory": [
+      0,
+      1,
+      1,
+      0,
+      1
+    ],
     "age": 29,
     "height": 188,
     "weight": 75,
@@ -3825,20 +3999,6 @@
       "es": "Andrey Rublev",
       "fr": "Andrey Rublev"
     },
-    "surfaceRecord": {
-      "hard": {
-        "winRate": 0.76,
-        "matches": 170
-      },
-      "clay": {
-        "winRate": 0.71,
-        "matches": 98
-      },
-      "grass": {
-        "winRate": 0.73,
-        "matches": 62
-      }
-    },
     "recentFormRecord": {
       "last5": [
         "L",
@@ -3848,6 +4008,33 @@
         "W"
       ],
       "wins": 3
+    },
+    "setStats": {
+      "straightSets": {
+        "wins": 175,
+        "total": 260,
+        "winRate": 67.3
+      },
+      "threeSets": {
+        "wins": 82,
+        "total": 155,
+        "winRate": 52.9
+      },
+      "fourSets": {
+        "wins": 25,
+        "total": 45,
+        "winRate": 55.6
+      },
+      "fiveSets": {
+        "wins": 10,
+        "total": 20,
+        "winRate": 50.0
+      },
+      "decidingSet": {
+        "wins": 38,
+        "total": 72,
+        "winRate": 52.8
+      }
     }
   },
   {
@@ -3858,6 +4045,28 @@
     "photoUrl": null,
     "ranking": 7,
     "birthdate": "1997-02-11",
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.74,
+        "matches": 215
+      },
+      "clay": {
+        "winRate": 0.75,
+        "matches": 127
+      },
+      "grass": {
+        "winRate": 0.71,
+        "matches": 78
+      }
+    },
+    "formHistory": [
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "age": 29,
     "height": 196,
     "weight": 83,
     "plays": "Right-Handed",
@@ -4383,20 +4592,6 @@
       "es": "Hubert Hurkacz",
       "fr": "Hubert Hurkacz"
     },
-    "surfaceRecord": {
-      "hard": {
-        "winRate": 0.74,
-        "matches": 215
-      },
-      "clay": {
-        "winRate": 0.75,
-        "matches": 127
-      },
-      "grass": {
-        "winRate": 0.71,
-        "matches": 78
-      }
-    },
     "recentFormRecord": {
       "last5": [
         "W",
@@ -4406,6 +4601,33 @@
         "L"
       ],
       "wins": 3
+    },
+    "setStats": {
+      "straightSets": {
+        "wins": 155,
+        "total": 235,
+        "winRate": 66.0
+      },
+      "threeSets": {
+        "wins": 72,
+        "total": 140,
+        "winRate": 51.4
+      },
+      "fourSets": {
+        "wins": 22,
+        "total": 40,
+        "winRate": 55.0
+      },
+      "fiveSets": {
+        "wins": 9,
+        "total": 18,
+        "winRate": 50.0
+      },
+      "decidingSet": {
+        "wins": 35,
+        "total": 68,
+        "winRate": 51.5
+      }
     }
   },
   {
@@ -4416,6 +4638,28 @@
     "photoUrl": null,
     "ranking": 8,
     "birthdate": "1998-12-22",
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.74,
+        "matches": 190
+      },
+      "clay": {
+        "winRate": 0.74,
+        "matches": 115
+      },
+      "grass": {
+        "winRate": 0.69,
+        "matches": 65
+      }
+    },
+    "formHistory": [
+      0,
+      1,
+      0,
+      1,
+      1
+    ],
+    "age": 28,
     "height": 183,
     "weight": 77,
     "plays": "Right-Handed",
@@ -4845,20 +5089,6 @@
       "es": "Casper Ruud",
       "fr": "Casper Ruud"
     },
-    "surfaceRecord": {
-      "hard": {
-        "winRate": 0.74,
-        "matches": 190
-      },
-      "clay": {
-        "winRate": 0.74,
-        "matches": 115
-      },
-      "grass": {
-        "winRate": 0.69,
-        "matches": 65
-      }
-    },
     "recentFormRecord": {
       "last5": [
         "L",
@@ -4868,6 +5098,33 @@
         "L"
       ],
       "wins": 3
+    },
+    "setStats": {
+      "straightSets": {
+        "wins": 160,
+        "total": 245,
+        "winRate": 65.3
+      },
+      "threeSets": {
+        "wins": 78,
+        "total": 148,
+        "winRate": 52.7
+      },
+      "fourSets": {
+        "wins": 24,
+        "total": 42,
+        "winRate": 57.1
+      },
+      "fiveSets": {
+        "wins": 11,
+        "total": 22,
+        "winRate": 50.0
+      },
+      "decidingSet": {
+        "wins": 40,
+        "total": 75,
+        "winRate": 53.3
+      }
     }
   },
   {
@@ -4878,6 +5135,28 @@
     "photoUrl": null,
     "ranking": 9,
     "birthdate": "1999-02-17",
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.74,
+        "matches": 255
+      },
+      "clay": {
+        "winRate": 0.74,
+        "matches": 162
+      },
+      "grass": {
+        "winRate": 0.71,
+        "matches": 98
+      }
+    },
+    "formHistory": [
+      1,
+      0,
+      0,
+      1,
+      1
+    ],
+    "age": 27,
     "height": 183,
     "weight": 76,
     "plays": "Right-Handed",
@@ -5307,20 +5586,6 @@
       "es": "Alex de Minaur",
       "fr": "Alex de Minaur"
     },
-    "surfaceRecord": {
-      "hard": {
-        "winRate": 0.74,
-        "matches": 255
-      },
-      "clay": {
-        "winRate": 0.74,
-        "matches": 162
-      },
-      "grass": {
-        "winRate": 0.71,
-        "matches": 98
-      }
-    },
     "recentFormRecord": {
       "last5": [
         "W",
@@ -5330,6 +5595,33 @@
         "L"
       ],
       "wins": 3
+    },
+    "setStats": {
+      "straightSets": {
+        "wins": 148,
+        "total": 230,
+        "winRate": 64.3
+      },
+      "threeSets": {
+        "wins": 75,
+        "total": 145,
+        "winRate": 51.7
+      },
+      "fourSets": {
+        "wins": 20,
+        "total": 38,
+        "winRate": 52.6
+      },
+      "fiveSets": {
+        "wins": 10,
+        "total": 19,
+        "winRate": 52.6
+      },
+      "decidingSet": {
+        "wins": 42,
+        "total": 72,
+        "winRate": 58.3
+      }
     }
   },
   {
@@ -5340,6 +5632,28 @@
     "photoUrl": null,
     "ranking": 10,
     "birthdate": "1991-05-16",
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.75,
+        "matches": 160
+      },
+      "clay": {
+        "winRate": 0.71,
+        "matches": 85
+      },
+      "grass": {
+        "winRate": 0.73,
+        "matches": 55
+      }
+    },
+    "formHistory": [
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "age": 35,
     "height": 191,
     "weight": 80,
     "plays": "Right-Handed",
@@ -6201,20 +6515,6 @@
       "es": "Grigor Dimitrov",
       "fr": "Grigor Dimitrov"
     },
-    "surfaceRecord": {
-      "hard": {
-        "winRate": 0.75,
-        "matches": 160
-      },
-      "clay": {
-        "winRate": 0.71,
-        "matches": 85
-      },
-      "grass": {
-        "winRate": 0.73,
-        "matches": 55
-      }
-    },
     "recentFormRecord": {
       "last5": [
         "W",
@@ -6224,6 +6524,33 @@
         "W"
       ],
       "wins": 3
+    },
+    "setStats": {
+      "straightSets": {
+        "wins": 168,
+        "total": 265,
+        "winRate": 63.4
+      },
+      "threeSets": {
+        "wins": 85,
+        "total": 168,
+        "winRate": 50.6
+      },
+      "fourSets": {
+        "wins": 26,
+        "total": 48,
+        "winRate": 54.2
+      },
+      "fiveSets": {
+        "wins": 12,
+        "total": 24,
+        "winRate": 50.0
+      },
+      "decidingSet": {
+        "wins": 42,
+        "total": 82,
+        "winRate": 51.2
+      }
     }
   },
   {
@@ -6234,6 +6561,28 @@
     "photoUrl": null,
     "ranking": 11,
     "birthdate": "1998-08-12",
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.71,
+        "matches": 155
+      },
+      "clay": {
+        "winRate": 0.66,
+        "matches": 83
+      },
+      "grass": {
+        "winRate": 0.67,
+        "matches": 52
+      }
+    },
+    "formHistory": [
+      1,
+      0,
+      0,
+      1,
+      0
+    ],
+    "age": 28,
     "height": 193,
     "weight": 89,
     "plays": "Right-Handed",
@@ -6663,20 +7012,6 @@
       "es": "Stefanos Tsitsipas",
       "fr": "Stefanos Tsitsipas"
     },
-    "surfaceRecord": {
-      "hard": {
-        "winRate": 0.71,
-        "matches": 155
-      },
-      "clay": {
-        "winRate": 0.66,
-        "matches": 83
-      },
-      "grass": {
-        "winRate": 0.67,
-        "matches": 52
-      }
-    },
     "recentFormRecord": {
       "last5": [
         "L",
@@ -6686,6 +7021,33 @@
         "W"
       ],
       "wins": 3
+    },
+    "setStats": {
+      "straightSets": {
+        "wins": 172,
+        "total": 262,
+        "winRate": 65.6
+      },
+      "threeSets": {
+        "wins": 88,
+        "total": 165,
+        "winRate": 53.3
+      },
+      "fourSets": {
+        "wins": 28,
+        "total": 48,
+        "winRate": 58.3
+      },
+      "fiveSets": {
+        "wins": 13,
+        "total": 25,
+        "winRate": 52.0
+      },
+      "decidingSet": {
+        "wins": 44,
+        "total": 80,
+        "winRate": 55.0
+      }
     }
   },
   {
@@ -6696,6 +7058,28 @@
     "photoUrl": null,
     "ranking": 12,
     "birthdate": "1997-10-28",
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.7,
+        "matches": 142
+      },
+      "clay": {
+        "winRate": 0.69,
+        "matches": 80
+      },
+      "grass": {
+        "winRate": 0.66,
+        "matches": 53
+      }
+    },
+    "formHistory": [
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
+    "age": 29,
     "height": 193,
     "weight": 86,
     "plays": "Right-Handed",
@@ -7221,20 +7605,6 @@
       "es": "Taylor Fritz",
       "fr": "Taylor Fritz"
     },
-    "surfaceRecord": {
-      "hard": {
-        "winRate": 0.7,
-        "matches": 142
-      },
-      "clay": {
-        "winRate": 0.69,
-        "matches": 80
-      },
-      "grass": {
-        "winRate": 0.66,
-        "matches": 53
-      }
-    },
     "recentFormRecord": {
       "last5": [
         "W",
@@ -7244,6 +7614,33 @@
         "W"
       ],
       "wins": 3
+    },
+    "setStats": {
+      "straightSets": {
+        "wins": 158,
+        "total": 248,
+        "winRate": 63.7
+      },
+      "threeSets": {
+        "wins": 76,
+        "total": 150,
+        "winRate": 50.7
+      },
+      "fourSets": {
+        "wins": 23,
+        "total": 42,
+        "winRate": 54.8
+      },
+      "fiveSets": {
+        "wins": 11,
+        "total": 22,
+        "winRate": 50.0
+      },
+      "decidingSet": {
+        "wins": 38,
+        "total": 75,
+        "winRate": 50.7
+      }
     }
   },
   {
@@ -7254,6 +7651,28 @@
     "photoUrl": null,
     "ranking": 13,
     "birthdate": "1997-05-17",
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.74,
+        "matches": 235
+      },
+      "clay": {
+        "winRate": 0.74,
+        "matches": 148
+      },
+      "grass": {
+        "winRate": 0.71,
+        "matches": 92
+      }
+    },
+    "formHistory": [
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    "age": 29,
     "height": 185,
     "weight": 82,
     "plays": "Right-Handed",
@@ -7779,20 +8198,6 @@
       "es": "Tommy Paul",
       "fr": "Tommy Paul"
     },
-    "surfaceRecord": {
-      "hard": {
-        "winRate": 0.74,
-        "matches": 235
-      },
-      "clay": {
-        "winRate": 0.74,
-        "matches": 148
-      },
-      "grass": {
-        "winRate": 0.71,
-        "matches": 92
-      }
-    },
     "recentFormRecord": {
       "last5": [
         "W",
@@ -7802,6 +8207,33 @@
         "L"
       ],
       "wins": 3
+    },
+    "setStats": {
+      "straightSets": {
+        "wins": 140,
+        "total": 225,
+        "winRate": 62.2
+      },
+      "threeSets": {
+        "wins": 68,
+        "total": 138,
+        "winRate": 49.3
+      },
+      "fourSets": {
+        "wins": 20,
+        "total": 38,
+        "winRate": 52.6
+      },
+      "fiveSets": {
+        "wins": 8,
+        "total": 17,
+        "winRate": 47.1
+      },
+      "decidingSet": {
+        "wins": 35,
+        "total": 70,
+        "winRate": 50.0
+      }
     }
   },
   {
@@ -7812,6 +8244,28 @@
     "photoUrl": null,
     "ranking": 14,
     "birthdate": "2002-10-09",
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.75,
+        "matches": 280
+      },
+      "clay": {
+        "winRate": 0.74,
+        "matches": 175
+      },
+      "grass": {
+        "winRate": 0.73,
+        "matches": 110
+      }
+    },
+    "formHistory": [
+      1,
+      1,
+      0,
+      0,
+      1
+    ],
+    "age": 24,
     "height": 193,
     "weight": 84,
     "plays": "Left-Handed",
@@ -8001,20 +8455,6 @@
       "es": "Ben Shelton",
       "fr": "Ben Shelton"
     },
-    "surfaceRecord": {
-      "hard": {
-        "winRate": 0.75,
-        "matches": 280
-      },
-      "clay": {
-        "winRate": 0.74,
-        "matches": 175
-      },
-      "grass": {
-        "winRate": 0.73,
-        "matches": 110
-      }
-    },
     "recentFormRecord": {
       "last5": [
         "W",
@@ -8024,6 +8464,33 @@
         "L"
       ],
       "wins": 3
+    },
+    "setStats": {
+      "straightSets": {
+        "wins": 118,
+        "total": 195,
+        "winRate": 60.5
+      },
+      "threeSets": {
+        "wins": 55,
+        "total": 112,
+        "winRate": 49.1
+      },
+      "fourSets": {
+        "wins": 18,
+        "total": 35,
+        "winRate": 51.4
+      },
+      "fiveSets": {
+        "wins": 8,
+        "total": 16,
+        "winRate": 50.0
+      },
+      "decidingSet": {
+        "wins": 30,
+        "total": 60,
+        "winRate": 50.0
+      }
     }
   },
   {
@@ -8034,6 +8501,28 @@
     "photoUrl": null,
     "ranking": 15,
     "birthdate": "2003-04-29",
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.75,
+        "matches": 200
+      },
+      "clay": {
+        "winRate": 0.71,
+        "matches": 120
+      },
+      "grass": {
+        "winRate": 0.71,
+        "matches": 70
+      }
+    },
+    "formHistory": [
+      0,
+      0,
+      1,
+      1,
+      0
+    ],
+    "age": 23,
     "height": 188,
     "weight": 78,
     "plays": "Right-Handed",
@@ -8367,20 +8856,6 @@
       "es": "Holger Rune",
       "fr": "Holger Rune"
     },
-    "surfaceRecord": {
-      "hard": {
-        "winRate": 0.75,
-        "matches": 200
-      },
-      "clay": {
-        "winRate": 0.71,
-        "matches": 120
-      },
-      "grass": {
-        "winRate": 0.71,
-        "matches": 70
-      }
-    },
     "recentFormRecord": {
       "last5": [
         "L",
@@ -8390,6 +8865,33 @@
         "W"
       ],
       "wins": 3
+    },
+    "setStats": {
+      "straightSets": {
+        "wins": 125,
+        "total": 205,
+        "winRate": 61.0
+      },
+      "threeSets": {
+        "wins": 58,
+        "total": 120,
+        "winRate": 48.3
+      },
+      "fourSets": {
+        "wins": 18,
+        "total": 35,
+        "winRate": 51.4
+      },
+      "fiveSets": {
+        "wins": 7,
+        "total": 16,
+        "winRate": 43.8
+      },
+      "decidingSet": {
+        "wins": 28,
+        "total": 62,
+        "winRate": 45.2
+      }
     }
   },
   {
@@ -8400,6 +8902,28 @@
     "photoUrl": null,
     "ranking": 16,
     "birthdate": "1998-06-26",
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.74,
+        "matches": 170
+      },
+      "clay": {
+        "winRate": 0.7,
+        "matches": 93
+      },
+      "grass": {
+        "winRate": 0.7,
+        "matches": 57
+      }
+    },
+    "formHistory": [
+      1,
+      0,
+      0,
+      1,
+      0
+    ],
+    "age": 28,
     "height": 188,
     "weight": 73,
     "plays": "Left-Handed",
@@ -8829,20 +9353,6 @@
       "es": "Ugo Humbert",
       "fr": "Ugo Humbert"
     },
-    "surfaceRecord": {
-      "hard": {
-        "winRate": 0.74,
-        "matches": 170
-      },
-      "clay": {
-        "winRate": 0.7,
-        "matches": 93
-      },
-      "grass": {
-        "winRate": 0.7,
-        "matches": 57
-      }
-    },
     "recentFormRecord": {
       "last5": [
         "W",
@@ -8852,6 +9362,33 @@
         "L"
       ],
       "wins": 3
+    },
+    "setStats": {
+      "straightSets": {
+        "wins": 130,
+        "total": 210,
+        "winRate": 61.9
+      },
+      "threeSets": {
+        "wins": 62,
+        "total": 128,
+        "winRate": 48.4
+      },
+      "fourSets": {
+        "wins": 17,
+        "total": 33,
+        "winRate": 51.5
+      },
+      "fiveSets": {
+        "wins": 7,
+        "total": 15,
+        "winRate": 46.7
+      },
+      "decidingSet": {
+        "wins": 30,
+        "total": 62,
+        "winRate": 48.4
+      }
     }
   },
   {
@@ -8862,6 +9399,28 @@
     "photoUrl": null,
     "ranking": 17,
     "birthdate": "2000-07-05",
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.73,
+        "matches": 157
+      },
+      "clay": {
+        "winRate": 0.67,
+        "matches": 86
+      },
+      "grass": {
+        "winRate": 0.67,
+        "matches": 55
+      }
+    },
+    "formHistory": [
+      0,
+      1,
+      0,
+      0,
+      1
+    ],
+    "age": 26,
     "height": 196,
     "weight": 84,
     "plays": "Right-Handed",
@@ -9243,20 +9802,6 @@
       "es": "Sebastian Korda",
       "fr": "Sebastian Korda"
     },
-    "surfaceRecord": {
-      "hard": {
-        "winRate": 0.73,
-        "matches": 157
-      },
-      "clay": {
-        "winRate": 0.67,
-        "matches": 86
-      },
-      "grass": {
-        "winRate": 0.67,
-        "matches": 55
-      }
-    },
     "recentFormRecord": {
       "last5": [
         "L",
@@ -9266,6 +9811,33 @@
         "W"
       ],
       "wins": 3
+    },
+    "setStats": {
+      "straightSets": {
+        "wins": 122,
+        "total": 200,
+        "winRate": 61.0
+      },
+      "threeSets": {
+        "wins": 58,
+        "total": 118,
+        "winRate": 49.2
+      },
+      "fourSets": {
+        "wins": 16,
+        "total": 32,
+        "winRate": 50.0
+      },
+      "fiveSets": {
+        "wins": 7,
+        "total": 15,
+        "winRate": 46.7
+      },
+      "decidingSet": {
+        "wins": 28,
+        "total": 58,
+        "winRate": 48.3
+      }
     }
   },
   {
@@ -9276,6 +9848,28 @@
     "photoUrl": null,
     "ranking": 18,
     "birthdate": "1995-10-11",
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.74,
+        "matches": 183
+      },
+      "clay": {
+        "winRate": 0.73,
+        "matches": 110
+      },
+      "grass": {
+        "winRate": 0.69,
+        "matches": 65
+      }
+    },
+    "formHistory": [
+      0,
+      0,
+      1,
+      1,
+      0
+    ],
+    "age": 31,
     "height": 198,
     "weight": 88,
     "plays": "Right-Handed",
@@ -9849,20 +10443,6 @@
       "es": "Nicolas Jarry",
       "fr": "Nicolas Jarry"
     },
-    "surfaceRecord": {
-      "hard": {
-        "winRate": 0.74,
-        "matches": 183
-      },
-      "clay": {
-        "winRate": 0.73,
-        "matches": 110
-      },
-      "grass": {
-        "winRate": 0.69,
-        "matches": 65
-      }
-    },
     "recentFormRecord": {
       "last5": [
         "W",
@@ -9872,6 +10452,33 @@
         "L"
       ],
       "wins": 3
+    },
+    "setStats": {
+      "straightSets": {
+        "wins": 128,
+        "total": 215,
+        "winRate": 59.5
+      },
+      "threeSets": {
+        "wins": 60,
+        "total": 125,
+        "winRate": 48.0
+      },
+      "fourSets": {
+        "wins": 15,
+        "total": 30,
+        "winRate": 50.0
+      },
+      "fiveSets": {
+        "wins": 6,
+        "total": 14,
+        "winRate": 42.9
+      },
+      "decidingSet": {
+        "wins": 27,
+        "total": 58,
+        "winRate": 46.6
+      }
     }
   },
   {
@@ -9882,6 +10489,28 @@
     "photoUrl": null,
     "ranking": 19,
     "birthdate": "1996-05-21",
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.71,
+        "matches": 133
+      },
+      "clay": {
+        "winRate": 0.7,
+        "matches": 74
+      },
+      "grass": {
+        "winRate": 0.69,
+        "matches": 48
+      }
+    },
+    "formHistory": [
+      1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "age": 30,
     "height": 198,
     "weight": 88,
     "plays": "Right-Handed",
@@ -10503,20 +11132,6 @@
       "es": "Karen Khachanov",
       "fr": "Karen Khachanov"
     },
-    "surfaceRecord": {
-      "hard": {
-        "winRate": 0.71,
-        "matches": 133
-      },
-      "clay": {
-        "winRate": 0.7,
-        "matches": 74
-      },
-      "grass": {
-        "winRate": 0.69,
-        "matches": 48
-      }
-    },
     "recentFormRecord": {
       "last5": [
         "L",
@@ -10526,6 +11141,33 @@
         "W"
       ],
       "wins": 3
+    },
+    "setStats": {
+      "straightSets": {
+        "wins": 152,
+        "total": 248,
+        "winRate": 61.3
+      },
+      "threeSets": {
+        "wins": 72,
+        "total": 148,
+        "winRate": 48.6
+      },
+      "fourSets": {
+        "wins": 22,
+        "total": 42,
+        "winRate": 52.4
+      },
+      "fiveSets": {
+        "wins": 10,
+        "total": 22,
+        "winRate": 45.5
+      },
+      "decidingSet": {
+        "wins": 38,
+        "total": 78,
+        "winRate": 48.7
+      }
     }
   },
   {
@@ -10536,6 +11178,28 @@
     "photoUrl": null,
     "ranking": 20,
     "birthdate": "2000-08-08",
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.76,
+        "matches": 330
+      },
+      "clay": {
+        "winRate": 0.76,
+        "matches": 225
+      },
+      "grass": {
+        "winRate": 0.74,
+        "matches": 135
+      }
+    },
+    "formHistory": [
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
+    "age": 26,
     "height": 193,
     "weight": 89,
     "plays": "Right-Handed",
@@ -10965,20 +11629,6 @@
       "es": "Felix Auger-Aliassime",
       "fr": "Felix Auger-Aliassime"
     },
-    "surfaceRecord": {
-      "hard": {
-        "winRate": 0.76,
-        "matches": 330
-      },
-      "clay": {
-        "winRate": 0.76,
-        "matches": 225
-      },
-      "grass": {
-        "winRate": 0.74,
-        "matches": 135
-      }
-    },
     "recentFormRecord": {
       "last5": [
         "W",
@@ -10988,6 +11638,33 @@
         "W"
       ],
       "wins": 3
+    },
+    "setStats": {
+      "straightSets": {
+        "wins": 142,
+        "total": 232,
+        "winRate": 61.2
+      },
+      "threeSets": {
+        "wins": 65,
+        "total": 138,
+        "winRate": 47.1
+      },
+      "fourSets": {
+        "wins": 19,
+        "total": 38,
+        "winRate": 50.0
+      },
+      "fiveSets": {
+        "wins": 8,
+        "total": 18,
+        "winRate": 44.4
+      },
+      "decidingSet": {
+        "wins": 32,
+        "total": 68,
+        "winRate": 47.1
+      }
     }
   },
   {

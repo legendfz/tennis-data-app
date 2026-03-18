@@ -1,3 +1,17 @@
+export interface SetStatEntry {
+  wins: number;
+  total: number;
+  winRate: number;
+}
+
+export interface SetStats {
+  straightSets: SetStatEntry;
+  threeSets: SetStatEntry;
+  fourSets: SetStatEntry;
+  fiveSets: SetStatEntry;
+  decidingSet: SetStatEntry;
+}
+
 export interface Player {
   id: number;
   name: string;
@@ -35,6 +49,7 @@ export interface Player {
     grass?: { winRate: number; matches: number };
     indoor?: { winRate: number; matches: number };
   };
+  setStats?: SetStats;
   recentFormRecord?: {
     last5: ('W' | 'L')[];
     wins: number;
