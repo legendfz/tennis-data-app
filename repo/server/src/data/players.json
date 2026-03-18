@@ -7,6 +7,28 @@
     "photoUrl": null,
     "ranking": 1,
     "birthdate": "2001-08-16",
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.77,
+        "matches": 235
+      },
+      "clay": {
+        "winRate": 0.75,
+        "matches": 120
+      },
+      "grass": {
+        "winRate": 0.79,
+        "matches": 63
+      }
+    },
+    "formHistory": [
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "age": 25,
     "height": 188,
     "weight": 76,
     "plays": "Right-Handed",
@@ -387,6 +409,16 @@
       "ko": "야닉 시너",
       "es": "Jannik Sinner",
       "fr": "Jannik Sinner"
+    },
+    "recentFormRecord": {
+      "last5": [
+        "W",
+        "W",
+        "W",
+        "W",
+        "L"
+      ],
+      "wins": 4
     }
   },
   {
@@ -397,6 +429,9 @@
     "photoUrl": null,
     "ranking": 2,
     "birthdate": "1987-05-22",
+    "surfaceRecord": {"hard":{"wins":450,"losses":85},"clay":{"wins":350,"losses":65},"grass":{"wins":200,"losses":35}},
+    "formHistory": [1,1,0,1,1],
+    "age": 39,
     "height": 188,
     "weight": 77,
     "plays": "Right-Handed",
@@ -1497,6 +1532,30 @@
       "ko": "노박 조코비치",
       "es": "Novak Djokovic",
       "fr": "Novak Djokovic"
+    },
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.84,
+        "matches": 535
+      },
+      "clay": {
+        "winRate": 0.84,
+        "matches": 415
+      },
+      "grass": {
+        "winRate": 0.85,
+        "matches": 235
+      }
+    },
+    "recentFormRecord": {
+      "last5": [
+        "W",
+        "L",
+        "W",
+        "W",
+        "L"
+      ],
+      "wins": 3
     }
   },
   {
@@ -1507,6 +1566,9 @@
     "photoUrl": null,
     "ranking": 3,
     "birthdate": "2003-05-05",
+    "surfaceRecord": {"hard":{"wins":230,"losses":60},"clay":{"wins":180,"losses":50},"grass":{"wins":100,"losses":25}},
+    "formHistory": [1,1,1,0,1],
+    "age": 23,
     "height": 183,
     "weight": 74,
     "plays": "Right-Handed",
@@ -1887,6 +1949,30 @@
       "ko": "카를로스 알카라스",
       "es": "Carlos Alcaraz",
       "fr": "Carlos Alcaraz"
+    },
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.79,
+        "matches": 290
+      },
+      "clay": {
+        "winRate": 0.78,
+        "matches": 230
+      },
+      "grass": {
+        "winRate": 0.8,
+        "matches": 125
+      }
+    },
+    "recentFormRecord": {
+      "last5": [
+        "W",
+        "W",
+        "L",
+        "W",
+        "W"
+      ],
+      "wins": 4
     }
   },
   {
@@ -1897,6 +1983,9 @@
     "photoUrl": null,
     "ranking": 4,
     "birthdate": "1997-04-20",
+    "surfaceRecord": {"hard":{"wins":200,"losses":65},"clay":{"wins":130,"losses":40},"grass":{"wins":80,"losses":25}},
+    "formHistory": [1,0,1,1,0],
+    "age": 29,
     "height": 198,
     "weight": 90,
     "plays": "Right-Handed",
@@ -2517,6 +2606,30 @@
       "ko": "알렉산더 즈베레프",
       "es": "Alexander Zverev",
       "fr": "Alexander Zverev"
+    },
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.75,
+        "matches": 265
+      },
+      "clay": {
+        "winRate": 0.76,
+        "matches": 170
+      },
+      "grass": {
+        "winRate": 0.76,
+        "matches": 105
+      }
+    },
+    "recentFormRecord": {
+      "last5": [
+        "W",
+        "W",
+        "W",
+        "L",
+        "W"
+      ],
+      "wins": 4
     }
   },
   {
@@ -2527,6 +2640,9 @@
     "photoUrl": null,
     "ranking": 5,
     "birthdate": "1996-02-11",
+    "surfaceRecord": {"hard":{"wins":160,"losses":48},"clay":{"wins":80,"losses":28},"grass":{"wins":55,"losses":19}},
+    "formHistory": [1,1,0,1,0],
+    "age": 30,
     "height": 198,
     "weight": 83,
     "plays": "Right-Handed",
@@ -3099,6 +3215,30 @@
       "ko": "다닐 메드베데프",
       "es": "Daniil Medvedev",
       "fr": "Daniil Medvedev"
+    },
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.77,
+        "matches": 208
+      },
+      "clay": {
+        "winRate": 0.74,
+        "matches": 108
+      },
+      "grass": {
+        "winRate": 0.74,
+        "matches": 74
+      }
+    },
+    "recentFormRecord": {
+      "last5": [
+        "W",
+        "L",
+        "W",
+        "L",
+        "W"
+      ],
+      "wins": 3
     }
   },
   {
@@ -3109,6 +3249,9 @@
     "photoUrl": null,
     "ranking": 6,
     "birthdate": "1997-10-20",
+    "surfaceRecord": {"hard":{"wins":130,"losses":40},"clay":{"wins":70,"losses":28},"grass":{"wins":45,"losses":17}},
+    "formHistory": [0,1,1,0,1],
+    "age": 29,
     "height": 188,
     "weight": 75,
     "plays": "Right-Handed",
@@ -3681,6 +3824,30 @@
       "ko": "안드레이 루블레프",
       "es": "Andrey Rublev",
       "fr": "Andrey Rublev"
+    },
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.76,
+        "matches": 170
+      },
+      "clay": {
+        "winRate": 0.71,
+        "matches": 98
+      },
+      "grass": {
+        "winRate": 0.73,
+        "matches": 62
+      }
+    },
+    "recentFormRecord": {
+      "last5": [
+        "L",
+        "W",
+        "W",
+        "L",
+        "W"
+      ],
+      "wins": 3
     }
   },
   {
@@ -4215,6 +4382,30 @@
       "ko": "후베르트 후르카치",
       "es": "Hubert Hurkacz",
       "fr": "Hubert Hurkacz"
+    },
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.74,
+        "matches": 215
+      },
+      "clay": {
+        "winRate": 0.75,
+        "matches": 127
+      },
+      "grass": {
+        "winRate": 0.71,
+        "matches": 78
+      }
+    },
+    "recentFormRecord": {
+      "last5": [
+        "W",
+        "W",
+        "L",
+        "W",
+        "L"
+      ],
+      "wins": 3
     }
   },
   {
@@ -4653,6 +4844,30 @@
       "ko": "카스페르 루드",
       "es": "Casper Ruud",
       "fr": "Casper Ruud"
+    },
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.74,
+        "matches": 190
+      },
+      "clay": {
+        "winRate": 0.74,
+        "matches": 115
+      },
+      "grass": {
+        "winRate": 0.69,
+        "matches": 65
+      }
+    },
+    "recentFormRecord": {
+      "last5": [
+        "L",
+        "W",
+        "W",
+        "W",
+        "L"
+      ],
+      "wins": 3
     }
   },
   {
@@ -5091,6 +5306,30 @@
       "ko": "알렉스 드미나우르",
       "es": "Alex de Minaur",
       "fr": "Alex de Minaur"
+    },
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.74,
+        "matches": 255
+      },
+      "clay": {
+        "winRate": 0.74,
+        "matches": 162
+      },
+      "grass": {
+        "winRate": 0.71,
+        "matches": 98
+      }
+    },
+    "recentFormRecord": {
+      "last5": [
+        "W",
+        "W",
+        "W",
+        "L",
+        "L"
+      ],
+      "wins": 3
     }
   },
   {
@@ -5961,6 +6200,30 @@
       "ko": "그리고르 디미트로프",
       "es": "Grigor Dimitrov",
       "fr": "Grigor Dimitrov"
+    },
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.75,
+        "matches": 160
+      },
+      "clay": {
+        "winRate": 0.71,
+        "matches": 85
+      },
+      "grass": {
+        "winRate": 0.73,
+        "matches": 55
+      }
+    },
+    "recentFormRecord": {
+      "last5": [
+        "W",
+        "L",
+        "L",
+        "W",
+        "W"
+      ],
+      "wins": 3
     }
   },
   {
@@ -6399,6 +6662,30 @@
       "ko": "스테파노스 치치파스",
       "es": "Stefanos Tsitsipas",
       "fr": "Stefanos Tsitsipas"
+    },
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.71,
+        "matches": 155
+      },
+      "clay": {
+        "winRate": 0.66,
+        "matches": 83
+      },
+      "grass": {
+        "winRate": 0.67,
+        "matches": 52
+      }
+    },
+    "recentFormRecord": {
+      "last5": [
+        "L",
+        "W",
+        "L",
+        "W",
+        "W"
+      ],
+      "wins": 3
     }
   },
   {
@@ -6933,6 +7220,30 @@
       "ko": "테일러 프리츠",
       "es": "Taylor Fritz",
       "fr": "Taylor Fritz"
+    },
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.7,
+        "matches": 142
+      },
+      "clay": {
+        "winRate": 0.69,
+        "matches": 80
+      },
+      "grass": {
+        "winRate": 0.66,
+        "matches": 53
+      }
+    },
+    "recentFormRecord": {
+      "last5": [
+        "W",
+        "W",
+        "L",
+        "L",
+        "W"
+      ],
+      "wins": 3
     }
   },
   {
@@ -7467,6 +7778,30 @@
       "ko": "토미 폴",
       "es": "Tommy Paul",
       "fr": "Tommy Paul"
+    },
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.74,
+        "matches": 235
+      },
+      "clay": {
+        "winRate": 0.74,
+        "matches": 148
+      },
+      "grass": {
+        "winRate": 0.71,
+        "matches": 92
+      }
+    },
+    "recentFormRecord": {
+      "last5": [
+        "W",
+        "L",
+        "W",
+        "W",
+        "L"
+      ],
+      "wins": 3
     }
   },
   {
@@ -7665,6 +8000,30 @@
       "ko": "벤 셸턴",
       "es": "Ben Shelton",
       "fr": "Ben Shelton"
+    },
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.75,
+        "matches": 280
+      },
+      "clay": {
+        "winRate": 0.74,
+        "matches": 175
+      },
+      "grass": {
+        "winRate": 0.73,
+        "matches": 110
+      }
+    },
+    "recentFormRecord": {
+      "last5": [
+        "W",
+        "W",
+        "W",
+        "L",
+        "L"
+      ],
+      "wins": 3
     }
   },
   {
@@ -8007,6 +8366,30 @@
       "ko": "홀거 루네",
       "es": "Holger Rune",
       "fr": "Holger Rune"
+    },
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.75,
+        "matches": 200
+      },
+      "clay": {
+        "winRate": 0.71,
+        "matches": 120
+      },
+      "grass": {
+        "winRate": 0.71,
+        "matches": 70
+      }
+    },
+    "recentFormRecord": {
+      "last5": [
+        "L",
+        "W",
+        "W",
+        "L",
+        "W"
+      ],
+      "wins": 3
     }
   },
   {
@@ -8445,6 +8828,30 @@
       "ko": "위고 앙베르",
       "es": "Ugo Humbert",
       "fr": "Ugo Humbert"
+    },
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.74,
+        "matches": 170
+      },
+      "clay": {
+        "winRate": 0.7,
+        "matches": 93
+      },
+      "grass": {
+        "winRate": 0.7,
+        "matches": 57
+      }
+    },
+    "recentFormRecord": {
+      "last5": [
+        "W",
+        "L",
+        "W",
+        "W",
+        "L"
+      ],
+      "wins": 3
     }
   },
   {
@@ -8835,6 +9242,30 @@
       "ko": "세바스찬 코르다",
       "es": "Sebastian Korda",
       "fr": "Sebastian Korda"
+    },
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.73,
+        "matches": 157
+      },
+      "clay": {
+        "winRate": 0.67,
+        "matches": 86
+      },
+      "grass": {
+        "winRate": 0.67,
+        "matches": 55
+      }
+    },
+    "recentFormRecord": {
+      "last5": [
+        "L",
+        "L",
+        "W",
+        "W",
+        "W"
+      ],
+      "wins": 3
     }
   },
   {
@@ -9417,6 +9848,30 @@
       "ko": "니콜라스 하리",
       "es": "Nicolas Jarry",
       "fr": "Nicolas Jarry"
+    },
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.74,
+        "matches": 183
+      },
+      "clay": {
+        "winRate": 0.73,
+        "matches": 110
+      },
+      "grass": {
+        "winRate": 0.69,
+        "matches": 65
+      }
+    },
+    "recentFormRecord": {
+      "last5": [
+        "W",
+        "W",
+        "L",
+        "W",
+        "L"
+      ],
+      "wins": 3
     }
   },
   {
@@ -10047,6 +10502,30 @@
       "ko": "카렌 하차노프",
       "es": "Karen Khachanov",
       "fr": "Karen Khachanov"
+    },
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.71,
+        "matches": 133
+      },
+      "clay": {
+        "winRate": 0.7,
+        "matches": 74
+      },
+      "grass": {
+        "winRate": 0.69,
+        "matches": 48
+      }
+    },
+    "recentFormRecord": {
+      "last5": [
+        "L",
+        "W",
+        "W",
+        "L",
+        "W"
+      ],
+      "wins": 3
     }
   },
   {
@@ -10485,6 +10964,30 @@
       "ko": "펠릭스 오제알리아심",
       "es": "Felix Auger-Aliassime",
       "fr": "Felix Auger-Aliassime"
+    },
+    "surfaceRecord": {
+      "hard": {
+        "winRate": 0.76,
+        "matches": 330
+      },
+      "clay": {
+        "winRate": 0.76,
+        "matches": 225
+      },
+      "grass": {
+        "winRate": 0.74,
+        "matches": 135
+      }
+    },
+    "recentFormRecord": {
+      "last5": [
+        "W",
+        "L",
+        "L",
+        "W",
+        "W"
+      ],
+      "wins": 3
     }
   },
   {

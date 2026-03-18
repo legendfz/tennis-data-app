@@ -29,6 +29,16 @@ export interface Player {
       grass: { wins: number; losses: number };
     };
   };
+  surfaceRecord?: {
+    hard?: { winRate: number; matches: number };
+    clay?: { winRate: number; matches: number };
+    grass?: { winRate: number; matches: number };
+    indoor?: { winRate: number; matches: number };
+  };
+  recentFormRecord?: {
+    last5: ('W' | 'L')[];
+    wins: number;
+  };
 }
 
 export interface Tournament {

@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { mockMatches, mockPlayers, mockTournaments } from '../mock-data';
-import { calculateWinProbability, ScoreState } from '../lib/win-probability';
+import { calculateWinProbability, ScoreState, calculateAdvancedProbability, AdvancedProbInput } from '../lib/win-probability';
 import probabilitySnapshots from '../data/probability-snapshots.json';
 
 const router = Router();
@@ -100,10 +100,46 @@ router.post('/:id/probability', (req: Request, res: Response) => {
     isTiebreak: req.body.isTiebreak || false,
   };
 
-  const result = calculateWinProbability(state);
-
   const player1 = mockPlayers.find((p) => p.id === match.player1Id);
   const player2 = mockPlayers.find((p) => p.id === match.player2Id);
+
+  // Check if advanced parameters are provided
+  const useAdvanced = req.body.surface || req.body.weather || req.body.p1Age || req.body.p1RecentFormWins !== undefined;
+
+  if (useAdvanced) {
+    const advInput: AdvancedProbInput = {
+      ...state,
+      surface: req.body.surface,
+      p1SurfaceRecord: req.body.p1SurfaceRecord || (player1 as any)?.surfaceRecord,
+      p2SurfaceRecord: req.body.p2SurfaceRecord || (player2 as any)?.surfaceRecord,
+      weather: req.body.weather,
+      p1Age: req.body.p1Age || (player1?.birthdate ? Math.floor((Date.now() - new Date(player1.birthdate).getTime()) / 31557600000) : undefined),
+      p2Age: req.body.p2Age || (player2?.birthdate ? Math.floor((Date.now() - new Date(player2.birthdate).getTime()) / 31557600000) : undefined),
+      p1RecentFormWins: req.body.p1RecentFormWins,
+      p2RecentFormWins: req.body.p2RecentFormWins,
+      h2hP1Wins: req.body.h2hP1Wins,
+      h2hP2Wins: req.body.h2hP2Wins,
+      currentSet: req.body.currentSet || ((state.sets[0] + state.sets[1]) + 1),
+    };
+
+    const advResult = calculateAdvancedProbability(advInput);
+
+    res.json({
+      matchId: match.id,
+      player1: { id: match.player1Id, name: player1?.name, winProb: advResult.player1WinProb },
+      player2: { id: match.player2Id, name: player2?.name, winProb: advResult.player2WinProb },
+      factors: advResult.factors,
+      adjustedServeProbs: {
+        p1: advResult.adjustedP1ServeWinProb,
+        p2: advResult.adjustedP2ServeWinProb,
+      },
+      state,
+      advanced: true,
+    });
+    return;
+  }
+
+  const result = calculateWinProbability(state);
 
   res.json({
     matchId: match.id,

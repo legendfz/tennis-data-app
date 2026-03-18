@@ -264,3 +264,199 @@ function tiebreakAfterPoint(
 ): number {
   return matchProb(s1, s2, g1, g2, p1, p2, serving, bestOf, spw1, spw2, true);
 }
+
+// ─── Advanced Win Probability Model ────────────────────────────────────────
+
+export type Surface = 'hard' | 'clay' | 'grass' | 'indoor';
+
+export interface SurfaceRecord {
+  hard?: { wins: number; losses: number };
+  clay?: { wins: number; losses: number };
+  grass?: { wins: number; losses: number };
+  indoor?: { wins: number; losses: number };
+}
+
+export interface WeatherConditions {
+  temperatureC?: number; // celsius
+  windSpeedKmh?: number; // km/h
+}
+
+export interface AdvancedProbInput extends ScoreState {
+  /** Court surface */
+  surface?: Surface;
+  /** Player surface win records */
+  p1SurfaceRecord?: SurfaceRecord;
+  p2SurfaceRecord?: SurfaceRecord;
+  /** Weather */
+  weather?: WeatherConditions;
+  /** Player ages (years) */
+  p1Age?: number;
+  p2Age?: number;
+  /** Recent form: wins in last 5 matches (0-5) */
+  p1RecentFormWins?: number;
+  p2RecentFormWins?: number;
+  /** Head-to-head record */
+  h2hP1Wins?: number;
+  h2hP2Wins?: number;
+  /** Current set number (1-indexed) for fatigue calc */
+  currentSet?: number;
+}
+
+export interface AdvancedWinProbResult extends WinProbResult {
+  factors: {
+    surface: { p1: number; p2: number };
+    weather: { p1: number; p2: number };
+    form: { p1: number; p2: number };
+    h2h: { p1: number; p2: number };
+    fatigue: { p1: number; p2: number };
+  };
+  adjustedP1ServeWinProb: number;
+  adjustedP2ServeWinProb: number;
+}
+
+/**
+ * Surface factor: adjust serve win prob based on surface-specific win rate
+ * vs overall win rate. Capped at ±3%.
+ */
+function computeSurfaceFactor(
+  surface: Surface | undefined,
+  surfaceRecord: SurfaceRecord | undefined
+): number {
+  if (!surface || !surfaceRecord) return 0;
+  const rec = surfaceRecord[surface];
+  if (!rec || (rec.wins + rec.losses) < 3) return 0;
+
+  // Overall win rate across all surfaces
+  let totalW = 0, totalL = 0;
+  for (const s of Object.values(surfaceRecord)) {
+    if (s) { totalW += s.wins; totalL += s.losses; }
+  }
+  if (totalW + totalL === 0) return 0;
+
+  const overallRate = totalW / (totalW + totalL);
+  const surfaceRate = rec.wins / (rec.wins + rec.losses);
+  const diff = surfaceRate - overallRate;
+
+  // Clamp to ±0.03
+  return Math.max(-0.03, Math.min(0.03, diff));
+}
+
+/**
+ * Weather factor:
+ * - High temp (>30°C): penalize older player (age>30) by -1% to -2%
+ * - Wind (>20 km/h): reduce serve win prob by -1% to -2%
+ */
+function computeWeatherFactor(
+  weather: WeatherConditions | undefined,
+  age: number | undefined
+): number {
+  if (!weather) return 0;
+  let adj = 0;
+
+  // Heat penalty for older players
+  if (weather.temperatureC && weather.temperatureC > 30 && age && age > 30) {
+    const heatExcess = Math.min(weather.temperatureC - 30, 10); // 0-10
+    const agePenalty = Math.min((age - 30) / 10, 1); // 0-1
+    adj -= (heatExcess / 10) * 0.02 * agePenalty; // up to -2%
+  }
+
+  // Wind reduces serve effectiveness
+  if (weather.windSpeedKmh && weather.windSpeedKmh > 20) {
+    const windExcess = Math.min(weather.windSpeedKmh - 20, 30); // 0-30
+    adj -= (windExcess / 30) * 0.02; // up to -2%
+  }
+
+  return adj;
+}
+
+/**
+ * Form factor: recent 5-match win rate adjusts by ±5% max.
+ * Baseline: 3/5 = 60% (neutral). Above/below shifts probability.
+ */
+function computeFormFactor(recentWins: number | undefined): number {
+  if (recentWins === undefined) return 0;
+  const wins = Math.max(0, Math.min(5, recentWins));
+  // 3 wins = neutral, 5 wins = +0.05, 0 wins = -0.05
+  return ((wins - 2.5) / 2.5) * 0.05;
+}
+
+/**
+ * H2H factor: if total meetings > 5, weight by 5% toward the dominant player.
+ */
+function computeH2hFactor(
+  myWins: number | undefined,
+  oppWins: number | undefined
+): number {
+  if (myWins === undefined || oppWins === undefined) return 0;
+  const total = myWins + oppWins;
+  if (total <= 5) return 0;
+  const myRate = myWins / total;
+  // 0.5 = neutral → 0 adjustment, 1.0 = +0.05, 0.0 = -0.05
+  return (myRate - 0.5) * 0.10; // ±5% max when fully dominant
+}
+
+/**
+ * Fatigue factor: from set 4 onwards, older players (>30) lose serve efficiency.
+ * -1% per set beyond 3 for older player, capped at -3%.
+ */
+function computeFatigueFactor(
+  currentSet: number | undefined,
+  age: number | undefined
+): number {
+  if (!currentSet || currentSet <= 3) return 0;
+  if (!age || age <= 30) return 0;
+  const setsOver3 = currentSet - 3; // 1-2 typically
+  const agePenalty = Math.min((age - 30) / 8, 1); // 0-1
+  return -Math.min(setsOver3 * 0.01 * agePenalty, 0.03);
+}
+
+/**
+ * Calculate advanced win probability with environmental and contextual factors.
+ * Original Markov chain model is untouched; this adjusts serve win probabilities
+ * before feeding them into the base model.
+ */
+export function calculateAdvancedProbability(
+  input: AdvancedProbInput
+): AdvancedWinProbResult {
+  // Compute individual factors for P1
+  const surfP1 = computeSurfaceFactor(input.surface, input.p1SurfaceRecord);
+  const surfP2 = computeSurfaceFactor(input.surface, input.p2SurfaceRecord);
+  const weatherP1 = computeWeatherFactor(input.weather, input.p1Age);
+  const weatherP2 = computeWeatherFactor(input.weather, input.p2Age);
+  const formP1 = computeFormFactor(input.p1RecentFormWins);
+  const formP2 = computeFormFactor(input.p2RecentFormWins);
+  const h2hP1 = computeH2hFactor(input.h2hP1Wins, input.h2hP2Wins);
+  const h2hP2 = computeH2hFactor(input.h2hP2Wins, input.h2hP1Wins);
+  const fatigueP1 = computeFatigueFactor(input.currentSet, input.p1Age);
+  const fatigueP2 = computeFatigueFactor(input.currentSet, input.p2Age);
+
+  // Adjust serve win probs
+  const totalAdjP1 = surfP1 + weatherP1 + formP1 + h2hP1 + fatigueP1;
+  const totalAdjP2 = surfP2 + weatherP2 + formP2 + h2hP2 + fatigueP2;
+
+  const adjustedP1 = Math.max(0.30, Math.min(0.85, input.p1ServeWinProb + totalAdjP1));
+  const adjustedP2 = Math.max(0.30, Math.min(0.85, input.p2ServeWinProb + totalAdjP2));
+
+  // Run base Markov model with adjusted probs
+  const baseResult = calculateWinProbability({
+    ...input,
+    p1ServeWinProb: adjustedP1,
+    p2ServeWinProb: adjustedP2,
+  });
+
+  // Format factors as percentages (rounded to 1 decimal)
+  const pct = (v: number) => Math.round(v * 1000) / 10;
+
+  return {
+    ...baseResult,
+    factors: {
+      surface: { p1: pct(surfP1), p2: pct(surfP2) },
+      weather: { p1: pct(weatherP1), p2: pct(weatherP2) },
+      form: { p1: pct(formP1), p2: pct(formP2) },
+      h2h: { p1: pct(h2hP1), p2: pct(h2hP2) },
+      fatigue: { p1: pct(fatigueP1), p2: pct(fatigueP2) },
+    },
+    adjustedP1ServeWinProb: adjustedP1,
+    adjustedP2ServeWinProb: adjustedP2,
+  };
+}

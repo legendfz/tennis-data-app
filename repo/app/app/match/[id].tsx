@@ -56,16 +56,107 @@ function StatBar({
   );
 }
 
+interface ProbFactor {
+  surface: { p1: number; p2: number };
+  weather: { p1: number; p2: number };
+  form: { p1: number; p2: number };
+  h2h: { p1: number; p2: number };
+  fatigue: { p1: number; p2: number };
+}
+
+const FACTOR_LABELS: Record<string, string> = {
+  surface: '场地',
+  weather: '天气',
+  form: '状态',
+  h2h: '交手',
+  fatigue: '体能',
+};
+
+const FACTOR_LABELS_EN: Record<string, string> = {
+  surface: 'Surface',
+  weather: 'Weather',
+  form: 'Form',
+  h2h: 'H2H',
+  fatigue: 'Fatigue',
+};
+
+function FactorChips({ factors, player }: { factors: ProbFactor; player: 'p1' | 'p2' }) {
+  const chips: { label: string; value: number }[] = [];
+  for (const [key, val] of Object.entries(factors)) {
+    const v = (val as any)[player] as number;
+    if (v !== 0) {
+      chips.push({ label: FACTOR_LABELS_EN[key] || key, value: v });
+    }
+  }
+  if (chips.length === 0) return null;
+
+  return (
+    <View style={factorStyles.chipRow}>
+      {chips.map((c, i) => (
+        <View
+          key={i}
+          style={[
+            factorStyles.chip,
+            c.value > 0 ? factorStyles.chipPositive : factorStyles.chipNegative,
+          ]}
+        >
+          <Text
+            style={[
+              factorStyles.chipText,
+              c.value > 0 ? factorStyles.chipTextPositive : factorStyles.chipTextNegative,
+            ]}
+          >
+            {c.label} {c.value > 0 ? '+' : ''}{c.value}%
+          </Text>
+        </View>
+      ))}
+    </View>
+  );
+}
+
+const factorStyles = StyleSheet.create({
+  chipRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 6,
+    marginTop: 8,
+    justifyContent: 'center',
+  },
+  chip: {
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 10,
+  },
+  chipPositive: {
+    backgroundColor: 'rgba(22, 163, 74, 0.15)',
+  },
+  chipNegative: {
+    backgroundColor: 'rgba(239, 68, 68, 0.15)',
+  },
+  chipText: {
+    fontSize: 11,
+    fontWeight: '600',
+  },
+  chipTextPositive: {
+    color: '#16a34a',
+  },
+  chipTextNegative: {
+    color: '#ef4444',
+  },
+});
+
 function WinProbabilityBar({
   p1Name,
   p2Name,
   p1Prob,
   p2Prob,
+  factors,
 }: {
   p1Name: string;
   p2Name: string;
   p1Prob: number;
   p2Prob: number;
+  factors?: ProbFactor;
 }) {
   return (
     <View style={probStyles.barSection}>
@@ -96,6 +187,18 @@ function WinProbabilityBar({
           {p2Prob.toFixed(1)}%
         </Text>
       </View>
+      {factors && (
+        <View style={{ marginTop: 10 }}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            <View style={{ flex: 1, alignItems: 'center' }}>
+              <FactorChips factors={factors} player="p1" />
+            </View>
+            <View style={{ flex: 1, alignItems: 'center' }}>
+              <FactorChips factors={factors} player="p2" />
+            </View>
+          </View>
+        </View>
+      )}
     </View>
   );
 }
