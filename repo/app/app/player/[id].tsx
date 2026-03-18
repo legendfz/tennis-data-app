@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { useLocalSearchParams, Stack, useRouter } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
+import Svg, { Polyline, Circle, Line, Text as SvgText } from 'react-native-svg';
 import api from '../../lib/api';
 import { getAvatarUrl } from '../../lib/avatars';
 import type { PlayerDetail, MatchWithPlayers } from '../../../shared/types';
@@ -19,62 +20,141 @@ const AVATAR_SIZE = Math.round(SCREEN_WIDTH * 0.4);
 const CHART_WIDTH = SCREEN_WIDTH - 64;
 const CHART_HEIGHT = 160;
 
-// ─── Ranking History Chart (pure View) ───────────────────────────────
+// ─── Ranking History Line Chart (react-native-svg) ───────────────────
+const MONTH_NAMES = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
 function RankingChart({ history }: { history: { month: string; ranking: number }[] }) {
   if (!history || history.length < 2) return null;
 
+  const paddingLeft = 40;
+  const paddingRight = 20;
+  const paddingTop = 24;
+  const paddingBottom = 28;
+  const plotW = CHART_WIDTH - paddingLeft - paddingRight;
+  const plotH = CHART_HEIGHT - paddingTop - paddingBottom;
+
   const rankings = history.map((h) => h.ranking);
-  const maxRank = Math.max(...rankings, 1);
-  const minRank = Math.min(...rankings, 1);
+  const minRank = Math.min(...rankings);
+  const maxRank = Math.max(...rankings);
   const range = Math.max(maxRank - minRank, 1);
 
-  // Y-axis: ranking 1 at TOP, higher numbers at bottom (inverted)
-  const getY = (ranking: number) => {
-    return ((ranking - minRank) / range) * (CHART_HEIGHT - 20);
-  };
+  // ranking 1 at top → lower ranking = higher y position (inverted)
+  const getX = (i: number) => paddingLeft + (i / (history.length - 1)) * plotW;
+  const getY = (ranking: number) =>
+    paddingTop + ((ranking - minRank) / range) * plotH;
 
-  const barWidth = Math.max(Math.floor((CHART_WIDTH - 40) / history.length) - 4, 8);
+  const points = history.map((h, i) => ({ x: getX(i), y: getY(h.ranking) }));
+  const polylinePoints = points.map((p) => `${p.x},${p.y}`).join(' ');
+
   const lastIdx = history.length - 1;
+
+  // Y-axis grid: ~4 ticks
+  const tickCount = Math.min(4, range + 1);
+  const yTicks: number[] = [];
+  for (let i = 0; i < tickCount; i++) {
+    yTicks.push(Math.round(minRank + (range * i) / (tickCount - 1)));
+  }
 
   return (
     <View style={styles.infoCard}>
       <Text style={styles.sectionTitle}>Ranking History</Text>
-      <View style={styles.chartContainer}>
+      <Svg width={CHART_WIDTH} height={CHART_HEIGHT}>
+        {/* Horizontal grid lines */}
+        {yTicks.map((rank) => (
+          <Line
+            key={`grid-${rank}`}
+            x1={paddingLeft}
+            y1={getY(rank)}
+            x2={CHART_WIDTH - paddingRight}
+            y2={getY(rank)}
+            stroke="#2a2a4e"
+            strokeWidth={1}
+          />
+        ))}
+        {/* Vertical grid lines */}
+        {history.map((_, i) => (
+          <Line
+            key={`vgrid-${i}`}
+            x1={getX(i)}
+            y1={paddingTop}
+            x2={getX(i)}
+            y2={paddingTop + plotH}
+            stroke="#2a2a4e"
+            strokeWidth={1}
+          />
+        ))}
         {/* Y-axis labels */}
-        <View style={styles.yAxis}>
-          <Text style={styles.yLabel}>#{minRank}</Text>
-          <Text style={styles.yLabel}>#{maxRank}</Text>
-        </View>
-        {/* Chart area */}
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.chartScroll}>
-          <View style={styles.chartArea}>
-            {/* Bars */}
-            <View style={styles.barsRow}>
-              {history.map((h, i) => {
-                const barH = Math.max(((maxRank - h.ranking + 1) / range) * (CHART_HEIGHT - 40), 8);
-                const isLast = i === lastIdx;
-                return (
-                  <View key={h.month} style={styles.barCol}>
-                    <Text style={[styles.barRankLabel, isLast && styles.barRankLabelActive]}>
-                      #{h.ranking}
-                    </Text>
-                    <View
-                      style={[
-                        styles.bar,
-                        { height: barH, width: barWidth },
-                        isLast && styles.barActive,
-                      ]}
-                    />
-                    <Text style={styles.monthLabel}>
-                      {h.month.slice(5)}
-                    </Text>
-                  </View>
-                );
-              })}
-            </View>
-          </View>
-        </ScrollView>
-      </View>
+        {yTicks.map((rank) => (
+          <SvgText
+            key={`ylabel-${rank}`}
+            x={paddingLeft - 6}
+            y={getY(rank) + 4}
+            fill="#a0a0b0"
+            fontSize={10}
+            textAnchor="end"
+          >
+            #{rank}
+          </SvgText>
+        ))}
+        {/* X-axis month labels */}
+        {history.map((h, i) => {
+          const monthIdx = parseInt(h.month.slice(5), 10) - 1;
+          const label = MONTH_NAMES[monthIdx] ?? h.month.slice(5);
+          return (
+            <SvgText
+              key={`xlabel-${i}`}
+              x={getX(i)}
+              y={CHART_HEIGHT - 4}
+              fill="#6b7280"
+              fontSize={9}
+              textAnchor="middle"
+            >
+              {label}
+            </SvgText>
+          );
+        })}
+        {/* Line */}
+        <Polyline
+          points={polylinePoints}
+          fill="none"
+          stroke="#16a34a"
+          strokeWidth={2}
+          strokeLinejoin="round"
+          strokeLinecap="round"
+        />
+        {/* Data points */}
+        {points.map((p, i) => {
+          const isLast = i === lastIdx;
+          return (
+            <Circle
+              key={`dot-${i}`}
+              cx={p.x}
+              cy={p.y}
+              r={isLast ? 6 : 4}
+              fill={isLast ? '#16a34a' : '#0f0f23'}
+              stroke="#16a34a"
+              strokeWidth={2}
+            />
+          );
+        })}
+        {/* Current month ranking label */}
+        {(() => {
+          const lp = points[lastIdx];
+          const rank = history[lastIdx].ranking;
+          return (
+            <SvgText
+              x={lp.x}
+              y={lp.y - 12}
+              fill="#16a34a"
+              fontSize={11}
+              fontWeight="bold"
+              textAnchor="middle"
+            >
+              #{rank}
+            </SvgText>
+          );
+        })()}
+      </Svg>
     </View>
   );
 }
@@ -441,57 +521,7 @@ const styles = StyleSheet.create({
     marginLeft: 12,
   },
 
-  // ── Chart styles ──
-  chartContainer: {
-    flexDirection: 'row',
-  },
-  yAxis: {
-    justifyContent: 'space-between',
-    paddingVertical: 4,
-    marginRight: 4,
-  },
-  yLabel: {
-    fontSize: 10,
-    color: '#a0a0b0',
-  },
-  chartScroll: {
-    flex: 1,
-  },
-  chartArea: {
-    paddingBottom: 4,
-  },
-  barsRow: {
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    height: CHART_HEIGHT,
-    gap: 4,
-  },
-  barCol: {
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-  },
-  bar: {
-    backgroundColor: '#2a4a3e',
-    borderRadius: 4,
-    minHeight: 8,
-  },
-  barActive: {
-    backgroundColor: '#16a34a',
-  },
-  barRankLabel: {
-    fontSize: 9,
-    color: '#a0a0b0',
-    marginBottom: 2,
-  },
-  barRankLabelActive: {
-    color: '#16a34a',
-    fontWeight: 'bold',
-  },
-  monthLabel: {
-    fontSize: 9,
-    color: '#6b7280',
-    marginTop: 4,
-  },
+  // ── Chart styles (line chart uses SVG, minimal RN styles needed) ──
 
   // ── Record styles ──
   recordTopRow: {
