@@ -14,6 +14,7 @@ import { useQuery } from '@tanstack/react-query';
 import Svg, { Polyline, Circle, Line, Text as SvgText } from 'react-native-svg';
 import api from '../../lib/api';
 import { getAvatarUrl } from '../../lib/avatars';
+import { useLanguage } from '../../lib/i18n';
 import type { PlayerDetail, MatchWithPlayers } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -343,6 +344,7 @@ function BioSection({ player }: { player: PlayerDetail }) {
 export default function PlayerDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
+  const { getPlayerName, resolvedLanguage } = useLanguage();
 
   const { data: player, isLoading, error } = useQuery<PlayerDetail>({
     queryKey: ['player', id],
@@ -372,14 +374,17 @@ export default function PlayerDetailScreen() {
 
   return (
     <>
-      <Stack.Screen options={{ title: player.name }} />
+      <Stack.Screen options={{ title: getPlayerName(player) }} />
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
         {/* Avatar Section */}
         <View style={styles.avatarSection}>
           <Image source={{ uri: avatarUrl }} style={styles.avatar} />
           <Text style={styles.playerName}>
-            {player.name} {player.countryFlag}
+            {getPlayerName(player)} {player.countryFlag}
           </Text>
+          {resolvedLanguage !== 'en' && getPlayerName(player) !== player.name && (
+            <Text style={styles.playerNameEn}>{player.name}</Text>
+          )}
           <Text style={styles.rankingBig}>#{player.ranking}</Text>
         </View>
 
@@ -459,7 +464,7 @@ export default function PlayerDetailScreen() {
                       match.winnerId === match.player1Id && styles.matchWinner,
                     ]}
                   >
-                    {match.player1?.name || `Player ${match.player1Id}`}
+                    {match.player1 ? getPlayerName(match.player1) : `Player ${match.player1Id}`}
                   </Text>
                   <Text style={styles.matchVs}>vs</Text>
                   <Text
@@ -468,7 +473,7 @@ export default function PlayerDetailScreen() {
                       match.winnerId === match.player2Id && styles.matchWinner,
                     ]}
                   >
-                    {match.player2?.name || `Player ${match.player2Id}`}
+                    {match.player2 ? getPlayerName(match.player2) : `Player ${match.player2Id}`}
                   </Text>
                 </View>
                 <Text style={styles.matchScore}>{match.score}</Text>
@@ -526,6 +531,11 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     color: '#ffffff',
+    marginBottom: 4,
+  },
+  playerNameEn: {
+    fontSize: 16,
+    color: '#a0a0b0',
     marginBottom: 4,
   },
   rankingBig: {

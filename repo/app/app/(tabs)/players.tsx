@@ -14,11 +14,13 @@ import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'expo-router';
 import api from '../../lib/api';
 import { getAvatarUrl } from '../../lib/avatars';
+import { useLanguage } from '../../lib/i18n';
 import type { Player } from '../../../shared/types';
 
 export default function PlayersScreen() {
   const [search, setSearch] = useState('');
   const router = useRouter();
+  const { getPlayerName } = useLanguage();
 
   const { data, isLoading, error, refetch } = useQuery<{ data: Player[] }>({
     queryKey: ['players'],
@@ -38,9 +40,14 @@ export default function PlayersScreen() {
   const players = data?.data ?? (Array.isArray(data) ? data : []);
 
   const filtered = search.trim()
-    ? players.filter((p: Player) =>
-        p.name.toLowerCase().includes(search.toLowerCase())
-      )
+    ? players.filter((p: Player) => {
+        const q = search.toLowerCase();
+        if (p.name.toLowerCase().includes(q)) return true;
+        if (p.nameLocalized) {
+          return Object.values(p.nameLocalized).some((n) => n.toLowerCase().includes(q));
+        }
+        return false;
+      })
     : players;
 
   if (isLoading) {
@@ -105,7 +112,7 @@ export default function PlayersScreen() {
             />
             <View style={styles.playerInfo}>
               <Text style={styles.playerName}>
-                {item.name} {item.countryFlag}
+                {getPlayerName(item)} {item.countryFlag}
               </Text>
               <Text style={styles.playerDetails}>
                 #{item.ranking} · {item.country} · {item.plays}

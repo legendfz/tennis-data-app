@@ -10,6 +10,7 @@ import { useLocalSearchParams, Stack } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
 import api from '../../lib/api';
 import { getAvatarUrl } from '../../lib/avatars';
+import { useLanguage } from '../../lib/i18n';
 import { SkeletonBlock } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
 import type { MatchWithPlayers, ProbabilitySnapshot } from '../../../shared/types';
@@ -206,6 +207,7 @@ const probStyles = StyleSheet.create({
 
 export default function MatchDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
+  const { getPlayerName } = useLanguage();
 
   const {
     data: match,
@@ -295,7 +297,7 @@ export default function MatchDetailScreen() {
               style={[styles.h2hName, p1Won && styles.winnerText]}
               numberOfLines={2}
             >
-              {match.player1?.name || `Player ${match.player1Id}`}
+              {match.player1 ? getPlayerName(match.player1) : `Player ${match.player1Id}`}
             </Text>
             <Text style={styles.h2hRank}>
               #{match.player1?.ranking || '?'}
@@ -327,7 +329,7 @@ export default function MatchDetailScreen() {
               style={[styles.h2hName, p2Won && styles.winnerText]}
               numberOfLines={2}
             >
-              {match.player2?.name || `Player ${match.player2Id}`}
+              {match.player2 ? getPlayerName(match.player2) : `Player ${match.player2Id}`}
             </Text>
             <Text style={styles.h2hRank}>
               #{match.player2?.ranking || '?'}
@@ -389,16 +391,16 @@ export default function MatchDetailScreen() {
         <View style={probStyles.section}>
           <Text style={probStyles.title}>WIN PROBABILITY</Text>
           <WinProbabilityBar
-            p1Name={match.player1?.name?.split(' ').pop() || 'P1'}
-            p2Name={match.player2?.name?.split(' ').pop() || 'P2'}
+            p1Name={match.player1 ? getPlayerName(match.player1).split(/[\s·]+/).pop() || 'P1' : 'P1'}
+            p2Name={match.player2 ? getPlayerName(match.player2).split(/[\s·]+/).pop() || 'P2' : 'P2'}
             p1Prob={p1Won ? 100 : 0}
             p2Prob={p2Won ? 100 : 0}
           />
           {probData?.snapshots && probData.snapshots.length > 0 && (
             <ProbabilityCurve
               snapshots={probData.snapshots}
-              p1Name={match.player1?.name?.split(' ').pop() || 'P1'}
-              p2Name={match.player2?.name?.split(' ').pop() || 'P2'}
+              p1Name={match.player1 ? getPlayerName(match.player1).split(/[\s·]+/).pop() || 'P1' : 'P1'}
+              p2Name={match.player2 ? getPlayerName(match.player2).split(/[\s·]+/).pop() || 'P2' : 'P2'}
             />
           )}
         </View>

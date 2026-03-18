@@ -1,6 +1,7 @@
 export interface Player {
   id: number;
   name: string;
+  nameLocalized?: Record<string, string>;
   country: string;
   countryFlag: string;
   photoUrl: string | null;
@@ -92,6 +93,7 @@ export interface WinLossBySurface {
 export interface H2HPlayerComparison {
   id: number;
   name: string;
+  nameLocalized?: Record<string, string>;
   country: string;
   countryFlag: string;
   photoUrl: string | null;

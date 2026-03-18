@@ -13,6 +13,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'expo-router';
 import api from '../../lib/api';
 import { getAvatarUrl } from '../../lib/avatars';
+import { useLanguage } from '../../lib/i18n';
 import { SkeletonList } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
 import type { MatchWithPlayers, Tournament } from '../../../shared/types';
@@ -45,6 +46,7 @@ function getDateGroup(dateStr: string): string {
 export default function MatchesScreen() {
   const [selectedTournament, setSelectedTournament] = useState<number | null>(null);
   const router = useRouter();
+  const { getPlayerName } = useLanguage();
 
   const { data: matchesData, isLoading, refetch } = useQuery<{ data: MatchWithPlayers[] }>({
     queryKey: ['matches-all'],
@@ -182,7 +184,7 @@ export default function MatchesScreen() {
                   ]}
                   numberOfLines={1}
                 >
-                  {item.player1?.name || `Player ${item.player1Id}`}
+                  {item.player1 ? getPlayerName(item.player1) : `Player ${item.player1Id}`}
                 </Text>
               </View>
 
@@ -204,7 +206,7 @@ export default function MatchesScreen() {
                   ]}
                   numberOfLines={1}
                 >
-                  {item.player2?.name || `Player ${item.player2Id}`}
+                  {item.player2 ? getPlayerName(item.player2) : `Player ${item.player2Id}`}
                 </Text>
               </View>
             </View>

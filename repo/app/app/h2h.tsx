@@ -14,6 +14,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import api from '../lib/api';
 import { getAvatarUrl } from '../lib/avatars';
+import { useLanguage } from '../lib/i18n';
 import type { Player } from '../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -24,11 +25,13 @@ function PlayerSelector({
   selectedPlayer,
   onSelect,
   excludeId,
+  localizedName,
 }: {
   label: string;
   selectedPlayer: Player | null;
   onSelect: (player: Player) => void;
   excludeId?: number;
+  localizedName: (player: { name: string; nameLocalized?: Record<string, string> }) => string;
 }) {
   const [search, setSearch] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
@@ -61,7 +64,7 @@ function PlayerSelector({
           />
           <View style={styles.selectedInfo}>
             <Text style={styles.selectedName}>
-              {selectedPlayer.countryFlag} {selectedPlayer.name}
+              {selectedPlayer.countryFlag} {localizedName(selectedPlayer)}
             </Text>
             <Text style={styles.selectedRank}>#{selectedPlayer.ranking}</Text>
           </View>
@@ -99,7 +102,7 @@ function PlayerSelector({
                     />
                     <View style={{ flex: 1 }}>
                       <Text style={styles.dropdownName}>
-                        {p.countryFlag} {p.name}
+                        {p.countryFlag} {localizedName(p)}
                       </Text>
                       <Text style={styles.dropdownRank}>#{p.ranking}</Text>
                     </View>
@@ -116,6 +119,7 @@ function PlayerSelector({
 
 export default function H2HScreen() {
   const router = useRouter();
+  const { getPlayerName } = useLanguage();
   const [player1, setPlayer1] = useState<Player | null>(null);
   const [player2, setPlayer2] = useState<Player | null>(null);
 
@@ -137,6 +141,7 @@ export default function H2HScreen() {
               selectedPlayer={player1}
               onSelect={setPlayer1}
               excludeId={player2?.id}
+              localizedName={getPlayerName}
             />
           </View>
           <View style={styles.vsMiddle}>
@@ -148,6 +153,7 @@ export default function H2HScreen() {
               selectedPlayer={player2}
               onSelect={setPlayer2}
               excludeId={player1?.id}
+              localizedName={getPlayerName}
             />
           </View>
         </View>

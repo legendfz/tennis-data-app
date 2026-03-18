@@ -15,6 +15,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'expo-router';
 import api from '../../lib/api';
 import { getAvatarUrl } from '../../lib/avatars';
+import { useLanguage, LANGUAGE_OPTIONS } from '../../lib/i18n';
 import type { Player, MatchWithPlayers } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -22,6 +23,7 @@ const TOP_PLAYER_CARD_WIDTH = 120;
 
 export default function HomeScreen() {
   const router = useRouter();
+  const { language, setLanguage, getPlayerName } = useLanguage();
 
   const {
     data: playersData,
@@ -79,6 +81,25 @@ export default function HomeScreen() {
         <Text style={styles.subtitle}>Your Tennis Command Center</Text>
       </View>
 
+      {/* Language Switcher */}
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.langSwitcher}
+      >
+        {LANGUAGE_OPTIONS.map((opt) => (
+          <TouchableOpacity
+            key={opt.code}
+            style={[styles.langPill, language === opt.code && styles.langPillActive]}
+            onPress={() => setLanguage(opt.code)}
+          >
+            <Text style={[styles.langPillText, language === opt.code && styles.langPillTextActive]}>
+              {opt.label}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
+
       {/* Top Players - Horizontal Scroll */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Top Players</Text>
@@ -105,7 +126,7 @@ export default function HomeScreen() {
                 />
                 <Text style={styles.topPlayerRank}>#{item.ranking}</Text>
                 <Text style={styles.topPlayerName} numberOfLines={2}>
-                  {item.name}
+                  {getPlayerName(item)}
                 </Text>
                 <Text style={styles.topPlayerFlag}>{item.countryFlag}</Text>
               </TouchableOpacity>
@@ -153,7 +174,7 @@ export default function HomeScreen() {
                     ]}
                     numberOfLines={1}
                   >
-                    {match.player1?.name || `Player ${match.player1Id}`}
+                    {match.player1 ? getPlayerName(match.player1) : `Player ${match.player1Id}`}
                   </Text>
                 </View>
 
@@ -175,7 +196,7 @@ export default function HomeScreen() {
                     ]}
                     numberOfLines={1}
                   >
-                    {match.player2?.name || `Player ${match.player2Id}`}
+                    {match.player2 ? getPlayerName(match.player2) : `Player ${match.player2Id}`}
                   </Text>
                 </View>
               </View>
@@ -206,6 +227,32 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+  langSwitcher: {
+    paddingHorizontal: 16,
+    paddingBottom: 12,
+    gap: 8,
+    flexDirection: 'row',
+  },
+  langPill: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 20,
+    backgroundColor: '#1a1a2e',
+    borderWidth: 1,
+    borderColor: '#2a2a4e',
+  },
+  langPillActive: {
+    backgroundColor: '#16a34a',
+    borderColor: '#16a34a',
+  },
+  langPillText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#a0a0b0',
+  },
+  langPillTextActive: {
+    color: '#ffffff',
+  },
   h2hBanner: {
     backgroundColor: '#1a1a2e',
     borderRadius: 12,

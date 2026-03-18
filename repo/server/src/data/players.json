@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Jannik Sinner",
     "country": "ITA",
-    "countryFlag": "\ud83c\uddee\ud83c\uddf9",
+    "countryFlag": "🇮🇹",
     "photoUrl": null,
     "ranking": 1,
     "birthdate": "2001-08-16",
@@ -380,13 +380,20 @@
           "losses": 13
         }
       }
+    },
+    "nameLocalized": {
+      "zh": "扬尼克·辛纳",
+      "ja": "ヤニック・シナー",
+      "ko": "야닉 시너",
+      "es": "Jannik Sinner",
+      "fr": "Jannik Sinner"
     }
   },
   {
     "id": 2,
     "name": "Novak Djokovic",
     "country": "SRB",
-    "countryFlag": "\ud83c\uddf7\ud83c\uddf8",
+    "countryFlag": "🇷🇸",
     "photoUrl": null,
     "ranking": 2,
     "birthdate": "1987-05-22",
@@ -1483,13 +1490,20 @@
           "losses": 35
         }
       }
+    },
+    "nameLocalized": {
+      "zh": "诺瓦克·德约科维奇",
+      "ja": "ノバク・ジョコビッチ",
+      "ko": "노박 조코비치",
+      "es": "Novak Djokovic",
+      "fr": "Novak Djokovic"
     }
   },
   {
     "id": 3,
     "name": "Carlos Alcaraz",
     "country": "ESP",
-    "countryFlag": "\ud83c\uddea\ud83c\uddf8",
+    "countryFlag": "🇪🇸",
     "photoUrl": null,
     "ranking": 3,
     "birthdate": "2003-05-05",
@@ -1866,13 +1880,20 @@
           "losses": 25
         }
       }
+    },
+    "nameLocalized": {
+      "zh": "卡洛斯·阿尔卡拉斯",
+      "ja": "カルロス・アルカラス",
+      "ko": "카를로스 알카라스",
+      "es": "Carlos Alcaraz",
+      "fr": "Carlos Alcaraz"
     }
   },
   {
     "id": 4,
     "name": "Alexander Zverev",
     "country": "GER",
-    "countryFlag": "\ud83c\udde9\ud83c\uddea",
+    "countryFlag": "🇩🇪",
     "photoUrl": null,
     "ranking": 4,
     "birthdate": "1997-04-20",
@@ -2489,13 +2510,20 @@
           "losses": 25
         }
       }
+    },
+    "nameLocalized": {
+      "zh": "亚历山大·兹维列夫",
+      "ja": "アレクサンダー・ズベレフ",
+      "ko": "알렉산더 즈베레프",
+      "es": "Alexander Zverev",
+      "fr": "Alexander Zverev"
     }
   },
   {
     "id": 5,
     "name": "Daniil Medvedev",
     "country": "RUS",
-    "countryFlag": "\ud83c\uddf7\ud83c\uddfa",
+    "countryFlag": "🇷🇺",
     "photoUrl": null,
     "ranking": 5,
     "birthdate": "1996-02-11",
@@ -3064,13 +3092,20 @@
           "losses": 19
         }
       }
+    },
+    "nameLocalized": {
+      "zh": "丹尼尔·梅德韦杰夫",
+      "ja": "ダニール・メドベージェフ",
+      "ko": "다닐 메드베데프",
+      "es": "Daniil Medvedev",
+      "fr": "Daniil Medvedev"
     }
   },
   {
     "id": 6,
     "name": "Andrey Rublev",
     "country": "RUS",
-    "countryFlag": "\ud83c\uddf7\ud83c\uddfa",
+    "countryFlag": "🇷🇺",
     "photoUrl": null,
     "ranking": 6,
     "birthdate": "1997-10-20",
@@ -3639,13 +3674,20 @@
           "losses": 17
         }
       }
+    },
+    "nameLocalized": {
+      "zh": "安德烈·卢布列夫",
+      "ja": "アンドレイ・ルブレフ",
+      "ko": "안드레이 루블레프",
+      "es": "Andrey Rublev",
+      "fr": "Andrey Rublev"
     }
   },
   {
     "id": 7,
     "name": "Hubert Hurkacz",
     "country": "POL",
-    "countryFlag": "\ud83c\uddf5\ud83c\uddf1",
+    "countryFlag": "🇵🇱",
     "photoUrl": null,
     "ranking": 7,
     "birthdate": "1997-02-11",
@@ -4166,13 +4208,20 @@
           "losses": 23
         }
       }
+    },
+    "nameLocalized": {
+      "zh": "胡贝特·胡尔卡奇",
+      "ja": "フベルト・フルカチュ",
+      "ko": "후베르트 후르카치",
+      "es": "Hubert Hurkacz",
+      "fr": "Hubert Hurkacz"
     }
   },
   {
     "id": 8,
     "name": "Casper Ruud",
     "country": "NOR",
-    "countryFlag": "\ud83c\uddf3\ud83c\uddf4",
+    "countryFlag": "🇳🇴",
     "photoUrl": null,
     "ranking": 8,
     "birthdate": "1998-12-22",
@@ -4597,13 +4646,20 @@
           "losses": 20
         }
       }
+    },
+    "nameLocalized": {
+      "zh": "卡斯珀·鲁德",
+      "ja": "キャスパー・ルード",
+      "ko": "카스페르 루드",
+      "es": "Casper Ruud",
+      "fr": "Casper Ruud"
     }
   },
   {
     "id": 9,
     "name": "Alex de Minaur",
     "country": "AUS",
-    "countryFlag": "\ud83c\udde6\ud83c\uddfa",
+    "countryFlag": "🇦🇺",
     "photoUrl": null,
     "ranking": 9,
     "birthdate": "1999-02-17",
@@ -5028,13 +5084,20 @@
           "losses": 28
         }
       }
+    },
+    "nameLocalized": {
+      "zh": "亚历克斯·德米纳尔",
+      "ja": "アレックス・デミノー",
+      "ko": "알렉스 드미나우르",
+      "es": "Alex de Minaur",
+      "fr": "Alex de Minaur"
     }
   },
   {
     "id": 10,
     "name": "Grigor Dimitrov",
     "country": "BUL",
-    "countryFlag": "\ud83c\udde7\ud83c\uddec",
+    "countryFlag": "🇧🇬",
     "photoUrl": null,
     "ranking": 10,
     "birthdate": "1991-05-16",
@@ -5891,13 +5954,20 @@
           "losses": 15
         }
       }
+    },
+    "nameLocalized": {
+      "zh": "格里戈尔·迪米特洛夫",
+      "ja": "グリゴール・ディミトロフ",
+      "ko": "그리고르 디미트로프",
+      "es": "Grigor Dimitrov",
+      "fr": "Grigor Dimitrov"
     }
   },
   {
     "id": 11,
     "name": "Stefanos Tsitsipas",
     "country": "GRE",
-    "countryFlag": "\ud83c\uddec\ud83c\uddf7",
+    "countryFlag": "🇬🇷",
     "photoUrl": null,
     "ranking": 11,
     "birthdate": "1998-08-12",
@@ -6322,13 +6392,20 @@
           "losses": 17
         }
       }
+    },
+    "nameLocalized": {
+      "zh": "斯特凡诺斯·齐齐帕斯",
+      "ja": "ステファノス・チチパス",
+      "ko": "스테파노스 치치파스",
+      "es": "Stefanos Tsitsipas",
+      "fr": "Stefanos Tsitsipas"
     }
   },
   {
     "id": 12,
     "name": "Taylor Fritz",
     "country": "USA",
-    "countryFlag": "\ud83c\uddfa\ud83c\uddf8",
+    "countryFlag": "🇺🇸",
     "photoUrl": null,
     "ranking": 12,
     "birthdate": "1997-10-28",
@@ -6849,13 +6926,20 @@
           "losses": 18
         }
       }
+    },
+    "nameLocalized": {
+      "zh": "泰勒·弗里茨",
+      "ja": "テイラー・フリッツ",
+      "ko": "테일러 프리츠",
+      "es": "Taylor Fritz",
+      "fr": "Taylor Fritz"
     }
   },
   {
     "id": 13,
     "name": "Tommy Paul",
     "country": "USA",
-    "countryFlag": "\ud83c\uddfa\ud83c\uddf8",
+    "countryFlag": "🇺🇸",
     "photoUrl": null,
     "ranking": 13,
     "birthdate": "1997-05-17",
@@ -7376,13 +7460,20 @@
           "losses": 27
         }
       }
+    },
+    "nameLocalized": {
+      "zh": "汤米·保罗",
+      "ja": "トミー・ポール",
+      "ko": "토미 폴",
+      "es": "Tommy Paul",
+      "fr": "Tommy Paul"
     }
   },
   {
     "id": 14,
     "name": "Ben Shelton",
     "country": "USA",
-    "countryFlag": "\ud83c\uddfa\ud83c\uddf8",
+    "countryFlag": "🇺🇸",
     "photoUrl": null,
     "ranking": 14,
     "birthdate": "2002-10-09",
@@ -7567,13 +7658,20 @@
           "losses": 30
         }
       }
+    },
+    "nameLocalized": {
+      "zh": "本·谢尔顿",
+      "ja": "ベン・シェルトン",
+      "ko": "벤 셸턴",
+      "es": "Ben Shelton",
+      "fr": "Ben Shelton"
     }
   },
   {
     "id": 15,
     "name": "Holger Rune",
     "country": "DEN",
-    "countryFlag": "\ud83c\udde9\ud83c\uddf0",
+    "countryFlag": "🇩🇰",
     "photoUrl": null,
     "ranking": 15,
     "birthdate": "2003-04-29",
@@ -7902,13 +8000,20 @@
           "losses": 20
         }
       }
+    },
+    "nameLocalized": {
+      "zh": "霍尔格·鲁内",
+      "ja": "ホルガー・ルーネ",
+      "ko": "홀거 루네",
+      "es": "Holger Rune",
+      "fr": "Holger Rune"
     }
   },
   {
     "id": 16,
     "name": "Ugo Humbert",
     "country": "FRA",
-    "countryFlag": "\ud83c\uddeb\ud83c\uddf7",
+    "countryFlag": "🇫🇷",
     "photoUrl": null,
     "ranking": 16,
     "birthdate": "1998-06-26",
@@ -8333,13 +8438,20 @@
           "losses": 17
         }
       }
+    },
+    "nameLocalized": {
+      "zh": "于戈·安贝尔",
+      "ja": "ユーゴ・アンベール",
+      "ko": "위고 앙베르",
+      "es": "Ugo Humbert",
+      "fr": "Ugo Humbert"
     }
   },
   {
     "id": 17,
     "name": "Sebastian Korda",
     "country": "USA",
-    "countryFlag": "\ud83c\uddfa\ud83c\uddf8",
+    "countryFlag": "🇺🇸",
     "photoUrl": null,
     "ranking": 17,
     "birthdate": "2000-07-05",
@@ -8716,13 +8828,20 @@
           "losses": 18
         }
       }
+    },
+    "nameLocalized": {
+      "zh": "塞巴斯蒂安·科达",
+      "ja": "セバスチャン・コルダ",
+      "ko": "세바스찬 코르다",
+      "es": "Sebastian Korda",
+      "fr": "Sebastian Korda"
     }
   },
   {
     "id": 18,
     "name": "Nicolas Jarry",
     "country": "CHI",
-    "countryFlag": "\ud83c\udde8\ud83c\uddf1",
+    "countryFlag": "🇨🇱",
     "photoUrl": null,
     "ranking": 18,
     "birthdate": "1995-10-11",
@@ -9291,13 +9410,20 @@
           "losses": 20
         }
       }
+    },
+    "nameLocalized": {
+      "zh": "尼古拉斯·哈里",
+      "ja": "ニコラス・ジャリー",
+      "ko": "니콜라스 하리",
+      "es": "Nicolas Jarry",
+      "fr": "Nicolas Jarry"
     }
   },
   {
     "id": 19,
     "name": "Karen Khachanov",
     "country": "RUS",
-    "countryFlag": "\ud83c\uddf7\ud83c\uddfa",
+    "countryFlag": "🇷🇺",
     "photoUrl": null,
     "ranking": 19,
     "birthdate": "1996-05-21",
@@ -9914,13 +10040,20 @@
           "losses": 15
         }
       }
+    },
+    "nameLocalized": {
+      "zh": "卡伦·哈恰诺夫",
+      "ja": "カレン・ハチャノフ",
+      "ko": "카렌 하차노프",
+      "es": "Karen Khachanov",
+      "fr": "Karen Khachanov"
     }
   },
   {
     "id": 20,
     "name": "Felix Auger-Aliassime",
     "country": "CAN",
-    "countryFlag": "\ud83c\udde8\ud83c\udde6",
+    "countryFlag": "🇨🇦",
     "photoUrl": null,
     "ranking": 20,
     "birthdate": "2000-08-08",
@@ -10345,13 +10478,20 @@
           "losses": 35
         }
       }
+    },
+    "nameLocalized": {
+      "zh": "菲利克斯·奥热-阿利亚西姆",
+      "ja": "フェリックス・オジェ＝アリアシム",
+      "ko": "펠릭스 오제알리아심",
+      "es": "Felix Auger-Aliassime",
+      "fr": "Felix Auger-Aliassime"
     }
   },
   {
     "id": 21,
     "name": "Jack Draper",
     "country": "GBR",
-    "countryFlag": "\ud83c\uddec\ud83c\udde7",
+    "countryFlag": "🇬🇧",
     "photoUrl": null,
     "ranking": 21,
     "birthdate": "2002-12-22",
@@ -10363,13 +10503,20 @@
     "titles": 2,
     "grandSlams": 0,
     "careerHigh": 15,
-    "prizeMoney": "$4,234,567"
+    "prizeMoney": "$4,234,567",
+    "nameLocalized": {
+      "zh": "杰克·德雷珀",
+      "ja": "ジャック・ドレイパー",
+      "ko": "잭 드레이퍼",
+      "es": "Jack Draper",
+      "fr": "Jack Draper"
+    }
   },
   {
     "id": 22,
     "name": "Frances Tiafoe",
     "country": "USA",
-    "countryFlag": "\ud83c\uddfa\ud83c\uddf8",
+    "countryFlag": "🇺🇸",
     "photoUrl": null,
     "ranking": 22,
     "birthdate": "1998-01-20",
@@ -10381,13 +10528,20 @@
     "titles": 2,
     "grandSlams": 0,
     "careerHigh": 10,
-    "prizeMoney": "$10,567,890"
+    "prizeMoney": "$10,567,890",
+    "nameLocalized": {
+      "zh": "弗朗西斯·蒂亚福",
+      "ja": "フランシス・ティアフォー",
+      "ko": "프랜시스 티아포",
+      "es": "Frances Tiafoe",
+      "fr": "Frances Tiafoe"
+    }
   },
   {
     "id": 23,
     "name": "Lorenzo Musetti",
     "country": "ITA",
-    "countryFlag": "\ud83c\uddee\ud83c\uddf9",
+    "countryFlag": "🇮🇹",
     "photoUrl": null,
     "ranking": 23,
     "birthdate": "2002-03-03",
@@ -10399,13 +10553,20 @@
     "titles": 2,
     "grandSlams": 0,
     "careerHigh": 15,
-    "prizeMoney": "$4,890,123"
+    "prizeMoney": "$4,890,123",
+    "nameLocalized": {
+      "zh": "洛伦佐·穆塞蒂",
+      "ja": "ロレンツォ・ムゼッティ",
+      "ko": "로렌초 무세티",
+      "es": "Lorenzo Musetti",
+      "fr": "Lorenzo Musetti"
+    }
   },
   {
     "id": 24,
     "name": "Alejandro Tabilo",
     "country": "CHI",
-    "countryFlag": "\ud83c\udde8\ud83c\uddf1",
+    "countryFlag": "🇨🇱",
     "photoUrl": null,
     "ranking": 24,
     "birthdate": "1997-06-02",
@@ -10417,13 +10578,20 @@
     "titles": 3,
     "grandSlams": 0,
     "careerHigh": 19,
-    "prizeMoney": "$3,234,567"
+    "prizeMoney": "$3,234,567",
+    "nameLocalized": {
+      "zh": "亚历杭德罗·塔比洛",
+      "ja": "アレハンドロ・タビロ",
+      "ko": "알레한드로 타빌로",
+      "es": "Alejandro Tabilo",
+      "fr": "Alejandro Tabilo"
+    }
   },
   {
     "id": 25,
     "name": "Adrian Mannarino",
     "country": "FRA",
-    "countryFlag": "\ud83c\uddeb\ud83c\uddf7",
+    "countryFlag": "🇫🇷",
     "photoUrl": null,
     "ranking": 25,
     "birthdate": "1988-06-17",
@@ -10435,13 +10603,20 @@
     "titles": 1,
     "grandSlams": 0,
     "careerHigh": 22,
-    "prizeMoney": "$10,123,456"
+    "prizeMoney": "$10,123,456",
+    "nameLocalized": {
+      "zh": "阿德里安·曼纳里诺",
+      "ja": "アドリアン・マナリノ",
+      "ko": "아드리안 마나리노",
+      "es": "Adrian Mannarino",
+      "fr": "Adrian Mannarino"
+    }
   },
   {
     "id": 26,
     "name": "Tomas Machac",
     "country": "CZE",
-    "countryFlag": "\ud83c\udde8\ud83c\uddff",
+    "countryFlag": "🇨🇿",
     "photoUrl": null,
     "ranking": 26,
     "birthdate": "2000-10-01",
@@ -10453,13 +10628,20 @@
     "titles": 2,
     "grandSlams": 0,
     "careerHigh": 25,
-    "prizeMoney": "$3,123,456"
+    "prizeMoney": "$3,123,456",
+    "nameLocalized": {
+      "zh": "托马斯·马哈奇",
+      "ja": "トマーシュ・マハーチ",
+      "ko": "토마스 마하치",
+      "es": "Tomas Machac",
+      "fr": "Tomas Machac"
+    }
   },
   {
     "id": 27,
     "name": "Flavio Cobolli",
     "country": "ITA",
-    "countryFlag": "\ud83c\uddee\ud83c\uddf9",
+    "countryFlag": "🇮🇹",
     "photoUrl": null,
     "ranking": 27,
     "birthdate": "2002-05-30",
@@ -10471,13 +10653,20 @@
     "titles": 1,
     "grandSlams": 0,
     "careerHigh": 27,
-    "prizeMoney": "$2,345,678"
+    "prizeMoney": "$2,345,678",
+    "nameLocalized": {
+      "zh": "弗拉维奥·科博利",
+      "ja": "フラビオ・コボッリ",
+      "ko": "플라비오 코볼리",
+      "es": "Flavio Cobolli",
+      "fr": "Flavio Cobolli"
+    }
   },
   {
     "id": 28,
     "name": "Francisco Cerundolo",
     "country": "ARG",
-    "countryFlag": "\ud83c\udde6\ud83c\uddf7",
+    "countryFlag": "🇦🇷",
     "photoUrl": null,
     "ranking": 28,
     "birthdate": "1998-11-15",
@@ -10489,13 +10678,20 @@
     "titles": 2,
     "grandSlams": 0,
     "careerHigh": 22,
-    "prizeMoney": "$3,890,123"
+    "prizeMoney": "$3,890,123",
+    "nameLocalized": {
+      "zh": "弗朗西斯科·塞伦多洛",
+      "ja": "フランシスコ・セルンドロ",
+      "ko": "프란시스코 세룬돌로",
+      "es": "Francisco Cerundolo",
+      "fr": "Francisco Cerundolo"
+    }
   },
   {
     "id": 29,
     "name": "Matteo Berrettini",
     "country": "ITA",
-    "countryFlag": "\ud83c\uddee\ud83c\uddf9",
+    "countryFlag": "🇮🇹",
     "photoUrl": null,
     "ranking": 29,
     "birthdate": "1996-04-12",
@@ -10507,13 +10703,20 @@
     "titles": 10,
     "grandSlams": 0,
     "careerHigh": 6,
-    "prizeMoney": "$13,567,890"
+    "prizeMoney": "$13,567,890",
+    "nameLocalized": {
+      "zh": "马泰奥·贝雷蒂尼",
+      "ja": "マッテオ・ベレッティーニ",
+      "ko": "마테오 베레티니",
+      "es": "Matteo Berrettini",
+      "fr": "Matteo Berrettini"
+    }
   },
   {
     "id": 30,
     "name": "Tallon Griekspoor",
     "country": "NED",
-    "countryFlag": "\ud83c\uddf3\ud83c\uddf1",
+    "countryFlag": "🇳🇱",
     "photoUrl": null,
     "ranking": 30,
     "birthdate": "1996-07-02",
@@ -10525,13 +10728,20 @@
     "titles": 2,
     "grandSlams": 0,
     "careerHigh": 21,
-    "prizeMoney": "$4,567,890"
+    "prizeMoney": "$4,567,890",
+    "nameLocalized": {
+      "zh": "塔隆·赫里克斯普尔",
+      "ja": "タロン・フリークスプール",
+      "ko": "탈론 흐릭스포르",
+      "es": "Tallon Griekspoor",
+      "fr": "Tallon Griekspoor"
+    }
   },
   {
     "id": 31,
     "name": "Jan-Lennard Struff",
     "country": "GER",
-    "countryFlag": "\ud83c\udde9\ud83c\uddea",
+    "countryFlag": "🇩🇪",
     "photoUrl": null,
     "ranking": 31,
     "birthdate": "1990-04-25",
@@ -10543,13 +10753,20 @@
     "titles": 1,
     "grandSlams": 0,
     "careerHigh": 29,
-    "prizeMoney": "$8,123,456"
+    "prizeMoney": "$8,123,456",
+    "nameLocalized": {
+      "zh": "扬-伦纳德·施特鲁夫",
+      "ja": "ヤン＝レナード・シュトルフ",
+      "ko": "얀레나르트 슈트루프",
+      "es": "Jan-Lennard Struff",
+      "fr": "Jan-Lennard Struff"
+    }
   },
   {
     "id": 32,
     "name": "Arthur Fils",
     "country": "FRA",
-    "countryFlag": "\ud83c\uddeb\ud83c\uddf7",
+    "countryFlag": "🇫🇷",
     "photoUrl": null,
     "ranking": 32,
     "birthdate": "2004-03-08",
@@ -10561,13 +10778,20 @@
     "titles": 2,
     "grandSlams": 0,
     "careerHigh": 20,
-    "prizeMoney": "$2,890,123"
+    "prizeMoney": "$2,890,123",
+    "nameLocalized": {
+      "zh": "阿瑟·菲尔斯",
+      "ja": "アルチュール・フィス",
+      "ko": "아르튀르 피스",
+      "es": "Arthur Fils",
+      "fr": "Arthur Fils"
+    }
   },
   {
     "id": 33,
     "name": "Jiri Lehecka",
     "country": "CZE",
-    "countryFlag": "\ud83c\udde8\ud83c\uddff",
+    "countryFlag": "🇨🇿",
     "photoUrl": null,
     "ranking": 33,
     "birthdate": "2001-11-08",
@@ -10579,13 +10803,20 @@
     "titles": 1,
     "grandSlams": 0,
     "careerHigh": 24,
-    "prizeMoney": "$3,456,789"
+    "prizeMoney": "$3,456,789",
+    "nameLocalized": {
+      "zh": "伊日·莱赫奇卡",
+      "ja": "イジー・レヘチカ",
+      "ko": "이르지 레헤치카",
+      "es": "Jiri Lehecka",
+      "fr": "Jiri Lehecka"
+    }
   },
   {
     "id": 34,
     "name": "Jordan Thompson",
     "country": "AUS",
-    "countryFlag": "\ud83c\udde6\ud83c\uddfa",
+    "countryFlag": "🇦🇺",
     "photoUrl": null,
     "ranking": 34,
     "birthdate": "1994-04-20",
@@ -10597,13 +10828,20 @@
     "titles": 1,
     "grandSlams": 0,
     "careerHigh": 25,
-    "prizeMoney": "$5,678,901"
+    "prizeMoney": "$5,678,901",
+    "nameLocalized": {
+      "zh": "乔丹·汤普森",
+      "ja": "ジョーダン・トンプソン",
+      "ko": "조던 톰프슨",
+      "es": "Jordan Thompson",
+      "fr": "Jordan Thompson"
+    }
   },
   {
     "id": 35,
     "name": "Matteo Arnaldi",
     "country": "ITA",
-    "countryFlag": "\ud83c\uddee\ud83c\uddf9",
+    "countryFlag": "🇮🇹",
     "photoUrl": null,
     "ranking": 35,
     "birthdate": "2001-02-22",
@@ -10615,13 +10853,20 @@
     "titles": 0,
     "grandSlams": 0,
     "careerHigh": 30,
-    "prizeMoney": "$2,123,456"
+    "prizeMoney": "$2,123,456",
+    "nameLocalized": {
+      "zh": "马泰奥·阿纳尔迪",
+      "ja": "マッテオ・アルナルディ",
+      "ko": "마테오 아르날디",
+      "es": "Matteo Arnaldi",
+      "fr": "Matteo Arnaldi"
+    }
   },
   {
     "id": 36,
     "name": "Giovanni Mpetshi Perricard",
     "country": "FRA",
-    "countryFlag": "\ud83c\uddeb\ud83c\uddf7",
+    "countryFlag": "🇫🇷",
     "photoUrl": null,
     "ranking": 36,
     "birthdate": "2003-10-21",
@@ -10633,13 +10878,20 @@
     "titles": 2,
     "grandSlams": 0,
     "careerHigh": 30,
-    "prizeMoney": "$1,890,123"
+    "prizeMoney": "$1,890,123",
+    "nameLocalized": {
+      "zh": "乔瓦尼·姆佩奇·佩里卡尔",
+      "ja": "ジョヴァンニ・ムペッチ・ペリカール",
+      "ko": "조반니 음페치 페리카르",
+      "es": "Giovanni Mpetshi Perricard",
+      "fr": "Giovanni Mpetshi Perricard"
+    }
   },
   {
     "id": 37,
     "name": "Alejandro Davidovich Fokina",
     "country": "ESP",
-    "countryFlag": "\ud83c\uddea\ud83c\uddf8",
+    "countryFlag": "🇪🇸",
     "photoUrl": null,
     "ranking": 37,
     "birthdate": "1999-06-05",
@@ -10651,13 +10903,20 @@
     "titles": 2,
     "grandSlams": 0,
     "careerHigh": 21,
-    "prizeMoney": "$5,234,567"
+    "prizeMoney": "$5,234,567",
+    "nameLocalized": {
+      "zh": "亚历杭德罗·达维多维奇·福基纳",
+      "ja": "アレハンドロ・ダビドビッチ・フォキナ",
+      "ko": "알레한드로 다비도비치 포키나",
+      "es": "Alejandro Davidovich Fokina",
+      "fr": "Alejandro Davidovich Fokina"
+    }
   },
   {
     "id": 38,
     "name": "Alexander Bublik",
     "country": "KAZ",
-    "countryFlag": "\ud83c\uddf0\ud83c\uddff",
+    "countryFlag": "🇰🇿",
     "photoUrl": null,
     "ranking": 38,
     "birthdate": "1997-06-17",
@@ -10669,13 +10928,20 @@
     "titles": 4,
     "grandSlams": 0,
     "careerHigh": 15,
-    "prizeMoney": "$6,789,012"
+    "prizeMoney": "$6,789,012",
+    "nameLocalized": {
+      "zh": "亚历山大·布布里克",
+      "ja": "アレクサンダー・ブブリク",
+      "ko": "알렉산더 부블릭",
+      "es": "Alexander Bublik",
+      "fr": "Alexander Bublik"
+    }
   },
   {
     "id": 39,
     "name": "Roberto Bautista Agut",
     "country": "ESP",
-    "countryFlag": "\ud83c\uddea\ud83c\uddf8",
+    "countryFlag": "🇪🇸",
     "photoUrl": null,
     "ranking": 39,
     "birthdate": "1988-04-14",
@@ -10687,13 +10953,20 @@
     "titles": 11,
     "grandSlams": 0,
     "careerHigh": 9,
-    "prizeMoney": "$22,567,890"
+    "prizeMoney": "$22,567,890",
+    "nameLocalized": {
+      "zh": "罗伯托·包蒂斯塔·阿古特",
+      "ja": "ロベルト・バウティスタ・アグート",
+      "ko": "로베르토 바우티스타 아구트",
+      "es": "Roberto Bautista Agut",
+      "fr": "Roberto Bautista Agut"
+    }
   },
   {
     "id": 40,
     "name": "Luciano Darderi",
     "country": "ITA",
-    "countryFlag": "\ud83c\uddee\ud83c\uddf9",
+    "countryFlag": "🇮🇹",
     "photoUrl": null,
     "ranking": 40,
     "birthdate": "2002-02-14",
@@ -10705,13 +10978,20 @@
     "titles": 2,
     "grandSlams": 0,
     "careerHigh": 33,
-    "prizeMoney": "$1,678,901"
+    "prizeMoney": "$1,678,901",
+    "nameLocalized": {
+      "zh": "卢西亚诺·达尔代里",
+      "ja": "ルチアーノ・ダルデリ",
+      "ko": "루치아노 다르데리",
+      "es": "Luciano Darderi",
+      "fr": "Luciano Darderi"
+    }
   },
   {
     "id": 41,
     "name": "Denis Shapovalov",
     "country": "CAN",
-    "countryFlag": "\ud83c\udde8\ud83c\udde6",
+    "countryFlag": "🇨🇦",
     "photoUrl": null,
     "ranking": 41,
     "birthdate": "1999-04-15",
@@ -10723,13 +11003,20 @@
     "titles": 2,
     "grandSlams": 0,
     "careerHigh": 10,
-    "prizeMoney": "$12,345,678"
+    "prizeMoney": "$12,345,678",
+    "nameLocalized": {
+      "zh": "丹尼斯·沙波瓦洛夫",
+      "ja": "デニス・シャポバロフ",
+      "ko": "데니스 샤포발로프",
+      "es": "Denis Shapovalov",
+      "fr": "Denis Shapovalov"
+    }
   },
   {
     "id": 42,
     "name": "Nuno Borges",
     "country": "POR",
-    "countryFlag": "\ud83c\uddf5\ud83c\uddf9",
+    "countryFlag": "🇵🇹",
     "photoUrl": null,
     "ranking": 42,
     "birthdate": "1997-03-29",
@@ -10741,13 +11028,20 @@
     "titles": 1,
     "grandSlams": 0,
     "careerHigh": 33,
-    "prizeMoney": "$2,567,890"
+    "prizeMoney": "$2,567,890",
+    "nameLocalized": {
+      "zh": "努诺·博尔热斯",
+      "ja": "ヌーノ・ボルジェス",
+      "ko": "누노 보르제스",
+      "es": "Nuno Borges",
+      "fr": "Nuno Borges"
+    }
   },
   {
     "id": 43,
     "name": "Pablo Carreno Busta",
     "country": "ESP",
-    "countryFlag": "\ud83c\uddea\ud83c\uddf8",
+    "countryFlag": "🇪🇸",
     "photoUrl": null,
     "ranking": 43,
     "birthdate": "1991-07-12",
@@ -10759,13 +11053,20 @@
     "titles": 7,
     "grandSlams": 0,
     "careerHigh": 10,
-    "prizeMoney": "$16,789,012"
+    "prizeMoney": "$16,789,012",
+    "nameLocalized": {
+      "zh": "巴勃罗·卡雷尼奥·布斯塔",
+      "ja": "パブロ・カレーニョ・ブスタ",
+      "ko": "파블로 카레뇨 부스타",
+      "es": "Pablo Carreno Busta",
+      "fr": "Pablo Carreno Busta"
+    }
   },
   {
     "id": 44,
     "name": "Marcos Giron",
     "country": "USA",
-    "countryFlag": "\ud83c\uddfa\ud83c\uddf8",
+    "countryFlag": "🇺🇸",
     "photoUrl": null,
     "ranking": 44,
     "birthdate": "1993-07-24",
@@ -10777,13 +11078,20 @@
     "titles": 0,
     "grandSlams": 0,
     "careerHigh": 36,
-    "prizeMoney": "$3,456,789"
+    "prizeMoney": "$3,456,789",
+    "nameLocalized": {
+      "zh": "马科斯·希隆",
+      "ja": "マルコス・ヒロン",
+      "ko": "마르코스 히론",
+      "es": "Marcos Giron",
+      "fr": "Marcos Giron"
+    }
   },
   {
     "id": 45,
     "name": "Thanasi Kokkinakis",
     "country": "AUS",
-    "countryFlag": "\ud83c\udde6\ud83c\uddfa",
+    "countryFlag": "🇦🇺",
     "photoUrl": null,
     "ranking": 45,
     "birthdate": "1996-04-10",
@@ -10795,13 +11103,20 @@
     "titles": 1,
     "grandSlams": 0,
     "careerHigh": 40,
-    "prizeMoney": "$3,890,123"
+    "prizeMoney": "$3,890,123",
+    "nameLocalized": {
+      "zh": "塔纳西·科基纳基斯",
+      "ja": "タナシ・コキナキス",
+      "ko": "타나시 코키나키스",
+      "es": "Thanasi Kokkinakis",
+      "fr": "Thanasi Kokkinakis"
+    }
   },
   {
     "id": 46,
     "name": "Daniel Evans",
     "country": "GBR",
-    "countryFlag": "\ud83c\uddec\ud83c\udde7",
+    "countryFlag": "🇬🇧",
     "photoUrl": null,
     "ranking": 46,
     "birthdate": "1990-05-23",
@@ -10813,13 +11128,20 @@
     "titles": 2,
     "grandSlams": 0,
     "careerHigh": 21,
-    "prizeMoney": "$8,901,234"
+    "prizeMoney": "$8,901,234",
+    "nameLocalized": {
+      "zh": "丹尼尔·埃文斯",
+      "ja": "ダニエル・エバンズ",
+      "ko": "다니엘 에반스",
+      "es": "Daniel Evans",
+      "fr": "Daniel Evans"
+    }
   },
   {
     "id": 47,
     "name": "Zhizhen Zhang",
     "country": "CHN",
-    "countryFlag": "\ud83c\udde8\ud83c\uddf3",
+    "countryFlag": "🇨🇳",
     "photoUrl": null,
     "ranking": 47,
     "birthdate": "1997-02-16",
@@ -10831,13 +11153,20 @@
     "titles": 1,
     "grandSlams": 0,
     "careerHigh": 33,
-    "prizeMoney": "$2,345,678"
+    "prizeMoney": "$2,345,678",
+    "nameLocalized": {
+      "zh": "张之臻",
+      "ja": "ジージェン・ジャン",
+      "ko": "장즈전",
+      "es": "Zhizhen Zhang",
+      "fr": "Zhizhen Zhang"
+    }
   },
   {
     "id": 48,
     "name": "Alexei Popyrin",
     "country": "AUS",
-    "countryFlag": "\ud83c\udde6\ud83c\uddfa",
+    "countryFlag": "🇦🇺",
     "photoUrl": null,
     "ranking": 48,
     "birthdate": "1999-08-05",
@@ -10849,13 +11178,20 @@
     "titles": 2,
     "grandSlams": 0,
     "careerHigh": 24,
-    "prizeMoney": "$3,678,901"
+    "prizeMoney": "$3,678,901",
+    "nameLocalized": {
+      "zh": "阿列克谢·波皮林",
+      "ja": "アレクセイ・ポピリン",
+      "ko": "알렉세이 포피린",
+      "es": "Alexei Popyrin",
+      "fr": "Alexei Popyrin"
+    }
   },
   {
     "id": 49,
     "name": "Christopher Eubanks",
     "country": "USA",
-    "countryFlag": "\ud83c\uddfa\ud83c\uddf8",
+    "countryFlag": "🇺🇸",
     "photoUrl": null,
     "ranking": 49,
     "birthdate": "1996-04-18",
@@ -10867,13 +11203,20 @@
     "titles": 1,
     "grandSlams": 0,
     "careerHigh": 29,
-    "prizeMoney": "$3,123,456"
+    "prizeMoney": "$3,123,456",
+    "nameLocalized": {
+      "zh": "克里斯托弗·尤班克斯",
+      "ja": "クリストファー・ユーバンクス",
+      "ko": "크리스토퍼 유뱅크스",
+      "es": "Christopher Eubanks",
+      "fr": "Christopher Eubanks"
+    }
   },
   {
     "id": 50,
     "name": "Miomir Kecmanovic",
     "country": "SRB",
-    "countryFlag": "\ud83c\uddf7\ud83c\uddf8",
+    "countryFlag": "🇷🇸",
     "photoUrl": null,
     "ranking": 50,
     "birthdate": "1999-08-31",
@@ -10885,6 +11228,13 @@
     "titles": 0,
     "grandSlams": 0,
     "careerHigh": 28,
-    "prizeMoney": "$5,234,567"
+    "prizeMoney": "$5,234,567",
+    "nameLocalized": {
+      "zh": "米奥米尔·克茨马诺维奇",
+      "ja": "ミオミル・ケツマノビッチ",
+      "ko": "미오미르 게츠마노비치",
+      "es": "Miomir Kecmanovic",
+      "fr": "Miomir Kecmanovic"
+    }
   }
 ]

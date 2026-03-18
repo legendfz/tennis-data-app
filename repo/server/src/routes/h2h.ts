@@ -108,6 +108,7 @@ router.get('/:player1Id/:player2Id', (req: Request, res: Response) => {
     player1: {
       id: player1.id,
       name: player1.name,
+      nameLocalized: (player1 as any).nameLocalized,
       country: player1.country,
       countryFlag: player1.countryFlag,
       photoUrl: player1.photoUrl,
@@ -120,6 +121,7 @@ router.get('/:player1Id/:player2Id', (req: Request, res: Response) => {
     player2: {
       id: player2.id,
       name: player2.name,
+      nameLocalized: (player2 as any).nameLocalized,
       country: player2.country,
       countryFlag: player2.countryFlag,
       photoUrl: player2.photoUrl,

@@ -11,6 +11,7 @@ import { useLocalSearchParams, Stack } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
 import api from '../../lib/api';
 import { getAvatarUrl } from '../../lib/avatars';
+import { useLanguage } from '../../lib/i18n';
 import type { H2HData } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -83,6 +84,7 @@ function ComparisonRow({
 
 export default function H2HDetailScreen() {
   const { matchup } = useLocalSearchParams<{ matchup: string }>();
+  const { getPlayerName } = useLanguage();
 
   // Parse "1-vs-3" format
   const parts = matchup?.split('-vs-') || [];
@@ -124,7 +126,7 @@ export default function H2HDetailScreen() {
 
   return (
     <>
-      <Stack.Screen options={{ title: `${p1.name} vs ${p2.name}` }} />
+      <Stack.Screen options={{ title: `${getPlayerName(p1)} vs ${getPlayerName(p2)}` }} />
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
         {/* Top: Player avatars face-to-face */}
         <View style={styles.topSection}>
@@ -134,7 +136,7 @@ export default function H2HDetailScreen() {
               style={[styles.avatar, p1Leading && styles.avatarLeading]}
             />
             <Text style={styles.flag}>{p1.countryFlag}</Text>
-            <Text style={styles.playerName} numberOfLines={2}>{p1.name}</Text>
+            <Text style={styles.playerName} numberOfLines={2}>{getPlayerName(p1)}</Text>
             <Text style={styles.playerRank}>#{p1.ranking}</Text>
           </View>
 
@@ -148,7 +150,7 @@ export default function H2HDetailScreen() {
               style={[styles.avatar, p2Leading && styles.avatarLeading]}
             />
             <Text style={styles.flag}>{p2.countryFlag}</Text>
-            <Text style={styles.playerName} numberOfLines={2}>{p2.name}</Text>
+            <Text style={styles.playerName} numberOfLines={2}>{getPlayerName(p2)}</Text>
             <Text style={styles.playerRank}>#{p2.ranking}</Text>
           </View>
         </View>
