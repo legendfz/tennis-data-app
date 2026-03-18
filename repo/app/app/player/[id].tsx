@@ -6,8 +6,9 @@ import {
   Image,
   Dimensions,
   ActivityIndicator,
+  TouchableOpacity,
 } from 'react-native';
-import { useLocalSearchParams, Stack } from 'expo-router';
+import { useLocalSearchParams, Stack, useRouter } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
 import api from '../../lib/api';
 import { getAvatarUrl } from '../../lib/avatars';
@@ -170,6 +171,7 @@ function BioSection({ player }: { player: PlayerDetail }) {
 // ─── Main Screen ─────────────────────────────────────────────────────
 export default function PlayerDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
+  const router = useRouter();
 
   const { data: player, isLoading, error } = useQuery<PlayerDetail>({
     queryKey: ['player', id],
@@ -225,6 +227,14 @@ export default function PlayerDetailScreen() {
             <Text style={styles.highlightLabel}>Prize Money</Text>
           </View>
         </View>
+
+        {/* Compare Button */}
+        <TouchableOpacity
+          style={styles.compareButton}
+          onPress={() => router.push('/h2h' as any)}
+        >
+          <Text style={styles.compareButtonText}>⚔️ Compare with...</Text>
+        </TouchableOpacity>
 
         {/* Bio */}
         <BioSection player={player} />
@@ -350,6 +360,21 @@ const styles = StyleSheet.create({
   rankingBig: {
     fontSize: 22,
     fontWeight: 'bold',
+    color: '#16a34a',
+  },
+  compareButton: {
+    backgroundColor: '#1a1a2e',
+    borderRadius: 12,
+    marginHorizontal: 16,
+    marginBottom: 16,
+    paddingVertical: 14,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#16a34a',
+  },
+  compareButtonText: {
+    fontSize: 16,
+    fontWeight: '600',
     color: '#16a34a',
   },
   highlightsRow: {

@@ -1,0 +1,149 @@
+[
+  {
+    "player1Id": 2,
+    "player2Id": 1,
+    "matches": [
+      { "date": "2024-01-28", "tournamentId": 1, "round": "Semifinal", "score": "6-1, 6-2, 6-7(6), 6-3", "winnerId": 1 },
+      { "date": "2024-03-16", "tournamentId": 5, "round": "Semifinal", "score": "6-3, 4-6, 6-3", "winnerId": 1 },
+      { "date": "2024-10-13", "tournamentId": 12, "round": "Final", "score": "7-6(4), 6-3", "winnerId": 1 },
+      { "date": "2024-11-17", "tournamentId": 14, "round": "Final", "score": "6-3, 6-3", "winnerId": 1 },
+      { "date": "2023-11-19", "tournamentId": 14, "round": "Final", "score": "6-3, 6-3", "winnerId": 2 },
+      { "date": "2023-03-19", "tournamentId": 5, "round": "Semifinal", "score": "6-2, 4-6, 6-1", "winnerId": 2 },
+      { "date": "2023-07-14", "tournamentId": 3, "round": "Semifinal", "score": "6-3, 6-4, 7-6(4)", "winnerId": 2 },
+      { "date": "2024-06-07", "tournamentId": 2, "round": "Semifinal", "score": "2-6, 6-3, 6-7(0), 6-1, 6-3", "winnerId": 2 }
+    ]
+  },
+  {
+    "player1Id": 2,
+    "player2Id": 3,
+    "matches": [
+      { "date": "2024-07-14", "tournamentId": 3, "round": "Final", "score": "6-2, 6-2, 7-6(4)", "winnerId": 3 },
+      { "date": "2024-06-09", "tournamentId": 2, "round": "Final", "score": "6-3, 2-6, 5-7, 6-1, 6-2", "winnerId": 3 },
+      { "date": "2023-07-16", "tournamentId": 3, "round": "Final", "score": "1-6, 7-6(6), 6-1, 3-6, 6-4", "winnerId": 3 },
+      { "date": "2023-06-11", "tournamentId": 2, "round": "Semifinal", "score": "6-3, 5-7, 6-1, 6-1", "winnerId": 2 },
+      { "date": "2023-01-27", "tournamentId": 1, "round": "Final", "score": "6-3, 7-6(4), 7-6(5)", "winnerId": 2 },
+      { "date": "2022-07-10", "tournamentId": 3, "round": "Final", "score": "4-6, 6-2, 6-3, 6-4", "winnerId": 2 },
+      { "date": "2024-10-06", "tournamentId": 12, "round": "Semifinal", "score": "7-6(5), 6-3", "winnerId": 2 },
+      { "date": "2023-11-14", "tournamentId": 14, "round": "Round Robin", "score": "6-3, 6-2", "winnerId": 2 },
+      { "date": "2022-05-08", "tournamentId": 8, "round": "Final", "score": "6-7(5), 7-5, 7-6(5)", "winnerId": 3 },
+      { "date": "2024-03-10", "tournamentId": 5, "round": "Final", "score": "4-6, 6-3, 6-1", "winnerId": 2 }
+    ]
+  },
+  {
+    "player1Id": 1,
+    "player2Id": 3,
+    "matches": [
+      { "date": "2024-03-14", "tournamentId": 5, "round": "Semifinal", "score": "1-6, 6-3, 6-2", "winnerId": 3 },
+      { "date": "2024-09-08", "tournamentId": 4, "round": "Final", "score": "6-3, 7-6(4), 6-3", "winnerId": 1 },
+      { "date": "2024-08-04", "tournamentId": 10, "round": "Final", "score": "6-3, 6-4", "winnerId": 1 },
+      { "date": "2023-06-02", "tournamentId": 2, "round": "Semifinal", "score": "6-1, 6-7(5), 6-1", "winnerId": 3 },
+      { "date": "2023-11-16", "tournamentId": 14, "round": "Round Robin", "score": "6-4, 6-4", "winnerId": 1 },
+      { "date": "2024-06-06", "tournamentId": 2, "round": "Semifinal", "score": "2-6, 6-3, 3-6, 6-1, 6-3", "winnerId": 3 },
+      { "date": "2024-11-15", "tournamentId": 14, "round": "Round Robin", "score": "6-1, 6-4", "winnerId": 1 },
+      { "date": "2023-10-15", "tournamentId": 12, "round": "Semifinal", "score": "7-6(3), 6-4", "winnerId": 1 }
+    ]
+  },
+  {
+    "player1Id": 1,
+    "player2Id": 5,
+    "matches": [
+      { "date": "2024-01-28", "tournamentId": 1, "round": "Final", "score": "3-6, 3-6, 6-4, 6-4, 6-3", "winnerId": 1 },
+      { "date": "2024-03-12", "tournamentId": 5, "round": "Quarterfinal", "score": "6-1, 6-2", "winnerId": 1 },
+      { "date": "2024-06-16", "tournamentId": 9, "round": "Final", "score": "7-5, 6-3", "winnerId": 1 },
+      { "date": "2023-11-14", "tournamentId": 14, "round": "Round Robin", "score": "6-3, 6-7(5), 6-1", "winnerId": 5 },
+      { "date": "2023-06-12", "tournamentId": 3, "round": "Quarterfinal", "score": "6-1, 6-4, 6-2", "winnerId": 5 },
+      { "date": "2024-10-11", "tournamentId": 12, "round": "Quarterfinal", "score": "6-4, 7-5", "winnerId": 1 },
+      { "date": "2023-08-12", "tournamentId": 10, "round": "Semifinal", "score": "6-2, 1-6, 6-2", "winnerId": 5 },
+      { "date": "2024-08-17", "tournamentId": 11, "round": "Semifinal", "score": "6-4, 7-5", "winnerId": 1 }
+    ]
+  },
+  {
+    "player1Id": 2,
+    "player2Id": 4,
+    "matches": [
+      { "date": "2024-01-26", "tournamentId": 1, "round": "Semifinal", "score": "6-1, 6-2, 6-4", "winnerId": 2 },
+      { "date": "2024-06-07", "tournamentId": 2, "round": "Quarterfinal", "score": "7-5, 6-2, 6-2", "winnerId": 2 },
+      { "date": "2023-11-18", "tournamentId": 14, "round": "Semifinal", "score": "6-3, 6-4", "winnerId": 2 },
+      { "date": "2024-11-10", "tournamentId": 13, "round": "Final", "score": "6-2, 6-2", "winnerId": 4 },
+      { "date": "2023-06-09", "tournamentId": 2, "round": "Semifinal", "score": "7-6(2), 6-7(3), 7-6(4)", "winnerId": 2 },
+      { "date": "2023-07-07", "tournamentId": 3, "round": "Round of 16", "score": "6-3, 6-4, 6-7(5), 6-3", "winnerId": 2 },
+      { "date": "2022-11-06", "tournamentId": 13, "round": "Semifinal", "score": "6-2, 4-6, 6-2", "winnerId": 2 }
+    ]
+  },
+  {
+    "player1Id": 2,
+    "player2Id": 5,
+    "matches": [
+      { "date": "2024-01-21", "tournamentId": 1, "round": "Quarterfinal", "score": "6-1, 6-3, 6-2", "winnerId": 2 },
+      { "date": "2023-09-10", "tournamentId": 4, "round": "Final", "score": "6-3, 7-6(5), 6-3", "winnerId": 2 },
+      { "date": "2023-01-29", "tournamentId": 1, "round": "Final", "score": "7-5, 6-2, 6-2", "winnerId": 2 },
+      { "date": "2024-06-01", "tournamentId": 2, "round": "Quarterfinal", "score": "7-5, 6-3, 6-3", "winnerId": 2 },
+      { "date": "2023-03-11", "tournamentId": 5, "round": "Round of 16", "score": "5-7, 6-3, 6-2", "winnerId": 5 },
+      { "date": "2024-03-09", "tournamentId": 5, "round": "Semifinal", "score": "6-3, 3-6, 6-3", "winnerId": 5 },
+      { "date": "2023-11-13", "tournamentId": 14, "round": "Round Robin", "score": "6-7(4), 6-3, 6-2", "winnerId": 5 },
+      { "date": "2024-08-16", "tournamentId": 11, "round": "Quarterfinal", "score": "7-6(4), 4-6, 7-5", "winnerId": 5 },
+      { "date": "2023-08-11", "tournamentId": 10, "round": "Final", "score": "6-2, 6-4", "winnerId": 2 }
+    ]
+  },
+  {
+    "player1Id": 3,
+    "player2Id": 4,
+    "matches": [
+      { "date": "2024-06-09", "tournamentId": 2, "round": "Semifinal", "score": "6-3, 6-1", "winnerId": 3 },
+      { "date": "2024-03-15", "tournamentId": 5, "round": "Final", "score": "6-4, 6-2", "winnerId": 3 },
+      { "date": "2023-05-14", "tournamentId": 8, "round": "Final", "score": "6-3, 6-1", "winnerId": 3 },
+      { "date": "2023-06-12", "tournamentId": 2, "round": "Quarterfinal", "score": "6-3, 6-2, 6-4", "winnerId": 3 },
+      { "date": "2024-08-15", "tournamentId": 11, "round": "Final", "score": "6-4, 7-5", "winnerId": 3 },
+      { "date": "2023-10-14", "tournamentId": 12, "round": "Quarterfinal", "score": "7-6(1), 7-5", "winnerId": 4 },
+      { "date": "2024-11-16", "tournamentId": 14, "round": "Round Robin", "score": "7-6(5), 6-4", "winnerId": 4 }
+    ]
+  },
+  {
+    "player1Id": 1,
+    "player2Id": 4,
+    "matches": [
+      { "date": "2024-01-22", "tournamentId": 1, "round": "Quarterfinal", "score": "6-4, 6-3, 6-2", "winnerId": 1 },
+      { "date": "2024-08-11", "tournamentId": 10, "round": "Semifinal", "score": "6-3, 7-5", "winnerId": 1 },
+      { "date": "2024-11-17", "tournamentId": 14, "round": "Semifinal", "score": "6-3, 6-4", "winnerId": 1 },
+      { "date": "2023-06-06", "tournamentId": 2, "round": "Quarterfinal", "score": "6-3, 6-4, 6-3", "winnerId": 4 },
+      { "date": "2023-10-12", "tournamentId": 12, "round": "Semifinal", "score": "6-4, 3-6, 6-3", "winnerId": 1 },
+      { "date": "2024-05-18", "tournamentId": 9, "round": "Semifinal", "score": "6-2, 6-4", "winnerId": 1 }
+    ]
+  },
+  {
+    "player1Id": 5,
+    "player2Id": 4,
+    "matches": [
+      { "date": "2024-01-19", "tournamentId": 1, "round": "Round of 16", "score": "6-3, 6-2, 6-4", "winnerId": 5 },
+      { "date": "2023-09-08", "tournamentId": 4, "round": "Semifinal", "score": "7-6(3), 6-1, 3-6, 6-3", "winnerId": 5 },
+      { "date": "2023-11-15", "tournamentId": 14, "round": "Round Robin", "score": "6-4, 6-4", "winnerId": 4 },
+      { "date": "2024-10-12", "tournamentId": 12, "round": "Semifinal", "score": "3-6, 7-5, 6-4", "winnerId": 4 },
+      { "date": "2024-06-06", "tournamentId": 2, "round": "Quarterfinal", "score": "6-4, 7-5, 6-4", "winnerId": 4 },
+      { "date": "2023-03-17", "tournamentId": 5, "round": "Quarterfinal", "score": "6-3, 6-2", "winnerId": 5 }
+    ]
+  },
+  {
+    "player1Id": 3,
+    "player2Id": 5,
+    "matches": [
+      { "date": "2024-03-13", "tournamentId": 5, "round": "Quarterfinal", "score": "6-3, 6-2", "winnerId": 3 },
+      { "date": "2023-09-09", "tournamentId": 4, "round": "Semifinal", "score": "6-1, 6-3, 6-1", "winnerId": 3 },
+      { "date": "2023-05-12", "tournamentId": 8, "round": "Semifinal", "score": "6-4, 6-4", "winnerId": 3 },
+      { "date": "2024-07-12", "tournamentId": 3, "round": "Semifinal", "score": "6-7(1), 6-3, 6-4, 6-4", "winnerId": 3 },
+      { "date": "2023-07-13", "tournamentId": 3, "round": "Semifinal", "score": "6-3, 6-3, 6-3", "winnerId": 3 },
+      { "date": "2024-05-16", "tournamentId": 9, "round": "Quarterfinal", "score": "7-5, 4-6, 6-3", "winnerId": 5 }
+    ]
+  },
+  {
+    "player1Id": 1,
+    "player2Id": 6,
+    "matches": [
+      { "date": "2024-01-24", "tournamentId": 1, "round": "Quarterfinal", "score": "6-4, 7-6(2), 6-3", "winnerId": 1 },
+      { "date": "2024-10-09", "tournamentId": 12, "round": "Round of 16", "score": "6-3, 6-4", "winnerId": 1 },
+      { "date": "2023-05-16", "tournamentId": 9, "round": "Quarterfinal", "score": "2-6, 7-5, 6-4", "winnerId": 6 },
+      { "date": "2024-07-11", "tournamentId": 3, "round": "Quarterfinal", "score": "6-3, 7-5, 6-2", "winnerId": 1 },
+      { "date": "2023-08-10", "tournamentId": 10, "round": "Quarterfinal", "score": "6-4, 6-3", "winnerId": 1 },
+      { "date": "2024-05-15", "tournamentId": 9, "round": "Round of 16", "score": "6-1, 6-3", "winnerId": 1 }
+    ]
+  }
+]

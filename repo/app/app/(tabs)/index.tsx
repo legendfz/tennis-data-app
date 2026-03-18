@@ -114,6 +114,15 @@ export default function HomeScreen() {
         )}
       </View>
 
+      {/* H2H Quick Access */}
+      <TouchableOpacity
+        style={styles.h2hBanner}
+        onPress={() => router.push('/h2h' as any)}
+      >
+        <Text style={styles.h2hBannerText}>⚔️ Head to Head</Text>
+        <Text style={styles.h2hBannerSub}>Compare any two players →</Text>
+      </TouchableOpacity>
+
       {/* Latest Matches */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Latest Matches</Text>
@@ -197,6 +206,27 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+  h2hBanner: {
+    backgroundColor: '#1a1a2e',
+    borderRadius: 12,
+    marginHorizontal: 16,
+    marginBottom: 16,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: '#16a34a',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  h2hBannerText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#ffffff',
+  },
+  h2hBannerSub: {
+    fontSize: 13,
+    color: '#16a34a',
+  },
   container: {
     flex: 1,
     backgroundColor: '#0f0f23',

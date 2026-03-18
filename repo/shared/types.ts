@@ -89,6 +89,54 @@ export interface WinLossBySurface {
   losses: number;
 }
 
+export interface H2HPlayerComparison {
+  id: number;
+  name: string;
+  country: string;
+  countryFlag: string;
+  photoUrl: string | null;
+  ranking: number;
+  age: number;
+  height: number;
+  grandSlams: number;
+  seasonWinRate: string;
+}
+
+export interface H2HMatchRecord {
+  date: string;
+  tournament: string;
+  surface: string;
+  round: string;
+  score: string;
+  winnerId: number;
+}
+
+export interface H2HSurfaceRecord {
+  p1Wins: number;
+  p2Wins: number;
+}
+
+export interface H2HData {
+  summary: {
+    player1Wins: number;
+    player2Wins: number;
+    totalMatches: number;
+  };
+  bySurface: Record<string, H2HSurfaceRecord>;
+  matchHistory: H2HMatchRecord[];
+  playerComparison: {
+    player1: H2HPlayerComparison;
+    player2: H2HPlayerComparison;
+  };
+}
+
+export interface ProbabilitySnapshot {
+  label: string;
+  score: string;
+  p1: number;
+  p2: number;
+}
+
 export interface PlayerDetail extends Player {
   recentMatches: MatchWithPlayers[];
   stats: {

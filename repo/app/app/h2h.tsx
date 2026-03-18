@@ -1,0 +1,272 @@
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  Dimensions,
+  ActivityIndicator,
+} from 'react-native';
+import { Stack, useRouter } from 'expo-router';
+import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
+import api from '../lib/api';
+import { getAvatarUrl } from '../lib/avatars';
+import type { Player } from '../../shared/types';
+
+const SCREEN_WIDTH = Dimensions.get('window').width;
+const AVATAR_SIZE = 64;
+
+function PlayerSelector({
+  label,
+  selectedPlayer,
+  onSelect,
+  excludeId,
+}: {
+  label: string;
+  selectedPlayer: Player | null;
+  onSelect: (player: Player) => void;
+  excludeId?: number;
+}) {
+  const [search, setSearch] = useState('');
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const { data } = useQuery<{ data: Player[] }>({
+    queryKey: ['players-search', search],
+    queryFn: async () => {
+      const res = await api.get('/api/players', { params: { search, limit: 50 } });
+      return res.data;
+    },
+  });
+
+  const players = (data?.data || []).filter((p) => p.id !== excludeId);
+
+  return (
+    <View style={styles.selectorContainer}>
+      <Text style={styles.selectorLabel}>{label}</Text>
+      {selectedPlayer ? (
+        <TouchableOpacity
+          style={styles.selectedCard}
+          onPress={() => {
+            onSelect(null as any);
+            setSearch('');
+            setShowDropdown(false);
+          }}
+        >
+          <Image
+            source={{ uri: selectedPlayer.photoUrl || getAvatarUrl(selectedPlayer.name, AVATAR_SIZE * 2) }}
+            style={styles.selectedAvatar}
+          />
+          <View style={styles.selectedInfo}>
+            <Text style={styles.selectedName}>
+              {selectedPlayer.countryFlag} {selectedPlayer.name}
+            </Text>
+            <Text style={styles.selectedRank}>#{selectedPlayer.ranking}</Text>
+          </View>
+          <Text style={styles.changeBtn}>✕</Text>
+        </TouchableOpacity>
+      ) : (
+        <View>
+          <TextInput
+            style={styles.searchInput}
+            placeholder="Search player..."
+            placeholderTextColor="#6b7280"
+            value={search}
+            onChangeText={(t) => {
+              setSearch(t);
+              setShowDropdown(true);
+            }}
+            onFocus={() => setShowDropdown(true)}
+          />
+          {showDropdown && players.length > 0 && (
+            <View style={styles.dropdown}>
+              <ScrollView style={styles.dropdownScroll} nestedScrollEnabled>
+                {players.slice(0, 10).map((p) => (
+                  <TouchableOpacity
+                    key={p.id}
+                    style={styles.dropdownItem}
+                    onPress={() => {
+                      onSelect(p);
+                      setShowDropdown(false);
+                      setSearch('');
+                    }}
+                  >
+                    <Image
+                      source={{ uri: p.photoUrl || getAvatarUrl(p.name, 48) }}
+                      style={styles.dropdownAvatar}
+                    />
+                    <View style={{ flex: 1 }}>
+                      <Text style={styles.dropdownName}>
+                        {p.countryFlag} {p.name}
+                      </Text>
+                      <Text style={styles.dropdownRank}>#{p.ranking}</Text>
+                    </View>
+                  </TouchableOpacity>
+                ))}
+              </ScrollView>
+            </View>
+          )}
+        </View>
+      )}
+    </View>
+  );
+}
+
+export default function H2HScreen() {
+  const router = useRouter();
+  const [player1, setPlayer1] = useState<Player | null>(null);
+  const [player2, setPlayer2] = useState<Player | null>(null);
+
+  const canCompare = player1 && player2;
+
+  return (
+    <>
+      <Stack.Screen options={{ title: 'Head to Head' }} />
+      <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+        <View style={styles.header}>
+          <Text style={styles.headerTitle}>⚔️ Head to Head</Text>
+          <Text style={styles.headerSubtitle}>Compare two players</Text>
+        </View>
+
+        <View style={styles.selectorsRow}>
+          <View style={{ flex: 1 }}>
+            <PlayerSelector
+              label="Player 1"
+              selectedPlayer={player1}
+              onSelect={setPlayer1}
+              excludeId={player2?.id}
+            />
+          </View>
+          <View style={styles.vsMiddle}>
+            <Text style={styles.vsText}>VS</Text>
+          </View>
+          <View style={{ flex: 1 }}>
+            <PlayerSelector
+              label="Player 2"
+              selectedPlayer={player2}
+              onSelect={setPlayer2}
+              excludeId={player1?.id}
+            />
+          </View>
+        </View>
+
+        {canCompare && (
+          <TouchableOpacity
+            style={styles.compareBtn}
+            onPress={() => {
+              router.push(`/h2h/${player1!.id}-vs-${player2!.id}` as any);
+            }}
+          >
+            <Text style={styles.compareBtnText}>Compare</Text>
+          </TouchableOpacity>
+        )}
+
+        {/* Popular matchups */}
+        <View style={styles.popularSection}>
+          <Text style={styles.popularTitle}>🔥 Popular Matchups</Text>
+          {[
+            { p1: 2, p2: 3, label: 'Djokovic vs Alcaraz' },
+            { p1: 1, p2: 3, label: 'Sinner vs Alcaraz' },
+            { p1: 2, p2: 1, label: 'Djokovic vs Sinner' },
+            { p1: 1, p2: 5, label: 'Sinner vs Medvedev' },
+            { p1: 3, p2: 4, label: 'Alcaraz vs Zverev' },
+          ].map((matchup) => (
+            <TouchableOpacity
+              key={`${matchup.p1}-${matchup.p2}`}
+              style={styles.popularItem}
+              onPress={() => router.push(`/h2h/${matchup.p1}-vs-${matchup.p2}` as any)}
+            >
+              <Text style={styles.popularLabel}>{matchup.label}</Text>
+              <Text style={styles.popularArrow}>→</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </ScrollView>
+    </>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: '#0f0f23' },
+  content: { paddingBottom: 40 },
+  header: { alignItems: 'center', paddingVertical: 24 },
+  headerTitle: { fontSize: 28, fontWeight: 'bold', color: '#ffffff', marginBottom: 4 },
+  headerSubtitle: { fontSize: 14, color: '#a0a0b0' },
+  selectorsRow: { flexDirection: 'row', paddingHorizontal: 12, marginTop: 8, zIndex: 10 },
+  vsMiddle: { justifyContent: 'center', alignItems: 'center', paddingHorizontal: 8, paddingTop: 28 },
+  vsText: { fontSize: 18, fontWeight: 'bold', color: '#a0a0b0' },
+  selectorContainer: { marginBottom: 16 },
+  selectorLabel: { fontSize: 12, fontWeight: '600', color: '#a0a0b0', marginBottom: 8, textTransform: 'uppercase', letterSpacing: 1 },
+  searchInput: {
+    backgroundColor: '#1a1a2e',
+    borderRadius: 10,
+    padding: 12,
+    color: '#ffffff',
+    fontSize: 14,
+    borderWidth: 1,
+    borderColor: '#2a2a4e',
+  },
+  dropdown: {
+    backgroundColor: '#1a1a2e',
+    borderRadius: 10,
+    marginTop: 4,
+    borderWidth: 1,
+    borderColor: '#2a2a4e',
+    maxHeight: 250,
+    zIndex: 100,
+  },
+  dropdownScroll: { maxHeight: 250 },
+  dropdownItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#2a2a4e',
+  },
+  dropdownAvatar: { width: 32, height: 32, borderRadius: 16, marginRight: 10 },
+  dropdownName: { fontSize: 14, color: '#ffffff', fontWeight: '500' },
+  dropdownRank: { fontSize: 11, color: '#a0a0b0' },
+  selectedCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#1a1a2e',
+    borderRadius: 10,
+    padding: 10,
+    borderWidth: 1,
+    borderColor: '#16a34a',
+  },
+  selectedAvatar: { width: 40, height: 40, borderRadius: 20, marginRight: 10 },
+  selectedInfo: { flex: 1 },
+  selectedName: { fontSize: 13, color: '#ffffff', fontWeight: '600' },
+  selectedRank: { fontSize: 11, color: '#16a34a' },
+  changeBtn: { fontSize: 16, color: '#a0a0b0', paddingHorizontal: 8 },
+  compareBtn: {
+    backgroundColor: '#16a34a',
+    borderRadius: 12,
+    marginHorizontal: 16,
+    paddingVertical: 16,
+    alignItems: 'center',
+    marginTop: 8,
+  },
+  compareBtnText: { fontSize: 18, fontWeight: 'bold', color: '#ffffff' },
+  popularSection: {
+    marginTop: 32,
+    marginHorizontal: 16,
+    backgroundColor: '#1a1a2e',
+    borderRadius: 12,
+    padding: 16,
+  },
+  popularTitle: { fontSize: 18, fontWeight: 'bold', color: '#ffffff', marginBottom: 12 },
+  popularItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 14,
+    borderBottomWidth: 1,
+    borderBottomColor: '#2a2a4e',
+  },
+  popularLabel: { fontSize: 15, color: '#ffffff' },
+  popularArrow: { fontSize: 16, color: '#16a34a' },
+});

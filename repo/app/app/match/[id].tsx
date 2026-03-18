@@ -12,7 +12,7 @@ import api from '../../lib/api';
 import { getAvatarUrl } from '../../lib/avatars';
 import { SkeletonBlock } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
-import type { MatchWithPlayers } from '../../../shared/types';
+import type { MatchWithPlayers, ProbabilitySnapshot } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const AVATAR_SIZE = Math.round(SCREEN_WIDTH * 0.22);
@@ -55,6 +55,155 @@ function StatBar({
   );
 }
 
+function WinProbabilityBar({
+  p1Name,
+  p2Name,
+  p1Prob,
+  p2Prob,
+}: {
+  p1Name: string;
+  p2Name: string;
+  p1Prob: number;
+  p2Prob: number;
+}) {
+  return (
+    <View style={probStyles.barSection}>
+      <View style={probStyles.barLabels}>
+        <Text style={[probStyles.barLabel, p1Prob > p2Prob && probStyles.barLabelWin]}>
+          {p1Name}
+        </Text>
+        <Text style={[probStyles.barLabel, p2Prob > p1Prob && probStyles.barLabelWin]}>
+          {p2Name}
+        </Text>
+      </View>
+      <View style={probStyles.barContainer}>
+        <View
+          style={[
+            probStyles.barFillLeft,
+            {
+              width: `${p1Prob}%`,
+              backgroundColor: p1Prob >= p2Prob ? '#16a34a' : '#3b82f6',
+            },
+          ]}
+        />
+      </View>
+      <View style={probStyles.barLabels}>
+        <Text style={[probStyles.barPct, p1Prob > p2Prob && probStyles.barPctWin]}>
+          {p1Prob.toFixed(1)}%
+        </Text>
+        <Text style={[probStyles.barPct, p2Prob > p1Prob && probStyles.barPctWin]}>
+          {p2Prob.toFixed(1)}%
+        </Text>
+      </View>
+    </View>
+  );
+}
+
+function ProbabilityCurve({ snapshots, p1Name, p2Name }: {
+  snapshots: ProbabilitySnapshot[];
+  p1Name: string;
+  p2Name: string;
+}) {
+  if (!snapshots || snapshots.length < 2) return null;
+  const chartWidth = SCREEN_WIDTH - 64;
+  const chartHeight = 120;
+  const stepWidth = chartWidth / (snapshots.length - 1);
+
+  return (
+    <View style={probStyles.curveContainer}>
+      <Text style={probStyles.curveLegend}>
+        <Text style={{ color: '#16a34a' }}>■</Text> {p1Name}{'  '}
+        <Text style={{ color: '#3b82f6' }}>■</Text> {p2Name}
+      </Text>
+      <View style={[probStyles.curveChart, { width: chartWidth, height: chartHeight }]}>
+        {/* 50% line */}
+        <View style={[probStyles.halfLine, { top: chartHeight / 2 }]} />
+        {/* Bars for each snapshot */}
+        {snapshots.map((snap, i) => {
+          const barHeight = (snap.p1 / 100) * chartHeight;
+          return (
+            <View
+              key={i}
+              style={{
+                position: 'absolute',
+                left: i * stepWidth,
+                bottom: 0,
+                width: Math.max(stepWidth - 2, 4),
+                height: barHeight,
+                backgroundColor: snap.p1 >= 50 ? '#16a34a' : '#3b82f6',
+                borderRadius: 2,
+                opacity: 0.7,
+              }}
+            />
+          );
+        })}
+      </View>
+      {/* X-axis labels */}
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        <View style={{ flexDirection: 'row', width: chartWidth }}>
+          {snapshots.map((snap, i) => (
+            <Text
+              key={i}
+              style={[
+                probStyles.curveLabel,
+                {
+                  width: stepWidth,
+                  textAlign: 'center',
+                },
+              ]}
+            >
+              {snap.label}
+            </Text>
+          ))}
+        </View>
+      </ScrollView>
+    </View>
+  );
+}
+
+const probStyles = StyleSheet.create({
+  section: {
+    backgroundColor: '#1a1a2e',
+    borderRadius: 12,
+    marginHorizontal: 16,
+    marginBottom: 16,
+    padding: 16,
+  },
+  title: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: '#a0a0b0',
+    letterSpacing: 1,
+    marginBottom: 16,
+    textAlign: 'center',
+  },
+  barSection: { marginBottom: 8 },
+  barLabels: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 4 },
+  barLabel: { fontSize: 13, color: '#a0a0b0' },
+  barLabelWin: { color: '#16a34a', fontWeight: 'bold' },
+  barContainer: {
+    height: 12,
+    backgroundColor: '#3b82f6',
+    borderRadius: 6,
+    overflow: 'hidden',
+    marginBottom: 4,
+  },
+  barFillLeft: { height: '100%', borderRadius: 6 },
+  barPct: { fontSize: 15, fontWeight: 'bold', color: '#a0a0b0' },
+  barPctWin: { color: '#16a34a' },
+  curveContainer: { marginTop: 16 },
+  curveLegend: { fontSize: 11, color: '#a0a0b0', marginBottom: 8, textAlign: 'center' },
+  curveChart: { backgroundColor: '#0f0f23', borderRadius: 8, overflow: 'hidden' },
+  halfLine: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    height: 1,
+    backgroundColor: '#2a2a4e',
+  },
+  curveLabel: { fontSize: 8, color: '#6b7280', marginTop: 4 },
+});
+
 export default function MatchDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
 
@@ -68,6 +217,15 @@ export default function MatchDetailScreen() {
       const res = await api.get(`/api/matches/${id}`);
       return res.data;
     },
+  });
+
+  const { data: probData } = useQuery<{ snapshots: ProbabilitySnapshot[] }>({
+    queryKey: ['match-prob-history', id],
+    queryFn: async () => {
+      const res = await api.get(`/api/matches/${id}/probability-history`);
+      return res.data;
+    },
+    enabled: !!id,
   });
 
   if (isLoading) {
@@ -226,6 +384,24 @@ export default function MatchDetailScreen() {
             )}
           </View>
         )}
+
+        {/* Win Probability Section */}
+        <View style={probStyles.section}>
+          <Text style={probStyles.title}>WIN PROBABILITY</Text>
+          <WinProbabilityBar
+            p1Name={match.player1?.name?.split(' ').pop() || 'P1'}
+            p2Name={match.player2?.name?.split(' ').pop() || 'P2'}
+            p1Prob={p1Won ? 100 : 0}
+            p2Prob={p2Won ? 100 : 0}
+          />
+          {probData?.snapshots && probData.snapshots.length > 0 && (
+            <ProbabilityCurve
+              snapshots={probData.snapshots}
+              p1Name={match.player1?.name?.split(' ').pop() || 'P1'}
+              p2Name={match.player2?.name?.split(' ').pop() || 'P2'}
+            />
+          )}
+        </View>
       </ScrollView>
     </>
   );
