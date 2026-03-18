@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Jannik Sinner",
     "country": "ITA",
-    "countryFlag": "🇮🇹",
+    "countryFlag": "\ud83c\uddee\ud83c\uddf9",
     "photoUrl": null,
     "ranking": 1,
     "birthdate": "2001-08-16",
@@ -21,20 +21,308 @@
     "recentForm": "Dominant season with Australian Open and US Open titles. Consistent top form on hard courts.",
     "rankingHistory": [
       {
-        "month": "2024-01",
+        "month": "2018-01",
+        "ranking": 544
+      },
+      {
+        "month": "2018-02",
+        "ranking": 514
+      },
+      {
+        "month": "2018-03",
+        "ranking": 487
+      },
+      {
+        "month": "2018-04",
+        "ranking": 488
+      },
+      {
+        "month": "2018-05",
+        "ranking": 429
+      },
+      {
+        "month": "2018-06",
+        "ranking": 365
+      },
+      {
+        "month": "2018-07",
+        "ranking": 385
+      },
+      {
+        "month": "2018-08",
+        "ranking": 338
+      },
+      {
+        "month": "2018-09",
+        "ranking": 311
+      },
+      {
+        "month": "2018-10",
+        "ranking": 290
+      },
+      {
+        "month": "2018-11",
+        "ranking": 263
+      },
+      {
+        "month": "2018-12",
+        "ranking": 250
+      },
+      {
+        "month": "2019-01",
+        "ranking": 213
+      },
+      {
+        "month": "2019-02",
+        "ranking": 188
+      },
+      {
+        "month": "2019-03",
+        "ranking": 163
+      },
+      {
+        "month": "2019-04",
+        "ranking": 146
+      },
+      {
+        "month": "2019-05",
+        "ranking": 149
+      },
+      {
+        "month": "2019-06",
+        "ranking": 146
+      },
+      {
+        "month": "2019-07",
+        "ranking": 125
+      },
+      {
+        "month": "2019-08",
+        "ranking": 107
+      },
+      {
+        "month": "2019-09",
+        "ranking": 95
+      },
+      {
+        "month": "2019-10",
+        "ranking": 81
+      },
+      {
+        "month": "2019-11",
+        "ranking": 69
+      },
+      {
+        "month": "2019-12",
+        "ranking": 59
+      },
+      {
+        "month": "2020-01",
+        "ranking": 51
+      },
+      {
+        "month": "2020-02",
+        "ranking": 44
+      },
+      {
+        "month": "2020-03",
+        "ranking": 38
+      },
+      {
+        "month": "2020-04",
+        "ranking": 33
+      },
+      {
+        "month": "2020-05",
+        "ranking": 30
+      },
+      {
+        "month": "2020-06",
+        "ranking": 26
+      },
+      {
+        "month": "2020-07",
+        "ranking": 25
+      },
+      {
+        "month": "2020-08",
+        "ranking": 22
+      },
+      {
+        "month": "2020-09",
+        "ranking": 19
+      },
+      {
+        "month": "2020-10",
+        "ranking": 16
+      },
+      {
+        "month": "2020-11",
+        "ranking": 13
+      },
+      {
+        "month": "2020-12",
+        "ranking": 13
+      },
+      {
+        "month": "2021-01",
+        "ranking": 11
+      },
+      {
+        "month": "2021-02",
+        "ranking": 9
+      },
+      {
+        "month": "2021-03",
+        "ranking": 11
+      },
+      {
+        "month": "2021-04",
+        "ranking": 9
+      },
+      {
+        "month": "2021-05",
+        "ranking": 10
+      },
+      {
+        "month": "2021-06",
+        "ranking": 10
+      },
+      {
+        "month": "2021-07",
+        "ranking": 11
+      },
+      {
+        "month": "2021-08",
+        "ranking": 11
+      },
+      {
+        "month": "2021-09",
+        "ranking": 11
+      },
+      {
+        "month": "2021-10",
+        "ranking": 11
+      },
+      {
+        "month": "2021-11",
+        "ranking": 11
+      },
+      {
+        "month": "2021-12",
+        "ranking": 11
+      },
+      {
+        "month": "2022-01",
+        "ranking": 10
+      },
+      {
+        "month": "2022-02",
+        "ranking": 10
+      },
+      {
+        "month": "2022-03",
+        "ranking": 9
+      },
+      {
+        "month": "2022-04",
+        "ranking": 10
+      },
+      {
+        "month": "2022-05",
+        "ranking": 8
+      },
+      {
+        "month": "2022-06",
+        "ranking": 10
+      },
+      {
+        "month": "2022-07",
+        "ranking": 7
+      },
+      {
+        "month": "2022-08",
+        "ranking": 6
+      },
+      {
+        "month": "2022-09",
+        "ranking": 7
+      },
+      {
+        "month": "2022-10",
+        "ranking": 7
+      },
+      {
+        "month": "2022-11",
+        "ranking": 6
+      },
+      {
+        "month": "2022-12",
+        "ranking": 5
+      },
+      {
+        "month": "2023-01",
+        "ranking": 5
+      },
+      {
+        "month": "2023-02",
         "ranking": 4
       },
       {
-        "month": "2024-02",
+        "month": "2023-03",
+        "ranking": 2
+      },
+      {
+        "month": "2023-04",
         "ranking": 3
       },
       {
-        "month": "2024-03",
+        "month": "2023-05",
+        "ranking": 4
+      },
+      {
+        "month": "2023-06",
+        "ranking": 1
+      },
+      {
+        "month": "2023-07",
+        "ranking": 3
+      },
+      {
+        "month": "2023-08",
+        "ranking": 3
+      },
+      {
+        "month": "2023-09",
         "ranking": 2
       },
       {
-        "month": "2024-04",
+        "month": "2023-10",
         "ranking": 2
+      },
+      {
+        "month": "2023-11",
+        "ranking": 2
+      },
+      {
+        "month": "2023-12",
+        "ranking": 4
+      },
+      {
+        "month": "2024-01",
+        "ranking": 2
+      },
+      {
+        "month": "2024-02",
+        "ranking": 1
+      },
+      {
+        "month": "2024-03",
+        "ranking": 1
+      },
+      {
+        "month": "2024-04",
+        "ranking": 1
       },
       {
         "month": "2024-05",
@@ -50,7 +338,7 @@
       },
       {
         "month": "2024-08",
-        "ranking": 1
+        "ranking": 2
       },
       {
         "month": "2024-09",
@@ -98,7 +386,7 @@
     "id": 2,
     "name": "Novak Djokovic",
     "country": "SRB",
-    "countryFlag": "🇷🇸",
+    "countryFlag": "\ud83c\uddf7\ud83c\uddf8",
     "photoUrl": null,
     "ranking": 2,
     "birthdate": "1987-05-22",
@@ -116,12 +404,1020 @@
     "recentForm": "Still competitive at 37, reaching Grand Slam semis. Legendary consistency continues.",
     "rankingHistory": [
       {
-        "month": "2024-01",
+        "month": "2003-01",
+        "ranking": 649
+      },
+      {
+        "month": "2003-02",
+        "ranking": 660
+      },
+      {
+        "month": "2003-03",
+        "ranking": 655
+      },
+      {
+        "month": "2003-04",
+        "ranking": 557
+      },
+      {
+        "month": "2003-05",
+        "ranking": 526
+      },
+      {
+        "month": "2003-06",
+        "ranking": 481
+      },
+      {
+        "month": "2003-07",
+        "ranking": 471
+      },
+      {
+        "month": "2003-08",
+        "ranking": 420
+      },
+      {
+        "month": "2003-09",
+        "ranking": 358
+      },
+      {
+        "month": "2003-10",
+        "ranking": 305
+      },
+      {
+        "month": "2003-11",
+        "ranking": 288
+      },
+      {
+        "month": "2003-12",
+        "ranking": 245
+      },
+      {
+        "month": "2004-01",
+        "ranking": 209
+      },
+      {
+        "month": "2004-02",
+        "ranking": 178
+      },
+      {
+        "month": "2004-03",
+        "ranking": 194
+      },
+      {
+        "month": "2004-04",
+        "ranking": 165
+      },
+      {
+        "month": "2004-05",
+        "ranking": 169
+      },
+      {
+        "month": "2004-06",
+        "ranking": 144
+      },
+      {
+        "month": "2004-07",
+        "ranking": 127
+      },
+      {
+        "month": "2004-08",
+        "ranking": 112
+      },
+      {
+        "month": "2004-09",
+        "ranking": 113
+      },
+      {
+        "month": "2004-10",
+        "ranking": 117
+      },
+      {
+        "month": "2004-11",
+        "ranking": 102
+      },
+      {
+        "month": "2004-12",
+        "ranking": 92
+      },
+      {
+        "month": "2005-01",
+        "ranking": 79
+      },
+      {
+        "month": "2005-02",
+        "ranking": 77
+      },
+      {
+        "month": "2005-03",
+        "ranking": 71
+      },
+      {
+        "month": "2005-04",
+        "ranking": 61
+      },
+      {
+        "month": "2005-05",
+        "ranking": 54
+      },
+      {
+        "month": "2005-06",
+        "ranking": 52
+      },
+      {
+        "month": "2005-07",
+        "ranking": 53
+      },
+      {
+        "month": "2005-08",
+        "ranking": 46
+      },
+      {
+        "month": "2005-09",
+        "ranking": 40
+      },
+      {
+        "month": "2005-10",
+        "ranking": 35
+      },
+      {
+        "month": "2005-11",
+        "ranking": 30
+      },
+      {
+        "month": "2005-12",
+        "ranking": 26
+      },
+      {
+        "month": "2006-01",
+        "ranking": 23
+      },
+      {
+        "month": "2006-02",
+        "ranking": 20
+      },
+      {
+        "month": "2006-03",
+        "ranking": 17
+      },
+      {
+        "month": "2006-04",
+        "ranking": 14
+      },
+      {
+        "month": "2006-05",
+        "ranking": 13
+      },
+      {
+        "month": "2006-06",
+        "ranking": 11
+      },
+      {
+        "month": "2006-07",
+        "ranking": 12
+      },
+      {
+        "month": "2006-08",
+        "ranking": 9
+      },
+      {
+        "month": "2006-09",
+        "ranking": 9
+      },
+      {
+        "month": "2006-10",
+        "ranking": 6
+      },
+      {
+        "month": "2006-11",
+        "ranking": 5
+      },
+      {
+        "month": "2006-12",
+        "ranking": 4
+      },
+      {
+        "month": "2007-01",
+        "ranking": 5
+      },
+      {
+        "month": "2007-02",
+        "ranking": 2
+      },
+      {
+        "month": "2007-03",
+        "ranking": 4
+      },
+      {
+        "month": "2007-04",
+        "ranking": 4
+      },
+      {
+        "month": "2007-05",
+        "ranking": 5
+      },
+      {
+        "month": "2007-06",
+        "ranking": 4
+      },
+      {
+        "month": "2007-07",
+        "ranking": 3
+      },
+      {
+        "month": "2007-08",
+        "ranking": 2
+      },
+      {
+        "month": "2007-09",
+        "ranking": 2
+      },
+      {
+        "month": "2007-10",
+        "ranking": 3
+      },
+      {
+        "month": "2007-11",
+        "ranking": 3
+      },
+      {
+        "month": "2007-12",
+        "ranking": 5
+      },
+      {
+        "month": "2008-01",
+        "ranking": 2
+      },
+      {
+        "month": "2008-02",
+        "ranking": 3
+      },
+      {
+        "month": "2008-03",
         "ranking": 1
       },
       {
-        "month": "2024-02",
+        "month": "2008-04",
+        "ranking": 3
+      },
+      {
+        "month": "2008-05",
+        "ranking": 3
+      },
+      {
+        "month": "2008-06",
+        "ranking": 4
+      },
+      {
+        "month": "2008-07",
+        "ranking": 4
+      },
+      {
+        "month": "2008-08",
+        "ranking": 3
+      },
+      {
+        "month": "2008-09",
+        "ranking": 2
+      },
+      {
+        "month": "2008-10",
+        "ranking": 3
+      },
+      {
+        "month": "2008-11",
+        "ranking": 4
+      },
+      {
+        "month": "2008-12",
+        "ranking": 3
+      },
+      {
+        "month": "2009-01",
+        "ranking": 2
+      },
+      {
+        "month": "2009-02",
+        "ranking": 4
+      },
+      {
+        "month": "2009-03",
+        "ranking": 3
+      },
+      {
+        "month": "2009-04",
+        "ranking": 4
+      },
+      {
+        "month": "2009-05",
+        "ranking": 4
+      },
+      {
+        "month": "2009-06",
+        "ranking": 4
+      },
+      {
+        "month": "2009-07",
+        "ranking": 3
+      },
+      {
+        "month": "2009-08",
+        "ranking": 5
+      },
+      {
+        "month": "2009-09",
+        "ranking": 3
+      },
+      {
+        "month": "2009-10",
+        "ranking": 3
+      },
+      {
+        "month": "2009-11",
+        "ranking": 3
+      },
+      {
+        "month": "2009-12",
+        "ranking": 4
+      },
+      {
+        "month": "2010-01",
+        "ranking": 3
+      },
+      {
+        "month": "2010-02",
+        "ranking": 3
+      },
+      {
+        "month": "2010-03",
+        "ranking": 4
+      },
+      {
+        "month": "2010-04",
+        "ranking": 2
+      },
+      {
+        "month": "2010-05",
         "ranking": 1
+      },
+      {
+        "month": "2010-06",
+        "ranking": 2
+      },
+      {
+        "month": "2010-07",
+        "ranking": 2
+      },
+      {
+        "month": "2010-08",
+        "ranking": 1
+      },
+      {
+        "month": "2010-09",
+        "ranking": 3
+      },
+      {
+        "month": "2010-10",
+        "ranking": 2
+      },
+      {
+        "month": "2010-11",
+        "ranking": 1
+      },
+      {
+        "month": "2010-12",
+        "ranking": 2
+      },
+      {
+        "month": "2011-01",
+        "ranking": 1
+      },
+      {
+        "month": "2011-02",
+        "ranking": 1
+      },
+      {
+        "month": "2011-03",
+        "ranking": 1
+      },
+      {
+        "month": "2011-04",
+        "ranking": 1
+      },
+      {
+        "month": "2011-05",
+        "ranking": 1
+      },
+      {
+        "month": "2011-06",
+        "ranking": 2
+      },
+      {
+        "month": "2011-07",
+        "ranking": 1
+      },
+      {
+        "month": "2011-08",
+        "ranking": 1
+      },
+      {
+        "month": "2011-09",
+        "ranking": 1
+      },
+      {
+        "month": "2011-10",
+        "ranking": 2
+      },
+      {
+        "month": "2011-11",
+        "ranking": 1
+      },
+      {
+        "month": "2011-12",
+        "ranking": 1
+      },
+      {
+        "month": "2012-01",
+        "ranking": 1
+      },
+      {
+        "month": "2012-02",
+        "ranking": 3
+      },
+      {
+        "month": "2012-03",
+        "ranking": 1
+      },
+      {
+        "month": "2012-04",
+        "ranking": 2
+      },
+      {
+        "month": "2012-05",
+        "ranking": 1
+      },
+      {
+        "month": "2012-06",
+        "ranking": 1
+      },
+      {
+        "month": "2012-07",
+        "ranking": 3
+      },
+      {
+        "month": "2012-08",
+        "ranking": 2
+      },
+      {
+        "month": "2012-09",
+        "ranking": 4
+      },
+      {
+        "month": "2012-10",
+        "ranking": 1
+      },
+      {
+        "month": "2012-11",
+        "ranking": 2
+      },
+      {
+        "month": "2012-12",
+        "ranking": 1
+      },
+      {
+        "month": "2013-01",
+        "ranking": 1
+      },
+      {
+        "month": "2013-02",
+        "ranking": 2
+      },
+      {
+        "month": "2013-03",
+        "ranking": 2
+      },
+      {
+        "month": "2013-04",
+        "ranking": 2
+      },
+      {
+        "month": "2013-05",
+        "ranking": 1
+      },
+      {
+        "month": "2013-06",
+        "ranking": 4
+      },
+      {
+        "month": "2013-07",
+        "ranking": 1
+      },
+      {
+        "month": "2013-08",
+        "ranking": 3
+      },
+      {
+        "month": "2013-09",
+        "ranking": 1
+      },
+      {
+        "month": "2013-10",
+        "ranking": 2
+      },
+      {
+        "month": "2013-11",
+        "ranking": 4
+      },
+      {
+        "month": "2013-12",
+        "ranking": 1
+      },
+      {
+        "month": "2014-01",
+        "ranking": 1
+      },
+      {
+        "month": "2014-02",
+        "ranking": 1
+      },
+      {
+        "month": "2014-03",
+        "ranking": 1
+      },
+      {
+        "month": "2014-04",
+        "ranking": 2
+      },
+      {
+        "month": "2014-05",
+        "ranking": 2
+      },
+      {
+        "month": "2014-06",
+        "ranking": 1
+      },
+      {
+        "month": "2014-07",
+        "ranking": 1
+      },
+      {
+        "month": "2014-08",
+        "ranking": 1
+      },
+      {
+        "month": "2014-09",
+        "ranking": 2
+      },
+      {
+        "month": "2014-10",
+        "ranking": 1
+      },
+      {
+        "month": "2014-11",
+        "ranking": 1
+      },
+      {
+        "month": "2014-12",
+        "ranking": 1
+      },
+      {
+        "month": "2015-01",
+        "ranking": 2
+      },
+      {
+        "month": "2015-02",
+        "ranking": 3
+      },
+      {
+        "month": "2015-03",
+        "ranking": 2
+      },
+      {
+        "month": "2015-04",
+        "ranking": 2
+      },
+      {
+        "month": "2015-05",
+        "ranking": 1
+      },
+      {
+        "month": "2015-06",
+        "ranking": 1
+      },
+      {
+        "month": "2015-07",
+        "ranking": 2
+      },
+      {
+        "month": "2015-08",
+        "ranking": 2
+      },
+      {
+        "month": "2015-09",
+        "ranking": 2
+      },
+      {
+        "month": "2015-10",
+        "ranking": 1
+      },
+      {
+        "month": "2015-11",
+        "ranking": 1
+      },
+      {
+        "month": "2015-12",
+        "ranking": 1
+      },
+      {
+        "month": "2016-01",
+        "ranking": 1
+      },
+      {
+        "month": "2016-02",
+        "ranking": 3
+      },
+      {
+        "month": "2016-03",
+        "ranking": 1
+      },
+      {
+        "month": "2016-04",
+        "ranking": 2
+      },
+      {
+        "month": "2016-05",
+        "ranking": 3
+      },
+      {
+        "month": "2016-06",
+        "ranking": 4
+      },
+      {
+        "month": "2016-07",
+        "ranking": 3
+      },
+      {
+        "month": "2016-08",
+        "ranking": 4
+      },
+      {
+        "month": "2016-09",
+        "ranking": 3
+      },
+      {
+        "month": "2016-10",
+        "ranking": 3
+      },
+      {
+        "month": "2016-11",
+        "ranking": 3
+      },
+      {
+        "month": "2016-12",
+        "ranking": 5
+      },
+      {
+        "month": "2017-01",
+        "ranking": 5
+      },
+      {
+        "month": "2017-02",
+        "ranking": 4
+      },
+      {
+        "month": "2017-03",
+        "ranking": 7
+      },
+      {
+        "month": "2017-04",
+        "ranking": 4
+      },
+      {
+        "month": "2017-05",
+        "ranking": 4
+      },
+      {
+        "month": "2017-06",
+        "ranking": 3
+      },
+      {
+        "month": "2017-07",
+        "ranking": 2
+      },
+      {
+        "month": "2017-08",
+        "ranking": 5
+      },
+      {
+        "month": "2017-09",
+        "ranking": 4
+      },
+      {
+        "month": "2017-10",
+        "ranking": 1
+      },
+      {
+        "month": "2017-11",
+        "ranking": 1
+      },
+      {
+        "month": "2017-12",
+        "ranking": 2
+      },
+      {
+        "month": "2018-01",
+        "ranking": 2
+      },
+      {
+        "month": "2018-02",
+        "ranking": 1
+      },
+      {
+        "month": "2018-03",
+        "ranking": 1
+      },
+      {
+        "month": "2018-04",
+        "ranking": 1
+      },
+      {
+        "month": "2018-05",
+        "ranking": 1
+      },
+      {
+        "month": "2018-06",
+        "ranking": 1
+      },
+      {
+        "month": "2018-07",
+        "ranking": 2
+      },
+      {
+        "month": "2018-08",
+        "ranking": 1
+      },
+      {
+        "month": "2018-09",
+        "ranking": 1
+      },
+      {
+        "month": "2018-10",
+        "ranking": 1
+      },
+      {
+        "month": "2018-11",
+        "ranking": 2
+      },
+      {
+        "month": "2018-12",
+        "ranking": 2
+      },
+      {
+        "month": "2019-01",
+        "ranking": 3
+      },
+      {
+        "month": "2019-02",
+        "ranking": 3
+      },
+      {
+        "month": "2019-03",
+        "ranking": 2
+      },
+      {
+        "month": "2019-04",
+        "ranking": 3
+      },
+      {
+        "month": "2019-05",
+        "ranking": 2
+      },
+      {
+        "month": "2019-06",
+        "ranking": 1
+      },
+      {
+        "month": "2019-07",
+        "ranking": 1
+      },
+      {
+        "month": "2019-08",
+        "ranking": 1
+      },
+      {
+        "month": "2019-09",
+        "ranking": 1
+      },
+      {
+        "month": "2019-10",
+        "ranking": 1
+      },
+      {
+        "month": "2019-11",
+        "ranking": 1
+      },
+      {
+        "month": "2019-12",
+        "ranking": 1
+      },
+      {
+        "month": "2020-01",
+        "ranking": 1
+      },
+      {
+        "month": "2020-02",
+        "ranking": 1
+      },
+      {
+        "month": "2020-03",
+        "ranking": 3
+      },
+      {
+        "month": "2020-04",
+        "ranking": 1
+      },
+      {
+        "month": "2020-05",
+        "ranking": 1
+      },
+      {
+        "month": "2020-06",
+        "ranking": 1
+      },
+      {
+        "month": "2020-07",
+        "ranking": 1
+      },
+      {
+        "month": "2020-08",
+        "ranking": 1
+      },
+      {
+        "month": "2020-09",
+        "ranking": 1
+      },
+      {
+        "month": "2020-10",
+        "ranking": 1
+      },
+      {
+        "month": "2020-11",
+        "ranking": 3
+      },
+      {
+        "month": "2020-12",
+        "ranking": 2
+      },
+      {
+        "month": "2021-01",
+        "ranking": 2
+      },
+      {
+        "month": "2021-02",
+        "ranking": 1
+      },
+      {
+        "month": "2021-03",
+        "ranking": 2
+      },
+      {
+        "month": "2021-04",
+        "ranking": 1
+      },
+      {
+        "month": "2021-05",
+        "ranking": 3
+      },
+      {
+        "month": "2021-06",
+        "ranking": 3
+      },
+      {
+        "month": "2021-07",
+        "ranking": 2
+      },
+      {
+        "month": "2021-08",
+        "ranking": 5
+      },
+      {
+        "month": "2021-09",
+        "ranking": 4
+      },
+      {
+        "month": "2021-10",
+        "ranking": 2
+      },
+      {
+        "month": "2021-11",
+        "ranking": 5
+      },
+      {
+        "month": "2021-12",
+        "ranking": 4
+      },
+      {
+        "month": "2022-01",
+        "ranking": 5
+      },
+      {
+        "month": "2022-02",
+        "ranking": 5
+      },
+      {
+        "month": "2022-03",
+        "ranking": 5
+      },
+      {
+        "month": "2022-04",
+        "ranking": 2
+      },
+      {
+        "month": "2022-05",
+        "ranking": 3
+      },
+      {
+        "month": "2022-06",
+        "ranking": 4
+      },
+      {
+        "month": "2022-07",
+        "ranking": 4
+      },
+      {
+        "month": "2022-08",
+        "ranking": 5
+      },
+      {
+        "month": "2022-09",
+        "ranking": 4
+      },
+      {
+        "month": "2022-10",
+        "ranking": 1
+      },
+      {
+        "month": "2022-11",
+        "ranking": 2
+      },
+      {
+        "month": "2022-12",
+        "ranking": 1
+      },
+      {
+        "month": "2023-01",
+        "ranking": 3
+      },
+      {
+        "month": "2023-02",
+        "ranking": 1
+      },
+      {
+        "month": "2023-03",
+        "ranking": 1
+      },
+      {
+        "month": "2023-04",
+        "ranking": 3
+      },
+      {
+        "month": "2023-05",
+        "ranking": 2
+      },
+      {
+        "month": "2023-06",
+        "ranking": 1
+      },
+      {
+        "month": "2023-07",
+        "ranking": 2
+      },
+      {
+        "month": "2023-08",
+        "ranking": 1
+      },
+      {
+        "month": "2023-09",
+        "ranking": 2
+      },
+      {
+        "month": "2023-10",
+        "ranking": 1
+      },
+      {
+        "month": "2023-11",
+        "ranking": 3
+      },
+      {
+        "month": "2023-12",
+        "ranking": 1
+      },
+      {
+        "month": "2024-01",
+        "ranking": 2
+      },
+      {
+        "month": "2024-02",
+        "ranking": 4
       },
       {
         "month": "2024-03",
@@ -129,19 +1425,19 @@
       },
       {
         "month": "2024-04",
-        "ranking": 1
+        "ranking": 2
       },
       {
         "month": "2024-05",
-        "ranking": 1
+        "ranking": 2
       },
       {
         "month": "2024-06",
-        "ranking": 2
+        "ranking": 1
       },
       {
         "month": "2024-07",
-        "ranking": 2
+        "ranking": 3
       },
       {
         "month": "2024-08",
@@ -149,15 +1445,15 @@
       },
       {
         "month": "2024-09",
-        "ranking": 3
+        "ranking": 1
       },
       {
         "month": "2024-10",
-        "ranking": 3
+        "ranking": 4
       },
       {
         "month": "2024-11",
-        "ranking": 2
+        "ranking": 3
       },
       {
         "month": "2024-12",
@@ -193,7 +1489,7 @@
     "id": 3,
     "name": "Carlos Alcaraz",
     "country": "ESP",
-    "countryFlag": "🇪🇸",
+    "countryFlag": "\ud83c\uddea\ud83c\uddf8",
     "photoUrl": null,
     "ranking": 3,
     "birthdate": "2003-05-05",
@@ -211,24 +1507,312 @@
     "recentForm": "Won Roland Garros and Wimbledon back-to-back. Explosive power and shot variety.",
     "rankingHistory": [
       {
+        "month": "2018-01",
+        "ranking": 465
+      },
+      {
+        "month": "2018-02",
+        "ranking": 452
+      },
+      {
+        "month": "2018-03",
+        "ranking": 519
+      },
+      {
+        "month": "2018-04",
+        "ranking": 462
+      },
+      {
+        "month": "2018-05",
+        "ranking": 477
+      },
+      {
+        "month": "2018-06",
+        "ranking": 446
+      },
+      {
+        "month": "2018-07",
+        "ranking": 467
+      },
+      {
+        "month": "2018-08",
+        "ranking": 433
+      },
+      {
+        "month": "2018-09",
+        "ranking": 456
+      },
+      {
+        "month": "2018-10",
+        "ranking": 416
+      },
+      {
+        "month": "2018-11",
+        "ranking": 443
+      },
+      {
+        "month": "2018-12",
+        "ranking": 429
+      },
+      {
+        "month": "2019-01",
+        "ranking": 396
+      },
+      {
+        "month": "2019-02",
+        "ranking": 352
+      },
+      {
+        "month": "2019-03",
+        "ranking": 330
+      },
+      {
+        "month": "2019-04",
+        "ranking": 315
+      },
+      {
+        "month": "2019-05",
+        "ranking": 289
+      },
+      {
+        "month": "2019-06",
+        "ranking": 312
+      },
+      {
+        "month": "2019-07",
+        "ranking": 269
+      },
+      {
+        "month": "2019-08",
+        "ranking": 280
+      },
+      {
+        "month": "2019-09",
+        "ranking": 268
+      },
+      {
+        "month": "2019-10",
+        "ranking": 228
+      },
+      {
+        "month": "2019-11",
+        "ranking": 194
+      },
+      {
+        "month": "2019-12",
+        "ranking": 165
+      },
+      {
+        "month": "2020-01",
+        "ranking": 141
+      },
+      {
+        "month": "2020-02",
+        "ranking": 120
+      },
+      {
+        "month": "2020-03",
+        "ranking": 120
+      },
+      {
+        "month": "2020-04",
+        "ranking": 116
+      },
+      {
+        "month": "2020-05",
+        "ranking": 100
+      },
+      {
+        "month": "2020-06",
+        "ranking": 89
+      },
+      {
+        "month": "2020-07",
+        "ranking": 81
+      },
+      {
+        "month": "2020-08",
+        "ranking": 88
+      },
+      {
+        "month": "2020-09",
+        "ranking": 75
+      },
+      {
+        "month": "2020-10",
+        "ranking": 64
+      },
+      {
+        "month": "2020-11",
+        "ranking": 55
+      },
+      {
+        "month": "2020-12",
+        "ranking": 47
+      },
+      {
+        "month": "2021-01",
+        "ranking": 40
+      },
+      {
+        "month": "2021-02",
+        "ranking": 34
+      },
+      {
+        "month": "2021-03",
+        "ranking": 29
+      },
+      {
+        "month": "2021-04",
+        "ranking": 26
+      },
+      {
+        "month": "2021-05",
+        "ranking": 24
+      },
+      {
+        "month": "2021-06",
+        "ranking": 21
+      },
+      {
+        "month": "2021-07",
+        "ranking": 18
+      },
+      {
+        "month": "2021-08",
+        "ranking": 15
+      },
+      {
+        "month": "2021-09",
+        "ranking": 12
+      },
+      {
+        "month": "2021-10",
+        "ranking": 10
+      },
+      {
+        "month": "2021-11",
+        "ranking": 7
+      },
+      {
+        "month": "2021-12",
+        "ranking": 4
+      },
+      {
+        "month": "2022-01",
+        "ranking": 1
+      },
+      {
+        "month": "2022-02",
+        "ranking": 2
+      },
+      {
+        "month": "2022-03",
+        "ranking": 1
+      },
+      {
+        "month": "2022-04",
+        "ranking": 1
+      },
+      {
+        "month": "2022-05",
+        "ranking": 1
+      },
+      {
+        "month": "2022-06",
+        "ranking": 2
+      },
+      {
+        "month": "2022-07",
+        "ranking": 1
+      },
+      {
+        "month": "2022-08",
+        "ranking": 2
+      },
+      {
+        "month": "2022-09",
+        "ranking": 2
+      },
+      {
+        "month": "2022-10",
+        "ranking": 1
+      },
+      {
+        "month": "2022-11",
+        "ranking": 3
+      },
+      {
+        "month": "2022-12",
+        "ranking": 3
+      },
+      {
+        "month": "2023-01",
+        "ranking": 1
+      },
+      {
+        "month": "2023-02",
+        "ranking": 1
+      },
+      {
+        "month": "2023-03",
+        "ranking": 3
+      },
+      {
+        "month": "2023-04",
+        "ranking": 1
+      },
+      {
+        "month": "2023-05",
+        "ranking": 2
+      },
+      {
+        "month": "2023-06",
+        "ranking": 2
+      },
+      {
+        "month": "2023-07",
+        "ranking": 3
+      },
+      {
+        "month": "2023-08",
+        "ranking": 3
+      },
+      {
+        "month": "2023-09",
+        "ranking": 3
+      },
+      {
+        "month": "2023-10",
+        "ranking": 4
+      },
+      {
+        "month": "2023-11",
+        "ranking": 3
+      },
+      {
+        "month": "2023-12",
+        "ranking": 3
+      },
+      {
         "month": "2024-01",
         "ranking": 2
       },
       {
         "month": "2024-02",
-        "ranking": 2
+        "ranking": 4
       },
       {
         "month": "2024-03",
-        "ranking": 2
+        "ranking": 4
       },
       {
         "month": "2024-04",
-        "ranking": 3
+        "ranking": 4
       },
       {
         "month": "2024-05",
-        "ranking": 3
+        "ranking": 2
       },
       {
         "month": "2024-06",
@@ -248,15 +1832,15 @@
       },
       {
         "month": "2024-10",
-        "ranking": 3
+        "ranking": 1
       },
       {
         "month": "2024-11",
-        "ranking": 3
+        "ranking": 4
       },
       {
         "month": "2024-12",
-        "ranking": 3
+        "ranking": 4
       }
     ],
     "record": {
@@ -288,7 +1872,7 @@
     "id": 4,
     "name": "Alexander Zverev",
     "country": "GER",
-    "countryFlag": "🇩🇪",
+    "countryFlag": "\ud83c\udde9\ud83c\uddea",
     "photoUrl": null,
     "ranking": 4,
     "birthdate": "1997-04-20",
@@ -306,12 +1890,540 @@
     "recentForm": "Strong Masters results, reaching multiple finals. Still seeking first Grand Slam.",
     "rankingHistory": [
       {
-        "month": "2024-01",
+        "month": "2013-01",
+        "ranking": 491
+      },
+      {
+        "month": "2013-02",
+        "ranking": 506
+      },
+      {
+        "month": "2013-03",
+        "ranking": 431
+      },
+      {
+        "month": "2013-04",
+        "ranking": 386
+      },
+      {
+        "month": "2013-05",
+        "ranking": 367
+      },
+      {
+        "month": "2013-06",
+        "ranking": 400
+      },
+      {
+        "month": "2013-07",
+        "ranking": 340
+      },
+      {
+        "month": "2013-08",
+        "ranking": 316
+      },
+      {
+        "month": "2013-09",
+        "ranking": 269
+      },
+      {
+        "month": "2013-10",
+        "ranking": 229
+      },
+      {
+        "month": "2013-11",
+        "ranking": 203
+      },
+      {
+        "month": "2013-12",
+        "ranking": 196
+      },
+      {
+        "month": "2014-01",
+        "ranking": 217
+      },
+      {
+        "month": "2014-02",
+        "ranking": 185
+      },
+      {
+        "month": "2014-03",
+        "ranking": 177
+      },
+      {
+        "month": "2014-04",
+        "ranking": 155
+      },
+      {
+        "month": "2014-05",
+        "ranking": 169
+      },
+      {
+        "month": "2014-06",
+        "ranking": 144
+      },
+      {
+        "month": "2014-07",
+        "ranking": 156
+      },
+      {
+        "month": "2014-08",
+        "ranking": 133
+      },
+      {
+        "month": "2014-09",
+        "ranking": 115
+      },
+      {
+        "month": "2014-10",
+        "ranking": 113
+      },
+      {
+        "month": "2014-11",
+        "ranking": 103
+      },
+      {
+        "month": "2014-12",
+        "ranking": 103
+      },
+      {
+        "month": "2015-01",
+        "ranking": 88
+      },
+      {
+        "month": "2015-02",
+        "ranking": 75
+      },
+      {
+        "month": "2015-03",
+        "ranking": 70
+      },
+      {
+        "month": "2015-04",
+        "ranking": 65
+      },
+      {
+        "month": "2015-05",
+        "ranking": 67
+      },
+      {
+        "month": "2015-06",
+        "ranking": 60
+      },
+      {
+        "month": "2015-07",
+        "ranking": 53
+      },
+      {
+        "month": "2015-08",
+        "ranking": 52
+      },
+      {
+        "month": "2015-09",
+        "ranking": 45
+      },
+      {
+        "month": "2015-10",
+        "ranking": 39
+      },
+      {
+        "month": "2015-11",
+        "ranking": 34
+      },
+      {
+        "month": "2015-12",
+        "ranking": 32
+      },
+      {
+        "month": "2016-01",
+        "ranking": 28
+      },
+      {
+        "month": "2016-02",
+        "ranking": 24
+      },
+      {
+        "month": "2016-03",
+        "ranking": 21
+      },
+      {
+        "month": "2016-04",
+        "ranking": 20
+      },
+      {
+        "month": "2016-05",
+        "ranking": 17
+      },
+      {
+        "month": "2016-06",
+        "ranking": 16
+      },
+      {
+        "month": "2016-07",
+        "ranking": 13
+      },
+      {
+        "month": "2016-08",
+        "ranking": 13
+      },
+      {
+        "month": "2016-09",
+        "ranking": 10
+      },
+      {
+        "month": "2016-10",
+        "ranking": 8
+      },
+      {
+        "month": "2016-11",
+        "ranking": 8
+      },
+      {
+        "month": "2016-12",
+        "ranking": 5
+      },
+      {
+        "month": "2017-01",
+        "ranking": 4
+      },
+      {
+        "month": "2017-02",
+        "ranking": 4
+      },
+      {
+        "month": "2017-03",
+        "ranking": 3
+      },
+      {
+        "month": "2017-04",
+        "ranking": 5
+      },
+      {
+        "month": "2017-05",
+        "ranking": 5
+      },
+      {
+        "month": "2017-06",
+        "ranking": 2
+      },
+      {
+        "month": "2017-07",
+        "ranking": 3
+      },
+      {
+        "month": "2017-08",
+        "ranking": 5
+      },
+      {
+        "month": "2017-09",
+        "ranking": 3
+      },
+      {
+        "month": "2017-10",
+        "ranking": 4
+      },
+      {
+        "month": "2017-11",
+        "ranking": 4
+      },
+      {
+        "month": "2017-12",
+        "ranking": 5
+      },
+      {
+        "month": "2018-01",
+        "ranking": 4
+      },
+      {
+        "month": "2018-02",
+        "ranking": 4
+      },
+      {
+        "month": "2018-03",
+        "ranking": 4
+      },
+      {
+        "month": "2018-04",
         "ranking": 6
       },
       {
-        "month": "2024-02",
+        "month": "2018-05",
+        "ranking": 5
+      },
+      {
+        "month": "2018-06",
         "ranking": 6
+      },
+      {
+        "month": "2018-07",
+        "ranking": 5
+      },
+      {
+        "month": "2018-08",
+        "ranking": 6
+      },
+      {
+        "month": "2018-09",
+        "ranking": 6
+      },
+      {
+        "month": "2018-10",
+        "ranking": 6
+      },
+      {
+        "month": "2018-11",
+        "ranking": 5
+      },
+      {
+        "month": "2018-12",
+        "ranking": 8
+      },
+      {
+        "month": "2019-01",
+        "ranking": 8
+      },
+      {
+        "month": "2019-02",
+        "ranking": 7
+      },
+      {
+        "month": "2019-03",
+        "ranking": 8
+      },
+      {
+        "month": "2019-04",
+        "ranking": 8
+      },
+      {
+        "month": "2019-05",
+        "ranking": 8
+      },
+      {
+        "month": "2019-06",
+        "ranking": 7
+      },
+      {
+        "month": "2019-07",
+        "ranking": 7
+      },
+      {
+        "month": "2019-08",
+        "ranking": 8
+      },
+      {
+        "month": "2019-09",
+        "ranking": 7
+      },
+      {
+        "month": "2019-10",
+        "ranking": 6
+      },
+      {
+        "month": "2019-11",
+        "ranking": 7
+      },
+      {
+        "month": "2019-12",
+        "ranking": 5
+      },
+      {
+        "month": "2020-01",
+        "ranking": 7
+      },
+      {
+        "month": "2020-02",
+        "ranking": 7
+      },
+      {
+        "month": "2020-03",
+        "ranking": 8
+      },
+      {
+        "month": "2020-04",
+        "ranking": 6
+      },
+      {
+        "month": "2020-05",
+        "ranking": 7
+      },
+      {
+        "month": "2020-06",
+        "ranking": 5
+      },
+      {
+        "month": "2020-07",
+        "ranking": 4
+      },
+      {
+        "month": "2020-08",
+        "ranking": 3
+      },
+      {
+        "month": "2020-09",
+        "ranking": 3
+      },
+      {
+        "month": "2020-10",
+        "ranking": 3
+      },
+      {
+        "month": "2020-11",
+        "ranking": 4
+      },
+      {
+        "month": "2020-12",
+        "ranking": 3
+      },
+      {
+        "month": "2021-01",
+        "ranking": 4
+      },
+      {
+        "month": "2021-02",
+        "ranking": 4
+      },
+      {
+        "month": "2021-03",
+        "ranking": 6
+      },
+      {
+        "month": "2021-04",
+        "ranking": 7
+      },
+      {
+        "month": "2021-05",
+        "ranking": 6
+      },
+      {
+        "month": "2021-06",
+        "ranking": 8
+      },
+      {
+        "month": "2021-07",
+        "ranking": 8
+      },
+      {
+        "month": "2021-08",
+        "ranking": 8
+      },
+      {
+        "month": "2021-09",
+        "ranking": 11
+      },
+      {
+        "month": "2021-10",
+        "ranking": 13
+      },
+      {
+        "month": "2021-11",
+        "ranking": 13
+      },
+      {
+        "month": "2021-12",
+        "ranking": 13
+      },
+      {
+        "month": "2022-01",
+        "ranking": 16
+      },
+      {
+        "month": "2022-02",
+        "ranking": 13
+      },
+      {
+        "month": "2022-03",
+        "ranking": 14
+      },
+      {
+        "month": "2022-04",
+        "ranking": 13
+      },
+      {
+        "month": "2022-05",
+        "ranking": 12
+      },
+      {
+        "month": "2022-06",
+        "ranking": 13
+      },
+      {
+        "month": "2022-07",
+        "ranking": 12
+      },
+      {
+        "month": "2022-08",
+        "ranking": 10
+      },
+      {
+        "month": "2022-09",
+        "ranking": 10
+      },
+      {
+        "month": "2022-10",
+        "ranking": 9
+      },
+      {
+        "month": "2022-11",
+        "ranking": 8
+      },
+      {
+        "month": "2022-12",
+        "ranking": 6
+      },
+      {
+        "month": "2023-01",
+        "ranking": 8
+      },
+      {
+        "month": "2023-02",
+        "ranking": 8
+      },
+      {
+        "month": "2023-03",
+        "ranking": 7
+      },
+      {
+        "month": "2023-04",
+        "ranking": 5
+      },
+      {
+        "month": "2023-05",
+        "ranking": 8
+      },
+      {
+        "month": "2023-06",
+        "ranking": 8
+      },
+      {
+        "month": "2023-07",
+        "ranking": 6
+      },
+      {
+        "month": "2023-08",
+        "ranking": 4
+      },
+      {
+        "month": "2023-09",
+        "ranking": 4
+      },
+      {
+        "month": "2023-10",
+        "ranking": 5
+      },
+      {
+        "month": "2023-11",
+        "ranking": 4
+      },
+      {
+        "month": "2023-12",
+        "ranking": 4
+      },
+      {
+        "month": "2024-01",
+        "ranking": 5
+      },
+      {
+        "month": "2024-02",
+        "ranking": 2
       },
       {
         "month": "2024-03",
@@ -319,15 +2431,15 @@
       },
       {
         "month": "2024-04",
-        "ranking": 5
+        "ranking": 6
       },
       {
         "month": "2024-05",
-        "ranking": 4
+        "ranking": 3
       },
       {
         "month": "2024-06",
-        "ranking": 4
+        "ranking": 3
       },
       {
         "month": "2024-07",
@@ -335,7 +2447,7 @@
       },
       {
         "month": "2024-08",
-        "ranking": 4
+        "ranking": 3
       },
       {
         "month": "2024-09",
@@ -343,7 +2455,7 @@
       },
       {
         "month": "2024-10",
-        "ranking": 4
+        "ranking": 1
       },
       {
         "month": "2024-11",
@@ -351,7 +2463,7 @@
       },
       {
         "month": "2024-12",
-        "ranking": 4
+        "ranking": 6
       }
     ],
     "record": {
@@ -383,7 +2495,7 @@
     "id": 5,
     "name": "Daniil Medvedev",
     "country": "RUS",
-    "countryFlag": "🇷🇺",
+    "countryFlag": "\ud83c\uddf7\ud83c\uddfa",
     "photoUrl": null,
     "ranking": 5,
     "birthdate": "1996-02-11",
@@ -401,12 +2513,492 @@
     "recentForm": "Consistent presence in late rounds of Slams. Reached Australian Open final.",
     "rankingHistory": [
       {
-        "month": "2024-01",
+        "month": "2014-01",
+        "ranking": 455
+      },
+      {
+        "month": "2014-02",
+        "ranking": 473
+      },
+      {
+        "month": "2014-03",
+        "ranking": 411
+      },
+      {
+        "month": "2014-04",
+        "ranking": 472
+      },
+      {
+        "month": "2014-05",
+        "ranking": 426
+      },
+      {
+        "month": "2014-06",
+        "ranking": 481
+      },
+      {
+        "month": "2014-07",
+        "ranking": 409
+      },
+      {
+        "month": "2014-08",
+        "ranking": 372
+      },
+      {
+        "month": "2014-09",
+        "ranking": 383
+      },
+      {
+        "month": "2014-10",
+        "ranking": 336
+      },
+      {
+        "month": "2014-11",
+        "ranking": 298
+      },
+      {
+        "month": "2014-12",
+        "ranking": 324
+      },
+      {
+        "month": "2015-01",
+        "ranking": 296
+      },
+      {
+        "month": "2015-02",
+        "ranking": 287
+      },
+      {
+        "month": "2015-03",
+        "ranking": 275
+      },
+      {
+        "month": "2015-04",
+        "ranking": 240
+      },
+      {
+        "month": "2015-05",
+        "ranking": 241
+      },
+      {
+        "month": "2015-06",
+        "ranking": 247
+      },
+      {
+        "month": "2015-07",
+        "ranking": 210
+      },
+      {
+        "month": "2015-08",
+        "ranking": 209
+      },
+      {
+        "month": "2015-09",
+        "ranking": 178
+      },
+      {
+        "month": "2015-10",
+        "ranking": 152
+      },
+      {
+        "month": "2015-11",
+        "ranking": 159
+      },
+      {
+        "month": "2015-12",
+        "ranking": 136
+      },
+      {
+        "month": "2016-01",
+        "ranking": 116
+      },
+      {
+        "month": "2016-02",
+        "ranking": 103
+      },
+      {
+        "month": "2016-03",
+        "ranking": 88
+      },
+      {
+        "month": "2016-04",
+        "ranking": 92
+      },
+      {
+        "month": "2016-05",
+        "ranking": 85
+      },
+      {
+        "month": "2016-06",
+        "ranking": 76
+      },
+      {
+        "month": "2016-07",
+        "ranking": 71
+      },
+      {
+        "month": "2016-08",
+        "ranking": 80
+      },
+      {
+        "month": "2016-09",
+        "ranking": 80
+      },
+      {
+        "month": "2016-10",
+        "ranking": 76
+      },
+      {
+        "month": "2016-11",
+        "ranking": 69
+      },
+      {
+        "month": "2016-12",
+        "ranking": 64
+      },
+      {
+        "month": "2017-01",
+        "ranking": 60
+      },
+      {
+        "month": "2017-02",
+        "ranking": 58
+      },
+      {
+        "month": "2017-03",
+        "ranking": 52
+      },
+      {
+        "month": "2017-04",
+        "ranking": 52
+      },
+      {
+        "month": "2017-05",
+        "ranking": 49
+      },
+      {
+        "month": "2017-06",
+        "ranking": 42
+      },
+      {
+        "month": "2017-07",
+        "ranking": 40
+      },
+      {
+        "month": "2017-08",
+        "ranking": 34
+      },
+      {
+        "month": "2017-09",
+        "ranking": 32
+      },
+      {
+        "month": "2017-10",
+        "ranking": 29
+      },
+      {
+        "month": "2017-11",
+        "ranking": 25
+      },
+      {
+        "month": "2017-12",
+        "ranking": 22
+      },
+      {
+        "month": "2018-01",
+        "ranking": 19
+      },
+      {
+        "month": "2018-02",
+        "ranking": 16
+      },
+      {
+        "month": "2018-03",
+        "ranking": 14
+      },
+      {
+        "month": "2018-04",
+        "ranking": 14
+      },
+      {
+        "month": "2018-05",
+        "ranking": 11
+      },
+      {
+        "month": "2018-06",
+        "ranking": 12
+      },
+      {
+        "month": "2018-07",
+        "ranking": 12
+      },
+      {
+        "month": "2018-08",
+        "ranking": 9
+      },
+      {
+        "month": "2018-09",
+        "ranking": 9
+      },
+      {
+        "month": "2018-10",
+        "ranking": 8
+      },
+      {
+        "month": "2018-11",
+        "ranking": 7
+      },
+      {
+        "month": "2018-12",
+        "ranking": 7
+      },
+      {
+        "month": "2019-01",
+        "ranking": 5
+      },
+      {
+        "month": "2019-02",
+        "ranking": 5
+      },
+      {
+        "month": "2019-03",
+        "ranking": 4
+      },
+      {
+        "month": "2019-04",
+        "ranking": 5
+      },
+      {
+        "month": "2019-05",
+        "ranking": 6
+      },
+      {
+        "month": "2019-06",
+        "ranking": 4
+      },
+      {
+        "month": "2019-07",
+        "ranking": 4
+      },
+      {
+        "month": "2019-08",
+        "ranking": 4
+      },
+      {
+        "month": "2019-09",
+        "ranking": 5
+      },
+      {
+        "month": "2019-10",
         "ranking": 3
       },
       {
-        "month": "2024-02",
+        "month": "2019-11",
+        "ranking": 5
+      },
+      {
+        "month": "2019-12",
+        "ranking": 3
+      },
+      {
+        "month": "2020-01",
+        "ranking": 3
+      },
+      {
+        "month": "2020-02",
         "ranking": 4
+      },
+      {
+        "month": "2020-03",
+        "ranking": 4
+      },
+      {
+        "month": "2020-04",
+        "ranking": 4
+      },
+      {
+        "month": "2020-05",
+        "ranking": 4
+      },
+      {
+        "month": "2020-06",
+        "ranking": 3
+      },
+      {
+        "month": "2020-07",
+        "ranking": 3
+      },
+      {
+        "month": "2020-08",
+        "ranking": 2
+      },
+      {
+        "month": "2020-09",
+        "ranking": 4
+      },
+      {
+        "month": "2020-10",
+        "ranking": 3
+      },
+      {
+        "month": "2020-11",
+        "ranking": 3
+      },
+      {
+        "month": "2020-12",
+        "ranking": 2
+      },
+      {
+        "month": "2021-01",
+        "ranking": 1
+      },
+      {
+        "month": "2021-02",
+        "ranking": 2
+      },
+      {
+        "month": "2021-03",
+        "ranking": 2
+      },
+      {
+        "month": "2021-04",
+        "ranking": 2
+      },
+      {
+        "month": "2021-05",
+        "ranking": 2
+      },
+      {
+        "month": "2021-06",
+        "ranking": 1
+      },
+      {
+        "month": "2021-07",
+        "ranking": 2
+      },
+      {
+        "month": "2021-08",
+        "ranking": 1
+      },
+      {
+        "month": "2021-09",
+        "ranking": 1
+      },
+      {
+        "month": "2021-10",
+        "ranking": 1
+      },
+      {
+        "month": "2021-11",
+        "ranking": 1
+      },
+      {
+        "month": "2021-12",
+        "ranking": 2
+      },
+      {
+        "month": "2022-01",
+        "ranking": 2
+      },
+      {
+        "month": "2022-02",
+        "ranking": 1
+      },
+      {
+        "month": "2022-03",
+        "ranking": 1
+      },
+      {
+        "month": "2022-04",
+        "ranking": 1
+      },
+      {
+        "month": "2022-05",
+        "ranking": 2
+      },
+      {
+        "month": "2022-06",
+        "ranking": 1
+      },
+      {
+        "month": "2022-07",
+        "ranking": 2
+      },
+      {
+        "month": "2022-08",
+        "ranking": 3
+      },
+      {
+        "month": "2022-09",
+        "ranking": 2
+      },
+      {
+        "month": "2022-10",
+        "ranking": 2
+      },
+      {
+        "month": "2022-11",
+        "ranking": 3
+      },
+      {
+        "month": "2022-12",
+        "ranking": 3
+      },
+      {
+        "month": "2023-01",
+        "ranking": 4
+      },
+      {
+        "month": "2023-02",
+        "ranking": 3
+      },
+      {
+        "month": "2023-03",
+        "ranking": 3
+      },
+      {
+        "month": "2023-04",
+        "ranking": 3
+      },
+      {
+        "month": "2023-05",
+        "ranking": 4
+      },
+      {
+        "month": "2023-06",
+        "ranking": 5
+      },
+      {
+        "month": "2023-07",
+        "ranking": 4
+      },
+      {
+        "month": "2023-08",
+        "ranking": 3
+      },
+      {
+        "month": "2023-09",
+        "ranking": 3
+      },
+      {
+        "month": "2023-10",
+        "ranking": 2
+      },
+      {
+        "month": "2023-11",
+        "ranking": 5
+      },
+      {
+        "month": "2023-12",
+        "ranking": 3
+      },
+      {
+        "month": "2024-01",
+        "ranking": 4
+      },
+      {
+        "month": "2024-02",
+        "ranking": 3
       },
       {
         "month": "2024-03",
@@ -414,15 +3006,15 @@
       },
       {
         "month": "2024-04",
-        "ranking": 4
+        "ranking": 6
       },
       {
         "month": "2024-05",
-        "ranking": 5
+        "ranking": 4
       },
       {
         "month": "2024-06",
-        "ranking": 5
+        "ranking": 3
       },
       {
         "month": "2024-07",
@@ -438,7 +3030,7 @@
       },
       {
         "month": "2024-10",
-        "ranking": 5
+        "ranking": 6
       },
       {
         "month": "2024-11",
@@ -446,7 +3038,7 @@
       },
       {
         "month": "2024-12",
-        "ranking": 5
+        "ranking": 4
       }
     ],
     "record": {
@@ -478,7 +3070,7 @@
     "id": 6,
     "name": "Andrey Rublev",
     "country": "RUS",
-    "countryFlag": "🇷🇺",
+    "countryFlag": "\ud83c\uddf7\ud83c\uddfa",
     "photoUrl": null,
     "ranking": 6,
     "birthdate": "1997-10-20",
@@ -496,8 +3088,488 @@
     "recentForm": "Solid results on hard courts, but struggling in Grand Slams beyond QF.",
     "rankingHistory": [
       {
-        "month": "2024-01",
+        "month": "2014-01",
+        "ranking": 495
+      },
+      {
+        "month": "2014-02",
+        "ranking": 507
+      },
+      {
+        "month": "2014-03",
+        "ranking": 453
+      },
+      {
+        "month": "2014-04",
+        "ranking": 409
+      },
+      {
+        "month": "2014-05",
+        "ranking": 470
+      },
+      {
+        "month": "2014-06",
+        "ranking": 423
+      },
+      {
+        "month": "2014-07",
+        "ranking": 411
+      },
+      {
+        "month": "2014-08",
+        "ranking": 413
+      },
+      {
+        "month": "2014-09",
+        "ranking": 433
+      },
+      {
+        "month": "2014-10",
+        "ranking": 396
+      },
+      {
+        "month": "2014-11",
+        "ranking": 365
+      },
+      {
+        "month": "2014-12",
+        "ranking": 382
+      },
+      {
+        "month": "2015-01",
+        "ranking": 410
+      },
+      {
+        "month": "2015-02",
+        "ranking": 372
+      },
+      {
+        "month": "2015-03",
+        "ranking": 337
+      },
+      {
+        "month": "2015-04",
+        "ranking": 287
+      },
+      {
+        "month": "2015-05",
+        "ranking": 330
+      },
+      {
+        "month": "2015-06",
+        "ranking": 281
+      },
+      {
+        "month": "2015-07",
+        "ranking": 252
+      },
+      {
+        "month": "2015-08",
+        "ranking": 231
+      },
+      {
+        "month": "2015-09",
+        "ranking": 260
+      },
+      {
+        "month": "2015-10",
+        "ranking": 222
+      },
+      {
+        "month": "2015-11",
+        "ranking": 189
+      },
+      {
+        "month": "2015-12",
+        "ranking": 189
+      },
+      {
+        "month": "2016-01",
+        "ranking": 177
+      },
+      {
+        "month": "2016-02",
+        "ranking": 156
+      },
+      {
+        "month": "2016-03",
+        "ranking": 135
+      },
+      {
+        "month": "2016-04",
+        "ranking": 132
+      },
+      {
+        "month": "2016-05",
+        "ranking": 125
+      },
+      {
+        "month": "2016-06",
+        "ranking": 120
+      },
+      {
+        "month": "2016-07",
+        "ranking": 105
+      },
+      {
+        "month": "2016-08",
+        "ranking": 106
+      },
+      {
+        "month": "2016-09",
+        "ranking": 91
+      },
+      {
+        "month": "2016-10",
+        "ranking": 78
+      },
+      {
+        "month": "2016-11",
+        "ranking": 67
+      },
+      {
+        "month": "2016-12",
+        "ranking": 66
+      },
+      {
+        "month": "2017-01",
+        "ranking": 57
+      },
+      {
+        "month": "2017-02",
+        "ranking": 58
+      },
+      {
+        "month": "2017-03",
+        "ranking": 50
+      },
+      {
+        "month": "2017-04",
+        "ranking": 43
+      },
+      {
+        "month": "2017-05",
+        "ranking": 42
+      },
+      {
+        "month": "2017-06",
+        "ranking": 45
+      },
+      {
+        "month": "2017-07",
+        "ranking": 39
+      },
+      {
+        "month": "2017-08",
+        "ranking": 44
+      },
+      {
+        "month": "2017-09",
+        "ranking": 38
+      },
+      {
+        "month": "2017-10",
+        "ranking": 41
+      },
+      {
+        "month": "2017-11",
+        "ranking": 42
+      },
+      {
+        "month": "2017-12",
+        "ranking": 36
+      },
+      {
+        "month": "2018-01",
+        "ranking": 32
+      },
+      {
+        "month": "2018-02",
+        "ranking": 33
+      },
+      {
+        "month": "2018-03",
+        "ranking": 34
+      },
+      {
+        "month": "2018-04",
+        "ranking": 34
+      },
+      {
+        "month": "2018-05",
+        "ranking": 31
+      },
+      {
+        "month": "2018-06",
+        "ranking": 27
+      },
+      {
+        "month": "2018-07",
+        "ranking": 29
+      },
+      {
+        "month": "2018-08",
+        "ranking": 26
+      },
+      {
+        "month": "2018-09",
+        "ranking": 23
+      },
+      {
+        "month": "2018-10",
+        "ranking": 25
+      },
+      {
+        "month": "2018-11",
+        "ranking": 22
+      },
+      {
+        "month": "2018-12",
+        "ranking": 25
+      },
+      {
+        "month": "2019-01",
+        "ranking": 27
+      },
+      {
+        "month": "2019-02",
+        "ranking": 25
+      },
+      {
+        "month": "2019-03",
+        "ranking": 22
+      },
+      {
+        "month": "2019-04",
+        "ranking": 19
+      },
+      {
+        "month": "2019-05",
+        "ranking": 19
+      },
+      {
+        "month": "2019-06",
+        "ranking": 18
+      },
+      {
+        "month": "2019-07",
+        "ranking": 15
+      },
+      {
+        "month": "2019-08",
+        "ranking": 14
+      },
+      {
+        "month": "2019-09",
+        "ranking": 15
+      },
+      {
+        "month": "2019-10",
+        "ranking": 12
+      },
+      {
+        "month": "2019-11",
+        "ranking": 10
+      },
+      {
+        "month": "2019-12",
+        "ranking": 9
+      },
+      {
+        "month": "2020-01",
+        "ranking": 9
+      },
+      {
+        "month": "2020-02",
+        "ranking": 7
+      },
+      {
+        "month": "2020-03",
+        "ranking": 8
+      },
+      {
+        "month": "2020-04",
+        "ranking": 7
+      },
+      {
+        "month": "2020-05",
+        "ranking": 7
+      },
+      {
+        "month": "2020-06",
+        "ranking": 9
+      },
+      {
+        "month": "2020-07",
+        "ranking": 8
+      },
+      {
+        "month": "2020-08",
+        "ranking": 7
+      },
+      {
+        "month": "2020-09",
+        "ranking": 6
+      },
+      {
+        "month": "2020-10",
+        "ranking": 7
+      },
+      {
+        "month": "2020-11",
+        "ranking": 8
+      },
+      {
+        "month": "2020-12",
+        "ranking": 7
+      },
+      {
+        "month": "2021-01",
+        "ranking": 8
+      },
+      {
+        "month": "2021-02",
+        "ranking": 6
+      },
+      {
+        "month": "2021-03",
+        "ranking": 7
+      },
+      {
+        "month": "2021-04",
+        "ranking": 9
+      },
+      {
+        "month": "2021-05",
+        "ranking": 6
+      },
+      {
+        "month": "2021-06",
+        "ranking": 8
+      },
+      {
+        "month": "2021-07",
         "ranking": 5
+      },
+      {
+        "month": "2021-08",
+        "ranking": 7
+      },
+      {
+        "month": "2021-09",
+        "ranking": 7
+      },
+      {
+        "month": "2021-10",
+        "ranking": 8
+      },
+      {
+        "month": "2021-11",
+        "ranking": 5
+      },
+      {
+        "month": "2021-12",
+        "ranking": 5
+      },
+      {
+        "month": "2022-01",
+        "ranking": 6
+      },
+      {
+        "month": "2022-02",
+        "ranking": 7
+      },
+      {
+        "month": "2022-03",
+        "ranking": 6
+      },
+      {
+        "month": "2022-04",
+        "ranking": 6
+      },
+      {
+        "month": "2022-05",
+        "ranking": 5
+      },
+      {
+        "month": "2022-06",
+        "ranking": 6
+      },
+      {
+        "month": "2022-07",
+        "ranking": 5
+      },
+      {
+        "month": "2022-08",
+        "ranking": 6
+      },
+      {
+        "month": "2022-09",
+        "ranking": 6
+      },
+      {
+        "month": "2022-10",
+        "ranking": 7
+      },
+      {
+        "month": "2022-11",
+        "ranking": 5
+      },
+      {
+        "month": "2022-12",
+        "ranking": 5
+      },
+      {
+        "month": "2023-01",
+        "ranking": 5
+      },
+      {
+        "month": "2023-02",
+        "ranking": 5
+      },
+      {
+        "month": "2023-03",
+        "ranking": 5
+      },
+      {
+        "month": "2023-04",
+        "ranking": 4
+      },
+      {
+        "month": "2023-05",
+        "ranking": 6
+      },
+      {
+        "month": "2023-06",
+        "ranking": 5
+      },
+      {
+        "month": "2023-07",
+        "ranking": 5
+      },
+      {
+        "month": "2023-08",
+        "ranking": 4
+      },
+      {
+        "month": "2023-09",
+        "ranking": 7
+      },
+      {
+        "month": "2023-10",
+        "ranking": 6
+      },
+      {
+        "month": "2023-11",
+        "ranking": 7
+      },
+      {
+        "month": "2023-12",
+        "ranking": 6
+      },
+      {
+        "month": "2024-01",
+        "ranking": 4
       },
       {
         "month": "2024-02",
@@ -505,15 +3577,15 @@
       },
       {
         "month": "2024-03",
-        "ranking": 6
+        "ranking": 7
       },
       {
         "month": "2024-04",
-        "ranking": 6
+        "ranking": 5
       },
       {
         "month": "2024-05",
-        "ranking": 6
+        "ranking": 5
       },
       {
         "month": "2024-06",
@@ -521,11 +3593,11 @@
       },
       {
         "month": "2024-07",
-        "ranking": 7
+        "ranking": 6
       },
       {
         "month": "2024-08",
-        "ranking": 7
+        "ranking": 5
       },
       {
         "month": "2024-09",
@@ -537,7 +3609,7 @@
       },
       {
         "month": "2024-11",
-        "ranking": 6
+        "ranking": 3
       },
       {
         "month": "2024-12",
@@ -573,7 +3645,7 @@
     "id": 7,
     "name": "Hubert Hurkacz",
     "country": "POL",
-    "countryFlag": "🇵🇱",
+    "countryFlag": "\ud83c\uddf5\ud83c\uddf1",
     "photoUrl": null,
     "ranking": 7,
     "birthdate": "1997-02-11",
@@ -591,24 +3663,456 @@
     "recentForm": "Big server making deep runs. Breakthrough at Masters level.",
     "rankingHistory": [
       {
+        "month": "2015-01",
+        "ranking": 421
+      },
+      {
+        "month": "2015-02",
+        "ranking": 483
+      },
+      {
+        "month": "2015-03",
+        "ranking": 411
+      },
+      {
+        "month": "2015-04",
+        "ranking": 360
+      },
+      {
+        "month": "2015-05",
+        "ranking": 414
+      },
+      {
+        "month": "2015-06",
+        "ranking": 352
+      },
+      {
+        "month": "2015-07",
+        "ranking": 356
+      },
+      {
+        "month": "2015-08",
+        "ranking": 380
+      },
+      {
+        "month": "2015-09",
+        "ranking": 341
+      },
+      {
+        "month": "2015-10",
+        "ranking": 293
+      },
+      {
+        "month": "2015-11",
+        "ranking": 330
+      },
+      {
+        "month": "2015-12",
+        "ranking": 308
+      },
+      {
+        "month": "2016-01",
+        "ranking": 331
+      },
+      {
+        "month": "2016-02",
+        "ranking": 305
+      },
+      {
+        "month": "2016-03",
+        "ranking": 350
+      },
+      {
+        "month": "2016-04",
+        "ranking": 298
+      },
+      {
+        "month": "2016-05",
+        "ranking": 266
+      },
+      {
+        "month": "2016-06",
+        "ranking": 236
+      },
+      {
+        "month": "2016-07",
+        "ranking": 271
+      },
+      {
+        "month": "2016-08",
+        "ranking": 258
+      },
+      {
+        "month": "2016-09",
+        "ranking": 247
+      },
+      {
+        "month": "2016-10",
+        "ranking": 211
+      },
+      {
+        "month": "2016-11",
+        "ranking": 204
+      },
+      {
+        "month": "2016-12",
+        "ranking": 175
+      },
+      {
+        "month": "2017-01",
+        "ranking": 201
+      },
+      {
+        "month": "2017-02",
+        "ranking": 199
+      },
+      {
+        "month": "2017-03",
+        "ranking": 180
+      },
+      {
+        "month": "2017-04",
+        "ranking": 188
+      },
+      {
+        "month": "2017-05",
+        "ranking": 177
+      },
+      {
+        "month": "2017-06",
+        "ranking": 171
+      },
+      {
+        "month": "2017-07",
+        "ranking": 146
+      },
+      {
+        "month": "2017-08",
+        "ranking": 134
+      },
+      {
+        "month": "2017-09",
+        "ranking": 135
+      },
+      {
+        "month": "2017-10",
+        "ranking": 129
+      },
+      {
+        "month": "2017-11",
+        "ranking": 126
+      },
+      {
+        "month": "2017-12",
+        "ranking": 108
+      },
+      {
+        "month": "2018-01",
+        "ranking": 101
+      },
+      {
+        "month": "2018-02",
+        "ranking": 111
+      },
+      {
+        "month": "2018-03",
+        "ranking": 95
+      },
+      {
+        "month": "2018-04",
+        "ranking": 90
+      },
+      {
+        "month": "2018-05",
+        "ranking": 78
+      },
+      {
+        "month": "2018-06",
+        "ranking": 77
+      },
+      {
+        "month": "2018-07",
+        "ranking": 77
+      },
+      {
+        "month": "2018-08",
+        "ranking": 66
+      },
+      {
+        "month": "2018-09",
+        "ranking": 62
+      },
+      {
+        "month": "2018-10",
+        "ranking": 53
+      },
+      {
+        "month": "2018-11",
+        "ranking": 48
+      },
+      {
+        "month": "2018-12",
+        "ranking": 43
+      },
+      {
+        "month": "2019-01",
+        "ranking": 37
+      },
+      {
+        "month": "2019-02",
+        "ranking": 38
+      },
+      {
+        "month": "2019-03",
+        "ranking": 33
+      },
+      {
+        "month": "2019-04",
+        "ranking": 33
+      },
+      {
+        "month": "2019-05",
+        "ranking": 35
+      },
+      {
+        "month": "2019-06",
+        "ranking": 40
+      },
+      {
+        "month": "2019-07",
+        "ranking": 35
+      },
+      {
+        "month": "2019-08",
+        "ranking": 37
+      },
+      {
+        "month": "2019-09",
+        "ranking": 32
+      },
+      {
+        "month": "2019-10",
+        "ranking": 34
+      },
+      {
+        "month": "2019-11",
+        "ranking": 31
+      },
+      {
+        "month": "2019-12",
+        "ranking": 33
+      },
+      {
+        "month": "2020-01",
+        "ranking": 36
+      },
+      {
+        "month": "2020-02",
+        "ranking": 32
+      },
+      {
+        "month": "2020-03",
+        "ranking": 33
+      },
+      {
+        "month": "2020-04",
+        "ranking": 29
+      },
+      {
+        "month": "2020-05",
+        "ranking": 25
+      },
+      {
+        "month": "2020-06",
+        "ranking": 26
+      },
+      {
+        "month": "2020-07",
+        "ranking": 23
+      },
+      {
+        "month": "2020-08",
+        "ranking": 20
+      },
+      {
+        "month": "2020-09",
+        "ranking": 19
+      },
+      {
+        "month": "2020-10",
+        "ranking": 16
+      },
+      {
+        "month": "2020-11",
+        "ranking": 13
+      },
+      {
+        "month": "2020-12",
+        "ranking": 11
+      },
+      {
+        "month": "2021-01",
+        "ranking": 9
+      },
+      {
+        "month": "2021-02",
+        "ranking": 11
+      },
+      {
+        "month": "2021-03",
+        "ranking": 8
+      },
+      {
+        "month": "2021-04",
+        "ranking": 9
+      },
+      {
+        "month": "2021-05",
+        "ranking": 8
+      },
+      {
+        "month": "2021-06",
+        "ranking": 8
+      },
+      {
+        "month": "2021-07",
+        "ranking": 9
+      },
+      {
+        "month": "2021-08",
+        "ranking": 8
+      },
+      {
+        "month": "2021-09",
+        "ranking": 9
+      },
+      {
+        "month": "2021-10",
+        "ranking": 8
+      },
+      {
+        "month": "2021-11",
+        "ranking": 8
+      },
+      {
+        "month": "2021-12",
+        "ranking": 8
+      },
+      {
+        "month": "2022-01",
+        "ranking": 9
+      },
+      {
+        "month": "2022-02",
+        "ranking": 9
+      },
+      {
+        "month": "2022-03",
+        "ranking": 8
+      },
+      {
+        "month": "2022-04",
+        "ranking": 10
+      },
+      {
+        "month": "2022-05",
+        "ranking": 9
+      },
+      {
+        "month": "2022-06",
+        "ranking": 9
+      },
+      {
+        "month": "2022-07",
+        "ranking": 9
+      },
+      {
+        "month": "2022-08",
+        "ranking": 10
+      },
+      {
+        "month": "2022-09",
+        "ranking": 9
+      },
+      {
+        "month": "2022-10",
+        "ranking": 9
+      },
+      {
+        "month": "2022-11",
+        "ranking": 6
+      },
+      {
+        "month": "2022-12",
+        "ranking": 8
+      },
+      {
+        "month": "2023-01",
+        "ranking": 6
+      },
+      {
+        "month": "2023-02",
+        "ranking": 7
+      },
+      {
+        "month": "2023-03",
+        "ranking": 8
+      },
+      {
+        "month": "2023-04",
+        "ranking": 7
+      },
+      {
+        "month": "2023-05",
+        "ranking": 8
+      },
+      {
+        "month": "2023-06",
+        "ranking": 7
+      },
+      {
+        "month": "2023-07",
+        "ranking": 8
+      },
+      {
+        "month": "2023-08",
+        "ranking": 6
+      },
+      {
+        "month": "2023-09",
+        "ranking": 7
+      },
+      {
+        "month": "2023-10",
+        "ranking": 8
+      },
+      {
+        "month": "2023-11",
+        "ranking": 8
+      },
+      {
+        "month": "2023-12",
+        "ranking": 7
+      },
+      {
         "month": "2024-01",
         "ranking": 9
       },
       {
         "month": "2024-02",
-        "ranking": 9
+        "ranking": 7
       },
       {
         "month": "2024-03",
-        "ranking": 8
+        "ranking": 7
       },
       {
         "month": "2024-04",
-        "ranking": 8
+        "ranking": 4
       },
       {
         "month": "2024-05",
-        "ranking": 8
+        "ranking": 7
       },
       {
         "month": "2024-06",
@@ -616,15 +4120,15 @@
       },
       {
         "month": "2024-07",
-        "ranking": 7
+        "ranking": 6
       },
       {
         "month": "2024-08",
-        "ranking": 7
+        "ranking": 8
       },
       {
         "month": "2024-09",
-        "ranking": 7
+        "ranking": 8
       },
       {
         "month": "2024-10",
@@ -632,7 +4136,7 @@
       },
       {
         "month": "2024-11",
-        "ranking": 7
+        "ranking": 6
       },
       {
         "month": "2024-12",
@@ -668,7 +4172,7 @@
     "id": 8,
     "name": "Casper Ruud",
     "country": "NOR",
-    "countryFlag": "🇳🇴",
+    "countryFlag": "\ud83c\uddf3\ud83c\uddf4",
     "photoUrl": null,
     "ranking": 8,
     "birthdate": "1998-12-22",
@@ -686,8 +4190,344 @@
     "recentForm": "Clay court specialist with improving hard court results.",
     "rankingHistory": [
       {
-        "month": "2024-01",
+        "month": "2017-01",
+        "ranking": 380
+      },
+      {
+        "month": "2017-02",
+        "ranking": 347
+      },
+      {
+        "month": "2017-03",
+        "ranking": 397
+      },
+      {
+        "month": "2017-04",
+        "ranking": 338
+      },
+      {
+        "month": "2017-05",
+        "ranking": 348
+      },
+      {
+        "month": "2017-06",
+        "ranking": 328
+      },
+      {
+        "month": "2017-07",
+        "ranking": 349
+      },
+      {
+        "month": "2017-08",
+        "ranking": 297
+      },
+      {
+        "month": "2017-09",
+        "ranking": 253
+      },
+      {
+        "month": "2017-10",
+        "ranking": 233
+      },
+      {
+        "month": "2017-11",
+        "ranking": 235
+      },
+      {
+        "month": "2017-12",
+        "ranking": 223
+      },
+      {
+        "month": "2018-01",
+        "ranking": 216
+      },
+      {
+        "month": "2018-02",
+        "ranking": 184
+      },
+      {
+        "month": "2018-03",
+        "ranking": 171
+      },
+      {
+        "month": "2018-04",
+        "ranking": 176
+      },
+      {
+        "month": "2018-05",
+        "ranking": 170
+      },
+      {
+        "month": "2018-06",
+        "ranking": 160
+      },
+      {
+        "month": "2018-07",
+        "ranking": 136
+      },
+      {
+        "month": "2018-08",
+        "ranking": 125
+      },
+      {
+        "month": "2018-09",
+        "ranking": 117
+      },
+      {
+        "month": "2018-10",
+        "ranking": 100
+      },
+      {
+        "month": "2018-11",
+        "ranking": 85
+      },
+      {
+        "month": "2018-12",
+        "ranking": 73
+      },
+      {
+        "month": "2019-01",
+        "ranking": 63
+      },
+      {
+        "month": "2019-02",
+        "ranking": 54
+      },
+      {
+        "month": "2019-03",
+        "ranking": 53
+      },
+      {
+        "month": "2019-04",
+        "ranking": 46
+      },
+      {
+        "month": "2019-05",
+        "ranking": 45
+      },
+      {
+        "month": "2019-06",
+        "ranking": 41
+      },
+      {
+        "month": "2019-07",
+        "ranking": 39
+      },
+      {
+        "month": "2019-08",
+        "ranking": 39
+      },
+      {
+        "month": "2019-09",
+        "ranking": 34
+      },
+      {
+        "month": "2019-10",
+        "ranking": 34
+      },
+      {
+        "month": "2019-11",
+        "ranking": 32
+      },
+      {
+        "month": "2019-12",
+        "ranking": 29
+      },
+      {
+        "month": "2020-01",
+        "ranking": 25
+      },
+      {
+        "month": "2020-02",
+        "ranking": 27
+      },
+      {
+        "month": "2020-03",
+        "ranking": 27
+      },
+      {
+        "month": "2020-04",
+        "ranking": 23
+      },
+      {
+        "month": "2020-05",
+        "ranking": 23
+      },
+      {
+        "month": "2020-06",
+        "ranking": 20
+      },
+      {
+        "month": "2020-07",
+        "ranking": 17
+      },
+      {
+        "month": "2020-08",
+        "ranking": 15
+      },
+      {
+        "month": "2020-09",
+        "ranking": 14
+      },
+      {
+        "month": "2020-10",
+        "ranking": 14
+      },
+      {
+        "month": "2020-11",
+        "ranking": 11
+      },
+      {
+        "month": "2020-12",
+        "ranking": 10
+      },
+      {
+        "month": "2021-01",
+        "ranking": 9
+      },
+      {
+        "month": "2021-02",
         "ranking": 7
+      },
+      {
+        "month": "2021-03",
+        "ranking": 6
+      },
+      {
+        "month": "2021-04",
+        "ranking": 5
+      },
+      {
+        "month": "2021-05",
+        "ranking": 6
+      },
+      {
+        "month": "2021-06",
+        "ranking": 5
+      },
+      {
+        "month": "2021-07",
+        "ranking": 5
+      },
+      {
+        "month": "2021-08",
+        "ranking": 4
+      },
+      {
+        "month": "2021-09",
+        "ranking": 5
+      },
+      {
+        "month": "2021-10",
+        "ranking": 4
+      },
+      {
+        "month": "2021-11",
+        "ranking": 5
+      },
+      {
+        "month": "2021-12",
+        "ranking": 3
+      },
+      {
+        "month": "2022-01",
+        "ranking": 2
+      },
+      {
+        "month": "2022-02",
+        "ranking": 3
+      },
+      {
+        "month": "2022-03",
+        "ranking": 3
+      },
+      {
+        "month": "2022-04",
+        "ranking": 2
+      },
+      {
+        "month": "2022-05",
+        "ranking": 4
+      },
+      {
+        "month": "2022-06",
+        "ranking": 5
+      },
+      {
+        "month": "2022-07",
+        "ranking": 5
+      },
+      {
+        "month": "2022-08",
+        "ranking": 3
+      },
+      {
+        "month": "2022-09",
+        "ranking": 4
+      },
+      {
+        "month": "2022-10",
+        "ranking": 4
+      },
+      {
+        "month": "2022-11",
+        "ranking": 4
+      },
+      {
+        "month": "2022-12",
+        "ranking": 4
+      },
+      {
+        "month": "2023-01",
+        "ranking": 4
+      },
+      {
+        "month": "2023-02",
+        "ranking": 4
+      },
+      {
+        "month": "2023-03",
+        "ranking": 6
+      },
+      {
+        "month": "2023-04",
+        "ranking": 5
+      },
+      {
+        "month": "2023-05",
+        "ranking": 5
+      },
+      {
+        "month": "2023-06",
+        "ranking": 7
+      },
+      {
+        "month": "2023-07",
+        "ranking": 6
+      },
+      {
+        "month": "2023-08",
+        "ranking": 7
+      },
+      {
+        "month": "2023-09",
+        "ranking": 7
+      },
+      {
+        "month": "2023-10",
+        "ranking": 6
+      },
+      {
+        "month": "2023-11",
+        "ranking": 7
+      },
+      {
+        "month": "2023-12",
+        "ranking": 7
+      },
+      {
+        "month": "2024-01",
+        "ranking": 8
       },
       {
         "month": "2024-02",
@@ -695,11 +4535,11 @@
       },
       {
         "month": "2024-03",
-        "ranking": 7
+        "ranking": 9
       },
       {
         "month": "2024-04",
-        "ranking": 7
+        "ranking": 9
       },
       {
         "month": "2024-05",
@@ -715,11 +4555,11 @@
       },
       {
         "month": "2024-08",
-        "ranking": 8
+        "ranking": 6
       },
       {
         "month": "2024-09",
-        "ranking": 8
+        "ranking": 7
       },
       {
         "month": "2024-10",
@@ -763,7 +4603,7 @@
     "id": 9,
     "name": "Alex de Minaur",
     "country": "AUS",
-    "countryFlag": "🇦🇺",
+    "countryFlag": "\ud83c\udde6\ud83c\uddfa",
     "photoUrl": null,
     "ranking": 9,
     "birthdate": "1999-02-17",
@@ -781,24 +4621,360 @@
     "recentForm": "Quick and relentless from the baseline. Best season on tour.",
     "rankingHistory": [
       {
-        "month": "2024-01",
+        "month": "2017-01",
+        "ranking": 322
+      },
+      {
+        "month": "2017-02",
+        "ranking": 327
+      },
+      {
+        "month": "2017-03",
+        "ranking": 286
+      },
+      {
+        "month": "2017-04",
+        "ranking": 247
+      },
+      {
+        "month": "2017-05",
+        "ranking": 250
+      },
+      {
+        "month": "2017-06",
+        "ranking": 213
+      },
+      {
+        "month": "2017-07",
+        "ranking": 209
+      },
+      {
+        "month": "2017-08",
+        "ranking": 178
+      },
+      {
+        "month": "2017-09",
+        "ranking": 152
+      },
+      {
+        "month": "2017-10",
+        "ranking": 130
+      },
+      {
+        "month": "2017-11",
+        "ranking": 111
+      },
+      {
+        "month": "2017-12",
+        "ranking": 95
+      },
+      {
+        "month": "2018-01",
+        "ranking": 81
+      },
+      {
+        "month": "2018-02",
+        "ranking": 69
+      },
+      {
+        "month": "2018-03",
+        "ranking": 59
+      },
+      {
+        "month": "2018-04",
+        "ranking": 51
+      },
+      {
+        "month": "2018-05",
+        "ranking": 44
+      },
+      {
+        "month": "2018-06",
+        "ranking": 38
+      },
+      {
+        "month": "2018-07",
+        "ranking": 33
+      },
+      {
+        "month": "2018-08",
+        "ranking": 29
+      },
+      {
+        "month": "2018-09",
+        "ranking": 25
+      },
+      {
+        "month": "2018-10",
+        "ranking": 22
+      },
+      {
+        "month": "2018-11",
+        "ranking": 20
+      },
+      {
+        "month": "2018-12",
+        "ranking": 18
+      },
+      {
+        "month": "2019-01",
+        "ranking": 17
+      },
+      {
+        "month": "2019-02",
+        "ranking": 19
+      },
+      {
+        "month": "2019-03",
+        "ranking": 18
+      },
+      {
+        "month": "2019-04",
+        "ranking": 21
+      },
+      {
+        "month": "2019-05",
+        "ranking": 19
+      },
+      {
+        "month": "2019-06",
+        "ranking": 20
+      },
+      {
+        "month": "2019-07",
+        "ranking": 18
+      },
+      {
+        "month": "2019-08",
+        "ranking": 21
+      },
+      {
+        "month": "2019-09",
+        "ranking": 21
+      },
+      {
+        "month": "2019-10",
+        "ranking": 22
+      },
+      {
+        "month": "2019-11",
+        "ranking": 23
+      },
+      {
+        "month": "2019-12",
+        "ranking": 22
+      },
+      {
+        "month": "2020-01",
+        "ranking": 23
+      },
+      {
+        "month": "2020-02",
+        "ranking": 23
+      },
+      {
+        "month": "2020-03",
+        "ranking": 26
+      },
+      {
+        "month": "2020-04",
+        "ranking": 28
+      },
+      {
+        "month": "2020-05",
+        "ranking": 28
+      },
+      {
+        "month": "2020-06",
+        "ranking": 25
+      },
+      {
+        "month": "2020-07",
+        "ranking": 26
+      },
+      {
+        "month": "2020-08",
+        "ranking": 28
+      },
+      {
+        "month": "2020-09",
+        "ranking": 30
+      },
+      {
+        "month": "2020-10",
+        "ranking": 32
+      },
+      {
+        "month": "2020-11",
+        "ranking": 30
+      },
+      {
+        "month": "2020-12",
+        "ranking": 34
+      },
+      {
+        "month": "2021-01",
+        "ranking": 34
+      },
+      {
+        "month": "2021-02",
+        "ranking": 29
+      },
+      {
+        "month": "2021-03",
+        "ranking": 31
+      },
+      {
+        "month": "2021-04",
+        "ranking": 27
+      },
+      {
+        "month": "2021-05",
+        "ranking": 28
+      },
+      {
+        "month": "2021-06",
+        "ranking": 28
+      },
+      {
+        "month": "2021-07",
+        "ranking": 27
+      },
+      {
+        "month": "2021-08",
+        "ranking": 26
+      },
+      {
+        "month": "2021-09",
+        "ranking": 25
+      },
+      {
+        "month": "2021-10",
+        "ranking": 24
+      },
+      {
+        "month": "2021-11",
+        "ranking": 27
+      },
+      {
+        "month": "2021-12",
+        "ranking": 25
+      },
+      {
+        "month": "2022-01",
+        "ranking": 22
+      },
+      {
+        "month": "2022-02",
+        "ranking": 23
+      },
+      {
+        "month": "2022-03",
+        "ranking": 20
+      },
+      {
+        "month": "2022-04",
+        "ranking": 18
+      },
+      {
+        "month": "2022-05",
+        "ranking": 21
+      },
+      {
+        "month": "2022-06",
+        "ranking": 18
+      },
+      {
+        "month": "2022-07",
+        "ranking": 17
+      },
+      {
+        "month": "2022-08",
         "ranking": 14
       },
       {
-        "month": "2024-02",
-        "ranking": 13
+        "month": "2022-09",
+        "ranking": 14
       },
       {
-        "month": "2024-03",
+        "month": "2022-10",
+        "ranking": 14
+      },
+      {
+        "month": "2022-11",
+        "ranking": 15
+      },
+      {
+        "month": "2022-12",
         "ranking": 12
       },
       {
-        "month": "2024-04",
+        "month": "2023-01",
         "ranking": 11
       },
       {
-        "month": "2024-05",
+        "month": "2023-02",
         "ranking": 11
+      },
+      {
+        "month": "2023-03",
+        "ranking": 10
+      },
+      {
+        "month": "2023-04",
+        "ranking": 10
+      },
+      {
+        "month": "2023-05",
+        "ranking": 10
+      },
+      {
+        "month": "2023-06",
+        "ranking": 10
+      },
+      {
+        "month": "2023-07",
+        "ranking": 11
+      },
+      {
+        "month": "2023-08",
+        "ranking": 9
+      },
+      {
+        "month": "2023-09",
+        "ranking": 9
+      },
+      {
+        "month": "2023-10",
+        "ranking": 10
+      },
+      {
+        "month": "2023-11",
+        "ranking": 9
+      },
+      {
+        "month": "2023-12",
+        "ranking": 9
+      },
+      {
+        "month": "2024-01",
+        "ranking": 9
+      },
+      {
+        "month": "2024-02",
+        "ranking": 8
+      },
+      {
+        "month": "2024-03",
+        "ranking": 8
+      },
+      {
+        "month": "2024-04",
+        "ranking": 9
+      },
+      {
+        "month": "2024-05",
+        "ranking": 8
       },
       {
         "month": "2024-06",
@@ -806,11 +4982,11 @@
       },
       {
         "month": "2024-07",
-        "ranking": 10
+        "ranking": 9
       },
       {
         "month": "2024-08",
-        "ranking": 9
+        "ranking": 8
       },
       {
         "month": "2024-09",
@@ -822,11 +4998,11 @@
       },
       {
         "month": "2024-11",
-        "ranking": 9
+        "ranking": 10
       },
       {
         "month": "2024-12",
-        "ranking": 9
+        "ranking": 10
       }
     ],
     "record": {
@@ -858,7 +5034,7 @@
     "id": 10,
     "name": "Grigor Dimitrov",
     "country": "BUL",
-    "countryFlag": "🇧🇬",
+    "countryFlag": "\ud83c\udde7\ud83c\uddec",
     "photoUrl": null,
     "ranking": 10,
     "birthdate": "1991-05-16",
@@ -876,12 +5052,780 @@
     "recentForm": "Veteran finding late-career resurgence. Elegant one-handed backhand.",
     "rankingHistory": [
       {
-        "month": "2024-01",
+        "month": "2008-01",
+        "ranking": 582
+      },
+      {
+        "month": "2008-02",
+        "ranking": 546
+      },
+      {
+        "month": "2008-03",
+        "ranking": 531
+      },
+      {
+        "month": "2008-04",
+        "ranking": 495
+      },
+      {
+        "month": "2008-05",
+        "ranking": 486
+      },
+      {
+        "month": "2008-06",
+        "ranking": 507
+      },
+      {
+        "month": "2008-07",
+        "ranking": 476
+      },
+      {
+        "month": "2008-08",
+        "ranking": 436
+      },
+      {
+        "month": "2008-09",
+        "ranking": 408
+      },
+      {
+        "month": "2008-10",
+        "ranking": 424
+      },
+      {
+        "month": "2008-11",
+        "ranking": 376
+      },
+      {
+        "month": "2008-12",
+        "ranking": 340
+      },
+      {
+        "month": "2009-01",
+        "ranking": 346
+      },
+      {
+        "month": "2009-02",
+        "ranking": 324
+      },
+      {
+        "month": "2009-03",
+        "ranking": 285
+      },
+      {
+        "month": "2009-04",
+        "ranking": 312
+      },
+      {
+        "month": "2009-05",
+        "ranking": 292
+      },
+      {
+        "month": "2009-06",
+        "ranking": 255
+      },
+      {
+        "month": "2009-07",
+        "ranking": 237
+      },
+      {
+        "month": "2009-08",
+        "ranking": 225
+      },
+      {
+        "month": "2009-09",
+        "ranking": 196
+      },
+      {
+        "month": "2009-10",
+        "ranking": 190
+      },
+      {
+        "month": "2009-11",
+        "ranking": 179
+      },
+      {
+        "month": "2009-12",
+        "ranking": 153
+      },
+      {
+        "month": "2010-01",
+        "ranking": 131
+      },
+      {
+        "month": "2010-02",
+        "ranking": 122
+      },
+      {
+        "month": "2010-03",
+        "ranking": 105
+      },
+      {
+        "month": "2010-04",
+        "ranking": 93
+      },
+      {
+        "month": "2010-05",
+        "ranking": 103
+      },
+      {
+        "month": "2010-06",
+        "ranking": 88
+      },
+      {
+        "month": "2010-07",
+        "ranking": 96
+      },
+      {
+        "month": "2010-08",
+        "ranking": 83
+      },
+      {
+        "month": "2010-09",
+        "ranking": 73
+      },
+      {
+        "month": "2010-10",
+        "ranking": 66
+      },
+      {
+        "month": "2010-11",
+        "ranking": 68
+      },
+      {
+        "month": "2010-12",
+        "ranking": 58
+      },
+      {
+        "month": "2011-01",
+        "ranking": 50
+      },
+      {
+        "month": "2011-02",
+        "ranking": 44
+      },
+      {
+        "month": "2011-03",
+        "ranking": 44
+      },
+      {
+        "month": "2011-04",
+        "ranking": 40
+      },
+      {
+        "month": "2011-05",
+        "ranking": 42
+      },
+      {
+        "month": "2011-06",
+        "ranking": 40
+      },
+      {
+        "month": "2011-07",
+        "ranking": 36
+      },
+      {
+        "month": "2011-08",
+        "ranking": 41
+      },
+      {
+        "month": "2011-09",
+        "ranking": 35
+      },
+      {
+        "month": "2011-10",
+        "ranking": 30
+      },
+      {
+        "month": "2011-11",
+        "ranking": 32
+      },
+      {
+        "month": "2011-12",
+        "ranking": 29
+      },
+      {
+        "month": "2012-01",
+        "ranking": 29
+      },
+      {
+        "month": "2012-02",
+        "ranking": 26
+      },
+      {
+        "month": "2012-03",
+        "ranking": 24
+      },
+      {
+        "month": "2012-04",
+        "ranking": 24
+      },
+      {
+        "month": "2012-05",
+        "ranking": 23
+      },
+      {
+        "month": "2012-06",
+        "ranking": 24
+      },
+      {
+        "month": "2012-07",
+        "ranking": 21
+      },
+      {
+        "month": "2012-08",
+        "ranking": 22
+      },
+      {
+        "month": "2012-09",
+        "ranking": 21
+      },
+      {
+        "month": "2012-10",
+        "ranking": 21
+      },
+      {
+        "month": "2012-11",
+        "ranking": 19
+      },
+      {
+        "month": "2012-12",
+        "ranking": 18
+      },
+      {
+        "month": "2013-01",
+        "ranking": 17
+      },
+      {
+        "month": "2013-02",
         "ranking": 15
       },
       {
-        "month": "2024-02",
+        "month": "2013-03",
         "ranking": 14
+      },
+      {
+        "month": "2013-04",
+        "ranking": 12
+      },
+      {
+        "month": "2013-05",
+        "ranking": 14
+      },
+      {
+        "month": "2013-06",
+        "ranking": 12
+      },
+      {
+        "month": "2013-07",
+        "ranking": 12
+      },
+      {
+        "month": "2013-08",
+        "ranking": 12
+      },
+      {
+        "month": "2013-09",
+        "ranking": 9
+      },
+      {
+        "month": "2013-10",
+        "ranking": 9
+      },
+      {
+        "month": "2013-11",
+        "ranking": 9
+      },
+      {
+        "month": "2013-12",
+        "ranking": 8
+      },
+      {
+        "month": "2014-01",
+        "ranking": 8
+      },
+      {
+        "month": "2014-02",
+        "ranking": 7
+      },
+      {
+        "month": "2014-03",
+        "ranking": 8
+      },
+      {
+        "month": "2014-04",
+        "ranking": 7
+      },
+      {
+        "month": "2014-05",
+        "ranking": 7
+      },
+      {
+        "month": "2014-06",
+        "ranking": 10
+      },
+      {
+        "month": "2014-07",
+        "ranking": 8
+      },
+      {
+        "month": "2014-08",
+        "ranking": 9
+      },
+      {
+        "month": "2014-09",
+        "ranking": 8
+      },
+      {
+        "month": "2014-10",
+        "ranking": 8
+      },
+      {
+        "month": "2014-11",
+        "ranking": 9
+      },
+      {
+        "month": "2014-12",
+        "ranking": 9
+      },
+      {
+        "month": "2015-01",
+        "ranking": 11
+      },
+      {
+        "month": "2015-02",
+        "ranking": 11
+      },
+      {
+        "month": "2015-03",
+        "ranking": 11
+      },
+      {
+        "month": "2015-04",
+        "ranking": 13
+      },
+      {
+        "month": "2015-05",
+        "ranking": 13
+      },
+      {
+        "month": "2015-06",
+        "ranking": 13
+      },
+      {
+        "month": "2015-07",
+        "ranking": 13
+      },
+      {
+        "month": "2015-08",
+        "ranking": 15
+      },
+      {
+        "month": "2015-09",
+        "ranking": 17
+      },
+      {
+        "month": "2015-10",
+        "ranking": 16
+      },
+      {
+        "month": "2015-11",
+        "ranking": 18
+      },
+      {
+        "month": "2015-12",
+        "ranking": 18
+      },
+      {
+        "month": "2016-01",
+        "ranking": 18
+      },
+      {
+        "month": "2016-02",
+        "ranking": 15
+      },
+      {
+        "month": "2016-03",
+        "ranking": 13
+      },
+      {
+        "month": "2016-04",
+        "ranking": 13
+      },
+      {
+        "month": "2016-05",
+        "ranking": 11
+      },
+      {
+        "month": "2016-06",
+        "ranking": 11
+      },
+      {
+        "month": "2016-07",
+        "ranking": 11
+      },
+      {
+        "month": "2016-08",
+        "ranking": 8
+      },
+      {
+        "month": "2016-09",
+        "ranking": 8
+      },
+      {
+        "month": "2016-10",
+        "ranking": 5
+      },
+      {
+        "month": "2016-11",
+        "ranking": 5
+      },
+      {
+        "month": "2016-12",
+        "ranking": 5
+      },
+      {
+        "month": "2017-01",
+        "ranking": 3
+      },
+      {
+        "month": "2017-02",
+        "ranking": 4
+      },
+      {
+        "month": "2017-03",
+        "ranking": 7
+      },
+      {
+        "month": "2017-04",
+        "ranking": 7
+      },
+      {
+        "month": "2017-05",
+        "ranking": 6
+      },
+      {
+        "month": "2017-06",
+        "ranking": 9
+      },
+      {
+        "month": "2017-07",
+        "ranking": 8
+      },
+      {
+        "month": "2017-08",
+        "ranking": 10
+      },
+      {
+        "month": "2017-09",
+        "ranking": 11
+      },
+      {
+        "month": "2017-10",
+        "ranking": 13
+      },
+      {
+        "month": "2017-11",
+        "ranking": 12
+      },
+      {
+        "month": "2017-12",
+        "ranking": 15
+      },
+      {
+        "month": "2018-01",
+        "ranking": 16
+      },
+      {
+        "month": "2018-02",
+        "ranking": 16
+      },
+      {
+        "month": "2018-03",
+        "ranking": 15
+      },
+      {
+        "month": "2018-04",
+        "ranking": 17
+      },
+      {
+        "month": "2018-05",
+        "ranking": 15
+      },
+      {
+        "month": "2018-06",
+        "ranking": 18
+      },
+      {
+        "month": "2018-07",
+        "ranking": 17
+      },
+      {
+        "month": "2018-08",
+        "ranking": 15
+      },
+      {
+        "month": "2018-09",
+        "ranking": 18
+      },
+      {
+        "month": "2018-10",
+        "ranking": 17
+      },
+      {
+        "month": "2018-11",
+        "ranking": 17
+      },
+      {
+        "month": "2018-12",
+        "ranking": 17
+      },
+      {
+        "month": "2019-01",
+        "ranking": 18
+      },
+      {
+        "month": "2019-02",
+        "ranking": 16
+      },
+      {
+        "month": "2019-03",
+        "ranking": 19
+      },
+      {
+        "month": "2019-04",
+        "ranking": 17
+      },
+      {
+        "month": "2019-05",
+        "ranking": 18
+      },
+      {
+        "month": "2019-06",
+        "ranking": 21
+      },
+      {
+        "month": "2019-07",
+        "ranking": 20
+      },
+      {
+        "month": "2019-08",
+        "ranking": 20
+      },
+      {
+        "month": "2019-09",
+        "ranking": 22
+      },
+      {
+        "month": "2019-10",
+        "ranking": 19
+      },
+      {
+        "month": "2019-11",
+        "ranking": 18
+      },
+      {
+        "month": "2019-12",
+        "ranking": 21
+      },
+      {
+        "month": "2020-01",
+        "ranking": 21
+      },
+      {
+        "month": "2020-02",
+        "ranking": 20
+      },
+      {
+        "month": "2020-03",
+        "ranking": 19
+      },
+      {
+        "month": "2020-04",
+        "ranking": 22
+      },
+      {
+        "month": "2020-05",
+        "ranking": 24
+      },
+      {
+        "month": "2020-06",
+        "ranking": 21
+      },
+      {
+        "month": "2020-07",
+        "ranking": 24
+      },
+      {
+        "month": "2020-08",
+        "ranking": 22
+      },
+      {
+        "month": "2020-09",
+        "ranking": 24
+      },
+      {
+        "month": "2020-10",
+        "ranking": 24
+      },
+      {
+        "month": "2020-11",
+        "ranking": 25
+      },
+      {
+        "month": "2020-12",
+        "ranking": 26
+      },
+      {
+        "month": "2021-01",
+        "ranking": 27
+      },
+      {
+        "month": "2021-02",
+        "ranking": 29
+      },
+      {
+        "month": "2021-03",
+        "ranking": 28
+      },
+      {
+        "month": "2021-04",
+        "ranking": 29
+      },
+      {
+        "month": "2021-05",
+        "ranking": 29
+      },
+      {
+        "month": "2021-06",
+        "ranking": 26
+      },
+      {
+        "month": "2021-07",
+        "ranking": 27
+      },
+      {
+        "month": "2021-08",
+        "ranking": 27
+      },
+      {
+        "month": "2021-09",
+        "ranking": 30
+      },
+      {
+        "month": "2021-10",
+        "ranking": 28
+      },
+      {
+        "month": "2021-11",
+        "ranking": 28
+      },
+      {
+        "month": "2021-12",
+        "ranking": 27
+      },
+      {
+        "month": "2022-01",
+        "ranking": 27
+      },
+      {
+        "month": "2022-02",
+        "ranking": 23
+      },
+      {
+        "month": "2022-03",
+        "ranking": 24
+      },
+      {
+        "month": "2022-04",
+        "ranking": 22
+      },
+      {
+        "month": "2022-05",
+        "ranking": 21
+      },
+      {
+        "month": "2022-06",
+        "ranking": 19
+      },
+      {
+        "month": "2022-07",
+        "ranking": 18
+      },
+      {
+        "month": "2022-08",
+        "ranking": 18
+      },
+      {
+        "month": "2022-09",
+        "ranking": 17
+      },
+      {
+        "month": "2022-10",
+        "ranking": 14
+      },
+      {
+        "month": "2022-11",
+        "ranking": 14
+      },
+      {
+        "month": "2022-12",
+        "ranking": 12
+      },
+      {
+        "month": "2023-01",
+        "ranking": 11
+      },
+      {
+        "month": "2023-02",
+        "ranking": 12
+      },
+      {
+        "month": "2023-03",
+        "ranking": 11
+      },
+      {
+        "month": "2023-04",
+        "ranking": 11
+      },
+      {
+        "month": "2023-05",
+        "ranking": 11
+      },
+      {
+        "month": "2023-06",
+        "ranking": 11
+      },
+      {
+        "month": "2023-07",
+        "ranking": 11
+      },
+      {
+        "month": "2023-08",
+        "ranking": 10
+      },
+      {
+        "month": "2023-09",
+        "ranking": 10
+      },
+      {
+        "month": "2023-10",
+        "ranking": 10
+      },
+      {
+        "month": "2023-11",
+        "ranking": 11
+      },
+      {
+        "month": "2023-12",
+        "ranking": 9
+      },
+      {
+        "month": "2024-01",
+        "ranking": 10
+      },
+      {
+        "month": "2024-02",
+        "ranking": 9
       },
       {
         "month": "2024-03",
@@ -889,11 +5833,11 @@
       },
       {
         "month": "2024-04",
-        "ranking": 11
+        "ranking": 9
       },
       {
         "month": "2024-05",
-        "ranking": 11
+        "ranking": 9
       },
       {
         "month": "2024-06",
@@ -901,15 +5845,15 @@
       },
       {
         "month": "2024-07",
-        "ranking": 10
+        "ranking": 9
       },
       {
         "month": "2024-08",
-        "ranking": 10
+        "ranking": 11
       },
       {
         "month": "2024-09",
-        "ranking": 10
+        "ranking": 12
       },
       {
         "month": "2024-10",
@@ -921,7 +5865,7 @@
       },
       {
         "month": "2024-12",
-        "ranking": 10
+        "ranking": 9
       }
     ],
     "record": {
@@ -953,7 +5897,7 @@
     "id": 11,
     "name": "Stefanos Tsitsipas",
     "country": "GRE",
-    "countryFlag": "🇬🇷",
+    "countryFlag": "\ud83c\uddec\ud83c\uddf7",
     "photoUrl": null,
     "ranking": 11,
     "birthdate": "1998-08-12",
@@ -971,20 +5915,356 @@
     "recentForm": "Working to recapture top-5 form. Monte Carlo title shows potential.",
     "rankingHistory": [
       {
-        "month": "2024-01",
+        "month": "2017-01",
+        "ranking": 300
+      },
+      {
+        "month": "2017-02",
+        "ranking": 308
+      },
+      {
+        "month": "2017-03",
+        "ranking": 271
+      },
+      {
+        "month": "2017-04",
+        "ranking": 231
+      },
+      {
+        "month": "2017-05",
+        "ranking": 230
+      },
+      {
+        "month": "2017-06",
+        "ranking": 198
+      },
+      {
+        "month": "2017-07",
+        "ranking": 169
+      },
+      {
+        "month": "2017-08",
+        "ranking": 144
+      },
+      {
+        "month": "2017-09",
+        "ranking": 123
+      },
+      {
+        "month": "2017-10",
+        "ranking": 105
+      },
+      {
+        "month": "2017-11",
+        "ranking": 90
+      },
+      {
+        "month": "2017-12",
+        "ranking": 77
+      },
+      {
+        "month": "2018-01",
+        "ranking": 66
+      },
+      {
+        "month": "2018-02",
+        "ranking": 57
+      },
+      {
+        "month": "2018-03",
+        "ranking": 49
+      },
+      {
+        "month": "2018-04",
+        "ranking": 42
+      },
+      {
+        "month": "2018-05",
+        "ranking": 36
+      },
+      {
+        "month": "2018-06",
+        "ranking": 31
+      },
+      {
+        "month": "2018-07",
+        "ranking": 27
+      },
+      {
+        "month": "2018-08",
+        "ranking": 23
+      },
+      {
+        "month": "2018-09",
+        "ranking": 20
+      },
+      {
+        "month": "2018-10",
+        "ranking": 17
+      },
+      {
+        "month": "2018-11",
+        "ranking": 14
+      },
+      {
+        "month": "2018-12",
+        "ranking": 11
+      },
+      {
+        "month": "2019-01",
         "ranking": 8
+      },
+      {
+        "month": "2019-02",
+        "ranking": 5
+      },
+      {
+        "month": "2019-03",
+        "ranking": 5
+      },
+      {
+        "month": "2019-04",
+        "ranking": 5
+      },
+      {
+        "month": "2019-05",
+        "ranking": 7
+      },
+      {
+        "month": "2019-06",
+        "ranking": 7
+      },
+      {
+        "month": "2019-07",
+        "ranking": 7
+      },
+      {
+        "month": "2019-08",
+        "ranking": 5
+      },
+      {
+        "month": "2019-09",
+        "ranking": 7
+      },
+      {
+        "month": "2019-10",
+        "ranking": 7
+      },
+      {
+        "month": "2019-11",
+        "ranking": 6
+      },
+      {
+        "month": "2019-12",
+        "ranking": 6
+      },
+      {
+        "month": "2020-01",
+        "ranking": 7
+      },
+      {
+        "month": "2020-02",
+        "ranking": 6
+      },
+      {
+        "month": "2020-03",
+        "ranking": 6
+      },
+      {
+        "month": "2020-04",
+        "ranking": 4
+      },
+      {
+        "month": "2020-05",
+        "ranking": 5
+      },
+      {
+        "month": "2020-06",
+        "ranking": 4
+      },
+      {
+        "month": "2020-07",
+        "ranking": 6
+      },
+      {
+        "month": "2020-08",
+        "ranking": 5
+      },
+      {
+        "month": "2020-09",
+        "ranking": 5
+      },
+      {
+        "month": "2020-10",
+        "ranking": 5
+      },
+      {
+        "month": "2020-11",
+        "ranking": 3
+      },
+      {
+        "month": "2020-12",
+        "ranking": 5
+      },
+      {
+        "month": "2021-01",
+        "ranking": 4
+      },
+      {
+        "month": "2021-02",
+        "ranking": 4
+      },
+      {
+        "month": "2021-03",
+        "ranking": 5
+      },
+      {
+        "month": "2021-04",
+        "ranking": 3
+      },
+      {
+        "month": "2021-05",
+        "ranking": 6
+      },
+      {
+        "month": "2021-06",
+        "ranking": 5
+      },
+      {
+        "month": "2021-07",
+        "ranking": 5
+      },
+      {
+        "month": "2021-08",
+        "ranking": 5
+      },
+      {
+        "month": "2021-09",
+        "ranking": 3
+      },
+      {
+        "month": "2021-10",
+        "ranking": 5
+      },
+      {
+        "month": "2021-11",
+        "ranking": 5
+      },
+      {
+        "month": "2021-12",
+        "ranking": 6
+      },
+      {
+        "month": "2022-01",
+        "ranking": 5
+      },
+      {
+        "month": "2022-02",
+        "ranking": 4
+      },
+      {
+        "month": "2022-03",
+        "ranking": 5
+      },
+      {
+        "month": "2022-04",
+        "ranking": 4
+      },
+      {
+        "month": "2022-05",
+        "ranking": 3
+      },
+      {
+        "month": "2022-06",
+        "ranking": 4
+      },
+      {
+        "month": "2022-07",
+        "ranking": 5
+      },
+      {
+        "month": "2022-08",
+        "ranking": 4
+      },
+      {
+        "month": "2022-09",
+        "ranking": 3
+      },
+      {
+        "month": "2022-10",
+        "ranking": 4
+      },
+      {
+        "month": "2022-11",
+        "ranking": 1
+      },
+      {
+        "month": "2022-12",
+        "ranking": 1
+      },
+      {
+        "month": "2023-01",
+        "ranking": 3
+      },
+      {
+        "month": "2023-02",
+        "ranking": 4
+      },
+      {
+        "month": "2023-03",
+        "ranking": 5
+      },
+      {
+        "month": "2023-04",
+        "ranking": 4
+      },
+      {
+        "month": "2023-05",
+        "ranking": 6
+      },
+      {
+        "month": "2023-06",
+        "ranking": 5
+      },
+      {
+        "month": "2023-07",
+        "ranking": 7
+      },
+      {
+        "month": "2023-08",
+        "ranking": 6
+      },
+      {
+        "month": "2023-09",
+        "ranking": 8
+      },
+      {
+        "month": "2023-10",
+        "ranking": 9
+      },
+      {
+        "month": "2023-11",
+        "ranking": 8
+      },
+      {
+        "month": "2023-12",
+        "ranking": 10
+      },
+      {
+        "month": "2024-01",
+        "ranking": 12
       },
       {
         "month": "2024-02",
-        "ranking": 8
+        "ranking": 13
       },
       {
         "month": "2024-03",
-        "ranking": 9
+        "ranking": 10
       },
       {
         "month": "2024-04",
-        "ranking": 9
+        "ranking": 11
       },
       {
         "month": "2024-05",
@@ -992,19 +6272,19 @@
       },
       {
         "month": "2024-06",
-        "ranking": 11
+        "ranking": 10
       },
       {
         "month": "2024-07",
-        "ranking": 11
+        "ranking": 13
       },
       {
         "month": "2024-08",
-        "ranking": 11
+        "ranking": 12
       },
       {
         "month": "2024-09",
-        "ranking": 11
+        "ranking": 10
       },
       {
         "month": "2024-10",
@@ -1012,7 +6292,7 @@
       },
       {
         "month": "2024-11",
-        "ranking": 11
+        "ranking": 12
       },
       {
         "month": "2024-12",
@@ -1048,7 +6328,7 @@
     "id": 12,
     "name": "Taylor Fritz",
     "country": "USA",
-    "countryFlag": "🇺🇸",
+    "countryFlag": "\ud83c\uddfa\ud83c\uddf8",
     "photoUrl": null,
     "ranking": 12,
     "birthdate": "1997-10-28",
@@ -1066,12 +6346,444 @@
     "recentForm": "Breakout year with US Open final and career-high ranking.",
     "rankingHistory": [
       {
-        "month": "2024-01",
+        "month": "2015-01",
+        "ranking": 413
+      },
+      {
+        "month": "2015-02",
+        "ranking": 352
+      },
+      {
+        "month": "2015-03",
+        "ranking": 300
+      },
+      {
+        "month": "2015-04",
+        "ranking": 271
+      },
+      {
+        "month": "2015-05",
+        "ranking": 238
+      },
+      {
+        "month": "2015-06",
+        "ranking": 225
+      },
+      {
+        "month": "2015-07",
+        "ranking": 205
+      },
+      {
+        "month": "2015-08",
+        "ranking": 175
+      },
+      {
+        "month": "2015-09",
+        "ranking": 149
+      },
+      {
+        "month": "2015-10",
+        "ranking": 147
+      },
+      {
+        "month": "2015-11",
+        "ranking": 125
+      },
+      {
+        "month": "2015-12",
+        "ranking": 107
+      },
+      {
+        "month": "2016-01",
+        "ranking": 91
+      },
+      {
+        "month": "2016-02",
+        "ranking": 78
+      },
+      {
+        "month": "2016-03",
+        "ranking": 67
+      },
+      {
+        "month": "2016-04",
+        "ranking": 57
+      },
+      {
+        "month": "2016-05",
+        "ranking": 60
+      },
+      {
+        "month": "2016-06",
+        "ranking": 53
+      },
+      {
+        "month": "2016-07",
+        "ranking": 60
+      },
+      {
+        "month": "2016-08",
+        "ranking": 53
+      },
+      {
+        "month": "2016-09",
+        "ranking": 46
+      },
+      {
+        "month": "2016-10",
+        "ranking": 52
+      },
+      {
+        "month": "2016-11",
+        "ranking": 45
+      },
+      {
+        "month": "2016-12",
+        "ranking": 50
+      },
+      {
+        "month": "2017-01",
+        "ranking": 50
+      },
+      {
+        "month": "2017-02",
+        "ranking": 46
+      },
+      {
+        "month": "2017-03",
+        "ranking": 40
+      },
+      {
+        "month": "2017-04",
+        "ranking": 39
+      },
+      {
+        "month": "2017-05",
+        "ranking": 38
+      },
+      {
+        "month": "2017-06",
+        "ranking": 38
+      },
+      {
+        "month": "2017-07",
+        "ranking": 40
+      },
+      {
+        "month": "2017-08",
+        "ranking": 36
+      },
+      {
+        "month": "2017-09",
+        "ranking": 31
+      },
+      {
+        "month": "2017-10",
+        "ranking": 33
+      },
+      {
+        "month": "2017-11",
+        "ranking": 29
+      },
+      {
+        "month": "2017-12",
+        "ranking": 27
+      },
+      {
+        "month": "2018-01",
+        "ranking": 23
+      },
+      {
+        "month": "2018-02",
+        "ranking": 24
+      },
+      {
+        "month": "2018-03",
+        "ranking": 26
+      },
+      {
+        "month": "2018-04",
+        "ranking": 24
+      },
+      {
+        "month": "2018-05",
+        "ranking": 27
+      },
+      {
+        "month": "2018-06",
+        "ranking": 27
+      },
+      {
+        "month": "2018-07",
+        "ranking": 31
+      },
+      {
+        "month": "2018-08",
+        "ranking": 28
+      },
+      {
+        "month": "2018-09",
+        "ranking": 32
+      },
+      {
+        "month": "2018-10",
+        "ranking": 31
+      },
+      {
+        "month": "2018-11",
+        "ranking": 28
+      },
+      {
+        "month": "2018-12",
+        "ranking": 32
+      },
+      {
+        "month": "2019-01",
+        "ranking": 29
+      },
+      {
+        "month": "2019-02",
+        "ranking": 26
+      },
+      {
+        "month": "2019-03",
+        "ranking": 29
+      },
+      {
+        "month": "2019-04",
+        "ranking": 33
+      },
+      {
+        "month": "2019-05",
+        "ranking": 30
+      },
+      {
+        "month": "2019-06",
+        "ranking": 28
+      },
+      {
+        "month": "2019-07",
+        "ranking": 32
+      },
+      {
+        "month": "2019-08",
+        "ranking": 30
+      },
+      {
+        "month": "2019-09",
+        "ranking": 26
+      },
+      {
+        "month": "2019-10",
+        "ranking": 28
+      },
+      {
+        "month": "2019-11",
+        "ranking": 24
+      },
+      {
+        "month": "2019-12",
+        "ranking": 24
+      },
+      {
+        "month": "2020-01",
+        "ranking": 23
+      },
+      {
+        "month": "2020-02",
+        "ranking": 20
+      },
+      {
+        "month": "2020-03",
+        "ranking": 22
+      },
+      {
+        "month": "2020-04",
+        "ranking": 25
+      },
+      {
+        "month": "2020-05",
+        "ranking": 22
+      },
+      {
+        "month": "2020-06",
+        "ranking": 23
+      },
+      {
+        "month": "2020-07",
+        "ranking": 22
+      },
+      {
+        "month": "2020-08",
+        "ranking": 25
+      },
+      {
+        "month": "2020-09",
+        "ranking": 24
+      },
+      {
+        "month": "2020-10",
+        "ranking": 24
+      },
+      {
+        "month": "2020-11",
+        "ranking": 23
+      },
+      {
+        "month": "2020-12",
+        "ranking": 21
+      },
+      {
+        "month": "2021-01",
+        "ranking": 21
+      },
+      {
+        "month": "2021-02",
+        "ranking": 23
+      },
+      {
+        "month": "2021-03",
+        "ranking": 21
+      },
+      {
+        "month": "2021-04",
+        "ranking": 21
+      },
+      {
+        "month": "2021-05",
+        "ranking": 18
+      },
+      {
+        "month": "2021-06",
+        "ranking": 19
+      },
+      {
+        "month": "2021-07",
+        "ranking": 16
+      },
+      {
+        "month": "2021-08",
+        "ranking": 17
+      },
+      {
+        "month": "2021-09",
+        "ranking": 14
+      },
+      {
+        "month": "2021-10",
         "ranking": 13
       },
       {
-        "month": "2024-02",
+        "month": "2021-11",
+        "ranking": 12
+      },
+      {
+        "month": "2021-12",
+        "ranking": 9
+      },
+      {
+        "month": "2022-01",
+        "ranking": 10
+      },
+      {
+        "month": "2022-02",
+        "ranking": 8
+      },
+      {
+        "month": "2022-03",
+        "ranking": 10
+      },
+      {
+        "month": "2022-04",
+        "ranking": 10
+      },
+      {
+        "month": "2022-05",
+        "ranking": 10
+      },
+      {
+        "month": "2022-06",
+        "ranking": 9
+      },
+      {
+        "month": "2022-07",
+        "ranking": 9
+      },
+      {
+        "month": "2022-08",
+        "ranking": 10
+      },
+      {
+        "month": "2022-09",
+        "ranking": 8
+      },
+      {
+        "month": "2022-10",
+        "ranking": 9
+      },
+      {
+        "month": "2022-11",
+        "ranking": 11
+      },
+      {
+        "month": "2022-12",
+        "ranking": 9
+      },
+      {
+        "month": "2023-01",
+        "ranking": 11
+      },
+      {
+        "month": "2023-02",
+        "ranking": 10
+      },
+      {
+        "month": "2023-03",
+        "ranking": 11
+      },
+      {
+        "month": "2023-04",
+        "ranking": 9
+      },
+      {
+        "month": "2023-05",
+        "ranking": 11
+      },
+      {
+        "month": "2023-06",
+        "ranking": 11
+      },
+      {
+        "month": "2023-07",
+        "ranking": 12
+      },
+      {
+        "month": "2023-08",
         "ranking": 13
+      },
+      {
+        "month": "2023-09",
+        "ranking": 13
+      },
+      {
+        "month": "2023-10",
+        "ranking": 12
+      },
+      {
+        "month": "2023-11",
+        "ranking": 10
+      },
+      {
+        "month": "2023-12",
+        "ranking": 13
+      },
+      {
+        "month": "2024-01",
+        "ranking": 11
+      },
+      {
+        "month": "2024-02",
+        "ranking": 12
       },
       {
         "month": "2024-03",
@@ -1083,7 +6795,7 @@
       },
       {
         "month": "2024-05",
-        "ranking": 12
+        "ranking": 14
       },
       {
         "month": "2024-06",
@@ -1091,7 +6803,7 @@
       },
       {
         "month": "2024-07",
-        "ranking": 12
+        "ranking": 10
       },
       {
         "month": "2024-08",
@@ -1107,7 +6819,7 @@
       },
       {
         "month": "2024-11",
-        "ranking": 12
+        "ranking": 13
       },
       {
         "month": "2024-12",
@@ -1143,7 +6855,7 @@
     "id": 13,
     "name": "Tommy Paul",
     "country": "USA",
-    "countryFlag": "🇺🇸",
+    "countryFlag": "\ud83c\uddfa\ud83c\uddf8",
     "photoUrl": null,
     "ranking": 13,
     "birthdate": "1997-05-17",
@@ -1161,32 +6873,464 @@
     "recentForm": "Steady climb up the rankings. Strong on hard courts.",
     "rankingHistory": [
       {
-        "month": "2024-01",
-        "ranking": 16
+        "month": "2015-01",
+        "ranking": 443
       },
       {
-        "month": "2024-02",
+        "month": "2015-02",
+        "ranking": 497
+      },
+      {
+        "month": "2015-03",
+        "ranking": 423
+      },
+      {
+        "month": "2015-04",
+        "ranking": 486
+      },
+      {
+        "month": "2015-05",
+        "ranking": 426
+      },
+      {
+        "month": "2015-06",
+        "ranking": 363
+      },
+      {
+        "month": "2015-07",
+        "ranking": 407
+      },
+      {
+        "month": "2015-08",
+        "ranking": 421
+      },
+      {
+        "month": "2015-09",
+        "ranking": 358
+      },
+      {
+        "month": "2015-10",
+        "ranking": 335
+      },
+      {
+        "month": "2015-11",
+        "ranking": 303
+      },
+      {
+        "month": "2015-12",
+        "ranking": 275
+      },
+      {
+        "month": "2016-01",
+        "ranking": 257
+      },
+      {
+        "month": "2016-02",
+        "ranking": 249
+      },
+      {
+        "month": "2016-03",
+        "ranking": 217
+      },
+      {
+        "month": "2016-04",
+        "ranking": 245
+      },
+      {
+        "month": "2016-05",
+        "ranking": 209
+      },
+      {
+        "month": "2016-06",
+        "ranking": 231
+      },
+      {
+        "month": "2016-07",
+        "ranking": 213
+      },
+      {
+        "month": "2016-08",
+        "ranking": 182
+      },
+      {
+        "month": "2016-09",
+        "ranking": 170
+      },
+      {
+        "month": "2016-10",
+        "ranking": 178
+      },
+      {
+        "month": "2016-11",
+        "ranking": 152
+      },
+      {
+        "month": "2016-12",
+        "ranking": 138
+      },
+      {
+        "month": "2017-01",
+        "ranking": 126
+      },
+      {
+        "month": "2017-02",
+        "ranking": 138
+      },
+      {
+        "month": "2017-03",
+        "ranking": 118
+      },
+      {
+        "month": "2017-04",
+        "ranking": 117
+      },
+      {
+        "month": "2017-05",
+        "ranking": 118
+      },
+      {
+        "month": "2017-06",
+        "ranking": 107
+      },
+      {
+        "month": "2017-07",
+        "ranking": 98
+      },
+      {
+        "month": "2017-08",
+        "ranking": 90
+      },
+      {
+        "month": "2017-09",
+        "ranking": 85
+      },
+      {
+        "month": "2017-10",
+        "ranking": 84
+      },
+      {
+        "month": "2017-11",
+        "ranking": 76
+      },
+      {
+        "month": "2017-12",
+        "ranking": 79
+      },
+      {
+        "month": "2018-01",
+        "ranking": 82
+      },
+      {
+        "month": "2018-02",
+        "ranking": 81
+      },
+      {
+        "month": "2018-03",
+        "ranking": 75
+      },
+      {
+        "month": "2018-04",
+        "ranking": 74
+      },
+      {
+        "month": "2018-05",
+        "ranking": 74
+      },
+      {
+        "month": "2018-06",
+        "ranking": 72
+      },
+      {
+        "month": "2018-07",
+        "ranking": 73
+      },
+      {
+        "month": "2018-08",
+        "ranking": 83
+      },
+      {
+        "month": "2018-09",
+        "ranking": 72
+      },
+      {
+        "month": "2018-10",
+        "ranking": 82
+      },
+      {
+        "month": "2018-11",
+        "ranking": 78
+      },
+      {
+        "month": "2018-12",
+        "ranking": 89
+      },
+      {
+        "month": "2019-01",
+        "ranking": 76
+      },
+      {
+        "month": "2019-02",
+        "ranking": 81
+      },
+      {
+        "month": "2019-03",
+        "ranking": 76
+      },
+      {
+        "month": "2019-04",
+        "ranking": 71
+      },
+      {
+        "month": "2019-05",
+        "ranking": 76
+      },
+      {
+        "month": "2019-06",
+        "ranking": 72
+      },
+      {
+        "month": "2019-07",
+        "ranking": 64
+      },
+      {
+        "month": "2019-08",
+        "ranking": 70
+      },
+      {
+        "month": "2019-09",
+        "ranking": 67
+      },
+      {
+        "month": "2019-10",
+        "ranking": 70
+      },
+      {
+        "month": "2019-11",
+        "ranking": 60
+      },
+      {
+        "month": "2019-12",
+        "ranking": 66
+      },
+      {
+        "month": "2020-01",
+        "ranking": 57
+      },
+      {
+        "month": "2020-02",
+        "ranking": 49
+      },
+      {
+        "month": "2020-03",
+        "ranking": 56
+      },
+      {
+        "month": "2020-04",
+        "ranking": 55
+      },
+      {
+        "month": "2020-05",
+        "ranking": 51
+      },
+      {
+        "month": "2020-06",
+        "ranking": 58
+      },
+      {
+        "month": "2020-07",
+        "ranking": 51
+      },
+      {
+        "month": "2020-08",
+        "ranking": 57
+      },
+      {
+        "month": "2020-09",
+        "ranking": 52
+      },
+      {
+        "month": "2020-10",
+        "ranking": 55
+      },
+      {
+        "month": "2020-11",
+        "ranking": 54
+      },
+      {
+        "month": "2020-12",
+        "ranking": 52
+      },
+      {
+        "month": "2021-01",
+        "ranking": 46
+      },
+      {
+        "month": "2021-02",
+        "ranking": 52
+      },
+      {
+        "month": "2021-03",
+        "ranking": 47
+      },
+      {
+        "month": "2021-04",
+        "ranking": 52
+      },
+      {
+        "month": "2021-05",
+        "ranking": 45
+      },
+      {
+        "month": "2021-06",
+        "ranking": 44
+      },
+      {
+        "month": "2021-07",
+        "ranking": 38
+      },
+      {
+        "month": "2021-08",
+        "ranking": 37
+      },
+      {
+        "month": "2021-09",
+        "ranking": 37
+      },
+      {
+        "month": "2021-10",
+        "ranking": 32
+      },
+      {
+        "month": "2021-11",
+        "ranking": 30
+      },
+      {
+        "month": "2021-12",
+        "ranking": 31
+      },
+      {
+        "month": "2022-01",
+        "ranking": 30
+      },
+      {
+        "month": "2022-02",
+        "ranking": 29
+      },
+      {
+        "month": "2022-03",
+        "ranking": 30
+      },
+      {
+        "month": "2022-04",
+        "ranking": 26
+      },
+      {
+        "month": "2022-05",
+        "ranking": 26
+      },
+      {
+        "month": "2022-06",
+        "ranking": 23
+      },
+      {
+        "month": "2022-07",
+        "ranking": 21
+      },
+      {
+        "month": "2022-08",
+        "ranking": 20
+      },
+      {
+        "month": "2022-09",
+        "ranking": 17
+      },
+      {
+        "month": "2022-10",
+        "ranking": 17
+      },
+      {
+        "month": "2022-11",
         "ranking": 15
       },
       {
-        "month": "2024-03",
+        "month": "2022-12",
+        "ranking": 13
+      },
+      {
+        "month": "2023-01",
+        "ranking": 11
+      },
+      {
+        "month": "2023-02",
+        "ranking": 13
+      },
+      {
+        "month": "2023-03",
+        "ranking": 11
+      },
+      {
+        "month": "2023-04",
         "ranking": 14
+      },
+      {
+        "month": "2023-05",
+        "ranking": 13
+      },
+      {
+        "month": "2023-06",
+        "ranking": 11
+      },
+      {
+        "month": "2023-07",
+        "ranking": 12
+      },
+      {
+        "month": "2023-08",
+        "ranking": 14
+      },
+      {
+        "month": "2023-09",
+        "ranking": 12
+      },
+      {
+        "month": "2023-10",
+        "ranking": 13
+      },
+      {
+        "month": "2023-11",
+        "ranking": 13
+      },
+      {
+        "month": "2023-12",
+        "ranking": 13
+      },
+      {
+        "month": "2024-01",
+        "ranking": 11
+      },
+      {
+        "month": "2024-02",
+        "ranking": 13
+      },
+      {
+        "month": "2024-03",
+        "ranking": 12
       },
       {
         "month": "2024-04",
-        "ranking": 14
+        "ranking": 15
       },
       {
         "month": "2024-05",
-        "ranking": 14
+        "ranking": 13
       },
       {
         "month": "2024-06",
-        "ranking": 14
+        "ranking": 13
       },
       {
         "month": "2024-07",
-        "ranking": 13
+        "ranking": 14
       },
       {
         "month": "2024-08",
@@ -1198,15 +7342,15 @@
       },
       {
         "month": "2024-10",
-        "ranking": 13
+        "ranking": 12
       },
       {
         "month": "2024-11",
-        "ranking": 13
+        "ranking": 15
       },
       {
         "month": "2024-12",
-        "ranking": 13
+        "ranking": 12
       }
     ],
     "record": {
@@ -1238,7 +7382,7 @@
     "id": 14,
     "name": "Ben Shelton",
     "country": "USA",
-    "countryFlag": "🇺🇸",
+    "countryFlag": "\ud83c\uddfa\ud83c\uddf8",
     "photoUrl": null,
     "ranking": 14,
     "birthdate": "2002-10-09",
@@ -1256,12 +7400,108 @@
     "recentForm": "Young power hitter with massive serve. Exciting future ahead.",
     "rankingHistory": [
       {
+        "month": "2022-01",
+        "ranking": 227
+      },
+      {
+        "month": "2022-02",
+        "ranking": 221
+      },
+      {
+        "month": "2022-03",
+        "ranking": 188
+      },
+      {
+        "month": "2022-04",
+        "ranking": 168
+      },
+      {
+        "month": "2022-05",
+        "ranking": 158
+      },
+      {
+        "month": "2022-06",
+        "ranking": 141
+      },
+      {
+        "month": "2022-07",
+        "ranking": 120
+      },
+      {
+        "month": "2022-08",
+        "ranking": 102
+      },
+      {
+        "month": "2022-09",
+        "ranking": 87
+      },
+      {
+        "month": "2022-10",
+        "ranking": 74
+      },
+      {
+        "month": "2022-11",
+        "ranking": 63
+      },
+      {
+        "month": "2022-12",
+        "ranking": 54
+      },
+      {
+        "month": "2023-01",
+        "ranking": 46
+      },
+      {
+        "month": "2023-02",
+        "ranking": 40
+      },
+      {
+        "month": "2023-03",
+        "ranking": 34
+      },
+      {
+        "month": "2023-04",
+        "ranking": 29
+      },
+      {
+        "month": "2023-05",
+        "ranking": 25
+      },
+      {
+        "month": "2023-06",
+        "ranking": 22
+      },
+      {
+        "month": "2023-07",
+        "ranking": 19
+      },
+      {
+        "month": "2023-08",
+        "ranking": 16
+      },
+      {
+        "month": "2023-09",
+        "ranking": 13
+      },
+      {
+        "month": "2023-10",
+        "ranking": 16
+      },
+      {
+        "month": "2023-11",
+        "ranking": 13
+      },
+      {
+        "month": "2023-12",
+        "ranking": 15
+      },
+      {
         "month": "2024-01",
-        "ranking": 17
+        "ranking": 15
       },
       {
         "month": "2024-02",
-        "ranking": 16
+        "ranking": 14
       },
       {
         "month": "2024-03",
@@ -1269,19 +7509,19 @@
       },
       {
         "month": "2024-04",
-        "ranking": 15
+        "ranking": 12
       },
       {
         "month": "2024-05",
-        "ranking": 15
+        "ranking": 14
       },
       {
         "month": "2024-06",
-        "ranking": 15
+        "ranking": 14
       },
       {
         "month": "2024-07",
-        "ranking": 14
+        "ranking": 11
       },
       {
         "month": "2024-08",
@@ -1293,15 +7533,15 @@
       },
       {
         "month": "2024-10",
-        "ranking": 14
+        "ranking": 12
       },
       {
         "month": "2024-11",
-        "ranking": 14
+        "ranking": 12
       },
       {
         "month": "2024-12",
-        "ranking": 14
+        "ranking": 13
       }
     ],
     "record": {
@@ -1333,7 +7573,7 @@
     "id": 15,
     "name": "Holger Rune",
     "country": "DEN",
-    "countryFlag": "🇩🇰",
+    "countryFlag": "\ud83c\udde9\ud83c\uddf0",
     "photoUrl": null,
     "ranking": 15,
     "birthdate": "2003-04-29",
@@ -1351,24 +7591,264 @@
     "recentForm": "Talented but inconsistent. Flashes of brilliance in big tournaments.",
     "rankingHistory": [
       {
-        "month": "2024-01",
+        "month": "2019-01",
+        "ranking": 479
+      },
+      {
+        "month": "2019-02",
+        "ranking": 471
+      },
+      {
+        "month": "2019-03",
+        "ranking": 431
+      },
+      {
+        "month": "2019-04",
+        "ranking": 414
+      },
+      {
+        "month": "2019-05",
+        "ranking": 444
+      },
+      {
+        "month": "2019-06",
+        "ranking": 401
+      },
+      {
+        "month": "2019-07",
+        "ranking": 397
+      },
+      {
+        "month": "2019-08",
+        "ranking": 376
+      },
+      {
+        "month": "2019-09",
+        "ranking": 380
+      },
+      {
+        "month": "2019-10",
+        "ranking": 346
+      },
+      {
+        "month": "2019-11",
+        "ranking": 356
+      },
+      {
+        "month": "2019-12",
+        "ranking": 319
+      },
+      {
+        "month": "2020-01",
+        "ranking": 321
+      },
+      {
+        "month": "2020-02",
+        "ranking": 312
+      },
+      {
+        "month": "2020-03",
+        "ranking": 266
+      },
+      {
+        "month": "2020-04",
+        "ranking": 268
+      },
+      {
+        "month": "2020-05",
+        "ranking": 267
+      },
+      {
+        "month": "2020-06",
+        "ranking": 227
+      },
+      {
+        "month": "2020-07",
+        "ranking": 199
+      },
+      {
+        "month": "2020-08",
+        "ranking": 178
+      },
+      {
+        "month": "2020-09",
+        "ranking": 173
+      },
+      {
+        "month": "2020-10",
+        "ranking": 156
+      },
+      {
+        "month": "2020-11",
+        "ranking": 133
+      },
+      {
+        "month": "2020-12",
+        "ranking": 129
+      },
+      {
+        "month": "2021-01",
+        "ranking": 110
+      },
+      {
+        "month": "2021-02",
+        "ranking": 94
+      },
+      {
+        "month": "2021-03",
+        "ranking": 91
+      },
+      {
+        "month": "2021-04",
+        "ranking": 88
+      },
+      {
+        "month": "2021-05",
+        "ranking": 75
+      },
+      {
+        "month": "2021-06",
+        "ranking": 64
+      },
+      {
+        "month": "2021-07",
+        "ranking": 55
+      },
+      {
+        "month": "2021-08",
+        "ranking": 47
+      },
+      {
+        "month": "2021-09",
+        "ranking": 40
+      },
+      {
+        "month": "2021-10",
+        "ranking": 34
+      },
+      {
+        "month": "2021-11",
+        "ranking": 29
+      },
+      {
+        "month": "2021-12",
+        "ranking": 25
+      },
+      {
+        "month": "2022-01",
+        "ranking": 22
+      },
+      {
+        "month": "2022-02",
+        "ranking": 19
+      },
+      {
+        "month": "2022-03",
+        "ranking": 16
+      },
+      {
+        "month": "2022-04",
+        "ranking": 13
+      },
+      {
+        "month": "2022-05",
         "ranking": 10
       },
       {
-        "month": "2024-02",
-        "ranking": 10
+        "month": "2022-06",
+        "ranking": 7
       },
       {
-        "month": "2024-03",
+        "month": "2022-07",
+        "ranking": 6
+      },
+      {
+        "month": "2022-08",
+        "ranking": 8
+      },
+      {
+        "month": "2022-09",
+        "ranking": 6
+      },
+      {
+        "month": "2022-10",
+        "ranking": 8
+      },
+      {
+        "month": "2022-11",
+        "ranking": 9
+      },
+      {
+        "month": "2022-12",
+        "ranking": 7
+      },
+      {
+        "month": "2023-01",
+        "ranking": 8
+      },
+      {
+        "month": "2023-02",
+        "ranking": 9
+      },
+      {
+        "month": "2023-03",
+        "ranking": 9
+      },
+      {
+        "month": "2023-04",
+        "ranking": 9
+      },
+      {
+        "month": "2023-05",
+        "ranking": 12
+      },
+      {
+        "month": "2023-06",
         "ranking": 11
       },
       {
-        "month": "2024-04",
+        "month": "2023-07",
         "ranking": 13
       },
       {
-        "month": "2024-05",
+        "month": "2023-08",
+        "ranking": 12
+      },
+      {
+        "month": "2023-09",
+        "ranking": 12
+      },
+      {
+        "month": "2023-10",
+        "ranking": 14
+      },
+      {
+        "month": "2023-11",
+        "ranking": 14
+      },
+      {
+        "month": "2023-12",
         "ranking": 13
+      },
+      {
+        "month": "2024-01",
+        "ranking": 14
+      },
+      {
+        "month": "2024-02",
+        "ranking": 15
+      },
+      {
+        "month": "2024-03",
+        "ranking": 14
+      },
+      {
+        "month": "2024-04",
+        "ranking": 15
+      },
+      {
+        "month": "2024-05",
+        "ranking": 12
       },
       {
         "month": "2024-06",
@@ -1376,19 +7856,19 @@
       },
       {
         "month": "2024-07",
-        "ranking": 14
+        "ranking": 15
       },
       {
         "month": "2024-08",
-        "ranking": 15
+        "ranking": 14
       },
       {
         "month": "2024-09",
-        "ranking": 15
+        "ranking": 14
       },
       {
         "month": "2024-10",
-        "ranking": 15
+        "ranking": 14
       },
       {
         "month": "2024-11",
@@ -1396,7 +7876,7 @@
       },
       {
         "month": "2024-12",
-        "ranking": 15
+        "ranking": 17
       }
     ],
     "record": {
@@ -1428,7 +7908,7 @@
     "id": 16,
     "name": "Ugo Humbert",
     "country": "FRA",
-    "countryFlag": "🇫🇷",
+    "countryFlag": "\ud83c\uddeb\ud83c\uddf7",
     "photoUrl": null,
     "ranking": 16,
     "birthdate": "1998-06-26",
@@ -1446,28 +7926,364 @@
     "recentForm": "Left-handed serve and volley game. Rising on fast courts.",
     "rankingHistory": [
       {
-        "month": "2024-01",
-        "ranking": 20
+        "month": "2017-01",
+        "ranking": 355
       },
       {
-        "month": "2024-02",
-        "ranking": 19
+        "month": "2017-02",
+        "ranking": 375
       },
       {
-        "month": "2024-03",
+        "month": "2017-03",
+        "ranking": 395
+      },
+      {
+        "month": "2017-04",
+        "ranking": 359
+      },
+      {
+        "month": "2017-05",
+        "ranking": 331
+      },
+      {
+        "month": "2017-06",
+        "ranking": 305
+      },
+      {
+        "month": "2017-07",
+        "ranking": 300
+      },
+      {
+        "month": "2017-08",
+        "ranking": 281
+      },
+      {
+        "month": "2017-09",
+        "ranking": 239
+      },
+      {
+        "month": "2017-10",
+        "ranking": 236
+      },
+      {
+        "month": "2017-11",
+        "ranking": 201
+      },
+      {
+        "month": "2017-12",
+        "ranking": 231
+      },
+      {
+        "month": "2018-01",
+        "ranking": 213
+      },
+      {
+        "month": "2018-02",
+        "ranking": 182
+      },
+      {
+        "month": "2018-03",
+        "ranking": 184
+      },
+      {
+        "month": "2018-04",
+        "ranking": 191
+      },
+      {
+        "month": "2018-05",
+        "ranking": 163
+      },
+      {
+        "month": "2018-06",
+        "ranking": 147
+      },
+      {
+        "month": "2018-07",
+        "ranking": 125
+      },
+      {
+        "month": "2018-08",
+        "ranking": 107
+      },
+      {
+        "month": "2018-09",
+        "ranking": 91
+      },
+      {
+        "month": "2018-10",
+        "ranking": 78
+      },
+      {
+        "month": "2018-11",
+        "ranking": 67
+      },
+      {
+        "month": "2018-12",
+        "ranking": 57
+      },
+      {
+        "month": "2019-01",
+        "ranking": 49
+      },
+      {
+        "month": "2019-02",
+        "ranking": 42
+      },
+      {
+        "month": "2019-03",
+        "ranking": 40
+      },
+      {
+        "month": "2019-04",
+        "ranking": 37
+      },
+      {
+        "month": "2019-05",
+        "ranking": 42
+      },
+      {
+        "month": "2019-06",
+        "ranking": 36
+      },
+      {
+        "month": "2019-07",
+        "ranking": 33
+      },
+      {
+        "month": "2019-08",
+        "ranking": 37
+      },
+      {
+        "month": "2019-09",
+        "ranking": 41
+      },
+      {
+        "month": "2019-10",
+        "ranking": 35
+      },
+      {
+        "month": "2019-11",
+        "ranking": 38
+      },
+      {
+        "month": "2019-12",
+        "ranking": 33
+      },
+      {
+        "month": "2020-01",
+        "ranking": 35
+      },
+      {
+        "month": "2020-02",
+        "ranking": 33
+      },
+      {
+        "month": "2020-03",
+        "ranking": 37
+      },
+      {
+        "month": "2020-04",
+        "ranking": 39
+      },
+      {
+        "month": "2020-05",
+        "ranking": 34
+      },
+      {
+        "month": "2020-06",
+        "ranking": 39
+      },
+      {
+        "month": "2020-07",
+        "ranking": 34
+      },
+      {
+        "month": "2020-08",
+        "ranking": 36
+      },
+      {
+        "month": "2020-09",
+        "ranking": 41
+      },
+      {
+        "month": "2020-10",
+        "ranking": 36
+      },
+      {
+        "month": "2020-11",
+        "ranking": 37
+      },
+      {
+        "month": "2020-12",
+        "ranking": 40
+      },
+      {
+        "month": "2021-01",
+        "ranking": 41
+      },
+      {
+        "month": "2021-02",
+        "ranking": 42
+      },
+      {
+        "month": "2021-03",
+        "ranking": 39
+      },
+      {
+        "month": "2021-04",
+        "ranking": 43
+      },
+      {
+        "month": "2021-05",
+        "ranking": 46
+      },
+      {
+        "month": "2021-06",
+        "ranking": 49
+      },
+      {
+        "month": "2021-07",
+        "ranking": 46
+      },
+      {
+        "month": "2021-08",
+        "ranking": 41
+      },
+      {
+        "month": "2021-09",
+        "ranking": 47
+      },
+      {
+        "month": "2021-10",
+        "ranking": 45
+      },
+      {
+        "month": "2021-11",
+        "ranking": 51
+      },
+      {
+        "month": "2021-12",
+        "ranking": 44
+      },
+      {
+        "month": "2022-01",
+        "ranking": 50
+      },
+      {
+        "month": "2022-02",
+        "ranking": 43
+      },
+      {
+        "month": "2022-03",
+        "ranking": 49
+      },
+      {
+        "month": "2022-04",
+        "ranking": 45
+      },
+      {
+        "month": "2022-05",
+        "ranking": 40
+      },
+      {
+        "month": "2022-06",
+        "ranking": 38
+      },
+      {
+        "month": "2022-07",
+        "ranking": 33
+      },
+      {
+        "month": "2022-08",
+        "ranking": 33
+      },
+      {
+        "month": "2022-09",
+        "ranking": 29
+      },
+      {
+        "month": "2022-10",
+        "ranking": 28
+      },
+      {
+        "month": "2022-11",
+        "ranking": 24
+      },
+      {
+        "month": "2022-12",
+        "ranking": 21
+      },
+      {
+        "month": "2023-01",
         "ranking": 18
       },
       {
-        "month": "2024-04",
+        "month": "2023-02",
+        "ranking": 20
+      },
+      {
+        "month": "2023-03",
+        "ranking": 20
+      },
+      {
+        "month": "2023-04",
+        "ranking": 18
+      },
+      {
+        "month": "2023-05",
         "ranking": 17
+      },
+      {
+        "month": "2023-06",
+        "ranking": 17
+      },
+      {
+        "month": "2023-07",
+        "ranking": 18
+      },
+      {
+        "month": "2023-08",
+        "ranking": 18
+      },
+      {
+        "month": "2023-09",
+        "ranking": 15
+      },
+      {
+        "month": "2023-10",
+        "ranking": 17
+      },
+      {
+        "month": "2023-11",
+        "ranking": 18
+      },
+      {
+        "month": "2023-12",
+        "ranking": 15
+      },
+      {
+        "month": "2024-01",
+        "ranking": 16
+      },
+      {
+        "month": "2024-02",
+        "ranking": 17
+      },
+      {
+        "month": "2024-03",
+        "ranking": 17
+      },
+      {
+        "month": "2024-04",
+        "ranking": 15
       },
       {
         "month": "2024-05",
-        "ranking": 17
+        "ranking": 15
       },
       {
         "month": "2024-06",
-        "ranking": 16
+        "ranking": 15
       },
       {
         "month": "2024-07",
@@ -1475,7 +8291,7 @@
       },
       {
         "month": "2024-08",
-        "ranking": 16
+        "ranking": 17
       },
       {
         "month": "2024-09",
@@ -1483,15 +8299,15 @@
       },
       {
         "month": "2024-10",
-        "ranking": 16
+        "ranking": 14
       },
       {
         "month": "2024-11",
-        "ranking": 16
+        "ranking": 15
       },
       {
         "month": "2024-12",
-        "ranking": 16
+        "ranking": 17
       }
     ],
     "record": {
@@ -1523,7 +8339,7 @@
     "id": 17,
     "name": "Sebastian Korda",
     "country": "USA",
-    "countryFlag": "🇺🇸",
+    "countryFlag": "\ud83c\uddfa\ud83c\uddf8",
     "photoUrl": null,
     "ranking": 17,
     "birthdate": "2000-07-05",
@@ -1541,16 +8357,304 @@
     "recentForm": "Son of Petr Korda, showing Grand Slam pedigree.",
     "rankingHistory": [
       {
-        "month": "2024-01",
+        "month": "2018-01",
+        "ranking": 451
+      },
+      {
+        "month": "2018-02",
+        "ranking": 488
+      },
+      {
+        "month": "2018-03",
+        "ranking": 445
+      },
+      {
+        "month": "2018-04",
+        "ranking": 416
+      },
+      {
+        "month": "2018-05",
+        "ranking": 418
+      },
+      {
+        "month": "2018-06",
+        "ranking": 449
+      },
+      {
+        "month": "2018-07",
+        "ranking": 384
+      },
+      {
+        "month": "2018-08",
+        "ranking": 346
+      },
+      {
+        "month": "2018-09",
+        "ranking": 295
+      },
+      {
+        "month": "2018-10",
+        "ranking": 325
+      },
+      {
+        "month": "2018-11",
+        "ranking": 318
+      },
+      {
+        "month": "2018-12",
+        "ranking": 284
+      },
+      {
+        "month": "2019-01",
+        "ranking": 273
+      },
+      {
+        "month": "2019-02",
+        "ranking": 248
+      },
+      {
+        "month": "2019-03",
+        "ranking": 211
+      },
+      {
+        "month": "2019-04",
+        "ranking": 217
+      },
+      {
+        "month": "2019-05",
+        "ranking": 215
+      },
+      {
+        "month": "2019-06",
+        "ranking": 207
+      },
+      {
+        "month": "2019-07",
+        "ranking": 178
+      },
+      {
+        "month": "2019-08",
+        "ranking": 173
+      },
+      {
+        "month": "2019-09",
+        "ranking": 168
+      },
+      {
+        "month": "2019-10",
+        "ranking": 168
+      },
+      {
+        "month": "2019-11",
+        "ranking": 153
+      },
+      {
+        "month": "2019-12",
+        "ranking": 138
+      },
+      {
+        "month": "2020-01",
+        "ranking": 124
+      },
+      {
+        "month": "2020-02",
+        "ranking": 106
+      },
+      {
+        "month": "2020-03",
+        "ranking": 97
+      },
+      {
+        "month": "2020-04",
+        "ranking": 99
+      },
+      {
+        "month": "2020-05",
+        "ranking": 101
+      },
+      {
+        "month": "2020-06",
+        "ranking": 89
+      },
+      {
+        "month": "2020-07",
+        "ranking": 84
+      },
+      {
+        "month": "2020-08",
+        "ranking": 72
+      },
+      {
+        "month": "2020-09",
+        "ranking": 62
+      },
+      {
+        "month": "2020-10",
+        "ranking": 65
+      },
+      {
+        "month": "2020-11",
+        "ranking": 56
+      },
+      {
+        "month": "2020-12",
+        "ranking": 48
+      },
+      {
+        "month": "2021-01",
+        "ranking": 43
+      },
+      {
+        "month": "2021-02",
+        "ranking": 39
+      },
+      {
+        "month": "2021-03",
+        "ranking": 44
+      },
+      {
+        "month": "2021-04",
+        "ranking": 39
+      },
+      {
+        "month": "2021-05",
+        "ranking": 35
+      },
+      {
+        "month": "2021-06",
+        "ranking": 33
+      },
+      {
+        "month": "2021-07",
+        "ranking": 32
+      },
+      {
+        "month": "2021-08",
+        "ranking": 30
+      },
+      {
+        "month": "2021-09",
+        "ranking": 26
+      },
+      {
+        "month": "2021-10",
+        "ranking": 29
+      },
+      {
+        "month": "2021-11",
+        "ranking": 26
+      },
+      {
+        "month": "2021-12",
+        "ranking": 23
+      },
+      {
+        "month": "2022-01",
         "ranking": 22
       },
       {
-        "month": "2024-02",
+        "month": "2022-02",
         "ranking": 21
       },
       {
-        "month": "2024-03",
+        "month": "2022-03",
+        "ranking": 24
+      },
+      {
+        "month": "2022-04",
+        "ranking": 22
+      },
+      {
+        "month": "2022-05",
+        "ranking": 25
+      },
+      {
+        "month": "2022-06",
+        "ranking": 22
+      },
+      {
+        "month": "2022-07",
         "ranking": 20
+      },
+      {
+        "month": "2022-08",
+        "ranking": 23
+      },
+      {
+        "month": "2022-09",
+        "ranking": 20
+      },
+      {
+        "month": "2022-10",
+        "ranking": 19
+      },
+      {
+        "month": "2022-11",
+        "ranking": 20
+      },
+      {
+        "month": "2022-12",
+        "ranking": 19
+      },
+      {
+        "month": "2023-01",
+        "ranking": 21
+      },
+      {
+        "month": "2023-02",
+        "ranking": 22
+      },
+      {
+        "month": "2023-03",
+        "ranking": 19
+      },
+      {
+        "month": "2023-04",
+        "ranking": 19
+      },
+      {
+        "month": "2023-05",
+        "ranking": 19
+      },
+      {
+        "month": "2023-06",
+        "ranking": 19
+      },
+      {
+        "month": "2023-07",
+        "ranking": 20
+      },
+      {
+        "month": "2023-08",
+        "ranking": 18
+      },
+      {
+        "month": "2023-09",
+        "ranking": 17
+      },
+      {
+        "month": "2023-10",
+        "ranking": 16
+      },
+      {
+        "month": "2023-11",
+        "ranking": 15
+      },
+      {
+        "month": "2023-12",
+        "ranking": 17
+      },
+      {
+        "month": "2024-01",
+        "ranking": 17
+      },
+      {
+        "month": "2024-02",
+        "ranking": 18
+      },
+      {
+        "month": "2024-03",
+        "ranking": 16
       },
       {
         "month": "2024-04",
@@ -1558,19 +8662,19 @@
       },
       {
         "month": "2024-05",
-        "ranking": 18
+        "ranking": 17
       },
       {
         "month": "2024-06",
-        "ranking": 18
+        "ranking": 16
       },
       {
         "month": "2024-07",
-        "ranking": 17
+        "ranking": 18
       },
       {
         "month": "2024-08",
-        "ranking": 17
+        "ranking": 16
       },
       {
         "month": "2024-09",
@@ -1578,7 +8682,7 @@
       },
       {
         "month": "2024-10",
-        "ranking": 17
+        "ranking": 14
       },
       {
         "month": "2024-11",
@@ -1618,7 +8722,7 @@
     "id": 18,
     "name": "Nicolas Jarry",
     "country": "CHI",
-    "countryFlag": "🇨🇱",
+    "countryFlag": "\ud83c\udde8\ud83c\uddf1",
     "photoUrl": null,
     "ranking": 18,
     "birthdate": "1995-10-11",
@@ -1636,44 +8740,524 @@
     "recentForm": "Powerful game with career-best results this season.",
     "rankingHistory": [
       {
-        "month": "2024-01",
+        "month": "2014-01",
+        "ranking": 610
+      },
+      {
+        "month": "2014-02",
+        "ranking": 586
+      },
+      {
+        "month": "2014-03",
+        "ranking": 501
+      },
+      {
+        "month": "2014-04",
+        "ranking": 499
+      },
+      {
+        "month": "2014-05",
+        "ranking": 573
+      },
+      {
+        "month": "2014-06",
+        "ranking": 515
+      },
+      {
+        "month": "2014-07",
+        "ranking": 452
+      },
+      {
+        "month": "2014-08",
+        "ranking": 469
+      },
+      {
+        "month": "2014-09",
+        "ranking": 447
+      },
+      {
+        "month": "2014-10",
+        "ranking": 477
+      },
+      {
+        "month": "2014-11",
+        "ranking": 426
+      },
+      {
+        "month": "2014-12",
+        "ranking": 383
+      },
+      {
+        "month": "2015-01",
+        "ranking": 337
+      },
+      {
+        "month": "2015-02",
+        "ranking": 384
+      },
+      {
+        "month": "2015-03",
+        "ranking": 327
+      },
+      {
+        "month": "2015-04",
+        "ranking": 286
+      },
+      {
+        "month": "2015-05",
+        "ranking": 265
+      },
+      {
+        "month": "2015-06",
+        "ranking": 260
+      },
+      {
+        "month": "2015-07",
+        "ranking": 257
+      },
+      {
+        "month": "2015-08",
+        "ranking": 266
+      },
+      {
+        "month": "2015-09",
+        "ranking": 254
+      },
+      {
+        "month": "2015-10",
+        "ranking": 243
+      },
+      {
+        "month": "2015-11",
+        "ranking": 211
+      },
+      {
+        "month": "2015-12",
+        "ranking": 207
+      },
+      {
+        "month": "2016-01",
+        "ranking": 213
+      },
+      {
+        "month": "2016-02",
+        "ranking": 184
+      },
+      {
+        "month": "2016-03",
+        "ranking": 184
+      },
+      {
+        "month": "2016-04",
+        "ranking": 157
+      },
+      {
+        "month": "2016-05",
+        "ranking": 138
+      },
+      {
+        "month": "2016-06",
+        "ranking": 130
+      },
+      {
+        "month": "2016-07",
+        "ranking": 111
+      },
+      {
+        "month": "2016-08",
+        "ranking": 122
+      },
+      {
+        "month": "2016-09",
+        "ranking": 126
+      },
+      {
+        "month": "2016-10",
+        "ranking": 108
+      },
+      {
+        "month": "2016-11",
+        "ranking": 98
+      },
+      {
+        "month": "2016-12",
+        "ranking": 84
+      },
+      {
+        "month": "2017-01",
+        "ranking": 77
+      },
+      {
+        "month": "2017-02",
+        "ranking": 78
+      },
+      {
+        "month": "2017-03",
+        "ranking": 67
+      },
+      {
+        "month": "2017-04",
+        "ranking": 76
+      },
+      {
+        "month": "2017-05",
+        "ranking": 65
+      },
+      {
+        "month": "2017-06",
+        "ranking": 64
+      },
+      {
+        "month": "2017-07",
+        "ranking": 57
+      },
+      {
+        "month": "2017-08",
+        "ranking": 62
+      },
+      {
+        "month": "2017-09",
+        "ranking": 55
+      },
+      {
+        "month": "2017-10",
+        "ranking": 47
+      },
+      {
+        "month": "2017-11",
+        "ranking": 40
+      },
+      {
+        "month": "2017-12",
+        "ranking": 38
+      },
+      {
+        "month": "2018-01",
+        "ranking": 36
+      },
+      {
+        "month": "2018-02",
+        "ranking": 38
+      },
+      {
+        "month": "2018-03",
+        "ranking": 40
+      },
+      {
+        "month": "2018-04",
+        "ranking": 43
+      },
+      {
+        "month": "2018-05",
+        "ranking": 37
+      },
+      {
+        "month": "2018-06",
+        "ranking": 37
+      },
+      {
+        "month": "2018-07",
+        "ranking": 42
+      },
+      {
+        "month": "2018-08",
+        "ranking": 44
+      },
+      {
+        "month": "2018-09",
+        "ranking": 46
+      },
+      {
+        "month": "2018-10",
+        "ranking": 45
+      },
+      {
+        "month": "2018-11",
+        "ranking": 47
+      },
+      {
+        "month": "2018-12",
+        "ranking": 54
+      },
+      {
+        "month": "2019-01",
+        "ranking": 46
+      },
+      {
+        "month": "2019-02",
+        "ranking": 49
+      },
+      {
+        "month": "2019-03",
+        "ranking": 56
+      },
+      {
+        "month": "2019-04",
+        "ranking": 64
+      },
+      {
+        "month": "2019-05",
+        "ranking": 66
+      },
+      {
+        "month": "2019-06",
+        "ranking": 64
+      },
+      {
+        "month": "2019-07",
+        "ranking": 63
+      },
+      {
+        "month": "2019-08",
+        "ranking": 72
+      },
+      {
+        "month": "2019-09",
+        "ranking": 75
+      },
+      {
+        "month": "2019-10",
+        "ranking": 86
+      },
+      {
+        "month": "2019-11",
+        "ranking": 98
+      },
+      {
+        "month": "2019-12",
+        "ranking": 98
+      },
+      {
+        "month": "2020-01",
+        "ranking": 104
+      },
+      {
+        "month": "2020-02",
+        "ranking": 101
+      },
+      {
+        "month": "2020-03",
+        "ranking": 113
+      },
+      {
+        "month": "2020-04",
+        "ranking": 105
+      },
+      {
+        "month": "2020-05",
+        "ranking": 107
+      },
+      {
+        "month": "2020-06",
+        "ranking": 120
+      },
+      {
+        "month": "2020-07",
+        "ranking": 116
+      },
+      {
+        "month": "2020-08",
+        "ranking": 131
+      },
+      {
+        "month": "2020-09",
+        "ranking": 112
+      },
+      {
+        "month": "2020-10",
+        "ranking": 110
+      },
+      {
+        "month": "2020-11",
+        "ranking": 108
+      },
+      {
+        "month": "2020-12",
+        "ranking": 124
+      },
+      {
+        "month": "2021-01",
+        "ranking": 115
+      },
+      {
+        "month": "2021-02",
+        "ranking": 121
+      },
+      {
+        "month": "2021-03",
+        "ranking": 103
+      },
+      {
+        "month": "2021-04",
+        "ranking": 104
+      },
+      {
+        "month": "2021-05",
+        "ranking": 118
+      },
+      {
+        "month": "2021-06",
+        "ranking": 107
+      },
+      {
+        "month": "2021-07",
+        "ranking": 91
+      },
+      {
+        "month": "2021-08",
+        "ranking": 87
+      },
+      {
+        "month": "2021-09",
+        "ranking": 85
+      },
+      {
+        "month": "2021-10",
+        "ranking": 73
+      },
+      {
+        "month": "2021-11",
+        "ranking": 64
+      },
+      {
+        "month": "2021-12",
+        "ranking": 68
+      },
+      {
+        "month": "2022-01",
+        "ranking": 60
+      },
+      {
+        "month": "2022-02",
+        "ranking": 59
+      },
+      {
+        "month": "2022-03",
+        "ranking": 53
+      },
+      {
+        "month": "2022-04",
+        "ranking": 59
+      },
+      {
+        "month": "2022-05",
+        "ranking": 51
+      },
+      {
+        "month": "2022-06",
+        "ranking": 44
+      },
+      {
+        "month": "2022-07",
+        "ranking": 42
+      },
+      {
+        "month": "2022-08",
+        "ranking": 39
+      },
+      {
+        "month": "2022-09",
+        "ranking": 34
+      },
+      {
+        "month": "2022-10",
+        "ranking": 33
+      },
+      {
+        "month": "2022-11",
+        "ranking": 29
+      },
+      {
+        "month": "2022-12",
         "ranking": 25
       },
       {
-        "month": "2024-02",
-        "ranking": 23
-      },
-      {
-        "month": "2024-03",
+        "month": "2023-01",
         "ranking": 22
       },
       {
-        "month": "2024-04",
+        "month": "2023-02",
+        "ranking": 19
+      },
+      {
+        "month": "2023-03",
+        "ranking": 21
+      },
+      {
+        "month": "2023-04",
+        "ranking": 18
+      },
+      {
+        "month": "2023-05",
+        "ranking": 18
+      },
+      {
+        "month": "2023-06",
+        "ranking": 18
+      },
+      {
+        "month": "2023-07",
         "ranking": 20
       },
       {
+        "month": "2023-08",
+        "ranking": 21
+      },
+      {
+        "month": "2023-09",
+        "ranking": 20
+      },
+      {
+        "month": "2023-10",
+        "ranking": 21
+      },
+      {
+        "month": "2023-11",
+        "ranking": 18
+      },
+      {
+        "month": "2023-12",
+        "ranking": 18
+      },
+      {
+        "month": "2024-01",
+        "ranking": 16
+      },
+      {
+        "month": "2024-02",
+        "ranking": 17
+      },
+      {
+        "month": "2024-03",
+        "ranking": 18
+      },
+      {
+        "month": "2024-04",
+        "ranking": 18
+      },
+      {
         "month": "2024-05",
-        "ranking": 19
+        "ranking": 20
       },
       {
         "month": "2024-06",
-        "ranking": 19
+        "ranking": 17
       },
       {
         "month": "2024-07",
-        "ranking": 18
+        "ranking": 17
       },
       {
         "month": "2024-08",
-        "ranking": 18
+        "ranking": 16
       },
       {
         "month": "2024-09",
-        "ranking": 18
+        "ranking": 16
       },
       {
         "month": "2024-10",
-        "ranking": 18
+        "ranking": 19
       },
       {
         "month": "2024-11",
@@ -1681,7 +9265,7 @@
       },
       {
         "month": "2024-12",
-        "ranking": 18
+        "ranking": 20
       }
     ],
     "record": {
@@ -1713,7 +9297,7 @@
     "id": 19,
     "name": "Karen Khachanov",
     "country": "RUS",
-    "countryFlag": "🇷🇺",
+    "countryFlag": "\ud83c\uddf7\ud83c\uddfa",
     "photoUrl": null,
     "ranking": 19,
     "birthdate": "1996-05-21",
@@ -1731,44 +9315,572 @@
     "recentForm": "Big-hitting baseline game. Olympic silver medalist.",
     "rankingHistory": [
       {
+        "month": "2013-01",
+        "ranking": 547
+      },
+      {
+        "month": "2013-02",
+        "ranking": 482
+      },
+      {
+        "month": "2013-03",
+        "ranking": 423
+      },
+      {
+        "month": "2013-04",
+        "ranking": 472
+      },
+      {
+        "month": "2013-05",
+        "ranking": 402
+      },
+      {
+        "month": "2013-06",
+        "ranking": 358
+      },
+      {
+        "month": "2013-07",
+        "ranking": 340
+      },
+      {
+        "month": "2013-08",
+        "ranking": 358
+      },
+      {
+        "month": "2013-09",
+        "ranking": 367
+      },
+      {
+        "month": "2013-10",
+        "ranking": 314
+      },
+      {
+        "month": "2013-11",
+        "ranking": 320
+      },
+      {
+        "month": "2013-12",
+        "ranking": 273
+      },
+      {
+        "month": "2014-01",
+        "ranking": 241
+      },
+      {
+        "month": "2014-02",
+        "ranking": 277
+      },
+      {
+        "month": "2014-03",
+        "ranking": 267
+      },
+      {
+        "month": "2014-04",
+        "ranking": 229
+      },
+      {
+        "month": "2014-05",
+        "ranking": 202
+      },
+      {
+        "month": "2014-06",
+        "ranking": 182
+      },
+      {
+        "month": "2014-07",
+        "ranking": 206
+      },
+      {
+        "month": "2014-08",
+        "ranking": 188
+      },
+      {
+        "month": "2014-09",
+        "ranking": 190
+      },
+      {
+        "month": "2014-10",
+        "ranking": 180
+      },
+      {
+        "month": "2014-11",
+        "ranking": 172
+      },
+      {
+        "month": "2014-12",
+        "ranking": 173
+      },
+      {
+        "month": "2015-01",
+        "ranking": 154
+      },
+      {
+        "month": "2015-02",
+        "ranking": 133
+      },
+      {
+        "month": "2015-03",
+        "ranking": 125
+      },
+      {
+        "month": "2015-04",
+        "ranking": 131
+      },
+      {
+        "month": "2015-05",
+        "ranking": 112
+      },
+      {
+        "month": "2015-06",
+        "ranking": 115
+      },
+      {
+        "month": "2015-07",
+        "ranking": 106
+      },
+      {
+        "month": "2015-08",
+        "ranking": 91
+      },
+      {
+        "month": "2015-09",
+        "ranking": 78
+      },
+      {
+        "month": "2015-10",
+        "ranking": 67
+      },
+      {
+        "month": "2015-11",
+        "ranking": 61
+      },
+      {
+        "month": "2015-12",
+        "ranking": 52
+      },
+      {
+        "month": "2016-01",
+        "ranking": 50
+      },
+      {
+        "month": "2016-02",
+        "ranking": 47
+      },
+      {
+        "month": "2016-03",
+        "ranking": 44
+      },
+      {
+        "month": "2016-04",
+        "ranking": 50
+      },
+      {
+        "month": "2016-05",
+        "ranking": 46
+      },
+      {
+        "month": "2016-06",
+        "ranking": 45
+      },
+      {
+        "month": "2016-07",
+        "ranking": 45
+      },
+      {
+        "month": "2016-08",
+        "ranking": 46
+      },
+      {
+        "month": "2016-09",
+        "ranking": 40
+      },
+      {
+        "month": "2016-10",
+        "ranking": 43
+      },
+      {
+        "month": "2016-11",
+        "ranking": 37
+      },
+      {
+        "month": "2016-12",
+        "ranking": 36
+      },
+      {
+        "month": "2017-01",
+        "ranking": 40
+      },
+      {
+        "month": "2017-02",
+        "ranking": 37
+      },
+      {
+        "month": "2017-03",
+        "ranking": 34
+      },
+      {
+        "month": "2017-04",
+        "ranking": 31
+      },
+      {
+        "month": "2017-05",
+        "ranking": 32
+      },
+      {
+        "month": "2017-06",
+        "ranking": 28
+      },
+      {
+        "month": "2017-07",
+        "ranking": 24
+      },
+      {
+        "month": "2017-08",
+        "ranking": 22
+      },
+      {
+        "month": "2017-09",
+        "ranking": 23
+      },
+      {
+        "month": "2017-10",
+        "ranking": 20
+      },
+      {
+        "month": "2017-11",
+        "ranking": 17
+      },
+      {
+        "month": "2017-12",
+        "ranking": 14
+      },
+      {
+        "month": "2018-01",
+        "ranking": 13
+      },
+      {
+        "month": "2018-02",
+        "ranking": 12
+      },
+      {
+        "month": "2018-03",
+        "ranking": 11
+      },
+      {
+        "month": "2018-04",
+        "ranking": 14
+      },
+      {
+        "month": "2018-05",
+        "ranking": 12
+      },
+      {
+        "month": "2018-06",
+        "ranking": 13
+      },
+      {
+        "month": "2018-07",
+        "ranking": 14
+      },
+      {
+        "month": "2018-08",
+        "ranking": 13
+      },
+      {
+        "month": "2018-09",
+        "ranking": 16
+      },
+      {
+        "month": "2018-10",
+        "ranking": 16
+      },
+      {
+        "month": "2018-11",
+        "ranking": 16
+      },
+      {
+        "month": "2018-12",
+        "ranking": 19
+      },
+      {
+        "month": "2019-01",
+        "ranking": 16
+      },
+      {
+        "month": "2019-02",
+        "ranking": 19
+      },
+      {
+        "month": "2019-03",
+        "ranking": 16
+      },
+      {
+        "month": "2019-04",
+        "ranking": 19
+      },
+      {
+        "month": "2019-05",
+        "ranking": 19
+      },
+      {
+        "month": "2019-06",
+        "ranking": 20
+      },
+      {
+        "month": "2019-07",
+        "ranking": 17
+      },
+      {
+        "month": "2019-08",
+        "ranking": 15
+      },
+      {
+        "month": "2019-09",
+        "ranking": 17
+      },
+      {
+        "month": "2019-10",
+        "ranking": 16
+      },
+      {
+        "month": "2019-11",
+        "ranking": 14
+      },
+      {
+        "month": "2019-12",
+        "ranking": 17
+      },
+      {
+        "month": "2020-01",
+        "ranking": 15
+      },
+      {
+        "month": "2020-02",
+        "ranking": 18
+      },
+      {
+        "month": "2020-03",
+        "ranking": 20
+      },
+      {
+        "month": "2020-04",
+        "ranking": 19
+      },
+      {
+        "month": "2020-05",
+        "ranking": 20
+      },
+      {
+        "month": "2020-06",
+        "ranking": 21
+      },
+      {
+        "month": "2020-07",
+        "ranking": 22
+      },
+      {
+        "month": "2020-08",
+        "ranking": 25
+      },
+      {
+        "month": "2020-09",
+        "ranking": 23
+      },
+      {
+        "month": "2020-10",
+        "ranking": 26
+      },
+      {
+        "month": "2020-11",
+        "ranking": 29
+      },
+      {
+        "month": "2020-12",
+        "ranking": 27
+      },
+      {
+        "month": "2021-01",
+        "ranking": 28
+      },
+      {
+        "month": "2021-02",
+        "ranking": 25
+      },
+      {
+        "month": "2021-03",
+        "ranking": 28
+      },
+      {
+        "month": "2021-04",
+        "ranking": 28
+      },
+      {
+        "month": "2021-05",
+        "ranking": 27
+      },
+      {
+        "month": "2021-06",
+        "ranking": 23
+      },
+      {
+        "month": "2021-07",
+        "ranking": 25
+      },
+      {
+        "month": "2021-08",
+        "ranking": 24
+      },
+      {
+        "month": "2021-09",
+        "ranking": 22
+      },
+      {
+        "month": "2021-10",
+        "ranking": 20
+      },
+      {
+        "month": "2021-11",
+        "ranking": 21
+      },
+      {
+        "month": "2021-12",
+        "ranking": 19
+      },
+      {
+        "month": "2022-01",
+        "ranking": 20
+      },
+      {
+        "month": "2022-02",
+        "ranking": 20
+      },
+      {
+        "month": "2022-03",
+        "ranking": 19
+      },
+      {
+        "month": "2022-04",
+        "ranking": 20
+      },
+      {
+        "month": "2022-05",
+        "ranking": 18
+      },
+      {
+        "month": "2022-06",
+        "ranking": 19
+      },
+      {
+        "month": "2022-07",
+        "ranking": 18
+      },
+      {
+        "month": "2022-08",
+        "ranking": 18
+      },
+      {
+        "month": "2022-09",
+        "ranking": 15
+      },
+      {
+        "month": "2022-10",
+        "ranking": 16
+      },
+      {
+        "month": "2022-11",
+        "ranking": 17
+      },
+      {
+        "month": "2022-12",
+        "ranking": 16
+      },
+      {
+        "month": "2023-01",
+        "ranking": 16
+      },
+      {
+        "month": "2023-02",
+        "ranking": 16
+      },
+      {
+        "month": "2023-03",
+        "ranking": 15
+      },
+      {
+        "month": "2023-04",
+        "ranking": 17
+      },
+      {
+        "month": "2023-05",
+        "ranking": 16
+      },
+      {
+        "month": "2023-06",
+        "ranking": 18
+      },
+      {
+        "month": "2023-07",
+        "ranking": 20
+      },
+      {
+        "month": "2023-08",
+        "ranking": 19
+      },
+      {
+        "month": "2023-09",
+        "ranking": 21
+      },
+      {
+        "month": "2023-10",
+        "ranking": 18
+      },
+      {
+        "month": "2023-11",
+        "ranking": 18
+      },
+      {
+        "month": "2023-12",
+        "ranking": 18
+      },
+      {
         "month": "2024-01",
         "ranking": 18
       },
       {
         "month": "2024-02",
-        "ranking": 18
+        "ranking": 20
       },
       {
         "month": "2024-03",
-        "ranking": 19
+        "ranking": 18
       },
       {
         "month": "2024-04",
-        "ranking": 19
+        "ranking": 21
       },
       {
         "month": "2024-05",
-        "ranking": 19
+        "ranking": 20
       },
       {
         "month": "2024-06",
-        "ranking": 19
+        "ranking": 20
       },
       {
         "month": "2024-07",
-        "ranking": 19
+        "ranking": 17
       },
       {
         "month": "2024-08",
-        "ranking": 19
+        "ranking": 20
       },
       {
         "month": "2024-09",
-        "ranking": 19
+        "ranking": 20
       },
       {
         "month": "2024-10",
-        "ranking": 19
+        "ranking": 20
       },
       {
         "month": "2024-11",
@@ -1776,7 +9888,7 @@
       },
       {
         "month": "2024-12",
-        "ranking": 19
+        "ranking": 21
       }
     ],
     "record": {
@@ -1808,7 +9920,7 @@
     "id": 20,
     "name": "Felix Auger-Aliassime",
     "country": "CAN",
-    "countryFlag": "🇨🇦",
+    "countryFlag": "\ud83c\udde8\ud83c\udde6",
     "photoUrl": null,
     "ranking": 20,
     "birthdate": "2000-08-08",
@@ -1826,20 +9938,356 @@
     "recentForm": "Former prodigy working to fulfill immense potential.",
     "rankingHistory": [
       {
-        "month": "2024-01",
-        "ranking": 12
+        "month": "2017-01",
+        "ranking": 478
       },
       {
-        "month": "2024-02",
-        "ranking": 13
+        "month": "2017-02",
+        "ranking": 454
       },
       {
-        "month": "2024-03",
+        "month": "2017-03",
+        "ranking": 458
+      },
+      {
+        "month": "2017-04",
+        "ranking": 420
+      },
+      {
+        "month": "2017-05",
+        "ranking": 395
+      },
+      {
+        "month": "2017-06",
+        "ranking": 336
+      },
+      {
+        "month": "2017-07",
+        "ranking": 286
+      },
+      {
+        "month": "2017-08",
+        "ranking": 246
+      },
+      {
+        "month": "2017-09",
+        "ranking": 232
+      },
+      {
+        "month": "2017-10",
+        "ranking": 221
+      },
+      {
+        "month": "2017-11",
+        "ranking": 188
+      },
+      {
+        "month": "2017-12",
+        "ranking": 160
+      },
+      {
+        "month": "2018-01",
+        "ranking": 136
+      },
+      {
+        "month": "2018-02",
+        "ranking": 116
+      },
+      {
+        "month": "2018-03",
+        "ranking": 99
+      },
+      {
+        "month": "2018-04",
+        "ranking": 102
+      },
+      {
+        "month": "2018-05",
+        "ranking": 87
+      },
+      {
+        "month": "2018-06",
+        "ranking": 76
+      },
+      {
+        "month": "2018-07",
+        "ranking": 77
+      },
+      {
+        "month": "2018-08",
+        "ranking": 66
+      },
+      {
+        "month": "2018-09",
+        "ranking": 57
+      },
+      {
+        "month": "2018-10",
+        "ranking": 49
+      },
+      {
+        "month": "2018-11",
+        "ranking": 42
+      },
+      {
+        "month": "2018-12",
+        "ranking": 36
+      },
+      {
+        "month": "2019-01",
+        "ranking": 31
+      },
+      {
+        "month": "2019-02",
+        "ranking": 27
+      },
+      {
+        "month": "2019-03",
+        "ranking": 23
+      },
+      {
+        "month": "2019-04",
+        "ranking": 20
+      },
+      {
+        "month": "2019-05",
+        "ranking": 20
+      },
+      {
+        "month": "2019-06",
+        "ranking": 20
+      },
+      {
+        "month": "2019-07",
+        "ranking": 17
+      },
+      {
+        "month": "2019-08",
+        "ranking": 18
+      },
+      {
+        "month": "2019-09",
+        "ranking": 19
+      },
+      {
+        "month": "2019-10",
+        "ranking": 18
+      },
+      {
+        "month": "2019-11",
+        "ranking": 21
+      },
+      {
+        "month": "2019-12",
+        "ranking": 20
+      },
+      {
+        "month": "2020-01",
+        "ranking": 21
+      },
+      {
+        "month": "2020-02",
+        "ranking": 18
+      },
+      {
+        "month": "2020-03",
+        "ranking": 19
+      },
+      {
+        "month": "2020-04",
+        "ranking": 21
+      },
+      {
+        "month": "2020-05",
+        "ranking": 19
+      },
+      {
+        "month": "2020-06",
+        "ranking": 16
+      },
+      {
+        "month": "2020-07",
         "ranking": 15
       },
       {
-        "month": "2024-04",
+        "month": "2020-08",
         "ranking": 16
+      },
+      {
+        "month": "2020-09",
+        "ranking": 14
+      },
+      {
+        "month": "2020-10",
+        "ranking": 13
+      },
+      {
+        "month": "2020-11",
+        "ranking": 12
+      },
+      {
+        "month": "2020-12",
+        "ranking": 11
+      },
+      {
+        "month": "2021-01",
+        "ranking": 11
+      },
+      {
+        "month": "2021-02",
+        "ranking": 10
+      },
+      {
+        "month": "2021-03",
+        "ranking": 12
+      },
+      {
+        "month": "2021-04",
+        "ranking": 10
+      },
+      {
+        "month": "2021-05",
+        "ranking": 9
+      },
+      {
+        "month": "2021-06",
+        "ranking": 10
+      },
+      {
+        "month": "2021-07",
+        "ranking": 11
+      },
+      {
+        "month": "2021-08",
+        "ranking": 9
+      },
+      {
+        "month": "2021-09",
+        "ranking": 7
+      },
+      {
+        "month": "2021-10",
+        "ranking": 8
+      },
+      {
+        "month": "2021-11",
+        "ranking": 7
+      },
+      {
+        "month": "2021-12",
+        "ranking": 10
+      },
+      {
+        "month": "2022-01",
+        "ranking": 7
+      },
+      {
+        "month": "2022-02",
+        "ranking": 8
+      },
+      {
+        "month": "2022-03",
+        "ranking": 10
+      },
+      {
+        "month": "2022-04",
+        "ranking": 9
+      },
+      {
+        "month": "2022-05",
+        "ranking": 8
+      },
+      {
+        "month": "2022-06",
+        "ranking": 8
+      },
+      {
+        "month": "2022-07",
+        "ranking": 8
+      },
+      {
+        "month": "2022-08",
+        "ranking": 8
+      },
+      {
+        "month": "2022-09",
+        "ranking": 10
+      },
+      {
+        "month": "2022-10",
+        "ranking": 9
+      },
+      {
+        "month": "2022-11",
+        "ranking": 7
+      },
+      {
+        "month": "2022-12",
+        "ranking": 10
+      },
+      {
+        "month": "2023-01",
+        "ranking": 10
+      },
+      {
+        "month": "2023-02",
+        "ranking": 10
+      },
+      {
+        "month": "2023-03",
+        "ranking": 12
+      },
+      {
+        "month": "2023-04",
+        "ranking": 12
+      },
+      {
+        "month": "2023-05",
+        "ranking": 11
+      },
+      {
+        "month": "2023-06",
+        "ranking": 13
+      },
+      {
+        "month": "2023-07",
+        "ranking": 13
+      },
+      {
+        "month": "2023-08",
+        "ranking": 15
+      },
+      {
+        "month": "2023-09",
+        "ranking": 15
+      },
+      {
+        "month": "2023-10",
+        "ranking": 18
+      },
+      {
+        "month": "2023-11",
+        "ranking": 18
+      },
+      {
+        "month": "2023-12",
+        "ranking": 17
+      },
+      {
+        "month": "2024-01",
+        "ranking": 19
+      },
+      {
+        "month": "2024-02",
+        "ranking": 20
+      },
+      {
+        "month": "2024-03",
+        "ranking": 21
+      },
+      {
+        "month": "2024-04",
+        "ranking": 20
       },
       {
         "month": "2024-05",
@@ -1847,27 +10295,27 @@
       },
       {
         "month": "2024-06",
-        "ranking": 18
+        "ranking": 20
       },
       {
         "month": "2024-07",
-        "ranking": 19
+        "ranking": 23
       },
       {
         "month": "2024-08",
-        "ranking": 19
+        "ranking": 23
       },
       {
         "month": "2024-09",
-        "ranking": 20
+        "ranking": 21
       },
       {
         "month": "2024-10",
-        "ranking": 20
+        "ranking": 21
       },
       {
         "month": "2024-11",
-        "ranking": 20
+        "ranking": 19
       },
       {
         "month": "2024-12",
@@ -1903,7 +10351,7 @@
     "id": 21,
     "name": "Jack Draper",
     "country": "GBR",
-    "countryFlag": "🇬🇧",
+    "countryFlag": "\ud83c\uddec\ud83c\udde7",
     "photoUrl": null,
     "ranking": 21,
     "birthdate": "2002-12-22",
@@ -1921,7 +10369,7 @@
     "id": 22,
     "name": "Frances Tiafoe",
     "country": "USA",
-    "countryFlag": "🇺🇸",
+    "countryFlag": "\ud83c\uddfa\ud83c\uddf8",
     "photoUrl": null,
     "ranking": 22,
     "birthdate": "1998-01-20",
@@ -1939,7 +10387,7 @@
     "id": 23,
     "name": "Lorenzo Musetti",
     "country": "ITA",
-    "countryFlag": "🇮🇹",
+    "countryFlag": "\ud83c\uddee\ud83c\uddf9",
     "photoUrl": null,
     "ranking": 23,
     "birthdate": "2002-03-03",
@@ -1957,7 +10405,7 @@
     "id": 24,
     "name": "Alejandro Tabilo",
     "country": "CHI",
-    "countryFlag": "🇨🇱",
+    "countryFlag": "\ud83c\udde8\ud83c\uddf1",
     "photoUrl": null,
     "ranking": 24,
     "birthdate": "1997-06-02",
@@ -1975,7 +10423,7 @@
     "id": 25,
     "name": "Adrian Mannarino",
     "country": "FRA",
-    "countryFlag": "🇫🇷",
+    "countryFlag": "\ud83c\uddeb\ud83c\uddf7",
     "photoUrl": null,
     "ranking": 25,
     "birthdate": "1988-06-17",
@@ -1993,7 +10441,7 @@
     "id": 26,
     "name": "Tomas Machac",
     "country": "CZE",
-    "countryFlag": "🇨🇿",
+    "countryFlag": "\ud83c\udde8\ud83c\uddff",
     "photoUrl": null,
     "ranking": 26,
     "birthdate": "2000-10-01",
@@ -2011,7 +10459,7 @@
     "id": 27,
     "name": "Flavio Cobolli",
     "country": "ITA",
-    "countryFlag": "🇮🇹",
+    "countryFlag": "\ud83c\uddee\ud83c\uddf9",
     "photoUrl": null,
     "ranking": 27,
     "birthdate": "2002-05-30",
@@ -2029,7 +10477,7 @@
     "id": 28,
     "name": "Francisco Cerundolo",
     "country": "ARG",
-    "countryFlag": "🇦🇷",
+    "countryFlag": "\ud83c\udde6\ud83c\uddf7",
     "photoUrl": null,
     "ranking": 28,
     "birthdate": "1998-11-15",
@@ -2047,7 +10495,7 @@
     "id": 29,
     "name": "Matteo Berrettini",
     "country": "ITA",
-    "countryFlag": "🇮🇹",
+    "countryFlag": "\ud83c\uddee\ud83c\uddf9",
     "photoUrl": null,
     "ranking": 29,
     "birthdate": "1996-04-12",
@@ -2065,7 +10513,7 @@
     "id": 30,
     "name": "Tallon Griekspoor",
     "country": "NED",
-    "countryFlag": "🇳🇱",
+    "countryFlag": "\ud83c\uddf3\ud83c\uddf1",
     "photoUrl": null,
     "ranking": 30,
     "birthdate": "1996-07-02",
@@ -2083,7 +10531,7 @@
     "id": 31,
     "name": "Jan-Lennard Struff",
     "country": "GER",
-    "countryFlag": "🇩🇪",
+    "countryFlag": "\ud83c\udde9\ud83c\uddea",
     "photoUrl": null,
     "ranking": 31,
     "birthdate": "1990-04-25",
@@ -2101,7 +10549,7 @@
     "id": 32,
     "name": "Arthur Fils",
     "country": "FRA",
-    "countryFlag": "🇫🇷",
+    "countryFlag": "\ud83c\uddeb\ud83c\uddf7",
     "photoUrl": null,
     "ranking": 32,
     "birthdate": "2004-03-08",
@@ -2119,7 +10567,7 @@
     "id": 33,
     "name": "Jiri Lehecka",
     "country": "CZE",
-    "countryFlag": "🇨🇿",
+    "countryFlag": "\ud83c\udde8\ud83c\uddff",
     "photoUrl": null,
     "ranking": 33,
     "birthdate": "2001-11-08",
@@ -2137,7 +10585,7 @@
     "id": 34,
     "name": "Jordan Thompson",
     "country": "AUS",
-    "countryFlag": "🇦🇺",
+    "countryFlag": "\ud83c\udde6\ud83c\uddfa",
     "photoUrl": null,
     "ranking": 34,
     "birthdate": "1994-04-20",
@@ -2155,7 +10603,7 @@
     "id": 35,
     "name": "Matteo Arnaldi",
     "country": "ITA",
-    "countryFlag": "🇮🇹",
+    "countryFlag": "\ud83c\uddee\ud83c\uddf9",
     "photoUrl": null,
     "ranking": 35,
     "birthdate": "2001-02-22",
@@ -2173,7 +10621,7 @@
     "id": 36,
     "name": "Giovanni Mpetshi Perricard",
     "country": "FRA",
-    "countryFlag": "🇫🇷",
+    "countryFlag": "\ud83c\uddeb\ud83c\uddf7",
     "photoUrl": null,
     "ranking": 36,
     "birthdate": "2003-10-21",
@@ -2191,7 +10639,7 @@
     "id": 37,
     "name": "Alejandro Davidovich Fokina",
     "country": "ESP",
-    "countryFlag": "🇪🇸",
+    "countryFlag": "\ud83c\uddea\ud83c\uddf8",
     "photoUrl": null,
     "ranking": 37,
     "birthdate": "1999-06-05",
@@ -2209,7 +10657,7 @@
     "id": 38,
     "name": "Alexander Bublik",
     "country": "KAZ",
-    "countryFlag": "🇰🇿",
+    "countryFlag": "\ud83c\uddf0\ud83c\uddff",
     "photoUrl": null,
     "ranking": 38,
     "birthdate": "1997-06-17",
@@ -2227,7 +10675,7 @@
     "id": 39,
     "name": "Roberto Bautista Agut",
     "country": "ESP",
-    "countryFlag": "🇪🇸",
+    "countryFlag": "\ud83c\uddea\ud83c\uddf8",
     "photoUrl": null,
     "ranking": 39,
     "birthdate": "1988-04-14",
@@ -2245,7 +10693,7 @@
     "id": 40,
     "name": "Luciano Darderi",
     "country": "ITA",
-    "countryFlag": "🇮🇹",
+    "countryFlag": "\ud83c\uddee\ud83c\uddf9",
     "photoUrl": null,
     "ranking": 40,
     "birthdate": "2002-02-14",
@@ -2263,7 +10711,7 @@
     "id": 41,
     "name": "Denis Shapovalov",
     "country": "CAN",
-    "countryFlag": "🇨🇦",
+    "countryFlag": "\ud83c\udde8\ud83c\udde6",
     "photoUrl": null,
     "ranking": 41,
     "birthdate": "1999-04-15",
@@ -2281,7 +10729,7 @@
     "id": 42,
     "name": "Nuno Borges",
     "country": "POR",
-    "countryFlag": "🇵🇹",
+    "countryFlag": "\ud83c\uddf5\ud83c\uddf9",
     "photoUrl": null,
     "ranking": 42,
     "birthdate": "1997-03-29",
@@ -2299,7 +10747,7 @@
     "id": 43,
     "name": "Pablo Carreno Busta",
     "country": "ESP",
-    "countryFlag": "🇪🇸",
+    "countryFlag": "\ud83c\uddea\ud83c\uddf8",
     "photoUrl": null,
     "ranking": 43,
     "birthdate": "1991-07-12",
@@ -2317,7 +10765,7 @@
     "id": 44,
     "name": "Marcos Giron",
     "country": "USA",
-    "countryFlag": "🇺🇸",
+    "countryFlag": "\ud83c\uddfa\ud83c\uddf8",
     "photoUrl": null,
     "ranking": 44,
     "birthdate": "1993-07-24",
@@ -2335,7 +10783,7 @@
     "id": 45,
     "name": "Thanasi Kokkinakis",
     "country": "AUS",
-    "countryFlag": "🇦🇺",
+    "countryFlag": "\ud83c\udde6\ud83c\uddfa",
     "photoUrl": null,
     "ranking": 45,
     "birthdate": "1996-04-10",
@@ -2353,7 +10801,7 @@
     "id": 46,
     "name": "Daniel Evans",
     "country": "GBR",
-    "countryFlag": "🇬🇧",
+    "countryFlag": "\ud83c\uddec\ud83c\udde7",
     "photoUrl": null,
     "ranking": 46,
     "birthdate": "1990-05-23",
@@ -2371,7 +10819,7 @@
     "id": 47,
     "name": "Zhizhen Zhang",
     "country": "CHN",
-    "countryFlag": "🇨🇳",
+    "countryFlag": "\ud83c\udde8\ud83c\uddf3",
     "photoUrl": null,
     "ranking": 47,
     "birthdate": "1997-02-16",
@@ -2389,7 +10837,7 @@
     "id": 48,
     "name": "Alexei Popyrin",
     "country": "AUS",
-    "countryFlag": "🇦🇺",
+    "countryFlag": "\ud83c\udde6\ud83c\uddfa",
     "photoUrl": null,
     "ranking": 48,
     "birthdate": "1999-08-05",
@@ -2407,7 +10855,7 @@
     "id": 49,
     "name": "Christopher Eubanks",
     "country": "USA",
-    "countryFlag": "🇺🇸",
+    "countryFlag": "\ud83c\uddfa\ud83c\uddf8",
     "photoUrl": null,
     "ranking": 49,
     "birthdate": "1996-04-18",
@@ -2425,7 +10873,7 @@
     "id": 50,
     "name": "Miomir Kecmanovic",
     "country": "SRB",
-    "countryFlag": "🇷🇸",
+    "countryFlag": "\ud83c\uddf7\ud83c\uddf8",
     "photoUrl": null,
     "ranking": 50,
     "birthdate": "1999-08-31",

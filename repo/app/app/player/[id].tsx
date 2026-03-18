@@ -1,3 +1,4 @@
+import React, { useState, useMemo, useRef } from 'react';
 import {
   View,
   Text,
@@ -17,36 +18,61 @@ import type { PlayerDetail, MatchWithPlayers } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const AVATAR_SIZE = Math.round(SCREEN_WIDTH * 0.4);
-const CHART_WIDTH = SCREEN_WIDTH - 64;
-const CHART_HEIGHT = 160;
+const CHART_HEIGHT = 180;
+const PX_PER_POINT = 4;
+const MIN_CHART_WIDTH = SCREEN_WIDTH - 64;
+
+// ─── Time Range Filter ───────────────────────────────────────────────
+type TimeRange = '1Y' | '5Y' | '10Y' | 'All';
+
+function filterByRange(
+  history: { month: string; ranking: number }[],
+  range: TimeRange,
+): { month: string; ranking: number }[] {
+  if (range === 'All' || history.length === 0) return history;
+  const lastMonth = history[history.length - 1].month;
+  const lastYear = parseInt(lastMonth.slice(0, 4), 10);
+  const lastMon = parseInt(lastMonth.slice(5), 10);
+  const yearsBack = range === '1Y' ? 1 : range === '5Y' ? 5 : 10;
+  const cutoffYear = lastYear - yearsBack;
+  const cutoff = `${cutoffYear}-${String(lastMon).padStart(2, '0')}`;
+  return history.filter((h) => h.month >= cutoff);
+}
 
 // ─── Ranking History Line Chart (react-native-svg) ───────────────────
-const MONTH_NAMES = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
 function RankingChart({ history }: { history: { month: string; ranking: number }[] }) {
-  if (!history || history.length < 2) return null;
+  const [timeRange, setTimeRange] = useState<TimeRange>('All');
+  const scrollRef = useRef<ScrollView>(null);
 
-  const paddingLeft = 40;
-  const paddingRight = 20;
-  const paddingTop = 24;
-  const paddingBottom = 28;
-  const plotW = CHART_WIDTH - paddingLeft - paddingRight;
+  const filtered = useMemo(() => filterByRange(history, timeRange), [history, timeRange]);
+
+  if (!filtered || filtered.length < 2) return null;
+
+  const paddingLeft = 44;
+  const paddingRight = 24;
+  const paddingTop = 28;
+  const paddingBottom = 32;
+
+  // Dynamic chart width based on data points
+  const dynamicWidth = Math.max(
+    MIN_CHART_WIDTH,
+    paddingLeft + paddingRight + filtered.length * PX_PER_POINT,
+  );
+  const plotW = dynamicWidth - paddingLeft - paddingRight;
   const plotH = CHART_HEIGHT - paddingTop - paddingBottom;
 
-  const rankings = history.map((h) => h.ranking);
+  const rankings = filtered.map((h) => h.ranking);
   const minRank = Math.min(...rankings);
   const maxRank = Math.max(...rankings);
   const range = Math.max(maxRank - minRank, 1);
 
-  // ranking 1 at top → lower ranking = higher y position (inverted)
-  const getX = (i: number) => paddingLeft + (i / (history.length - 1)) * plotW;
-  const getY = (ranking: number) =>
-    paddingTop + ((ranking - minRank) / range) * plotH;
+  const getX = (i: number) => paddingLeft + (i / (filtered.length - 1)) * plotW;
+  const getY = (ranking: number) => paddingTop + ((ranking - minRank) / range) * plotH;
 
-  const points = history.map((h, i) => ({ x: getX(i), y: getY(h.ranking) }));
+  const points = filtered.map((h, i) => ({ x: getX(i), y: getY(h.ranking) }));
   const polylinePoints = points.map((p) => `${p.x},${p.y}`).join(' ');
-
-  const lastIdx = history.length - 1;
+  const lastIdx = filtered.length - 1;
 
   // Y-axis grid: ~4 ticks
   const tickCount = Math.min(4, range + 1);
@@ -55,55 +81,113 @@ function RankingChart({ history }: { history: { month: string; ranking: number }
     yTicks.push(Math.round(minRank + (range * i) / (tickCount - 1)));
   }
 
+  // X-axis labels: auto density based on data count
+  // For many points show only years, for fewer show months
+  const xLabels: { index: number; label: string }[] = [];
+  const showMonths = filtered.length <= 36;
+  const seenYears = new Set<string>();
+
+  filtered.forEach((h, i) => {
+    const year = h.month.slice(0, 4);
+    const mon = parseInt(h.month.slice(5), 10);
+
+    if (showMonths) {
+      // Show every 3rd month
+      if (mon % 3 === 1) {
+        const MONTH_SHORT = ['Jan','','Mar','','','Jun','','','Sep','','','Dec'];
+        xLabels.push({ index: i, label: mon === 1 ? year : MONTH_SHORT[mon - 1] || '' });
+      }
+    } else {
+      // Show January of each year (year labels)
+      if (mon === 1 && !seenYears.has(year)) {
+        seenYears.add(year);
+        // For very long careers, skip every other year
+        const yearNum = parseInt(year, 10);
+        if (filtered.length > 180) {
+          if (yearNum % 2 === 0) xLabels.push({ index: i, label: year });
+        } else {
+          xLabels.push({ index: i, label: year });
+        }
+      }
+    }
+  });
+
+  // Vertical grid lines at label positions
+  const vGridIndices = xLabels.map((l) => l.index);
+
+  // Show dots only for sparse data or endpoints
+  const showAllDots = filtered.length <= 36;
+
+  const ranges: TimeRange[] = ['1Y', '5Y', '10Y', 'All'];
+
   return (
     <View style={styles.infoCard}>
       <Text style={styles.sectionTitle}>Ranking History</Text>
-      <Svg width={CHART_WIDTH} height={CHART_HEIGHT}>
-        {/* Horizontal grid lines */}
-        {yTicks.map((rank) => (
-          <Line
-            key={`grid-${rank}`}
-            x1={paddingLeft}
-            y1={getY(rank)}
-            x2={CHART_WIDTH - paddingRight}
-            y2={getY(rank)}
-            stroke="#2a2a4e"
-            strokeWidth={1}
-          />
-        ))}
-        {/* Vertical grid lines */}
-        {history.map((_, i) => (
-          <Line
-            key={`vgrid-${i}`}
-            x1={getX(i)}
-            y1={paddingTop}
-            x2={getX(i)}
-            y2={paddingTop + plotH}
-            stroke="#2a2a4e"
-            strokeWidth={1}
-          />
-        ))}
-        {/* Y-axis labels */}
-        {yTicks.map((rank) => (
-          <SvgText
-            key={`ylabel-${rank}`}
-            x={paddingLeft - 6}
-            y={getY(rank) + 4}
-            fill="#a0a0b0"
-            fontSize={10}
-            textAnchor="end"
+
+      {/* Time range pills */}
+      <View style={styles.pillRow}>
+        {ranges.map((r) => (
+          <TouchableOpacity
+            key={r}
+            style={[styles.pill, timeRange === r && styles.pillActive]}
+            onPress={() => setTimeRange(r)}
           >
-            #{rank}
-          </SvgText>
+            <Text style={[styles.pillText, timeRange === r && styles.pillTextActive]}>{r}</Text>
+          </TouchableOpacity>
         ))}
-        {/* X-axis month labels */}
-        {history.map((h, i) => {
-          const monthIdx = parseInt(h.month.slice(5), 10) - 1;
-          const label = MONTH_NAMES[monthIdx] ?? h.month.slice(5);
-          return (
+      </View>
+
+      {/* Horizontally scrollable chart */}
+      <ScrollView
+        ref={scrollRef}
+        horizontal
+        showsHorizontalScrollIndicator={true}
+        contentContainerStyle={{ width: dynamicWidth }}
+        style={{ marginTop: 8 }}
+      >
+        <Svg width={dynamicWidth} height={CHART_HEIGHT}>
+          {/* Horizontal grid lines */}
+          {yTicks.map((rank) => (
+            <Line
+              key={`grid-${rank}`}
+              x1={paddingLeft}
+              y1={getY(rank)}
+              x2={dynamicWidth - paddingRight}
+              y2={getY(rank)}
+              stroke="#2a2a4e"
+              strokeWidth={1}
+            />
+          ))}
+          {/* Vertical grid lines at label positions */}
+          {vGridIndices.map((idx) => (
+            <Line
+              key={`vgrid-${idx}`}
+              x1={getX(idx)}
+              y1={paddingTop}
+              x2={getX(idx)}
+              y2={paddingTop + plotH}
+              stroke="#2a2a4e"
+              strokeWidth={1}
+            />
+          ))}
+          {/* Y-axis labels */}
+          {yTicks.map((rank) => (
             <SvgText
-              key={`xlabel-${i}`}
-              x={getX(i)}
+              key={`ylabel-${rank}`}
+              x={paddingLeft - 6}
+              y={getY(rank) + 4}
+              fill="#a0a0b0"
+              fontSize={10}
+              textAnchor="end"
+            >
+              #{rank}
+            </SvgText>
+          ))}
+          {/* X-axis labels */}
+          {xLabels.map(({ index, label }) => (
+            <SvgText
+              key={`xlabel-${index}`}
+              x={getX(index)}
               y={CHART_HEIGHT - 4}
               fill="#6b7280"
               fontSize={9}
@@ -111,50 +195,57 @@ function RankingChart({ history }: { history: { month: string; ranking: number }
             >
               {label}
             </SvgText>
-          );
-        })}
-        {/* Line */}
-        <Polyline
-          points={polylinePoints}
-          fill="none"
-          stroke="#16a34a"
-          strokeWidth={2}
-          strokeLinejoin="round"
-          strokeLinecap="round"
-        />
-        {/* Data points */}
-        {points.map((p, i) => {
-          const isLast = i === lastIdx;
-          return (
-            <Circle
-              key={`dot-${i}`}
-              cx={p.x}
-              cy={p.y}
-              r={isLast ? 6 : 4}
-              fill={isLast ? '#16a34a' : '#0f0f23'}
-              stroke="#16a34a"
-              strokeWidth={2}
-            />
-          );
-        })}
-        {/* Current month ranking label */}
-        {(() => {
-          const lp = points[lastIdx];
-          const rank = history[lastIdx].ranking;
-          return (
-            <SvgText
-              x={lp.x}
-              y={lp.y - 12}
-              fill="#16a34a"
-              fontSize={11}
-              fontWeight="bold"
-              textAnchor="middle"
-            >
-              #{rank}
-            </SvgText>
-          );
-        })()}
-      </Svg>
+          ))}
+          {/* Line */}
+          <Polyline
+            points={polylinePoints}
+            fill="none"
+            stroke="#16a34a"
+            strokeWidth={2}
+            strokeLinejoin="round"
+            strokeLinecap="round"
+          />
+          {/* Data points */}
+          {showAllDots
+            ? points.map((p, i) => {
+                const isLast = i === lastIdx;
+                return (
+                  <Circle
+                    key={`dot-${i}`}
+                    cx={p.x}
+                    cy={p.y}
+                    r={isLast ? 5 : 3}
+                    fill={isLast ? '#16a34a' : '#0f0f23'}
+                    stroke="#16a34a"
+                    strokeWidth={1.5}
+                  />
+                );
+              })
+            : /* For dense data, just show first & last dot */
+              [0, lastIdx].map((i) => (
+                <Circle
+                  key={`dot-${i}`}
+                  cx={points[i].x}
+                  cy={points[i].y}
+                  r={i === lastIdx ? 5 : 3}
+                  fill={i === lastIdx ? '#16a34a' : '#0f0f23'}
+                  stroke="#16a34a"
+                  strokeWidth={1.5}
+                />
+              ))}
+          {/* Current ranking label */}
+          <SvgText
+            x={points[lastIdx].x}
+            y={points[lastIdx].y - 10}
+            fill="#16a34a"
+            fontSize={11}
+            fontWeight="bold"
+            textAnchor="middle"
+          >
+            #{filtered[lastIdx].ranking}
+          </SvgText>
+        </Svg>
+      </ScrollView>
     </View>
   );
 }
@@ -521,7 +612,32 @@ const styles = StyleSheet.create({
     marginLeft: 12,
   },
 
-  // ── Chart styles (line chart uses SVG, minimal RN styles needed) ──
+  // ── Chart pill styles ──
+  pillRow: {
+    flexDirection: 'row',
+    gap: 8,
+    marginBottom: 4,
+  },
+  pill: {
+    paddingHorizontal: 14,
+    paddingVertical: 6,
+    borderRadius: 16,
+    backgroundColor: '#0f0f23',
+    borderWidth: 1,
+    borderColor: '#2a2a4e',
+  },
+  pillActive: {
+    backgroundColor: '#16a34a',
+    borderColor: '#16a34a',
+  },
+  pillText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#a0a0b0',
+  },
+  pillTextActive: {
+    color: '#ffffff',
+  },
 
   // ── Record styles ──
   recordTopRow: {
