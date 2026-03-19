@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TennisHQ - FotMob Style Mockup</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0a0a0a; color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; display: flex; gap: 24px; padding: 24px; flex-wrap: wrap; justify-content: center; }
+.phone { width: 375px; height: 812px; background: #121212; border-radius: 40px; overflow: hidden; border: 2px solid #333; position: relative; }
+.phone-label { text-align: center; color: #888; font-size: 13px; margin-bottom: 8px; }
+.status-bar { height: 44px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #999; }
+.content { height: 688px; overflow-y: auto; }
+.tab-bar { height: 80px; background: #1a1a1a; border-top: 1px solid #2a2a2a; display: flex; align-items: center; justify-content: space-around; padding-bottom: 16px; }
+.tab-item { text-align: center; font-size: 10px; color: #666; }
+.tab-item.active { color: #16a34a; }
+.tab-item .icon { font-size: 20px; margin-bottom: 2px; }
+.tab-item.active .icon { color: #16a34a; }
+
+/* ===== HOME PAGE ===== */
+.date-pills { display: flex; gap: 6px; padding: 12px 16px; overflow-x: auto; }
+.date-pill { padding: 8px 16px; border-radius: 20px; background: #1e1e1e; color: #999; font-size: 13px; white-space: nowrap; flex-shrink: 0; }
+.date-pill.active { background: #16a34a; color: #fff; }
+.section-header { padding: 16px 16px 8px; font-size: 13px; color: #16a34a; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.match-row { display: flex; align-items: center; padding: 14px 16px; border-bottom: 1px solid #1e1e1e; }
+.match-player { flex: 1; display: flex; align-items: center; gap: 10px; }
+.match-player.right { justify-content: flex-end; text-direction: rtl; }
+.match-player .avatar { width: 32px; height: 32px; border-radius: 50%; background: #2a2a2a; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #888; flex-shrink: 0; }
+.match-player .name { font-size: 14px; font-weight: 500; }
+.match-player .name.winner { color: #fff; font-weight: 600; }
+.match-player .name.loser { color: #666; }
+.match-player .flag { font-size: 14px; }
+.match-score { width: 80px; text-align: center; flex-shrink: 0; }
+.match-score .sets { font-size: 15px; font-weight: 600; letter-spacing: 2px; }
+.match-score .status { font-size: 10px; color: #666; margin-top: 2px; }
+.match-score .status.live { color: #e53935; }
+.live-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #e53935; margin-right: 4px; animation: pulse 1.5s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+/* ===== PLAYERS LIST ===== */
+.search-bar { margin: 12px 16px; padding: 10px 16px; background: #1e1e1e; border-radius: 10px; display: flex; align-items: center; gap: 8px; }
+.search-bar .icon { color: #666; font-size: 14px; }
+.search-bar .text { color: #666; font-size: 14px; }
+.player-row { display: flex; align-items: center; padding: 12px 16px; border-bottom: 1px solid #1a1a1a; gap: 12px; }
+.player-rank { width: 28px; font-size: 14px; color: #666; text-align: center; font-weight: 600; }
+.player-avatar { width: 40px; height: 40px; border-radius: 50%; background: #16a34a; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: #fff; flex-shrink: 0; }
+.player-info { flex: 1; }
+.player-name { font-size: 15px; font-weight: 500; }
+.player-country { font-size: 12px; color: #666; margin-top: 2px; }
+.player-tag { font-size: 10px; color: #16a34a; background: rgba(22,163,74,0.15); padding: 2px 8px; border-radius: 10px; display: inline-block; margin-top: 3px; }
+.rank-change { font-size: 11px; margin-left: auto; }
+.rank-up { color: #16a34a; }
+.rank-down { color: #e53935; }
+
+/* ===== PLAYER DETAIL ===== */
+.player-header { padding: 24px 16px; text-align: center; background: linear-gradient(180deg, #1e1e1e 0%, #121212 100%); }
+.player-header .big-avatar { width: 80px; height: 80px; border-radius: 50%; background: #16a34a; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700; color: #fff; border: 3px solid #2a2a2a; }
+.player-header .big-name { font-size: 22px; font-weight: 700; }
+.player-header .subtitle { font-size: 13px; color: #888; margin-top: 4px; }
+.player-header .tags { display: flex; gap: 6px; justify-content: center; margin-top: 8px; }
+.player-header .tag { font-size: 11px; color: #16a34a; background: rgba(22,163,74,0.12); padding: 3px 10px; border-radius: 12px; }
+.detail-tabs { display: flex; border-bottom: 1px solid #2a2a2a; }
+.detail-tab { flex: 1; text-align: center; padding: 12px 0; font-size: 13px; color: #666; font-weight: 500; }
+.detail-tab.active { color: #16a34a; border-bottom: 2px solid #16a34a; }
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: #2a2a2a; margin: 16px; border-radius: 10px; overflow: hidden; }
+.stat-card { background: #1e1e1e; padding: 16px 12px; text-align: center; }
+.stat-card .number { font-size: 24px; font-weight: 700; color: #fff; }
+.stat-card .label { font-size: 11px; color: #888; margin-top: 4px; }
+.stat-bar-section { padding: 16px; }
+.stat-bar-row { display: flex; align-items: center; margin-bottom: 12px; gap: 8px; }
+.stat-bar-label { width: 60px; font-size: 12px; color: #888; }
+.stat-bar-track { flex: 1; height: 6px; background: #2a2a2a; border-radius: 3px; overflow: hidden; }
+.stat-bar-fill { height: 100%; background: #16a34a; border-radius: 3px; }
+.stat-bar-value { width: 40px; font-size: 13px; font-weight: 600; text-align: right; }
+
+/* ===== MATCH DETAIL ===== */
+.match-header { padding: 20px 16px; text-align: center; background: #1a1a1a; }
+.match-header .tournament { font-size: 12px; color: #16a34a; margin-bottom: 12px; font-weight: 500; }
+.match-header .versus { display: flex; align-items: center; justify-content: center; gap: 16px; }
+.match-header .vs-player { text-align: center; }
+.match-header .vs-avatar { width: 56px; height: 56px; border-radius: 50%; background: #2a2a2a; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 600; color: #888; }
+.match-header .vs-name { font-size: 14px; font-weight: 500; }
+.match-header .vs-name.winner { color: #fff; }
+.match-header .vs-name.loser { color: #666; }
+.match-header .big-score { font-size: 28px; font-weight: 700; letter-spacing: 4px; }
+.match-header .ft { font-size: 11px; color: #666; margin-top: 4px; }
+.compare-row { display: flex; align-items: center; padding: 10px 16px; border-bottom: 1px solid #1a1a1a; }
+.compare-val { width: 48px; font-size: 14px; font-weight: 600; }
+.compare-val.left { text-align: right; }
+.compare-val.right { text-align: left; }
+.compare-bars { flex: 1; display: flex; gap: 2px; margin: 0 10px; height: 4px; }
+.compare-bar-left { height: 100%; background: #16a34a; border-radius: 2px; }
+.compare-bar-right { height: 100%; background: #333; border-radius: 2px; }
+.compare-label { width: 80px; text-align: center; font-size: 11px; color: #888; position: absolute; left: 50%; transform: translateX(-50%); }
+.compare-center { flex: 0 0 80px; text-align: center; font-size: 11px; color: #888; }
+</style>
+</head>
+<body>
+
+<!-- ===== PAGE 1: HOME ===== -->
+<div>
+<div class="phone-label">HOME - Matches</div>
+<div class="phone">
+  <div class="status-bar">9:41</div>
+  <div class="content">
+    <div style="padding: 16px 16px 8px; font-size: 20px; font-weight: 700;">Matches</div>
+    <div class="date-pills">
+      <div class="date-pill">Mon 17</div>
+      <div class="date-pill active">Tue 18</div>
+      <div class="date-pill">Wed 19</div>
+      <div class="date-pill">Thu 20</div>
+      <div class="date-pill">Fri 21</div>
+    </div>
+
+    <div class="section-header">🔴 LIVE</div>
+    <div class="match-row">
+      <div class="match-player">
+        <div class="avatar">JS</div>
+        <span class="flag">🇮🇹</span>
+        <span class="name winner">J. Sinner</span>
+      </div>
+      <div class="match-score">
+        <div class="sets" style="color: #16a34a;">6-4 3-2</div>
+        <div class="status live"><span class="live-dot"></span>2nd Set</div>
+      </div>
+      <div class="match-player right">
+        <span class="name loser">C. Alcaraz</span>
+        <span class="flag">🇪🇸</span>
+        <div class="avatar">CA</div>
+      </div>
+    </div>
+
+    <div class="section-header">AUSTRALIAN OPEN • Hard</div>
+    <div class="match-row">
+      <div class="match-player">
+        <div class="avatar">ND</div>
+        <span class="flag">🇷🇸</span>
+        <span class="name winner">N. Djokovic</span>
+      </div>
+      <div class="match-score">
+        <div class="sets">6-3 7-5</div>
+        <div class="status">FT</div>
+      </div>
+      <div class="match-player right">
+        <span class="name loser">A. Zverev</span>
+        <span class="flag">🇩🇪</span>
+        <div class="avatar">AZ</div>
+      </div>
+    </div>
+    <div class="match-row">
+      <div class="match-player">
+        <div class="avatar">DM</div>
+        <span class="flag">🇷🇺</span>
+        <span class="name loser">D. Medvedev</span>
+      </div>
+      <div class="match-score">
+        <div class="sets">4-6 6-3 7-6</div>
+        <div class="status">FT</div>
+      </div>
+      <div class="match-player right">
+        <span class="name winner">T. Fritz</span>
+        <span class="flag">🇺🇸</span>
+        <div class="avatar">TF</div>
+      </div>
+    </div>
+
+    <div class="section-header">ROLAND GARROS • Clay</div>
+    <div class="match-row">
+      <div class="match-player">
+        <div class="avatar">CA</div>
+        <span class="flag">🇪🇸</span>
+        <span class="name">C. Alcaraz</span>
+      </div>
+      <div class="match-score">
+        <div class="sets" style="color: #888;">18:00</div>
+        <div class="status">Scheduled</div>
+      </div>
+      <div class="match-player right">
+        <span class="name">S. Tsitsipas</span>
+        <span class="flag">🇬🇷</span>
+        <div class="avatar">ST</div>
+      </div>
+    </div>
+    <div class="match-row">
+      <div class="match-player">
+        <div class="avatar">HR</div>
+        <span class="flag">🇩🇰</span>
+        <span class="name">H. Rune</span>
+      </div>
+      <div class="match-score">
+        <div class="sets" style="color: #888;">20:00</div>
+        <div class="status">Scheduled</div>
+      </div>
+      <div class="match-player right">
+        <span class="name">C. Ruud</span>
+        <span class="flag">🇳🇴</span>
+        <div class="avatar">CR</div>
+      </div>
+    </div>
+
+    <div style="height: 20px;"></div>
+  </div>
+  <div class="tab-bar">
+    <div class="tab-item active"><div class="icon">⚡</div>Matches</div>
+    <div class="tab-item"><div class="icon">👤</div>Players</div>
+    <div class="tab-item"><div class="icon">🏆</div>Events</div>
+    <div class="tab-item"><div class="icon">⚔️</div>H2H</div>
+    <div class="tab-item"><div class="icon">❤️</div>Following</div>
+  </div>
+</div>
+</div>
+
+<!-- ===== PAGE 2: PLAYERS ===== -->
+<div>
+<div class="phone-label">PLAYERS - Rankings</div>
+<div class="phone">
+  <div class="status-bar">9:41</div>
+  <div class="content">
+    <div style="padding: 16px 16px 0; font-size: 20px; font-weight: 700;">Rankings</div>
+    <div class="search-bar">
+      <span class="icon">🔍</span>
+      <span class="text">Search players...</span>
+    </div>
+
+    <div class="player-row">
+      <div class="player-rank">1</div>
+      <div class="player-avatar">JS</div>
+      <div class="player-info">
+        <div class="player-name">Jannik Sinner 🇮🇹</div>
+        <div class="player-tag">⚡ 暴力正手</div>
+      </div>
+      <div class="rank-change rank-up">▲ 1</div>
+    </div>
+    <div class="player-row">
+      <div class="player-rank">2</div>
+      <div class="player-avatar" style="background: #1565C0;">ND</div>
+      <div class="player-info">
+        <div class="player-name">Novak Djokovic 🇷🇸</div>
+        <div class="player-tag">💎 决胜盘之王</div>
+      </div>
+      <div class="rank-change rank-down">▼ 1</div>
+    </div>
+    <div class="player-row">
+      <div class="player-rank">3</div>
+      <div class="player-avatar" style="background: #c62828;">CA</div>
+      <div class="player-info">
+        <div class="player-name">Carlos Alcaraz 🇪🇸</div>
+        <div class="player-tag">🚀 天才少年</div>
+      </div>
+      <div class="rank-change" style="color: #666;">—</div>
+    </div>
+    <div class="player-row">
+      <div class="player-rank">4</div>
+      <div class="player-avatar" style="background: #333;">AZ</div>
+      <div class="player-info">
+        <div class="player-name">Alexander Zverev 🇩🇪</div>
+        <div class="player-tag">🎯 发球机器</div>
+      </div>
+      <div class="rank-change rank-up">▲ 2</div>
+    </div>
+    <div class="player-row">
+      <div class="player-rank">5</div>
+      <div class="player-avatar" style="background: #4a148c;">DM</div>
+      <div class="player-info">
+        <div class="player-name">Daniil Medvedev 🇷🇺</div>
+        <div class="player-tag">🧠 战术大师</div>
+      </div>
+      <div class="rank-change rank-down">▼ 1</div>
+    </div>
+    <div class="player-row">
+      <div class="player-rank">6</div>
+      <div class="player-avatar" style="background: #e65100;">AR</div>
+      <div class="player-info">
+        <div class="player-name">Andrey Rublev 🇷🇺</div>
+        <div class="player-tag">🔥 越挫越勇</div>
+      </div>
+      <div class="rank-change" style="color: #666;">—</div>
+    </div>
+    <div class="player-row">
+      <div class="player-rank">7</div>
+      <div class="player-avatar" style="background: #1b5e20;">HH</div>
+      <div class="player-info">
+        <div class="player-name">Hubert Hurkacz 🇵🇱</div>
+        <div class="player-tag">🎯 发球机器</div>
+      </div>
+      <div class="rank-change rank-up">▲ 3</div>
+    </div>
+  </div>
+  <div class="tab-bar">
+    <div class="tab-item"><div class="icon">⚡</div>Matches</div>
+    <div class="tab-item active"><div class="icon">👤</div>Players</div>
+    <div class="tab-item"><div class="icon">🏆</div>Events</div>
+    <div class="tab-item"><div class="icon">⚔️</div>H2H</div>
+    <div class="tab-item"><div class="icon">❤️</div>Following</div>
+  </div>
+</div>
+</div>
+
+<!-- ===== PAGE 3: PLAYER DETAIL ===== -->
+<div>
+<div class="phone-label">PLAYER DETAIL</div>
+<div class="phone">
+  <div class="status-bar">9:41</div>
+  <div class="content">
+    <div class="player-header">
+      <div class="big-avatar">ND</div>
+      <div class="big-name">Novak Djokovic</div>
+      <div class="subtitle">🇷🇸 Serbia • Age 37 • Right-Handed</div>
+      <div class="tags">
+        <span class="tag">💎 决胜盘之王</span>
+        <span class="tag">🏃 防守大师</span>
+      </div>
+    </div>
+
+    <div class="detail-tabs">
+      <div class="detail-tab active">Overview</div>
+      <div class="detail-tab">Stats</div>
+      <div class="detail-tab">Matches</div>
+      <div class="detail-tab">Gear</div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="number">#2</div>
+        <div class="label">Ranking</div>
+      </div>
+      <div class="stat-card">
+        <div class="number" style="color: #f59e0b;">24</div>
+        <div class="label">Grand Slams</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">99</div>
+        <div class="label">Titles</div>
+      </div>
+      <div class="stat-card">
+        <div class="number" style="color: #16a34a;">82%</div>
+        <div class="label">Win Rate</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">45-12</div>
+        <div class="label">Season W-L</div>
+      </div>
+      <div class="stat-card">
+        <div class="number" style="color: #f59e0b;">68.6%</div>
+        <div class="label">Deciding Set</div>
+      </div>
+    </div>
+
+    <div style="padding: 0 16px 8px; font-size: 14px; font-weight: 600;">Surface Win Rate</div>
+    <div class="stat-bar-section" style="padding-top: 0;">
+      <div class="stat-bar-row">
+        <div class="stat-bar-label">Hard</div>
+        <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 76%;"></div></div>
+        <div class="stat-bar-value">76%</div>
+      </div>
+      <div class="stat-bar-row">
+        <div class="stat-bar-label">Clay</div>
+        <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 75%; background: #c17b3a;"></div></div>
+        <div class="stat-bar-value">75%</div>
+      </div>
+      <div class="stat-bar-row">
+        <div class="stat-bar-label">Grass</div>
+        <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 79%; background: #4caf50;"></div></div>
+        <div class="stat-bar-value">79%</div>
+      </div>
+    </div>
+
+    <div style="padding: 8px 16px; font-size: 14px; font-weight: 600;">Equipment</div>
+    <div style="padding: 0 16px 16px;">
+      <div style="display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #1e1e1e;">
+        <span style="font-size: 16px;">🎽</span>
+        <span style="font-size: 13px; flex:1;">Lacoste</span>
+        <span style="font-size: 11px; color: #16a34a; background: rgba(22,163,74,0.12); padding: 2px 8px; border-radius: 8px;">Current</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #1e1e1e;">
+        <span style="font-size: 16px;">👟</span>
+        <span style="font-size: 13px; flex:1;">Asics</span>
+        <span style="font-size: 11px; color: #16a34a; background: rgba(22,163,74,0.12); padding: 2px 8px; border-radius: 8px;">Current</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #1e1e1e;">
+        <span style="font-size: 16px;">🎾</span>
+        <span style="font-size: 13px; flex:1;">Head Speed Pro</span>
+        <span style="font-size: 11px; color: #888;">Racket</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px; padding: 8px 0;">
+        <span style="font-size: 16px;">⌚</span>
+        <span style="font-size: 13px; flex:1;">Hublot</span>
+        <span style="font-size: 11px; color: #888;">Watch</span>
+      </div>
+    </div>
+  </div>
+  <div class="tab-bar">
+    <div class="tab-item"><div class="icon">⚡</div>Matches</div>
+    <div class="tab-item active"><div class="icon">👤</div>Players</div>
+    <div class="tab-item"><div class="icon">🏆</div>Events</div>
+    <div class="tab-item"><div class="icon">⚔️</div>H2H</div>
+    <div class="tab-item"><div class="icon">❤️</div>Following</div>
+  </div>
+</div>
+</div>
+
+<!-- ===== PAGE 4: MATCH DETAIL ===== -->
+<div>
+<div class="phone-label">MATCH DETAIL</div>
+<div class="phone">
+  <div class="status-bar">9:41</div>
+  <div class="content">
+    <div class="match-header">
+      <div class="tournament">AUSTRALIAN OPEN • Final • Hard</div>
+      <div class="versus">
+        <div class="vs-player">
+          <div class="vs-avatar">ND</div>
+          <div class="vs-name winner">Djokovic</div>
+          <div style="font-size: 11px; color: #888;">🇷🇸 #2</div>
+        </div>
+        <div style="text-align: center;">
+          <div class="big-score">6-3 7-5</div>
+          <div class="ft">FT • 1h 52m</div>
+        </div>
+        <div class="vs-player">
+          <div class="vs-avatar">AZ</div>
+          <div class="vs-name loser">Zverev</div>
+          <div style="font-size: 11px; color: #888;">🇩🇪 #4</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-tabs">
+      <div class="detail-tab active">Stats</div>
+      <div class="detail-tab">Probability</div>
+      <div class="detail-tab">H2H</div>
+    </div>
+
+    <div style="padding: 16px;">
+      <div style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">Match Statistics</div>
+
+      <div style="display: flex; align-items: center; margin-bottom: 14px;">
+        <div style="width: 36px; font-size: 15px; font-weight: 700; text-align: left; color: #16a34a;">12</div>
+        <div style="flex: 1; display: flex; gap: 2px; margin: 0 8px;">
+          <div style="flex: 12; height: 5px; background: #16a34a; border-radius: 3px;"></div>
+          <div style="flex: 8; height: 5px; background: #333; border-radius: 3px;"></div>
+        </div>
+        <div style="width: 80px; text-align: center; font-size: 11px; color: #888;">Aces</div>
+        <div style="flex: 1; display: flex; gap: 2px; margin: 0 8px;">
+          <div style="flex: 8; height: 5px; background: #333; border-radius: 3px;"></div>
+          <div style="flex: 12; height: 5px; background: transparent; border-radius: 3px;"></div>
+        </div>
+        <div style="width: 36px; font-size: 15px; font-weight: 700; text-align: right;">8</div>
+      </div>
+
+      <div style="display: flex; align-items: center; margin-bottom: 14px;">
+        <div style="width: 36px; font-size: 15px; font-weight: 700; text-align: left;">2</div>
+        <div style="flex: 1; display: flex; gap: 2px; margin: 0 8px;">
+          <div style="flex: 2; height: 5px; background: #16a34a; border-radius: 3px;"></div>
+          <div style="flex: 5; height: 5px; background: #333; border-radius: 3px;"></div>
+        </div>
+        <div style="width: 80px; text-align: center; font-size: 11px; color: #888;">Double Faults</div>
+        <div style="flex: 1; display: flex; gap: 2px; margin: 0 8px;">
+          <div style="flex: 5; height: 5px; background: #333; border-radius: 3px;"></div>
+          <div style="flex: 2; height: 5px; background: transparent; border-radius: 3px;"></div>
+        </div>
+        <div style="width: 36px; font-size: 15px; font-weight: 700; text-align: right; color: #e53935;">5</div>
+      </div>
+
+      <div style="display: flex; align-items: center; margin-bottom: 14px;">
+        <div style="width: 36px; font-size: 15px; font-weight: 700; text-align: left; color: #16a34a;">72%</div>
+        <div style="flex: 1; display: flex; gap: 2px; margin: 0 8px;">
+          <div style="flex: 72; height: 5px; background: #16a34a; border-radius: 3px;"></div>
+          <div style="flex: 28; height: 5px; background: #333; border-radius: 3px;"></div>
+        </div>
+        <div style="width: 80px; text-align: center; font-size: 11px; color: #888;">1st Serve %</div>
+        <div style="flex: 1; display: flex; gap: 2px; margin: 0 8px;">
+          <div style="flex: 65; height: 5px; background: #333; border-radius: 3px;"></div>
+          <div style="flex: 35; height: 5px; background: transparent; border-radius: 3px;"></div>
+        </div>
+        <div style="width: 36px; font-size: 15px; font-weight: 700; text-align: right;">65%</div>
+      </div>
+
+      <div style="display: flex; align-items: center; margin-bottom: 14px;">
+        <div style="width: 36px; font-size: 15px; font-weight: 700; text-align: left; color: #16a34a;">4/6</div>
+        <div style="flex: 1; display: flex; gap: 2px; margin: 0 8px;">
+          <div style="flex: 67; height: 5px; background: #16a34a; border-radius: 3px;"></div>
+          <div style="flex: 33; height: 5px; background: #333; border-radius: 3px;"></div>
+        </div>
+        <div style="width: 80px; text-align: center; font-size: 11px; color: #888;">Break Points</div>
+        <div style="flex: 1; display: flex; gap: 2px; margin: 0 8px;">
+          <div style="flex: 33; height: 5px; background: #333; border-radius: 3px;"></div>
+          <div style="flex: 67; height: 5px; background: transparent; border-radius: 3px;"></div>
+        </div>
+        <div style="width: 36px; font-size: 15px; font-weight: 700; text-align: right;">1/3</div>
+      </div>
+
+      <div style="display: flex; align-items: center; margin-bottom: 14px;">
+        <div style="width: 36px; font-size: 15px; font-weight: 700; text-align: left;">28</div>
+        <div style="flex: 1; display: flex; gap: 2px; margin: 0 8px;">
+          <div style="flex: 28; height: 5px; background: #16a34a; border-radius: 3px;"></div>
+          <div style="flex: 22; height: 5px; background: #333; border-radius: 3px;"></div>
+        </div>
+        <div style="width: 80px; text-align: center; font-size: 11px; color: #888;">Winners</div>
+        <div style="flex: 1; display: flex; gap: 2px; margin: 0 8px;">
+          <div style="flex: 22; height: 5px; background: #333; border-radius: 3px;"></div>
+          <div style="flex: 28; height: 5px; background: transparent; border-radius: 3px;"></div>
+        </div>
+        <div style="width: 36px; font-size: 15px; font-weight: 700; text-align: right;">22</div>
+      </div>
+
+      <div style="margin-top: 20px; padding: 16px; background: #1e1e1e; border-radius: 10px;">
+        <div style="font-size: 12px; color: #888; margin-bottom: 8px;">Win Probability</div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 20px; font-weight: 700; color: #16a34a;">73%</span>
+          <div style="flex: 1; height: 8px; background: #333; border-radius: 4px; overflow: hidden;">
+            <div style="width: 73%; height: 100%; background: #16a34a; border-radius: 4px;"></div>
+          </div>
+          <span style="font-size: 20px; font-weight: 700; color: #666;">27%</span>
+        </div>
+        <div style="display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap;">
+          <span style="font-size: 10px; color: #16a34a; background: rgba(22,163,74,0.12); padding: 2px 8px; border-radius: 8px;">Surface +3%</span>
+          <span style="font-size: 10px; color: #16a34a; background: rgba(22,163,74,0.12); padding: 2px 8px; border-radius: 8px;">Form +2%</span>
+          <span style="font-size: 10px; color: #e53935; background: rgba(229,57,53,0.12); padding: 2px 8px; border-radius: 8px;">Weather -1%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-bar">
+    <div class="tab-item active"><div class="icon">⚡</div>Matches</div>
+    <div class="tab-item"><div class="icon">👤</div>Players</div>
+    <div class="tab-item"><div class="icon">🏆</div>Events</div>
+    <div class="tab-item"><div class="icon">⚔️</div>H2H</div>
+    <div class="tab-item"><div class="icon">❤️</div>Following</div>
+  </div>
+</div>
+</div>
+
+</body>
+</html>
