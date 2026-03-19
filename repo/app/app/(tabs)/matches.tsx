@@ -120,6 +120,7 @@ export default function MatchesScreen() {
         <TouchableOpacity
           style={[styles.chip, !selectedTournament && styles.chipActive]}
           onPress={() => setSelectedTournament(null)}
+          activeOpacity={0.7}
         >
           <Text style={[styles.chipText, !selectedTournament && styles.chipTextActive]}>
             All
@@ -130,6 +131,7 @@ export default function MatchesScreen() {
             key={t.id}
             style={[styles.chip, selectedTournament === t.id && styles.chipActive]}
             onPress={() => setSelectedTournament(t.id === selectedTournament ? null : t.id)}
+            activeOpacity={0.7}
           >
             <Text
               style={[
@@ -158,61 +160,69 @@ export default function MatchesScreen() {
         renderSectionHeader={({ section }) => (
           <Text style={styles.sectionHeader}>{section.title}</Text>
         )}
-        renderItem={({ item }) => (
-          <TouchableOpacity
-            style={styles.matchCard}
-            onPress={() => router.push(`/match/${item.id}`)}
-            activeOpacity={0.7}
-          >
-            <Text style={styles.tournament}>
-              {item.tournament?.name || 'Tournament'} · {item.round}
-            </Text>
-            <View style={styles.versus}>
-              <View style={styles.playerSide}>
-                <Image
-                  source={{
-                    uri:
-                      item.player1?.photoUrl ||
-                      getAvatarUrl(item.player1?.name || 'P1', 80),
-                  }}
-                  style={styles.matchAvatar}
-                />
-                <Text
-                  style={[
-                    styles.playerName,
-                    item.winnerId === item.player1Id && styles.winner,
-                  ]}
-                  numberOfLines={1}
-                >
-                  {item.player1 ? getPlayerName(item.player1) : `Player ${item.player1Id}`}
-                </Text>
-              </View>
+        renderItem={({ item }) => {
+          const p1IsWinner = item.winnerId === item.player1Id;
+          const p2IsWinner = item.winnerId === item.player2Id;
+          return (
+            <TouchableOpacity
+              style={styles.matchCard}
+              onPress={() => router.push(`/match/${item.id}`)}
+              activeOpacity={0.7}
+            >
+              <Text style={styles.tournament}>
+                {item.tournament?.name || 'Tournament'} · {item.round}
+              </Text>
+              <View style={styles.versus}>
+                <View style={styles.playerSide}>
+                  <Image
+                    source={{
+                      uri:
+                        item.player1?.photoUrl ||
+                        getAvatarUrl(item.player1?.name || 'P1', 80),
+                    }}
+                    style={[styles.matchAvatar, p1IsWinner && styles.matchAvatarWinner]}
+                  />
+                  <Text
+                    style={[
+                      styles.playerName,
+                      p1IsWinner && styles.winner,
+                      !p1IsWinner && p2IsWinner && styles.loser,
+                    ]}
+                    numberOfLines={1}
+                  >
+                    {item.player1 ? getPlayerName(item.player1) : `Player ${item.player1Id}`}
+                  </Text>
+                </View>
 
-              <Text style={styles.vs}>vs</Text>
+                <View style={styles.vsContainer}>
+                  <Text style={styles.vs}>VS</Text>
+                </View>
 
-              <View style={styles.playerSide}>
-                <Image
-                  source={{
-                    uri:
-                      item.player2?.photoUrl ||
-                      getAvatarUrl(item.player2?.name || 'P2', 80),
-                  }}
-                  style={styles.matchAvatar}
-                />
-                <Text
-                  style={[
-                    styles.playerName,
-                    item.winnerId === item.player2Id && styles.winner,
-                  ]}
-                  numberOfLines={1}
-                >
-                  {item.player2 ? getPlayerName(item.player2) : `Player ${item.player2Id}`}
-                </Text>
+                <View style={styles.playerSide}>
+                  <Image
+                    source={{
+                      uri:
+                        item.player2?.photoUrl ||
+                        getAvatarUrl(item.player2?.name || 'P2', 80),
+                    }}
+                    style={[styles.matchAvatar, p2IsWinner && styles.matchAvatarWinner]}
+                  />
+                  <Text
+                    style={[
+                      styles.playerName,
+                      p2IsWinner && styles.winner,
+                      !p2IsWinner && p1IsWinner && styles.loser,
+                    ]}
+                    numberOfLines={1}
+                  >
+                    {item.player2 ? getPlayerName(item.player2) : `Player ${item.player2Id}`}
+                  </Text>
+                </View>
               </View>
-            </View>
-            <Text style={styles.score}>{item.score}</Text>
-          </TouchableOpacity>
-        )}
+              <Text style={styles.score}>{item.score}</Text>
+            </TouchableOpacity>
+          );
+        }}
         contentContainerStyle={styles.list}
         ListEmptyComponent={
           <EmptyState
@@ -244,9 +254,9 @@ const styles = StyleSheet.create({
   },
   chip: {
     backgroundColor: '#1a1a2e',
-    borderRadius: 16,
-    paddingHorizontal: 14,
-    paddingVertical: 7,
+    borderRadius: 20,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
     borderWidth: 1,
     borderColor: '#2a2a4e',
   },
@@ -268,7 +278,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   sectionHeader: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '700',
     color: '#16a34a',
     paddingTop: 16,
@@ -278,16 +288,22 @@ const styles = StyleSheet.create({
   },
   matchCard: {
     backgroundColor: '#1a1a2e',
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 16,
-    marginBottom: 10,
+    marginBottom: 12,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 4,
+    elevation: 2,
   },
   tournament: {
     color: '#a0a0b0',
-    fontSize: 12,
-    fontWeight: '600',
+    fontSize: 11,
+    fontWeight: '700',
     marginBottom: 10,
     textTransform: 'uppercase',
+    letterSpacing: 0.5,
   },
   versus: {
     flexDirection: 'row',
@@ -300,12 +316,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   matchAvatar: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
+    width: 48,
+    height: 48,
+    borderRadius: 24,
     borderWidth: 2,
     borderColor: '#2a2a4e',
-    marginBottom: 4,
+    marginBottom: 6,
+  },
+  matchAvatarWinner: {
+    borderColor: '#16a34a',
   },
   playerName: {
     color: '#ffffff',
@@ -317,15 +336,21 @@ const styles = StyleSheet.create({
     color: '#16a34a',
     fontWeight: 'bold',
   },
+  loser: {
+    color: '#6b7280',
+  },
+  vsContainer: {
+    paddingHorizontal: 6,
+  },
   vs: {
-    color: '#a0a0b0',
-    fontSize: 12,
-    marginHorizontal: 8,
+    color: '#f59e0b',
+    fontSize: 13,
+    fontWeight: 'bold',
   },
   score: {
     color: '#ffffff',
-    fontSize: 14,
+    fontSize: 16,
     textAlign: 'center',
-    fontWeight: '600',
+    fontWeight: '700',
   },
 });

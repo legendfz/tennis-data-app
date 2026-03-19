@@ -1,12 +1,10 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
   Image,
-  Dimensions,
-  ActivityIndicator,
   TouchableOpacity,
   RefreshControl,
 } from 'react-native';
@@ -14,9 +12,10 @@ import { useLocalSearchParams, Stack } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
 import api from '../../lib/api';
 import { getAvatarUrl } from '../../lib/avatars';
+import { SkeletonList } from '../../lib/skeleton';
+import { EmptyState } from '../../lib/empty-state';
 import type { Player, MatchWithPlayers } from '../../../shared/types';
 
-const SCREEN_WIDTH = Dimensions.get('window').width;
 const MATCH_AVATAR_SIZE = 48;
 
 interface DrawMatch {
@@ -117,7 +116,7 @@ function PlayerSlot({
     <View style={[styles.playerSlot, isWinner && styles.winnerSlot]}>
       <Image
         source={{ uri: player.photoUrl || getAvatarUrl(player.name, MATCH_AVATAR_SIZE * 2) }}
-        style={styles.slotAvatar}
+        style={[styles.slotAvatar, isWinner && styles.slotAvatarWinner]}
       />
       <View style={styles.slotInfo}>
         <Text style={[styles.slotName, isWinner && styles.winnerName]} numberOfLines={1}>
@@ -170,7 +169,7 @@ function ChampionCard({ match }: { match: DrawMatch }) {
 
   return (
     <View style={styles.championCard}>
-      <Text style={styles.championLabel}>🏆 CHAMPION</Text>
+      <Text style={styles.championLabel}>🏆 CHAMPION 🏆</Text>
       <Image
         source={{ uri: champion.photoUrl || getAvatarUrl(champion.name, 120) }}
         style={styles.championAvatar}
@@ -203,6 +202,7 @@ function YearSelector({
           key={year}
           style={[styles.yearPill, selectedYear === year && styles.yearPillActive]}
           onPress={() => onSelectYear(year)}
+          activeOpacity={0.7}
         >
           <Text
             style={[styles.yearPillText, selectedYear === year && styles.yearPillTextActive]}
@@ -217,10 +217,13 @@ function YearSelector({
 
 // ─── Results match card ──────────────────────────────────────────────
 function ResultMatch({ match }: { match: MatchWithPlayers }) {
+  const p1Won = match.winnerId === match.player1Id;
+  const p2Won = match.winnerId === match.player2Id;
+
   return (
     <View style={styles.resultMatch}>
       <View style={styles.resultPlayers}>
-        <View style={styles.resultPlayerRow}>
+        <View style={[styles.resultPlayerRow, p1Won && styles.resultPlayerRowWinner]}>
           <Image
             source={{
               uri:
@@ -232,7 +235,8 @@ function ResultMatch({ match }: { match: MatchWithPlayers }) {
           <Text
             style={[
               styles.resultName,
-              match.winnerId === match.player1Id && styles.winnerName,
+              p1Won && styles.winnerName,
+              !p1Won && styles.loserName,
             ]}
             numberOfLines={1}
           >
@@ -240,7 +244,7 @@ function ResultMatch({ match }: { match: MatchWithPlayers }) {
           </Text>
         </View>
         <Text style={styles.resultScore}>{match.score}</Text>
-        <View style={styles.resultPlayerRow}>
+        <View style={[styles.resultPlayerRow, p2Won && styles.resultPlayerRowWinner]}>
           <Image
             source={{
               uri:
@@ -252,7 +256,8 @@ function ResultMatch({ match }: { match: MatchWithPlayers }) {
           <Text
             style={[
               styles.resultName,
-              match.winnerId === match.player2Id && styles.winnerName,
+              p2Won && styles.winnerName,
+              !p2Won && styles.loserName,
             ]}
             numberOfLines={1}
           >
@@ -301,8 +306,8 @@ export default function TournamentDetailScreen() {
 
   if (isLoading) {
     return (
-      <View style={styles.center}>
-        <ActivityIndicator size="large" color="#16a34a" />
+      <View style={styles.container}>
+        <SkeletonList count={5} cardHeight={100} />
       </View>
     );
   }
@@ -379,6 +384,7 @@ export default function TournamentDetailScreen() {
           <TouchableOpacity
             style={[styles.tab, activeTab === 'bracket' && styles.activeTab]}
             onPress={() => setActiveTab('bracket')}
+            activeOpacity={0.7}
           >
             <Text
               style={[styles.tabText, activeTab === 'bracket' && styles.activeTabText]}
@@ -389,6 +395,7 @@ export default function TournamentDetailScreen() {
           <TouchableOpacity
             style={[styles.tab, activeTab === 'results' && styles.activeTab]}
             onPress={() => setActiveTab('results')}
+            activeOpacity={0.7}
           >
             <Text
               style={[styles.tabText, activeTab === 'results' && styles.activeTabText]}
@@ -401,11 +408,10 @@ export default function TournamentDetailScreen() {
         {activeTab === 'bracket' ? (
           <>
             {error || !draw ? (
-              <View style={styles.noDraw}>
-                <Text style={styles.noDrawText}>
-                  No bracket data available for {selectedYear}
-                </Text>
-              </View>
+              <EmptyState
+                message={`No bracket data for ${selectedYear}`}
+                icon="📋"
+              />
             ) : (
               <>
                 {/* Champion highlight */}
@@ -436,9 +442,10 @@ export default function TournamentDetailScreen() {
         ) : (
           <>
             {matchesByRound.length === 0 ? (
-              <View style={styles.noDraw}>
-                <Text style={styles.noDrawText}>No match results available</Text>
-              </View>
+              <EmptyState
+                message="No match results available"
+                icon="📊"
+              />
             ) : (
               matchesByRound.map((group) => (
                 <View key={group.round} style={styles.roundSection}>
@@ -484,7 +491,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#2a2a4e',
   },
   tournamentTitle: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
     color: '#ffffff',
     textAlign: 'center',
@@ -497,9 +504,9 @@ const styles = StyleSheet.create({
   },
   categoryBadge: {
     backgroundColor: '#16a34a',
-    borderRadius: 6,
-    paddingHorizontal: 10,
-    paddingVertical: 4,
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 5,
   },
   categoryText: {
     color: '#ffffff',
@@ -508,9 +515,9 @@ const styles = StyleSheet.create({
   },
   surfaceBadge: {
     backgroundColor: '#2a2a4e',
-    borderRadius: 6,
-    paddingHorizontal: 10,
-    paddingVertical: 4,
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 5,
   },
   surfaceBadgeText: {
     color: '#ffffff',
@@ -518,16 +525,16 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   tournamentLocation: {
-    fontSize: 14,
+    fontSize: 13,
     color: '#a0a0b0',
     marginBottom: 4,
   },
   tournamentDates: {
-    fontSize: 13,
-    color: '#a0a0b0',
+    fontSize: 11,
+    color: '#6b7280',
   },
 
-  // ── Year Selector ──
+  // Year Selector
   yearSelector: {
     maxHeight: 52,
     borderBottomWidth: 1,
@@ -551,7 +558,7 @@ const styles = StyleSheet.create({
     borderColor: '#16a34a',
   },
   yearPillText: {
-    fontSize: 14,
+    fontSize: 13,
     color: '#a0a0b0',
     fontWeight: '600',
   },
@@ -560,7 +567,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
-  // ── Tabs ──
+  // Tabs
   tabRow: {
     flexDirection: 'row',
     paddingHorizontal: 16,
@@ -569,8 +576,8 @@ const styles = StyleSheet.create({
   },
   tab: {
     flex: 1,
-    paddingVertical: 10,
-    borderRadius: 12,
+    paddingVertical: 12,
+    borderRadius: 16,
     backgroundColor: '#1a1a2e',
     alignItems: 'center',
   },
@@ -585,43 +592,45 @@ const styles = StyleSheet.create({
   activeTabText: {
     color: '#ffffff',
   },
-  noDraw: {
-    padding: 40,
-    alignItems: 'center',
-  },
-  noDrawText: {
-    color: '#a0a0b0',
-    fontSize: 14,
-  },
 
-  // ── Champion Card ──
+  // Champion Card
   championCard: {
     backgroundColor: '#1a1a2e',
-    borderRadius: 12,
+    borderRadius: 16,
     marginHorizontal: 16,
     marginTop: 16,
     padding: 20,
     alignItems: 'center',
     borderWidth: 2,
-    borderColor: '#16a34a',
+    borderColor: '#f59e0b',
+    shadowColor: '#f59e0b',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 12,
+    elevation: 6,
   },
   championLabel: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
-    color: '#16a34a',
+    color: '#f59e0b',
     marginBottom: 12,
     letterSpacing: 2,
   },
   championAvatar: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
+    width: 88,
+    height: 88,
+    borderRadius: 44,
     borderWidth: 3,
-    borderColor: '#16a34a',
+    borderColor: '#f59e0b',
     marginBottom: 10,
+    shadowColor: '#f59e0b',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 4,
   },
   championName: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: 'bold',
     color: '#ffffff',
     marginBottom: 4,
@@ -632,7 +641,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
 
-  // ── Round ──
+  // Round
   roundSection: {
     marginTop: 16,
     paddingHorizontal: 16,
@@ -644,28 +653,28 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   roundTitle: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#16a34a',
   },
   roundAbbrev: {
-    fontSize: 12,
+    fontSize: 11,
     color: '#a0a0b0',
     backgroundColor: '#2a2a4e',
-    borderRadius: 4,
-    paddingHorizontal: 6,
-    paddingVertical: 2,
+    borderRadius: 6,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
   },
   matchCount: {
-    fontSize: 12,
+    fontSize: 11,
     color: '#6b7280',
     marginLeft: 'auto',
   },
 
-  // ── Bracket Match ──
+  // Bracket Match
   bracketMatchWrapper: {
     flexDirection: 'row',
-    marginBottom: 10,
+    marginBottom: 12,
   },
   connectorLine: {
     width: 16,
@@ -678,6 +687,7 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: '#2a2a4e',
     left: 6,
+    borderRadius: 1,
   },
   connectorHorizontal: {
     position: 'absolute',
@@ -685,24 +695,25 @@ const styles = StyleSheet.create({
     height: 2,
     backgroundColor: '#2a2a4e',
     left: 6,
+    borderRadius: 1,
   },
   bracketMatch: {
     flex: 1,
     backgroundColor: '#1a1a2e',
-    borderRadius: 12,
+    borderRadius: 16,
     overflow: 'hidden',
   },
   finalMatch: {
     borderWidth: 1,
-    borderColor: '#16a34a',
+    borderColor: '#f59e0b',
   },
   finalBanner: {
-    backgroundColor: '#16a34a',
-    paddingVertical: 4,
+    backgroundColor: '#f59e0b',
+    paddingVertical: 5,
     alignItems: 'center',
   },
   finalBannerText: {
-    color: '#ffffff',
+    color: '#0f0f23',
     fontSize: 12,
     fontWeight: 'bold',
     letterSpacing: 1,
@@ -714,13 +725,16 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   winnerSlot: {
-    backgroundColor: 'rgba(22, 163, 74, 0.15)',
+    backgroundColor: 'rgba(22, 163, 74, 0.12)',
   },
   slotAvatar: {
     width: MATCH_AVATAR_SIZE,
     height: MATCH_AVATAR_SIZE,
     borderRadius: MATCH_AVATAR_SIZE / 2,
     borderWidth: 2,
+    borderColor: '#2a2a4e',
+  },
+  slotAvatarWinner: {
     borderColor: '#16a34a',
   },
   emptyAvatar: {
@@ -734,18 +748,21 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   slotName: {
-    fontSize: 15,
+    fontSize: 14,
     color: '#ffffff',
     fontWeight: '600',
     flexShrink: 1,
   },
   slotNameEmpty: {
-    fontSize: 14,
+    fontSize: 13,
     color: '#6b7280',
   },
   winnerName: {
     color: '#16a34a',
     fontWeight: 'bold',
+  },
+  loserName: {
+    color: '#6b7280',
   },
   winIndicator: {
     color: '#16a34a',
@@ -770,12 +787,12 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
 
-  // ── Results styles ──
+  // Results styles
   resultMatch: {
     backgroundColor: '#1a1a2e',
-    borderRadius: 12,
-    marginBottom: 10,
-    padding: 12,
+    borderRadius: 16,
+    marginBottom: 12,
+    padding: 14,
   },
   resultPlayers: {
     gap: 8,
@@ -784,13 +801,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
+    borderRadius: 10,
+    padding: 4,
+  },
+  resultPlayerRowWinner: {
+    backgroundColor: 'rgba(22, 163, 74, 0.08)',
   },
   resultAvatar: {
     width: 36,
     height: 36,
     borderRadius: 18,
     borderWidth: 1,
-    borderColor: '#16a34a',
+    borderColor: '#2a2a4e',
   },
   resultName: {
     fontSize: 14,
@@ -803,9 +825,9 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '700',
     backgroundColor: '#2a2a4e',
-    borderRadius: 6,
+    borderRadius: 8,
     paddingVertical: 4,
-    paddingHorizontal: 8,
+    paddingHorizontal: 10,
     alignSelf: 'center',
   },
   resultDate: {

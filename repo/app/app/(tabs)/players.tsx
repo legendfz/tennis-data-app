@@ -4,7 +4,6 @@ import {
   Text,
   FlatList,
   StyleSheet,
-  ActivityIndicator,
   TextInput,
   TouchableOpacity,
   Image,
@@ -15,7 +14,23 @@ import { useRouter } from 'expo-router';
 import api from '../../lib/api';
 import { getAvatarUrl } from '../../lib/avatars';
 import { useLanguage } from '../../lib/i18n';
+import { SkeletonList } from '../../lib/skeleton';
+import { EmptyState } from '../../lib/empty-state';
 import type { Player } from '../../../shared/types';
+
+function RankChangeIndicator({ change }: { change?: number }) {
+  if (change === undefined || change === null || change === 0) {
+    return <Text style={styles.rankUnchanged}>—</Text>;
+  }
+  if (change > 0) {
+    return (
+      <Text style={styles.rankUp}>▲ {change}</Text>
+    );
+  }
+  return (
+    <Text style={styles.rankDown}>▼ {Math.abs(change)}</Text>
+  );
+}
 
 export default function PlayersScreen() {
   const [search, setSearch] = useState('');
@@ -52,41 +67,47 @@ export default function PlayersScreen() {
 
   if (isLoading) {
     return (
-      <View style={styles.center}>
-        <ActivityIndicator size="large" color="#16a34a" />
+      <View style={styles.container}>
+        <SkeletonList count={8} cardHeight={72} />
       </View>
     );
   }
 
   if (error) {
     return (
-      <View style={styles.center}>
-        <Text style={styles.errorText}>Failed to load players</Text>
-        <Text style={styles.errorDetail}>{(error as Error).message}</Text>
-      </View>
+      <EmptyState
+        message="Failed to load players"
+        icon="😞"
+        subtitle={(error as Error).message}
+      />
     );
   }
 
   return (
     <View style={styles.container}>
+      {/* Search Bar */}
       <View style={styles.searchContainer}>
-        <TextInput
-          style={styles.searchInput}
-          placeholder="🔍 Search players..."
-          placeholderTextColor="#6b7280"
-          value={search}
-          onChangeText={setSearch}
-          autoCapitalize="none"
-          autoCorrect={false}
-        />
-        {search.length > 0 && (
-          <TouchableOpacity
-            onPress={() => setSearch('')}
-            style={styles.clearButton}
-          >
-            <Text style={styles.clearText}>✕</Text>
-          </TouchableOpacity>
-        )}
+        <View style={styles.searchInputWrap}>
+          <Text style={styles.searchIcon}>🔍</Text>
+          <TextInput
+            style={styles.searchInput}
+            placeholder="Search players..."
+            placeholderTextColor="#6b7280"
+            value={search}
+            onChangeText={setSearch}
+            autoCapitalize="none"
+            autoCorrect={false}
+          />
+          {search.length > 0 && (
+            <TouchableOpacity
+              onPress={() => setSearch('')}
+              style={styles.clearButton}
+              activeOpacity={0.7}
+            >
+              <Text style={styles.clearText}>✕</Text>
+            </TouchableOpacity>
+          )}
+        </View>
       </View>
 
       <FlatList
@@ -106,17 +127,23 @@ export default function PlayersScreen() {
             onPress={() => router.push(`/player/${item.id}`)}
             activeOpacity={0.7}
           >
-            <Image
-              source={{ uri: item.photoUrl || getAvatarUrl(item.name, 100) }}
-              style={styles.playerAvatar}
-            />
+            <View style={styles.avatarContainer}>
+              <Image
+                source={{ uri: item.photoUrl || getAvatarUrl(item.name, 100) }}
+                style={styles.playerAvatar}
+              />
+              <Text style={styles.flagOverlay}>{item.countryFlag}</Text>
+            </View>
             <View style={styles.playerInfo}>
               <Text style={styles.playerName}>
-                {getPlayerName(item)} {item.countryFlag}
+                {getPlayerName(item)}
               </Text>
-              <Text style={styles.playerDetails}>
-                #{item.ranking} · {item.country} · {item.plays}
-              </Text>
+              <View style={styles.playerDetailsRow}>
+                <Text style={styles.playerDetails}>
+                  {item.country} · {item.plays}
+                </Text>
+                <RankChangeIndicator change={(item as any).rankingChange} />
+              </View>
             </View>
             <View style={styles.rankBadge}>
               <Text style={styles.rankText}>#{item.ranking}</Text>
@@ -125,9 +152,11 @@ export default function PlayersScreen() {
         )}
         contentContainerStyle={styles.list}
         ListEmptyComponent={
-          <View style={styles.emptyContainer}>
-            <Text style={styles.emptyText}>No players found</Text>
-          </View>
+          <EmptyState
+            message="No players found"
+            icon="🔍"
+            subtitle="Try a different search term"
+          />
         }
       />
     </View>
@@ -139,56 +168,79 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#0f0f23',
   },
-  center: {
-    flex: 1,
-    backgroundColor: '#0f0f23',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+  
+  // Search
   searchContainer: {
     paddingHorizontal: 16,
     paddingTop: 12,
     paddingBottom: 8,
-    position: 'relative',
   },
-  searchInput: {
+  searchInputWrap: {
+    flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: '#1a1a2e',
-    borderRadius: 12,
+    borderRadius: 24,
     paddingHorizontal: 16,
-    paddingVertical: 12,
-    fontSize: 16,
-    color: '#ffffff',
     borderWidth: 1,
     borderColor: '#2a2a4e',
   },
+  searchIcon: {
+    fontSize: 16,
+    marginRight: 8,
+  },
+  searchInput: {
+    flex: 1,
+    paddingVertical: 12,
+    fontSize: 16,
+    color: '#ffffff',
+  },
   clearButton: {
-    position: 'absolute',
-    right: 28,
-    top: 24,
+    padding: 4,
   },
   clearText: {
     color: '#a0a0b0',
     fontSize: 16,
   },
+
+  // List
   list: {
     padding: 16,
     paddingTop: 8,
   },
+
+  // Player Card
   playerCard: {
     backgroundColor: '#1a1a2e',
-    borderRadius: 12,
-    padding: 12,
-    marginBottom: 10,
+    borderRadius: 16,
+    padding: 16,
+    marginBottom: 12,
     flexDirection: 'row',
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  avatarContainer: {
+    position: 'relative',
+    marginRight: 14,
   },
   playerAvatar: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    marginRight: 12,
+    width: 52,
+    height: 52,
+    borderRadius: 26,
     borderWidth: 2,
     borderColor: '#16a34a',
+  },
+  flagOverlay: {
+    position: 'absolute',
+    bottom: -2,
+    right: -4,
+    fontSize: 16,
+    backgroundColor: '#0f0f23',
+    borderRadius: 8,
+    overflow: 'hidden',
   },
   playerInfo: {
     flex: 1,
@@ -197,41 +249,52 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     fontSize: 16,
     fontWeight: '600',
-    marginBottom: 3,
+    marginBottom: 4,
+  },
+  playerDetailsRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
   },
   playerDetails: {
     color: '#a0a0b0',
     fontSize: 13,
   },
+
+  // Rank Badge
   rankBadge: {
     backgroundColor: '#16a34a',
-    borderRadius: 12,
-    width: 44,
-    height: 44,
+    borderRadius: 14,
+    width: 48,
+    height: 48,
     justifyContent: 'center',
     alignItems: 'center',
+    shadowColor: '#16a34a',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 3,
   },
   rankText: {
     color: '#ffffff',
     fontWeight: 'bold',
     fontSize: 14,
   },
-  errorText: {
+
+  // Rank Change
+  rankUp: {
+    color: '#16a34a',
+    fontSize: 11,
+    fontWeight: '700',
+  },
+  rankDown: {
     color: '#ef4444',
-    fontSize: 16,
+    fontSize: 11,
+    fontWeight: '700',
+  },
+  rankUnchanged: {
+    color: '#6b7280',
+    fontSize: 11,
     fontWeight: '600',
-  },
-  errorDetail: {
-    color: '#a0a0b0',
-    fontSize: 12,
-    marginTop: 8,
-  },
-  emptyContainer: {
-    alignItems: 'center',
-    paddingTop: 40,
-  },
-  emptyText: {
-    color: '#a0a0b0',
-    fontSize: 16,
   },
 });

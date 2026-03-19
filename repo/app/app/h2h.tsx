@@ -6,8 +6,6 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
-  Dimensions,
-  ActivityIndicator,
 } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
@@ -17,7 +15,6 @@ import { getAvatarUrl } from '../lib/avatars';
 import { useLanguage } from '../lib/i18n';
 import type { Player } from '../../shared/types';
 
-const SCREEN_WIDTH = Dimensions.get('window').width;
 const AVATAR_SIZE = 64;
 
 function PlayerSelector({
@@ -57,6 +54,7 @@ function PlayerSelector({
             setSearch('');
             setShowDropdown(false);
           }}
+          activeOpacity={0.7}
         >
           <Image
             source={{ uri: selectedPlayer.photoUrl || getAvatarUrl(selectedPlayer.name, AVATAR_SIZE * 2) }}
@@ -72,17 +70,20 @@ function PlayerSelector({
         </TouchableOpacity>
       ) : (
         <View>
-          <TextInput
-            style={styles.searchInput}
-            placeholder="Search player..."
-            placeholderTextColor="#6b7280"
-            value={search}
-            onChangeText={(t) => {
-              setSearch(t);
-              setShowDropdown(true);
-            }}
-            onFocus={() => setShowDropdown(true)}
-          />
+          <View style={styles.searchInputWrap}>
+            <Text style={styles.searchIcon}>🔍</Text>
+            <TextInput
+              style={styles.searchInput}
+              placeholder="Search player..."
+              placeholderTextColor="#6b7280"
+              value={search}
+              onChangeText={(t) => {
+                setSearch(t);
+                setShowDropdown(true);
+              }}
+              onFocus={() => setShowDropdown(true)}
+            />
+          </View>
           {showDropdown && players.length > 0 && (
             <View style={styles.dropdown}>
               <ScrollView style={styles.dropdownScroll} nestedScrollEnabled>
@@ -95,6 +96,7 @@ function PlayerSelector({
                       setShowDropdown(false);
                       setSearch('');
                     }}
+                    activeOpacity={0.7}
                   >
                     <Image
                       source={{ uri: p.photoUrl || getAvatarUrl(p.name, 48) }}
@@ -145,7 +147,9 @@ export default function H2HScreen() {
             />
           </View>
           <View style={styles.vsMiddle}>
-            <Text style={styles.vsText}>VS</Text>
+            <View style={styles.vsBubble}>
+              <Text style={styles.vsText}>VS</Text>
+            </View>
           </View>
           <View style={{ flex: 1 }}>
             <PlayerSelector
@@ -164,8 +168,9 @@ export default function H2HScreen() {
             onPress={() => {
               router.push(`/h2h/${player1!.id}-vs-${player2!.id}` as any);
             }}
+            activeOpacity={0.7}
           >
-            <Text style={styles.compareBtnText}>Compare</Text>
+            <Text style={styles.compareBtnText}>⚔️ Compare</Text>
           </TouchableOpacity>
         )}
 
@@ -183,6 +188,7 @@ export default function H2HScreen() {
               key={`${matchup.p1}-${matchup.p2}`}
               style={styles.popularItem}
               onPress={() => router.push(`/h2h/${matchup.p1}-vs-${matchup.p2}` as any)}
+              activeOpacity={0.7}
             >
               <Text style={styles.popularLabel}>{matchup.label}</Text>
               <Text style={styles.popularArrow}>→</Text>
@@ -199,24 +205,44 @@ const styles = StyleSheet.create({
   content: { paddingBottom: 40 },
   header: { alignItems: 'center', paddingVertical: 24 },
   headerTitle: { fontSize: 28, fontWeight: 'bold', color: '#ffffff', marginBottom: 4 },
-  headerSubtitle: { fontSize: 14, color: '#a0a0b0' },
+  headerSubtitle: { fontSize: 13, color: '#a0a0b0' },
   selectorsRow: { flexDirection: 'row', paddingHorizontal: 12, marginTop: 8, zIndex: 10 },
-  vsMiddle: { justifyContent: 'center', alignItems: 'center', paddingHorizontal: 8, paddingTop: 28 },
-  vsText: { fontSize: 18, fontWeight: 'bold', color: '#a0a0b0' },
+  vsMiddle: { justifyContent: 'center', alignItems: 'center', paddingHorizontal: 6, paddingTop: 28 },
+  vsBubble: {
+    backgroundColor: '#2a2a4e',
+    borderRadius: 20,
+    width: 40,
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#f59e0b',
+  },
+  vsText: { fontSize: 14, fontWeight: 'bold', color: '#f59e0b' },
   selectorContainer: { marginBottom: 16 },
-  selectorLabel: { fontSize: 12, fontWeight: '600', color: '#a0a0b0', marginBottom: 8, textTransform: 'uppercase', letterSpacing: 1 },
-  searchInput: {
+  selectorLabel: { fontSize: 11, fontWeight: '700', color: '#a0a0b0', marginBottom: 8, textTransform: 'uppercase', letterSpacing: 1.5 },
+  searchInputWrap: {
+    flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: '#1a1a2e',
-    borderRadius: 10,
-    padding: 12,
-    color: '#ffffff',
-    fontSize: 14,
+    borderRadius: 16,
+    paddingHorizontal: 12,
     borderWidth: 1,
     borderColor: '#2a2a4e',
   },
+  searchIcon: {
+    fontSize: 14,
+    marginRight: 6,
+  },
+  searchInput: {
+    flex: 1,
+    padding: 12,
+    color: '#ffffff',
+    fontSize: 14,
+  },
   dropdown: {
     backgroundColor: '#1a1a2e',
-    borderRadius: 10,
+    borderRadius: 16,
     marginTop: 4,
     borderWidth: 1,
     borderColor: '#2a2a4e',
@@ -238,7 +264,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#1a1a2e',
-    borderRadius: 10,
+    borderRadius: 16,
     padding: 10,
     borderWidth: 1,
     borderColor: '#16a34a',
@@ -250,21 +276,26 @@ const styles = StyleSheet.create({
   changeBtn: { fontSize: 16, color: '#a0a0b0', paddingHorizontal: 8 },
   compareBtn: {
     backgroundColor: '#16a34a',
-    borderRadius: 12,
+    borderRadius: 16,
     marginHorizontal: 16,
     paddingVertical: 16,
     alignItems: 'center',
     marginTop: 8,
+    shadowColor: '#16a34a',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 4,
   },
   compareBtnText: { fontSize: 18, fontWeight: 'bold', color: '#ffffff' },
   popularSection: {
     marginTop: 32,
     marginHorizontal: 16,
     backgroundColor: '#1a1a2e',
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 16,
   },
-  popularTitle: { fontSize: 18, fontWeight: 'bold', color: '#ffffff', marginBottom: 12 },
+  popularTitle: { fontSize: 20, fontWeight: '700', color: '#ffffff', marginBottom: 12 },
   popularItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -273,6 +304,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#2a2a4e',
   },
-  popularLabel: { fontSize: 15, color: '#ffffff' },
-  popularArrow: { fontSize: 16, color: '#16a34a' },
+  popularLabel: { fontSize: 16, color: '#ffffff' },
+  popularArrow: { fontSize: 16, color: '#16a34a', fontWeight: 'bold' },
 });

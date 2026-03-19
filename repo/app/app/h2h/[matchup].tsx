@@ -5,17 +5,18 @@ import {
   ScrollView,
   Image,
   Dimensions,
-  ActivityIndicator,
 } from 'react-native';
 import { useLocalSearchParams, Stack } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
 import api from '../../lib/api';
 import { getAvatarUrl } from '../../lib/avatars';
 import { useLanguage } from '../../lib/i18n';
+import { SkeletonList, SkeletonBlock } from '../../lib/skeleton';
+import { EmptyState } from '../../lib/empty-state';
 import type { H2HData } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
-const AVATAR_SIZE = 88;
+const AVATAR_SIZE = 96;
 
 function SurfaceBar({
   label,
@@ -86,7 +87,6 @@ export default function H2HDetailScreen() {
   const { matchup } = useLocalSearchParams<{ matchup: string }>();
   const { getPlayerName } = useLanguage();
 
-  // Parse "1-vs-3" format
   const parts = matchup?.split('-vs-') || [];
   const p1Id = parseInt(parts[0]);
   const p2Id = parseInt(parts[1]);
@@ -102,18 +102,22 @@ export default function H2HDetailScreen() {
 
   if (isLoading) {
     return (
-      <View style={styles.center}>
+      <View style={styles.container}>
         <Stack.Screen options={{ title: 'H2H' }} />
-        <ActivityIndicator size="large" color="#16a34a" />
+        <View style={{ padding: 16, gap: 16 }}>
+          <SkeletonBlock width={SCREEN_WIDTH - 32} height={200} borderRadius={16} />
+          <SkeletonBlock width={SCREEN_WIDTH - 32} height={120} borderRadius={16} />
+          <SkeletonBlock width={SCREEN_WIDTH - 32} height={200} borderRadius={16} />
+        </View>
       </View>
     );
   }
 
   if (error || !data) {
     return (
-      <View style={styles.center}>
+      <View style={styles.container}>
         <Stack.Screen options={{ title: 'H2H' }} />
-        <Text style={styles.errorText}>Failed to load H2H data</Text>
+        <EmptyState message="Failed to load H2H data" icon="😞" />
       </View>
     );
   }
@@ -141,7 +145,9 @@ export default function H2HDetailScreen() {
           </View>
 
           <View style={styles.vsCol}>
-            <Text style={styles.vsLabel}>VS</Text>
+            <View style={styles.vsBubble}>
+              <Text style={styles.vsLabel}>VS</Text>
+            </View>
           </View>
 
           <View style={styles.playerCol}>
@@ -155,7 +161,7 @@ export default function H2HDetailScreen() {
           </View>
         </View>
 
-        {/* Total Record */}
+        {/* Total Record - Extra large numbers */}
         <View style={styles.recordSection}>
           <Text style={styles.sectionLabel}>HEAD TO HEAD</Text>
           <View style={styles.recordRow}>
@@ -166,11 +172,10 @@ export default function H2HDetailScreen() {
               <Text style={styles.recordDash}>—</Text>
               <Text style={styles.recordTotal}>{summary.totalMatches} matches</Text>
             </View>
-            <Text style={[styles.recordNum, p2Leading && styles.recordGreen]}>
+            <Text style={[styles.recordNum, p2Leading && styles.recordBlue]}>
               {summary.player2Wins}
             </Text>
           </View>
-          {/* Overall progress bar */}
           {summary.totalMatches > 0 && (
             <View style={styles.overallBar}>
               <View
@@ -216,11 +221,11 @@ export default function H2HDetailScreen() {
                   <Text style={styles.matchRound}>{m.round}</Text>
                 </View>
                 <View style={styles.matchMiddle}>
-                  <Text style={[styles.matchPlayerLabel, p1Won && styles.matchWinner]}>
+                  <Text style={[styles.matchPlayerLabel, p1Won && styles.matchWinner, !p1Won && styles.matchLoserText]}>
                     {p1.name.split(' ').pop()}
                   </Text>
                   <Text style={styles.matchScore}>{m.score}</Text>
-                  <Text style={[styles.matchPlayerLabel, !p1Won && styles.matchWinner]}>
+                  <Text style={[styles.matchPlayerLabel, !p1Won && styles.matchWinner, p1Won && styles.matchLoserText]}>
                     {p2.name.split(' ').pop()}
                   </Text>
                 </View>
@@ -232,7 +237,7 @@ export default function H2HDetailScreen() {
             );
           })}
           {matchHistory.length === 0 && (
-            <Text style={styles.noData}>No head-to-head matches found</Text>
+            <EmptyState message="No head-to-head matches found" icon="🎾" />
           )}
         </View>
       </ScrollView>
@@ -243,8 +248,6 @@ export default function H2HDetailScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#0f0f23' },
   content: { paddingBottom: 40 },
-  center: { flex: 1, backgroundColor: '#0f0f23', justifyContent: 'center', alignItems: 'center' },
-  errorText: { color: '#ef4444', fontSize: 16 },
 
   // Top section
   topSection: { flexDirection: 'row', alignItems: 'center', paddingVertical: 24, paddingHorizontal: 16 },
@@ -256,65 +259,81 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderColor: '#2a2a4e',
     marginBottom: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 6,
   },
   avatarLeading: { borderColor: '#16a34a' },
-  flag: { fontSize: 28, marginBottom: 4 },
+  flag: { fontSize: 30, marginBottom: 4 },
   playerName: { fontSize: 16, fontWeight: 'bold', color: '#ffffff', textAlign: 'center', marginBottom: 2 },
   playerRank: { fontSize: 14, color: '#16a34a', fontWeight: '600' },
-  vsCol: { paddingHorizontal: 12, justifyContent: 'center', alignItems: 'center' },
-  vsLabel: { fontSize: 22, fontWeight: 'bold', color: '#a0a0b0' },
+  vsCol: { paddingHorizontal: 10, justifyContent: 'center', alignItems: 'center' },
+  vsBubble: {
+    backgroundColor: '#2a2a4e',
+    borderRadius: 24,
+    width: 48,
+    height: 48,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#f59e0b',
+  },
+  vsLabel: { fontSize: 18, fontWeight: 'bold', color: '#f59e0b' },
 
   // Record section
   recordSection: {
     backgroundColor: '#1a1a2e',
     marginHorizontal: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 20,
     marginBottom: 16,
     alignItems: 'center',
   },
-  sectionLabel: { fontSize: 12, fontWeight: '700', color: '#a0a0b0', letterSpacing: 1.5, marginBottom: 16 },
+  sectionLabel: { fontSize: 11, fontWeight: '700', color: '#a0a0b0', letterSpacing: 2, marginBottom: 16 },
   recordRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center' },
-  recordNum: { fontSize: 48, fontWeight: 'bold', color: '#ffffff' },
+  recordNum: { fontSize: 52, fontWeight: 'bold', color: '#ffffff' },
   recordGreen: { color: '#16a34a' },
+  recordBlue: { color: '#3b82f6' },
   recordDivider: { alignItems: 'center', marginHorizontal: 20 },
   recordDash: { fontSize: 28, color: '#a0a0b0' },
-  recordTotal: { fontSize: 12, color: '#a0a0b0', marginTop: 4 },
+  recordTotal: { fontSize: 11, color: '#6b7280', marginTop: 4 },
   overallBar: {
     width: '100%',
-    height: 8,
+    height: 10,
     backgroundColor: '#3b82f6',
-    borderRadius: 4,
+    borderRadius: 5,
     overflow: 'hidden',
     marginTop: 16,
   },
-  overallBarFill: { height: '100%', borderRadius: 4 },
+  overallBarFill: { height: '100%', borderRadius: 5 },
 
   // Card
   card: {
     backgroundColor: '#1a1a2e',
     marginHorizontal: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 16,
     marginBottom: 16,
   },
-  cardTitle: { fontSize: 12, fontWeight: '700', color: '#a0a0b0', letterSpacing: 1.5, marginBottom: 16, textAlign: 'center' },
+  cardTitle: { fontSize: 12, fontWeight: '700', color: '#a0a0b0', letterSpacing: 2, marginBottom: 16, textAlign: 'center' },
 
   // Surface
   surfaceRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 10,
+    paddingVertical: 12,
     borderBottomWidth: 1,
     borderBottomColor: '#2a2a4e',
   },
   surfaceLabel: { width: 80, fontSize: 14, color: '#ffffff' },
   surfaceBarContainer: { flex: 1, marginHorizontal: 8 },
-  surfaceBarBg: { height: 8, backgroundColor: '#3b82f6', borderRadius: 4, overflow: 'hidden' },
-  surfaceBarFill: { height: '100%', borderRadius: 4 },
+  surfaceBarBg: { height: 10, backgroundColor: '#3b82f6', borderRadius: 5, overflow: 'hidden' },
+  surfaceBarFill: { height: '100%', borderRadius: 5 },
   surfaceScore: { width: 50, textAlign: 'right', fontSize: 14, color: '#ffffff' },
   winNum: { color: '#16a34a', fontWeight: 'bold' },
-  loseNum: { color: '#a0a0b0' },
+  loseNum: { color: '#6b7280' },
 
   // Comparison
   compRow: {
@@ -340,8 +359,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: 6,
   },
-  matchTournament: { fontSize: 12, fontWeight: '600', color: '#16a34a', textTransform: 'uppercase', flex: 1 },
-  matchRound: { fontSize: 12, color: '#a0a0b0' },
+  matchTournament: { fontSize: 11, fontWeight: '700', color: '#16a34a', textTransform: 'uppercase', flex: 1, letterSpacing: 0.5 },
+  matchRound: { fontSize: 11, color: '#a0a0b0' },
   matchMiddle: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -350,6 +369,7 @@ const styles = StyleSheet.create({
   },
   matchPlayerLabel: { flex: 1, fontSize: 14, color: '#a0a0b0', textAlign: 'center' },
   matchWinner: { color: '#16a34a', fontWeight: 'bold' },
+  matchLoserText: { color: '#6b7280' },
   matchScore: { fontSize: 13, fontWeight: '600', color: '#ffffff', textAlign: 'center', flex: 2 },
   matchBottom: {
     flexDirection: 'row',
@@ -357,5 +377,4 @@ const styles = StyleSheet.create({
   },
   matchDate: { fontSize: 11, color: '#6b7280' },
   matchSurface: { fontSize: 11, color: '#6b7280' },
-  noData: { fontSize: 14, color: '#a0a0b0', textAlign: 'center', paddingVertical: 20 },
 });

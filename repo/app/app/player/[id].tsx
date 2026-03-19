@@ -6,7 +6,6 @@ import {
   ScrollView,
   Image,
   Dimensions,
-  ActivityIndicator,
   TouchableOpacity,
 } from 'react-native';
 import { useLocalSearchParams, Stack, useRouter } from 'expo-router';
@@ -15,10 +14,12 @@ import Svg, { Polyline, Circle, Line, Text as SvgText } from 'react-native-svg';
 import api from '../../lib/api';
 import { getAvatarUrl } from '../../lib/avatars';
 import { useLanguage } from '../../lib/i18n';
+import { SkeletonList, SkeletonBlock } from '../../lib/skeleton';
+import { EmptyState } from '../../lib/empty-state';
 import type { PlayerDetail, MatchWithPlayers, SetStats } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
-const AVATAR_SIZE = Math.round(SCREEN_WIDTH * 0.4);
+const AVATAR_SIZE = Math.round(SCREEN_WIDTH * 0.35);
 const CHART_HEIGHT = 180;
 const PX_PER_POINT = 4;
 const MIN_CHART_WIDTH = SCREEN_WIDTH - 64;
@@ -40,9 +41,9 @@ function filterByRange(
   return history.filter((h) => h.month >= cutoff);
 }
 
-// ─── Ranking History Line Chart (react-native-svg) ───────────────────
+// ─── Ranking History Line Chart ──────────────────────────────────────
 
-function RankingChart({ history }: { history: { month: string; ranking: number }[] }) {
+function RankingChart({ history, currentRanking }: { history: { month: string; ranking: number }[]; currentRanking: number }) {
   const [timeRange, setTimeRange] = useState<TimeRange>('All');
   const scrollRef = useRef<ScrollView>(null);
 
@@ -55,7 +56,6 @@ function RankingChart({ history }: { history: { month: string; ranking: number }
   const paddingTop = 28;
   const paddingBottom = 32;
 
-  // Dynamic chart width based on data points
   const dynamicWidth = Math.max(
     MIN_CHART_WIDTH,
     paddingLeft + paddingRight + filtered.length * PX_PER_POINT,
@@ -75,15 +75,12 @@ function RankingChart({ history }: { history: { month: string; ranking: number }
   const polylinePoints = points.map((p) => `${p.x},${p.y}`).join(' ');
   const lastIdx = filtered.length - 1;
 
-  // Y-axis grid: ~4 ticks
   const tickCount = Math.min(4, range + 1);
   const yTicks: number[] = [];
   for (let i = 0; i < tickCount; i++) {
     yTicks.push(Math.round(minRank + (range * i) / (tickCount - 1)));
   }
 
-  // X-axis labels: auto density based on data count
-  // For many points show only years, for fewer show months
   const xLabels: { index: number; label: string }[] = [];
   const showMonths = filtered.length <= 36;
   const seenYears = new Set<string>();
@@ -93,16 +90,13 @@ function RankingChart({ history }: { history: { month: string; ranking: number }
     const mon = parseInt(h.month.slice(5), 10);
 
     if (showMonths) {
-      // Show every 3rd month
       if (mon % 3 === 1) {
         const MONTH_SHORT = ['Jan','','Mar','','','Jun','','','Sep','','','Dec'];
         xLabels.push({ index: i, label: mon === 1 ? year : MONTH_SHORT[mon - 1] || '' });
       }
     } else {
-      // Show January of each year (year labels)
       if (mon === 1 && !seenYears.has(year)) {
         seenYears.add(year);
-        // For very long careers, skip every other year
         const yearNum = parseInt(year, 10);
         if (filtered.length > 180) {
           if (yearNum % 2 === 0) xLabels.push({ index: i, label: year });
@@ -113,17 +107,19 @@ function RankingChart({ history }: { history: { month: string; ranking: number }
     }
   });
 
-  // Vertical grid lines at label positions
   const vGridIndices = xLabels.map((l) => l.index);
-
-  // Show dots only for sparse data or endpoints
   const showAllDots = filtered.length <= 36;
-
   const ranges: TimeRange[] = ['1Y', '5Y', '10Y', 'All'];
 
   return (
     <View style={styles.infoCard}>
-      <Text style={styles.sectionTitle}>Ranking History</Text>
+      {/* Current ranking big number */}
+      <View style={styles.currentRankHeader}>
+        <Text style={styles.currentRankNumber}>#{currentRanking}</Text>
+        <Text style={styles.currentRankLabel}>Current Ranking</Text>
+      </View>
+
+      <Text style={styles.sectionTitle}>📈 Ranking History</Text>
 
       {/* Time range pills */}
       <View style={styles.pillRow}>
@@ -132,13 +128,13 @@ function RankingChart({ history }: { history: { month: string; ranking: number }
             key={r}
             style={[styles.pill, timeRange === r && styles.pillActive]}
             onPress={() => setTimeRange(r)}
+            activeOpacity={0.7}
           >
             <Text style={[styles.pillText, timeRange === r && styles.pillTextActive]}>{r}</Text>
           </TouchableOpacity>
         ))}
       </View>
 
-      {/* Horizontally scrollable chart */}
       <ScrollView
         ref={scrollRef}
         horizontal
@@ -147,104 +143,30 @@ function RankingChart({ history }: { history: { month: string; ranking: number }
         style={{ marginTop: 8 }}
       >
         <Svg width={dynamicWidth} height={CHART_HEIGHT}>
-          {/* Horizontal grid lines */}
           {yTicks.map((rank) => (
-            <Line
-              key={`grid-${rank}`}
-              x1={paddingLeft}
-              y1={getY(rank)}
-              x2={dynamicWidth - paddingRight}
-              y2={getY(rank)}
-              stroke="#2a2a4e"
-              strokeWidth={1}
-            />
+            <Line key={`grid-${rank}`} x1={paddingLeft} y1={getY(rank)} x2={dynamicWidth - paddingRight} y2={getY(rank)} stroke="#2a2a4e" strokeWidth={1} />
           ))}
-          {/* Vertical grid lines at label positions */}
           {vGridIndices.map((idx) => (
-            <Line
-              key={`vgrid-${idx}`}
-              x1={getX(idx)}
-              y1={paddingTop}
-              x2={getX(idx)}
-              y2={paddingTop + plotH}
-              stroke="#2a2a4e"
-              strokeWidth={1}
-            />
+            <Line key={`vgrid-${idx}`} x1={getX(idx)} y1={paddingTop} x2={getX(idx)} y2={paddingTop + plotH} stroke="#2a2a4e" strokeWidth={1} />
           ))}
-          {/* Y-axis labels */}
           {yTicks.map((rank) => (
-            <SvgText
-              key={`ylabel-${rank}`}
-              x={paddingLeft - 6}
-              y={getY(rank) + 4}
-              fill="#a0a0b0"
-              fontSize={10}
-              textAnchor="end"
-            >
-              #{rank}
-            </SvgText>
+            <SvgText key={`ylabel-${rank}`} x={paddingLeft - 6} y={getY(rank) + 4} fill="#a0a0b0" fontSize={10} textAnchor="end">#{rank}</SvgText>
           ))}
-          {/* X-axis labels */}
           {xLabels.map(({ index, label }) => (
-            <SvgText
-              key={`xlabel-${index}`}
-              x={getX(index)}
-              y={CHART_HEIGHT - 4}
-              fill="#6b7280"
-              fontSize={9}
-              textAnchor="middle"
-            >
-              {label}
-            </SvgText>
+            <SvgText key={`xlabel-${index}`} x={getX(index)} y={CHART_HEIGHT - 4} fill="#6b7280" fontSize={9} textAnchor="middle">{label}</SvgText>
           ))}
-          {/* Line */}
-          <Polyline
-            points={polylinePoints}
-            fill="none"
-            stroke="#16a34a"
-            strokeWidth={2}
-            strokeLinejoin="round"
-            strokeLinecap="round"
-          />
-          {/* Data points */}
+          <Polyline points={polylinePoints} fill="none" stroke="#16a34a" strokeWidth={2} strokeLinejoin="round" strokeLinecap="round" />
           {showAllDots
             ? points.map((p, i) => {
                 const isLast = i === lastIdx;
                 return (
-                  <Circle
-                    key={`dot-${i}`}
-                    cx={p.x}
-                    cy={p.y}
-                    r={isLast ? 5 : 3}
-                    fill={isLast ? '#16a34a' : '#0f0f23'}
-                    stroke="#16a34a"
-                    strokeWidth={1.5}
-                  />
+                  <Circle key={`dot-${i}`} cx={p.x} cy={p.y} r={isLast ? 5 : 3} fill={isLast ? '#16a34a' : '#0f0f23'} stroke="#16a34a" strokeWidth={1.5} />
                 );
               })
-            : /* For dense data, just show first & last dot */
-              [0, lastIdx].map((i) => (
-                <Circle
-                  key={`dot-${i}`}
-                  cx={points[i].x}
-                  cy={points[i].y}
-                  r={i === lastIdx ? 5 : 3}
-                  fill={i === lastIdx ? '#16a34a' : '#0f0f23'}
-                  stroke="#16a34a"
-                  strokeWidth={1.5}
-                />
+            : [0, lastIdx].map((i) => (
+                <Circle key={`dot-${i}`} cx={points[i].x} cy={points[i].y} r={i === lastIdx ? 5 : 3} fill={i === lastIdx ? '#16a34a' : '#0f0f23'} stroke="#16a34a" strokeWidth={1.5} />
               ))}
-          {/* Current ranking label */}
-          <SvgText
-            x={points[lastIdx].x}
-            y={points[lastIdx].y - 10}
-            fill="#16a34a"
-            fontSize={11}
-            fontWeight="bold"
-            textAnchor="middle"
-          >
-            #{filtered[lastIdx].ranking}
-          </SvgText>
+          <SvgText x={points[lastIdx].x} y={points[lastIdx].y - 10} fill="#16a34a" fontSize={11} fontWeight="bold" textAnchor="middle">#{filtered[lastIdx].ranking}</SvgText>
         </Svg>
       </ScrollView>
     </View>
@@ -264,9 +186,8 @@ function RecordSection({ player }: { player: PlayerDetail }) {
 
   return (
     <View style={styles.infoCard}>
-      <Text style={styles.sectionTitle}>Win / Loss Record</Text>
+      <Text style={styles.sectionTitle}>📊 Win / Loss Record</Text>
 
-      {/* Season vs Career row */}
       <View style={styles.recordTopRow}>
         <View style={styles.recordBox}>
           <Text style={styles.recordWL}>
@@ -302,7 +223,6 @@ function RecordSection({ player }: { player: PlayerDetail }) {
         </View>
       </View>
 
-      {/* By surface */}
       <Text style={styles.subSectionTitle}>By Surface</Text>
       {surfaces.map((s) => (
         <View key={s.label} style={styles.surfaceRow}>
@@ -327,13 +247,16 @@ function BioSection({ player }: { player: PlayerDetail }) {
 
   return (
     <View style={styles.infoCard}>
-      <Text style={styles.sectionTitle}>Bio</Text>
-      {player.birthplace && <InfoRow label="Birthplace" value={player.birthplace} />}
-      {player.coach && <InfoRow label="Coach" value={player.coach} />}
+      <Text style={styles.sectionTitle}>📖 Bio</Text>
+      {player.birthplace && <InfoRow label="🏠 Birthplace" value={player.birthplace} />}
+      {player.coach && <InfoRow label="🎓 Coach" value={player.coach} />}
       {player.recentForm && (
         <View style={styles.recentFormContainer}>
           <Text style={styles.recentFormLabel}>Recent Form</Text>
-          <Text style={styles.recentFormText}>{player.recentForm}</Text>
+          <View style={styles.quoteContainer}>
+            <Text style={styles.quoteBar}>│</Text>
+            <Text style={styles.recentFormText}>{player.recentForm}</Text>
+          </View>
         </View>
       )}
     </View>
@@ -355,7 +278,7 @@ function SetStatsSection({ player }: { player: PlayerDetail }) {
 
   return (
     <View style={styles.infoCard}>
-      <Text style={styles.sectionTitle}>Set Statistics</Text>
+      <Text style={styles.sectionTitle}>🎯 Set Statistics</Text>
       {rows.map((row) => {
         const losses = row.data.total - row.data.wins;
         const barColor = row.highlight ? '#f59e0b' : '#16a34a';
@@ -404,8 +327,12 @@ export default function PlayerDetailScreen() {
 
   if (isLoading) {
     return (
-      <View style={styles.center}>
-        <ActivityIndicator size="large" color="#16a34a" />
+      <View style={styles.container}>
+        <View style={{ padding: 16, gap: 16 }}>
+          <SkeletonBlock width={SCREEN_WIDTH - 32} height={250} borderRadius={16} />
+          <SkeletonBlock width={SCREEN_WIDTH - 32} height={80} borderRadius={16} />
+          <SkeletonBlock width={SCREEN_WIDTH - 32} height={200} borderRadius={16} />
+        </View>
       </View>
     );
   }
@@ -413,7 +340,7 @@ export default function PlayerDetailScreen() {
   if (error || !player) {
     return (
       <View style={styles.center}>
-        <Text style={styles.errorText}>Failed to load player</Text>
+        <EmptyState message="Failed to load player" icon="😞" />
       </View>
     );
   }
@@ -424,9 +351,11 @@ export default function PlayerDetailScreen() {
     <>
       <Stack.Screen options={{ title: getPlayerName(player) }} />
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-        {/* Avatar Section */}
+        {/* Avatar Section with gradient-like background */}
         <View style={styles.avatarSection}>
-          <Image source={{ uri: avatarUrl }} style={styles.avatar} />
+          <View style={styles.avatarGradient}>
+            <Image source={{ uri: avatarUrl }} style={styles.avatar} />
+          </View>
           <Text style={styles.playerName}>
             {getPlayerName(player)} {player.countryFlag}
           </Text>
@@ -436,17 +365,20 @@ export default function PlayerDetailScreen() {
           <Text style={styles.rankingBig}>#{player.ranking}</Text>
         </View>
 
-        {/* Career Highlights */}
+        {/* Career Highlights with icons */}
         <View style={styles.highlightsRow}>
           <View style={styles.highlightBox}>
+            <Text style={styles.highlightIcon}>🏆</Text>
             <Text style={styles.highlightNumber}>{player.grandSlams}</Text>
             <Text style={styles.highlightLabel}>Grand Slams</Text>
           </View>
           <View style={styles.highlightBox}>
+            <Text style={styles.highlightIcon}>🎯</Text>
             <Text style={styles.highlightNumber}>{player.titles}</Text>
             <Text style={styles.highlightLabel}>Titles</Text>
           </View>
           <View style={styles.highlightBox}>
+            <Text style={styles.highlightIcon}>💰</Text>
             <Text style={styles.highlightNumber}>{player.prizeMoney}</Text>
             <Text style={styles.highlightLabel}>Prize Money</Text>
           </View>
@@ -456,6 +388,7 @@ export default function PlayerDetailScreen() {
         <TouchableOpacity
           style={styles.compareButton}
           onPress={() => router.push('/h2h' as any)}
+          activeOpacity={0.7}
         >
           <Text style={styles.compareButtonText}>⚔️ Compare with...</Text>
         </TouchableOpacity>
@@ -465,7 +398,7 @@ export default function PlayerDetailScreen() {
 
         {/* Ranking History Chart */}
         {player.rankingHistory && player.rankingHistory.length > 0 && (
-          <RankingChart history={player.rankingHistory} />
+          <RankingChart history={player.rankingHistory} currentRanking={player.ranking} />
         )}
 
         {/* Win/Loss Record */}
@@ -476,20 +409,20 @@ export default function PlayerDetailScreen() {
 
         {/* Player Info */}
         <View style={styles.infoCard}>
-          <Text style={styles.sectionTitle}>Player Info</Text>
-          <InfoRow label="Nationality" value={`${player.countryFlag} ${player.country}`} />
-          <InfoRow label="Height" value={`${player.height} cm`} />
-          <InfoRow label="Weight" value={`${player.weight} kg`} />
-          <InfoRow label="Plays" value={player.plays} />
-          <InfoRow label="Backhand" value={player.backhand} />
-          <InfoRow label="Turned Pro" value={String(player.turnedPro)} />
-          <InfoRow label="Career High" value={`#${player.careerHigh}`} />
+          <Text style={styles.sectionTitle}>ℹ️ Player Info</Text>
+          <InfoRow label="🌍 Nationality" value={`${player.countryFlag} ${player.country}`} />
+          <InfoRow label="📏 Height" value={`${player.height} cm`} />
+          <InfoRow label="⚖️ Weight" value={`${player.weight} kg`} />
+          <InfoRow label="🎾 Plays" value={player.plays} />
+          <InfoRow label="✋ Backhand" value={player.backhand} />
+          <InfoRow label="📅 Turned Pro" value={String(player.turnedPro)} />
+          <InfoRow label="⭐ Career High" value={`#${player.careerHigh}`} />
         </View>
 
         {/* Stats */}
         {player.stats && (
           <View style={styles.infoCard}>
-            <Text style={styles.sectionTitle}>Season Stats</Text>
+            <Text style={styles.sectionTitle}>📈 Season Stats</Text>
             <InfoRow label="Win-Loss" value={player.stats.winLoss} />
             <InfoRow label="Titles This Year" value={String(player.stats.titlesThisYear)} />
             <InfoRow label="Best Result" value={player.stats.bestResult} />
@@ -499,9 +432,14 @@ export default function PlayerDetailScreen() {
         {/* Recent Matches */}
         {player.recentMatches && player.recentMatches.length > 0 && (
           <View style={styles.infoCard}>
-            <Text style={styles.sectionTitle}>Recent Matches</Text>
+            <Text style={styles.sectionTitle}>⚡ Recent Matches</Text>
             {player.recentMatches.map((match: MatchWithPlayers) => (
-              <View key={match.id} style={styles.matchItem}>
+              <TouchableOpacity
+                key={match.id}
+                style={styles.matchItem}
+                onPress={() => router.push(`/match/${match.id}`)}
+                activeOpacity={0.7}
+              >
                 <View style={styles.matchHeader}>
                   <Text style={styles.matchTournament}>
                     {match.tournament?.name || 'Tournament'}
@@ -513,15 +451,17 @@ export default function PlayerDetailScreen() {
                     style={[
                       styles.matchPlayerName,
                       match.winnerId === match.player1Id && styles.matchWinner,
+                      match.winnerId !== match.player1Id && styles.matchLoser,
                     ]}
                   >
                     {match.player1 ? getPlayerName(match.player1) : `Player ${match.player1Id}`}
                   </Text>
-                  <Text style={styles.matchVs}>vs</Text>
+                  <Text style={styles.matchVs}>VS</Text>
                   <Text
                     style={[
                       styles.matchPlayerName,
                       match.winnerId === match.player2Id && styles.matchWinner,
+                      match.winnerId !== match.player2Id && styles.matchLoser,
                     ]}
                   >
                     {match.player2 ? getPlayerName(match.player2) : `Player ${match.player2Id}`}
@@ -529,7 +469,7 @@ export default function PlayerDetailScreen() {
                 </View>
                 <Text style={styles.matchScore}>{match.score}</Text>
                 <Text style={styles.matchDate}>{match.date}</Text>
-              </View>
+              </TouchableOpacity>
             ))}
           </View>
         )}
@@ -561,22 +501,33 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  errorText: {
-    color: '#ef4444',
-    fontSize: 16,
-  },
+
+  // Avatar Section
   avatarSection: {
     alignItems: 'center',
     paddingTop: 24,
     paddingBottom: 20,
+    backgroundColor: '#12122a',
+    borderBottomWidth: 1,
+    borderBottomColor: '#2a2a4e',
+  },
+  avatarGradient: {
+    padding: 4,
+    borderRadius: AVATAR_SIZE / 2 + 6,
+    backgroundColor: '#1a1a2e',
+    shadowColor: '#16a34a',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 12,
+    elevation: 8,
+    marginBottom: 16,
   },
   avatar: {
     width: AVATAR_SIZE,
     height: AVATAR_SIZE,
     borderRadius: AVATAR_SIZE / 2,
     borderWidth: 3,
-    borderColor: '#16a34a',
-    marginBottom: 16,
+    borderColor: '#ffffff',
   },
   playerName: {
     fontSize: 28,
@@ -590,13 +541,15 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   rankingBig: {
-    fontSize: 22,
+    fontSize: 28,
     fontWeight: 'bold',
-    color: '#16a34a',
+    color: '#f59e0b',
   },
+
+  // Compare button
   compareButton: {
     backgroundColor: '#1a1a2e',
-    borderRadius: 12,
+    borderRadius: 16,
     marginHorizontal: 16,
     marginBottom: 16,
     paddingVertical: 14,
@@ -609,21 +562,33 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#16a34a',
   },
+
+  // Highlights
   highlightsRow: {
     flexDirection: 'row',
     paddingHorizontal: 16,
     gap: 10,
+    marginTop: 16,
     marginBottom: 16,
   },
   highlightBox: {
     flex: 1,
     backgroundColor: '#1a1a2e',
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 14,
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  highlightIcon: {
+    fontSize: 24,
+    marginBottom: 6,
   },
   highlightNumber: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#16a34a',
     marginBottom: 4,
@@ -633,21 +598,23 @@ const styles = StyleSheet.create({
     color: '#a0a0b0',
     textAlign: 'center',
   },
+
+  // Info Card
   infoCard: {
     backgroundColor: '#1a1a2e',
-    borderRadius: 12,
+    borderRadius: 16,
     marginHorizontal: 16,
     marginBottom: 16,
     padding: 16,
   },
   sectionTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 20,
+    fontWeight: '700',
     color: '#16a34a',
     marginBottom: 12,
   },
   subSectionTitle: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '600',
     color: '#a0a0b0',
     marginTop: 12,
@@ -656,7 +623,7 @@ const styles = StyleSheet.create({
   infoRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingVertical: 8,
+    paddingVertical: 10,
     borderBottomWidth: 1,
     borderBottomColor: '#2a2a4e',
   },
@@ -673,7 +640,26 @@ const styles = StyleSheet.create({
     marginLeft: 12,
   },
 
-  // ── Chart pill styles ──
+  // Current Rank Header
+  currentRankHeader: {
+    alignItems: 'center',
+    marginBottom: 12,
+    paddingBottom: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: '#2a2a4e',
+  },
+  currentRankNumber: {
+    fontSize: 40,
+    fontWeight: 'bold',
+    color: '#f59e0b',
+  },
+  currentRankLabel: {
+    fontSize: 13,
+    color: '#a0a0b0',
+    marginTop: 2,
+  },
+
+  // Chart pill styles
   pillRow: {
     flexDirection: 'row',
     gap: 8,
@@ -700,7 +686,7 @@ const styles = StyleSheet.create({
     color: '#ffffff',
   },
 
-  // ── Record styles ──
+  // Record styles
   recordTopRow: {
     flexDirection: 'row',
     gap: 10,
@@ -709,7 +695,7 @@ const styles = StyleSheet.create({
   recordBox: {
     flex: 1,
     backgroundColor: '#0f0f23',
-    borderRadius: 10,
+    borderRadius: 12,
     padding: 12,
     alignItems: 'center',
   },
@@ -739,7 +725,7 @@ const styles = StyleSheet.create({
   surfaceRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 8,
+    paddingVertical: 10,
     borderBottomWidth: 1,
     borderBottomColor: '#2a2a4e',
   },
@@ -762,7 +748,7 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
 
-  // ── Set Stats styles ──
+  // Set Stats styles
   setStatRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -806,23 +792,34 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
 
-  // ── Bio styles ──
+  // Bio styles
   recentFormContainer: {
-    paddingVertical: 8,
+    paddingVertical: 10,
   },
   recentFormLabel: {
     fontSize: 14,
     color: '#a0a0b0',
-    marginBottom: 4,
+    marginBottom: 6,
+  },
+  quoteContainer: {
+    flexDirection: 'row',
+    paddingLeft: 4,
+  },
+  quoteBar: {
+    color: '#16a34a',
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginRight: 10,
   },
   recentFormText: {
     fontSize: 13,
     color: '#d0d0e0',
     lineHeight: 20,
     fontStyle: 'italic',
+    flex: 1,
   },
 
-  // ── Match styles ──
+  // Match styles
   matchItem: {
     paddingVertical: 12,
     borderBottomWidth: 1,
@@ -834,14 +831,15 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   matchTournament: {
-    fontSize: 12,
+    fontSize: 11,
     color: '#16a34a',
-    fontWeight: '600',
+    fontWeight: '700',
     textTransform: 'uppercase',
     flex: 1,
+    letterSpacing: 0.5,
   },
   matchRound: {
-    fontSize: 12,
+    fontSize: 11,
     color: '#a0a0b0',
   },
   matchPlayers: {
@@ -859,9 +857,13 @@ const styles = StyleSheet.create({
     color: '#16a34a',
     fontWeight: 'bold',
   },
+  matchLoser: {
+    color: '#6b7280',
+  },
   matchVs: {
-    color: '#a0a0b0',
+    color: '#f59e0b',
     fontSize: 12,
+    fontWeight: 'bold',
     marginHorizontal: 8,
   },
   matchScore: {
@@ -872,7 +874,7 @@ const styles = StyleSheet.create({
   },
   matchDate: {
     textAlign: 'center',
-    color: '#a0a0b0',
+    color: '#6b7280',
     fontSize: 11,
     marginTop: 4,
   },

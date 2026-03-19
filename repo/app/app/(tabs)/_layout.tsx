@@ -11,20 +11,20 @@ function TabIcon({ emoji, focused }: { emoji: string; focused: boolean }) {
 
 const tabStyles = StyleSheet.create({
   iconWrap: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
   },
   iconWrapActive: {
-    backgroundColor: 'rgba(22, 163, 74, 0.15)',
+    backgroundColor: 'rgba(22, 163, 74, 0.18)',
   },
   icon: {
     fontSize: 22,
   },
   iconActive: {
-    fontSize: 24,
+    fontSize: 26,
   },
 });
 
@@ -33,12 +33,12 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: '#16a34a',
-        tabBarInactiveTintColor: '#a0a0b0',
+        tabBarInactiveTintColor: '#6b7280',
         tabBarStyle: {
           backgroundColor: '#1a1a2e',
           borderTopColor: '#2a2a4e',
           borderTopWidth: 1,
-          height: 60,
+          height: 64,
           paddingBottom: 8,
           paddingTop: 4,
         },
@@ -67,14 +67,14 @@ export default function TabLayout() {
         name="players"
         options={{
           title: 'Players',
-          tabBarIcon: ({ focused }) => <TabIcon emoji="🎾" focused={focused} />,
+          tabBarIcon: ({ focused }) => <TabIcon emoji="📋" focused={focused} />,
         }}
       />
       <Tabs.Screen
         name="matches"
         options={{
           title: 'Matches',
-          tabBarIcon: ({ focused }) => <TabIcon emoji="⚔️" focused={focused} />,
+          tabBarIcon: ({ focused }) => <TabIcon emoji="🎾" focused={focused} />,
         }}
       />
       <Tabs.Screen

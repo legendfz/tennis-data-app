@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -5,6 +6,7 @@ import {
   ScrollView,
   Image,
   Dimensions,
+  Animated,
 } from 'react-native';
 import { useLocalSearchParams, Stack } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
@@ -16,7 +18,7 @@ import { EmptyState } from '../../lib/empty-state';
 import type { MatchWithPlayers, ProbabilitySnapshot } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
-const AVATAR_SIZE = Math.round(SCREEN_WIDTH * 0.22);
+const AVATAR_SIZE = Math.round(SCREEN_WIDTH * 0.24);
 
 const SURFACE_ICONS: Record<string, string> = {
   Hard: '🔵',
@@ -38,7 +40,8 @@ function parseScore(score: string): string[] {
   return score.split(',').map((s) => s.trim());
 }
 
-function StatBar({
+// Animated progress bar for stats comparison
+function StatBarComparison({
   label,
   value1,
   value2,
@@ -47,11 +50,44 @@ function StatBar({
   value1: string | number;
   value2: string | number;
 }) {
+  const animWidth = useRef(new Animated.Value(0)).current;
+  const v1 = typeof value1 === 'string' ? parseFloat(value1) : value1;
+  const v2 = typeof value2 === 'string' ? parseFloat(value2) : value2;
+  const total = v1 + v2;
+  const p1Pct = total > 0 ? (v1 / total) * 100 : 50;
+
+  useEffect(() => {
+    Animated.timing(animWidth, {
+      toValue: p1Pct,
+      duration: 800,
+      useNativeDriver: false,
+    }).start();
+  }, [p1Pct]);
+
+  const p1Better = v1 > v2;
+  const p2Better = v2 > v1;
+
   return (
-    <View style={styles.statRow}>
-      <Text style={styles.statValue}>{value1}</Text>
-      <Text style={styles.statLabel}>{label}</Text>
-      <Text style={styles.statValue}>{value2}</Text>
+    <View style={styles.statBarRow}>
+      <Text style={[styles.statBarValue, p1Better && styles.statBarValueWin]}>{value1}</Text>
+      <View style={styles.statBarMiddle}>
+        <Text style={styles.statBarLabel}>{label}</Text>
+        <View style={styles.statBarTrack}>
+          <Animated.View
+            style={[
+              styles.statBarFillLeft,
+              {
+                width: animWidth.interpolate({
+                  inputRange: [0, 100],
+                  outputRange: ['0%', '100%'],
+                }),
+                backgroundColor: p1Better ? '#16a34a' : '#3b82f6',
+              },
+            ]}
+          />
+        </View>
+      </View>
+      <Text style={[styles.statBarValue, p2Better && styles.statBarValueWin]}>{value2}</Text>
     </View>
   );
 }
@@ -63,14 +99,6 @@ interface ProbFactor {
   h2h: { p1: number; p2: number };
   fatigue: { p1: number; p2: number };
 }
-
-const FACTOR_LABELS: Record<string, string> = {
-  surface: '场地',
-  weather: '天气',
-  form: '状态',
-  h2h: '交手',
-  fatigue: '体能',
-};
 
 const FACTOR_LABELS_EN: Record<string, string> = {
   surface: 'Surface',
@@ -145,6 +173,32 @@ const factorStyles = StyleSheet.create({
   },
 });
 
+function AnimatedProbBar({ targetWidth, color }: { targetWidth: number; color: string }) {
+  const width = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.timing(width, {
+      toValue: targetWidth,
+      duration: 1000,
+      useNativeDriver: false,
+    }).start();
+  }, [targetWidth]);
+
+  return (
+    <Animated.View
+      style={{
+        height: '100%',
+        borderRadius: 6,
+        backgroundColor: color,
+        width: width.interpolate({
+          inputRange: [0, 100],
+          outputRange: ['0%', '100%'],
+        }),
+      }}
+    />
+  );
+}
+
 function WinProbabilityBar({
   p1Name,
   p2Name,
@@ -169,14 +223,9 @@ function WinProbabilityBar({
         </Text>
       </View>
       <View style={probStyles.barContainer}>
-        <View
-          style={[
-            probStyles.barFillLeft,
-            {
-              width: `${p1Prob}%`,
-              backgroundColor: p1Prob >= p2Prob ? '#16a34a' : '#3b82f6',
-            },
-          ]}
+        <AnimatedProbBar
+          targetWidth={p1Prob}
+          color={p1Prob >= p2Prob ? '#16a34a' : '#3b82f6'}
         />
       </View>
       <View style={probStyles.barLabels}>
@@ -220,9 +269,7 @@ function ProbabilityCurve({ snapshots, p1Name, p2Name }: {
         <Text style={{ color: '#3b82f6' }}>■</Text> {p2Name}
       </Text>
       <View style={[probStyles.curveChart, { width: chartWidth, height: chartHeight }]}>
-        {/* 50% line */}
         <View style={[probStyles.halfLine, { top: chartHeight / 2 }]} />
-        {/* Bars for each snapshot */}
         {snapshots.map((snap, i) => {
           const barHeight = (snap.p1 / 100) * chartHeight;
           return (
@@ -242,7 +289,6 @@ function ProbabilityCurve({ snapshots, p1Name, p2Name }: {
           );
         })}
       </View>
-      {/* X-axis labels */}
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <View style={{ flexDirection: 'row', width: chartWidth }}>
           {snapshots.map((snap, i) => (
@@ -250,10 +296,7 @@ function ProbabilityCurve({ snapshots, p1Name, p2Name }: {
               key={i}
               style={[
                 probStyles.curveLabel,
-                {
-                  width: stepWidth,
-                  textAlign: 'center',
-                },
+                { width: stepWidth, textAlign: 'center' },
               ]}
             >
               {snap.label}
@@ -268,7 +311,7 @@ function ProbabilityCurve({ snapshots, p1Name, p2Name }: {
 const probStyles = StyleSheet.create({
   section: {
     backgroundColor: '#1a1a2e',
-    borderRadius: 12,
+    borderRadius: 16,
     marginHorizontal: 16,
     marginBottom: 16,
     padding: 16,
@@ -286,14 +329,13 @@ const probStyles = StyleSheet.create({
   barLabel: { fontSize: 13, color: '#a0a0b0' },
   barLabelWin: { color: '#16a34a', fontWeight: 'bold' },
   barContainer: {
-    height: 12,
+    height: 14,
     backgroundColor: '#3b82f6',
-    borderRadius: 6,
+    borderRadius: 7,
     overflow: 'hidden',
     marginBottom: 4,
   },
-  barFillLeft: { height: '100%', borderRadius: 6 },
-  barPct: { fontSize: 15, fontWeight: 'bold', color: '#a0a0b0' },
+  barPct: { fontSize: 16, fontWeight: 'bold', color: '#a0a0b0' },
   barPctWin: { color: '#16a34a' },
   curveContainer: { marginTop: 16 },
   curveLegend: { fontSize: 11, color: '#a0a0b0', marginBottom: 8, textAlign: 'center' },
@@ -338,9 +380,9 @@ export default function MatchDetailScreen() {
       <View style={styles.container}>
         <Stack.Screen options={{ title: 'Match' }} />
         <View style={styles.skeletonWrap}>
-          <SkeletonBlock width={SCREEN_WIDTH - 32} height={200} />
-          <SkeletonBlock width={SCREEN_WIDTH - 32} height={80} />
-          <SkeletonBlock width={SCREEN_WIDTH - 32} height={160} />
+          <SkeletonBlock width={SCREEN_WIDTH - 32} height={200} borderRadius={16} />
+          <SkeletonBlock width={SCREEN_WIDTH - 32} height={80} borderRadius={16} />
+          <SkeletonBlock width={SCREEN_WIDTH - 32} height={160} borderRadius={16} />
         </View>
       </View>
     );
@@ -378,7 +420,7 @@ export default function MatchDetailScreen() {
           {match.court && <Text style={styles.courtText}>{match.court}</Text>}
         </View>
 
-        {/* Player Head-to-Head */}
+        {/* Player Head-to-Head with VS */}
         <View style={styles.h2hSection}>
           {/* Player 1 */}
           <View style={styles.playerSide}>
@@ -405,7 +447,7 @@ export default function MatchDetailScreen() {
             <Text style={styles.h2hRank}>
               #{match.player1?.ranking || '?'}
             </Text>
-            {p1Won && <Text style={styles.winBadge}>WINNER</Text>}
+            {p1Won && <Text style={styles.winBadge}>🏆 WINNER</Text>}
           </View>
 
           <View style={styles.vsContainer}>
@@ -437,7 +479,7 @@ export default function MatchDetailScreen() {
             <Text style={styles.h2hRank}>
               #{match.player2?.ranking || '?'}
             </Text>
-            {p2Won && <Text style={styles.winBadge}>WINNER</Text>}
+            {p2Won && <Text style={styles.winBadge}>🏆 WINNER</Text>}
           </View>
         </View>
 
@@ -445,43 +487,48 @@ export default function MatchDetailScreen() {
         <View style={styles.scoreSection}>
           <Text style={styles.scoreSectionTitle}>SCORE</Text>
           <View style={styles.setsRow}>
-            {sets.map((set, idx) => (
-              <View key={idx} style={styles.setBox}>
-                <Text style={styles.setLabel}>Set {idx + 1}</Text>
-                <Text style={styles.setScore}>{set}</Text>
-              </View>
-            ))}
+            {sets.map((set, idx) => {
+              const isLast = idx === sets.length - 1;
+              return (
+                <View key={idx} style={[styles.setBox, isLast && styles.setBoxCurrent]}>
+                  <Text style={styles.setLabel}>Set {idx + 1}</Text>
+                  <Text style={[styles.setScore, !isLast && styles.setScoreFinished]}>
+                    {set}
+                  </Text>
+                </View>
+              );
+            })}
           </View>
           <Text style={styles.fullScore}>{match.score}</Text>
         </View>
 
-        {/* Match Stats */}
+        {/* Match Stats with progress bars */}
         {match.statsJson && (
           <View style={styles.statsSection}>
-            <Text style={styles.statsSectionTitle}>MATCH STATISTICS</Text>
+            <Text style={styles.statsSectionTitle}>📊 MATCH STATISTICS</Text>
             {match.statsJson.player1?.aces !== undefined && (
-              <StatBar
+              <StatBarComparison
                 label="Aces"
                 value1={match.statsJson.player1.aces}
                 value2={match.statsJson.player2.aces}
               />
             )}
             {match.statsJson.player1?.doubleFaults !== undefined && (
-              <StatBar
+              <StatBarComparison
                 label="Double Faults"
                 value1={match.statsJson.player1.doubleFaults}
                 value2={match.statsJson.player2.doubleFaults}
               />
             )}
             {match.statsJson.player1?.firstServePercent !== undefined && (
-              <StatBar
+              <StatBarComparison
                 label="1st Serve %"
                 value1={`${match.statsJson.player1.firstServePercent}%`}
                 value2={`${match.statsJson.player2.firstServePercent}%`}
               />
             )}
             {match.statsJson.player1?.breakPointsConverted !== undefined && (
-              <StatBar
+              <StatBarComparison
                 label="Break Points"
                 value1={match.statsJson.player1.breakPointsConverted}
                 value2={match.statsJson.player2.breakPointsConverted}
@@ -532,7 +579,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#2a2a4e',
   },
   tournamentName: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#ffffff',
     marginBottom: 4,
@@ -544,12 +591,12 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   dateText: {
-    fontSize: 12,
+    fontSize: 11,
     color: '#a0a0b0',
   },
   courtText: {
-    fontSize: 12,
-    color: '#a0a0b0',
+    fontSize: 11,
+    color: '#6b7280',
     marginTop: 2,
   },
   h2hSection: {
@@ -569,12 +616,19 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderColor: '#2a2a4e',
     marginBottom: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 6,
   },
   winnerAvatar: {
     borderColor: '#16a34a',
+    shadowColor: '#16a34a',
+    shadowOpacity: 0.4,
   },
   playerFlag: {
-    fontSize: 24,
+    fontSize: 26,
     marginBottom: 4,
   },
   h2hName: {
@@ -597,24 +651,30 @@ const styles = StyleSheet.create({
     marginTop: 6,
     backgroundColor: '#16a34a',
     color: '#ffffff',
-    fontSize: 10,
+    fontSize: 11,
     fontWeight: 'bold',
-    paddingHorizontal: 8,
-    paddingVertical: 3,
-    borderRadius: 4,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 8,
     overflow: 'hidden',
   },
   vsContainer: {
     paddingHorizontal: 8,
+    backgroundColor: '#2a2a4e',
+    borderRadius: 20,
+    width: 48,
+    height: 48,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   vsBig: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
-    color: '#a0a0b0',
+    color: '#f59e0b',
   },
   scoreSection: {
     backgroundColor: '#1a1a2e',
-    borderRadius: 12,
+    borderRadius: 16,
     marginHorizontal: 16,
     marginBottom: 16,
     padding: 16,
@@ -636,11 +696,16 @@ const styles = StyleSheet.create({
   },
   setBox: {
     backgroundColor: '#0f0f23',
-    borderRadius: 8,
+    borderRadius: 12,
     paddingHorizontal: 16,
     paddingVertical: 10,
     alignItems: 'center',
-    minWidth: 60,
+    minWidth: 64,
+  },
+  setBoxCurrent: {
+    borderWidth: 1,
+    borderColor: '#f59e0b',
+    backgroundColor: 'rgba(245, 158, 11, 0.08)',
   },
   setLabel: {
     fontSize: 10,
@@ -648,48 +713,70 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   setScore: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: 'bold',
     color: '#ffffff',
   },
-  fullScore: {
-    fontSize: 14,
-    color: '#a0a0b0',
+  setScoreFinished: {
+    color: '#6b7280',
   },
+  fullScore: {
+    fontSize: 13,
+    color: '#6b7280',
+  },
+
+  // Stats with progress bars
   statsSection: {
     backgroundColor: '#1a1a2e',
-    borderRadius: 12,
+    borderRadius: 16,
     marginHorizontal: 16,
     marginBottom: 16,
     padding: 16,
   },
   statsSectionTitle: {
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: '700',
     color: '#a0a0b0',
     letterSpacing: 1,
     marginBottom: 16,
     textAlign: 'center',
   },
-  statRow: {
+  statBarRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#2a2a4e',
+    marginBottom: 14,
+    gap: 10,
   },
-  statLabel: {
-    fontSize: 13,
-    color: '#a0a0b0',
-    textAlign: 'center',
-    flex: 1,
-  },
-  statValue: {
+  statBarValue: {
+    width: 50,
     fontSize: 16,
     fontWeight: 'bold',
     color: '#ffffff',
-    width: 80,
     textAlign: 'center',
+  },
+  statBarValueWin: {
+    color: '#16a34a',
+  },
+  statBarMiddle: {
+    flex: 1,
+  },
+  statBarLabel: {
+    fontSize: 11,
+    color: '#a0a0b0',
+    textAlign: 'center',
+    marginBottom: 4,
+    fontWeight: '600',
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+  },
+  statBarTrack: {
+    height: 10,
+    backgroundColor: '#3b82f6',
+    borderRadius: 5,
+    overflow: 'hidden',
+  },
+  statBarFillLeft: {
+    height: '100%',
+    borderRadius: 5,
   },
 });

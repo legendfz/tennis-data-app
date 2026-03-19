@@ -4,13 +4,14 @@ import {
   Text,
   FlatList,
   StyleSheet,
-  ActivityIndicator,
   TouchableOpacity,
   RefreshControl,
 } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'expo-router';
 import api from '../../lib/api';
+import { SkeletonList } from '../../lib/skeleton';
+import { EmptyState } from '../../lib/empty-state';
 import type { Tournament } from '../../../shared/types';
 
 const SURFACE_COLORS: Record<string, string> = {
@@ -49,17 +50,19 @@ export default function TournamentsScreen() {
 
   if (isLoading) {
     return (
-      <View style={styles.center}>
-        <ActivityIndicator size="large" color="#16a34a" />
+      <View style={styles.container}>
+        <SkeletonList count={5} cardHeight={120} />
       </View>
     );
   }
 
   if (error) {
     return (
-      <View style={styles.center}>
-        <Text style={styles.errorText}>Failed to load tournaments</Text>
-      </View>
+      <EmptyState
+        message="Failed to load tournaments"
+        icon="😞"
+        subtitle={(error as Error).message}
+      />
     );
   }
 
@@ -101,6 +104,9 @@ export default function TournamentsScreen() {
           </TouchableOpacity>
         )}
         contentContainerStyle={styles.list}
+        ListEmptyComponent={
+          <EmptyState message="No tournaments found" icon="🏆" />
+        }
       />
     </View>
   );
@@ -111,20 +117,19 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#0f0f23',
   },
-  center: {
-    flex: 1,
-    backgroundColor: '#0f0f23',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   list: {
     padding: 16,
   },
   card: {
     backgroundColor: '#1a1a2e',
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 16,
     marginBottom: 12,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 4,
+    elevation: 2,
   },
   header: {
     flexDirection: 'row',
@@ -139,9 +144,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   surfaceBadge: {
-    borderRadius: 6,
-    paddingHorizontal: 10,
-    paddingVertical: 4,
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 5,
   },
   surfaceText: {
     color: '#ffffff',
@@ -160,11 +165,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   dates: {
-    color: '#a0a0b0',
-    fontSize: 12,
-  },
-  errorText: {
-    color: '#ef4444',
-    fontSize: 16,
+    color: '#6b7280',
+    fontSize: 11,
   },
 });
