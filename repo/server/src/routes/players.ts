@@ -18,6 +18,12 @@ function getSurface(tournamentId: number): string {
 router.get('/', (req: Request, res: Response) => {
   let players = [...mockPlayers];
 
+  // Filter by tour (ATP/WTA/ALL)
+  const tour = (req.query.tour as string || '').toUpperCase();
+  if (tour === 'ATP' || tour === 'WTA') {
+    players = players.filter((p) => (p as any).tour === tour);
+  }
+
   // Search by name or country
   const search = req.query.search as string | undefined;
   if (search) {
@@ -38,7 +44,7 @@ router.get('/', (req: Request, res: Response) => {
   }
 
   // Pagination
-  const limit = parseInt(String(req.query.limit)) || 50;
+  const limit = parseInt(String(req.query.limit)) || 200;
   const offset = parseInt(String(req.query.offset)) || 0;
   const total = players.length;
   players = players.slice(offset, offset + limit);

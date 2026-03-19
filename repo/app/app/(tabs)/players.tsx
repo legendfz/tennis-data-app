@@ -28,8 +28,12 @@ function getInitials(name: string): string {
   return name.slice(0, 2).toUpperCase();
 }
 
+const TOUR_FILTERS = ['ALL', 'ATP', 'WTA'] as const;
+type TourFilter = typeof TOUR_FILTERS[number];
+
 export default function PlayersScreen() {
   const [search, setSearch] = useState('');
+  const [tourFilter, setTourFilter] = useState<TourFilter>('ALL');
   const [hotTags, setHotTags] = useState<Record<number, { tag: string; emoji: string; count: number }>>({});
   const router = useRouter();
   const { getPlayerName } = useLanguage();
@@ -39,9 +43,10 @@ export default function PlayersScreen() {
   }, []);
 
   const { data, isLoading, error, refetch } = useQuery<{ data: Player[] }>({
-    queryKey: ['players'],
+    queryKey: ['players', tourFilter],
     queryFn: async () => {
-      const res = await api.get('/api/players');
+      const params = tourFilter !== 'ALL' ? `?tour=${tourFilter}` : '';
+      const res = await api.get(`/api/players${params}`);
       return res.data;
     },
   });
@@ -105,6 +110,21 @@ export default function PlayersScreen() {
             <Text style={styles.clearText}>\u00D7</Text>
           </TouchableOpacity>
         )}
+      </View>
+
+      <View style={styles.tourFilterRow}>
+        {TOUR_FILTERS.map((tf) => (
+          <TouchableOpacity
+            key={tf}
+            style={[styles.tourPill, tourFilter === tf && styles.tourPillActive]}
+            onPress={() => setTourFilter(tf)}
+            activeOpacity={theme.activeOpacity}
+          >
+            <Text style={[styles.tourPillText, tourFilter === tf && styles.tourPillTextActive]}>
+              {tf}
+            </Text>
+          </TouchableOpacity>
+        ))}
       </View>
 
       <FlatList
@@ -181,6 +201,32 @@ const styles = StyleSheet.create({
     color: theme.text,
     paddingHorizontal: theme.spacing.padding,
     paddingBottom: 4,
+  },
+  tourFilterRow: {
+    flexDirection: 'row',
+    paddingHorizontal: theme.spacing.padding,
+    gap: 8,
+    marginBottom: 8,
+  },
+  tourPill: {
+    paddingHorizontal: 16,
+    paddingVertical: 6,
+    borderRadius: 16,
+    backgroundColor: theme.card,
+    minHeight: 32,
+    justifyContent: 'center',
+  },
+  tourPillActive: {
+    backgroundColor: theme.accent,
+  },
+  tourPillText: {
+    fontSize: 13,
+    fontWeight: theme.fontWeight.medium as any,
+    color: theme.textMuted,
+  },
+  tourPillTextActive: {
+    color: theme.text,
+    fontWeight: theme.fontWeight.semibold as any,
   },
   searchWrap: {
     marginHorizontal: theme.spacing.padding,

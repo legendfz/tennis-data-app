@@ -79,6 +79,7 @@ export interface Player {
   grandSlams: number;
   careerHigh: number;
   prizeMoney: string;
+  tour?: "ATP" | "WTA";
   birthplace?: string;
   coach?: string;
   recentForm?: string;

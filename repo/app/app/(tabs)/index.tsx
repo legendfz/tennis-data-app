@@ -76,8 +76,12 @@ function getDatePills(): { label: string; date: string }[] {
   return pills;
 }
 
+const TOUR_FILTERS = ['ALL', 'ATP', 'WTA'] as const;
+type TourFilter = typeof TOUR_FILTERS[number];
+
 export default function HomeScreen() {
   const router = useRouter();
+  const [tourFilter, setTourFilter] = useState<TourFilter>('ALL');
   const { getPlayerName } = useLanguage();
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().slice(0, 10));
   const datePills = useMemo(() => getDatePills(), []);
@@ -109,9 +113,18 @@ export default function HomeScreen() {
     setRefreshing(false);
   }, [refetchMatches]);
 
-  const allMatches: MatchWithPlayers[] =
+  const rawMatches: MatchWithPlayers[] =
     matchesData?.data ??
     (Array.isArray(matchesData) ? (matchesData as MatchWithPlayers[]) : []);
+
+  const allMatches = useMemo(() => {
+    if (tourFilter === 'ALL') return rawMatches;
+    return rawMatches.filter((m) => {
+      const p1Tour = (m.player1 as any)?.tour;
+      const p2Tour = (m.player2 as any)?.tour;
+      return p1Tour === tourFilter || p2Tour === tourFilter;
+    });
+  }, [rawMatches, tourFilter]);
 
   // Matches involving followed players
   const favoriteSet = useMemo(() => new Set(favoriteIds), [favoriteIds]);
@@ -265,6 +278,22 @@ export default function HomeScreen() {
         <TennisBallIcon size={16} />
       </View>
 
+      {/* Tour Filter Pills */}
+      <View style={styles.tourFilterRow}>
+        {TOUR_FILTERS.map((tf) => (
+          <TouchableOpacity
+            key={tf}
+            style={[styles.tourPill, tourFilter === tf && styles.tourPillActive]}
+            onPress={() => setTourFilter(tf)}
+            activeOpacity={theme.activeOpacity}
+          >
+            <Text style={[styles.tourPillText, tourFilter === tf && styles.tourPillTextActive]}>
+              {tf}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+
       {/* Date Selector Pills */}
       <ScrollView
         horizontal
@@ -365,6 +394,34 @@ const styles = StyleSheet.create({
     fontSize: theme.fontSize.pageTitle,
     fontWeight: theme.fontWeight.bold,
     color: theme.text,
+  },
+
+  // Tour Filter
+  tourFilterRow: {
+    flexDirection: 'row',
+    paddingHorizontal: 12,
+    gap: 8,
+    paddingTop: 4,
+  },
+  tourPill: {
+    paddingHorizontal: 16,
+    paddingVertical: 6,
+    borderRadius: 16,
+    backgroundColor: theme.card,
+    minHeight: 32,
+    justifyContent: 'center',
+  },
+  tourPillActive: {
+    backgroundColor: theme.accent,
+  },
+  tourPillText: {
+    fontSize: 13,
+    fontWeight: theme.fontWeight.medium,
+    color: theme.textMuted,
+  },
+  tourPillTextActive: {
+    color: theme.text,
+    fontWeight: theme.fontWeight.semibold,
   },
 
   // Date Pills
