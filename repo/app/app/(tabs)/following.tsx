@@ -24,7 +24,7 @@ import type { Player } from '../../../shared/types';
 export default function FollowingScreen() {
   const [favoriteIds, setFavoriteIds] = useState<number[]>([]);
   const router = useRouter();
-  const { getPlayerName } = useLanguage();
+  const { getPlayerName, t } = useLanguage();
 
   useFocusEffect(
     useCallback(() => {
@@ -53,7 +53,7 @@ export default function FollowingScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.pageTitle}>Following</Text>
+      <Text style={styles.pageTitle}>{t('following')}</Text>
       <FlatList
         data={favPlayers}
         keyExtractor={(item) => item.id.toString()}
@@ -87,8 +87,8 @@ export default function FollowingScreen() {
         ItemSeparatorComponent={() => <View style={styles.separator} />}
         ListEmptyComponent={
           <EmptyState
-            message="No followed players"
-            subtitle="Follow players from their profile page"
+            message={t('noFollowedPlayers')}
+            subtitle={t('followFromProfile')}
             illustration={<EmptyFavoritesIllustration size={120} />}
           />
         }

@@ -1,6 +1,7 @@
 import { Tabs } from 'expo-router';
 import { Text, StyleSheet, View } from 'react-native';
 import { theme } from '../../lib/theme';
+import { useLanguage } from '../../lib/i18n';
 import {
   MatchesIcon,
   PlayersIcon,
@@ -58,6 +59,8 @@ const tabStyles = StyleSheet.create({
 });
 
 export default function TabLayout() {
+  const { t } = useLanguage();
+
   return (
     <Tabs
       screenOptions={{
@@ -87,49 +90,49 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Matches',
+          title: t('matches'),
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <TabIcon label="Matches" focused={focused} icon={MatchesIcon} />
+            <TabIcon label={t('matches')} focused={focused} icon={MatchesIcon} />
           ),
         }}
       />
       <Tabs.Screen
         name="players"
         options={{
-          title: 'Players',
+          title: t('players'),
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <TabIcon label="Players" focused={focused} icon={PlayersIcon} />
+            <TabIcon label={t('players')} focused={focused} icon={PlayersIcon} />
           ),
         }}
       />
       <Tabs.Screen
         name="tournaments"
         options={{
-          title: 'Tournaments',
+          title: t('tournaments'),
           tabBarIcon: ({ focused }) => (
-            <TabIcon label="Events" focused={focused} icon={TournamentsIcon} />
+            <TabIcon label={t('events')} focused={focused} icon={TournamentsIcon} />
           ),
         }}
       />
       <Tabs.Screen
         name="h2h"
         options={{
-          title: 'H2H',
+          title: t('h2h'),
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <TabIcon label="H2H" focused={focused} icon={H2HIcon} />
+            <TabIcon label={t('h2h')} focused={focused} icon={H2HIcon} />
           ),
         }}
       />
       <Tabs.Screen
         name="following"
         options={{
-          title: 'Following',
+          title: t('following'),
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <TabIcon label="Following" focused={focused} icon={FollowingIcon} />
+            <TabIcon label={t('following')} focused={focused} icon={FollowingIcon} />
           ),
         }}
       />

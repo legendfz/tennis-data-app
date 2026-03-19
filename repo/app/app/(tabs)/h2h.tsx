@@ -76,7 +76,7 @@ function PlayerSelector({
         <View>
           <TextInput
             style={styles.searchInput}
-            placeholder="Search player..."
+            placeholder={t('searchPlayer')}
             placeholderTextColor={theme.textSecondary}
             value={search}
             onChangeText={(t) => {
@@ -120,25 +120,25 @@ function PlayerSelector({
 
 export default function H2HTabScreen() {
   const router = useRouter();
-  const { getPlayerName } = useLanguage();
+  const { getPlayerName, t } = useLanguage();
   const [player1, setPlayer1] = useState<Player | null>(null);
   const [player2, setPlayer2] = useState<Player | null>(null);
   const canCompare = player1 && player2;
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-      <Text style={styles.pageTitle}>Head to Head</Text>
-      <Text style={styles.subtitle}>Compare two players</Text>
+      <Text style={styles.pageTitle}>{t('headToHead')}</Text>
+      <Text style={styles.subtitle}>{t('compareTwoPlayers')}</Text>
 
       <View style={styles.selectorsRow}>
         <View style={{ flex: 1 }}>
-          <PlayerSelector label="Player 1" selectedPlayer={player1} onSelect={setPlayer1} excludeId={player2?.id} localizedName={getPlayerName} />
+          <PlayerSelector label={t('player1')} selectedPlayer={player1} onSelect={setPlayer1} excludeId={player2?.id} localizedName={getPlayerName} />
         </View>
         <View style={styles.vsMiddle}>
-          <Text style={styles.vsText}>VS</Text>
+          <Text style={styles.vsText}>{t('vs')}</Text>
         </View>
         <View style={{ flex: 1 }}>
-          <PlayerSelector label="Player 2" selectedPlayer={player2} onSelect={setPlayer2} excludeId={player1?.id} localizedName={getPlayerName} />
+          <PlayerSelector label={t('player2')} selectedPlayer={player2} onSelect={setPlayer2} excludeId={player1?.id} localizedName={getPlayerName} />
         </View>
       </View>
 
@@ -148,12 +148,12 @@ export default function H2HTabScreen() {
           onPress={() => router.push(`/h2h/${player1!.id}-vs-${player2!.id}` as any)}
           activeOpacity={theme.activeOpacity}
         >
-          <Text style={styles.compareBtnText}>Compare</Text>
+          <Text style={styles.compareBtnText}>{t('compare')}</Text>
         </TouchableOpacity>
       )}
 
       <View style={styles.popularSection}>
-        <Text style={styles.popularTitle}>Popular Matchups</Text>
+        <Text style={styles.popularTitle}>{t('popularMatchups')}</Text>
         {[
           { p1: 2, p2: 3, label: 'Djokovic vs Alcaraz' },
           { p1: 1, p2: 3, label: 'Sinner vs Alcaraz' },

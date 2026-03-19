@@ -20,7 +20,7 @@ import api from '../../lib/api';
 import { getPlayerAvatarUrl } from '../../lib/avatars';
 import { PlayerAvatar } from '../../lib/player-avatar';
 import { Flag } from '../../lib/flags';
-import { useLanguage } from '../../lib/i18n';
+import { useLanguage, TranslationKey } from '../../lib/i18n';
 import { SkeletonBlock } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
 import { isFavorite, toggleFavorite } from '../../lib/favorites';
@@ -75,6 +75,7 @@ function filterByRange(
 
 // ─── Ranking Chart ───────────────────────────────────────────────────
 function RankingChart({ history, careerHigh, careerHighDate }: { history: { month: string; ranking: number }[]; careerHigh?: number; careerHighDate?: string }) {
+  const { t } = useLanguage();
   const [timeRange, setTimeRange] = useState<TimeRange>('All');
   const scrollRef = useRef<ScrollView>(null);
   const filtered = useMemo(() => filterByRange(history, timeRange), [history, timeRange]);
@@ -124,7 +125,7 @@ function RankingChart({ history, careerHigh, careerHighDate }: { history: { mont
 
   return (
     <View style={styles.card}>
-      <Text style={styles.cardTitle}>Ranking History</Text>
+      <Text style={styles.cardTitle}>{t('rankingHistory')}</Text>
       <View style={styles.pillRow}>
         {ranges.map((r) => (
           <TouchableOpacity
@@ -139,7 +140,7 @@ function RankingChart({ history, careerHigh, careerHighDate }: { history: { mont
       </View>
       {careerHigh != null && (
         <View style={{ flexDirection: 'row', alignItems: 'baseline', marginTop: 8, marginBottom: 4, paddingHorizontal: 4, gap: 6 }}>
-          <Text style={{ color: theme.textSecondary, fontSize: 12 }}>Career High:</Text>
+          <Text style={{ color: theme.textSecondary, fontSize: 12 }}>{t('careerHigh')}:</Text>
           <Text style={{ color: theme.gold, fontSize: 22, fontWeight: '700' }}>#{careerHigh}</Text>
           {careerHighDate && (
             <Text style={{ color: theme.textSecondary, fontSize: 12 }}>
@@ -194,7 +195,8 @@ function MatchRow({ result, children }: { result?: 'W' | 'L'; children: React.Re
 }
 
 function GrandSlamsPanel({ data, router }: { data: GrandSlamEntry[]; router: any }) {
-  if (!data || data.length === 0) return <Text style={styles.detailEmpty}>No grand slam data</Text>;
+  const { t } = useLanguage();
+  if (!data || data.length === 0) return <Text style={styles.detailEmpty}>{t('noGrandSlamData')}</Text>;
   return (
     <View style={styles.detailPanel}>
       {data.map((gs, i) => (
@@ -222,7 +224,8 @@ function GrandSlamsPanel({ data, router }: { data: GrandSlamEntry[]; router: any
 }
 
 function TitlesPanel({ data, router }: { data: TitleEntry[]; router: any }) {
-  if (!data || data.length === 0) return <Text style={styles.detailEmpty}>No titles data</Text>;
+  const { t } = useLanguage();
+  if (!data || data.length === 0) return <Text style={styles.detailEmpty}>{t('noTitlesData')}</Text>;
   const grouped = data.reduce((acc, t) => {
     if (!acc[t.year]) acc[t.year] = [];
     acc[t.year].push(t);
@@ -259,7 +262,8 @@ function TitlesPanel({ data, router }: { data: TitleEntry[]; router: any }) {
 }
 
 function WinRatePanel({ data }: { data: WinRateByYear[] }) {
-  if (!data || data.length === 0) return <Text style={styles.detailEmpty}>No win rate data</Text>;
+  const { t } = useLanguage();
+  if (!data || data.length === 0) return <Text style={styles.detailEmpty}>{t('noWinRateData')}</Text>;
   return (
     <View style={styles.detailPanel}>
       {data.map((yr, i) => (
@@ -277,7 +281,8 @@ function WinRatePanel({ data }: { data: WinRateByYear[] }) {
 }
 
 function SeasonMatchesPanel({ data, router }: { data: SeasonMatchEntry[]; router: any }) {
-  if (!data || data.length === 0) return <Text style={styles.detailEmpty}>No season data</Text>;
+  const { t } = useLanguage();
+  if (!data || data.length === 0) return <Text style={styles.detailEmpty}>{t('noSeasonData')}</Text>;
   return (
     <View style={styles.detailPanel}>
       {data.map((m, i) => (
@@ -312,6 +317,7 @@ function SeasonMatchesPanel({ data, router }: { data: SeasonMatchEntry[]; router
 }
 
 function PrizeMoneyPanel({ prizeMoney }: { prizeMoney?: string }) {
+  const { t } = useLanguage();
   // Mock seasonal prize money data
   const seasonalData = [
     { year: 2024, amount: '$12,345,678' },
@@ -324,7 +330,7 @@ function PrizeMoneyPanel({ prizeMoney }: { prizeMoney?: string }) {
   return (
     <View style={styles.detailPanel}>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 12, paddingHorizontal: 8 }}>
-        <Text style={{ color: theme.textSecondary, fontSize: 12, fontWeight: '600' }}>Career Total</Text>
+        <Text style={{ color: theme.textSecondary, fontSize: 12, fontWeight: '600' }}>{t('careerTotal')}</Text>
         <Text style={{ color: theme.gold, fontSize: 16, fontWeight: '700' }}>{prizeMoney || '--'}</Text>
       </View>
       {seasonalData.map((s) => (
@@ -340,6 +346,7 @@ function PrizeMoneyPanel({ prizeMoney }: { prizeMoney?: string }) {
 
 // ─── Overview Tab ────────────────────────────────────────────────────
 function OverviewTab({ player, router }: { player: PlayerDetail; router: any }) {
+  const { t } = useLanguage();
   const [expandedStat, setExpandedStat] = useState<StatKey | null>(null);
   const record = player.record;
   const seasonWL = record ? `${record.season.wins}-${record.season.losses}` : '--';
@@ -354,12 +361,12 @@ function OverviewTab({ player, router }: { player: PlayerDetail; router: any }) 
   };
 
   const statCards: { key: StatKey; value: string; label: string; color?: string }[] = [
-    { key: 'ranking', value: `#${player.ranking}`, label: 'Ranking' },
-    { key: 'grandSlams', value: `${player.grandSlams}`, label: 'Grand Slams', color: theme.gold },
-    { key: 'titles', value: `${player.titles}`, label: 'Titles' },
-    { key: 'winRate', value: winRate, label: 'Win Rate' },
-    { key: 'seasonWL', value: seasonWL, label: 'Season W-L' },
-    { key: 'prizeMoney', value: playerPrizeMoney || '--', label: 'Prize Money', color: theme.gold },
+    { key: 'ranking', value: `#${player.ranking}`, label: t('ranking') },
+    { key: 'grandSlams', value: `${player.grandSlams}`, label: t('grandSlams'), color: theme.gold },
+    { key: 'titles', value: `${player.titles}`, label: t('titles') },
+    { key: 'winRate', value: winRate, label: t('winRate') },
+    { key: 'seasonWL', value: seasonWL, label: t('seasonWL') },
+    { key: 'prizeMoney', value: playerPrizeMoney || '--', label: t('prizeMoney'), color: theme.gold },
   ];
 
   const renderExpandedContent = () => {
@@ -415,14 +422,14 @@ function OverviewTab({ player, router }: { player: PlayerDetail; router: any }) 
 
       {/* Bio */}
       <View style={styles.card}>
-        <Text style={styles.cardTitle}>Info</Text>
-        <InfoRow label="Nationality" value={`${player.country}`} />
-        <InfoRow label="Height" value={`${player.height} cm`} />
-        <InfoRow label="Weight" value={`${player.weight} kg`} />
-        <InfoRow label="Plays" value={player.plays} />
-        <InfoRow label="Backhand" value={player.backhand} />
-        {player.birthplace && <InfoRow label="Birthplace" value={player.birthplace} />}
-        {player.coach && <InfoRow label="Coach" value={player.coach} />}
+        <Text style={styles.cardTitle}>{t('info')}</Text>
+        <InfoRow label={t('nationality')} value={`${player.country}`} />
+        <InfoRow label={t('height')} value={`${player.height} cm`} />
+        <InfoRow label={t('weight')} value={`${player.weight} kg`} />
+        <InfoRow label={t('plays')} value={player.plays} />
+        <InfoRow label={t('backhand')} value={player.backhand} />
+        {player.birthplace && <InfoRow label={t('birthplace')} value={player.birthplace} />}
+        {player.coach && <InfoRow label={t('coach')} value={player.coach} />}
       </View>
     </>
   );
@@ -430,6 +437,7 @@ function OverviewTab({ player, router }: { player: PlayerDetail; router: any }) 
 
 // ─── Stats Tab ───────────────────────────────────────────────────────
 function StatsTab({ player }: { player: PlayerDetail }) {
+  const { t } = useLanguage();
   const record = player.record;
   const setStats = (player as any).setStats as SetStats | undefined;
 
@@ -438,11 +446,11 @@ function StatsTab({ player }: { player: PlayerDetail }) {
       {/* Surface Win Rate */}
       {record && (
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>Surface Win Rate</Text>
+          <Text style={styles.cardTitle}>{t('surfaceWinRate')}</Text>
           {[
-            { label: 'Hard', data: record.bySurface.hard, color: theme.blue },
-            { label: 'Clay', data: record.bySurface.clay, color: '#c17b3a' },
-            { label: 'Grass', data: record.bySurface.grass, color: '#4caf50' },
+            { label: t('hard'), data: record.bySurface.hard, color: theme.blue },
+            { label: t('clay'), data: record.bySurface.clay, color: '#c17b3a' },
+            { label: t('grass'), data: record.bySurface.grass, color: '#4caf50' },
           ].map((s) => {
             const total = s.data.wins + s.data.losses;
             const pct = total > 0 ? Math.round((s.data.wins / total) * 100) : 0;
@@ -462,13 +470,13 @@ function StatsTab({ player }: { player: PlayerDetail }) {
       {/* Set Statistics */}
       {setStats && (
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>Set Statistics</Text>
+          <Text style={styles.cardTitle}>{t('setStatistics')}</Text>
           {[
-            { key: 'straightSets', label: 'Straight Sets', data: setStats.straightSets },
-            { key: 'threeSets', label: '3 Sets', data: setStats.threeSets },
-            { key: 'fourSets', label: '4 Sets', data: setStats.fourSets },
-            { key: 'fiveSets', label: '5 Sets', data: setStats.fiveSets },
-            { key: 'decidingSet', label: 'Deciding Set', data: setStats.decidingSet },
+            { key: 'straightSets', label: t('straightSets'), data: setStats.straightSets },
+            { key: 'threeSets', label: t('threeSets'), data: setStats.threeSets },
+            { key: 'fourSets', label: t('fourSets'), data: setStats.fourSets },
+            { key: 'fiveSets', label: t('fiveSets'), data: setStats.fiveSets },
+            { key: 'decidingSet', label: t('decidingSet'), data: setStats.decidingSet },
           ].map((row) => {
             const losses = row.data.total - row.data.wins;
             return (
@@ -490,8 +498,9 @@ function StatsTab({ player }: { player: PlayerDetail }) {
 
 // ─── Matches Tab ─────────────────────────────────────────────────────
 function MatchesTab({ player, getPlayerName, router }: { player: PlayerDetail; getPlayerName: (p: any) => string; router: any }) {
+  const { t } = useLanguage();
   if (!player.recentMatches || player.recentMatches.length === 0) {
-    return <EmptyState message="No recent matches" />;
+    return <EmptyState message={t('noRecentMatches')} />;
   }
   return (
     <>
@@ -533,8 +542,9 @@ function MatchesTab({ player, getPlayerName, router }: { player: PlayerDetail; g
 
 // ─── Gear Tab ────────────────────────────────────────────────────────
 function GearTab({ player, router }: { player: PlayerDetail; router: any }) {
+  const { t } = useLanguage();
   const equipment = (player as any).equipment;
-  if (!equipment) return <EmptyState message="No equipment data" />;
+  if (!equipment) return <EmptyState message={t('noEquipmentData')} />;
 
   const renderTimeline = (items: { brand: string; from: number; to: number | null }[], label: string, icon: string) => {
     if (!items || items.length === 0) return null;
@@ -550,11 +560,11 @@ function GearTab({ player, router }: { player: PlayerDetail; router: any }) {
               activeOpacity={0.7}
             >
               <Text style={styles.equipBrand}>{item.brand}</Text>
-              <Text style={styles.equipYears}>{item.from} — {item.to || 'Present'}</Text>
+              <Text style={styles.equipYears}>{item.from} — {item.to || t('present')}</Text>
             </TouchableOpacity>
             {!item.to && (
               <View style={styles.currentBadge}>
-                <Text style={styles.currentText}>Current</Text>
+                <Text style={styles.currentText}>{t('current')}</Text>
               </View>
             )}
           </View>
@@ -565,12 +575,12 @@ function GearTab({ player, router }: { player: PlayerDetail; router: any }) {
 
   return (
     <View style={styles.card}>
-      <Text style={styles.cardTitle}>Equipment & Sponsors</Text>
-      {renderTimeline(equipment.apparel, 'Apparel', '')}
-      {renderTimeline(equipment.shoes, 'Shoes', '')}
+      <Text style={styles.cardTitle}>{t('equipmentAndSponsors')}</Text>
+      {renderTimeline(equipment.apparel, t('apparel'), '')}
+      {renderTimeline(equipment.shoes, t('shoes'), '')}
       {equipment.racket && (
         <View style={styles.equipSection}>
-          <Text style={styles.equipLabel}>Racket</Text>
+          <Text style={styles.equipLabel}>{t('racket')}</Text>
           <View style={styles.equipItem}>
             <Text style={{ fontSize: 16 }}>{'\uD83C\uDFBE'}</Text>
             <TouchableOpacity
@@ -586,7 +596,7 @@ function GearTab({ player, router }: { player: PlayerDetail; router: any }) {
       )}
       {equipment.watch && (
         <View style={styles.equipSection}>
-          <Text style={styles.equipLabel}>Watch</Text>
+          <Text style={styles.equipLabel}>{t('watch')}</Text>
           <View style={styles.equipItem}>
             <Text style={{ fontSize: 16 }}>{'\u231A'}</Text>
             <TouchableOpacity
@@ -601,7 +611,7 @@ function GearTab({ player, router }: { player: PlayerDetail; router: any }) {
       )}
       {equipment.otherSponsors && equipment.otherSponsors.length > 0 && (
         <View style={styles.equipSection}>
-          <Text style={styles.equipLabel}>Other Sponsors</Text>
+          <Text style={styles.equipLabel}>{t('otherSponsors')}</Text>
           <View style={styles.sponsorRow}>
             {equipment.otherSponsors.map((s: string, i: number) => (
               <TouchableOpacity
@@ -622,6 +632,7 @@ function GearTab({ player, router }: { player: PlayerDetail; router: any }) {
 
 // ─── Comments Tab ────────────────────────────────────────────────────
 function CommentsTab({ playerId }: { playerId: number }) {
+  const { t } = useLanguage();
   const [comments, setComments] = useState<PlayerComments | null>(null);
   const [votable, setVotable] = useState(true);
   const [customInput, setCustomInput] = useState('');
@@ -639,7 +650,7 @@ function CommentsTab({ playerId }: { playerId: number }) {
 
   const handleVote = async (tag: string) => {
     if (!votable) {
-      Alert.alert('Cooldown', 'You can vote again in 24 hours');
+      Alert.alert(t('cooldown'), t('cooldownAlert'));
       return;
     }
     const success = await voteTag(playerId, tag);
@@ -652,7 +663,7 @@ function CommentsTab({ playerId }: { playerId: number }) {
     const tag = customInput.trim();
     if (!tag) return;
     if (!votable) {
-      Alert.alert('Cooldown', 'You can vote again in 24 hours');
+      Alert.alert(t('cooldown'), t('cooldownAlert'));
       return;
     }
     await addCustomTag(playerId, tag);
@@ -669,8 +680,8 @@ function CommentsTab({ playerId }: { playerId: number }) {
     <>
       {/* Preset Tag Buttons */}
       <View style={styles.card}>
-        <Text style={styles.cardTitle}>Quick Vote</Text>
-        {!votable && <Text style={styles.cooldownText}>You voted recently. Try again in 24h.</Text>}
+        <Text style={styles.cardTitle}>{t('quickVote')}</Text>
+        {!votable && <Text style={styles.cooldownText}>{t('cooldownMessage')}</Text>}
         <View style={styles.tagGrid}>
           {PRESET_TAGS.map((tag) => (
             <TouchableOpacity
@@ -689,18 +700,18 @@ function CommentsTab({ playerId }: { playerId: number }) {
 
       {/* Custom Tag Input */}
       <View style={styles.card}>
-        <Text style={styles.cardTitle}>Custom Tag</Text>
+        <Text style={styles.cardTitle}>{t('customTag')}</Text>
         <View style={styles.customInputRow}>
           <TextInput
             style={styles.customInput}
-            placeholder="Add your tag..."
+            placeholder={t('addYourTag')}
             placeholderTextColor="#666"
             value={customInput}
             onChangeText={setCustomInput}
             maxLength={30}
           />
           <TouchableOpacity style={styles.customSubmitBtn} onPress={handleCustomTag} activeOpacity={0.7}>
-            <Text style={styles.customSubmitText}>Add</Text>
+            <Text style={styles.customSubmitText}>{t('add')}</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -708,7 +719,7 @@ function CommentsTab({ playerId }: { playerId: number }) {
       {/* Rankings */}
       {sortedTags.length > 0 && (
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>Popular Tags</Text>
+          <Text style={styles.cardTitle}>{t('popularTags')}</Text>
           {sortedTags.map(([tag, count], idx) => {
             const pct = totalVotes > 0 ? ((count / totalVotes) * 100).toFixed(1) : '0';
             const emoji = PRESET_TAG_EMOJIS[tag] || '';
@@ -744,7 +755,7 @@ function InfoRow({ label, value }: { label: string; value: string }) {
 export default function PlayerDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
-  const { getPlayerName, resolvedLanguage } = useLanguage();
+  const { getPlayerName, resolvedLanguage, t } = useLanguage();
   const [isFav, setIsFav] = useState(false);
   const [activeTab, setActiveTab] = useState<TabKey>('overview');
   const [hotTag, setHotTag] = useState<{ tag: string; emoji: string; count: number } | null>(null);
@@ -784,18 +795,18 @@ export default function PlayerDetailScreen() {
   if (error || !player) {
     return (
       <View style={styles.center}>
-        <EmptyState message="Failed to load player" />
+        <EmptyState message={t('failedToLoadPlayer')} />
       </View>
     );
   }
 
   const avatarUrl = getPlayerAvatarUrl(player.name, player.photoUrl, AVATAR_SIZE * 2);
   const tabs: { key: TabKey; label: string }[] = [
-    { key: 'overview', label: 'Overview' },
-    { key: 'stats', label: 'Stats' },
-    { key: 'matches', label: 'Matches' },
-    { key: 'gear', label: 'Gear' },
-    { key: 'comments', label: 'Comments' },
+    { key: 'overview', label: t('overview') },
+    { key: 'stats', label: t('stats') },
+    { key: 'matches', label: t('matches') },
+    { key: 'gear', label: t('gear') },
+    { key: 'comments', label: t('comments') },
   ];
 
   // Calculate age

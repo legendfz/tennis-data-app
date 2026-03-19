@@ -36,7 +36,7 @@ export default function PlayersScreen() {
   const [tourFilter, setTourFilter] = useState<TourFilter>('ALL');
   const [hotTags, setHotTags] = useState<Record<number, { tag: string; emoji: string; count: number }>>({});
   const router = useRouter();
-  const { getPlayerName } = useLanguage();
+  const { getPlayerName, t } = useLanguage();
 
   useEffect(() => {
     getAllHotTags().then(setHotTags);
@@ -85,7 +85,7 @@ export default function PlayersScreen() {
   if (error) {
     return (
       <EmptyState
-        message="Failed to load players"
+        message={t('failedToLoadPlayers')}
         subtitle={(error as Error).message}
       />
     );
@@ -93,12 +93,12 @@ export default function PlayersScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.pageTitle}>Rankings</Text>
+      <Text style={styles.pageTitle}>{t('rankings')}</Text>
 
       <View style={styles.searchWrap}>
         <TextInput
           style={styles.searchInput}
-          placeholder="Search players..."
+          placeholder={t('searchPlayers')}
           placeholderTextColor={theme.textSecondary}
           value={search}
           onChangeText={setSearch}
@@ -179,8 +179,8 @@ export default function PlayersScreen() {
         ItemSeparatorComponent={() => <View style={styles.separator} />}
         ListEmptyComponent={
           <EmptyState
-            message="No players found"
-            subtitle="Try a different search"
+            message={t('noPlayersFound')}
+            subtitle={t('tryDifferentSearch')}
             illustration={<EmptySearchIllustration size={120} />}
           />
         }

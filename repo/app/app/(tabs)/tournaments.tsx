@@ -13,6 +13,7 @@ import api from '../../lib/api';
 import { SkeletonList } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
 import { TournamentLogo } from '../../lib/tournament-logo';
+import { useLanguage } from '../../lib/i18n';
 import { theme } from '../../lib/theme';
 import type { Tournament } from '../../../shared/types';
 
@@ -27,6 +28,7 @@ function getTournamentPointsLabel(tournament: any): string | null {
 
 export default function TournamentsScreen() {
   const router = useRouter();
+  const { t } = useLanguage();
 
   const { data, isLoading, error, refetch } = useQuery<{ data: Tournament[] }>({
     queryKey: ['tournaments'],
@@ -54,7 +56,7 @@ export default function TournamentsScreen() {
   }
 
   if (error) {
-    return <EmptyState message="Failed to load events" subtitle={(error as Error).message} />;
+    return <EmptyState message={t('failedToLoadEvents')} subtitle={(error as Error).message} />;
   }
 
   return (
@@ -101,7 +103,7 @@ export default function TournamentsScreen() {
         )}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
         contentContainerStyle={styles.list}
-        ListEmptyComponent={<EmptyState message="No events found" />}
+        ListEmptyComponent={<EmptyState message={t('noEventsFound')} />}
       />
     </View>
   );

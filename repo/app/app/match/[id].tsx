@@ -14,7 +14,7 @@ import { useQuery } from '@tanstack/react-query';
 import api from '../../lib/api';
 import { PlayerAvatar } from '../../lib/player-avatar';
 import { Flag } from '../../lib/flags';
-import { useLanguage } from '../../lib/i18n';
+import { useLanguage, TranslationKey } from '../../lib/i18n';
 import { SkeletonBlock } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
 import { TournamentLogo } from '../../lib/tournament-logo';
@@ -207,15 +207,16 @@ function GameByGameTimeline({ gameByGame, p1Short, p2Short }: { gameByGame: SetG
 
 // ─── Overview Tab ────────────────────────────────────────────────────
 function OverviewTab({ match, p1Short, p2Short }: { match: MatchWithPlayers; p1Short: string; p2Short: string }) {
+  const { t } = useLanguage();
   const sets = parseScore(match.score);
   return (
     <>
       <View style={styles.card}>
-        <Text style={styles.cardTitle}>Score</Text>
+        <Text style={styles.cardTitle}>{t('score')}</Text>
         <View style={styles.setsRow}>
           {sets.map((set, idx) => (
             <View key={idx} style={styles.setBox}>
-              <Text style={styles.setLabel}>Set {idx + 1}</Text>
+              <Text style={styles.setLabel}>{t('set')} {idx + 1}</Text>
               <Text style={styles.setScore}>{set}</Text>
             </View>
           ))}
@@ -225,14 +226,14 @@ function OverviewTab({ match, p1Short, p2Short }: { match: MatchWithPlayers; p1S
         <GameByGameTimeline gameByGame={match.gameByGame} p1Short={p1Short} p2Short={p2Short} />
       )}
       <View style={styles.card}>
-        <Text style={styles.cardTitle}>Details</Text>
-        <InfoRow label="Date" value={match.date} />
-        <InfoRow label="Round" value={match.round} />
-        {match.court && <InfoRow label="Court" value={match.court} />}
+        <Text style={styles.cardTitle}>{t('details')}</Text>
+        <InfoRow label={t('date')} value={match.date} />
+        <InfoRow label={t('round')} value={match.round} />
+        {match.court && <InfoRow label={t('court')} value={match.court} />}
         {match.tournament && (
           <>
-            <InfoRow label="Surface" value={match.tournament.surface} />
-            <InfoRow label="Location" value={match.tournament.location || ''} />
+            <InfoRow label={t('surface')} value={match.tournament.surface} />
+            <InfoRow label={t('location')} value={match.tournament.location || ''} />
           </>
         )}
       </View>

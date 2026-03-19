@@ -44,7 +44,7 @@ function getDateGroup(dateStr: string): string {
 export default function MatchesScreen() {
   const [selectedTournament, setSelectedTournament] = useState<number | null>(null);
   const router = useRouter();
-  const { getPlayerName } = useLanguage();
+  const { getPlayerName, t } = useLanguage();
 
   const { data: matchesData, isLoading, refetch } = useQuery<{ data: MatchWithPlayers[] }>({
     queryKey: ['matches-all'],
@@ -194,7 +194,7 @@ export default function MatchesScreen() {
           );
         }}
         contentContainerStyle={styles.list}
-        ListEmptyComponent={<EmptyState message="No matches found" subtitle="Try changing the filter" />}
+        ListEmptyComponent={<EmptyState message={t('noMatchesFound')} subtitle={t('tryChangingFilter')} />}
         stickySectionHeadersEnabled={false}
       />
     </View>

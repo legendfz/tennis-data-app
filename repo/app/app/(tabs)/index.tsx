@@ -16,7 +16,7 @@ import api from '../../lib/api';
 import { PlayerAvatar } from '../../lib/player-avatar';
 import { Flag } from '../../lib/flags';
 import { getFavorites } from '../../lib/favorites';
-import { useLanguage } from '../../lib/i18n';
+import { useLanguage, TranslationKey } from '../../lib/i18n';
 import { SkeletonList } from '../../lib/skeleton';
 import { TournamentLogo } from '../../lib/tournament-logo';
 import { theme } from '../../lib/theme';
@@ -56,7 +56,7 @@ function getInitials(name: string): string {
   return name.slice(0, 2).toUpperCase();
 }
 
-function getDatePills(): { label: string; date: string }[] {
+function getDatePills(t: (key: TranslationKey) => string): { label: string; date: string }[] {
   const pills: { label: string; date: string }[] = [];
   const today = new Date();
   for (let i = -3; i <= 7; i++) {
@@ -64,9 +64,9 @@ function getDatePills(): { label: string; date: string }[] {
     d.setDate(d.getDate() + i);
     const dateStr = d.toISOString().slice(0, 10);
     let label: string;
-    if (i === -1) label = 'Yesterday';
-    else if (i === 0) label = 'Today';
-    else if (i === 1) label = 'Tomorrow';
+    if (i === -1) label = t('yesterday');
+    else if (i === 0) label = t('today');
+    else if (i === 1) label = t('tomorrow');
     else {
       const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
       label = `${days[d.getDay()]} ${d.getDate()}`;
@@ -82,9 +82,9 @@ type TourFilter = typeof TOUR_FILTERS[number];
 export default function HomeScreen() {
   const router = useRouter();
   const [tourFilter, setTourFilter] = useState<TourFilter>('ALL');
-  const { getPlayerName } = useLanguage();
+  const { getPlayerName, t } = useLanguage();
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().slice(0, 10));
-  const datePills = useMemo(() => getDatePills(), []);
+  const datePills = useMemo(() => getDatePills(t), [t]);
 
   const {
     data: matchesData,
@@ -208,20 +208,20 @@ export default function HomeScreen() {
                 <Text style={styles.scoreLive}>{match.score || '0-0'}</Text>
                 <View style={styles.liveStatus}>
                   <LiveDot />
-                  <Text style={styles.liveText}>LIVE</Text>
+                  <Text style={styles.liveText}>{t('live')}</Text>
                 </View>
                 {match.round ? <Text style={styles.matchRoundLabel}>{match.round}</Text> : null}
               </>
             ) : isFinished ? (
               <>
                 <Text style={styles.scoreFt}>{match.score}</Text>
-                <Text style={styles.statusFt}>FT</Text>
+                <Text style={styles.statusFt}>{t('ft')}</Text>
                 {match.round ? <Text style={styles.matchRoundLabel}>{match.round}</Text> : null}
               </>
             ) : (
               <>
                 <Text style={styles.scoreTime}>{(match as any).scheduledTime || '--:--'}</Text>
-                <Text style={styles.statusScheduled}>Scheduled</Text>
+                <Text style={styles.statusScheduled}>{t('scheduled')}</Text>
                 {match.round ? <Text style={styles.matchRoundLabel}>{match.round}</Text> : null}
               </>
             )}
@@ -274,7 +274,7 @@ export default function HomeScreen() {
     >
       {/* Title */}
       <View style={styles.titleRow}>
-        <Text style={styles.pageTitle}>Matches</Text>
+        <Text style={styles.pageTitle}>{t('matches')}</Text>
         <TennisBallIcon size={16} />
       </View>
 
@@ -319,7 +319,7 @@ export default function HomeScreen() {
       ) : allMatches.length === 0 ? (
         <View style={styles.emptyWrap}>
           <EmptyMatchesIllustration size={140} />
-          <Text style={styles.emptySubtitle}>Try selecting a different date above</Text>
+          <Text style={styles.emptySubtitle}>{t('tryDifferentDate')}</Text>
         </View>
       ) : (
         <>
@@ -327,7 +327,7 @@ export default function HomeScreen() {
           {followingMatches.length > 0 && (
             <View>
               <View style={styles.sectionHeaderRow}>
-                <Text style={styles.sectionHeaderFollowing}>MY MATCHES</Text>
+                <Text style={styles.sectionHeaderFollowing}>{t('myMatches')}</Text>
               </View>
               {followingMatches.map(renderMatchRow)}
             </View>
@@ -336,7 +336,7 @@ export default function HomeScreen() {
           {/* Live Matches */}
           {liveMatches.length > 0 && (
             <View>
-              <Text style={styles.sectionHeaderLive}>LIVE</Text>
+              <Text style={styles.sectionHeaderLive}>{t('live')}</Text>
               {liveMatches.map(renderMatchRow)}
             </View>
           )}

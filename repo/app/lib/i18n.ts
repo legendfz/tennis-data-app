@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { translations, TranslationKey } from './translations';
 
 export type SupportedLanguage = 'auto' | 'en' | 'zh' | 'ja' | 'ko' | 'es' | 'fr';
 
@@ -20,6 +21,14 @@ function resolveLanguage(lang: SupportedLanguage): string {
   return lang;
 }
 
+function translate(key: TranslationKey, lang: string): string {
+  const langTranslations = translations[lang as keyof typeof translations];
+  if (langTranslations && key in langTranslations) {
+    return langTranslations[key as keyof typeof langTranslations];
+  }
+  return translations.en[key] || key;
+}
+
 export function getPlayerName(
   player: { name: string; nameLocalized?: Record<string, string> },
   lang: string,
@@ -33,6 +42,7 @@ interface LanguageContextType {
   resolvedLanguage: string;
   setLanguage: (lang: SupportedLanguage) => void;
   getPlayerName: (player: { name: string; nameLocalized?: Record<string, string> }) => string;
+  t: (key: TranslationKey) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType>({
@@ -40,6 +50,7 @@ const LanguageContext = createContext<LanguageContextType>({
   resolvedLanguage: 'en',
   setLanguage: () => {},
   getPlayerName: (p) => p.name,
+  t: (key) => translations.en[key] || key,
 });
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
@@ -66,6 +77,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         resolvedLanguage: resolved,
         setLanguage,
         getPlayerName: (player) => getPlayerName(player, resolved),
+        t: (key) => translate(key, resolved),
       },
     },
     children,
@@ -75,3 +87,5 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 export function useLanguage() {
   return useContext(LanguageContext);
 }
+
+export type { TranslationKey };
