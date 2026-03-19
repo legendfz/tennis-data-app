@@ -89,21 +89,45 @@ function formatDuration(durationMin?: number): string {
   return `${mins}:${secs.toString().padStart(2, '0')}`;
 }
 
+function getPlayerAbbr(name: string): string {
+  const parts = name.split(/[\s·]+/);
+  const surname = parts[parts.length - 1] || name;
+  return surname.slice(0, 3).toUpperCase();
+}
+
+function GameBlock({ game }: { game: GameByGameEntry }) {
+  return (
+    <View style={styles.gbgGameColumn}>
+      <View style={[styles.gbgGameBlock, { backgroundColor: game.isBreak ? 'rgba(183,28,28,0.2)' : getGameIntensityBg(game.durationMin) }, game.isBreak && styles.gbgGameBlockBreak]}>
+        {game.difficulty === 'bp_saved' && (
+          <Text style={styles.gbgBpBadge}>BP</Text>
+        )}
+        <Text style={[styles.gbgGameScore, game.isBreak && styles.gbgGameScoreBreak]}>
+          {game.score}
+        </Text>
+        {game.isBreak && <Text style={styles.gbgBreakStarInline}>★</Text>}
+        {game.difficulty && game.difficulty !== 'easy' && game.difficulty !== 'broken' && (
+          <View style={[styles.gbgDifficultyStripe, {
+            backgroundColor: game.difficulty === 'love' ? '#1a7a3a' : game.difficulty === 'tough' ? '#c9a84c' : game.difficulty === 'bp_saved' ? '#b71c1c' : 'transparent'
+          }]} />
+        )}
+      </View>
+      {game.durationMin ? (
+        <Text style={styles.gbgDurationLabel}>{formatDuration(game.durationMin)}</Text>
+      ) : (
+        <View style={{ height: 11 }} />
+      )}
+    </View>
+  );
+}
+
 function GameByGameTimeline({ gameByGame, p1Short, p2Short }: { gameByGame: SetGameByGame[]; p1Short: string; p2Short: string }) {
+  const p1Abbr = getPlayerAbbr(p1Short);
+  const p2Abbr = getPlayerAbbr(p2Short);
+
   return (
     <View style={styles.card}>
       <Text style={styles.cardTitle}>Game-by-Game</Text>
-      {/* Player legend */}
-      <View style={styles.gbgLegend}>
-        <View style={styles.gbgLegendItem}>
-          <View style={[styles.gbgServerDot, styles.gbgServerDotTop]} />
-          <Text style={styles.gbgLegendText}>{p1Short} serves</Text>
-        </View>
-        <View style={styles.gbgLegendItem}>
-          <View style={[styles.gbgServerDot, styles.gbgServerDotBottom]} />
-          <Text style={styles.gbgLegendText}>{p2Short} serves</Text>
-        </View>
-      </View>
       {/* Intensity legend */}
       <View style={styles.gbgIntensityLegend}>
         <Text style={styles.gbgIntensityLegendItem}><Text style={{ color: '#888' }}>●</Text> Normal</Text>
@@ -120,55 +144,55 @@ function GameByGameTimeline({ gameByGame, p1Short, p2Short }: { gameByGame: SetG
       {gameByGame.map((setData) => {
         const lastGame = setData.games[setData.games.length - 1];
         const setScore = setData.tiebreak ? setData.tiebreak.score : lastGame?.score || '0-0';
+        const totalCols = setData.games.length + (setData.tiebreak ? 1 : 0);
         return (
           <View key={setData.set} style={styles.gbgSetContainer}>
             <Text style={styles.gbgSetTitle}>SET {setData.set}: {setScore}</Text>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.gbgScroll} contentContainerStyle={styles.gbgScrollContent}>
-              {setData.games.map((game, idx) => (
-                <View key={idx} style={styles.gbgGameWrapper}>
-                  {/* Server indicator dot */}
-                  <View style={[styles.gbgServerDot, game.server === 1 ? styles.gbgServerDotTop : styles.gbgServerDotBottom]} />
-                  <View style={styles.gbgGameColumn}>
-                    {/* Score block with intensity color */}
-                    <View style={[styles.gbgGameBlock, { backgroundColor: game.isBreak ? 'rgba(183,28,28,0.2)' : getGameIntensityBg(game.durationMin) }, game.isBreak && styles.gbgGameBlockBreak]}>
-                      {game.difficulty === 'bp_saved' && (
-                        <Text style={styles.gbgBpBadge}>BP</Text>
-                      )}
-                      <Text style={[styles.gbgGameScore, game.isBreak && styles.gbgGameScoreBreak]}>
-                        {game.score}
-                      </Text>
-                      {game.difficulty && game.difficulty !== 'easy' && game.difficulty !== 'broken' && (
-                        <View style={[styles.gbgDifficultyStripe, {
-                          backgroundColor: game.difficulty === 'love' ? '#1a7a3a' : game.difficulty === 'tough' ? '#c9a84c' : game.difficulty === 'bp_saved' ? '#b71c1c' : 'transparent'
-                        }]} />
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.gbgScroll}>
+              <View>
+                {/* Row 1: Player 1 serve games */}
+                <View style={styles.gbgDualRow}>
+                  <Text style={styles.gbgRowLabel}>{p1Abbr}</Text>
+                  {setData.games.map((game, idx) => (
+                    <View key={idx} style={styles.gbgCellWrapper}>
+                      {game.server === 1 ? (
+                        <GameBlock game={game} />
+                      ) : (
+                        <View style={styles.gbgEmptyCell} />
                       )}
                     </View>
-                    {/* Duration label below */}
-                    {game.durationMin ? (
-                      <Text style={styles.gbgDurationLabel}>{formatDuration(game.durationMin)}</Text>
-                    ) : (
-                      <View style={{ height: 11 }} />
-                    )}
-                  </View>
-                  {game.isBreak && <Text style={styles.gbgBreakStar}>★</Text>}
-                  {/* Arrow connector */}
-                  {idx < setData.games.length - 1 && (
-                    <Text style={styles.gbgArrow}>›</Text>
+                  ))}
+                  {setData.tiebreak && (
+                    <View style={styles.gbgCellWrapper}>
+                      <View style={styles.gbgEmptyCell} />
+                    </View>
                   )}
                 </View>
-              ))}
-              {/* Tiebreak block */}
-              {setData.tiebreak && (
-                <View style={styles.gbgGameWrapper}>
-                  <View style={styles.gbgGameColumn}>
-                    <View style={[styles.gbgGameBlock, styles.gbgTiebreakBlock]}>
-                      <Text style={styles.gbgTiebreakLabel}>TB</Text>
-                      <Text style={styles.gbgGameScore}>{setData.tiebreak.score}</Text>
+                {/* Row 2: Player 2 serve games */}
+                <View style={[styles.gbgDualRow, { marginTop: 4 }]}>
+                  <Text style={styles.gbgRowLabel}>{p2Abbr}</Text>
+                  {setData.games.map((game, idx) => (
+                    <View key={idx} style={styles.gbgCellWrapper}>
+                      {game.server === 2 ? (
+                        <GameBlock game={game} />
+                      ) : (
+                        <View style={styles.gbgEmptyCell} />
+                      )}
                     </View>
-                    <View style={{ height: 11 }} />
-                  </View>
+                  ))}
+                  {setData.tiebreak && (
+                    <View style={styles.gbgCellWrapper}>
+                      <View style={styles.gbgGameColumn}>
+                        <View style={[styles.gbgGameBlock, styles.gbgTiebreakBlock]}>
+                          <Text style={styles.gbgTiebreakLabel}>TB</Text>
+                          <Text style={styles.gbgGameScore}>{setData.tiebreak.score}</Text>
+                        </View>
+                        <View style={{ height: 11 }} />
+                      </View>
+                    </View>
+                  )}
                 </View>
-              )}
+              </View>
             </ScrollView>
             {/* Tiebreak points detail */}
             {setData.tiebreak && (
@@ -742,6 +766,32 @@ const styles = StyleSheet.create({
     paddingRight: 8,
     gap: 2,
   },
+  gbgDualRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  gbgRowLabel: {
+    width: 30,
+    fontSize: 10,
+    color: '#888',
+    fontWeight: '600',
+  },
+  gbgCellWrapper: {
+    width: 56,
+    alignItems: 'center',
+  },
+  gbgEmptyCell: {
+    width: 52,
+    height: 55,
+  },
+  gbgBreakStarInline: {
+    position: 'absolute',
+    top: 1,
+    left: 2,
+    fontSize: 8,
+    color: '#e53935',
+    lineHeight: 10,
+  },
   gbgGameWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -762,10 +812,10 @@ const styles = StyleSheet.create({
     marginRight: 2,
   },
   gbgServerDotTop: {
-    marginBottom: 12,
+    backgroundColor: theme.accent,
   },
   gbgServerDotBottom: {
-    marginTop: 12,
+    backgroundColor: '#888',
   },
   gbgGameBlock: {
     width: 52,
