@@ -135,6 +135,28 @@ export interface Tournament {
   points?: number;
 }
 
+export interface MatchStats {
+  aces?: [number, number];
+  doubleFaults?: [number, number];
+  firstServePercent?: [number, number];
+  firstServeWon?: [number, number];
+  secondServeWon?: [number, number];
+  breakPointsConverted?: [string, string];
+  breakPointsSaved?: [string, string];
+  serviceGamesWon?: [number, number];
+  returnGamesWon?: [number, number];
+  totalPointsWon?: [number, number];
+  winners?: [number, number];
+  unforcedErrors?: [number, number];
+  netPoints?: [string, string];
+  maxServiceSpeed?: [string, string];
+  avgFirstServeSpeed?: [string, string];
+  avgSecondServeSpeed?: [string, string];
+  totalGamesWon?: [number, number];
+  longestRally?: [number, number];
+  distanceCovered?: [string, string];
+}
+
 export interface Match {
   id: number;
   tournamentId: number;
@@ -145,7 +167,7 @@ export interface Match {
   round: string;
   date: string;
   court?: string;
-  statsJson?: Record<string, any> | null;
+  statsJson?: MatchStats | null;
 }
 
 export interface MatchWithPlayers extends Match {

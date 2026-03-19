@@ -19,7 +19,7 @@ import { SkeletonBlock } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
 import { TournamentLogo } from '../../lib/tournament-logo';
 import { theme } from '../../lib/theme';
-import type { MatchWithPlayers, ProbabilitySnapshot } from '../../../shared/types';
+import type { MatchWithPlayers, MatchStats, ProbabilitySnapshot } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const AVATAR_SIZE = 68;
@@ -106,28 +106,61 @@ function OverviewTab({ match }: { match: MatchWithPlayers }) {
   );
 }
 
+// ─── Stats Section Header ────────────────────────────────────────────
+function StatsSectionHeader({ title }: { title: string }) {
+  return (
+    <Text style={styles.statsSectionTitle}>{title}</Text>
+  );
+}
+
 // ─── Stats Tab ───────────────────────────────────────────────────────
 function StatsTabContent({ match }: { match: MatchWithPlayers }) {
   if (!match.statsJson) return <EmptyState message="No statistics available" />;
+  const s = match.statsJson as MatchStats;
+
+  const fmtPct = (v: number | undefined) => v !== undefined ? `${v}%` : '—';
+
   return (
-    <View style={styles.card}>
-      <Text style={styles.cardTitle}>Match Statistics</Text>
-      {match.statsJson.player1?.aces !== undefined && (
-        <StatBarComparison label="Aces" value1={match.statsJson.player1.aces} value2={match.statsJson.player2.aces} />
-      )}
-      {match.statsJson.player1?.doubleFaults !== undefined && (
-        <StatBarComparison label="Double Faults" value1={match.statsJson.player1.doubleFaults} value2={match.statsJson.player2.doubleFaults} />
-      )}
-      {match.statsJson.player1?.firstServePercent !== undefined && (
-        <StatBarComparison label="1st Serve %" value1={`${match.statsJson.player1.firstServePercent}%`} value2={`${match.statsJson.player2.firstServePercent}%`} />
-      )}
-      {match.statsJson.player1?.breakPointsConverted !== undefined && (
-        <StatBarComparison label="Break Points" value1={match.statsJson.player1.breakPointsConverted} value2={match.statsJson.player2.breakPointsConverted} />
-      )}
-      {match.statsJson.player1?.winners !== undefined && (
-        <StatBarComparison label="Winners" value1={match.statsJson.player1.winners} value2={match.statsJson.player2.winners} />
-      )}
-    </View>
+    <>
+      {/* Serve Stats */}
+      <View style={styles.card}>
+        <StatsSectionHeader title="Serve Stats" />
+        {s.aces && <StatBarComparison label="Aces" value1={s.aces[0]} value2={s.aces[1]} />}
+        {s.doubleFaults && <StatBarComparison label="Double Faults" value1={s.doubleFaults[0]} value2={s.doubleFaults[1]} />}
+        {s.firstServePercent && <StatBarComparison label="1st Serve %" value1={fmtPct(s.firstServePercent[0])} value2={fmtPct(s.firstServePercent[1])} />}
+        {s.firstServeWon && <StatBarComparison label="1st Serve Won" value1={fmtPct(s.firstServeWon[0])} value2={fmtPct(s.firstServeWon[1])} />}
+        {s.secondServeWon && <StatBarComparison label="2nd Serve Won" value1={fmtPct(s.secondServeWon[0])} value2={fmtPct(s.secondServeWon[1])} />}
+        {s.maxServiceSpeed && <StatBarComparison label="Max Serve Speed" value1={s.maxServiceSpeed[0]} value2={s.maxServiceSpeed[1]} />}
+        {s.avgFirstServeSpeed && <StatBarComparison label="Avg 1st Serve" value1={s.avgFirstServeSpeed[0]} value2={s.avgFirstServeSpeed[1]} />}
+        {s.avgSecondServeSpeed && <StatBarComparison label="Avg 2nd Serve" value1={s.avgSecondServeSpeed[0]} value2={s.avgSecondServeSpeed[1]} />}
+      </View>
+
+      {/* Return Stats */}
+      <View style={styles.card}>
+        <StatsSectionHeader title="Return Stats" />
+        {s.breakPointsConverted && <StatBarComparison label="BP Converted" value1={s.breakPointsConverted[0]} value2={s.breakPointsConverted[1]} />}
+        {s.breakPointsSaved && <StatBarComparison label="BP Saved" value1={s.breakPointsSaved[0]} value2={s.breakPointsSaved[1]} />}
+        {s.returnGamesWon && <StatBarComparison label="Return Games" value1={s.returnGamesWon[0]} value2={s.returnGamesWon[1]} />}
+      </View>
+
+      {/* Points Stats */}
+      <View style={styles.card}>
+        <StatsSectionHeader title="Points Stats" />
+        {s.totalPointsWon && <StatBarComparison label="Total Points" value1={s.totalPointsWon[0]} value2={s.totalPointsWon[1]} />}
+        {s.winners && <StatBarComparison label="Winners" value1={s.winners[0]} value2={s.winners[1]} />}
+        {s.unforcedErrors && <StatBarComparison label="Unforced Errors" value1={s.unforcedErrors[0]} value2={s.unforcedErrors[1]} />}
+        {s.netPoints && <StatBarComparison label="Net Points" value1={s.netPoints[0]} value2={s.netPoints[1]} />}
+      </View>
+
+      {/* Match Stats */}
+      <View style={styles.card}>
+        <StatsSectionHeader title="Match Stats" />
+        {s.totalGamesWon && <StatBarComparison label="Games Won" value1={s.totalGamesWon[0]} value2={s.totalGamesWon[1]} />}
+        {s.serviceGamesWon && <StatBarComparison label="Service Games" value1={s.serviceGamesWon[0]} value2={s.serviceGamesWon[1]} />}
+        {s.longestRally && <StatBarComparison label="Longest Rally" value1={s.longestRally[0]} value2={s.longestRally[1]} />}
+        {s.distanceCovered && <StatBarComparison label="Distance" value1={s.distanceCovered[0]} value2={s.distanceCovered[1]} />}
+      </View>
+    </>
   );
 }
 
@@ -460,6 +493,7 @@ const styles = StyleSheet.create({
   // Card
   card: { backgroundColor: theme.card, borderRadius: 10, padding: 16, marginBottom: 12 },
   cardTitle: { fontSize: 14, fontWeight: '600', color: theme.text, marginBottom: 12 },
+  statsSectionTitle: { fontSize: 13, fontWeight: '600', color: theme.accent, marginBottom: 12, textTransform: 'uppercase' as const, letterSpacing: 1 },
 
   // Score
   setsRow: { flexDirection: 'row', gap: 8, flexWrap: 'wrap', justifyContent: 'center' },
@@ -479,8 +513,8 @@ const styles = StyleSheet.create({
     marginBottom: 14,
   },
   compareVal: {
-    width: 36,
-    fontSize: 15,
+    width: 52,
+    fontSize: 13,
     fontWeight: '700',
     color: theme.text,
   },
@@ -512,9 +546,9 @@ const styles = StyleSheet.create({
     borderRadius: 3,
   },
   compareLabel: {
-    width: 80,
+    width: 90,
     textAlign: 'center',
-    fontSize: 11,
+    fontSize: 10,
     color: theme.textSecondary,
   },
 

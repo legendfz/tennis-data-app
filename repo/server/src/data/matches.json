@@ -10,18 +10,82 @@
     "date": "2024-01-28",
     "court": "Rod Laver Arena",
     "statsJson": {
-      "player1": {
-        "aces": 14,
-        "doubleFaults": 3,
-        "firstServePercent": 67,
-        "breakPointsConverted": "5/12"
-      },
-      "player2": {
-        "aces": 8,
-        "doubleFaults": 5,
-        "firstServePercent": 62,
-        "breakPointsConverted": "4/9"
-      }
+      "aces": [
+        14,
+        8
+      ],
+      "doubleFaults": [
+        3,
+        5
+      ],
+      "firstServePercent": [
+        67,
+        62
+      ],
+      "firstServeWon": [
+        72,
+        72
+      ],
+      "secondServeWon": [
+        54,
+        46
+      ],
+      "breakPointsConverted": [
+        "5/12",
+        "4/9"
+      ],
+      "breakPointsSaved": [
+        "4/7",
+        "3/5"
+      ],
+      "serviceGamesWon": [
+        23,
+        20
+      ],
+      "returnGamesWon": [
+        1,
+        3
+      ],
+      "totalPointsWon": [
+        169,
+        147
+      ],
+      "winners": [
+        24,
+        19
+      ],
+      "unforcedErrors": [
+        26,
+        25
+      ],
+      "netPoints": [
+        "7/9",
+        "9/14"
+      ],
+      "maxServiceSpeed": [
+        "228 km/h",
+        "212 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "190 km/h",
+        "186 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "145 km/h",
+        "138 km/h"
+      ],
+      "totalGamesWon": [
+        24,
+        23
+      ],
+      "longestRally": [
+        22,
+        22
+      ],
+      "distanceCovered": [
+        "2.8 km",
+        "2.7 km"
+      ]
     }
   },
   {
@@ -35,18 +99,82 @@
     "date": "2024-01-26",
     "court": "Rod Laver Arena",
     "statsJson": {
-      "player1": {
-        "aces": 11,
-        "doubleFaults": 2,
-        "firstServePercent": 71,
-        "breakPointsConverted": "4/7"
-      },
-      "player2": {
-        "aces": 6,
-        "doubleFaults": 4,
-        "firstServePercent": 58,
-        "breakPointsConverted": "0/3"
-      }
+      "aces": [
+        11,
+        6
+      ],
+      "doubleFaults": [
+        2,
+        4
+      ],
+      "firstServePercent": [
+        71,
+        58
+      ],
+      "firstServeWon": [
+        75,
+        74
+      ],
+      "secondServeWon": [
+        50,
+        48
+      ],
+      "breakPointsConverted": [
+        "4/7",
+        "0/3"
+      ],
+      "breakPointsSaved": [
+        "4/6",
+        "3/5"
+      ],
+      "serviceGamesWon": [
+        16,
+        6
+      ],
+      "returnGamesWon": [
+        2,
+        1
+      ],
+      "totalPointsWon": [
+        103,
+        97
+      ],
+      "winners": [
+        26,
+        23
+      ],
+      "unforcedErrors": [
+        19,
+        19
+      ],
+      "netPoints": [
+        "8/14",
+        "6/11"
+      ],
+      "maxServiceSpeed": [
+        "216 km/h",
+        "201 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "180 km/h",
+        "180 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "154 km/h",
+        "153 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        7
+      ],
+      "longestRally": [
+        32,
+        32
+      ],
+      "distanceCovered": [
+        "4.0 km",
+        "2.4 km"
+      ]
     }
   },
   {
@@ -60,18 +188,82 @@
     "date": "2024-01-26",
     "court": "Rod Laver Arena",
     "statsJson": {
-      "player1": {
-        "aces": 7,
-        "doubleFaults": 4,
-        "firstServePercent": 63,
-        "breakPointsConverted": "3/8"
-      },
-      "player2": {
-        "aces": 10,
-        "doubleFaults": 3,
-        "firstServePercent": 66,
-        "breakPointsConverted": "4/10"
-      }
+      "aces": [
+        7,
+        10
+      ],
+      "doubleFaults": [
+        4,
+        3
+      ],
+      "firstServePercent": [
+        63,
+        66
+      ],
+      "firstServeWon": [
+        82,
+        63
+      ],
+      "secondServeWon": [
+        46,
+        41
+      ],
+      "breakPointsConverted": [
+        "3/8",
+        "4/10"
+      ],
+      "breakPointsSaved": [
+        "4/7",
+        "1/1"
+      ],
+      "serviceGamesWon": [
+        22,
+        20
+      ],
+      "returnGamesWon": [
+        3,
+        1
+      ],
+      "totalPointsWon": [
+        133,
+        111
+      ],
+      "winners": [
+        31,
+        23
+      ],
+      "unforcedErrors": [
+        18,
+        19
+      ],
+      "netPoints": [
+        "12/16",
+        "10/18"
+      ],
+      "maxServiceSpeed": [
+        "223 km/h",
+        "216 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "191 km/h",
+        "192 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "156 km/h",
+        "147 km/h"
+      ],
+      "totalGamesWon": [
+        25,
+        20
+      ],
+      "longestRally": [
+        26,
+        26
+      ],
+      "distanceCovered": [
+        "2.3 km",
+        "4.1 km"
+      ]
     }
   },
   {
@@ -83,7 +275,85 @@
     "winnerId": 1,
     "round": "Quarter-Final",
     "date": "2024-01-24",
-    "court": "Rod Laver Arena"
+    "court": "Rod Laver Arena",
+    "statsJson": {
+      "aces": [
+        17,
+        13
+      ],
+      "doubleFaults": [
+        5,
+        8
+      ],
+      "firstServePercent": [
+        64,
+        59
+      ],
+      "firstServeWon": [
+        74,
+        65
+      ],
+      "secondServeWon": [
+        57,
+        46
+      ],
+      "breakPointsConverted": [
+        "7/13",
+        "1/6"
+      ],
+      "breakPointsSaved": [
+        "1/4",
+        "2/3"
+      ],
+      "serviceGamesWon": [
+        17,
+        10
+      ],
+      "returnGamesWon": [
+        4,
+        4
+      ],
+      "totalPointsWon": [
+        129,
+        110
+      ],
+      "winners": [
+        22,
+        16
+      ],
+      "unforcedErrors": [
+        13,
+        29
+      ],
+      "netPoints": [
+        "7/10",
+        "8/15"
+      ],
+      "maxServiceSpeed": [
+        "226 km/h",
+        "224 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "198 km/h",
+        "184 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "155 km/h",
+        "161 km/h"
+      ],
+      "totalGamesWon": [
+        21,
+        14
+      ],
+      "longestRally": [
+        24,
+        24
+      ],
+      "distanceCovered": [
+        "3.5 km",
+        "3.7 km"
+      ]
+    }
   },
   {
     "id": 5,
@@ -94,7 +364,85 @@
     "winnerId": 2,
     "round": "Quarter-Final",
     "date": "2024-01-24",
-    "court": "Rod Laver Arena"
+    "court": "Rod Laver Arena",
+    "statsJson": {
+      "aces": [
+        10,
+        9
+      ],
+      "doubleFaults": [
+        1,
+        6
+      ],
+      "firstServePercent": [
+        64,
+        60
+      ],
+      "firstServeWon": [
+        79,
+        62
+      ],
+      "secondServeWon": [
+        43,
+        48
+      ],
+      "breakPointsConverted": [
+        "2/5",
+        "1/4"
+      ],
+      "breakPointsSaved": [
+        "2/3",
+        "2/5"
+      ],
+      "serviceGamesWon": [
+        16,
+        5
+      ],
+      "returnGamesWon": [
+        2,
+        1
+      ],
+      "totalPointsWon": [
+        113,
+        99
+      ],
+      "winners": [
+        25,
+        22
+      ],
+      "unforcedErrors": [
+        9,
+        12
+      ],
+      "netPoints": [
+        "6/12",
+        "8/14"
+      ],
+      "maxServiceSpeed": [
+        "230 km/h",
+        "219 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "192 km/h",
+        "186 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "157 km/h",
+        "141 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        6
+      ],
+      "longestRally": [
+        30,
+        30
+      ],
+      "distanceCovered": [
+        "3.7 km",
+        "3.3 km"
+      ]
+    }
   },
   {
     "id": 6,
@@ -105,7 +453,85 @@
     "winnerId": 5,
     "round": "Quarter-Final",
     "date": "2024-01-23",
-    "court": "Rod Laver Arena"
+    "court": "Rod Laver Arena",
+    "statsJson": {
+      "aces": [
+        13,
+        5
+      ],
+      "doubleFaults": [
+        5,
+        4
+      ],
+      "firstServePercent": [
+        61,
+        56
+      ],
+      "firstServeWon": [
+        78,
+        75
+      ],
+      "secondServeWon": [
+        45,
+        51
+      ],
+      "breakPointsConverted": [
+        "6/9",
+        "5/8"
+      ],
+      "breakPointsSaved": [
+        "2/5",
+        "1/2"
+      ],
+      "serviceGamesWon": [
+        16,
+        8
+      ],
+      "returnGamesWon": [
+        2,
+        1
+      ],
+      "totalPointsWon": [
+        98,
+        84
+      ],
+      "winners": [
+        31,
+        18
+      ],
+      "unforcedErrors": [
+        11,
+        15
+      ],
+      "netPoints": [
+        "13/16",
+        "13/17"
+      ],
+      "maxServiceSpeed": [
+        "200 km/h",
+        "222 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "185 km/h",
+        "196 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "143 km/h",
+        "159 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        9
+      ],
+      "longestRally": [
+        32,
+        32
+      ],
+      "distanceCovered": [
+        "4.3 km",
+        "2.6 km"
+      ]
+    }
   },
   {
     "id": 7,
@@ -116,7 +542,85 @@
     "winnerId": 4,
     "round": "Quarter-Final",
     "date": "2024-01-23",
-    "court": "Rod Laver Arena"
+    "court": "Rod Laver Arena",
+    "statsJson": {
+      "aces": [
+        17,
+        13
+      ],
+      "doubleFaults": [
+        5,
+        5
+      ],
+      "firstServePercent": [
+        58,
+        61
+      ],
+      "firstServeWon": [
+        77,
+        60
+      ],
+      "secondServeWon": [
+        53,
+        41
+      ],
+      "breakPointsConverted": [
+        "5/10",
+        "5/7"
+      ],
+      "breakPointsSaved": [
+        "4/6",
+        "5/7"
+      ],
+      "serviceGamesWon": [
+        21,
+        12
+      ],
+      "returnGamesWon": [
+        3,
+        3
+      ],
+      "totalPointsWon": [
+        145,
+        114
+      ],
+      "winners": [
+        35,
+        14
+      ],
+      "unforcedErrors": [
+        10,
+        17
+      ],
+      "netPoints": [
+        "10/14",
+        "12/20"
+      ],
+      "maxServiceSpeed": [
+        "221 km/h",
+        "216 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "185 km/h",
+        "189 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "165 km/h",
+        "147 km/h"
+      ],
+      "totalGamesWon": [
+        24,
+        15
+      ],
+      "longestRally": [
+        26,
+        26
+      ],
+      "distanceCovered": [
+        "4.1 km",
+        "4.2 km"
+      ]
+    }
   },
   {
     "id": 8,
@@ -127,7 +631,85 @@
     "winnerId": 1,
     "round": "Round of 16",
     "date": "2024-01-22",
-    "court": "Rod Laver Arena"
+    "court": "Rod Laver Arena",
+    "statsJson": {
+      "aces": [
+        10,
+        9
+      ],
+      "doubleFaults": [
+        2,
+        3
+      ],
+      "firstServePercent": [
+        72,
+        55
+      ],
+      "firstServeWon": [
+        71,
+        66
+      ],
+      "secondServeWon": [
+        53,
+        48
+      ],
+      "breakPointsConverted": [
+        "5/8",
+        "1/5"
+      ],
+      "breakPointsSaved": [
+        "1/4",
+        "3/5"
+      ],
+      "serviceGamesWon": [
+        17,
+        5
+      ],
+      "returnGamesWon": [
+        1,
+        3
+      ],
+      "totalPointsWon": [
+        97,
+        92
+      ],
+      "winners": [
+        32,
+        13
+      ],
+      "unforcedErrors": [
+        10,
+        13
+      ],
+      "netPoints": [
+        "7/9",
+        "11/17"
+      ],
+      "maxServiceSpeed": [
+        "211 km/h",
+        "201 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "189 km/h",
+        "184 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "161 km/h",
+        "144 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        8
+      ],
+      "longestRally": [
+        29,
+        29
+      ],
+      "distanceCovered": [
+        "4.0 km",
+        "3.0 km"
+      ]
+    }
   },
   {
     "id": 9,
@@ -138,7 +720,85 @@
     "winnerId": 2,
     "round": "Round of 16",
     "date": "2024-01-22",
-    "court": "Rod Laver Arena"
+    "court": "Rod Laver Arena",
+    "statsJson": {
+      "aces": [
+        14,
+        10
+      ],
+      "doubleFaults": [
+        6,
+        6
+      ],
+      "firstServePercent": [
+        70,
+        72
+      ],
+      "firstServeWon": [
+        76,
+        73
+      ],
+      "secondServeWon": [
+        47,
+        42
+      ],
+      "breakPointsConverted": [
+        "4/6",
+        "3/6"
+      ],
+      "breakPointsSaved": [
+        "1/1",
+        "3/4"
+      ],
+      "serviceGamesWon": [
+        16,
+        12
+      ],
+      "returnGamesWon": [
+        2,
+        1
+      ],
+      "totalPointsWon": [
+        93,
+        80
+      ],
+      "winners": [
+        29,
+        28
+      ],
+      "unforcedErrors": [
+        25,
+        28
+      ],
+      "netPoints": [
+        "10/16",
+        "12/16"
+      ],
+      "maxServiceSpeed": [
+        "200 km/h",
+        "223 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "195 km/h",
+        "198 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "162 km/h",
+        "148 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        12
+      ],
+      "longestRally": [
+        16,
+        16
+      ],
+      "distanceCovered": [
+        "3.9 km",
+        "2.4 km"
+      ]
+    }
   },
   {
     "id": 10,
@@ -149,7 +809,85 @@
     "winnerId": 5,
     "round": "Round of 16",
     "date": "2024-01-21",
-    "court": "Rod Laver Arena"
+    "court": "Rod Laver Arena",
+    "statsJson": {
+      "aces": [
+        17,
+        12
+      ],
+      "doubleFaults": [
+        5,
+        4
+      ],
+      "firstServePercent": [
+        58,
+        61
+      ],
+      "firstServeWon": [
+        76,
+        68
+      ],
+      "secondServeWon": [
+        53,
+        55
+      ],
+      "breakPointsConverted": [
+        "5/11",
+        "2/4"
+      ],
+      "breakPointsSaved": [
+        "4/6",
+        "2/3"
+      ],
+      "serviceGamesWon": [
+        22,
+        16
+      ],
+      "returnGamesWon": [
+        2,
+        1
+      ],
+      "totalPointsWon": [
+        143,
+        112
+      ],
+      "winners": [
+        24,
+        24
+      ],
+      "unforcedErrors": [
+        14,
+        32
+      ],
+      "netPoints": [
+        "7/11",
+        "10/14"
+      ],
+      "maxServiceSpeed": [
+        "204 km/h",
+        "221 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "193 km/h",
+        "198 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "156 km/h",
+        "145 km/h"
+      ],
+      "totalGamesWon": [
+        24,
+        17
+      ],
+      "longestRally": [
+        24,
+        24
+      ],
+      "distanceCovered": [
+        "2.6 km",
+        "3.0 km"
+      ]
+    }
   },
   {
     "id": 11,
@@ -162,18 +900,82 @@
     "date": "2024-06-09",
     "court": "Court Philippe-Chatrier",
     "statsJson": {
-      "player1": {
-        "aces": 16,
-        "doubleFaults": 5,
-        "firstServePercent": 69,
-        "breakPointsConverted": "6/13"
-      },
-      "player2": {
-        "aces": 11,
-        "doubleFaults": 7,
-        "firstServePercent": 61,
-        "breakPointsConverted": "4/11"
-      }
+      "aces": [
+        16,
+        11
+      ],
+      "doubleFaults": [
+        5,
+        7
+      ],
+      "firstServePercent": [
+        69,
+        61
+      ],
+      "firstServeWon": [
+        78,
+        70
+      ],
+      "secondServeWon": [
+        54,
+        50
+      ],
+      "breakPointsConverted": [
+        "6/13",
+        "4/11"
+      ],
+      "breakPointsSaved": [
+        "2/2",
+        "2/6"
+      ],
+      "serviceGamesWon": [
+        23,
+        18
+      ],
+      "returnGamesWon": [
+        2,
+        1
+      ],
+      "totalPointsWon": [
+        164,
+        134
+      ],
+      "winners": [
+        30,
+        27
+      ],
+      "unforcedErrors": [
+        12,
+        21
+      ],
+      "netPoints": [
+        "15/18",
+        "11/13"
+      ],
+      "maxServiceSpeed": [
+        "220 km/h",
+        "202 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "185 km/h",
+        "195 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "161 km/h",
+        "160 km/h"
+      ],
+      "totalGamesWon": [
+        25,
+        19
+      ],
+      "longestRally": [
+        32,
+        32
+      ],
+      "distanceCovered": [
+        "2.7 km",
+        "3.1 km"
+      ]
     }
   },
   {
@@ -187,18 +989,82 @@
     "date": "2024-06-07",
     "court": "Court Philippe-Chatrier",
     "statsJson": {
-      "player1": {
-        "aces": 8,
-        "doubleFaults": 3,
-        "firstServePercent": 64,
-        "breakPointsConverted": "5/10"
-      },
-      "player2": {
-        "aces": 5,
-        "doubleFaults": 6,
-        "firstServePercent": 57,
-        "breakPointsConverted": "3/9"
-      }
+      "aces": [
+        8,
+        5
+      ],
+      "doubleFaults": [
+        3,
+        6
+      ],
+      "firstServePercent": [
+        64,
+        57
+      ],
+      "firstServeWon": [
+        81,
+        78
+      ],
+      "secondServeWon": [
+        47,
+        48
+      ],
+      "breakPointsConverted": [
+        "5/10",
+        "3/9"
+      ],
+      "breakPointsSaved": [
+        "4/5",
+        "4/8"
+      ],
+      "serviceGamesWon": [
+        21,
+        22
+      ],
+      "returnGamesWon": [
+        2,
+        1
+      ],
+      "totalPointsWon": [
+        168,
+        140
+      ],
+      "winners": [
+        35,
+        14
+      ],
+      "unforcedErrors": [
+        10,
+        15
+      ],
+      "netPoints": [
+        "16/19",
+        "11/16"
+      ],
+      "maxServiceSpeed": [
+        "225 km/h",
+        "215 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "188 km/h",
+        "178 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "147 km/h",
+        "160 km/h"
+      ],
+      "totalGamesWon": [
+        23,
+        22
+      ],
+      "longestRally": [
+        32,
+        32
+      ],
+      "distanceCovered": [
+        "2.0 km",
+        "4.2 km"
+      ]
     }
   },
   {
@@ -212,18 +1078,82 @@
     "date": "2024-06-07",
     "court": "Court Philippe-Chatrier",
     "statsJson": {
-      "player1": {
-        "aces": 12,
-        "doubleFaults": 4,
-        "firstServePercent": 65,
-        "breakPointsConverted": "3/7"
-      },
-      "player2": {
-        "aces": 6,
-        "doubleFaults": 2,
-        "firstServePercent": 70,
-        "breakPointsConverted": "4/8"
-      }
+      "aces": [
+        12,
+        6
+      ],
+      "doubleFaults": [
+        4,
+        2
+      ],
+      "firstServePercent": [
+        65,
+        70
+      ],
+      "firstServeWon": [
+        69,
+        59
+      ],
+      "secondServeWon": [
+        44,
+        49
+      ],
+      "breakPointsConverted": [
+        "3/7",
+        "4/8"
+      ],
+      "breakPointsSaved": [
+        "2/5",
+        "2/6"
+      ],
+      "serviceGamesWon": [
+        18,
+        11
+      ],
+      "returnGamesWon": [
+        2,
+        3
+      ],
+      "totalPointsWon": [
+        132,
+        109
+      ],
+      "winners": [
+        29,
+        23
+      ],
+      "unforcedErrors": [
+        13,
+        12
+      ],
+      "netPoints": [
+        "13/20",
+        "10/18"
+      ],
+      "maxServiceSpeed": [
+        "202 km/h",
+        "221 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "196 km/h",
+        "175 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "159 km/h",
+        "158 km/h"
+      ],
+      "totalGamesWon": [
+        20,
+        14
+      ],
+      "longestRally": [
+        30,
+        30
+      ],
+      "distanceCovered": [
+        "3.8 km",
+        "2.5 km"
+      ]
     }
   },
   {
@@ -235,7 +1165,85 @@
     "winnerId": 3,
     "round": "Quarter-Final",
     "date": "2024-06-05",
-    "court": "Court Philippe-Chatrier"
+    "court": "Court Philippe-Chatrier",
+    "statsJson": {
+      "aces": [
+        7,
+        4
+      ],
+      "doubleFaults": [
+        3,
+        7
+      ],
+      "firstServePercent": [
+        60,
+        57
+      ],
+      "firstServeWon": [
+        82,
+        64
+      ],
+      "secondServeWon": [
+        54,
+        53
+      ],
+      "breakPointsConverted": [
+        "2/8",
+        "5/7"
+      ],
+      "breakPointsSaved": [
+        "3/5",
+        "4/8"
+      ],
+      "serviceGamesWon": [
+        16,
+        12
+      ],
+      "returnGamesWon": [
+        3,
+        1
+      ],
+      "totalPointsWon": [
+        103,
+        72
+      ],
+      "winners": [
+        35,
+        17
+      ],
+      "unforcedErrors": [
+        16,
+        25
+      ],
+      "netPoints": [
+        "15/17",
+        "7/12"
+      ],
+      "maxServiceSpeed": [
+        "230 km/h",
+        "220 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "185 km/h",
+        "188 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "162 km/h",
+        "138 km/h"
+      ],
+      "totalGamesWon": [
+        19,
+        13
+      ],
+      "longestRally": [
+        28,
+        28
+      ],
+      "distanceCovered": [
+        "3.3 km",
+        "3.1 km"
+      ]
+    }
   },
   {
     "id": 15,
@@ -246,7 +1254,85 @@
     "round": "Quarter-Final",
     "date": "2024-06-05",
     "court": "Court Philippe-Chatrier",
-    "player2Id": 10
+    "player2Id": 10,
+    "statsJson": {
+      "aces": [
+        12,
+        9
+      ],
+      "doubleFaults": [
+        4,
+        2
+      ],
+      "firstServePercent": [
+        58,
+        57
+      ],
+      "firstServeWon": [
+        68,
+        64
+      ],
+      "secondServeWon": [
+        48,
+        55
+      ],
+      "breakPointsConverted": [
+        "2/6",
+        "5/11"
+      ],
+      "breakPointsSaved": [
+        "1/2",
+        "2/5"
+      ],
+      "serviceGamesWon": [
+        16,
+        10
+      ],
+      "returnGamesWon": [
+        3,
+        2
+      ],
+      "totalPointsWon": [
+        103,
+        97
+      ],
+      "winners": [
+        23,
+        19
+      ],
+      "unforcedErrors": [
+        24,
+        23
+      ],
+      "netPoints": [
+        "10/13",
+        "5/7"
+      ],
+      "maxServiceSpeed": [
+        "230 km/h",
+        "213 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "195 km/h",
+        "189 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "163 km/h",
+        "138 km/h"
+      ],
+      "totalGamesWon": [
+        19,
+        12
+      ],
+      "longestRally": [
+        27,
+        27
+      ],
+      "distanceCovered": [
+        "3.2 km",
+        "3.4 km"
+      ]
+    }
   },
   {
     "id": 16,
@@ -257,7 +1343,85 @@
     "winnerId": 4,
     "round": "Quarter-Final",
     "date": "2024-06-04",
-    "court": "Court Philippe-Chatrier"
+    "court": "Court Philippe-Chatrier",
+    "statsJson": {
+      "aces": [
+        14,
+        10
+      ],
+      "doubleFaults": [
+        4,
+        8
+      ],
+      "firstServePercent": [
+        62,
+        67
+      ],
+      "firstServeWon": [
+        80,
+        74
+      ],
+      "secondServeWon": [
+        43,
+        43
+      ],
+      "breakPointsConverted": [
+        "4/9",
+        "4/10"
+      ],
+      "breakPointsSaved": [
+        "3/6",
+        "3/6"
+      ],
+      "serviceGamesWon": [
+        18,
+        11
+      ],
+      "returnGamesWon": [
+        1,
+        3
+      ],
+      "totalPointsWon": [
+        100,
+        83
+      ],
+      "winners": [
+        26,
+        19
+      ],
+      "unforcedErrors": [
+        26,
+        27
+      ],
+      "netPoints": [
+        "6/13",
+        "9/14"
+      ],
+      "maxServiceSpeed": [
+        "212 km/h",
+        "204 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "193 km/h",
+        "189 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "159 km/h",
+        "149 km/h"
+      ],
+      "totalGamesWon": [
+        19,
+        14
+      ],
+      "longestRally": [
+        26,
+        26
+      ],
+      "distanceCovered": [
+        "2.6 km",
+        "4.7 km"
+      ]
+    }
   },
   {
     "id": 17,
@@ -268,7 +1432,85 @@
     "winnerId": 2,
     "round": "Quarter-Final",
     "date": "2024-06-04",
-    "court": "Court Philippe-Chatrier"
+    "court": "Court Philippe-Chatrier",
+    "statsJson": {
+      "aces": [
+        12,
+        12
+      ],
+      "doubleFaults": [
+        1,
+        3
+      ],
+      "firstServePercent": [
+        61,
+        59
+      ],
+      "firstServeWon": [
+        74,
+        77
+      ],
+      "secondServeWon": [
+        49,
+        51
+      ],
+      "breakPointsConverted": [
+        "3/7",
+        "2/6"
+      ],
+      "breakPointsSaved": [
+        "1/1",
+        "1/2"
+      ],
+      "serviceGamesWon": [
+        19,
+        17
+      ],
+      "returnGamesWon": [
+        4,
+        2
+      ],
+      "totalPointsWon": [
+        127,
+        134
+      ],
+      "winners": [
+        15,
+        23
+      ],
+      "unforcedErrors": [
+        20,
+        19
+      ],
+      "netPoints": [
+        "11/18",
+        "10/15"
+      ],
+      "maxServiceSpeed": [
+        "208 km/h",
+        "201 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "196 km/h",
+        "191 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "162 km/h",
+        "146 km/h"
+      ],
+      "totalGamesWon": [
+        23,
+        19
+      ],
+      "longestRally": [
+        22,
+        22
+      ],
+      "distanceCovered": [
+        "4.2 km",
+        "3.8 km"
+      ]
+    }
   },
   {
     "id": 18,
@@ -279,7 +1521,85 @@
     "winnerId": 3,
     "round": "Round of 16",
     "date": "2024-06-02",
-    "court": "Court Philippe-Chatrier"
+    "court": "Court Philippe-Chatrier",
+    "statsJson": {
+      "aces": [
+        5,
+        7
+      ],
+      "doubleFaults": [
+        6,
+        6
+      ],
+      "firstServePercent": [
+        68,
+        69
+      ],
+      "firstServeWon": [
+        78,
+        72
+      ],
+      "secondServeWon": [
+        54,
+        48
+      ],
+      "breakPointsConverted": [
+        "6/8",
+        "5/8"
+      ],
+      "breakPointsSaved": [
+        "4/6",
+        "4/5"
+      ],
+      "serviceGamesWon": [
+        14,
+        5
+      ],
+      "returnGamesWon": [
+        4,
+        2
+      ],
+      "totalPointsWon": [
+        102,
+        86
+      ],
+      "winners": [
+        29,
+        24
+      ],
+      "unforcedErrors": [
+        16,
+        28
+      ],
+      "netPoints": [
+        "8/10",
+        "13/21"
+      ],
+      "maxServiceSpeed": [
+        "203 km/h",
+        "215 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "194 km/h",
+        "186 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "141 km/h",
+        "138 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        7
+      ],
+      "longestRally": [
+        28,
+        28
+      ],
+      "distanceCovered": [
+        "4.2 km",
+        "4.2 km"
+      ]
+    }
   },
   {
     "id": 19,
@@ -290,7 +1610,85 @@
     "winnerId": 1,
     "round": "Round of 16",
     "date": "2024-06-02",
-    "court": "Court Philippe-Chatrier"
+    "court": "Court Philippe-Chatrier",
+    "statsJson": {
+      "aces": [
+        11,
+        6
+      ],
+      "doubleFaults": [
+        2,
+        4
+      ],
+      "firstServePercent": [
+        65,
+        67
+      ],
+      "firstServeWon": [
+        77,
+        58
+      ],
+      "secondServeWon": [
+        49,
+        46
+      ],
+      "breakPointsConverted": [
+        "4/10",
+        "1/8"
+      ],
+      "breakPointsSaved": [
+        "1/2",
+        "1/3"
+      ],
+      "serviceGamesWon": [
+        15,
+        8
+      ],
+      "returnGamesWon": [
+        3,
+        3
+      ],
+      "totalPointsWon": [
+        95,
+        84
+      ],
+      "winners": [
+        28,
+        13
+      ],
+      "unforcedErrors": [
+        10,
+        31
+      ],
+      "netPoints": [
+        "14/17",
+        "7/13"
+      ],
+      "maxServiceSpeed": [
+        "225 km/h",
+        "196 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "193 km/h",
+        "197 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "152 km/h",
+        "153 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        11
+      ],
+      "longestRally": [
+        21,
+        21
+      ],
+      "distanceCovered": [
+        "4.2 km",
+        "3.0 km"
+      ]
+    }
   },
   {
     "id": 20,
@@ -301,7 +1699,85 @@
     "winnerId": 4,
     "round": "Round of 16",
     "date": "2024-06-01",
-    "court": "Court Philippe-Chatrier"
+    "court": "Court Philippe-Chatrier",
+    "statsJson": {
+      "aces": [
+        11,
+        7
+      ],
+      "doubleFaults": [
+        6,
+        5
+      ],
+      "firstServePercent": [
+        73,
+        57
+      ],
+      "firstServeWon": [
+        72,
+        71
+      ],
+      "secondServeWon": [
+        51,
+        44
+      ],
+      "breakPointsConverted": [
+        "3/6",
+        "4/7"
+      ],
+      "breakPointsSaved": [
+        "3/3",
+        "1/1"
+      ],
+      "serviceGamesWon": [
+        17,
+        6
+      ],
+      "returnGamesWon": [
+        1,
+        4
+      ],
+      "totalPointsWon": [
+        108,
+        96
+      ],
+      "winners": [
+        32,
+        23
+      ],
+      "unforcedErrors": [
+        27,
+        31
+      ],
+      "netPoints": [
+        "12/15",
+        "10/12"
+      ],
+      "maxServiceSpeed": [
+        "219 km/h",
+        "224 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "197 km/h",
+        "186 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "155 km/h",
+        "161 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        10
+      ],
+      "longestRally": [
+        29,
+        29
+      ],
+      "distanceCovered": [
+        "3.6 km",
+        "4.5 km"
+      ]
+    }
   },
   {
     "id": 21,
@@ -314,18 +1790,82 @@
     "date": "2024-07-14",
     "court": "Centre Court",
     "statsJson": {
-      "player1": {
-        "aces": 18,
-        "doubleFaults": 2,
-        "firstServePercent": 73,
-        "breakPointsConverted": "5/8"
-      },
-      "player2": {
-        "aces": 9,
-        "doubleFaults": 5,
-        "firstServePercent": 60,
-        "breakPointsConverted": "1/5"
-      }
+      "aces": [
+        18,
+        9
+      ],
+      "doubleFaults": [
+        2,
+        5
+      ],
+      "firstServePercent": [
+        73,
+        60
+      ],
+      "firstServeWon": [
+        77,
+        75
+      ],
+      "secondServeWon": [
+        46,
+        46
+      ],
+      "breakPointsConverted": [
+        "5/8",
+        "1/5"
+      ],
+      "breakPointsSaved": [
+        "3/4",
+        "1/5"
+      ],
+      "serviceGamesWon": [
+        18,
+        10
+      ],
+      "returnGamesWon": [
+        1,
+        1
+      ],
+      "totalPointsWon": [
+        100,
+        88
+      ],
+      "winners": [
+        34,
+        14
+      ],
+      "unforcedErrors": [
+        17,
+        22
+      ],
+      "netPoints": [
+        "14/20",
+        "8/14"
+      ],
+      "maxServiceSpeed": [
+        "222 km/h",
+        "195 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "190 km/h",
+        "189 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "140 km/h",
+        "156 km/h"
+      ],
+      "totalGamesWon": [
+        19,
+        10
+      ],
+      "longestRally": [
+        24,
+        24
+      ],
+      "distanceCovered": [
+        "4.2 km",
+        "4.4 km"
+      ]
     }
   },
   {
@@ -339,18 +1879,82 @@
     "date": "2024-07-12",
     "court": "Centre Court",
     "statsJson": {
-      "player1": {
-        "aces": 12,
-        "doubleFaults": 4,
-        "firstServePercent": 68,
-        "breakPointsConverted": "4/9"
-      },
-      "player2": {
-        "aces": 10,
-        "doubleFaults": 6,
-        "firstServePercent": 63,
-        "breakPointsConverted": "3/8"
-      }
+      "aces": [
+        12,
+        10
+      ],
+      "doubleFaults": [
+        4,
+        6
+      ],
+      "firstServePercent": [
+        68,
+        63
+      ],
+      "firstServeWon": [
+        69,
+        59
+      ],
+      "secondServeWon": [
+        57,
+        41
+      ],
+      "breakPointsConverted": [
+        "4/9",
+        "3/8"
+      ],
+      "breakPointsSaved": [
+        "4/5",
+        "1/3"
+      ],
+      "serviceGamesWon": [
+        24,
+        21
+      ],
+      "returnGamesWon": [
+        1,
+        1
+      ],
+      "totalPointsWon": [
+        127,
+        107
+      ],
+      "winners": [
+        32,
+        26
+      ],
+      "unforcedErrors": [
+        27,
+        26
+      ],
+      "netPoints": [
+        "9/12",
+        "13/16"
+      ],
+      "maxServiceSpeed": [
+        "212 km/h",
+        "201 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "183 km/h",
+        "197 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "153 km/h",
+        "157 km/h"
+      ],
+      "totalGamesWon": [
+        25,
+        21
+      ],
+      "longestRally": [
+        25,
+        25
+      ],
+      "distanceCovered": [
+        "2.1 km",
+        "3.6 km"
+      ]
     }
   },
   {
@@ -364,18 +1968,82 @@
     "date": "2024-07-12",
     "court": "Centre Court",
     "statsJson": {
-      "player1": {
-        "aces": 15,
-        "doubleFaults": 1,
-        "firstServePercent": 72,
-        "breakPointsConverted": "4/6"
-      },
-      "player2": {
-        "aces": 5,
-        "doubleFaults": 3,
-        "firstServePercent": 64,
-        "breakPointsConverted": "1/4"
-      }
+      "aces": [
+        15,
+        5
+      ],
+      "doubleFaults": [
+        1,
+        3
+      ],
+      "firstServePercent": [
+        72,
+        64
+      ],
+      "firstServeWon": [
+        78,
+        77
+      ],
+      "secondServeWon": [
+        54,
+        54
+      ],
+      "breakPointsConverted": [
+        "4/6",
+        "1/4"
+      ],
+      "breakPointsSaved": [
+        "4/4",
+        "3/7"
+      ],
+      "serviceGamesWon": [
+        18,
+        6
+      ],
+      "returnGamesWon": [
+        1,
+        3
+      ],
+      "totalPointsWon": [
+        105,
+        85
+      ],
+      "winners": [
+        29,
+        26
+      ],
+      "unforcedErrors": [
+        10,
+        25
+      ],
+      "netPoints": [
+        "7/10",
+        "13/15"
+      ],
+      "maxServiceSpeed": [
+        "217 km/h",
+        "213 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "189 km/h",
+        "175 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "142 km/h",
+        "140 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        9
+      ],
+      "longestRally": [
+        16,
+        16
+      ],
+      "distanceCovered": [
+        "3.0 km",
+        "3.2 km"
+      ]
     }
   },
   {
@@ -387,7 +2055,85 @@
     "winnerId": 3,
     "round": "Quarter-Final",
     "date": "2024-07-10",
-    "court": "Centre Court"
+    "court": "Centre Court",
+    "statsJson": {
+      "aces": [
+        8,
+        9
+      ],
+      "doubleFaults": [
+        1,
+        3
+      ],
+      "firstServePercent": [
+        63,
+        62
+      ],
+      "firstServeWon": [
+        68,
+        66
+      ],
+      "secondServeWon": [
+        57,
+        43
+      ],
+      "breakPointsConverted": [
+        "3/6",
+        "4/11"
+      ],
+      "breakPointsSaved": [
+        "1/2",
+        "2/3"
+      ],
+      "serviceGamesWon": [
+        23,
+        12
+      ],
+      "returnGamesWon": [
+        1,
+        3
+      ],
+      "totalPointsWon": [
+        129,
+        115
+      ],
+      "winners": [
+        29,
+        27
+      ],
+      "unforcedErrors": [
+        10,
+        21
+      ],
+      "netPoints": [
+        "12/19",
+        "12/19"
+      ],
+      "maxServiceSpeed": [
+        "228 km/h",
+        "216 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "191 km/h",
+        "180 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "157 km/h",
+        "139 km/h"
+      ],
+      "totalGamesWon": [
+        23,
+        15
+      ],
+      "longestRally": [
+        24,
+        24
+      ],
+      "distanceCovered": [
+        "3.8 km",
+        "4.8 km"
+      ]
+    }
   },
   {
     "id": 25,
@@ -398,7 +2144,85 @@
     "winnerId": 5,
     "round": "Quarter-Final",
     "date": "2024-07-10",
-    "court": "Centre Court"
+    "court": "Centre Court",
+    "statsJson": {
+      "aces": [
+        9,
+        5
+      ],
+      "doubleFaults": [
+        3,
+        6
+      ],
+      "firstServePercent": [
+        60,
+        55
+      ],
+      "firstServeWon": [
+        78,
+        76
+      ],
+      "secondServeWon": [
+        46,
+        55
+      ],
+      "breakPointsConverted": [
+        "7/13",
+        "2/7"
+      ],
+      "breakPointsSaved": [
+        "1/2",
+        "4/7"
+      ],
+      "serviceGamesWon": [
+        16,
+        12
+      ],
+      "returnGamesWon": [
+        3,
+        1
+      ],
+      "totalPointsWon": [
+        125,
+        92
+      ],
+      "winners": [
+        33,
+        28
+      ],
+      "unforcedErrors": [
+        25,
+        23
+      ],
+      "netPoints": [
+        "13/16",
+        "12/16"
+      ],
+      "maxServiceSpeed": [
+        "218 km/h",
+        "205 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "181 km/h",
+        "188 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "150 km/h",
+        "152 km/h"
+      ],
+      "totalGamesWon": [
+        19,
+        13
+      ],
+      "longestRally": [
+        17,
+        17
+      ],
+      "distanceCovered": [
+        "2.7 km",
+        "2.8 km"
+      ]
+    }
   },
   {
     "id": 26,
@@ -409,7 +2233,85 @@
     "winnerId": 2,
     "round": "Quarter-Final",
     "date": "2024-07-09",
-    "court": "Centre Court"
+    "court": "Centre Court",
+    "statsJson": {
+      "aces": [
+        6,
+        7
+      ],
+      "doubleFaults": [
+        6,
+        6
+      ],
+      "firstServePercent": [
+        59,
+        58
+      ],
+      "firstServeWon": [
+        70,
+        59
+      ],
+      "secondServeWon": [
+        46,
+        51
+      ],
+      "breakPointsConverted": [
+        "2/6",
+        "1/5"
+      ],
+      "breakPointsSaved": [
+        "1/4",
+        "2/3"
+      ],
+      "serviceGamesWon": [
+        18,
+        9
+      ],
+      "returnGamesWon": [
+        1,
+        1
+      ],
+      "totalPointsWon": [
+        116,
+        104
+      ],
+      "winners": [
+        29,
+        21
+      ],
+      "unforcedErrors": [
+        14,
+        15
+      ],
+      "netPoints": [
+        "6/11",
+        "6/11"
+      ],
+      "maxServiceSpeed": [
+        "201 km/h",
+        "222 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "184 km/h",
+        "191 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "151 km/h",
+        "143 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        9
+      ],
+      "longestRally": [
+        26,
+        26
+      ],
+      "distanceCovered": [
+        "4.0 km",
+        "3.8 km"
+      ]
+    }
   },
   {
     "id": 27,
@@ -420,7 +2322,85 @@
     "winnerId": 23,
     "round": "Quarter-Final",
     "date": "2024-07-09",
-    "court": "Centre Court"
+    "court": "Centre Court",
+    "statsJson": {
+      "aces": [
+        8,
+        7
+      ],
+      "doubleFaults": [
+        3,
+        6
+      ],
+      "firstServePercent": [
+        72,
+        56
+      ],
+      "firstServeWon": [
+        73,
+        66
+      ],
+      "secondServeWon": [
+        53,
+        45
+      ],
+      "breakPointsConverted": [
+        "3/9",
+        "5/10"
+      ],
+      "breakPointsSaved": [
+        "2/3",
+        "1/3"
+      ],
+      "serviceGamesWon": [
+        19,
+        16
+      ],
+      "returnGamesWon": [
+        4,
+        1
+      ],
+      "totalPointsWon": [
+        133,
+        120
+      ],
+      "winners": [
+        32,
+        26
+      ],
+      "unforcedErrors": [
+        16,
+        31
+      ],
+      "netPoints": [
+        "13/19",
+        "5/12"
+      ],
+      "maxServiceSpeed": [
+        "230 km/h",
+        "204 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "198 km/h",
+        "185 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "142 km/h",
+        "145 km/h"
+      ],
+      "totalGamesWon": [
+        23,
+        17
+      ],
+      "longestRally": [
+        19,
+        19
+      ],
+      "distanceCovered": [
+        "2.8 km",
+        "2.3 km"
+      ]
+    }
   },
   {
     "id": 28,
@@ -431,7 +2411,85 @@
     "winnerId": 3,
     "round": "Round of 16",
     "date": "2024-07-08",
-    "court": "Centre Court"
+    "court": "Centre Court",
+    "statsJson": {
+      "aces": [
+        4,
+        4
+      ],
+      "doubleFaults": [
+        5,
+        6
+      ],
+      "firstServePercent": [
+        63,
+        65
+      ],
+      "firstServeWon": [
+        78,
+        76
+      ],
+      "secondServeWon": [
+        54,
+        38
+      ],
+      "breakPointsConverted": [
+        "4/5",
+        "2/9"
+      ],
+      "breakPointsSaved": [
+        "4/4",
+        "2/4"
+      ],
+      "serviceGamesWon": [
+        16,
+        9
+      ],
+      "returnGamesWon": [
+        2,
+        1
+      ],
+      "totalPointsWon": [
+        106,
+        85
+      ],
+      "winners": [
+        18,
+        18
+      ],
+      "unforcedErrors": [
+        14,
+        18
+      ],
+      "netPoints": [
+        "16/20",
+        "8/15"
+      ],
+      "maxServiceSpeed": [
+        "205 km/h",
+        "201 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "193 km/h",
+        "177 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "160 km/h",
+        "140 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        10
+      ],
+      "longestRally": [
+        19,
+        19
+      ],
+      "distanceCovered": [
+        "2.4 km",
+        "3.3 km"
+      ]
+    }
   },
   {
     "id": 29,
@@ -442,7 +2500,85 @@
     "winnerId": 5,
     "round": "Round of 16",
     "date": "2024-07-08",
-    "court": "Centre Court"
+    "court": "Centre Court",
+    "statsJson": {
+      "aces": [
+        9,
+        2
+      ],
+      "doubleFaults": [
+        6,
+        6
+      ],
+      "firstServePercent": [
+        73,
+        63
+      ],
+      "firstServeWon": [
+        68,
+        63
+      ],
+      "secondServeWon": [
+        52,
+        48
+      ],
+      "breakPointsConverted": [
+        "3/6",
+        "3/6"
+      ],
+      "breakPointsSaved": [
+        "1/4",
+        "2/4"
+      ],
+      "serviceGamesWon": [
+        15,
+        13
+      ],
+      "returnGamesWon": [
+        4,
+        1
+      ],
+      "totalPointsWon": [
+        110,
+        87
+      ],
+      "winners": [
+        31,
+        29
+      ],
+      "unforcedErrors": [
+        10,
+        14
+      ],
+      "netPoints": [
+        "8/10",
+        "12/19"
+      ],
+      "maxServiceSpeed": [
+        "209 km/h",
+        "196 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "199 km/h",
+        "195 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "141 km/h",
+        "138 km/h"
+      ],
+      "totalGamesWon": [
+        19,
+        13
+      ],
+      "longestRally": [
+        21,
+        21
+      ],
+      "distanceCovered": [
+        "4.1 km",
+        "3.4 km"
+      ]
+    }
   },
   {
     "id": 30,
@@ -453,7 +2589,85 @@
     "winnerId": 2,
     "round": "Round of 16",
     "date": "2024-07-07",
-    "court": "Centre Court"
+    "court": "Centre Court",
+    "statsJson": {
+      "aces": [
+        10,
+        3
+      ],
+      "doubleFaults": [
+        4,
+        2
+      ],
+      "firstServePercent": [
+        72,
+        63
+      ],
+      "firstServeWon": [
+        78,
+        62
+      ],
+      "secondServeWon": [
+        52,
+        46
+      ],
+      "breakPointsConverted": [
+        "2/3",
+        "4/7"
+      ],
+      "breakPointsSaved": [
+        "2/4",
+        "5/5"
+      ],
+      "serviceGamesWon": [
+        14,
+        9
+      ],
+      "returnGamesWon": [
+        4,
+        2
+      ],
+      "totalPointsWon": [
+        105,
+        83
+      ],
+      "winners": [
+        28,
+        28
+      ],
+      "unforcedErrors": [
+        15,
+        16
+      ],
+      "netPoints": [
+        "7/14",
+        "14/22"
+      ],
+      "maxServiceSpeed": [
+        "229 km/h",
+        "200 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "180 km/h",
+        "198 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "157 km/h",
+        "151 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        11
+      ],
+      "longestRally": [
+        19,
+        19
+      ],
+      "distanceCovered": [
+        "4.4 km",
+        "4.7 km"
+      ]
+    }
   },
   {
     "id": 31,
@@ -466,18 +2680,82 @@
     "date": "2024-09-08",
     "court": "Arthur Ashe Stadium",
     "statsJson": {
-      "player1": {
-        "aces": 13,
-        "doubleFaults": 2,
-        "firstServePercent": 70,
-        "breakPointsConverted": "5/9"
-      },
-      "player2": {
-        "aces": 8,
-        "doubleFaults": 4,
-        "firstServePercent": 65,
-        "breakPointsConverted": "2/7"
-      }
+      "aces": [
+        13,
+        8
+      ],
+      "doubleFaults": [
+        2,
+        4
+      ],
+      "firstServePercent": [
+        70,
+        65
+      ],
+      "firstServeWon": [
+        82,
+        67
+      ],
+      "secondServeWon": [
+        54,
+        40
+      ],
+      "breakPointsConverted": [
+        "5/9",
+        "2/7"
+      ],
+      "breakPointsSaved": [
+        "2/4",
+        "3/4"
+      ],
+      "serviceGamesWon": [
+        19,
+        11
+      ],
+      "returnGamesWon": [
+        1,
+        1
+      ],
+      "totalPointsWon": [
+        101,
+        91
+      ],
+      "winners": [
+        32,
+        25
+      ],
+      "unforcedErrors": [
+        23,
+        30
+      ],
+      "netPoints": [
+        "9/14",
+        "5/7"
+      ],
+      "maxServiceSpeed": [
+        "210 km/h",
+        "225 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "200 km/h",
+        "184 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "155 km/h",
+        "150 km/h"
+      ],
+      "totalGamesWon": [
+        19,
+        12
+      ],
+      "longestRally": [
+        23,
+        23
+      ],
+      "distanceCovered": [
+        "2.7 km",
+        "4.7 km"
+      ]
     }
   },
   {
@@ -491,18 +2769,82 @@
     "date": "2024-09-06",
     "court": "Arthur Ashe Stadium",
     "statsJson": {
-      "player1": {
-        "aces": 10,
-        "doubleFaults": 3,
-        "firstServePercent": 68,
-        "breakPointsConverted": "4/7"
-      },
-      "player2": {
-        "aces": 7,
-        "doubleFaults": 5,
-        "firstServePercent": 61,
-        "breakPointsConverted": "2/6"
-      }
+      "aces": [
+        10,
+        7
+      ],
+      "doubleFaults": [
+        3,
+        5
+      ],
+      "firstServePercent": [
+        68,
+        61
+      ],
+      "firstServeWon": [
+        79,
+        74
+      ],
+      "secondServeWon": [
+        54,
+        47
+      ],
+      "breakPointsConverted": [
+        "4/7",
+        "2/6"
+      ],
+      "breakPointsSaved": [
+        "2/3",
+        "1/4"
+      ],
+      "serviceGamesWon": [
+        19,
+        9
+      ],
+      "returnGamesWon": [
+        1,
+        3
+      ],
+      "totalPointsWon": [
+        111,
+        84
+      ],
+      "winners": [
+        15,
+        14
+      ],
+      "unforcedErrors": [
+        23,
+        23
+      ],
+      "netPoints": [
+        "16/19",
+        "9/17"
+      ],
+      "maxServiceSpeed": [
+        "208 km/h",
+        "199 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "198 km/h",
+        "192 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "146 km/h",
+        "141 km/h"
+      ],
+      "totalGamesWon": [
+        20,
+        12
+      ],
+      "longestRally": [
+        25,
+        25
+      ],
+      "distanceCovered": [
+        "3.8 km",
+        "4.5 km"
+      ]
     }
   },
   {
@@ -516,18 +2858,82 @@
     "date": "2024-09-06",
     "court": "Arthur Ashe Stadium",
     "statsJson": {
-      "player1": {
-        "aces": 9,
-        "doubleFaults": 6,
-        "firstServePercent": 62,
-        "breakPointsConverted": "3/8"
-      },
-      "player2": {
-        "aces": 6,
-        "doubleFaults": 3,
-        "firstServePercent": 66,
-        "breakPointsConverted": "4/9"
-      }
+      "aces": [
+        9,
+        6
+      ],
+      "doubleFaults": [
+        6,
+        3
+      ],
+      "firstServePercent": [
+        62,
+        66
+      ],
+      "firstServeWon": [
+        67,
+        65
+      ],
+      "secondServeWon": [
+        56,
+        51
+      ],
+      "breakPointsConverted": [
+        "3/8",
+        "4/9"
+      ],
+      "breakPointsSaved": [
+        "1/1",
+        "3/7"
+      ],
+      "serviceGamesWon": [
+        19,
+        13
+      ],
+      "returnGamesWon": [
+        4,
+        3
+      ],
+      "totalPointsWon": [
+        136,
+        112
+      ],
+      "winners": [
+        32,
+        15
+      ],
+      "unforcedErrors": [
+        17,
+        16
+      ],
+      "netPoints": [
+        "8/10",
+        "14/19"
+      ],
+      "maxServiceSpeed": [
+        "204 km/h",
+        "212 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "194 km/h",
+        "176 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "148 km/h",
+        "142 km/h"
+      ],
+      "totalGamesWon": [
+        23,
+        16
+      ],
+      "longestRally": [
+        25,
+        25
+      ],
+      "distanceCovered": [
+        "2.6 km",
+        "3.9 km"
+      ]
     }
   },
   {
@@ -541,18 +2947,82 @@
     "date": "2024-09-04",
     "court": "Arthur Ashe Stadium",
     "statsJson": {
-      "player1": {
-        "aces": 15,
-        "doubleFaults": 4,
-        "firstServePercent": 67,
-        "breakPointsConverted": "6/12"
-      },
-      "player2": {
-        "aces": 8,
-        "doubleFaults": 7,
-        "firstServePercent": 58,
-        "breakPointsConverted": "3/10"
-      }
+      "aces": [
+        15,
+        8
+      ],
+      "doubleFaults": [
+        4,
+        7
+      ],
+      "firstServePercent": [
+        67,
+        58
+      ],
+      "firstServeWon": [
+        76,
+        74
+      ],
+      "secondServeWon": [
+        55,
+        48
+      ],
+      "breakPointsConverted": [
+        "6/12",
+        "3/10"
+      ],
+      "breakPointsSaved": [
+        "2/2",
+        "2/2"
+      ],
+      "serviceGamesWon": [
+        26,
+        20
+      ],
+      "returnGamesWon": [
+        3,
+        3
+      ],
+      "totalPointsWon": [
+        155,
+        126
+      ],
+      "winners": [
+        19,
+        17
+      ],
+      "unforcedErrors": [
+        16,
+        15
+      ],
+      "netPoints": [
+        "12/16",
+        "6/12"
+      ],
+      "maxServiceSpeed": [
+        "221 km/h",
+        "215 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "184 km/h",
+        "194 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "143 km/h",
+        "162 km/h"
+      ],
+      "totalGamesWon": [
+        29,
+        23
+      ],
+      "longestRally": [
+        16,
+        16
+      ],
+      "distanceCovered": [
+        "4.3 km",
+        "4.5 km"
+      ]
     }
   },
   {
@@ -564,7 +3034,85 @@
     "winnerId": 21,
     "round": "Quarter-Final",
     "date": "2024-09-04",
-    "court": "Arthur Ashe Stadium"
+    "court": "Arthur Ashe Stadium",
+    "statsJson": {
+      "aces": [
+        14,
+        2
+      ],
+      "doubleFaults": [
+        4,
+        2
+      ],
+      "firstServePercent": [
+        58,
+        55
+      ],
+      "firstServeWon": [
+        77,
+        60
+      ],
+      "secondServeWon": [
+        48,
+        41
+      ],
+      "breakPointsConverted": [
+        "2/6",
+        "3/9"
+      ],
+      "breakPointsSaved": [
+        "2/5",
+        "4/4"
+      ],
+      "serviceGamesWon": [
+        17,
+        7
+      ],
+      "returnGamesWon": [
+        2,
+        3
+      ],
+      "totalPointsWon": [
+        112,
+        80
+      ],
+      "winners": [
+        35,
+        22
+      ],
+      "unforcedErrors": [
+        14,
+        21
+      ],
+      "netPoints": [
+        "6/10",
+        "7/11"
+      ],
+      "maxServiceSpeed": [
+        "229 km/h",
+        "210 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "185 km/h",
+        "190 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "151 km/h",
+        "150 km/h"
+      ],
+      "totalGamesWon": [
+        19,
+        10
+      ],
+      "longestRally": [
+        32,
+        32
+      ],
+      "distanceCovered": [
+        "4.1 km",
+        "4.8 km"
+      ]
+    }
   },
   {
     "id": 36,
@@ -575,7 +3123,85 @@
     "winnerId": 12,
     "round": "Quarter-Final",
     "date": "2024-09-03",
-    "court": "Arthur Ashe Stadium"
+    "court": "Arthur Ashe Stadium",
+    "statsJson": {
+      "aces": [
+        17,
+        12
+      ],
+      "doubleFaults": [
+        2,
+        4
+      ],
+      "firstServePercent": [
+        59,
+        63
+      ],
+      "firstServeWon": [
+        78,
+        63
+      ],
+      "secondServeWon": [
+        52,
+        48
+      ],
+      "breakPointsConverted": [
+        "4/5",
+        "1/7"
+      ],
+      "breakPointsSaved": [
+        "4/4",
+        "3/7"
+      ],
+      "serviceGamesWon": [
+        20,
+        19
+      ],
+      "returnGamesWon": [
+        3,
+        3
+      ],
+      "totalPointsWon": [
+        144,
+        124
+      ],
+      "winners": [
+        30,
+        26
+      ],
+      "unforcedErrors": [
+        25,
+        26
+      ],
+      "netPoints": [
+        "13/19",
+        "12/20"
+      ],
+      "maxServiceSpeed": [
+        "209 km/h",
+        "221 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "188 km/h",
+        "180 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "161 km/h",
+        "150 km/h"
+      ],
+      "totalGamesWon": [
+        23,
+        22
+      ],
+      "longestRally": [
+        26,
+        26
+      ],
+      "distanceCovered": [
+        "2.6 km",
+        "3.1 km"
+      ]
+    }
   },
   {
     "id": 37,
@@ -586,7 +3212,85 @@
     "winnerId": 22,
     "round": "Quarter-Final",
     "date": "2024-09-03",
-    "court": "Arthur Ashe Stadium"
+    "court": "Arthur Ashe Stadium",
+    "statsJson": {
+      "aces": [
+        11,
+        13
+      ],
+      "doubleFaults": [
+        3,
+        8
+      ],
+      "firstServePercent": [
+        63,
+        60
+      ],
+      "firstServeWon": [
+        85,
+        78
+      ],
+      "secondServeWon": [
+        50,
+        45
+      ],
+      "breakPointsConverted": [
+        "2/4",
+        "5/8"
+      ],
+      "breakPointsSaved": [
+        "3/4",
+        "3/6"
+      ],
+      "serviceGamesWon": [
+        27,
+        21
+      ],
+      "returnGamesWon": [
+        1,
+        1
+      ],
+      "totalPointsWon": [
+        165,
+        131
+      ],
+      "winners": [
+        30,
+        24
+      ],
+      "unforcedErrors": [
+        19,
+        19
+      ],
+      "netPoints": [
+        "15/21",
+        "12/15"
+      ],
+      "maxServiceSpeed": [
+        "209 km/h",
+        "210 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "184 km/h",
+        "179 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "156 km/h",
+        "152 km/h"
+      ],
+      "totalGamesWon": [
+        28,
+        22
+      ],
+      "longestRally": [
+        19,
+        19
+      ],
+      "distanceCovered": [
+        "3.6 km",
+        "3.2 km"
+      ]
+    }
   },
   {
     "id": 38,
@@ -597,7 +3301,85 @@
     "winnerId": 1,
     "round": "Round of 16",
     "date": "2024-09-02",
-    "court": "Arthur Ashe Stadium"
+    "court": "Arthur Ashe Stadium",
+    "statsJson": {
+      "aces": [
+        9,
+        11
+      ],
+      "doubleFaults": [
+        1,
+        7
+      ],
+      "firstServePercent": [
+        68,
+        66
+      ],
+      "firstServeWon": [
+        80,
+        58
+      ],
+      "secondServeWon": [
+        55,
+        42
+      ],
+      "breakPointsConverted": [
+        "4/6",
+        "2/5"
+      ],
+      "breakPointsSaved": [
+        "3/3",
+        "2/4"
+      ],
+      "serviceGamesWon": [
+        15,
+        9
+      ],
+      "returnGamesWon": [
+        3,
+        1
+      ],
+      "totalPointsWon": [
+        107,
+        89
+      ],
+      "winners": [
+        21,
+        13
+      ],
+      "unforcedErrors": [
+        10,
+        30
+      ],
+      "netPoints": [
+        "14/17",
+        "12/18"
+      ],
+      "maxServiceSpeed": [
+        "219 km/h",
+        "202 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "199 km/h",
+        "198 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "143 km/h",
+        "139 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        9
+      ],
+      "longestRally": [
+        31,
+        31
+      ],
+      "distanceCovered": [
+        "3.5 km",
+        "4.0 km"
+      ]
+    }
   },
   {
     "id": 39,
@@ -608,7 +3390,85 @@
     "winnerId": 5,
     "round": "Round of 16",
     "date": "2024-09-02",
-    "court": "Arthur Ashe Stadium"
+    "court": "Arthur Ashe Stadium",
+    "statsJson": {
+      "aces": [
+        13,
+        11
+      ],
+      "doubleFaults": [
+        5,
+        4
+      ],
+      "firstServePercent": [
+        74,
+        70
+      ],
+      "firstServeWon": [
+        73,
+        64
+      ],
+      "secondServeWon": [
+        42,
+        51
+      ],
+      "breakPointsConverted": [
+        "4/6",
+        "5/10"
+      ],
+      "breakPointsSaved": [
+        "4/5",
+        "1/4"
+      ],
+      "serviceGamesWon": [
+        16,
+        8
+      ],
+      "returnGamesWon": [
+        2,
+        1
+      ],
+      "totalPointsWon": [
+        106,
+        74
+      ],
+      "winners": [
+        36,
+        30
+      ],
+      "unforcedErrors": [
+        18,
+        25
+      ],
+      "netPoints": [
+        "10/14",
+        "12/20"
+      ],
+      "maxServiceSpeed": [
+        "204 km/h",
+        "197 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "192 km/h",
+        "192 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "159 km/h",
+        "143 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        9
+      ],
+      "longestRally": [
+        27,
+        27
+      ],
+      "distanceCovered": [
+        "2.0 km",
+        "2.7 km"
+      ]
+    }
   },
   {
     "id": 40,
@@ -619,7 +3479,85 @@
     "winnerId": 21,
     "round": "Round of 16",
     "date": "2024-09-01",
-    "court": "Arthur Ashe Stadium"
+    "court": "Arthur Ashe Stadium",
+    "statsJson": {
+      "aces": [
+        13,
+        8
+      ],
+      "doubleFaults": [
+        4,
+        2
+      ],
+      "firstServePercent": [
+        72,
+        67
+      ],
+      "firstServeWon": [
+        80,
+        61
+      ],
+      "secondServeWon": [
+        48,
+        49
+      ],
+      "breakPointsConverted": [
+        "6/11",
+        "5/12"
+      ],
+      "breakPointsSaved": [
+        "4/5",
+        "5/9"
+      ],
+      "serviceGamesWon": [
+        17,
+        10
+      ],
+      "returnGamesWon": [
+        2,
+        2
+      ],
+      "totalPointsWon": [
+        111,
+        89
+      ],
+      "winners": [
+        26,
+        25
+      ],
+      "unforcedErrors": [
+        10,
+        19
+      ],
+      "netPoints": [
+        "9/15",
+        "12/17"
+      ],
+      "maxServiceSpeed": [
+        "222 km/h",
+        "208 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "198 km/h",
+        "179 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "164 km/h",
+        "144 km/h"
+      ],
+      "totalGamesWon": [
+        19,
+        12
+      ],
+      "longestRally": [
+        17,
+        17
+      ],
+      "distanceCovered": [
+        "2.3 km",
+        "3.0 km"
+      ]
+    }
   },
   {
     "id": 41,
@@ -630,7 +3568,85 @@
     "winnerId": 12,
     "round": "Round of 16",
     "date": "2024-09-01",
-    "court": "Arthur Ashe Stadium"
+    "court": "Arthur Ashe Stadium",
+    "statsJson": {
+      "aces": [
+        6,
+        4
+      ],
+      "doubleFaults": [
+        3,
+        4
+      ],
+      "firstServePercent": [
+        75,
+        62
+      ],
+      "firstServeWon": [
+        74,
+        64
+      ],
+      "secondServeWon": [
+        51,
+        40
+      ],
+      "breakPointsConverted": [
+        "6/8",
+        "5/11"
+      ],
+      "breakPointsSaved": [
+        "3/6",
+        "5/6"
+      ],
+      "serviceGamesWon": [
+        17,
+        12
+      ],
+      "returnGamesWon": [
+        2,
+        1
+      ],
+      "totalPointsWon": [
+        114,
+        98
+      ],
+      "winners": [
+        16,
+        15
+      ],
+      "unforcedErrors": [
+        13,
+        30
+      ],
+      "netPoints": [
+        "12/19",
+        "9/12"
+      ],
+      "maxServiceSpeed": [
+        "212 km/h",
+        "202 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "182 km/h",
+        "187 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "158 km/h",
+        "144 km/h"
+      ],
+      "totalGamesWon": [
+        19,
+        13
+      ],
+      "longestRally": [
+        19,
+        19
+      ],
+      "distanceCovered": [
+        "3.5 km",
+        "4.3 km"
+      ]
+    }
   },
   {
     "id": 42,
@@ -641,7 +3657,85 @@
     "winnerId": 22,
     "round": "Round of 16",
     "date": "2024-08-31",
-    "court": "Arthur Ashe Stadium"
+    "court": "Arthur Ashe Stadium",
+    "statsJson": {
+      "aces": [
+        11,
+        7
+      ],
+      "doubleFaults": [
+        1,
+        8
+      ],
+      "firstServePercent": [
+        69,
+        70
+      ],
+      "firstServeWon": [
+        68,
+        61
+      ],
+      "secondServeWon": [
+        53,
+        48
+      ],
+      "breakPointsConverted": [
+        "7/8",
+        "2/4"
+      ],
+      "breakPointsSaved": [
+        "3/6",
+        "2/6"
+      ],
+      "serviceGamesWon": [
+        23,
+        16
+      ],
+      "returnGamesWon": [
+        1,
+        2
+      ],
+      "totalPointsWon": [
+        139,
+        114
+      ],
+      "winners": [
+        32,
+        29
+      ],
+      "unforcedErrors": [
+        24,
+        27
+      ],
+      "netPoints": [
+        "15/23",
+        "7/15"
+      ],
+      "maxServiceSpeed": [
+        "209 km/h",
+        "196 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "180 km/h",
+        "185 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "149 km/h",
+        "143 km/h"
+      ],
+      "totalGamesWon": [
+        23,
+        18
+      ],
+      "longestRally": [
+        23,
+        23
+      ],
+      "distanceCovered": [
+        "3.3 km",
+        "2.6 km"
+      ]
+    }
   },
   {
     "id": 43,
@@ -652,7 +3746,85 @@
     "winnerId": 3,
     "round": "Final",
     "date": "2024-03-17",
-    "court": "Stadium 1"
+    "court": "Stadium 1",
+    "statsJson": {
+      "aces": [
+        11,
+        8
+      ],
+      "doubleFaults": [
+        5,
+        6
+      ],
+      "firstServePercent": [
+        66,
+        62
+      ],
+      "firstServeWon": [
+        74,
+        74
+      ],
+      "secondServeWon": [
+        45,
+        42
+      ],
+      "breakPointsConverted": [
+        "4/6",
+        "1/5"
+      ],
+      "breakPointsSaved": [
+        "2/2",
+        "2/6"
+      ],
+      "serviceGamesWon": [
+        11,
+        7
+      ],
+      "returnGamesWon": [
+        2,
+        4
+      ],
+      "totalPointsWon": [
+        104,
+        80
+      ],
+      "winners": [
+        34,
+        14
+      ],
+      "unforcedErrors": [
+        24,
+        31
+      ],
+      "netPoints": [
+        "12/15",
+        "5/10"
+      ],
+      "maxServiceSpeed": [
+        "217 km/h",
+        "204 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "197 km/h",
+        "195 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "165 km/h",
+        "138 km/h"
+      ],
+      "totalGamesWon": [
+        13,
+        11
+      ],
+      "longestRally": [
+        20,
+        20
+      ],
+      "distanceCovered": [
+        "3.5 km",
+        "3.6 km"
+      ]
+    }
   },
   {
     "id": 44,
@@ -663,7 +3835,85 @@
     "winnerId": 3,
     "round": "Semi-Final",
     "date": "2024-03-16",
-    "court": "Stadium 1"
+    "court": "Stadium 1",
+    "statsJson": {
+      "aces": [
+        7,
+        8
+      ],
+      "doubleFaults": [
+        3,
+        4
+      ],
+      "firstServePercent": [
+        59,
+        59
+      ],
+      "firstServeWon": [
+        73,
+        63
+      ],
+      "secondServeWon": [
+        56,
+        54
+      ],
+      "breakPointsConverted": [
+        "6/10",
+        "2/5"
+      ],
+      "breakPointsSaved": [
+        "2/4",
+        "1/3"
+      ],
+      "serviceGamesWon": [
+        9,
+        4
+      ],
+      "returnGamesWon": [
+        3,
+        3
+      ],
+      "totalPointsWon": [
+        79,
+        59
+      ],
+      "winners": [
+        27,
+        15
+      ],
+      "unforcedErrors": [
+        13,
+        17
+      ],
+      "netPoints": [
+        "11/19",
+        "10/13"
+      ],
+      "maxServiceSpeed": [
+        "216 km/h",
+        "204 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "181 km/h",
+        "198 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "148 km/h",
+        "149 km/h"
+      ],
+      "totalGamesWon": [
+        12,
+        7
+      ],
+      "longestRally": [
+        21,
+        21
+      ],
+      "distanceCovered": [
+        "2.9 km",
+        "4.2 km"
+      ]
+    }
   },
   {
     "id": 45,
@@ -674,7 +3924,85 @@
     "winnerId": 1,
     "round": "Final",
     "date": "2024-03-31",
-    "court": "Hard Rock Stadium"
+    "court": "Hard Rock Stadium",
+    "statsJson": {
+      "aces": [
+        8,
+        9
+      ],
+      "doubleFaults": [
+        2,
+        3
+      ],
+      "firstServePercent": [
+        68,
+        62
+      ],
+      "firstServeWon": [
+        78,
+        72
+      ],
+      "secondServeWon": [
+        51,
+        44
+      ],
+      "breakPointsConverted": [
+        "7/13",
+        "3/9"
+      ],
+      "breakPointsSaved": [
+        "4/7",
+        "1/1"
+      ],
+      "serviceGamesWon": [
+        11,
+        4
+      ],
+      "returnGamesWon": [
+        1,
+        1
+      ],
+      "totalPointsWon": [
+        90,
+        61
+      ],
+      "winners": [
+        21,
+        17
+      ],
+      "unforcedErrors": [
+        18,
+        23
+      ],
+      "netPoints": [
+        "10/16",
+        "7/9"
+      ],
+      "maxServiceSpeed": [
+        "219 km/h",
+        "209 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "187 km/h",
+        "180 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "143 km/h",
+        "141 km/h"
+      ],
+      "totalGamesWon": [
+        12,
+        4
+      ],
+      "longestRally": [
+        19,
+        19
+      ],
+      "distanceCovered": [
+        "2.0 km",
+        "3.6 km"
+      ]
+    }
   },
   {
     "id": 46,
@@ -685,7 +4013,85 @@
     "winnerId": 11,
     "round": "Final",
     "date": "2024-04-14",
-    "court": "Court Rainier III"
+    "court": "Court Rainier III",
+    "statsJson": {
+      "aces": [
+        8,
+        10
+      ],
+      "doubleFaults": [
+        4,
+        2
+      ],
+      "firstServePercent": [
+        70,
+        65
+      ],
+      "firstServeWon": [
+        73,
+        62
+      ],
+      "secondServeWon": [
+        50,
+        42
+      ],
+      "breakPointsConverted": [
+        "6/7",
+        "1/6"
+      ],
+      "breakPointsSaved": [
+        "1/4",
+        "1/2"
+      ],
+      "serviceGamesWon": [
+        8,
+        4
+      ],
+      "returnGamesWon": [
+        4,
+        1
+      ],
+      "totalPointsWon": [
+        88,
+        71
+      ],
+      "winners": [
+        33,
+        28
+      ],
+      "unforcedErrors": [
+        20,
+        22
+      ],
+      "netPoints": [
+        "12/18",
+        "10/16"
+      ],
+      "maxServiceSpeed": [
+        "218 km/h",
+        "206 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "189 km/h",
+        "178 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "145 km/h",
+        "150 km/h"
+      ],
+      "totalGamesWon": [
+        12,
+        5
+      ],
+      "longestRally": [
+        20,
+        20
+      ],
+      "distanceCovered": [
+        "4.1 km",
+        "3.3 km"
+      ]
+    }
   },
   {
     "id": 47,
@@ -696,7 +4102,85 @@
     "winnerId": 2,
     "round": "Final",
     "date": "2024-05-05",
-    "court": "Manolo Santana Stadium"
+    "court": "Manolo Santana Stadium",
+    "statsJson": {
+      "aces": [
+        14,
+        9
+      ],
+      "doubleFaults": [
+        2,
+        5
+      ],
+      "firstServePercent": [
+        58,
+        63
+      ],
+      "firstServeWon": [
+        67,
+        65
+      ],
+      "secondServeWon": [
+        58,
+        50
+      ],
+      "breakPointsConverted": [
+        "6/9",
+        "4/11"
+      ],
+      "breakPointsSaved": [
+        "1/4",
+        "2/5"
+      ],
+      "serviceGamesWon": [
+        10,
+        12
+      ],
+      "returnGamesWon": [
+        4,
+        1
+      ],
+      "totalPointsWon": [
+        113,
+        94
+      ],
+      "winners": [
+        29,
+        26
+      ],
+      "unforcedErrors": [
+        14,
+        15
+      ],
+      "netPoints": [
+        "9/12",
+        "10/15"
+      ],
+      "maxServiceSpeed": [
+        "210 km/h",
+        "222 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "200 km/h",
+        "185 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "156 km/h",
+        "155 km/h"
+      ],
+      "totalGamesWon": [
+        14,
+        12
+      ],
+      "longestRally": [
+        23,
+        23
+      ],
+      "distanceCovered": [
+        "2.1 km",
+        "4.3 km"
+      ]
+    }
   },
   {
     "id": 48,
@@ -707,7 +4191,85 @@
     "winnerId": 3,
     "round": "Round of 32",
     "date": "2024-01-19",
-    "court": "Rod Laver Arena"
+    "court": "Rod Laver Arena",
+    "statsJson": {
+      "aces": [
+        8,
+        10
+      ],
+      "doubleFaults": [
+        2,
+        6
+      ],
+      "firstServePercent": [
+        64,
+        65
+      ],
+      "firstServeWon": [
+        79,
+        58
+      ],
+      "secondServeWon": [
+        45,
+        54
+      ],
+      "breakPointsConverted": [
+        "4/5",
+        "1/4"
+      ],
+      "breakPointsSaved": [
+        "2/5",
+        "2/3"
+      ],
+      "serviceGamesWon": [
+        14,
+        9
+      ],
+      "returnGamesWon": [
+        4,
+        1
+      ],
+      "totalPointsWon": [
+        110,
+        76
+      ],
+      "winners": [
+        20,
+        14
+      ],
+      "unforcedErrors": [
+        27,
+        31
+      ],
+      "netPoints": [
+        "10/18",
+        "9/14"
+      ],
+      "maxServiceSpeed": [
+        "203 km/h",
+        "206 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "190 km/h",
+        "196 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "162 km/h",
+        "151 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        9
+      ],
+      "longestRally": [
+        24,
+        24
+      ],
+      "distanceCovered": [
+        "2.6 km",
+        "4.7 km"
+      ]
+    }
   },
   {
     "id": 49,
@@ -718,7 +4280,85 @@
     "winnerId": 2,
     "round": "Round of 32",
     "date": "2024-01-19",
-    "court": "Rod Laver Arena"
+    "court": "Rod Laver Arena",
+    "statsJson": {
+      "aces": [
+        8,
+        10
+      ],
+      "doubleFaults": [
+        2,
+        3
+      ],
+      "firstServePercent": [
+        72,
+        62
+      ],
+      "firstServeWon": [
+        77,
+        68
+      ],
+      "secondServeWon": [
+        53,
+        51
+      ],
+      "breakPointsConverted": [
+        "6/9",
+        "2/6"
+      ],
+      "breakPointsSaved": [
+        "2/3",
+        "5/6"
+      ],
+      "serviceGamesWon": [
+        15,
+        8
+      ],
+      "returnGamesWon": [
+        3,
+        3
+      ],
+      "totalPointsWon": [
+        116,
+        98
+      ],
+      "winners": [
+        22,
+        22
+      ],
+      "unforcedErrors": [
+        24,
+        27
+      ],
+      "netPoints": [
+        "6/14",
+        "7/12"
+      ],
+      "maxServiceSpeed": [
+        "218 km/h",
+        "213 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "180 km/h",
+        "184 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "161 km/h",
+        "148 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        11
+      ],
+      "longestRally": [
+        22,
+        22
+      ],
+      "distanceCovered": [
+        "2.4 km",
+        "2.6 km"
+      ]
+    }
   },
   {
     "id": 50,
@@ -729,7 +4369,85 @@
     "winnerId": 1,
     "round": "Round of 32",
     "date": "2024-01-20",
-    "court": "Rod Laver Arena"
+    "court": "Rod Laver Arena",
+    "statsJson": {
+      "aces": [
+        4,
+        3
+      ],
+      "doubleFaults": [
+        5,
+        4
+      ],
+      "firstServePercent": [
+        74,
+        61
+      ],
+      "firstServeWon": [
+        77,
+        74
+      ],
+      "secondServeWon": [
+        58,
+        48
+      ],
+      "breakPointsConverted": [
+        "2/7",
+        "4/11"
+      ],
+      "breakPointsSaved": [
+        "1/1",
+        "5/6"
+      ],
+      "serviceGamesWon": [
+        18,
+        8
+      ],
+      "returnGamesWon": [
+        1,
+        1
+      ],
+      "totalPointsWon": [
+        109,
+        82
+      ],
+      "winners": [
+        35,
+        19
+      ],
+      "unforcedErrors": [
+        13,
+        14
+      ],
+      "netPoints": [
+        "16/20",
+        "5/8"
+      ],
+      "maxServiceSpeed": [
+        "230 km/h",
+        "225 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "184 km/h",
+        "195 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "144 km/h",
+        "144 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        9
+      ],
+      "longestRally": [
+        28,
+        28
+      ],
+      "distanceCovered": [
+        "2.7 km",
+        "3.6 km"
+      ]
+    }
   },
   {
     "id": 51,
@@ -740,7 +4458,85 @@
     "winnerId": 4,
     "round": "Final",
     "date": "2024-05-19",
-    "court": "Foro Italico"
+    "court": "Foro Italico",
+    "statsJson": {
+      "aces": [
+        12,
+        8
+      ],
+      "doubleFaults": [
+        3,
+        6
+      ],
+      "firstServePercent": [
+        72,
+        66
+      ],
+      "firstServeWon": [
+        82,
+        66
+      ],
+      "secondServeWon": [
+        53,
+        49
+      ],
+      "breakPointsConverted": [
+        "3/5",
+        "3/6"
+      ],
+      "breakPointsSaved": [
+        "1/1",
+        "2/2"
+      ],
+      "serviceGamesWon": [
+        12,
+        9
+      ],
+      "returnGamesWon": [
+        1,
+        1
+      ],
+      "totalPointsWon": [
+        79,
+        50
+      ],
+      "winners": [
+        21,
+        20
+      ],
+      "unforcedErrors": [
+        19,
+        22
+      ],
+      "netPoints": [
+        "7/11",
+        "9/16"
+      ],
+      "maxServiceSpeed": [
+        "200 km/h",
+        "214 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "181 km/h",
+        "183 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "149 km/h",
+        "145 km/h"
+      ],
+      "totalGamesWon": [
+        13,
+        9
+      ],
+      "longestRally": [
+        21,
+        21
+      ],
+      "distanceCovered": [
+        "3.3 km",
+        "2.5 km"
+      ]
+    }
   },
   {
     "id": 52,
@@ -751,7 +4547,85 @@
     "winnerId": 3,
     "round": "Final",
     "date": "2024-08-12",
-    "court": "IGA Stadium"
+    "court": "IGA Stadium",
+    "statsJson": {
+      "aces": [
+        6,
+        8
+      ],
+      "doubleFaults": [
+        2,
+        8
+      ],
+      "firstServePercent": [
+        63,
+        64
+      ],
+      "firstServeWon": [
+        72,
+        71
+      ],
+      "secondServeWon": [
+        51,
+        38
+      ],
+      "breakPointsConverted": [
+        "5/9",
+        "3/9"
+      ],
+      "breakPointsSaved": [
+        "2/5",
+        "3/7"
+      ],
+      "serviceGamesWon": [
+        13,
+        7
+      ],
+      "returnGamesWon": [
+        1,
+        2
+      ],
+      "totalPointsWon": [
+        70,
+        48
+      ],
+      "winners": [
+        25,
+        20
+      ],
+      "unforcedErrors": [
+        14,
+        14
+      ],
+      "netPoints": [
+        "14/21",
+        "8/11"
+      ],
+      "maxServiceSpeed": [
+        "205 km/h",
+        "206 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "196 km/h",
+        "175 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "161 km/h",
+        "143 km/h"
+      ],
+      "totalGamesWon": [
+        13,
+        9
+      ],
+      "longestRally": [
+        20,
+        20
+      ],
+      "distanceCovered": [
+        "3.7 km",
+        "4.5 km"
+      ]
+    }
   },
   {
     "id": 53,
@@ -762,7 +4636,85 @@
     "winnerId": 1,
     "round": "Final",
     "date": "2024-08-19",
-    "court": "Centre Court"
+    "court": "Centre Court",
+    "statsJson": {
+      "aces": [
+        8,
+        2
+      ],
+      "doubleFaults": [
+        4,
+        8
+      ],
+      "firstServePercent": [
+        71,
+        71
+      ],
+      "firstServeWon": [
+        72,
+        71
+      ],
+      "secondServeWon": [
+        48,
+        54
+      ],
+      "breakPointsConverted": [
+        "4/7",
+        "3/8"
+      ],
+      "breakPointsSaved": [
+        "2/3",
+        "4/8"
+      ],
+      "serviceGamesWon": [
+        10,
+        7
+      ],
+      "returnGamesWon": [
+        3,
+        1
+      ],
+      "totalPointsWon": [
+        91,
+        68
+      ],
+      "winners": [
+        31,
+        26
+      ],
+      "unforcedErrors": [
+        18,
+        20
+      ],
+      "netPoints": [
+        "9/12",
+        "8/10"
+      ],
+      "maxServiceSpeed": [
+        "224 km/h",
+        "220 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "192 km/h",
+        "180 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "141 km/h",
+        "154 km/h"
+      ],
+      "totalGamesWon": [
+        13,
+        8
+      ],
+      "longestRally": [
+        29,
+        29
+      ],
+      "distanceCovered": [
+        "3.3 km",
+        "3.5 km"
+      ]
+    }
   },
   {
     "id": 54,
@@ -773,7 +4725,85 @@
     "winnerId": 1,
     "round": "Final",
     "date": "2024-10-13",
-    "court": "Qizhong Forest Sports City Arena"
+    "court": "Qizhong Forest Sports City Arena",
+    "statsJson": {
+      "aces": [
+        11,
+        2
+      ],
+      "doubleFaults": [
+        5,
+        3
+      ],
+      "firstServePercent": [
+        74,
+        69
+      ],
+      "firstServeWon": [
+        69,
+        64
+      ],
+      "secondServeWon": [
+        48,
+        47
+      ],
+      "breakPointsConverted": [
+        "3/9",
+        "2/8"
+      ],
+      "breakPointsSaved": [
+        "3/5",
+        "1/3"
+      ],
+      "serviceGamesWon": [
+        12,
+        9
+      ],
+      "returnGamesWon": [
+        1,
+        1
+      ],
+      "totalPointsWon": [
+        81,
+        65
+      ],
+      "winners": [
+        29,
+        27
+      ],
+      "unforcedErrors": [
+        25,
+        30
+      ],
+      "netPoints": [
+        "11/16",
+        "11/16"
+      ],
+      "maxServiceSpeed": [
+        "201 km/h",
+        "209 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "195 km/h",
+        "187 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "157 km/h",
+        "150 km/h"
+      ],
+      "totalGamesWon": [
+        13,
+        9
+      ],
+      "longestRally": [
+        21,
+        21
+      ],
+      "distanceCovered": [
+        "4.1 km",
+        "3.8 km"
+      ]
+    }
   },
   {
     "id": 55,
@@ -784,7 +4814,85 @@
     "winnerId": 4,
     "round": "Final",
     "date": "2024-11-03",
-    "court": "AccorHotels Arena"
+    "court": "AccorHotels Arena",
+    "statsJson": {
+      "aces": [
+        10,
+        2
+      ],
+      "doubleFaults": [
+        4,
+        7
+      ],
+      "firstServePercent": [
+        63,
+        66
+      ],
+      "firstServeWon": [
+        78,
+        67
+      ],
+      "secondServeWon": [
+        54,
+        48
+      ],
+      "breakPointsConverted": [
+        "6/7",
+        "4/7"
+      ],
+      "breakPointsSaved": [
+        "1/1",
+        "3/5"
+      ],
+      "serviceGamesWon": [
+        10,
+        4
+      ],
+      "returnGamesWon": [
+        2,
+        1
+      ],
+      "totalPointsWon": [
+        86,
+        72
+      ],
+      "winners": [
+        30,
+        24
+      ],
+      "unforcedErrors": [
+        17,
+        20
+      ],
+      "netPoints": [
+        "16/24",
+        "10/16"
+      ],
+      "maxServiceSpeed": [
+        "210 km/h",
+        "216 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "181 km/h",
+        "191 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "158 km/h",
+        "149 km/h"
+      ],
+      "totalGamesWon": [
+        12,
+        4
+      ],
+      "longestRally": [
+        23,
+        23
+      ],
+      "distanceCovered": [
+        "3.9 km",
+        "3.3 km"
+      ]
+    }
   },
   {
     "id": 56,
@@ -797,18 +4905,82 @@
     "date": "2024-11-17",
     "court": "Pala Alpitour",
     "statsJson": {
-      "player1": {
-        "aces": 9,
-        "doubleFaults": 1,
-        "firstServePercent": 74,
-        "breakPointsConverted": "4/6"
-      },
-      "player2": {
-        "aces": 5,
-        "doubleFaults": 3,
-        "firstServePercent": 63,
-        "breakPointsConverted": "1/4"
-      }
+      "aces": [
+        9,
+        5
+      ],
+      "doubleFaults": [
+        1,
+        3
+      ],
+      "firstServePercent": [
+        74,
+        63
+      ],
+      "firstServeWon": [
+        75,
+        72
+      ],
+      "secondServeWon": [
+        45,
+        54
+      ],
+      "breakPointsConverted": [
+        "4/6",
+        "1/4"
+      ],
+      "breakPointsSaved": [
+        "1/4",
+        "1/4"
+      ],
+      "serviceGamesWon": [
+        8,
+        5
+      ],
+      "returnGamesWon": [
+        4,
+        3
+      ],
+      "totalPointsWon": [
+        72,
+        60
+      ],
+      "winners": [
+        26,
+        20
+      ],
+      "unforcedErrors": [
+        14,
+        17
+      ],
+      "netPoints": [
+        "11/16",
+        "12/15"
+      ],
+      "maxServiceSpeed": [
+        "203 km/h",
+        "217 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "185 km/h",
+        "196 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "155 km/h",
+        "139 km/h"
+      ],
+      "totalGamesWon": [
+        12,
+        8
+      ],
+      "longestRally": [
+        29,
+        29
+      ],
+      "distanceCovered": [
+        "3.7 km",
+        "4.5 km"
+      ]
     }
   },
   {
@@ -820,7 +4992,85 @@
     "winnerId": 1,
     "round": "Semi-Final",
     "date": "2024-11-16",
-    "court": "Pala Alpitour"
+    "court": "Pala Alpitour",
+    "statsJson": {
+      "aces": [
+        10,
+        2
+      ],
+      "doubleFaults": [
+        3,
+        7
+      ],
+      "firstServePercent": [
+        67,
+        57
+      ],
+      "firstServeWon": [
+        79,
+        72
+      ],
+      "secondServeWon": [
+        53,
+        40
+      ],
+      "breakPointsConverted": [
+        "7/11",
+        "3/10"
+      ],
+      "breakPointsSaved": [
+        "4/6",
+        "3/3"
+      ],
+      "serviceGamesWon": [
+        8,
+        6
+      ],
+      "returnGamesWon": [
+        4,
+        1
+      ],
+      "totalPointsWon": [
+        83,
+        68
+      ],
+      "winners": [
+        18,
+        14
+      ],
+      "unforcedErrors": [
+        12,
+        16
+      ],
+      "netPoints": [
+        "7/13",
+        "10/15"
+      ],
+      "maxServiceSpeed": [
+        "209 km/h",
+        "218 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "184 km/h",
+        "191 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "146 km/h",
+        "148 km/h"
+      ],
+      "totalGamesWon": [
+        12,
+        7
+      ],
+      "longestRally": [
+        17,
+        17
+      ],
+      "distanceCovered": [
+        "3.7 km",
+        "3.6 km"
+      ]
+    }
   },
   {
     "id": 58,
@@ -831,7 +5081,85 @@
     "winnerId": 12,
     "round": "Semi-Final",
     "date": "2024-11-16",
-    "court": "Pala Alpitour"
+    "court": "Pala Alpitour",
+    "statsJson": {
+      "aces": [
+        10,
+        4
+      ],
+      "doubleFaults": [
+        6,
+        4
+      ],
+      "firstServePercent": [
+        72,
+        56
+      ],
+      "firstServeWon": [
+        81,
+        78
+      ],
+      "secondServeWon": [
+        55,
+        41
+      ],
+      "breakPointsConverted": [
+        "2/5",
+        "2/8"
+      ],
+      "breakPointsSaved": [
+        "2/5",
+        "2/2"
+      ],
+      "serviceGamesWon": [
+        12,
+        12
+      ],
+      "returnGamesWon": [
+        4,
+        3
+      ],
+      "totalPointsWon": [
+        117,
+        96
+      ],
+      "winners": [
+        23,
+        23
+      ],
+      "unforcedErrors": [
+        21,
+        25
+      ],
+      "netPoints": [
+        "15/20",
+        "14/21"
+      ],
+      "maxServiceSpeed": [
+        "207 km/h",
+        "222 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "186 km/h",
+        "177 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "144 km/h",
+        "143 km/h"
+      ],
+      "totalGamesWon": [
+        16,
+        15
+      ],
+      "longestRally": [
+        17,
+        17
+      ],
+      "distanceCovered": [
+        "3.1 km",
+        "3.1 km"
+      ]
+    }
   },
   {
     "id": 59,
@@ -842,7 +5170,85 @@
     "winnerId": 8,
     "round": "Round of 16",
     "date": "2024-06-01",
-    "court": "Court Philippe-Chatrier"
+    "court": "Court Philippe-Chatrier",
+    "statsJson": {
+      "aces": [
+        18,
+        7
+      ],
+      "doubleFaults": [
+        3,
+        4
+      ],
+      "firstServePercent": [
+        73,
+        63
+      ],
+      "firstServeWon": [
+        82,
+        77
+      ],
+      "secondServeWon": [
+        51,
+        52
+      ],
+      "breakPointsConverted": [
+        "5/9",
+        "3/10"
+      ],
+      "breakPointsSaved": [
+        "4/7",
+        "2/5"
+      ],
+      "serviceGamesWon": [
+        20,
+        17
+      ],
+      "returnGamesWon": [
+        4,
+        1
+      ],
+      "totalPointsWon": [
+        139,
+        118
+      ],
+      "winners": [
+        32,
+        25
+      ],
+      "unforcedErrors": [
+        19,
+        23
+      ],
+      "netPoints": [
+        "13/21",
+        "5/7"
+      ],
+      "maxServiceSpeed": [
+        "228 km/h",
+        "199 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "181 km/h",
+        "195 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "156 km/h",
+        "150 km/h"
+      ],
+      "totalGamesWon": [
+        24,
+        18
+      ],
+      "longestRally": [
+        28,
+        28
+      ],
+      "distanceCovered": [
+        "3.3 km",
+        "4.2 km"
+      ]
+    }
   },
   {
     "id": 60,
@@ -853,7 +5259,85 @@
     "winnerId": 11,
     "round": "Round of 16",
     "date": "2024-06-01",
-    "court": "Court Philippe-Chatrier"
+    "court": "Court Philippe-Chatrier",
+    "statsJson": {
+      "aces": [
+        11,
+        10
+      ],
+      "doubleFaults": [
+        5,
+        6
+      ],
+      "firstServePercent": [
+        71,
+        64
+      ],
+      "firstServeWon": [
+        81,
+        77
+      ],
+      "secondServeWon": [
+        54,
+        45
+      ],
+      "breakPointsConverted": [
+        "4/6",
+        "4/9"
+      ],
+      "breakPointsSaved": [
+        "4/4",
+        "5/7"
+      ],
+      "serviceGamesWon": [
+        17,
+        8
+      ],
+      "returnGamesWon": [
+        2,
+        4
+      ],
+      "totalPointsWon": [
+        106,
+        78
+      ],
+      "winners": [
+        19,
+        13
+      ],
+      "unforcedErrors": [
+        11,
+        28
+      ],
+      "netPoints": [
+        "16/18",
+        "9/14"
+      ],
+      "maxServiceSpeed": [
+        "204 km/h",
+        "205 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "181 km/h",
+        "182 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "154 km/h",
+        "148 km/h"
+      ],
+      "totalGamesWon": [
+        19,
+        12
+      ],
+      "longestRally": [
+        17,
+        17
+      ],
+      "distanceCovered": [
+        "2.8 km",
+        "3.3 km"
+      ]
+    }
   },
   {
     "id": 61,
@@ -864,7 +5348,85 @@
     "winnerId": 12,
     "round": "Round of 16",
     "date": "2024-07-08",
-    "court": "No.1 Court"
+    "court": "No.1 Court",
+    "statsJson": {
+      "aces": [
+        11,
+        10
+      ],
+      "doubleFaults": [
+        2,
+        3
+      ],
+      "firstServePercent": [
+        69,
+        65
+      ],
+      "firstServeWon": [
+        72,
+        59
+      ],
+      "secondServeWon": [
+        57,
+        42
+      ],
+      "breakPointsConverted": [
+        "7/9",
+        "5/8"
+      ],
+      "breakPointsSaved": [
+        "4/6",
+        "3/3"
+      ],
+      "serviceGamesWon": [
+        22,
+        15
+      ],
+      "returnGamesWon": [
+        1,
+        4
+      ],
+      "totalPointsWon": [
+        119,
+        105
+      ],
+      "winners": [
+        20,
+        17
+      ],
+      "unforcedErrors": [
+        21,
+        31
+      ],
+      "netPoints": [
+        "15/19",
+        "5/9"
+      ],
+      "maxServiceSpeed": [
+        "221 km/h",
+        "201 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "196 km/h",
+        "192 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "158 km/h",
+        "144 km/h"
+      ],
+      "totalGamesWon": [
+        22,
+        19
+      ],
+      "longestRally": [
+        22,
+        22
+      ],
+      "distanceCovered": [
+        "3.2 km",
+        "2.6 km"
+      ]
+    }
   },
   {
     "id": 62,
@@ -875,7 +5437,85 @@
     "winnerId": 10,
     "round": "Round of 16",
     "date": "2024-07-07",
-    "court": "No.1 Court"
+    "court": "No.1 Court",
+    "statsJson": {
+      "aces": [
+        13,
+        14
+      ],
+      "doubleFaults": [
+        2,
+        2
+      ],
+      "firstServePercent": [
+        71,
+        57
+      ],
+      "firstServeWon": [
+        69,
+        66
+      ],
+      "secondServeWon": [
+        50,
+        45
+      ],
+      "breakPointsConverted": [
+        "4/9",
+        "4/9"
+      ],
+      "breakPointsSaved": [
+        "4/7",
+        "2/3"
+      ],
+      "serviceGamesWon": [
+        24,
+        17
+      ],
+      "returnGamesWon": [
+        1,
+        1
+      ],
+      "totalPointsWon": [
+        118,
+        102
+      ],
+      "winners": [
+        33,
+        24
+      ],
+      "unforcedErrors": [
+        16,
+        19
+      ],
+      "netPoints": [
+        "8/14",
+        "8/10"
+      ],
+      "maxServiceSpeed": [
+        "209 km/h",
+        "203 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "191 km/h",
+        "180 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "158 km/h",
+        "143 km/h"
+      ],
+      "totalGamesWon": [
+        25,
+        17
+      ],
+      "longestRally": [
+        31,
+        31
+      ],
+      "distanceCovered": [
+        "3.9 km",
+        "4.6 km"
+      ]
+    }
   },
   {
     "id": 63,
@@ -886,7 +5526,85 @@
     "winnerId": 13,
     "round": "Round of 16",
     "date": "2024-07-07",
-    "court": "No.1 Court"
+    "court": "No.1 Court",
+    "statsJson": {
+      "aces": [
+        13,
+        9
+      ],
+      "doubleFaults": [
+        5,
+        7
+      ],
+      "firstServePercent": [
+        70,
+        66
+      ],
+      "firstServeWon": [
+        72,
+        69
+      ],
+      "secondServeWon": [
+        43,
+        51
+      ],
+      "breakPointsConverted": [
+        "5/10",
+        "3/10"
+      ],
+      "breakPointsSaved": [
+        "4/4",
+        "1/1"
+      ],
+      "serviceGamesWon": [
+        16,
+        9
+      ],
+      "returnGamesWon": [
+        3,
+        2
+      ],
+      "totalPointsWon": [
+        103,
+        89
+      ],
+      "winners": [
+        16,
+        16
+      ],
+      "unforcedErrors": [
+        22,
+        20
+      ],
+      "netPoints": [
+        "13/19",
+        "7/11"
+      ],
+      "maxServiceSpeed": [
+        "204 km/h",
+        "218 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "185 km/h",
+        "176 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "143 km/h",
+        "141 km/h"
+      ],
+      "totalGamesWon": [
+        19,
+        11
+      ],
+      "longestRally": [
+        23,
+        23
+      ],
+      "distanceCovered": [
+        "2.5 km",
+        "3.2 km"
+      ]
+    }
   },
   {
     "id": 64,
@@ -897,7 +5615,85 @@
     "winnerId": 9,
     "round": "Round of 16",
     "date": "2024-09-01",
-    "court": "Louis Armstrong Stadium"
+    "court": "Louis Armstrong Stadium",
+    "statsJson": {
+      "aces": [
+        13,
+        15
+      ],
+      "doubleFaults": [
+        3,
+        7
+      ],
+      "firstServePercent": [
+        64,
+        62
+      ],
+      "firstServeWon": [
+        81,
+        78
+      ],
+      "secondServeWon": [
+        46,
+        39
+      ],
+      "breakPointsConverted": [
+        "4/10",
+        "3/10"
+      ],
+      "breakPointsSaved": [
+        "4/6",
+        "3/5"
+      ],
+      "serviceGamesWon": [
+        22,
+        18
+      ],
+      "returnGamesWon": [
+        3,
+        3
+      ],
+      "totalPointsWon": [
+        131,
+        111
+      ],
+      "winners": [
+        28,
+        26
+      ],
+      "unforcedErrors": [
+        11,
+        18
+      ],
+      "netPoints": [
+        "12/20",
+        "7/14"
+      ],
+      "maxServiceSpeed": [
+        "218 km/h",
+        "211 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "190 km/h",
+        "191 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "147 km/h",
+        "153 km/h"
+      ],
+      "totalGamesWon": [
+        25,
+        21
+      ],
+      "longestRally": [
+        32,
+        32
+      ],
+      "distanceCovered": [
+        "3.0 km",
+        "2.7 km"
+      ]
+    }
   },
   {
     "id": 65,
@@ -908,7 +5704,85 @@
     "winnerId": 10,
     "round": "Round of 16",
     "date": "2024-09-01",
-    "court": "Louis Armstrong Stadium"
+    "court": "Louis Armstrong Stadium",
+    "statsJson": {
+      "aces": [
+        12,
+        13
+      ],
+      "doubleFaults": [
+        3,
+        3
+      ],
+      "firstServePercent": [
+        61,
+        60
+      ],
+      "firstServeWon": [
+        73,
+        72
+      ],
+      "secondServeWon": [
+        44,
+        43
+      ],
+      "breakPointsConverted": [
+        "7/13",
+        "2/5"
+      ],
+      "breakPointsSaved": [
+        "1/3",
+        "4/7"
+      ],
+      "serviceGamesWon": [
+        20,
+        16
+      ],
+      "returnGamesWon": [
+        2,
+        1
+      ],
+      "totalPointsWon": [
+        124,
+        110
+      ],
+      "winners": [
+        26,
+        22
+      ],
+      "unforcedErrors": [
+        18,
+        15
+      ],
+      "netPoints": [
+        "10/14",
+        "8/11"
+      ],
+      "maxServiceSpeed": [
+        "221 km/h",
+        "197 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "185 km/h",
+        "198 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "154 km/h",
+        "152 km/h"
+      ],
+      "totalGamesWon": [
+        22,
+        17
+      ],
+      "longestRally": [
+        32,
+        32
+      ],
+      "distanceCovered": [
+        "3.0 km",
+        "3.6 km"
+      ]
+    }
   },
   {
     "id": 66,
@@ -919,7 +5793,85 @@
     "winnerId": 4,
     "round": "Round of 16",
     "date": "2024-08-31",
-    "court": "Arthur Ashe Stadium"
+    "court": "Arthur Ashe Stadium",
+    "statsJson": {
+      "aces": [
+        8,
+        10
+      ],
+      "doubleFaults": [
+        3,
+        6
+      ],
+      "firstServePercent": [
+        70,
+        71
+      ],
+      "firstServeWon": [
+        77,
+        63
+      ],
+      "secondServeWon": [
+        44,
+        54
+      ],
+      "breakPointsConverted": [
+        "4/7",
+        "1/7"
+      ],
+      "breakPointsSaved": [
+        "3/3",
+        "2/4"
+      ],
+      "serviceGamesWon": [
+        17,
+        8
+      ],
+      "returnGamesWon": [
+        2,
+        4
+      ],
+      "totalPointsWon": [
+        113,
+        100
+      ],
+      "winners": [
+        32,
+        20
+      ],
+      "unforcedErrors": [
+        13,
+        13
+      ],
+      "netPoints": [
+        "9/13",
+        "8/13"
+      ],
+      "maxServiceSpeed": [
+        "203 km/h",
+        "207 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "181 km/h",
+        "181 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "143 km/h",
+        "145 km/h"
+      ],
+      "totalGamesWon": [
+        19,
+        12
+      ],
+      "longestRally": [
+        22,
+        22
+      ],
+      "distanceCovered": [
+        "4.0 km",
+        "2.4 km"
+      ]
+    }
   },
   {
     "id": 67,
@@ -930,7 +5882,85 @@
     "winnerId": 4,
     "round": "Round of 16",
     "date": "2024-01-21",
-    "court": "Rod Laver Arena"
+    "court": "Rod Laver Arena",
+    "statsJson": {
+      "aces": [
+        9,
+        6
+      ],
+      "doubleFaults": [
+        2,
+        3
+      ],
+      "firstServePercent": [
+        59,
+        57
+      ],
+      "firstServeWon": [
+        72,
+        69
+      ],
+      "secondServeWon": [
+        47,
+        48
+      ],
+      "breakPointsConverted": [
+        "7/9",
+        "4/7"
+      ],
+      "breakPointsSaved": [
+        "4/6",
+        "3/3"
+      ],
+      "serviceGamesWon": [
+        15,
+        6
+      ],
+      "returnGamesWon": [
+        3,
+        1
+      ],
+      "totalPointsWon": [
+        99,
+        89
+      ],
+      "winners": [
+        30,
+        24
+      ],
+      "unforcedErrors": [
+        16,
+        31
+      ],
+      "netPoints": [
+        "6/8",
+        "6/11"
+      ],
+      "maxServiceSpeed": [
+        "211 km/h",
+        "221 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "192 km/h",
+        "186 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "144 km/h",
+        "144 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        6
+      ],
+      "longestRally": [
+        28,
+        28
+      ],
+      "distanceCovered": [
+        "4.5 km",
+        "4.6 km"
+      ]
+    }
   },
   {
     "id": 68,
@@ -941,7 +5971,85 @@
     "winnerId": 11,
     "round": "Round of 16",
     "date": "2024-01-22",
-    "court": "Margaret Court Arena"
+    "court": "Margaret Court Arena",
+    "statsJson": {
+      "aces": [
+        13,
+        15
+      ],
+      "doubleFaults": [
+        4,
+        6
+      ],
+      "firstServePercent": [
+        60,
+        56
+      ],
+      "firstServeWon": [
+        80,
+        76
+      ],
+      "secondServeWon": [
+        50,
+        51
+      ],
+      "breakPointsConverted": [
+        "2/3",
+        "3/10"
+      ],
+      "breakPointsSaved": [
+        "2/3",
+        "4/8"
+      ],
+      "serviceGamesWon": [
+        24,
+        19
+      ],
+      "returnGamesWon": [
+        1,
+        1
+      ],
+      "totalPointsWon": [
+        127,
+        107
+      ],
+      "winners": [
+        30,
+        24
+      ],
+      "unforcedErrors": [
+        21,
+        24
+      ],
+      "netPoints": [
+        "16/21",
+        "14/19"
+      ],
+      "maxServiceSpeed": [
+        "227 km/h",
+        "196 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "197 km/h",
+        "186 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "158 km/h",
+        "161 km/h"
+      ],
+      "totalGamesWon": [
+        25,
+        20
+      ],
+      "longestRally": [
+        23,
+        23
+      ],
+      "distanceCovered": [
+        "2.1 km",
+        "2.6 km"
+      ]
+    }
   },
   {
     "id": 69,
@@ -952,7 +6060,85 @@
     "winnerId": 3,
     "round": "Round of 16",
     "date": "2024-01-21",
-    "court": "Rod Laver Arena"
+    "court": "Rod Laver Arena",
+    "statsJson": {
+      "aces": [
+        7,
+        6
+      ],
+      "doubleFaults": [
+        4,
+        6
+      ],
+      "firstServePercent": [
+        68,
+        56
+      ],
+      "firstServeWon": [
+        75,
+        73
+      ],
+      "secondServeWon": [
+        50,
+        50
+      ],
+      "breakPointsConverted": [
+        "6/8",
+        "2/4"
+      ],
+      "breakPointsSaved": [
+        "4/7",
+        "2/2"
+      ],
+      "serviceGamesWon": [
+        15,
+        7
+      ],
+      "returnGamesWon": [
+        3,
+        4
+      ],
+      "totalPointsWon": [
+        118,
+        99
+      ],
+      "winners": [
+        27,
+        17
+      ],
+      "unforcedErrors": [
+        25,
+        27
+      ],
+      "netPoints": [
+        "9/13",
+        "5/10"
+      ],
+      "maxServiceSpeed": [
+        "206 km/h",
+        "219 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "200 km/h",
+        "197 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "155 km/h",
+        "157 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        11
+      ],
+      "longestRally": [
+        24,
+        24
+      ],
+      "distanceCovered": [
+        "4.3 km",
+        "2.6 km"
+      ]
+    }
   },
   {
     "id": 70,
@@ -963,7 +6149,85 @@
     "winnerId": 6,
     "round": "Round of 16",
     "date": "2024-01-22",
-    "court": "Rod Laver Arena"
+    "court": "Rod Laver Arena",
+    "statsJson": {
+      "aces": [
+        12,
+        14
+      ],
+      "doubleFaults": [
+        4,
+        5
+      ],
+      "firstServePercent": [
+        66,
+        60
+      ],
+      "firstServeWon": [
+        75,
+        71
+      ],
+      "secondServeWon": [
+        58,
+        46
+      ],
+      "breakPointsConverted": [
+        "3/6",
+        "4/11"
+      ],
+      "breakPointsSaved": [
+        "3/4",
+        "1/4"
+      ],
+      "serviceGamesWon": [
+        18,
+        17
+      ],
+      "returnGamesWon": [
+        4,
+        2
+      ],
+      "totalPointsWon": [
+        131,
+        100
+      ],
+      "winners": [
+        24,
+        14
+      ],
+      "unforcedErrors": [
+        24,
+        28
+      ],
+      "netPoints": [
+        "8/11",
+        "11/13"
+      ],
+      "maxServiceSpeed": [
+        "203 km/h",
+        "225 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "188 km/h",
+        "192 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "150 km/h",
+        "160 km/h"
+      ],
+      "totalGamesWon": [
+        22,
+        19
+      ],
+      "longestRally": [
+        17,
+        17
+      ],
+      "distanceCovered": [
+        "2.7 km",
+        "2.3 km"
+      ]
+    }
   },
   {
     "id": 71,
@@ -974,7 +6238,85 @@
     "winnerId": 4,
     "round": "Round of 32",
     "date": "2024-05-30",
-    "court": "Court Philippe-Chatrier"
+    "court": "Court Philippe-Chatrier",
+    "statsJson": {
+      "aces": [
+        7,
+        9
+      ],
+      "doubleFaults": [
+        3,
+        2
+      ],
+      "firstServePercent": [
+        69,
+        69
+      ],
+      "firstServeWon": [
+        65,
+        60
+      ],
+      "secondServeWon": [
+        42,
+        38
+      ],
+      "breakPointsConverted": [
+        "3/9",
+        "2/5"
+      ],
+      "breakPointsSaved": [
+        "2/5",
+        "4/6"
+      ],
+      "serviceGamesWon": [
+        15,
+        10
+      ],
+      "returnGamesWon": [
+        4,
+        1
+      ],
+      "totalPointsWon": [
+        99,
+        85
+      ],
+      "winners": [
+        26,
+        12
+      ],
+      "unforcedErrors": [
+        19,
+        31
+      ],
+      "netPoints": [
+        "7/11",
+        "11/19"
+      ],
+      "maxServiceSpeed": [
+        "220 km/h",
+        "206 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "190 km/h",
+        "196 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "153 km/h",
+        "143 km/h"
+      ],
+      "totalGamesWon": [
+        19,
+        11
+      ],
+      "longestRally": [
+        21,
+        21
+      ],
+      "distanceCovered": [
+        "4.2 km",
+        "4.0 km"
+      ]
+    }
   },
   {
     "id": 72,
@@ -985,7 +6327,85 @@
     "winnerId": 3,
     "round": "Round of 32",
     "date": "2024-05-30",
-    "court": "Court Philippe-Chatrier"
+    "court": "Court Philippe-Chatrier",
+    "statsJson": {
+      "aces": [
+        6,
+        8
+      ],
+      "doubleFaults": [
+        5,
+        6
+      ],
+      "firstServePercent": [
+        74,
+        59
+      ],
+      "firstServeWon": [
+        71,
+        69
+      ],
+      "secondServeWon": [
+        42,
+        53
+      ],
+      "breakPointsConverted": [
+        "3/6",
+        "5/12"
+      ],
+      "breakPointsSaved": [
+        "4/6",
+        "2/3"
+      ],
+      "serviceGamesWon": [
+        17,
+        7
+      ],
+      "returnGamesWon": [
+        1,
+        1
+      ],
+      "totalPointsWon": [
+        96,
+        79
+      ],
+      "winners": [
+        19,
+        18
+      ],
+      "unforcedErrors": [
+        7,
+        12
+      ],
+      "netPoints": [
+        "11/16",
+        "11/14"
+      ],
+      "maxServiceSpeed": [
+        "208 km/h",
+        "210 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "197 km/h",
+        "175 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "165 km/h",
+        "141 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        8
+      ],
+      "longestRally": [
+        28,
+        28
+      ],
+      "distanceCovered": [
+        "2.3 km",
+        "3.8 km"
+      ]
+    }
   },
   {
     "id": 73,
@@ -996,7 +6416,85 @@
     "winnerId": 1,
     "round": "Round of 32",
     "date": "2024-05-30",
-    "court": "Court Philippe-Chatrier"
+    "court": "Court Philippe-Chatrier",
+    "statsJson": {
+      "aces": [
+        8,
+        5
+      ],
+      "doubleFaults": [
+        2,
+        6
+      ],
+      "firstServePercent": [
+        74,
+        68
+      ],
+      "firstServeWon": [
+        80,
+        75
+      ],
+      "secondServeWon": [
+        55,
+        38
+      ],
+      "breakPointsConverted": [
+        "6/11",
+        "1/3"
+      ],
+      "breakPointsSaved": [
+        "3/6",
+        "2/3"
+      ],
+      "serviceGamesWon": [
+        18,
+        8
+      ],
+      "returnGamesWon": [
+        1,
+        3
+      ],
+      "totalPointsWon": [
+        100,
+        76
+      ],
+      "winners": [
+        21,
+        16
+      ],
+      "unforcedErrors": [
+        21,
+        22
+      ],
+      "netPoints": [
+        "6/11",
+        "9/13"
+      ],
+      "maxServiceSpeed": [
+        "201 km/h",
+        "212 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "180 km/h",
+        "177 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "149 km/h",
+        "153 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        11
+      ],
+      "longestRally": [
+        32,
+        32
+      ],
+      "distanceCovered": [
+        "3.6 km",
+        "4.0 km"
+      ]
+    }
   },
   {
     "id": 74,
@@ -1007,7 +6505,85 @@
     "winnerId": 2,
     "round": "Round of 32",
     "date": "2024-05-29",
-    "court": "Court Philippe-Chatrier"
+    "court": "Court Philippe-Chatrier",
+    "statsJson": {
+      "aces": [
+        5,
+        7
+      ],
+      "doubleFaults": [
+        5,
+        4
+      ],
+      "firstServePercent": [
+        74,
+        70
+      ],
+      "firstServeWon": [
+        76,
+        70
+      ],
+      "secondServeWon": [
+        55,
+        42
+      ],
+      "breakPointsConverted": [
+        "5/9",
+        "2/9"
+      ],
+      "breakPointsSaved": [
+        "1/2",
+        "1/3"
+      ],
+      "serviceGamesWon": [
+        18,
+        7
+      ],
+      "returnGamesWon": [
+        1,
+        1
+      ],
+      "totalPointsWon": [
+        98,
+        84
+      ],
+      "winners": [
+        22,
+        19
+      ],
+      "unforcedErrors": [
+        14,
+        18
+      ],
+      "netPoints": [
+        "7/15",
+        "10/13"
+      ],
+      "maxServiceSpeed": [
+        "215 km/h",
+        "201 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "197 km/h",
+        "195 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "159 km/h",
+        "161 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        7
+      ],
+      "longestRally": [
+        23,
+        23
+      ],
+      "distanceCovered": [
+        "3.7 km",
+        "2.6 km"
+      ]
+    }
   },
   {
     "id": 75,
@@ -1018,7 +6594,85 @@
     "winnerId": 2,
     "round": "Round of 16",
     "date": "2024-07-07",
-    "court": "Centre Court"
+    "court": "Centre Court",
+    "statsJson": {
+      "aces": [
+        10,
+        2
+      ],
+      "doubleFaults": [
+        6,
+        7
+      ],
+      "firstServePercent": [
+        70,
+        60
+      ],
+      "firstServeWon": [
+        78,
+        74
+      ],
+      "secondServeWon": [
+        49,
+        47
+      ],
+      "breakPointsConverted": [
+        "7/12",
+        "4/7"
+      ],
+      "breakPointsSaved": [
+        "4/7",
+        "5/5"
+      ],
+      "serviceGamesWon": [
+        17,
+        7
+      ],
+      "returnGamesWon": [
+        1,
+        4
+      ],
+      "totalPointsWon": [
+        101,
+        71
+      ],
+      "winners": [
+        29,
+        25
+      ],
+      "unforcedErrors": [
+        11,
+        28
+      ],
+      "netPoints": [
+        "15/20",
+        "8/13"
+      ],
+      "maxServiceSpeed": [
+        "200 km/h",
+        "210 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "181 km/h",
+        "195 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "155 km/h",
+        "156 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        11
+      ],
+      "longestRally": [
+        17,
+        17
+      ],
+      "distanceCovered": [
+        "3.5 km",
+        "3.3 km"
+      ]
+    }
   },
   {
     "id": 76,
@@ -1029,7 +6683,85 @@
     "winnerId": 3,
     "round": "Round of 32",
     "date": "2024-07-05",
-    "court": "Centre Court"
+    "court": "Centre Court",
+    "statsJson": {
+      "aces": [
+        13,
+        2
+      ],
+      "doubleFaults": [
+        6,
+        8
+      ],
+      "firstServePercent": [
+        73,
+        71
+      ],
+      "firstServeWon": [
+        80,
+        68
+      ],
+      "secondServeWon": [
+        57,
+        42
+      ],
+      "breakPointsConverted": [
+        "3/4",
+        "5/11"
+      ],
+      "breakPointsSaved": [
+        "2/2",
+        "3/4"
+      ],
+      "serviceGamesWon": [
+        14,
+        10
+      ],
+      "returnGamesWon": [
+        4,
+        1
+      ],
+      "totalPointsWon": [
+        100,
+        85
+      ],
+      "winners": [
+        21,
+        20
+      ],
+      "unforcedErrors": [
+        16,
+        23
+      ],
+      "netPoints": [
+        "16/21",
+        "7/13"
+      ],
+      "maxServiceSpeed": [
+        "218 km/h",
+        "215 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "192 km/h",
+        "190 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "156 km/h",
+        "159 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        11
+      ],
+      "longestRally": [
+        27,
+        27
+      ],
+      "distanceCovered": [
+        "3.3 km",
+        "4.6 km"
+      ]
+    }
   },
   {
     "id": 77,
@@ -1040,7 +6772,85 @@
     "winnerId": 5,
     "round": "Round of 32",
     "date": "2024-07-05",
-    "court": "No.1 Court"
+    "court": "No.1 Court",
+    "statsJson": {
+      "aces": [
+        5,
+        3
+      ],
+      "doubleFaults": [
+        5,
+        4
+      ],
+      "firstServePercent": [
+        68,
+        63
+      ],
+      "firstServeWon": [
+        67,
+        59
+      ],
+      "secondServeWon": [
+        49,
+        38
+      ],
+      "breakPointsConverted": [
+        "6/9",
+        "4/7"
+      ],
+      "breakPointsSaved": [
+        "3/4",
+        "2/5"
+      ],
+      "serviceGamesWon": [
+        18,
+        10
+      ],
+      "returnGamesWon": [
+        1,
+        2
+      ],
+      "totalPointsWon": [
+        125,
+        90
+      ],
+      "winners": [
+        32,
+        29
+      ],
+      "unforcedErrors": [
+        19,
+        19
+      ],
+      "netPoints": [
+        "7/13",
+        "13/20"
+      ],
+      "maxServiceSpeed": [
+        "204 km/h",
+        "222 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "193 km/h",
+        "195 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "160 km/h",
+        "146 km/h"
+      ],
+      "totalGamesWon": [
+        19,
+        12
+      ],
+      "longestRally": [
+        32,
+        32
+      ],
+      "distanceCovered": [
+        "3.0 km",
+        "4.6 km"
+      ]
+    }
   },
   {
     "id": 78,
@@ -1051,7 +6861,85 @@
     "winnerId": 2,
     "round": "Round of 32",
     "date": "2024-07-05",
-    "court": "Centre Court"
+    "court": "Centre Court",
+    "statsJson": {
+      "aces": [
+        12,
+        8
+      ],
+      "doubleFaults": [
+        2,
+        2
+      ],
+      "firstServePercent": [
+        65,
+        64
+      ],
+      "firstServeWon": [
+        73,
+        72
+      ],
+      "secondServeWon": [
+        51,
+        45
+      ],
+      "breakPointsConverted": [
+        "6/9",
+        "1/8"
+      ],
+      "breakPointsSaved": [
+        "1/2",
+        "4/4"
+      ],
+      "serviceGamesWon": [
+        14,
+        9
+      ],
+      "returnGamesWon": [
+        4,
+        1
+      ],
+      "totalPointsWon": [
+        95,
+        81
+      ],
+      "winners": [
+        23,
+        15
+      ],
+      "unforcedErrors": [
+        8,
+        12
+      ],
+      "netPoints": [
+        "9/13",
+        "8/16"
+      ],
+      "maxServiceSpeed": [
+        "209 km/h",
+        "207 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "189 km/h",
+        "183 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "163 km/h",
+        "147 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        9
+      ],
+      "longestRally": [
+        28,
+        28
+      ],
+      "distanceCovered": [
+        "2.1 km",
+        "3.6 km"
+      ]
+    }
   },
   {
     "id": 79,
@@ -1062,7 +6950,85 @@
     "winnerId": 1,
     "round": "Round of 32",
     "date": "2024-08-30",
-    "court": "Arthur Ashe Stadium"
+    "court": "Arthur Ashe Stadium",
+    "statsJson": {
+      "aces": [
+        9,
+        4
+      ],
+      "doubleFaults": [
+        4,
+        8
+      ],
+      "firstServePercent": [
+        71,
+        63
+      ],
+      "firstServeWon": [
+        79,
+        64
+      ],
+      "secondServeWon": [
+        42,
+        38
+      ],
+      "breakPointsConverted": [
+        "5/7",
+        "1/3"
+      ],
+      "breakPointsSaved": [
+        "3/3",
+        "2/2"
+      ],
+      "serviceGamesWon": [
+        14,
+        6
+      ],
+      "returnGamesWon": [
+        4,
+        1
+      ],
+      "totalPointsWon": [
+        118,
+        99
+      ],
+      "winners": [
+        25,
+        17
+      ],
+      "unforcedErrors": [
+        18,
+        18
+      ],
+      "netPoints": [
+        "10/13",
+        "11/14"
+      ],
+      "maxServiceSpeed": [
+        "222 km/h",
+        "197 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "193 km/h",
+        "180 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "163 km/h",
+        "145 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        7
+      ],
+      "longestRally": [
+        19,
+        19
+      ],
+      "distanceCovered": [
+        "4.3 km",
+        "3.6 km"
+      ]
+    }
   },
   {
     "id": 80,
@@ -1073,7 +7039,85 @@
     "winnerId": 5,
     "round": "Round of 32",
     "date": "2024-08-30",
-    "court": "Arthur Ashe Stadium"
+    "court": "Arthur Ashe Stadium",
+    "statsJson": {
+      "aces": [
+        5,
+        3
+      ],
+      "doubleFaults": [
+        5,
+        3
+      ],
+      "firstServePercent": [
+        74,
+        57
+      ],
+      "firstServeWon": [
+        76,
+        71
+      ],
+      "secondServeWon": [
+        58,
+        41
+      ],
+      "breakPointsConverted": [
+        "5/7",
+        "2/7"
+      ],
+      "breakPointsSaved": [
+        "1/4",
+        "1/2"
+      ],
+      "serviceGamesWon": [
+        15,
+        8
+      ],
+      "returnGamesWon": [
+        3,
+        3
+      ],
+      "totalPointsWon": [
+        103,
+        87
+      ],
+      "winners": [
+        29,
+        25
+      ],
+      "unforcedErrors": [
+        28,
+        28
+      ],
+      "netPoints": [
+        "6/14",
+        "6/10"
+      ],
+      "maxServiceSpeed": [
+        "227 km/h",
+        "207 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "183 km/h",
+        "178 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "149 km/h",
+        "151 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        11
+      ],
+      "longestRally": [
+        30,
+        30
+      ],
+      "distanceCovered": [
+        "2.3 km",
+        "2.8 km"
+      ]
+    }
   },
   {
     "id": 81,
@@ -1084,7 +7128,85 @@
     "winnerId": 12,
     "round": "Round of 32",
     "date": "2024-08-30",
-    "court": "Louis Armstrong Stadium"
+    "court": "Louis Armstrong Stadium",
+    "statsJson": {
+      "aces": [
+        6,
+        5
+      ],
+      "doubleFaults": [
+        2,
+        8
+      ],
+      "firstServePercent": [
+        60,
+        55
+      ],
+      "firstServeWon": [
+        72,
+        72
+      ],
+      "secondServeWon": [
+        42,
+        38
+      ],
+      "breakPointsConverted": [
+        "6/9",
+        "1/6"
+      ],
+      "breakPointsSaved": [
+        "4/5",
+        "5/6"
+      ],
+      "serviceGamesWon": [
+        15,
+        8
+      ],
+      "returnGamesWon": [
+        4,
+        4
+      ],
+      "totalPointsWon": [
+        102,
+        77
+      ],
+      "winners": [
+        21,
+        21
+      ],
+      "unforcedErrors": [
+        19,
+        23
+      ],
+      "netPoints": [
+        "8/11",
+        "13/21"
+      ],
+      "maxServiceSpeed": [
+        "206 km/h",
+        "205 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "188 km/h",
+        "179 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "152 km/h",
+        "150 km/h"
+      ],
+      "totalGamesWon": [
+        19,
+        12
+      ],
+      "longestRally": [
+        28,
+        28
+      ],
+      "distanceCovered": [
+        "3.1 km",
+        "3.4 km"
+      ]
+    }
   },
   {
     "id": 82,
@@ -1095,7 +7217,85 @@
     "winnerId": 4,
     "round": "Round of 32",
     "date": "2024-08-29",
-    "court": "Arthur Ashe Stadium"
+    "court": "Arthur Ashe Stadium",
+    "statsJson": {
+      "aces": [
+        4,
+        6
+      ],
+      "doubleFaults": [
+        2,
+        5
+      ],
+      "firstServePercent": [
+        75,
+        71
+      ],
+      "firstServeWon": [
+        69,
+        58
+      ],
+      "secondServeWon": [
+        50,
+        40
+      ],
+      "breakPointsConverted": [
+        "2/3",
+        "1/7"
+      ],
+      "breakPointsSaved": [
+        "1/4",
+        "2/2"
+      ],
+      "serviceGamesWon": [
+        14,
+        7
+      ],
+      "returnGamesWon": [
+        4,
+        2
+      ],
+      "totalPointsWon": [
+        112,
+        97
+      ],
+      "winners": [
+        29,
+        28
+      ],
+      "unforcedErrors": [
+        10,
+        19
+      ],
+      "netPoints": [
+        "13/15",
+        "5/9"
+      ],
+      "maxServiceSpeed": [
+        "200 km/h",
+        "198 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "184 km/h",
+        "177 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "164 km/h",
+        "158 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        9
+      ],
+      "longestRally": [
+        27,
+        27
+      ],
+      "distanceCovered": [
+        "4.5 km",
+        "3.2 km"
+      ]
+    }
   },
   {
     "id": 83,
@@ -1106,7 +7306,85 @@
     "winnerId": 3,
     "round": "Round Robin",
     "date": "2024-11-12",
-    "court": "Pala Alpitour"
+    "court": "Pala Alpitour",
+    "statsJson": {
+      "aces": [
+        4,
+        5
+      ],
+      "doubleFaults": [
+        2,
+        3
+      ],
+      "firstServePercent": [
+        65,
+        55
+      ],
+      "firstServeWon": [
+        70,
+        64
+      ],
+      "secondServeWon": [
+        45,
+        44
+      ],
+      "breakPointsConverted": [
+        "7/12",
+        "3/6"
+      ],
+      "breakPointsSaved": [
+        "1/4",
+        "3/6"
+      ],
+      "serviceGamesWon": [
+        10,
+        5
+      ],
+      "returnGamesWon": [
+        2,
+        3
+      ],
+      "totalPointsWon": [
+        92,
+        69
+      ],
+      "winners": [
+        30,
+        20
+      ],
+      "unforcedErrors": [
+        12,
+        14
+      ],
+      "netPoints": [
+        "16/24",
+        "10/15"
+      ],
+      "maxServiceSpeed": [
+        "216 km/h",
+        "199 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "183 km/h",
+        "183 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "162 km/h",
+        "142 km/h"
+      ],
+      "totalGamesWon": [
+        12,
+        8
+      ],
+      "longestRally": [
+        22,
+        22
+      ],
+      "distanceCovered": [
+        "2.8 km",
+        "3.5 km"
+      ]
+    }
   },
   {
     "id": 84,
@@ -1117,7 +7395,85 @@
     "winnerId": 1,
     "round": "Round Robin",
     "date": "2024-11-12",
-    "court": "Pala Alpitour"
+    "court": "Pala Alpitour",
+    "statsJson": {
+      "aces": [
+        14,
+        3
+      ],
+      "doubleFaults": [
+        5,
+        3
+      ],
+      "firstServePercent": [
+        72,
+        67
+      ],
+      "firstServeWon": [
+        67,
+        62
+      ],
+      "secondServeWon": [
+        57,
+        55
+      ],
+      "breakPointsConverted": [
+        "6/12",
+        "4/7"
+      ],
+      "breakPointsSaved": [
+        "3/5",
+        "3/5"
+      ],
+      "serviceGamesWon": [
+        12,
+        4
+      ],
+      "returnGamesWon": [
+        1,
+        4
+      ],
+      "totalPointsWon": [
+        90,
+        65
+      ],
+      "winners": [
+        26,
+        25
+      ],
+      "unforcedErrors": [
+        12,
+        15
+      ],
+      "netPoints": [
+        "11/16",
+        "6/9"
+      ],
+      "maxServiceSpeed": [
+        "227 km/h",
+        "221 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "188 km/h",
+        "176 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "151 km/h",
+        "146 km/h"
+      ],
+      "totalGamesWon": [
+        12,
+        8
+      ],
+      "longestRally": [
+        21,
+        21
+      ],
+      "distanceCovered": [
+        "2.8 km",
+        "3.6 km"
+      ]
+    }
   },
   {
     "id": 85,
@@ -1128,7 +7484,85 @@
     "winnerId": 12,
     "round": "Round Robin",
     "date": "2024-11-13",
-    "court": "Pala Alpitour"
+    "court": "Pala Alpitour",
+    "statsJson": {
+      "aces": [
+        13,
+        3
+      ],
+      "doubleFaults": [
+        3,
+        7
+      ],
+      "firstServePercent": [
+        70,
+        67
+      ],
+      "firstServeWon": [
+        74,
+        68
+      ],
+      "secondServeWon": [
+        58,
+        42
+      ],
+      "breakPointsConverted": [
+        "7/11",
+        "3/5"
+      ],
+      "breakPointsSaved": [
+        "1/1",
+        "4/7"
+      ],
+      "serviceGamesWon": [
+        8,
+        7
+      ],
+      "returnGamesWon": [
+        4,
+        1
+      ],
+      "totalPointsWon": [
+        75,
+        59
+      ],
+      "winners": [
+        25,
+        14
+      ],
+      "unforcedErrors": [
+        13,
+        25
+      ],
+      "netPoints": [
+        "15/21",
+        "14/17"
+      ],
+      "maxServiceSpeed": [
+        "230 km/h",
+        "214 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "181 km/h",
+        "180 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "164 km/h",
+        "145 km/h"
+      ],
+      "totalGamesWon": [
+        12,
+        7
+      ],
+      "longestRally": [
+        21,
+        21
+      ],
+      "distanceCovered": [
+        "4.4 km",
+        "3.1 km"
+      ]
+    }
   },
   {
     "id": 86,
@@ -1139,7 +7573,85 @@
     "winnerId": 1,
     "round": "Round Robin",
     "date": "2024-11-13",
-    "court": "Pala Alpitour"
+    "court": "Pala Alpitour",
+    "statsJson": {
+      "aces": [
+        14,
+        7
+      ],
+      "doubleFaults": [
+        2,
+        5
+      ],
+      "firstServePercent": [
+        70,
+        69
+      ],
+      "firstServeWon": [
+        75,
+        71
+      ],
+      "secondServeWon": [
+        54,
+        44
+      ],
+      "breakPointsConverted": [
+        "3/7",
+        "3/8"
+      ],
+      "breakPointsSaved": [
+        "3/3",
+        "4/7"
+      ],
+      "serviceGamesWon": [
+        10,
+        7
+      ],
+      "returnGamesWon": [
+        2,
+        1
+      ],
+      "totalPointsWon": [
+        91,
+        74
+      ],
+      "winners": [
+        35,
+        30
+      ],
+      "unforcedErrors": [
+        12,
+        28
+      ],
+      "netPoints": [
+        "6/9",
+        "6/11"
+      ],
+      "maxServiceSpeed": [
+        "216 km/h",
+        "211 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "183 km/h",
+        "193 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "152 km/h",
+        "145 km/h"
+      ],
+      "totalGamesWon": [
+        12,
+        7
+      ],
+      "longestRally": [
+        21,
+        21
+      ],
+      "distanceCovered": [
+        "2.4 km",
+        "2.4 km"
+      ]
+    }
   },
   {
     "id": 87,
@@ -1150,7 +7662,85 @@
     "winnerId": 3,
     "round": "Round Robin",
     "date": "2024-11-14",
-    "court": "Pala Alpitour"
+    "court": "Pala Alpitour",
+    "statsJson": {
+      "aces": [
+        5,
+        6
+      ],
+      "doubleFaults": [
+        3,
+        8
+      ],
+      "firstServePercent": [
+        71,
+        71
+      ],
+      "firstServeWon": [
+        77,
+        76
+      ],
+      "secondServeWon": [
+        47,
+        42
+      ],
+      "breakPointsConverted": [
+        "6/11",
+        "2/5"
+      ],
+      "breakPointsSaved": [
+        "4/6",
+        "2/5"
+      ],
+      "serviceGamesWon": [
+        9,
+        7
+      ],
+      "returnGamesWon": [
+        3,
+        1
+      ],
+      "totalPointsWon": [
+        76,
+        59
+      ],
+      "winners": [
+        28,
+        15
+      ],
+      "unforcedErrors": [
+        17,
+        22
+      ],
+      "netPoints": [
+        "16/18",
+        "7/15"
+      ],
+      "maxServiceSpeed": [
+        "200 km/h",
+        "209 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "199 km/h",
+        "183 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "164 km/h",
+        "156 km/h"
+      ],
+      "totalGamesWon": [
+        12,
+        7
+      ],
+      "longestRally": [
+        24,
+        24
+      ],
+      "distanceCovered": [
+        "4.3 km",
+        "4.4 km"
+      ]
+    }
   },
   {
     "id": 88,
@@ -1161,7 +7751,85 @@
     "winnerId": 12,
     "round": "Round Robin",
     "date": "2024-11-14",
-    "court": "Pala Alpitour"
+    "court": "Pala Alpitour",
+    "statsJson": {
+      "aces": [
+        8,
+        5
+      ],
+      "doubleFaults": [
+        2,
+        3
+      ],
+      "firstServePercent": [
+        75,
+        55
+      ],
+      "firstServeWon": [
+        80,
+        58
+      ],
+      "secondServeWon": [
+        55,
+        48
+      ],
+      "breakPointsConverted": [
+        "5/6",
+        "3/5"
+      ],
+      "breakPointsSaved": [
+        "4/5",
+        "2/3"
+      ],
+      "serviceGamesWon": [
+        9,
+        9
+      ],
+      "returnGamesWon": [
+        4,
+        1
+      ],
+      "totalPointsWon": [
+        75,
+        57
+      ],
+      "winners": [
+        29,
+        16
+      ],
+      "unforcedErrors": [
+        18,
+        18
+      ],
+      "netPoints": [
+        "9/16",
+        "10/12"
+      ],
+      "maxServiceSpeed": [
+        "216 km/h",
+        "216 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "193 km/h",
+        "190 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "160 km/h",
+        "149 km/h"
+      ],
+      "totalGamesWon": [
+        13,
+        9
+      ],
+      "longestRally": [
+        26,
+        26
+      ],
+      "distanceCovered": [
+        "3.9 km",
+        "4.6 km"
+      ]
+    }
   },
   {
     "id": 89,
@@ -1172,7 +7840,85 @@
     "winnerId": 1,
     "round": "Round of 64",
     "date": "2024-01-18",
-    "court": "Rod Laver Arena"
+    "court": "Rod Laver Arena",
+    "statsJson": {
+      "aces": [
+        9,
+        6
+      ],
+      "doubleFaults": [
+        6,
+        8
+      ],
+      "firstServePercent": [
+        70,
+        60
+      ],
+      "firstServeWon": [
+        76,
+        64
+      ],
+      "secondServeWon": [
+        45,
+        44
+      ],
+      "breakPointsConverted": [
+        "4/9",
+        "5/7"
+      ],
+      "breakPointsSaved": [
+        "1/4",
+        "5/6"
+      ],
+      "serviceGamesWon": [
+        18,
+        5
+      ],
+      "returnGamesWon": [
+        1,
+        1
+      ],
+      "totalPointsWon": [
+        108,
+        78
+      ],
+      "winners": [
+        33,
+        15
+      ],
+      "unforcedErrors": [
+        11,
+        13
+      ],
+      "netPoints": [
+        "8/13",
+        "12/15"
+      ],
+      "maxServiceSpeed": [
+        "221 km/h",
+        "199 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "182 km/h",
+        "179 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "164 km/h",
+        "156 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        6
+      ],
+      "longestRally": [
+        30,
+        30
+      ],
+      "distanceCovered": [
+        "2.1 km",
+        "3.9 km"
+      ]
+    }
   },
   {
     "id": 90,
@@ -1183,7 +7929,85 @@
     "winnerId": 2,
     "round": "Round of 64",
     "date": "2024-01-18",
-    "court": "Margaret Court Arena"
+    "court": "Margaret Court Arena",
+    "statsJson": {
+      "aces": [
+        4,
+        4
+      ],
+      "doubleFaults": [
+        3,
+        4
+      ],
+      "firstServePercent": [
+        69,
+        71
+      ],
+      "firstServeWon": [
+        71,
+        69
+      ],
+      "secondServeWon": [
+        49,
+        38
+      ],
+      "breakPointsConverted": [
+        "6/11",
+        "3/5"
+      ],
+      "breakPointsSaved": [
+        "3/5",
+        "3/3"
+      ],
+      "serviceGamesWon": [
+        17,
+        6
+      ],
+      "returnGamesWon": [
+        1,
+        3
+      ],
+      "totalPointsWon": [
+        101,
+        88
+      ],
+      "winners": [
+        19,
+        18
+      ],
+      "unforcedErrors": [
+        12,
+        15
+      ],
+      "netPoints": [
+        "8/10",
+        "8/15"
+      ],
+      "maxServiceSpeed": [
+        "220 km/h",
+        "225 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "193 km/h",
+        "186 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "153 km/h",
+        "147 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        9
+      ],
+      "longestRally": [
+        18,
+        18
+      ],
+      "distanceCovered": [
+        "3.3 km",
+        "3.4 km"
+      ]
+    }
   },
   {
     "id": 91,
@@ -1194,7 +8018,85 @@
     "winnerId": 3,
     "round": "Round of 64",
     "date": "2024-01-17",
-    "court": "Rod Laver Arena"
+    "court": "Rod Laver Arena",
+    "statsJson": {
+      "aces": [
+        12,
+        6
+      ],
+      "doubleFaults": [
+        6,
+        4
+      ],
+      "firstServePercent": [
+        74,
+        57
+      ],
+      "firstServeWon": [
+        77,
+        73
+      ],
+      "secondServeWon": [
+        45,
+        41
+      ],
+      "breakPointsConverted": [
+        "3/6",
+        "5/7"
+      ],
+      "breakPointsSaved": [
+        "1/2",
+        "1/4"
+      ],
+      "serviceGamesWon": [
+        17,
+        8
+      ],
+      "returnGamesWon": [
+        1,
+        1
+      ],
+      "totalPointsWon": [
+        109,
+        94
+      ],
+      "winners": [
+        27,
+        21
+      ],
+      "unforcedErrors": [
+        15,
+        31
+      ],
+      "netPoints": [
+        "14/19",
+        "5/12"
+      ],
+      "maxServiceSpeed": [
+        "230 km/h",
+        "217 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "182 km/h",
+        "196 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "164 km/h",
+        "156 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        9
+      ],
+      "longestRally": [
+        16,
+        16
+      ],
+      "distanceCovered": [
+        "2.5 km",
+        "4.6 km"
+      ]
+    }
   },
   {
     "id": 92,
@@ -1205,7 +8107,85 @@
     "winnerId": 4,
     "round": "Round of 64",
     "date": "2024-01-17",
-    "court": "Margaret Court Arena"
+    "court": "Margaret Court Arena",
+    "statsJson": {
+      "aces": [
+        7,
+        9
+      ],
+      "doubleFaults": [
+        6,
+        5
+      ],
+      "firstServePercent": [
+        68,
+        62
+      ],
+      "firstServeWon": [
+        75,
+        62
+      ],
+      "secondServeWon": [
+        47,
+        48
+      ],
+      "breakPointsConverted": [
+        "4/6",
+        "3/9"
+      ],
+      "breakPointsSaved": [
+        "4/4",
+        "5/9"
+      ],
+      "serviceGamesWon": [
+        17,
+        8
+      ],
+      "returnGamesWon": [
+        1,
+        3
+      ],
+      "totalPointsWon": [
+        104,
+        85
+      ],
+      "winners": [
+        27,
+        22
+      ],
+      "unforcedErrors": [
+        11,
+        31
+      ],
+      "netPoints": [
+        "16/24",
+        "12/17"
+      ],
+      "maxServiceSpeed": [
+        "214 km/h",
+        "201 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "188 km/h",
+        "190 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "153 km/h",
+        "138 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        11
+      ],
+      "longestRally": [
+        30,
+        30
+      ],
+      "distanceCovered": [
+        "2.9 km",
+        "3.9 km"
+      ]
+    }
   },
   {
     "id": 93,
@@ -1216,7 +8196,85 @@
     "winnerId": 5,
     "round": "Round of 64",
     "date": "2024-01-18",
-    "court": "John Cain Arena"
+    "court": "John Cain Arena",
+    "statsJson": {
+      "aces": [
+        9,
+        11
+      ],
+      "doubleFaults": [
+        5,
+        3
+      ],
+      "firstServePercent": [
+        62,
+        61
+      ],
+      "firstServeWon": [
+        73,
+        66
+      ],
+      "secondServeWon": [
+        45,
+        50
+      ],
+      "breakPointsConverted": [
+        "5/6",
+        "4/11"
+      ],
+      "breakPointsSaved": [
+        "3/3",
+        "1/3"
+      ],
+      "serviceGamesWon": [
+        15,
+        9
+      ],
+      "returnGamesWon": [
+        4,
+        2
+      ],
+      "totalPointsWon": [
+        102,
+        91
+      ],
+      "winners": [
+        29,
+        25
+      ],
+      "unforcedErrors": [
+        17,
+        21
+      ],
+      "netPoints": [
+        "15/21",
+        "10/17"
+      ],
+      "maxServiceSpeed": [
+        "200 km/h",
+        "206 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "182 km/h",
+        "194 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "153 km/h",
+        "141 km/h"
+      ],
+      "totalGamesWon": [
+        19,
+        11
+      ],
+      "longestRally": [
+        27,
+        27
+      ],
+      "distanceCovered": [
+        "2.5 km",
+        "3.5 km"
+      ]
+    }
   },
   {
     "id": 94,
@@ -1227,7 +8285,85 @@
     "winnerId": 1,
     "round": "Round of 64",
     "date": "2024-05-27",
-    "court": "Court Philippe-Chatrier"
+    "court": "Court Philippe-Chatrier",
+    "statsJson": {
+      "aces": [
+        13,
+        7
+      ],
+      "doubleFaults": [
+        3,
+        7
+      ],
+      "firstServePercent": [
+        71,
+        66
+      ],
+      "firstServeWon": [
+        82,
+        59
+      ],
+      "secondServeWon": [
+        45,
+        38
+      ],
+      "breakPointsConverted": [
+        "7/9",
+        "2/7"
+      ],
+      "breakPointsSaved": [
+        "2/5",
+        "1/2"
+      ],
+      "serviceGamesWon": [
+        18,
+        8
+      ],
+      "returnGamesWon": [
+        1,
+        1
+      ],
+      "totalPointsWon": [
+        118,
+        97
+      ],
+      "winners": [
+        22,
+        14
+      ],
+      "unforcedErrors": [
+        26,
+        27
+      ],
+      "netPoints": [
+        "7/14",
+        "11/15"
+      ],
+      "maxServiceSpeed": [
+        "220 km/h",
+        "203 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "185 km/h",
+        "180 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "140 km/h",
+        "141 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        9
+      ],
+      "longestRally": [
+        24,
+        24
+      ],
+      "distanceCovered": [
+        "4.4 km",
+        "3.7 km"
+      ]
+    }
   },
   {
     "id": 95,
@@ -1238,7 +8374,85 @@
     "winnerId": 3,
     "round": "Round of 64",
     "date": "2024-05-28",
-    "court": "Court Philippe-Chatrier"
+    "court": "Court Philippe-Chatrier",
+    "statsJson": {
+      "aces": [
+        8,
+        10
+      ],
+      "doubleFaults": [
+        4,
+        3
+      ],
+      "firstServePercent": [
+        61,
+        61
+      ],
+      "firstServeWon": [
+        79,
+        78
+      ],
+      "secondServeWon": [
+        48,
+        49
+      ],
+      "breakPointsConverted": [
+        "7/8",
+        "4/9"
+      ],
+      "breakPointsSaved": [
+        "1/4",
+        "4/5"
+      ],
+      "serviceGamesWon": [
+        18,
+        6
+      ],
+      "returnGamesWon": [
+        1,
+        1
+      ],
+      "totalPointsWon": [
+        110,
+        88
+      ],
+      "winners": [
+        22,
+        19
+      ],
+      "unforcedErrors": [
+        19,
+        23
+      ],
+      "netPoints": [
+        "12/15",
+        "9/15"
+      ],
+      "maxServiceSpeed": [
+        "206 km/h",
+        "200 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "197 km/h",
+        "186 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "157 km/h",
+        "140 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        6
+      ],
+      "longestRally": [
+        20,
+        20
+      ],
+      "distanceCovered": [
+        "2.8 km",
+        "2.7 km"
+      ]
+    }
   },
   {
     "id": 96,
@@ -1249,7 +8463,85 @@
     "winnerId": 4,
     "round": "Round of 64",
     "date": "2024-05-27",
-    "court": "Court Suzanne-Lenglen"
+    "court": "Court Suzanne-Lenglen",
+    "statsJson": {
+      "aces": [
+        7,
+        8
+      ],
+      "doubleFaults": [
+        3,
+        6
+      ],
+      "firstServePercent": [
+        73,
+        69
+      ],
+      "firstServeWon": [
+        83,
+        78
+      ],
+      "secondServeWon": [
+        50,
+        43
+      ],
+      "breakPointsConverted": [
+        "2/7",
+        "1/7"
+      ],
+      "breakPointsSaved": [
+        "4/4",
+        "2/6"
+      ],
+      "serviceGamesWon": [
+        15,
+        7
+      ],
+      "returnGamesWon": [
+        3,
+        2
+      ],
+      "totalPointsWon": [
+        117,
+        98
+      ],
+      "winners": [
+        30,
+        28
+      ],
+      "unforcedErrors": [
+        18,
+        19
+      ],
+      "netPoints": [
+        "14/19",
+        "14/17"
+      ],
+      "maxServiceSpeed": [
+        "210 km/h",
+        "207 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "190 km/h",
+        "194 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "159 km/h",
+        "147 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        9
+      ],
+      "longestRally": [
+        27,
+        27
+      ],
+      "distanceCovered": [
+        "4.1 km",
+        "2.3 km"
+      ]
+    }
   },
   {
     "id": 97,
@@ -1260,7 +8552,85 @@
     "winnerId": 3,
     "round": "Round of 64",
     "date": "2024-07-02",
-    "court": "Centre Court"
+    "court": "Centre Court",
+    "statsJson": {
+      "aces": [
+        4,
+        4
+      ],
+      "doubleFaults": [
+        3,
+        7
+      ],
+      "firstServePercent": [
+        73,
+        69
+      ],
+      "firstServeWon": [
+        77,
+        58
+      ],
+      "secondServeWon": [
+        56,
+        40
+      ],
+      "breakPointsConverted": [
+        "4/6",
+        "4/6"
+      ],
+      "breakPointsSaved": [
+        "4/5",
+        "1/2"
+      ],
+      "serviceGamesWon": [
+        16,
+        6
+      ],
+      "returnGamesWon": [
+        2,
+        1
+      ],
+      "totalPointsWon": [
+        120,
+        94
+      ],
+      "winners": [
+        28,
+        15
+      ],
+      "unforcedErrors": [
+        25,
+        32
+      ],
+      "netPoints": [
+        "7/11",
+        "8/12"
+      ],
+      "maxServiceSpeed": [
+        "208 km/h",
+        "204 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "186 km/h",
+        "197 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "165 km/h",
+        "153 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        6
+      ],
+      "longestRally": [
+        24,
+        24
+      ],
+      "distanceCovered": [
+        "2.7 km",
+        "3.0 km"
+      ]
+    }
   },
   {
     "id": 98,
@@ -1271,7 +8641,85 @@
     "winnerId": 2,
     "round": "Round of 64",
     "date": "2024-07-02",
-    "court": "Centre Court"
+    "court": "Centre Court",
+    "statsJson": {
+      "aces": [
+        5,
+        6
+      ],
+      "doubleFaults": [
+        2,
+        7
+      ],
+      "firstServePercent": [
+        75,
+        64
+      ],
+      "firstServeWon": [
+        72,
+        63
+      ],
+      "secondServeWon": [
+        46,
+        51
+      ],
+      "breakPointsConverted": [
+        "2/8",
+        "5/9"
+      ],
+      "breakPointsSaved": [
+        "3/5",
+        "4/4"
+      ],
+      "serviceGamesWon": [
+        15,
+        11
+      ],
+      "returnGamesWon": [
+        3,
+        1
+      ],
+      "totalPointsWon": [
+        91,
+        79
+      ],
+      "winners": [
+        21,
+        12
+      ],
+      "unforcedErrors": [
+        14,
+        27
+      ],
+      "netPoints": [
+        "7/10",
+        "10/17"
+      ],
+      "maxServiceSpeed": [
+        "223 km/h",
+        "207 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "183 km/h",
+        "178 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "151 km/h",
+        "140 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        11
+      ],
+      "longestRally": [
+        20,
+        20
+      ],
+      "distanceCovered": [
+        "4.1 km",
+        "3.9 km"
+      ]
+    }
   },
   {
     "id": 99,
@@ -1282,7 +8730,85 @@
     "winnerId": 5,
     "round": "Round of 64",
     "date": "2024-07-03",
-    "court": "No.1 Court"
+    "court": "No.1 Court",
+    "statsJson": {
+      "aces": [
+        12,
+        5
+      ],
+      "doubleFaults": [
+        1,
+        3
+      ],
+      "firstServePercent": [
+        69,
+        71
+      ],
+      "firstServeWon": [
+        73,
+        73
+      ],
+      "secondServeWon": [
+        57,
+        39
+      ],
+      "breakPointsConverted": [
+        "2/6",
+        "1/7"
+      ],
+      "breakPointsSaved": [
+        "4/5",
+        "5/8"
+      ],
+      "serviceGamesWon": [
+        14,
+        8
+      ],
+      "returnGamesWon": [
+        4,
+        1
+      ],
+      "totalPointsWon": [
+        108,
+        84
+      ],
+      "winners": [
+        17,
+        14
+      ],
+      "unforcedErrors": [
+        13,
+        15
+      ],
+      "netPoints": [
+        "8/12",
+        "14/16"
+      ],
+      "maxServiceSpeed": [
+        "226 km/h",
+        "202 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "193 km/h",
+        "176 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "154 km/h",
+        "157 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        9
+      ],
+      "longestRally": [
+        26,
+        26
+      ],
+      "distanceCovered": [
+        "3.8 km",
+        "3.1 km"
+      ]
+    }
   },
   {
     "id": 100,
@@ -1293,7 +8819,85 @@
     "winnerId": 1,
     "round": "Round of 64",
     "date": "2024-08-27",
-    "court": "Arthur Ashe Stadium"
+    "court": "Arthur Ashe Stadium",
+    "statsJson": {
+      "aces": [
+        7,
+        5
+      ],
+      "doubleFaults": [
+        3,
+        7
+      ],
+      "firstServePercent": [
+        71,
+        62
+      ],
+      "firstServeWon": [
+        81,
+        74
+      ],
+      "secondServeWon": [
+        48,
+        43
+      ],
+      "breakPointsConverted": [
+        "4/10",
+        "5/8"
+      ],
+      "breakPointsSaved": [
+        "1/1",
+        "1/4"
+      ],
+      "serviceGamesWon": [
+        17,
+        6
+      ],
+      "returnGamesWon": [
+        1,
+        3
+      ],
+      "totalPointsWon": [
+        94,
+        79
+      ],
+      "winners": [
+        23,
+        20
+      ],
+      "unforcedErrors": [
+        9,
+        14
+      ],
+      "netPoints": [
+        "9/12",
+        "12/16"
+      ],
+      "maxServiceSpeed": [
+        "224 km/h",
+        "212 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "190 km/h",
+        "188 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "165 km/h",
+        "148 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        9
+      ],
+      "longestRally": [
+        29,
+        29
+      ],
+      "distanceCovered": [
+        "2.6 km",
+        "3.6 km"
+      ]
+    }
   },
   {
     "id": 101,
@@ -1304,7 +8908,85 @@
     "winnerId": 12,
     "round": "Round of 64",
     "date": "2024-08-27",
-    "court": "Louis Armstrong Stadium"
+    "court": "Louis Armstrong Stadium",
+    "statsJson": {
+      "aces": [
+        9,
+        11
+      ],
+      "doubleFaults": [
+        1,
+        8
+      ],
+      "firstServePercent": [
+        71,
+        63
+      ],
+      "firstServeWon": [
+        75,
+        75
+      ],
+      "secondServeWon": [
+        48,
+        52
+      ],
+      "breakPointsConverted": [
+        "5/10",
+        "1/4"
+      ],
+      "breakPointsSaved": [
+        "3/3",
+        "3/5"
+      ],
+      "serviceGamesWon": [
+        18,
+        10
+      ],
+      "returnGamesWon": [
+        1,
+        1
+      ],
+      "totalPointsWon": [
+        115,
+        96
+      ],
+      "winners": [
+        21,
+        12
+      ],
+      "unforcedErrors": [
+        10,
+        23
+      ],
+      "netPoints": [
+        "13/21",
+        "14/21"
+      ],
+      "maxServiceSpeed": [
+        "225 km/h",
+        "202 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "189 km/h",
+        "191 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "152 km/h",
+        "157 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        11
+      ],
+      "longestRally": [
+        17,
+        17
+      ],
+      "distanceCovered": [
+        "3.6 km",
+        "2.2 km"
+      ]
+    }
   },
   {
     "id": 102,
@@ -1315,7 +8997,85 @@
     "winnerId": 3,
     "round": "Round of 64",
     "date": "2024-08-28",
-    "court": "Arthur Ashe Stadium"
+    "court": "Arthur Ashe Stadium",
+    "statsJson": {
+      "aces": [
+        8,
+        10
+      ],
+      "doubleFaults": [
+        1,
+        8
+      ],
+      "firstServePercent": [
+        67,
+        61
+      ],
+      "firstServeWon": [
+        70,
+        68
+      ],
+      "secondServeWon": [
+        51,
+        39
+      ],
+      "breakPointsConverted": [
+        "6/9",
+        "4/11"
+      ],
+      "breakPointsSaved": [
+        "1/3",
+        "3/7"
+      ],
+      "serviceGamesWon": [
+        16,
+        6
+      ],
+      "returnGamesWon": [
+        2,
+        3
+      ],
+      "totalPointsWon": [
+        104,
+        90
+      ],
+      "winners": [
+        16,
+        14
+      ],
+      "unforcedErrors": [
+        11,
+        26
+      ],
+      "netPoints": [
+        "6/13",
+        "10/15"
+      ],
+      "maxServiceSpeed": [
+        "202 km/h",
+        "207 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "191 km/h",
+        "185 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "142 km/h",
+        "154 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        9
+      ],
+      "longestRally": [
+        23,
+        23
+      ],
+      "distanceCovered": [
+        "3.9 km",
+        "4.3 km"
+      ]
+    }
   },
   {
     "id": 103,
@@ -1326,7 +9086,85 @@
     "winnerId": 5,
     "round": "Round of 64",
     "date": "2024-08-28",
-    "court": "Louis Armstrong Stadium"
+    "court": "Louis Armstrong Stadium",
+    "statsJson": {
+      "aces": [
+        8,
+        10
+      ],
+      "doubleFaults": [
+        2,
+        8
+      ],
+      "firstServePercent": [
+        60,
+        61
+      ],
+      "firstServeWon": [
+        73,
+        72
+      ],
+      "secondServeWon": [
+        54,
+        51
+      ],
+      "breakPointsConverted": [
+        "5/6",
+        "4/8"
+      ],
+      "breakPointsSaved": [
+        "1/3",
+        "4/4"
+      ],
+      "serviceGamesWon": [
+        15,
+        11
+      ],
+      "returnGamesWon": [
+        4,
+        1
+      ],
+      "totalPointsWon": [
+        103,
+        77
+      ],
+      "winners": [
+        26,
+        18
+      ],
+      "unforcedErrors": [
+        18,
+        27
+      ],
+      "netPoints": [
+        "16/20",
+        "12/14"
+      ],
+      "maxServiceSpeed": [
+        "212 km/h",
+        "208 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "180 km/h",
+        "194 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "161 km/h",
+        "145 km/h"
+      ],
+      "totalGamesWon": [
+        19,
+        12
+      ],
+      "longestRally": [
+        25,
+        25
+      ],
+      "distanceCovered": [
+        "2.6 km",
+        "4.5 km"
+      ]
+    }
   },
   {
     "id": 104,
@@ -1337,7 +9175,85 @@
     "winnerId": 4,
     "round": "Round of 64",
     "date": "2024-08-27",
-    "court": "Arthur Ashe Stadium"
+    "court": "Arthur Ashe Stadium",
+    "statsJson": {
+      "aces": [
+        6,
+        2
+      ],
+      "doubleFaults": [
+        1,
+        4
+      ],
+      "firstServePercent": [
+        65,
+        57
+      ],
+      "firstServeWon": [
+        72,
+        71
+      ],
+      "secondServeWon": [
+        46,
+        49
+      ],
+      "breakPointsConverted": [
+        "6/11",
+        "5/10"
+      ],
+      "breakPointsSaved": [
+        "4/5",
+        "2/3"
+      ],
+      "serviceGamesWon": [
+        16,
+        6
+      ],
+      "returnGamesWon": [
+        2,
+        3
+      ],
+      "totalPointsWon": [
+        111,
+        81
+      ],
+      "winners": [
+        27,
+        22
+      ],
+      "unforcedErrors": [
+        8,
+        13
+      ],
+      "netPoints": [
+        "11/19",
+        "12/16"
+      ],
+      "maxServiceSpeed": [
+        "208 km/h",
+        "197 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "196 km/h",
+        "186 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "163 km/h",
+        "144 km/h"
+      ],
+      "totalGamesWon": [
+        18,
+        9
+      ],
+      "longestRally": [
+        29,
+        29
+      ],
+      "distanceCovered": [
+        "2.5 km",
+        "3.5 km"
+      ]
+    }
   },
   {
     "id": 105,
@@ -1348,6 +9264,84 @@
     "winnerId": 2,
     "round": "Round of 64",
     "date": "2024-08-27",
-    "court": "Arthur Ashe Stadium"
+    "court": "Arthur Ashe Stadium",
+    "statsJson": {
+      "aces": [
+        8,
+        4
+      ],
+      "doubleFaults": [
+        3,
+        6
+      ],
+      "firstServePercent": [
+        67,
+        64
+      ],
+      "firstServeWon": [
+        82,
+        78
+      ],
+      "secondServeWon": [
+        47,
+        46
+      ],
+      "breakPointsConverted": [
+        "3/9",
+        "3/10"
+      ],
+      "breakPointsSaved": [
+        "3/6",
+        "5/8"
+      ],
+      "serviceGamesWon": [
+        18,
+        12
+      ],
+      "returnGamesWon": [
+        1,
+        1
+      ],
+      "totalPointsWon": [
+        117,
+        86
+      ],
+      "winners": [
+        35,
+        14
+      ],
+      "unforcedErrors": [
+        18,
+        15
+      ],
+      "netPoints": [
+        "11/15",
+        "8/10"
+      ],
+      "maxServiceSpeed": [
+        "215 km/h",
+        "210 km/h"
+      ],
+      "avgFirstServeSpeed": [
+        "180 km/h",
+        "191 km/h"
+      ],
+      "avgSecondServeSpeed": [
+        "154 km/h",
+        "156 km/h"
+      ],
+      "totalGamesWon": [
+        19,
+        12
+      ],
+      "longestRally": [
+        32,
+        32
+      ],
+      "distanceCovered": [
+        "2.7 km",
+        "3.2 km"
+      ]
+    }
   }
 ]
