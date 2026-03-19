@@ -11,7 +11,7 @@ interface SkeletonBlockProps {
 export function SkeletonBlock({
   width,
   height,
-  borderRadius = 12,
+  borderRadius = 10,
   style,
 }: SkeletonBlockProps) {
   const opacity = useRef(new Animated.Value(0.3)).current;
@@ -19,16 +19,8 @@ export function SkeletonBlock({
   useEffect(() => {
     const animation = Animated.loop(
       Animated.sequence([
-        Animated.timing(opacity, {
-          toValue: 0.7,
-          duration: 800,
-          useNativeDriver: true,
-        }),
-        Animated.timing(opacity, {
-          toValue: 0.3,
-          duration: 800,
-          useNativeDriver: true,
-        }),
+        Animated.timing(opacity, { toValue: 0.7, duration: 800, useNativeDriver: true }),
+        Animated.timing(opacity, { toValue: 0.3, duration: 800, useNativeDriver: true }),
       ])
     );
     animation.start();
@@ -37,16 +29,7 @@ export function SkeletonBlock({
 
   return (
     <Animated.View
-      style={[
-        {
-          width,
-          height,
-          borderRadius,
-          backgroundColor: '#1a1a2e',
-          opacity,
-        },
-        style,
-      ]}
+      style={[{ width, height, borderRadius, backgroundColor: '#1e1e1e', opacity }, style]}
     />
   );
 }
@@ -71,7 +54,7 @@ export function SkeletonList({ count = 5, cardHeight = 80 }: { count?: number; c
 
 const skeletonStyles = StyleSheet.create({
   card: {
-    marginBottom: 12,
+    marginBottom: 8,
     marginHorizontal: 16,
   },
   list: {

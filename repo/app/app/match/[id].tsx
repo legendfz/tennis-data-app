@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -7,6 +7,7 @@ import {
   Image,
   Dimensions,
   Animated,
+  TouchableOpacity,
 } from 'react-native';
 import { useLocalSearchParams, Stack } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
@@ -18,38 +19,33 @@ import { EmptyState } from '../../lib/empty-state';
 import type { MatchWithPlayers, ProbabilitySnapshot } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
-const AVATAR_SIZE = Math.round(SCREEN_WIDTH * 0.24);
+const AVATAR_SIZE = 56;
 
-const SURFACE_ICONS: Record<string, string> = {
-  Hard: '🔵',
-  Clay: '🟠',
-  Grass: '🟢',
-  'Hard (Indoor)': '🏟️',
-};
-
-function getSurfaceIcon(surface: string): string {
-  if (surface.toLowerCase().includes('clay')) return SURFACE_ICONS.Clay;
-  if (surface.toLowerCase().includes('grass')) return SURFACE_ICONS.Grass;
-  if (surface.toLowerCase().includes('hard') && surface.toLowerCase().includes('indoor'))
-    return SURFACE_ICONS['Hard (Indoor)'];
-  if (surface.toLowerCase().includes('hard')) return SURFACE_ICONS.Hard;
-  return '🎾';
-}
+type TabKey = 'overview' | 'stats' | 'probability';
 
 function parseScore(score: string): string[] {
   return score.split(',').map((s) => s.trim());
 }
 
-// Animated progress bar for stats comparison
-function StatBarComparison({
-  label,
-  value1,
-  value2,
-}: {
-  label: string;
-  value1: string | number;
-  value2: string | number;
-}) {
+function getSurfaceLabel(surface: string): string {
+  const lower = surface.toLowerCase();
+  if (lower.includes('clay')) return 'Clay';
+  if (lower.includes('grass')) return 'Grass';
+  if (lower.includes('hard') && lower.includes('indoor')) return 'Hard (Indoor)';
+  if (lower.includes('hard')) return 'Hard';
+  return surface;
+}
+
+function getSurfaceColor(surface: string): string {
+  const lower = surface.toLowerCase();
+  if (lower.includes('clay')) return '#f97316';
+  if (lower.includes('grass')) return '#22c55e';
+  if (lower.includes('hard')) return '#3b82f6';
+  return '#6b7280';
+}
+
+// ─── Stat Bar ────────────────────────────────────────────────────────
+function StatBarComparison({ label, value1, value2 }: { label: string; value1: string | number; value2: string | number }) {
   const animWidth = useRef(new Animated.Value(0)).current;
   const v1 = typeof value1 === 'string' ? parseFloat(value1) : value1;
   const v2 = typeof value2 === 'string' ? parseFloat(value2) : value2;
@@ -57,41 +53,90 @@ function StatBarComparison({
   const p1Pct = total > 0 ? (v1 / total) * 100 : 50;
 
   useEffect(() => {
-    Animated.timing(animWidth, {
-      toValue: p1Pct,
-      duration: 800,
-      useNativeDriver: false,
-    }).start();
+    Animated.timing(animWidth, { toValue: p1Pct, duration: 800, useNativeDriver: false }).start();
   }, [p1Pct]);
 
   const p1Better = v1 > v2;
   const p2Better = v2 > v1;
 
   return (
-    <View style={styles.statBarRow}>
-      <Text style={[styles.statBarValue, p1Better && styles.statBarValueWin]}>{value1}</Text>
-      <View style={styles.statBarMiddle}>
-        <Text style={styles.statBarLabel}>{label}</Text>
-        <View style={styles.statBarTrack}>
+    <View style={styles.statRow}>
+      <Text style={[styles.statVal, p1Better && styles.statValWin]}>{value1}</Text>
+      <View style={styles.statMiddle}>
+        <Text style={styles.statLabel}>{label}</Text>
+        <View style={styles.statTrack}>
           <Animated.View
             style={[
-              styles.statBarFillLeft,
+              styles.statFill,
               {
-                width: animWidth.interpolate({
-                  inputRange: [0, 100],
-                  outputRange: ['0%', '100%'],
-                }),
+                width: animWidth.interpolate({ inputRange: [0, 100], outputRange: ['0%', '100%'] }),
                 backgroundColor: p1Better ? '#16a34a' : '#3b82f6',
               },
             ]}
           />
         </View>
       </View>
-      <Text style={[styles.statBarValue, p2Better && styles.statBarValueWin]}>{value2}</Text>
+      <Text style={[styles.statVal, p2Better && styles.statValWin]}>{value2}</Text>
     </View>
   );
 }
 
+// ─── Overview Tab ────────────────────────────────────────────────────
+function OverviewTab({ match }: { match: MatchWithPlayers }) {
+  const sets = parseScore(match.score);
+  return (
+    <>
+      <View style={styles.card}>
+        <Text style={styles.cardTitle}>Score</Text>
+        <View style={styles.setsRow}>
+          {sets.map((set, idx) => (
+            <View key={idx} style={styles.setBox}>
+              <Text style={styles.setLabel}>Set {idx + 1}</Text>
+              <Text style={styles.setScore}>{set}</Text>
+            </View>
+          ))}
+        </View>
+        <Text style={styles.fullScore}>{match.score}</Text>
+      </View>
+      <View style={styles.card}>
+        <Text style={styles.cardTitle}>Details</Text>
+        <InfoRow label="Date" value={match.date} />
+        <InfoRow label="Round" value={match.round} />
+        {match.court && <InfoRow label="Court" value={match.court} />}
+        {match.tournament && (
+          <>
+            <InfoRow label="Surface" value={getSurfaceLabel(match.tournament.surface)} />
+            <InfoRow label="Location" value={match.tournament.location || ''} />
+          </>
+        )}
+      </View>
+    </>
+  );
+}
+
+// ─── Stats Tab ───────────────────────────────────────────────────────
+function StatsTabContent({ match }: { match: MatchWithPlayers }) {
+  if (!match.statsJson) return <EmptyState message="No statistics available" />;
+  return (
+    <View style={styles.card}>
+      <Text style={styles.cardTitle}>Match Statistics</Text>
+      {match.statsJson.player1?.aces !== undefined && (
+        <StatBarComparison label="Aces" value1={match.statsJson.player1.aces} value2={match.statsJson.player2.aces} />
+      )}
+      {match.statsJson.player1?.doubleFaults !== undefined && (
+        <StatBarComparison label="Double Faults" value1={match.statsJson.player1.doubleFaults} value2={match.statsJson.player2.doubleFaults} />
+      )}
+      {match.statsJson.player1?.firstServePercent !== undefined && (
+        <StatBarComparison label="1st Serve %" value1={`${match.statsJson.player1.firstServePercent}%`} value2={`${match.statsJson.player2.firstServePercent}%`} />
+      )}
+      {match.statsJson.player1?.breakPointsConverted !== undefined && (
+        <StatBarComparison label="Break Points" value1={match.statsJson.player1.breakPointsConverted} value2={match.statsJson.player2.breakPointsConverted} />
+      )}
+    </View>
+  );
+}
+
+// ─── Probability Tab ─────────────────────────────────────────────────
 interface ProbFactor {
   surface: { p1: number; p2: number };
   weather: { p1: number; p2: number };
@@ -100,40 +145,19 @@ interface ProbFactor {
   fatigue: { p1: number; p2: number };
 }
 
-const FACTOR_LABELS_EN: Record<string, string> = {
-  surface: 'Surface',
-  weather: 'Weather',
-  form: 'Form',
-  h2h: 'H2H',
-  fatigue: 'Fatigue',
-};
-
 function FactorChips({ factors, player }: { factors: ProbFactor; player: 'p1' | 'p2' }) {
   const chips: { label: string; value: number }[] = [];
+  const labels: Record<string, string> = { surface: 'Surface', weather: 'Weather', form: 'Form', h2h: 'H2H', fatigue: 'Fatigue' };
   for (const [key, val] of Object.entries(factors)) {
     const v = (val as any)[player] as number;
-    if (v !== 0) {
-      chips.push({ label: FACTOR_LABELS_EN[key] || key, value: v });
-    }
+    if (v !== 0) chips.push({ label: labels[key] || key, value: v });
   }
   if (chips.length === 0) return null;
-
   return (
-    <View style={factorStyles.chipRow}>
+    <View style={styles.chipRow}>
       {chips.map((c, i) => (
-        <View
-          key={i}
-          style={[
-            factorStyles.chip,
-            c.value > 0 ? factorStyles.chipPositive : factorStyles.chipNegative,
-          ]}
-        >
-          <Text
-            style={[
-              factorStyles.chipText,
-              c.value > 0 ? factorStyles.chipTextPositive : factorStyles.chipTextNegative,
-            ]}
-          >
+        <View key={i} style={[styles.chip, c.value > 0 ? styles.chipPos : styles.chipNeg]}>
+          <Text style={[styles.chipText, c.value > 0 ? styles.chipTextPos : styles.chipTextNeg]}>
             {c.label} {c.value > 0 ? '+' : ''}{c.value}%
           </Text>
         </View>
@@ -142,103 +166,49 @@ function FactorChips({ factors, player }: { factors: ProbFactor; player: 'p1' | 
   );
 }
 
-const factorStyles = StyleSheet.create({
-  chipRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 6,
-    marginTop: 8,
-    justifyContent: 'center',
-  },
-  chip: {
-    paddingHorizontal: 8,
-    paddingVertical: 3,
-    borderRadius: 10,
-  },
-  chipPositive: {
-    backgroundColor: 'rgba(22, 163, 74, 0.15)',
-  },
-  chipNegative: {
-    backgroundColor: 'rgba(239, 68, 68, 0.15)',
-  },
-  chipText: {
-    fontSize: 11,
-    fontWeight: '600',
-  },
-  chipTextPositive: {
-    color: '#16a34a',
-  },
-  chipTextNegative: {
-    color: '#ef4444',
-  },
-});
-
 function AnimatedProbBar({ targetWidth, color }: { targetWidth: number; color: string }) {
   const width = useRef(new Animated.Value(0)).current;
-
   useEffect(() => {
-    Animated.timing(width, {
-      toValue: targetWidth,
-      duration: 1000,
-      useNativeDriver: false,
-    }).start();
+    Animated.timing(width, { toValue: targetWidth, duration: 1000, useNativeDriver: false }).start();
   }, [targetWidth]);
-
   return (
     <Animated.View
       style={{
         height: '100%',
-        borderRadius: 6,
+        borderRadius: 4,
         backgroundColor: color,
-        width: width.interpolate({
-          inputRange: [0, 100],
-          outputRange: ['0%', '100%'],
-        }),
+        width: width.interpolate({ inputRange: [0, 100], outputRange: ['0%', '100%'] }),
       }}
     />
   );
 }
 
-function WinProbabilityBar({
-  p1Name,
-  p2Name,
-  p1Prob,
-  p2Prob,
-  factors,
-}: {
-  p1Name: string;
-  p2Name: string;
+function ProbabilityTab({ match, p1Prob, p2Prob, factors, snapshots, p1Name, p2Name }: {
+  match: MatchWithPlayers;
   p1Prob: number;
   p2Prob: number;
   factors?: ProbFactor;
+  snapshots?: ProbabilitySnapshot[];
+  p1Name: string;
+  p2Name: string;
 }) {
   return (
-    <View style={probStyles.barSection}>
-      <View style={probStyles.barLabels}>
-        <Text style={[probStyles.barLabel, p1Prob > p2Prob && probStyles.barLabelWin]}>
-          {p1Name}
-        </Text>
-        <Text style={[probStyles.barLabel, p2Prob > p1Prob && probStyles.barLabelWin]}>
-          {p2Name}
-        </Text>
-      </View>
-      <View style={probStyles.barContainer}>
-        <AnimatedProbBar
-          targetWidth={p1Prob}
-          color={p1Prob >= p2Prob ? '#16a34a' : '#3b82f6'}
-        />
-      </View>
-      <View style={probStyles.barLabels}>
-        <Text style={[probStyles.barPct, p1Prob > p2Prob && probStyles.barPctWin]}>
-          {p1Prob.toFixed(1)}%
-        </Text>
-        <Text style={[probStyles.barPct, p2Prob > p1Prob && probStyles.barPctWin]}>
-          {p2Prob.toFixed(1)}%
-        </Text>
-      </View>
-      {factors && (
-        <View style={{ marginTop: 10 }}>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+    <>
+      <View style={styles.card}>
+        <Text style={styles.cardTitle}>Win Probability</Text>
+        <View style={styles.probLabels}>
+          <Text style={[styles.probName, p1Prob > p2Prob && styles.probNameWin]}>{p1Name}</Text>
+          <Text style={[styles.probName, p2Prob > p1Prob && styles.probNameWin]}>{p2Name}</Text>
+        </View>
+        <View style={styles.probBar}>
+          <AnimatedProbBar targetWidth={p1Prob} color={p1Prob >= p2Prob ? '#16a34a' : '#3b82f6'} />
+        </View>
+        <View style={styles.probLabels}>
+          <Text style={[styles.probPct, p1Prob > p2Prob && styles.probPctWin]}>{p1Prob.toFixed(1)}%</Text>
+          <Text style={[styles.probPct, p2Prob > p1Prob && styles.probPctWin]}>{p2Prob.toFixed(1)}%</Text>
+        </View>
+        {factors && (
+          <View style={{ marginTop: 12, flexDirection: 'row', justifyContent: 'space-between' }}>
             <View style={{ flex: 1, alignItems: 'center' }}>
               <FactorChips factors={factors} player="p1" />
             </View>
@@ -246,119 +216,60 @@ function WinProbabilityBar({
               <FactorChips factors={factors} player="p2" />
             </View>
           </View>
+        )}
+      </View>
+
+      {snapshots && snapshots.length >= 2 && (
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>Probability Curve</Text>
+          <Text style={styles.curveLegend}>
+            <Text style={{ color: '#16a34a' }}>■</Text> {p1Name}{'  '}
+            <Text style={{ color: '#3b82f6' }}>■</Text> {p2Name}
+          </Text>
+          <View style={[styles.curveChart, { width: SCREEN_WIDTH - 64, height: 120 }]}>
+            <View style={[styles.halfLine, { top: 60 }]} />
+            {snapshots.map((snap, i) => {
+              const stepWidth = (SCREEN_WIDTH - 64) / (snapshots.length - 1);
+              const barHeight = (snap.p1 / 100) * 120;
+              return (
+                <View
+                  key={i}
+                  style={{
+                    position: 'absolute',
+                    left: i * stepWidth,
+                    bottom: 0,
+                    width: Math.max(stepWidth - 2, 4),
+                    height: barHeight,
+                    backgroundColor: snap.p1 >= 50 ? '#16a34a' : '#3b82f6',
+                    borderRadius: 2,
+                    opacity: 0.7,
+                  }}
+                />
+              );
+            })}
+          </View>
         </View>
       )}
-    </View>
+    </>
   );
 }
 
-function ProbabilityCurve({ snapshots, p1Name, p2Name }: {
-  snapshots: ProbabilitySnapshot[];
-  p1Name: string;
-  p2Name: string;
-}) {
-  if (!snapshots || snapshots.length < 2) return null;
-  const chartWidth = SCREEN_WIDTH - 64;
-  const chartHeight = 120;
-  const stepWidth = chartWidth / (snapshots.length - 1);
-
+function InfoRow({ label, value }: { label: string; value: string }) {
   return (
-    <View style={probStyles.curveContainer}>
-      <Text style={probStyles.curveLegend}>
-        <Text style={{ color: '#16a34a' }}>■</Text> {p1Name}{'  '}
-        <Text style={{ color: '#3b82f6' }}>■</Text> {p2Name}
-      </Text>
-      <View style={[probStyles.curveChart, { width: chartWidth, height: chartHeight }]}>
-        <View style={[probStyles.halfLine, { top: chartHeight / 2 }]} />
-        {snapshots.map((snap, i) => {
-          const barHeight = (snap.p1 / 100) * chartHeight;
-          return (
-            <View
-              key={i}
-              style={{
-                position: 'absolute',
-                left: i * stepWidth,
-                bottom: 0,
-                width: Math.max(stepWidth - 2, 4),
-                height: barHeight,
-                backgroundColor: snap.p1 >= 50 ? '#16a34a' : '#3b82f6',
-                borderRadius: 2,
-                opacity: 0.7,
-              }}
-            />
-          );
-        })}
-      </View>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        <View style={{ flexDirection: 'row', width: chartWidth }}>
-          {snapshots.map((snap, i) => (
-            <Text
-              key={i}
-              style={[
-                probStyles.curveLabel,
-                { width: stepWidth, textAlign: 'center' },
-              ]}
-            >
-              {snap.label}
-            </Text>
-          ))}
-        </View>
-      </ScrollView>
+    <View style={styles.infoRow}>
+      <Text style={styles.infoLabel}>{label}</Text>
+      <Text style={styles.infoValue}>{value}</Text>
     </View>
   );
 }
 
-const probStyles = StyleSheet.create({
-  section: {
-    backgroundColor: '#1a1a2e',
-    borderRadius: 16,
-    marginHorizontal: 16,
-    marginBottom: 16,
-    padding: 16,
-  },
-  title: {
-    fontSize: 12,
-    fontWeight: '700',
-    color: '#a0a0b0',
-    letterSpacing: 1,
-    marginBottom: 16,
-    textAlign: 'center',
-  },
-  barSection: { marginBottom: 8 },
-  barLabels: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 4 },
-  barLabel: { fontSize: 13, color: '#a0a0b0' },
-  barLabelWin: { color: '#16a34a', fontWeight: 'bold' },
-  barContainer: {
-    height: 14,
-    backgroundColor: '#3b82f6',
-    borderRadius: 7,
-    overflow: 'hidden',
-    marginBottom: 4,
-  },
-  barPct: { fontSize: 16, fontWeight: 'bold', color: '#a0a0b0' },
-  barPctWin: { color: '#16a34a' },
-  curveContainer: { marginTop: 16 },
-  curveLegend: { fontSize: 11, color: '#a0a0b0', marginBottom: 8, textAlign: 'center' },
-  curveChart: { backgroundColor: '#0f0f23', borderRadius: 8, overflow: 'hidden' },
-  halfLine: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    height: 1,
-    backgroundColor: '#2a2a4e',
-  },
-  curveLabel: { fontSize: 8, color: '#6b7280', marginTop: 4 },
-});
-
+// ─── Main ────────────────────────────────────────────────────────────
 export default function MatchDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const { getPlayerName } = useLanguage();
+  const [activeTab, setActiveTab] = useState<TabKey>('overview');
 
-  const {
-    data: match,
-    isLoading,
-    error,
-  } = useQuery<MatchWithPlayers>({
+  const { data: match, isLoading, error } = useQuery<MatchWithPlayers>({
     queryKey: ['match', id],
     queryFn: async () => {
       const res = await api.get(`/api/matches/${id}`);
@@ -379,10 +290,9 @@ export default function MatchDetailScreen() {
     return (
       <View style={styles.container}>
         <Stack.Screen options={{ title: 'Match' }} />
-        <View style={styles.skeletonWrap}>
-          <SkeletonBlock width={SCREEN_WIDTH - 32} height={200} borderRadius={16} />
-          <SkeletonBlock width={SCREEN_WIDTH - 32} height={80} borderRadius={16} />
-          <SkeletonBlock width={SCREEN_WIDTH - 32} height={160} borderRadius={16} />
+        <View style={{ padding: 16, gap: 16 }}>
+          <SkeletonBlock width={SCREEN_WIDTH - 32} height={160} borderRadius={10} />
+          <SkeletonBlock width={SCREEN_WIDTH - 32} height={80} borderRadius={10} />
         </View>
       </View>
     );
@@ -392,165 +302,92 @@ export default function MatchDetailScreen() {
     return (
       <View style={styles.container}>
         <Stack.Screen options={{ title: 'Match' }} />
-        <EmptyState message="Match not found" icon="🎾" />
+        <EmptyState message="Match not found" />
       </View>
     );
   }
 
-  const sets = parseScore(match.score);
   const p1Won = match.winnerId === match.player1Id;
   const p2Won = match.winnerId === match.player2Id;
-  const surfaceIcon = match.tournament ? getSurfaceIcon(match.tournament.surface) : '🎾';
+  const p1Name = match.player1 ? getPlayerName(match.player1) : `Player ${match.player1Id}`;
+  const p2Name = match.player2 ? getPlayerName(match.player2) : `Player ${match.player2Id}`;
+  const p1Short = p1Name.split(/[\s·]+/).pop() || 'P1';
+  const p2Short = p2Name.split(/[\s·]+/).pop() || 'P2';
+
+  const tabs: { key: TabKey; label: string }[] = [
+    { key: 'overview', label: 'Overview' },
+    { key: 'stats', label: 'Stats' },
+    { key: 'probability', label: 'Probability' },
+  ];
 
   return (
     <>
-      <Stack.Screen
-        options={{
-          title: match.tournament?.name || 'Match',
-        }}
-      />
+      <Stack.Screen options={{ title: match.tournament?.name || 'Match' }} />
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-        {/* Tournament Info Bar */}
-        <View style={styles.tournamentBar}>
-          <Text style={styles.tournamentName}>
-            {surfaceIcon} {match.tournament?.name || 'Tournament'}
-          </Text>
-          <Text style={styles.roundText}>{match.round}</Text>
-          <Text style={styles.dateText}>{match.date}</Text>
-          {match.court && <Text style={styles.courtText}>{match.court}</Text>}
+        {/* Match Header */}
+        <View style={styles.matchHeader}>
+          <View style={styles.tournamentInfo}>
+            {match.tournament && (
+              <View style={styles.tournamentRow}>
+                <View style={[styles.surfaceDot, { backgroundColor: getSurfaceColor(match.tournament.surface) }]} />
+                <Text style={styles.tournamentName}>{match.tournament.name}</Text>
+              </View>
+            )}
+            <Text style={styles.roundDate}>{match.round} · {match.date}</Text>
+          </View>
+
+          <View style={styles.h2hRow}>
+            <View style={styles.playerSide}>
+              <Image
+                source={{ uri: match.player1?.photoUrl || getAvatarUrl(match.player1?.name || 'P1', AVATAR_SIZE * 2) }}
+                style={styles.h2hAvatar}
+              />
+              <Text style={[styles.h2hName, p1Won && styles.winnerName]} numberOfLines={2}>{p1Name}</Text>
+              <Text style={styles.h2hRank}>#{match.player1?.ranking || '?'}</Text>
+            </View>
+
+            <View style={styles.scoreCenter}>
+              <Text style={styles.scoreBig}>{match.score}</Text>
+              {(p1Won || p2Won) && <Text style={styles.ftLabel}>FT</Text>}
+            </View>
+
+            <View style={styles.playerSide}>
+              <Image
+                source={{ uri: match.player2?.photoUrl || getAvatarUrl(match.player2?.name || 'P2', AVATAR_SIZE * 2) }}
+                style={styles.h2hAvatar}
+              />
+              <Text style={[styles.h2hName, p2Won && styles.winnerName]} numberOfLines={2}>{p2Name}</Text>
+              <Text style={styles.h2hRank}>#{match.player2?.ranking || '?'}</Text>
+            </View>
+          </View>
         </View>
 
-        {/* Player Head-to-Head with VS */}
-        <View style={styles.h2hSection}>
-          {/* Player 1 */}
-          <View style={styles.playerSide}>
-            <Image
-              source={{
-                uri:
-                  match.player1?.photoUrl ||
-                  getAvatarUrl(match.player1?.name || 'P1', AVATAR_SIZE * 2),
-              }}
-              style={[
-                styles.h2hAvatar,
-                p1Won && styles.winnerAvatar,
-              ]}
-            />
-            <Text style={styles.playerFlag}>
-              {match.player1?.countryFlag || '🏳️'}
-            </Text>
-            <Text
-              style={[styles.h2hName, p1Won && styles.winnerText]}
-              numberOfLines={2}
+        {/* Tab Bar */}
+        <View style={styles.tabBar}>
+          {tabs.map((tab) => (
+            <TouchableOpacity
+              key={tab.key}
+              style={[styles.tab, activeTab === tab.key && styles.tabActive]}
+              onPress={() => setActiveTab(tab.key)}
+              activeOpacity={0.7}
             >
-              {match.player1 ? getPlayerName(match.player1) : `Player ${match.player1Id}`}
-            </Text>
-            <Text style={styles.h2hRank}>
-              #{match.player1?.ranking || '?'}
-            </Text>
-            {p1Won && <Text style={styles.winBadge}>🏆 WINNER</Text>}
-          </View>
-
-          <View style={styles.vsContainer}>
-            <Text style={styles.vsBig}>VS</Text>
-          </View>
-
-          {/* Player 2 */}
-          <View style={styles.playerSide}>
-            <Image
-              source={{
-                uri:
-                  match.player2?.photoUrl ||
-                  getAvatarUrl(match.player2?.name || 'P2', AVATAR_SIZE * 2),
-              }}
-              style={[
-                styles.h2hAvatar,
-                p2Won && styles.winnerAvatar,
-              ]}
-            />
-            <Text style={styles.playerFlag}>
-              {match.player2?.countryFlag || '🏳️'}
-            </Text>
-            <Text
-              style={[styles.h2hName, p2Won && styles.winnerText]}
-              numberOfLines={2}
-            >
-              {match.player2 ? getPlayerName(match.player2) : `Player ${match.player2Id}`}
-            </Text>
-            <Text style={styles.h2hRank}>
-              #{match.player2?.ranking || '?'}
-            </Text>
-            {p2Won && <Text style={styles.winBadge}>🏆 WINNER</Text>}
-          </View>
+              <Text style={[styles.tabText, activeTab === tab.key && styles.tabTextActive]}>{tab.label}</Text>
+            </TouchableOpacity>
+          ))}
         </View>
 
-        {/* Score Display */}
-        <View style={styles.scoreSection}>
-          <Text style={styles.scoreSectionTitle}>SCORE</Text>
-          <View style={styles.setsRow}>
-            {sets.map((set, idx) => {
-              const isLast = idx === sets.length - 1;
-              return (
-                <View key={idx} style={[styles.setBox, isLast && styles.setBoxCurrent]}>
-                  <Text style={styles.setLabel}>Set {idx + 1}</Text>
-                  <Text style={[styles.setScore, !isLast && styles.setScoreFinished]}>
-                    {set}
-                  </Text>
-                </View>
-              );
-            })}
-          </View>
-          <Text style={styles.fullScore}>{match.score}</Text>
-        </View>
-
-        {/* Match Stats with progress bars */}
-        {match.statsJson && (
-          <View style={styles.statsSection}>
-            <Text style={styles.statsSectionTitle}>📊 MATCH STATISTICS</Text>
-            {match.statsJson.player1?.aces !== undefined && (
-              <StatBarComparison
-                label="Aces"
-                value1={match.statsJson.player1.aces}
-                value2={match.statsJson.player2.aces}
-              />
-            )}
-            {match.statsJson.player1?.doubleFaults !== undefined && (
-              <StatBarComparison
-                label="Double Faults"
-                value1={match.statsJson.player1.doubleFaults}
-                value2={match.statsJson.player2.doubleFaults}
-              />
-            )}
-            {match.statsJson.player1?.firstServePercent !== undefined && (
-              <StatBarComparison
-                label="1st Serve %"
-                value1={`${match.statsJson.player1.firstServePercent}%`}
-                value2={`${match.statsJson.player2.firstServePercent}%`}
-              />
-            )}
-            {match.statsJson.player1?.breakPointsConverted !== undefined && (
-              <StatBarComparison
-                label="Break Points"
-                value1={match.statsJson.player1.breakPointsConverted}
-                value2={match.statsJson.player2.breakPointsConverted}
-              />
-            )}
-          </View>
-        )}
-
-        {/* Win Probability Section */}
-        <View style={probStyles.section}>
-          <Text style={probStyles.title}>WIN PROBABILITY</Text>
-          <WinProbabilityBar
-            p1Name={match.player1 ? getPlayerName(match.player1).split(/[\s·]+/).pop() || 'P1' : 'P1'}
-            p2Name={match.player2 ? getPlayerName(match.player2).split(/[\s·]+/).pop() || 'P2' : 'P2'}
-            p1Prob={p1Won ? 100 : 0}
-            p2Prob={p2Won ? 100 : 0}
-          />
-          {probData?.snapshots && probData.snapshots.length > 0 && (
-            <ProbabilityCurve
-              snapshots={probData.snapshots}
-              p1Name={match.player1 ? getPlayerName(match.player1).split(/[\s·]+/).pop() || 'P1' : 'P1'}
-              p2Name={match.player2 ? getPlayerName(match.player2).split(/[\s·]+/).pop() || 'P2' : 'P2'}
+        {/* Tab Content */}
+        <View style={styles.tabContent}>
+          {activeTab === 'overview' && <OverviewTab match={match} />}
+          {activeTab === 'stats' && <StatsTabContent match={match} />}
+          {activeTab === 'probability' && (
+            <ProbabilityTab
+              match={match}
+              p1Prob={p1Won ? 100 : 0}
+              p2Prob={p2Won ? 100 : 0}
+              snapshots={probData?.snapshots}
+              p1Name={p1Short}
+              p2Name={p2Short}
             />
           )}
         </View>
@@ -560,223 +397,113 @@ export default function MatchDetailScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#0f0f23',
+  container: { flex: 1, backgroundColor: '#121212' },
+  content: { paddingBottom: 40 },
+
+  // Match Header
+  matchHeader: {
+    backgroundColor: '#1e1e1e',
+    paddingBottom: 16,
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#2a2a2a',
   },
-  content: {
-    paddingBottom: 40,
-  },
-  skeletonWrap: {
-    padding: 16,
-    gap: 16,
-  },
-  tournamentBar: {
-    backgroundColor: '#1a1a2e',
-    padding: 16,
+  tournamentInfo: {
     alignItems: 'center',
-    borderBottomWidth: 1,
-    borderBottomColor: '#2a2a4e',
+    paddingTop: 12,
+    paddingBottom: 12,
   },
-  tournamentName: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#ffffff',
-    marginBottom: 4,
-  },
-  roundText: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#16a34a',
-    marginBottom: 2,
-  },
-  dateText: {
-    fontSize: 11,
-    color: '#a0a0b0',
-  },
-  courtText: {
-    fontSize: 11,
-    color: '#6b7280',
-    marginTop: 2,
-  },
-  h2hSection: {
+  tournamentRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 24,
+    gap: 6,
+    marginBottom: 4,
+  },
+  surfaceDot: { width: 8, height: 8, borderRadius: 4 },
+  tournamentName: { fontSize: 15, fontWeight: '600', color: '#ffffff' },
+  roundDate: { fontSize: 12, color: '#6b7280' },
+
+  h2hRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
     paddingHorizontal: 16,
   },
-  playerSide: {
-    flex: 1,
-    alignItems: 'center',
-  },
+  playerSide: { flex: 1, alignItems: 'center' },
   h2hAvatar: {
     width: AVATAR_SIZE,
     height: AVATAR_SIZE,
     borderRadius: AVATAR_SIZE / 2,
-    borderWidth: 3,
-    borderColor: '#2a2a4e',
-    marginBottom: 8,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 6,
+    marginBottom: 6,
   },
-  winnerAvatar: {
-    borderColor: '#16a34a',
-    shadowColor: '#16a34a',
-    shadowOpacity: 0.4,
-  },
-  playerFlag: {
-    fontSize: 26,
-    marginBottom: 4,
-  },
-  h2hName: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#ffffff',
-    textAlign: 'center',
-    marginBottom: 2,
-  },
-  winnerText: {
-    color: '#16a34a',
-    fontWeight: 'bold',
-  },
-  h2hRank: {
-    fontSize: 13,
-    color: '#a0a0b0',
-    fontWeight: '600',
-  },
-  winBadge: {
-    marginTop: 6,
-    backgroundColor: '#16a34a',
-    color: '#ffffff',
-    fontSize: 11,
-    fontWeight: 'bold',
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderRadius: 8,
-    overflow: 'hidden',
-  },
-  vsContainer: {
-    paddingHorizontal: 8,
-    backgroundColor: '#2a2a4e',
-    borderRadius: 20,
-    width: 48,
-    height: 48,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  vsBig: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#f59e0b',
-  },
-  scoreSection: {
-    backgroundColor: '#1a1a2e',
-    borderRadius: 16,
-    marginHorizontal: 16,
-    marginBottom: 16,
-    padding: 16,
-    alignItems: 'center',
-  },
-  scoreSectionTitle: {
-    fontSize: 12,
-    fontWeight: '700',
-    color: '#a0a0b0',
-    letterSpacing: 1,
-    marginBottom: 12,
-  },
-  setsRow: {
-    flexDirection: 'row',
-    gap: 10,
-    marginBottom: 12,
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-  },
-  setBox: {
-    backgroundColor: '#0f0f23',
-    borderRadius: 12,
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    alignItems: 'center',
-    minWidth: 64,
-  },
-  setBoxCurrent: {
-    borderWidth: 1,
-    borderColor: '#f59e0b',
-    backgroundColor: 'rgba(245, 158, 11, 0.08)',
-  },
-  setLabel: {
-    fontSize: 10,
-    color: '#a0a0b0',
-    marginBottom: 4,
-  },
-  setScore: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#ffffff',
-  },
-  setScoreFinished: {
-    color: '#6b7280',
-  },
-  fullScore: {
-    fontSize: 13,
-    color: '#6b7280',
-  },
+  h2hName: { fontSize: 14, fontWeight: '500', color: '#ffffff', textAlign: 'center', marginBottom: 2 },
+  winnerName: { color: '#16a34a', fontWeight: '700' },
+  h2hRank: { fontSize: 12, color: '#6b7280' },
+  scoreCenter: { alignItems: 'center', paddingHorizontal: 12 },
+  scoreBig: { fontSize: 18, fontWeight: '700', color: '#ffffff' },
+  ftLabel: { fontSize: 10, color: '#6b7280', marginTop: 2 },
 
-  // Stats with progress bars
-  statsSection: {
-    backgroundColor: '#1a1a2e',
-    borderRadius: 16,
-    marginHorizontal: 16,
-    marginBottom: 16,
-    padding: 16,
-  },
-  statsSectionTitle: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: '#a0a0b0',
-    letterSpacing: 1,
-    marginBottom: 16,
-    textAlign: 'center',
-  },
-  statBarRow: {
+  // Tab Bar
+  tabBar: {
     flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 14,
-    gap: 10,
+    backgroundColor: '#1e1e1e',
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#2a2a2a',
   },
-  statBarValue: {
-    width: 50,
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#ffffff',
-    textAlign: 'center',
-  },
-  statBarValueWin: {
-    color: '#16a34a',
-  },
-  statBarMiddle: {
+  tab: {
     flex: 1,
+    paddingVertical: 12,
+    alignItems: 'center',
+    borderBottomWidth: 2,
+    borderBottomColor: 'transparent',
   },
-  statBarLabel: {
-    fontSize: 11,
-    color: '#a0a0b0',
-    textAlign: 'center',
-    marginBottom: 4,
-    fontWeight: '600',
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
-  },
-  statBarTrack: {
-    height: 10,
-    backgroundColor: '#3b82f6',
-    borderRadius: 5,
-    overflow: 'hidden',
-  },
-  statBarFillLeft: {
-    height: '100%',
-    borderRadius: 5,
-  },
+  tabActive: { borderBottomColor: '#16a34a' },
+  tabText: { fontSize: 13, fontWeight: '500', color: '#6b7280' },
+  tabTextActive: { color: '#16a34a', fontWeight: '600' },
+  tabContent: { padding: 16 },
+
+  // Card
+  card: { backgroundColor: '#1e1e1e', borderRadius: 10, padding: 16, marginBottom: 12 },
+  cardTitle: { fontSize: 16, fontWeight: '600', color: '#ffffff', marginBottom: 12 },
+
+  // Score
+  setsRow: { flexDirection: 'row', gap: 8, marginBottom: 12, flexWrap: 'wrap', justifyContent: 'center' },
+  setBox: { backgroundColor: '#121212', borderRadius: 8, paddingHorizontal: 14, paddingVertical: 8, alignItems: 'center', minWidth: 56 },
+  setLabel: { fontSize: 10, color: '#6b7280', marginBottom: 3 },
+  setScore: { fontSize: 18, fontWeight: '700', color: '#ffffff' },
+  fullScore: { fontSize: 12, color: '#6b7280', textAlign: 'center' },
+
+  // Info
+  infoRow: { flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 8, borderBottomWidth: 0.5, borderBottomColor: '#2a2a2a' },
+  infoLabel: { fontSize: 14, color: '#9ca3af' },
+  infoValue: { fontSize: 14, color: '#ffffff', fontWeight: '500' },
+
+  // Stats
+  statRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 14, gap: 8 },
+  statVal: { width: 48, fontSize: 15, fontWeight: '700', color: '#ffffff', textAlign: 'center' },
+  statValWin: { color: '#16a34a' },
+  statMiddle: { flex: 1 },
+  statLabel: { fontSize: 11, color: '#6b7280', textAlign: 'center', marginBottom: 4, textTransform: 'uppercase', letterSpacing: 0.3 },
+  statTrack: { height: 8, backgroundColor: '#3b82f6', borderRadius: 4, overflow: 'hidden' },
+  statFill: { height: '100%', borderRadius: 4 },
+
+  // Probability
+  probLabels: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 4 },
+  probName: { fontSize: 13, color: '#6b7280' },
+  probNameWin: { color: '#16a34a', fontWeight: '600' },
+  probBar: { height: 10, backgroundColor: '#3b82f6', borderRadius: 5, overflow: 'hidden', marginBottom: 4 },
+  probPct: { fontSize: 15, fontWeight: '700', color: '#6b7280' },
+  probPctWin: { color: '#16a34a' },
+
+  // Factor Chips
+  chipRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 4, marginTop: 6, justifyContent: 'center' },
+  chip: { paddingHorizontal: 8, paddingVertical: 3, borderRadius: 6 },
+  chipPos: { backgroundColor: 'rgba(22, 163, 74, 0.12)' },
+  chipNeg: { backgroundColor: 'rgba(239, 68, 68, 0.12)' },
+  chipText: { fontSize: 11, fontWeight: '600' },
+  chipTextPos: { color: '#16a34a' },
+  chipTextNeg: { color: '#ef4444' },
+
+  // Curve
+  curveLegend: { fontSize: 11, color: '#6b7280', marginBottom: 8, textAlign: 'center' },
+  curveChart: { backgroundColor: '#121212', borderRadius: 8, overflow: 'hidden' },
+  halfLine: { position: 'absolute', left: 0, right: 0, height: 1, backgroundColor: '#2a2a2a' },
 });

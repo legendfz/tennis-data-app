@@ -8,12 +8,10 @@ interface EmptyStateProps {
 
 export function EmptyState({
   message = 'No results found',
-  icon = '🔍',
   subtitle,
 }: EmptyStateProps) {
   return (
     <View style={styles.container}>
-      <Text style={styles.icon}>{icon}</Text>
       <Text style={styles.message}>{message}</Text>
       {subtitle && <Text style={styles.subtitle}>{subtitle}</Text>}
     </View>
@@ -28,19 +26,15 @@ const styles = StyleSheet.create({
     padding: 40,
     minHeight: 200,
   },
-  icon: {
-    fontSize: 48,
-    marginBottom: 16,
-  },
   message: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: '#a0a0b0',
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#9ca3af',
     textAlign: 'center',
-    marginBottom: 8,
+    marginBottom: 6,
   },
   subtitle: {
-    fontSize: 14,
+    fontSize: 13,
     color: '#6b7280',
     textAlign: 'center',
   },

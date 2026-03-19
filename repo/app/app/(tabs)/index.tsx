@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect, useRef } from 'react';
+import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import {
   View,
   Text,
@@ -7,7 +7,6 @@ import {
   Image,
   TouchableOpacity,
   FlatList,
-  Dimensions,
   RefreshControl,
   Animated,
 } from 'react-native';
@@ -16,59 +15,52 @@ import { useRouter } from 'expo-router';
 import { useFocusEffect } from '@react-navigation/native';
 import api from '../../lib/api';
 import { getAvatarUrl } from '../../lib/avatars';
-import { useLanguage, LANGUAGE_OPTIONS } from '../../lib/i18n';
-import { SkeletonList, SkeletonBlock } from '../../lib/skeleton';
+import { useLanguage } from '../../lib/i18n';
+import { SkeletonList } from '../../lib/skeleton';
 import { getFavorites } from '../../lib/favorites';
 import type { Player, MatchWithPlayers } from '../../../shared/types';
 
-const SCREEN_WIDTH = Dimensions.get('window').width;
-const TOP_PLAYER_CARD_WIDTH = 130;
-
-// Live badge with blinking dot
-function LiveBadge() {
+function LiveDot() {
   const opacity = useRef(new Animated.Value(1)).current;
-
   useEffect(() => {
-    const animation = Animated.loop(
+    const anim = Animated.loop(
       Animated.sequence([
         Animated.timing(opacity, { toValue: 0.2, duration: 600, useNativeDriver: true }),
         Animated.timing(opacity, { toValue: 1, duration: 600, useNativeDriver: true }),
       ])
     );
-    animation.start();
-    return () => animation.stop();
+    anim.start();
+    return () => anim.stop();
   }, [opacity]);
-
-  return (
-    <View style={styles.liveBadge}>
-      <Animated.View style={[styles.liveDot, { opacity }]} />
-      <Text style={styles.liveText}>LIVE</Text>
-    </View>
-  );
+  return <Animated.View style={[styles.liveDot, { opacity }]} />;
 }
 
-function getGreeting(): string {
-  const hour = new Date().getHours();
-  if (hour < 12) return 'Good Morning';
-  if (hour < 18) return 'Good Afternoon';
-  return 'Good Evening';
-}
-
-function getFormattedDate(): string {
-  const now = new Date();
-  const options: Intl.DateTimeFormatOptions = {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  };
-  return now.toLocaleDateString('en-US', options);
+function getDatePills(): { label: string; date: string }[] {
+  const pills: { label: string; date: string }[] = [];
+  const today = new Date();
+  for (let i = -3; i <= 7; i++) {
+    const d = new Date(today);
+    d.setDate(d.getDate() + i);
+    const dateStr = d.toISOString().slice(0, 10);
+    let label: string;
+    if (i === -1) label = 'Yesterday';
+    else if (i === 0) label = 'Today';
+    else if (i === 1) label = 'Tomorrow';
+    else {
+      const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      label = `${months[d.getMonth()]} ${d.getDate()}`;
+    }
+    pills.push({ label, date: dateStr });
+  }
+  return pills;
 }
 
 export default function HomeScreen() {
   const router = useRouter();
-  const { language, setLanguage, getPlayerName } = useLanguage();
+  const { getPlayerName } = useLanguage();
   const [favoriteIds, setFavoriteIds] = useState<number[]>([]);
+  const [selectedDate, setSelectedDate] = useState(new Date().toISOString().slice(0, 10));
+  const datePills = useMemo(() => getDatePills(), []);
 
   useFocusEffect(
     useCallback(() => {
@@ -95,7 +87,7 @@ export default function HomeScreen() {
   } = useQuery<{ data: MatchWithPlayers[] }>({
     queryKey: ['matches-latest'],
     queryFn: async () => {
-      const res = await api.get('/api/matches?limit=5');
+      const res = await api.get('/api/matches?limit=50');
       return res.data;
     },
   });
@@ -109,9 +101,26 @@ export default function HomeScreen() {
 
   const topPlayers: Player[] =
     playersData?.data ?? (Array.isArray(playersData) ? (playersData as Player[]).slice(0, 10) : []);
-  const latestMatches: MatchWithPlayers[] =
+  const allMatches: MatchWithPlayers[] =
     matchesData?.data ??
-    (Array.isArray(matchesData) ? (matchesData as MatchWithPlayers[]).slice(0, 5) : []);
+    (Array.isArray(matchesData) ? (matchesData as MatchWithPlayers[]) : []);
+
+  // Group matches by tournament
+  const matchesByTournament = useMemo(() => {
+    const groups: Record<string, MatchWithPlayers[]> = {};
+    const order: string[] = [];
+    allMatches.forEach((m) => {
+      const key = m.tournament?.name || 'Other';
+      if (!groups[key]) {
+        groups[key] = [];
+        order.push(key);
+      }
+      groups[key].push(m);
+    });
+    return order.map((name) => ({ tournament: name, matches: groups[name] }));
+  }, [allMatches]);
+
+  const favPlayers = topPlayers.filter((p) => favoriteIds.includes(p.id));
 
   return (
     <ScrollView
@@ -126,632 +135,254 @@ export default function HomeScreen() {
         />
       }
     >
-      {/* Welcome Header with Date */}
-      <View style={styles.header}>
-        <Text style={styles.greeting}>{getGreeting()} 👋</Text>
-        <Text style={styles.title}>🎾 TennisHQ</Text>
-        <Text style={styles.dateText}>{getFormattedDate()}</Text>
-      </View>
-
-      {/* Language Switcher */}
+      {/* Date Selector Pills */}
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.langSwitcher}
+        contentContainerStyle={styles.datePillsRow}
       >
-        {LANGUAGE_OPTIONS.map((opt) => (
+        {datePills.map((pill) => (
           <TouchableOpacity
-            key={opt.code}
-            style={[styles.langPill, language === opt.code && styles.langPillActive]}
-            onPress={() => setLanguage(opt.code)}
+            key={pill.date}
+            style={[styles.datePill, selectedDate === pill.date && styles.datePillActive]}
+            onPress={() => setSelectedDate(pill.date)}
             activeOpacity={0.7}
           >
-            <Text style={[styles.langPillText, language === opt.code && styles.langPillTextActive]}>
-              {opt.label}
+            <Text style={[styles.datePillText, selectedDate === pill.date && styles.datePillTextActive]}>
+              {pill.label}
             </Text>
           </TouchableOpacity>
         ))}
       </ScrollView>
 
-      {/* My Players - Favorites */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>❤️ My Players</Text>
-        {favoriteIds.length === 0 ? (
-          <View style={styles.emptyFavContainer}>
-            <Text style={styles.emptyFavIcon}>🎾</Text>
-            <Text style={styles.emptyFavText}>Follow your favorite players</Text>
-            <Text style={styles.emptyFavSub}>Tap ❤️ on a player's profile to add them here</Text>
-          </View>
-        ) : (
-          <FlatList
-            data={topPlayers.filter((p) => favoriteIds.includes(p.id))}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            keyExtractor={(item) => `fav-${item.id}`}
-            contentContainerStyle={styles.topPlayersList}
-            renderItem={({ item }) => (
+      {/* My Players */}
+      {favPlayers.length > 0 && (
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Following</Text>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.favRow}>
+            {favPlayers.map((p) => (
               <TouchableOpacity
-                style={styles.favPlayerCard}
-                onPress={() => router.push(`/player/${item.id}`)}
+                key={p.id}
+                style={styles.favItem}
+                onPress={() => router.push(`/player/${p.id}`)}
                 activeOpacity={0.7}
               >
                 <Image
-                  source={{ uri: item.photoUrl || getAvatarUrl(item.name, 120) }}
-                  style={styles.favPlayerAvatar}
+                  source={{ uri: p.photoUrl || getAvatarUrl(p.name, 80) }}
+                  style={styles.favAvatar}
                 />
-                <Text style={styles.favPlayerName} numberOfLines={1}>
-                  {getPlayerName(item)}
-                </Text>
-                <Text style={styles.favPlayerRank}>#{item.ranking}</Text>
+                <Text style={styles.favName} numberOfLines={1}>{getPlayerName(p).split(' ').pop()}</Text>
               </TouchableOpacity>
-            )}
-            ListEmptyComponent={
-              <View style={styles.emptyFavContainer}>
-                <Text style={styles.emptyFavSub}>Your favorited players will appear here once loaded</Text>
-              </View>
-            }
-          />
-        )}
-      </View>
-
-      {/* Top Players - Horizontal Scroll */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>🔥 Top Players</Text>
-        {playersLoading ? (
-          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 12, gap: 10 }}>
-            {[1,2,3,4].map(i => (
-              <SkeletonBlock key={i} width={TOP_PLAYER_CARD_WIDTH} height={170} borderRadius={16} />
             ))}
           </ScrollView>
-        ) : (
-          <FlatList
-            data={topPlayers}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            keyExtractor={(item) => item.id.toString()}
-            contentContainerStyle={styles.topPlayersList}
-            renderItem={({ item, index }) => (
-              <TouchableOpacity
-                style={styles.topPlayerCard}
-                onPress={() => router.push(`/player/${item.id}`)}
-                activeOpacity={0.7}
-              >
-                {/* Rank badge - large and prominent */}
-                <View style={[
-                  styles.rankBadge,
-                  index === 0 && styles.rankBadgeGold,
-                  index === 1 && styles.rankBadgeSilver,
-                  index === 2 && styles.rankBadgeBronze,
-                ]}>
-                  <Text style={[
-                    styles.rankBadgeText,
-                    index < 3 && styles.rankBadgeTextTop,
-                  ]}>
-                    {index < 3 ? ['👑', '🥈', '🥉'][index] : `#${item.ranking}`}
+        </View>
+      )}
+
+      {/* Matches by Tournament */}
+      {matchesLoading ? (
+        <SkeletonList count={5} cardHeight={48} />
+      ) : matchesByTournament.length === 0 ? (
+        <View style={styles.emptyWrap}>
+          <Text style={styles.emptyText}>No matches</Text>
+        </View>
+      ) : (
+        matchesByTournament.map((group) => (
+          <View key={group.tournament} style={styles.tournamentGroup}>
+            <View style={styles.tournamentHeader}>
+              <Text style={styles.tournamentName}>{group.tournament}</Text>
+            </View>
+            {group.matches.map((match) => {
+              const p1Won = match.winnerId === match.player1Id;
+              const p2Won = match.winnerId === match.player2Id;
+              const isFinished = match.winnerId != null;
+              const p1Name = match.player1 ? getPlayerName(match.player1) : `Player ${match.player1Id}`;
+              const p2Name = match.player2 ? getPlayerName(match.player2) : `Player ${match.player2Id}`;
+
+              return (
+                <TouchableOpacity
+                  key={match.id}
+                  style={styles.matchRow}
+                  onPress={() => router.push(`/match/${match.id}`)}
+                  activeOpacity={0.7}
+                >
+                  <Text
+                    style={[styles.matchPlayer, styles.matchPlayerLeft, p1Won && styles.matchPlayerBold, !p1Won && p2Won && styles.matchPlayerDim]}
+                    numberOfLines={1}
+                  >
+                    {p1Name}
                   </Text>
-                </View>
-                <Image
-                  source={{
-                    uri: item.photoUrl || getAvatarUrl(item.name, 160),
-                  }}
-                  style={styles.topPlayerAvatar}
-                />
-                <Text style={styles.topPlayerRank}>#{item.ranking}</Text>
-                <Text style={styles.topPlayerName} numberOfLines={2}>
-                  {getPlayerName(item)}
-                </Text>
-                <Text style={styles.topPlayerFlag}>{item.countryFlag}</Text>
-              </TouchableOpacity>
-            )}
-          />
-        )}
-      </View>
-
-      {/* H2H Quick Access */}
-      <TouchableOpacity
-        style={styles.h2hBanner}
-        onPress={() => router.push('/h2h' as any)}
-        activeOpacity={0.7}
-      >
-        <Text style={styles.h2hBannerText}>⚔️ Head to Head</Text>
-        <Text style={styles.h2hBannerSub}>Compare any two players →</Text>
-      </TouchableOpacity>
-
-      {/* Latest Matches */}
-      <View style={styles.section}>
-        <View style={styles.sectionHeader}>
-          <Text style={styles.sectionTitle}>⚡ Latest Matches</Text>
-          <LiveBadge />
-        </View>
-        {matchesLoading ? (
-          <SkeletonList count={3} cardHeight={110} />
-        ) : latestMatches.length === 0 ? (
-          <Text style={styles.emptyText}>No recent matches</Text>
-        ) : (
-          latestMatches.map((match) => {
-            const p1IsWinner = match.winnerId === match.player1Id;
-            const p2IsWinner = match.winnerId === match.player2Id;
-            return (
-              <TouchableOpacity
-                key={match.id}
-                style={styles.matchCard}
-                onPress={() => router.push(`/match/${match.id}`)}
-                activeOpacity={0.7}
-              >
-                <Text style={styles.matchTournament}>
-                  {match.tournament?.name || 'Tournament'} · {match.round}
-                </Text>
-                <View style={styles.matchPlayers}>
-                  <View style={styles.matchPlayerSide}>
-                    <Image
-                      source={{
-                        uri:
-                          match.player1?.photoUrl ||
-                          getAvatarUrl(match.player1?.name || 'P1', 80),
-                      }}
-                      style={[styles.matchAvatar, p1IsWinner && styles.matchAvatarWinner]}
-                    />
-                    <Text
-                      style={[
-                        styles.matchPlayerName,
-                        p1IsWinner && styles.matchWinner,
-                        !p1IsWinner && p2IsWinner && styles.matchLoser,
-                      ]}
-                      numberOfLines={1}
-                    >
-                      {match.player1 ? getPlayerName(match.player1) : `Player ${match.player1Id}`}
+                  <View style={styles.matchCenter}>
+                    <Text style={[styles.matchScore, !isFinished && styles.matchTime]}>
+                      {match.score || '--'}
                     </Text>
-                    {p1IsWinner && <Text style={styles.winnerBadge}>W</Text>}
+                    {isFinished && <Text style={styles.matchStatus}>FT</Text>}
                   </View>
-
-                  <View style={styles.vsContainer}>
-                    <Text style={styles.matchVs}>VS</Text>
-                  </View>
-
-                  <View style={styles.matchPlayerSide}>
-                    <Image
-                      source={{
-                        uri:
-                          match.player2?.photoUrl ||
-                          getAvatarUrl(match.player2?.name || 'P2', 80),
-                      }}
-                      style={[styles.matchAvatar, p2IsWinner && styles.matchAvatarWinner]}
-                    />
-                    <Text
-                      style={[
-                        styles.matchPlayerName,
-                        p2IsWinner && styles.matchWinner,
-                        !p2IsWinner && p1IsWinner && styles.matchLoser,
-                      ]}
-                      numberOfLines={1}
-                    >
-                      {match.player2 ? getPlayerName(match.player2) : `Player ${match.player2Id}`}
-                    </Text>
-                    {p2IsWinner && <Text style={styles.winnerBadge}>W</Text>}
-                  </View>
-                </View>
-                <Text style={styles.matchScore}>{match.score}</Text>
-                <Text style={styles.matchDate}>{match.date}</Text>
-              </TouchableOpacity>
-            );
-          })
-        )}
-      </View>
-
-      {/* Quick Stats */}
-      <View style={styles.statsRow}>
-        <View style={styles.statBox}>
-          <Text style={styles.statEmoji}>🎾</Text>
-          <Text style={styles.statNumber}>50</Text>
-          <Text style={styles.statLabel}>Players</Text>
-        </View>
-        <View style={styles.statBox}>
-          <Text style={styles.statEmoji}>🏆</Text>
-          <Text style={styles.statNumber}>14</Text>
-          <Text style={styles.statLabel}>Tournaments</Text>
-        </View>
-        <View style={styles.statBox}>
-          <Text style={styles.statEmoji}>⚔️</Text>
-          <Text style={styles.statNumber}>105</Text>
-          <Text style={styles.statLabel}>Matches</Text>
-        </View>
-      </View>
+                  <Text
+                    style={[styles.matchPlayer, styles.matchPlayerRight, p2Won && styles.matchPlayerBold, !p2Won && p1Won && styles.matchPlayerDim]}
+                    numberOfLines={1}
+                  >
+                    {p2Name}
+                  </Text>
+                </TouchableOpacity>
+              );
+            })}
+          </View>
+        ))
+      )}
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  // Live badge
-  liveBadge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: 'rgba(239, 68, 68, 0.15)',
-    borderRadius: 12,
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    gap: 6,
-  },
-  liveDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    backgroundColor: '#ef4444',
-  },
-  liveText: {
-    fontSize: 11,
-    fontWeight: 'bold',
-    color: '#ef4444',
-    letterSpacing: 1,
-  },
-
-  // Language
-  langSwitcher: {
-    paddingHorizontal: 16,
-    paddingBottom: 12,
-    gap: 8,
-    flexDirection: 'row',
-  },
-  langPill: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 20,
-    backgroundColor: '#1a1a2e',
-    borderWidth: 1,
-    borderColor: '#2a2a4e',
-  },
-  langPillActive: {
-    backgroundColor: '#16a34a',
-    borderColor: '#16a34a',
-  },
-  langPillText: {
-    fontSize: 13,
-    fontWeight: '600',
-    color: '#a0a0b0',
-  },
-  langPillTextActive: {
-    color: '#ffffff',
-  },
-
-  // H2H
-  h2hBanner: {
-    backgroundColor: '#1a1a2e',
-    borderRadius: 16,
-    marginHorizontal: 16,
-    marginBottom: 16,
-    padding: 16,
-    borderWidth: 1,
-    borderColor: '#16a34a',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    shadowColor: '#16a34a',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.15,
-    shadowRadius: 8,
-    elevation: 4,
-  },
-  h2hBannerText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#ffffff',
-  },
-  h2hBannerSub: {
-    fontSize: 13,
-    color: '#16a34a',
-  },
-
-  // Container
   container: {
     flex: 1,
-    backgroundColor: '#0f0f23',
+    backgroundColor: '#121212',
   },
   content: {
     paddingBottom: 40,
   },
 
-  // Header
-  header: {
-    alignItems: 'center',
-    paddingTop: 20,
-    paddingBottom: 16,
+  // Date Pills
+  datePillsRow: {
+    paddingHorizontal: 12,
+    paddingVertical: 12,
+    gap: 6,
+    flexDirection: 'row',
   },
-  greeting: {
-    fontSize: 16,
-    color: '#a0a0b0',
-    marginBottom: 4,
+  datePill: {
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+    borderRadius: 8,
+    backgroundColor: '#1e1e1e',
   },
-  title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    color: '#ffffff',
-    marginBottom: 4,
+  datePillActive: {
+    backgroundColor: '#16a34a',
   },
-  dateText: {
+  datePillText: {
     fontSize: 13,
-    color: '#6b7280',
+    fontWeight: '500',
+    color: '#9ca3af',
+  },
+  datePillTextActive: {
+    color: '#ffffff',
+    fontWeight: '600',
   },
 
   // Section
   section: {
-    marginBottom: 20,
-  },
-  sectionHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-    marginBottom: 12,
+    marginBottom: 8,
   },
   sectionTitle: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: '#16a34a',
-    paddingHorizontal: 16,
-    marginBottom: 12,
-  },
-
-  // Top Players
-  topPlayersList: {
-    paddingHorizontal: 12,
-    gap: 10,
-  },
-  topPlayerCard: {
-    backgroundColor: '#1a1a2e',
-    borderRadius: 16,
-    padding: 14,
-    width: TOP_PLAYER_CARD_WIDTH,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 6,
-    borderWidth: 1,
-    borderColor: '#2a2a4e',
-  },
-  rankBadge: {
-    position: 'absolute',
-    top: 8,
-    right: 8,
-    backgroundColor: '#2a2a4e',
-    borderRadius: 10,
-    paddingHorizontal: 8,
-    paddingVertical: 3,
-    zIndex: 1,
-  },
-  rankBadgeGold: {
-    backgroundColor: 'rgba(245, 158, 11, 0.2)',
-    borderWidth: 1,
-    borderColor: '#f59e0b',
-  },
-  rankBadgeSilver: {
-    backgroundColor: 'rgba(148, 163, 184, 0.2)',
-    borderWidth: 1,
-    borderColor: '#94a3b8',
-  },
-  rankBadgeBronze: {
-    backgroundColor: 'rgba(217, 119, 6, 0.2)',
-    borderWidth: 1,
-    borderColor: '#d97706',
-  },
-  rankBadgeText: {
-    fontSize: 11,
-    fontWeight: 'bold',
-    color: '#a0a0b0',
-  },
-  rankBadgeTextTop: {
     fontSize: 14,
-  },
-  topPlayerAvatar: {
-    width: 68,
-    height: 68,
-    borderRadius: 34,
-    borderWidth: 2,
-    borderColor: '#16a34a',
-    marginBottom: 8,
-    marginTop: 4,
-  },
-  topPlayerRank: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#f59e0b',
-    marginBottom: 2,
-  },
-  topPlayerName: {
-    fontSize: 13,
-    color: '#ffffff',
     fontWeight: '600',
-    textAlign: 'center',
-    marginBottom: 2,
-  },
-  topPlayerFlag: {
-    fontSize: 20,
-  },
-
-  // Match Card
-  matchCard: {
-    backgroundColor: '#1a1a2e',
-    borderRadius: 16,
-    padding: 16,
-    marginHorizontal: 16,
-    marginBottom: 12,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 6,
-    elevation: 3,
-  },
-  matchTournament: {
-    color: '#16a34a',
-    fontSize: 11,
-    fontWeight: '700',
-    textTransform: 'uppercase',
+    color: '#9ca3af',
+    paddingHorizontal: 16,
     marginBottom: 10,
+    textTransform: 'uppercase',
     letterSpacing: 0.5,
   },
-  matchPlayers: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 8,
-  },
-  matchPlayerSide: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  matchAvatar: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    borderWidth: 2,
-    borderColor: '#2a2a4e',
-    marginBottom: 6,
-  },
-  matchAvatarWinner: {
-    borderColor: '#16a34a',
-  },
-  matchPlayerName: {
-    color: '#ffffff',
-    fontSize: 14,
-    fontWeight: '500',
-    textAlign: 'center',
-  },
-  matchWinner: {
-    color: '#16a34a',
-    fontWeight: 'bold',
-  },
-  matchLoser: {
-    color: '#6b7280',
-  },
-  winnerBadge: {
-    marginTop: 4,
-    backgroundColor: '#16a34a',
-    color: '#ffffff',
-    fontSize: 10,
-    fontWeight: 'bold',
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    borderRadius: 6,
-    overflow: 'hidden',
-  },
-  vsContainer: {
-    paddingHorizontal: 8,
-  },
-  matchVs: {
-    color: '#f59e0b',
-    fontSize: 14,
-    fontWeight: 'bold',
-  },
-  matchScore: {
-    color: '#ffffff',
-    fontSize: 16,
-    textAlign: 'center',
-    fontWeight: '700',
-  },
-  matchDate: {
-    color: '#6b7280',
-    fontSize: 11,
-    textAlign: 'center',
-    marginTop: 4,
-  },
 
-  // Stats
-  statsRow: {
+  // Favorites
+  favRow: {
+    paddingHorizontal: 12,
+    gap: 16,
     flexDirection: 'row',
-    gap: 12,
-    paddingHorizontal: 16,
+    paddingBottom: 12,
   },
-  statBox: {
-    backgroundColor: '#1a1a2e',
-    borderRadius: 16,
-    padding: 16,
+  favItem: {
     alignItems: 'center',
-    flex: 1,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    elevation: 3,
+    width: 56,
   },
-  statEmoji: {
-    fontSize: 24,
-    marginBottom: 6,
-  },
-  statNumber: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#16a34a',
-  },
-  statLabel: {
-    fontSize: 11,
-    color: '#a0a0b0',
-    marginTop: 4,
-  },
-  emptyText: {
-    color: '#a0a0b0',
-    fontSize: 16,
-    textAlign: 'center',
-    padding: 20,
-  },
-
-  // My Players (favorites)
-  emptyFavContainer: {
-    alignItems: 'center',
-    padding: 20,
-    marginHorizontal: 16,
-    backgroundColor: '#1a1a2e',
-    borderRadius: 16,
-    borderWidth: 1,
-    borderColor: '#2a2a4e',
-    borderStyle: 'dashed',
-  },
-  emptyFavIcon: {
-    fontSize: 32,
-    marginBottom: 8,
-  },
-  emptyFavText: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#ffffff',
+  favAvatar: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
     marginBottom: 4,
   },
-  emptyFavSub: {
-    fontSize: 13,
-    color: '#6b7280',
-    textAlign: 'center',
-  },
-  favPlayerCard: {
-    backgroundColor: '#1a1a2e',
-    borderRadius: 14,
-    padding: 12,
-    width: 100,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#16a34a',
-    shadowColor: '#16a34a',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.15,
-    shadowRadius: 6,
-    elevation: 3,
-  },
-  favPlayerAvatar: {
-    width: 56,
-    height: 56,
-    borderRadius: 28,
-    borderWidth: 2,
-    borderColor: '#16a34a',
-    marginBottom: 6,
-  },
-  favPlayerName: {
-    fontSize: 12,
-    color: '#ffffff',
-    fontWeight: '600',
-    textAlign: 'center',
-    marginBottom: 2,
-  },
-  favPlayerRank: {
+  favName: {
     fontSize: 11,
-    color: '#f59e0b',
-    fontWeight: 'bold',
+    color: '#9ca3af',
+    textAlign: 'center',
+  },
+
+  // Tournament group
+  tournamentGroup: {
+    marginBottom: 4,
+  },
+  tournamentHeader: {
+    backgroundColor: '#1a1a1a',
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+  },
+  tournamentName: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#9ca3af',
+  },
+
+  // Match row
+  matchRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    backgroundColor: '#1e1e1e',
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#2a2a2a',
+  },
+  matchPlayer: {
+    flex: 1,
+    fontSize: 14,
+    color: '#ffffff',
+  },
+  matchPlayerLeft: {
+    textAlign: 'right',
+    paddingRight: 12,
+  },
+  matchPlayerRight: {
+    textAlign: 'left',
+    paddingLeft: 12,
+  },
+  matchPlayerBold: {
+    fontWeight: '700',
+  },
+  matchPlayerDim: {
+    color: '#6b7280',
+  },
+  matchCenter: {
+    alignItems: 'center',
+    minWidth: 70,
+  },
+  matchScore: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: '#ffffff',
+  },
+  matchTime: {
+    color: '#9ca3af',
+    fontWeight: '500',
+  },
+  matchStatus: {
+    fontSize: 10,
+    color: '#6b7280',
+    marginTop: 2,
+  },
+
+  // Live
+  liveDot: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: '#ef4444',
+  },
+
+  // Empty
+  emptyWrap: {
+    padding: 40,
+    alignItems: 'center',
+  },
+  emptyText: {
+    color: '#6b7280',
+    fontSize: 14,
   },
 });

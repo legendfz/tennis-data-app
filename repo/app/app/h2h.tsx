@@ -15,7 +15,7 @@ import { getAvatarUrl } from '../lib/avatars';
 import { useLanguage } from '../lib/i18n';
 import type { Player } from '../../shared/types';
 
-const AVATAR_SIZE = 64;
+const AVATAR_SIZE = 48;
 
 function PlayerSelector({
   label,
@@ -61,29 +61,24 @@ function PlayerSelector({
             style={styles.selectedAvatar}
           />
           <View style={styles.selectedInfo}>
-            <Text style={styles.selectedName}>
-              {selectedPlayer.countryFlag} {localizedName(selectedPlayer)}
-            </Text>
+            <Text style={styles.selectedName}>{selectedPlayer.countryFlag} {localizedName(selectedPlayer)}</Text>
             <Text style={styles.selectedRank}>#{selectedPlayer.ranking}</Text>
           </View>
-          <Text style={styles.changeBtn}>✕</Text>
+          <Text style={styles.changeBtn}>×</Text>
         </TouchableOpacity>
       ) : (
         <View>
-          <View style={styles.searchInputWrap}>
-            <Text style={styles.searchIcon}>🔍</Text>
-            <TextInput
-              style={styles.searchInput}
-              placeholder="Search player..."
-              placeholderTextColor="#6b7280"
-              value={search}
-              onChangeText={(t) => {
-                setSearch(t);
-                setShowDropdown(true);
-              }}
-              onFocus={() => setShowDropdown(true)}
-            />
-          </View>
+          <TextInput
+            style={styles.searchInput}
+            placeholder="Search player..."
+            placeholderTextColor="#6b7280"
+            value={search}
+            onChangeText={(t) => {
+              setSearch(t);
+              setShowDropdown(true);
+            }}
+            onFocus={() => setShowDropdown(true)}
+          />
           {showDropdown && players.length > 0 && (
             <View style={styles.dropdown}>
               <ScrollView style={styles.dropdownScroll} nestedScrollEnabled>
@@ -98,14 +93,9 @@ function PlayerSelector({
                     }}
                     activeOpacity={0.7}
                   >
-                    <Image
-                      source={{ uri: p.photoUrl || getAvatarUrl(p.name, 48) }}
-                      style={styles.dropdownAvatar}
-                    />
+                    <Image source={{ uri: p.photoUrl || getAvatarUrl(p.name, 48) }} style={styles.dropdownAvatar} />
                     <View style={{ flex: 1 }}>
-                      <Text style={styles.dropdownName}>
-                        {p.countryFlag} {localizedName(p)}
-                      </Text>
+                      <Text style={styles.dropdownName}>{p.countryFlag} {localizedName(p)}</Text>
                       <Text style={styles.dropdownRank}>#{p.ranking}</Text>
                     </View>
                   </TouchableOpacity>
@@ -124,7 +114,6 @@ export default function H2HScreen() {
   const { getPlayerName } = useLanguage();
   const [player1, setPlayer1] = useState<Player | null>(null);
   const [player2, setPlayer2] = useState<Player | null>(null);
-
   const canCompare = player1 && player2;
 
   return (
@@ -132,51 +121,34 @@ export default function H2HScreen() {
       <Stack.Screen options={{ title: 'Head to Head' }} />
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
         <View style={styles.header}>
-          <Text style={styles.headerTitle}>⚔️ Head to Head</Text>
+          <Text style={styles.headerTitle}>Head to Head</Text>
           <Text style={styles.headerSubtitle}>Compare two players</Text>
         </View>
 
         <View style={styles.selectorsRow}>
           <View style={{ flex: 1 }}>
-            <PlayerSelector
-              label="Player 1"
-              selectedPlayer={player1}
-              onSelect={setPlayer1}
-              excludeId={player2?.id}
-              localizedName={getPlayerName}
-            />
+            <PlayerSelector label="Player 1" selectedPlayer={player1} onSelect={setPlayer1} excludeId={player2?.id} localizedName={getPlayerName} />
           </View>
           <View style={styles.vsMiddle}>
-            <View style={styles.vsBubble}>
-              <Text style={styles.vsText}>VS</Text>
-            </View>
+            <Text style={styles.vsText}>VS</Text>
           </View>
           <View style={{ flex: 1 }}>
-            <PlayerSelector
-              label="Player 2"
-              selectedPlayer={player2}
-              onSelect={setPlayer2}
-              excludeId={player1?.id}
-              localizedName={getPlayerName}
-            />
+            <PlayerSelector label="Player 2" selectedPlayer={player2} onSelect={setPlayer2} excludeId={player1?.id} localizedName={getPlayerName} />
           </View>
         </View>
 
         {canCompare && (
           <TouchableOpacity
             style={styles.compareBtn}
-            onPress={() => {
-              router.push(`/h2h/${player1!.id}-vs-${player2!.id}` as any);
-            }}
+            onPress={() => router.push(`/h2h/${player1!.id}-vs-${player2!.id}` as any)}
             activeOpacity={0.7}
           >
-            <Text style={styles.compareBtnText}>⚔️ Compare</Text>
+            <Text style={styles.compareBtnText}>Compare</Text>
           </TouchableOpacity>
         )}
 
-        {/* Popular matchups */}
         <View style={styles.popularSection}>
-          <Text style={styles.popularTitle}>🔥 Popular Matchups</Text>
+          <Text style={styles.popularTitle}>Popular Matchups</Text>
           {[
             { p1: 2, p2: 3, label: 'Djokovic vs Alcaraz' },
             { p1: 1, p2: 3, label: 'Sinner vs Alcaraz' },
@@ -201,51 +173,28 @@ export default function H2HScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#0f0f23' },
+  container: { flex: 1, backgroundColor: '#121212' },
   content: { paddingBottom: 40 },
   header: { alignItems: 'center', paddingVertical: 24 },
-  headerTitle: { fontSize: 28, fontWeight: 'bold', color: '#ffffff', marginBottom: 4 },
-  headerSubtitle: { fontSize: 13, color: '#a0a0b0' },
+  headerTitle: { fontSize: 22, fontWeight: '600', color: '#ffffff', marginBottom: 4 },
+  headerSubtitle: { fontSize: 13, color: '#6b7280' },
   selectorsRow: { flexDirection: 'row', paddingHorizontal: 12, marginTop: 8, zIndex: 10 },
   vsMiddle: { justifyContent: 'center', alignItems: 'center', paddingHorizontal: 6, paddingTop: 28 },
-  vsBubble: {
-    backgroundColor: '#2a2a4e',
-    borderRadius: 20,
-    width: 40,
-    height: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#f59e0b',
-  },
-  vsText: { fontSize: 14, fontWeight: 'bold', color: '#f59e0b' },
+  vsText: { fontSize: 14, fontWeight: '700', color: '#6b7280' },
   selectorContainer: { marginBottom: 16 },
-  selectorLabel: { fontSize: 11, fontWeight: '700', color: '#a0a0b0', marginBottom: 8, textTransform: 'uppercase', letterSpacing: 1.5 },
-  searchInputWrap: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#1a1a2e',
-    borderRadius: 16,
-    paddingHorizontal: 12,
-    borderWidth: 1,
-    borderColor: '#2a2a4e',
-  },
-  searchIcon: {
-    fontSize: 14,
-    marginRight: 6,
-  },
+  selectorLabel: { fontSize: 11, fontWeight: '600', color: '#6b7280', marginBottom: 8, textTransform: 'uppercase', letterSpacing: 1 },
   searchInput: {
-    flex: 1,
-    padding: 12,
+    backgroundColor: '#1e1e1e',
+    borderRadius: 10,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
     color: '#ffffff',
     fontSize: 14,
   },
   dropdown: {
-    backgroundColor: '#1a1a2e',
-    borderRadius: 16,
+    backgroundColor: '#1e1e1e',
+    borderRadius: 10,
     marginTop: 4,
-    borderWidth: 1,
-    borderColor: '#2a2a4e',
     maxHeight: 250,
     zIndex: 100,
   },
@@ -254,56 +203,51 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#2a2a4e',
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#2a2a2a',
   },
-  dropdownAvatar: { width: 32, height: 32, borderRadius: 16, marginRight: 10 },
-  dropdownName: { fontSize: 14, color: '#ffffff', fontWeight: '500' },
-  dropdownRank: { fontSize: 11, color: '#a0a0b0' },
+  dropdownAvatar: { width: 28, height: 28, borderRadius: 14, marginRight: 10 },
+  dropdownName: { fontSize: 13, color: '#ffffff', fontWeight: '500' },
+  dropdownRank: { fontSize: 11, color: '#6b7280' },
   selectedCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#1a1a2e',
-    borderRadius: 16,
+    backgroundColor: '#1e1e1e',
+    borderRadius: 10,
     padding: 10,
     borderWidth: 1,
     borderColor: '#16a34a',
   },
-  selectedAvatar: { width: 40, height: 40, borderRadius: 20, marginRight: 10 },
+  selectedAvatar: { width: 36, height: 36, borderRadius: 18, marginRight: 10 },
   selectedInfo: { flex: 1 },
-  selectedName: { fontSize: 13, color: '#ffffff', fontWeight: '600' },
+  selectedName: { fontSize: 13, color: '#ffffff', fontWeight: '500' },
   selectedRank: { fontSize: 11, color: '#16a34a' },
-  changeBtn: { fontSize: 16, color: '#a0a0b0', paddingHorizontal: 8 },
+  changeBtn: { fontSize: 18, color: '#6b7280', paddingHorizontal: 8 },
   compareBtn: {
     backgroundColor: '#16a34a',
-    borderRadius: 16,
+    borderRadius: 10,
     marginHorizontal: 16,
-    paddingVertical: 16,
+    paddingVertical: 14,
     alignItems: 'center',
     marginTop: 8,
-    shadowColor: '#16a34a',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 4,
   },
-  compareBtnText: { fontSize: 18, fontWeight: 'bold', color: '#ffffff' },
+  compareBtnText: { fontSize: 16, fontWeight: '600', color: '#ffffff' },
   popularSection: {
-    marginTop: 32,
+    marginTop: 28,
     marginHorizontal: 16,
-    backgroundColor: '#1a1a2e',
-    borderRadius: 16,
+    backgroundColor: '#1e1e1e',
+    borderRadius: 10,
     padding: 16,
   },
-  popularTitle: { fontSize: 20, fontWeight: '700', color: '#ffffff', marginBottom: 12 },
+  popularTitle: { fontSize: 16, fontWeight: '600', color: '#ffffff', marginBottom: 12 },
   popularItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 14,
-    borderBottomWidth: 1,
-    borderBottomColor: '#2a2a4e',
+    paddingVertical: 12,
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#2a2a2a',
   },
-  popularLabel: { fontSize: 16, color: '#ffffff' },
-  popularArrow: { fontSize: 16, color: '#16a34a', fontWeight: 'bold' },
+  popularLabel: { fontSize: 14, color: '#ffffff' },
+  popularArrow: { fontSize: 14, color: '#16a34a', fontWeight: '600' },
 });

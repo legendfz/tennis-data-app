@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import {
   View,
   Text,
@@ -19,20 +19,6 @@ import { SkeletonList } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
 import { getFavorites } from '../../lib/favorites';
 import type { Player } from '../../../shared/types';
-
-function RankChangeIndicator({ change }: { change?: number }) {
-  if (change === undefined || change === null || change === 0) {
-    return <Text style={styles.rankUnchanged}>—</Text>;
-  }
-  if (change > 0) {
-    return (
-      <Text style={styles.rankUp}>▲ {change}</Text>
-    );
-  }
-  return (
-    <Text style={styles.rankDown}>▼ {Math.abs(change)}</Text>
-  );
-}
 
 export default function PlayersScreen() {
   const [search, setSearch] = useState('');
@@ -77,7 +63,7 @@ export default function PlayersScreen() {
   if (isLoading) {
     return (
       <View style={styles.container}>
-        <SkeletonList count={8} cardHeight={72} />
+        <SkeletonList count={10} cardHeight={52} />
       </View>
     );
   }
@@ -86,7 +72,6 @@ export default function PlayersScreen() {
     return (
       <EmptyState
         message="Failed to load players"
-        icon="😞"
         subtitle={(error as Error).message}
       />
     );
@@ -94,29 +79,21 @@ export default function PlayersScreen() {
 
   return (
     <View style={styles.container}>
-      {/* Search Bar */}
-      <View style={styles.searchContainer}>
-        <View style={styles.searchInputWrap}>
-          <Text style={styles.searchIcon}>🔍</Text>
-          <TextInput
-            style={styles.searchInput}
-            placeholder="Search players..."
-            placeholderTextColor="#6b7280"
-            value={search}
-            onChangeText={setSearch}
-            autoCapitalize="none"
-            autoCorrect={false}
-          />
-          {search.length > 0 && (
-            <TouchableOpacity
-              onPress={() => setSearch('')}
-              style={styles.clearButton}
-              activeOpacity={0.7}
-            >
-              <Text style={styles.clearText}>✕</Text>
-            </TouchableOpacity>
-          )}
-        </View>
+      <View style={styles.searchWrap}>
+        <TextInput
+          style={styles.searchInput}
+          placeholder="Search players"
+          placeholderTextColor="#6b7280"
+          value={search}
+          onChangeText={setSearch}
+          autoCapitalize="none"
+          autoCorrect={false}
+        />
+        {search.length > 0 && (
+          <TouchableOpacity onPress={() => setSearch('')} style={styles.clearBtn} activeOpacity={0.7}>
+            <Text style={styles.clearText}>×</Text>
+          </TouchableOpacity>
+        )}
       </View>
 
       <FlatList
@@ -132,48 +109,28 @@ export default function PlayersScreen() {
         }
         renderItem={({ item }) => (
           <TouchableOpacity
-            style={styles.playerCard}
+            style={styles.playerRow}
             onPress={() => router.push(`/player/${item.id}`)}
             activeOpacity={0.7}
           >
-            <View style={styles.avatarContainer}>
-              <Image
-                source={{ uri: item.photoUrl || getAvatarUrl(item.name, 100) }}
-                style={styles.playerAvatar}
-              />
-              <Text style={styles.flagOverlay}>{item.countryFlag}</Text>
+            <Text style={styles.rank}>#{item.ranking}</Text>
+            <Image
+              source={{ uri: item.photoUrl || getAvatarUrl(item.name, 72) }}
+              style={styles.avatar}
+            />
+            <View style={styles.nameWrap}>
+              <Text style={styles.playerName} numberOfLines={1}>
+                {getPlayerName(item)}
+              </Text>
+              <Text style={styles.country}>{item.country}</Text>
             </View>
-            <View style={styles.playerInfo}>
-              <View style={styles.playerNameRow}>
-                {favoriteIds.includes(item.id) && <Text style={styles.favStar}>⭐</Text>}
-                <Text style={styles.playerName}>
-                  {getPlayerName(item)}
-                </Text>
-              </View>
-              <View style={styles.playerDetailsRow}>
-                <Text style={styles.playerDetails}>
-                  {item.country} · {item.plays}
-                </Text>
-                {(item as any).tags && (item as any).tags.length > 0 && (
-                  <View style={styles.tagBadge}>
-                    <Text style={styles.tagBadgeText}>{(item as any).tags[0]}</Text>
-                  </View>
-                )}
-                <RankChangeIndicator change={(item as any).rankingChange} />
-              </View>
-            </View>
-            <View style={styles.rankBadge}>
-              <Text style={styles.rankText}>#{item.ranking}</Text>
-            </View>
+            <Text style={styles.flag}>{item.countryFlag}</Text>
           </TouchableOpacity>
         )}
         contentContainerStyle={styles.list}
+        ItemSeparatorComponent={() => <View style={styles.separator} />}
         ListEmptyComponent={
-          <EmptyState
-            message="No players found"
-            icon="🔍"
-            subtitle="Try a different search term"
-          />
+          <EmptyState message="No players found" subtitle="Try a different search" />
         }
       />
     </View>
@@ -183,154 +140,73 @@ export default function PlayersScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0f0f23',
+    backgroundColor: '#121212',
   },
-  
-  // Search
-  searchContainer: {
+  searchWrap: {
     paddingHorizontal: 16,
-    paddingTop: 12,
-    paddingBottom: 8,
-  },
-  searchInputWrap: {
+    paddingVertical: 8,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#1a1a2e',
-    borderRadius: 24,
-    paddingHorizontal: 16,
-    borderWidth: 1,
-    borderColor: '#2a2a4e',
-  },
-  searchIcon: {
-    fontSize: 16,
-    marginRight: 8,
   },
   searchInput: {
     flex: 1,
-    paddingVertical: 12,
-    fontSize: 16,
+    backgroundColor: '#1e1e1e',
+    borderRadius: 10,
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    fontSize: 14,
     color: '#ffffff',
   },
-  clearButton: {
+  clearBtn: {
+    position: 'absolute',
+    right: 24,
     padding: 4,
   },
   clearText: {
-    color: '#a0a0b0',
-    fontSize: 16,
+    color: '#6b7280',
+    fontSize: 18,
   },
-
-  // List
   list: {
-    padding: 16,
-    paddingTop: 8,
+    paddingBottom: 20,
   },
-
-  // Player Card
-  playerCard: {
-    backgroundColor: '#1a1a2e',
-    borderRadius: 16,
-    padding: 16,
-    marginBottom: 12,
+  playerRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.15,
-    shadowRadius: 4,
-    elevation: 2,
+    paddingHorizontal: 16,
+    paddingVertical: 10,
   },
-  avatarContainer: {
-    position: 'relative',
-    marginRight: 14,
+  rank: {
+    width: 36,
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#6b7280',
   },
-  playerAvatar: {
-    width: 52,
-    height: 52,
-    borderRadius: 26,
-    borderWidth: 2,
-    borderColor: '#16a34a',
+  avatar: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    marginRight: 12,
   },
-  flagOverlay: {
-    position: 'absolute',
-    bottom: -2,
-    right: -4,
-    fontSize: 16,
-    backgroundColor: '#0f0f23',
-    borderRadius: 8,
-    overflow: 'hidden',
-  },
-  playerInfo: {
+  nameWrap: {
     flex: 1,
   },
-  playerNameRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 4,
-    marginBottom: 4,
-  },
-  favStar: {
-    fontSize: 14,
-  },
   playerName: {
-    color: '#ffffff',
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  tagBadge: {
-    backgroundColor: 'rgba(22, 163, 74, 0.15)',
-    borderRadius: 8,
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-  },
-  tagBadgeText: {
-    fontSize: 10,
-    color: '#16a34a',
-    fontWeight: '600',
-  },
-  playerDetailsRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  playerDetails: {
-    color: '#a0a0b0',
-    fontSize: 13,
-  },
-
-  // Rank Badge
-  rankBadge: {
-    backgroundColor: '#16a34a',
-    borderRadius: 14,
-    width: 48,
-    height: 48,
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: '#16a34a',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  rankText: {
-    color: '#ffffff',
-    fontWeight: 'bold',
     fontSize: 14,
+    fontWeight: '500',
+    color: '#ffffff',
   },
-
-  // Rank Change
-  rankUp: {
-    color: '#16a34a',
-    fontSize: 11,
-    fontWeight: '700',
-  },
-  rankDown: {
-    color: '#ef4444',
-    fontSize: 11,
-    fontWeight: '700',
-  },
-  rankUnchanged: {
+  country: {
+    fontSize: 12,
     color: '#6b7280',
-    fontSize: 11,
-    fontWeight: '600',
+    marginTop: 1,
+  },
+  flag: {
+    fontSize: 16,
+    marginLeft: 8,
+  },
+  separator: {
+    height: 0.5,
+    backgroundColor: '#2a2a2a',
+    marginLeft: 64,
   },
 });

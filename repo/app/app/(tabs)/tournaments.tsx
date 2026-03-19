@@ -14,17 +14,11 @@ import { SkeletonList } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
 import type { Tournament } from '../../../shared/types';
 
-const SURFACE_COLORS: Record<string, string> = {
-  Hard: '#3b82f6',
-  Clay: '#f97316',
-  Grass: '#22c55e',
-};
-
-function getSurfaceBaseColor(surface: string): string {
+function getSurfaceColor(surface: string): string {
   const lower = surface.toLowerCase();
-  if (lower.includes('clay')) return SURFACE_COLORS.Clay;
-  if (lower.includes('grass')) return SURFACE_COLORS.Grass;
-  if (lower.includes('hard')) return SURFACE_COLORS.Hard;
+  if (lower.includes('clay')) return '#f97316';
+  if (lower.includes('grass')) return '#22c55e';
+  if (lower.includes('hard')) return '#3b82f6';
   return '#6b7280';
 }
 
@@ -51,19 +45,13 @@ export default function TournamentsScreen() {
   if (isLoading) {
     return (
       <View style={styles.container}>
-        <SkeletonList count={5} cardHeight={120} />
+        <SkeletonList count={6} cardHeight={60} />
       </View>
     );
   }
 
   if (error) {
-    return (
-      <EmptyState
-        message="Failed to load tournaments"
-        icon="😞"
-        subtitle={(error as Error).message}
-      />
-    );
+    return <EmptyState message="Failed to load events" subtitle={(error as Error).message} />;
   }
 
   return (
@@ -81,32 +69,26 @@ export default function TournamentsScreen() {
         }
         renderItem={({ item }) => (
           <TouchableOpacity
-            style={styles.card}
+            style={styles.row}
             onPress={() => router.push(`/tournament/${item.id}`)}
             activeOpacity={0.7}
           >
-            <View style={styles.header}>
-              <Text style={styles.name}>{item.name}</Text>
-              <View
-                style={[
-                  styles.surfaceBadge,
-                  { backgroundColor: getSurfaceBaseColor(item.surface) },
-                ]}
-              >
-                <Text style={styles.surfaceText}>{item.surface}</Text>
+            <View style={styles.rowLeft}>
+              <View style={[styles.surfaceDot, { backgroundColor: getSurfaceColor(item.surface) }]} />
+              <View style={styles.rowInfo}>
+                <Text style={styles.name} numberOfLines={1}>{item.name}</Text>
+                <Text style={styles.meta}>{item.location} · {item.surface}</Text>
               </View>
             </View>
-            <Text style={styles.category}>{item.category}</Text>
-            <Text style={styles.location}>📍 {item.location}</Text>
-            <Text style={styles.dates}>
-              📅 {item.startDate} → {item.endDate}
-            </Text>
+            <View style={styles.rowRight}>
+              <Text style={styles.category}>{item.category}</Text>
+              <Text style={styles.dates}>{item.startDate} — {item.endDate}</Text>
+            </View>
           </TouchableOpacity>
         )}
+        ItemSeparatorComponent={() => <View style={styles.separator} />}
         contentContainerStyle={styles.list}
-        ListEmptyComponent={
-          <EmptyState message="No tournaments found" icon="🏆" />
-        }
+        ListEmptyComponent={<EmptyState message="No events found" />}
       />
     </View>
   );
@@ -115,57 +97,59 @@ export default function TournamentsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0f0f23',
+    backgroundColor: '#121212',
   },
   list: {
-    padding: 16,
+    paddingBottom: 20,
   },
-  card: {
-    backgroundColor: '#1a1a2e',
-    borderRadius: 16,
-    padding: 16,
-    marginBottom: 12,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.15,
-    shadowRadius: 4,
-    elevation: 2,
-  },
-  header: {
+  row: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 6,
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    paddingVertical: 14,
   },
-  name: {
-    color: '#ffffff',
-    fontSize: 20,
-    fontWeight: 'bold',
+  rowLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
     flex: 1,
   },
-  surfaceBadge: {
-    borderRadius: 8,
-    paddingHorizontal: 12,
-    paddingVertical: 5,
+  surfaceDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    marginRight: 12,
   },
-  surfaceText: {
-    color: '#ffffff',
-    fontSize: 12,
+  rowInfo: {
+    flex: 1,
+  },
+  name: {
+    fontSize: 15,
     fontWeight: '600',
+    color: '#ffffff',
+    marginBottom: 2,
+  },
+  meta: {
+    fontSize: 12,
+    color: '#6b7280',
+  },
+  rowRight: {
+    alignItems: 'flex-end',
+    marginLeft: 12,
   },
   category: {
-    color: '#16a34a',
-    fontSize: 13,
+    fontSize: 11,
     fontWeight: '600',
-    marginBottom: 6,
-  },
-  location: {
-    color: '#a0a0b0',
-    fontSize: 13,
-    marginBottom: 4,
+    color: '#16a34a',
+    marginBottom: 2,
   },
   dates: {
-    color: '#6b7280',
     fontSize: 11,
+    color: '#6b7280',
+  },
+  separator: {
+    height: 0.5,
+    backgroundColor: '#2a2a2a',
+    marginLeft: 36,
   },
 });
