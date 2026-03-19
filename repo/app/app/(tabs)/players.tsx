@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import {
   View,
   Text,
@@ -11,11 +11,13 @@ import {
 } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'expo-router';
+import { useFocusEffect } from '@react-navigation/native';
 import api from '../../lib/api';
 import { getAvatarUrl } from '../../lib/avatars';
 import { useLanguage } from '../../lib/i18n';
 import { SkeletonList } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
+import { getFavorites } from '../../lib/favorites';
 import type { Player } from '../../../shared/types';
 
 function RankChangeIndicator({ change }: { change?: number }) {
@@ -34,8 +36,15 @@ function RankChangeIndicator({ change }: { change?: number }) {
 
 export default function PlayersScreen() {
   const [search, setSearch] = useState('');
+  const [favoriteIds, setFavoriteIds] = useState<number[]>([]);
   const router = useRouter();
   const { getPlayerName } = useLanguage();
+
+  useFocusEffect(
+    useCallback(() => {
+      getFavorites().then(setFavoriteIds);
+    }, [])
+  );
 
   const { data, isLoading, error, refetch } = useQuery<{ data: Player[] }>({
     queryKey: ['players'],
@@ -135,13 +144,21 @@ export default function PlayersScreen() {
               <Text style={styles.flagOverlay}>{item.countryFlag}</Text>
             </View>
             <View style={styles.playerInfo}>
-              <Text style={styles.playerName}>
-                {getPlayerName(item)}
-              </Text>
+              <View style={styles.playerNameRow}>
+                {favoriteIds.includes(item.id) && <Text style={styles.favStar}>⭐</Text>}
+                <Text style={styles.playerName}>
+                  {getPlayerName(item)}
+                </Text>
+              </View>
               <View style={styles.playerDetailsRow}>
                 <Text style={styles.playerDetails}>
                   {item.country} · {item.plays}
                 </Text>
+                {(item as any).tags && (item as any).tags.length > 0 && (
+                  <View style={styles.tagBadge}>
+                    <Text style={styles.tagBadgeText}>{(item as any).tags[0]}</Text>
+                  </View>
+                )}
                 <RankChangeIndicator change={(item as any).rankingChange} />
               </View>
             </View>
@@ -245,11 +262,30 @@ const styles = StyleSheet.create({
   playerInfo: {
     flex: 1,
   },
+  playerNameRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    marginBottom: 4,
+  },
+  favStar: {
+    fontSize: 14,
+  },
   playerName: {
     color: '#ffffff',
     fontSize: 16,
     fontWeight: '600',
-    marginBottom: 4,
+  },
+  tagBadge: {
+    backgroundColor: 'rgba(22, 163, 74, 0.15)',
+    borderRadius: 8,
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+  },
+  tagBadgeText: {
+    fontSize: 10,
+    color: '#16a34a',
+    fontWeight: '600',
   },
   playerDetailsRow: {
     flexDirection: 'row',

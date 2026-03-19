@@ -54,6 +54,14 @@ export interface Player {
     last5: ('W' | 'L')[];
     wins: number;
   };
+  tags?: string[];
+  equipment?: {
+    apparel?: { brand: string; from: number; to: number | null }[];
+    shoes?: { brand: string; from: number; to: number | null }[];
+    racket?: { brand: string; model: string };
+    watch?: string | null;
+    otherSponsors?: string[];
+  };
 }
 
 export interface Tournament {

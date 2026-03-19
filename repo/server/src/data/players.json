@@ -446,6 +446,52 @@
         "total": 78,
         "winRate": 61.5
       }
+    },
+    "tags": [
+      "🚀 天才少年",
+      "❄️ 冷血杀手",
+      "📈 稳步上升"
+    ],
+    "equipment": {
+      "apparel": [
+        {
+          "brand": "Nike",
+          "from": 2024,
+          "to": null
+        },
+        {
+          "brand": "Nike",
+          "from": 2021,
+          "to": 2024
+        },
+        {
+          "brand": "Lacoste",
+          "from": 2019,
+          "to": 2021
+        }
+      ],
+      "shoes": [
+        {
+          "brand": "Nike",
+          "from": 2024,
+          "to": null
+        },
+        {
+          "brand": "Nike",
+          "from": 2021,
+          "to": 2024
+        }
+      ],
+      "racket": {
+        "brand": "Head",
+        "model": "Speed Pro"
+      },
+      "watch": "Rolex",
+      "otherSponsors": [
+        "Lavazza",
+        "Fastweb",
+        "Gucci"
+      ]
     }
   },
   {
@@ -1615,6 +1661,52 @@
         "total": 105,
         "winRate": 68.6
       }
+    },
+    "tags": [
+      "🧠 战术大师",
+      "💎 决胜盘之王",
+      "❄️ 冷血杀手"
+    ],
+    "equipment": {
+      "apparel": [
+        {
+          "brand": "Lacoste",
+          "from": 2017,
+          "to": null
+        },
+        {
+          "brand": "Uniqlo",
+          "from": 2012,
+          "to": 2017
+        },
+        {
+          "brand": "Sergio Tacchini",
+          "from": 2009,
+          "to": 2012
+        }
+      ],
+      "shoes": [
+        {
+          "brand": "Asics",
+          "from": 2023,
+          "to": null
+        },
+        {
+          "brand": "Adidas",
+          "from": 2009,
+          "to": 2023
+        }
+      ],
+      "racket": {
+        "brand": "Head",
+        "model": "Speed Pro"
+      },
+      "watch": "Hublot",
+      "otherSponsors": [
+        "Peugeot",
+        "Head",
+        "NetJets"
+      ]
     }
   },
   {
@@ -2064,6 +2156,42 @@
         "total": 68,
         "winRate": 55.9
       }
+    },
+    "tags": [
+      "🚀 天才少年",
+      "⚡ 暴力正手",
+      "🔥 越挫越勇"
+    ],
+    "equipment": {
+      "apparel": [
+        {
+          "brand": "Nike",
+          "from": 2022,
+          "to": null
+        },
+        {
+          "brand": "Nike",
+          "from": 2019,
+          "to": 2022
+        }
+      ],
+      "shoes": [
+        {
+          "brand": "Nike",
+          "from": 2022,
+          "to": null
+        }
+      ],
+      "racket": {
+        "brand": "Babolat",
+        "model": "Pure Aero"
+      },
+      "watch": "Rolex",
+      "otherSponsors": [
+        "BMW",
+        "Babolat",
+        "ElPozo"
+      ]
     }
   },
   {
@@ -2753,6 +2881,37 @@
         "total": 72,
         "winRate": 48.6
       }
+    },
+    "tags": [
+      "🎯 发球机器",
+      "🧠 战术大师",
+      "📈 稳步上升"
+    ],
+    "equipment": {
+      "apparel": [
+        {
+          "brand": "Adidas",
+          "from": 2015,
+          "to": null
+        }
+      ],
+      "shoes": [
+        {
+          "brand": "Adidas",
+          "from": 2015,
+          "to": null
+        }
+      ],
+      "racket": {
+        "brand": "Head",
+        "model": "Gravity Pro"
+      },
+      "watch": "Richard Mille",
+      "otherSponsors": [
+        "FedEx",
+        "Head",
+        "Peugeot"
+      ]
     }
   },
   {
@@ -3394,6 +3553,47 @@
         "total": 80,
         "winRate": 56.3
       }
+    },
+    "tags": [
+      "🏃 防守大师",
+      "🧠 战术大师",
+      "❄️ 冷血杀手"
+    ],
+    "equipment": {
+      "apparel": [
+        {
+          "brand": "Lacoste",
+          "from": 2019,
+          "to": null
+        },
+        {
+          "brand": "Lotto",
+          "from": 2016,
+          "to": 2019
+        }
+      ],
+      "shoes": [
+        {
+          "brand": "Nike",
+          "from": 2023,
+          "to": null
+        },
+        {
+          "brand": "Lacoste",
+          "from": 2019,
+          "to": 2023
+        }
+      ],
+      "racket": {
+        "brand": "Tecnifibre",
+        "model": "T-Fight 305"
+      },
+      "watch": "BMW",
+      "otherSponsors": [
+        "Bovet",
+        "Tecnifibre",
+        "HyperX"
+      ]
     }
   },
   {
@@ -4035,6 +4235,41 @@
         "total": 72,
         "winRate": 52.8
       }
+    },
+    "tags": [
+      "⚡ 暴力正手",
+      "🔥 越挫越勇",
+      "📈 稳步上升"
+    ],
+    "equipment": {
+      "apparel": [
+        {
+          "brand": "Nike",
+          "from": 2023,
+          "to": null
+        },
+        {
+          "brand": "Nike",
+          "from": 2020,
+          "to": 2023
+        }
+      ],
+      "shoes": [
+        {
+          "brand": "Nike",
+          "from": 2023,
+          "to": null
+        }
+      ],
+      "racket": {
+        "brand": "Head",
+        "model": "Gravity MP"
+      },
+      "watch": null,
+      "otherSponsors": [
+        "Head",
+        "Emirates"
+      ]
     }
   },
   {
@@ -4628,6 +4863,40 @@
         "total": 68,
         "winRate": 51.5
       }
+    },
+    "tags": [
+      "🎯 发球机器",
+      "📈 稳步上升"
+    ],
+    "equipment": {
+      "apparel": [
+        {
+          "brand": "Tommy Hilfiger",
+          "from": 2023,
+          "to": null
+        },
+        {
+          "brand": "Nike",
+          "from": 2019,
+          "to": 2023
+        }
+      ],
+      "shoes": [
+        {
+          "brand": "Nike",
+          "from": 2019,
+          "to": null
+        }
+      ],
+      "racket": {
+        "brand": "Yonex",
+        "model": "VCORE Pro 97"
+      },
+      "watch": null,
+      "otherSponsors": [
+        "Yonex",
+        "PKO Bank Polski"
+      ]
     }
   },
   {
@@ -5125,6 +5394,41 @@
         "total": 75,
         "winRate": 53.3
       }
+    },
+    "tags": [
+      "🧱 红土之王",
+      "🏃 防守大师",
+      "📈 稳步上升"
+    ],
+    "equipment": {
+      "apparel": [
+        {
+          "brand": "Yonex",
+          "from": 2020,
+          "to": null
+        },
+        {
+          "brand": "Nike",
+          "from": 2017,
+          "to": 2020
+        }
+      ],
+      "shoes": [
+        {
+          "brand": "Yonex",
+          "from": 2020,
+          "to": null
+        }
+      ],
+      "racket": {
+        "brand": "Yonex",
+        "model": "VCORE 98"
+      },
+      "watch": null,
+      "otherSponsors": [
+        "Yonex",
+        "DNB"
+      ]
     }
   },
   {
@@ -5622,6 +5926,35 @@
         "total": 72,
         "winRate": 58.3
       }
+    },
+    "tags": [
+      "🏃 防守大师",
+      "🔥 越挫越勇"
+    ],
+    "equipment": {
+      "apparel": [
+        {
+          "brand": "Nike",
+          "from": 2019,
+          "to": null
+        }
+      ],
+      "shoes": [
+        {
+          "brand": "Nike",
+          "from": 2019,
+          "to": null
+        }
+      ],
+      "racket": {
+        "brand": "Dunlop",
+        "model": "FX 500"
+      },
+      "watch": null,
+      "otherSponsors": [
+        "Dunlop",
+        "HyperIce"
+      ]
     }
   },
   {
@@ -6551,6 +6884,35 @@
         "total": 82,
         "winRate": 51.2
       }
+    },
+    "tags": [
+      "🧠 战术大师",
+      "🌅 大器晚成"
+    ],
+    "equipment": {
+      "apparel": [
+        {
+          "brand": "Nike",
+          "from": 2013,
+          "to": null
+        }
+      ],
+      "shoes": [
+        {
+          "brand": "Nike",
+          "from": 2013,
+          "to": null
+        }
+      ],
+      "racket": {
+        "brand": "Wilson",
+        "model": "Pro Staff 97"
+      },
+      "watch": "Rolex",
+      "otherSponsors": [
+        "Wilson",
+        "Bonaqa"
+      ]
     }
   },
   {
@@ -7048,6 +7410,41 @@
         "total": 80,
         "winRate": 55.0
       }
+    },
+    "tags": [
+      "⚡ 暴力正手",
+      "🧠 战术大师",
+      "📉 高开低走"
+    ],
+    "equipment": {
+      "apparel": [
+        {
+          "brand": "Adidas",
+          "from": 2019,
+          "to": null
+        },
+        {
+          "brand": "Nike",
+          "from": 2017,
+          "to": 2019
+        }
+      ],
+      "shoes": [
+        {
+          "brand": "Adidas",
+          "from": 2019,
+          "to": null
+        }
+      ],
+      "racket": {
+        "brand": "Wilson",
+        "model": "Blade 98"
+      },
+      "watch": "Rolex",
+      "otherSponsors": [
+        "Wilson",
+        "Adidas"
+      ]
     }
   },
   {
@@ -7641,6 +8038,35 @@
         "total": 75,
         "winRate": 50.7
       }
+    },
+    "tags": [
+      "🎯 发球机器",
+      "📈 稳步上升"
+    ],
+    "equipment": {
+      "apparel": [
+        {
+          "brand": "Nike",
+          "from": 2018,
+          "to": null
+        }
+      ],
+      "shoes": [
+        {
+          "brand": "Nike",
+          "from": 2018,
+          "to": null
+        }
+      ],
+      "racket": {
+        "brand": "Head",
+        "model": "Extreme Pro"
+      },
+      "watch": null,
+      "otherSponsors": [
+        "Head",
+        "FanDuel"
+      ]
     }
   },
   {
@@ -8234,6 +8660,34 @@
         "total": 70,
         "winRate": 50.0
       }
+    },
+    "tags": [
+      "📈 稳步上升",
+      "🏃 防守大师"
+    ],
+    "equipment": {
+      "apparel": [
+        {
+          "brand": "Nike",
+          "from": 2022,
+          "to": null
+        }
+      ],
+      "shoes": [
+        {
+          "brand": "Nike",
+          "from": 2022,
+          "to": null
+        }
+      ],
+      "racket": {
+        "brand": "Babolat",
+        "model": "Pure Strike"
+      },
+      "watch": null,
+      "otherSponsors": [
+        "Babolat"
+      ]
     }
   },
   {
@@ -8491,6 +8945,36 @@
         "total": 60,
         "winRate": 50.0
       }
+    },
+    "tags": [
+      "🚀 天才少年",
+      "🎯 发球机器",
+      "⚡ 暴力正手"
+    ],
+    "equipment": {
+      "apparel": [
+        {
+          "brand": "New Balance",
+          "from": 2023,
+          "to": null
+        }
+      ],
+      "shoes": [
+        {
+          "brand": "New Balance",
+          "from": 2023,
+          "to": null
+        }
+      ],
+      "racket": {
+        "brand": "Head",
+        "model": "Boom Pro"
+      },
+      "watch": null,
+      "otherSponsors": [
+        "Head",
+        "Mercedes"
+      ]
     }
   },
   {
@@ -8892,6 +9376,36 @@
         "total": 62,
         "winRate": 45.2
       }
+    },
+    "tags": [
+      "🚀 天才少年",
+      "⚡ 暴力正手",
+      "📉 高开低走"
+    ],
+    "equipment": {
+      "apparel": [
+        {
+          "brand": "Nike",
+          "from": 2022,
+          "to": null
+        }
+      ],
+      "shoes": [
+        {
+          "brand": "Nike",
+          "from": 2022,
+          "to": null
+        }
+      ],
+      "racket": {
+        "brand": "Babolat",
+        "model": "Pure Aero"
+      },
+      "watch": null,
+      "otherSponsors": [
+        "Babolat",
+        "ALK"
+      ]
     }
   },
   {
@@ -9389,6 +9903,34 @@
         "total": 62,
         "winRate": 48.4
       }
+    },
+    "tags": [
+      "🎯 发球机器",
+      "📈 稳步上升"
+    ],
+    "equipment": {
+      "apparel": [
+        {
+          "brand": "Lacoste",
+          "from": 2021,
+          "to": null
+        }
+      ],
+      "shoes": [
+        {
+          "brand": "Lacoste",
+          "from": 2021,
+          "to": null
+        }
+      ],
+      "racket": {
+        "brand": "Yonex",
+        "model": "EZONE 98"
+      },
+      "watch": null,
+      "otherSponsors": [
+        "Yonex"
+      ]
     }
   },
   {
@@ -9838,6 +10380,34 @@
         "total": 58,
         "winRate": 48.3
       }
+    },
+    "tags": [
+      "🚀 天才少年",
+      "⚡ 暴力正手"
+    ],
+    "equipment": {
+      "apparel": [
+        {
+          "brand": "Nike",
+          "from": 2020,
+          "to": null
+        }
+      ],
+      "shoes": [
+        {
+          "brand": "Nike",
+          "from": 2020,
+          "to": null
+        }
+      ],
+      "racket": {
+        "brand": "Babolat",
+        "model": "Pure Drive"
+      },
+      "watch": null,
+      "otherSponsors": [
+        "Babolat"
+      ]
     }
   },
   {
@@ -10479,6 +11049,34 @@
         "total": 58,
         "winRate": 46.6
       }
+    },
+    "tags": [
+      "🎯 发球机器",
+      "📈 稳步上升"
+    ],
+    "equipment": {
+      "apparel": [
+        {
+          "brand": "Asics",
+          "from": 2022,
+          "to": null
+        }
+      ],
+      "shoes": [
+        {
+          "brand": "Asics",
+          "from": 2022,
+          "to": null
+        }
+      ],
+      "racket": {
+        "brand": "Yonex",
+        "model": "VCORE 98"
+      },
+      "watch": null,
+      "otherSponsors": [
+        "Yonex"
+      ]
     }
   },
   {
@@ -11168,6 +11766,39 @@
         "total": 78,
         "winRate": 48.7
       }
+    },
+    "tags": [
+      "🎯 发球机器",
+      "🏃 防守大师"
+    ],
+    "equipment": {
+      "apparel": [
+        {
+          "brand": "Adidas",
+          "from": 2017,
+          "to": null
+        },
+        {
+          "brand": "Nike",
+          "from": 2015,
+          "to": 2017
+        }
+      ],
+      "shoes": [
+        {
+          "brand": "Adidas",
+          "from": 2017,
+          "to": null
+        }
+      ],
+      "racket": {
+        "brand": "Head",
+        "model": "Gravity Pro"
+      },
+      "watch": null,
+      "otherSponsors": [
+        "Head"
+      ]
     }
   },
   {
@@ -11665,6 +12296,36 @@
         "total": 68,
         "winRate": 47.1
       }
+    },
+    "tags": [
+      "🚀 天才少年",
+      "📉 高开低走",
+      "🎯 发球机器"
+    ],
+    "equipment": {
+      "apparel": [
+        {
+          "brand": "Nike",
+          "from": 2019,
+          "to": null
+        }
+      ],
+      "shoes": [
+        {
+          "brand": "Nike",
+          "from": 2019,
+          "to": null
+        }
+      ],
+      "racket": {
+        "brand": "Head",
+        "model": "Radical Pro"
+      },
+      "watch": null,
+      "otherSponsors": [
+        "Head",
+        "BNP Paribas"
+      ]
     }
   },
   {
@@ -11690,7 +12351,12 @@
       "ko": "잭 드레이퍼",
       "es": "Jack Draper",
       "fr": "Jack Draper"
-    }
+    },
+    "tags": [
+      "🚀 天才少年",
+      "⚡ 暴力正手",
+      "📈 稳步上升"
+    ]
   },
   {
     "id": 22,
@@ -11715,7 +12381,11 @@
       "ko": "프랜시스 티아포",
       "es": "Frances Tiafoe",
       "fr": "Frances Tiafoe"
-    }
+    },
+    "tags": [
+      "🏃 防守大师",
+      "🔥 越挫越勇"
+    ]
   },
   {
     "id": 23,
@@ -11740,7 +12410,11 @@
       "ko": "로렌초 무세티",
       "es": "Lorenzo Musetti",
       "fr": "Lorenzo Musetti"
-    }
+    },
+    "tags": [
+      "🧱 红土之王",
+      "🧠 战术大师"
+    ]
   },
   {
     "id": 24,
@@ -11765,7 +12439,11 @@
       "ko": "알레한드로 타빌로",
       "es": "Alejandro Tabilo",
       "fr": "Alejandro Tabilo"
-    }
+    },
+    "tags": [
+      "📈 稳步上升",
+      "🧱 红土之王"
+    ]
   },
   {
     "id": 25,
@@ -11790,7 +12468,11 @@
       "ko": "아드리안 마나리노",
       "es": "Adrian Mannarino",
       "fr": "Adrian Mannarino"
-    }
+    },
+    "tags": [
+      "🌅 大器晚成",
+      "🏃 防守大师"
+    ]
   },
   {
     "id": 26,
@@ -11815,7 +12497,11 @@
       "ko": "토마스 마하치",
       "es": "Tomas Machac",
       "fr": "Tomas Machac"
-    }
+    },
+    "tags": [
+      "🚀 天才少年",
+      "⚡ 暴力正手"
+    ]
   },
   {
     "id": 27,
@@ -11840,7 +12526,11 @@
       "ko": "플라비오 코볼리",
       "es": "Flavio Cobolli",
       "fr": "Flavio Cobolli"
-    }
+    },
+    "tags": [
+      "🚀 天才少年",
+      "📈 稳步上升"
+    ]
   },
   {
     "id": 28,
@@ -11865,7 +12555,11 @@
       "ko": "프란시스코 세룬돌로",
       "es": "Francisco Cerundolo",
       "fr": "Francisco Cerundolo"
-    }
+    },
+    "tags": [
+      "🧱 红土之王",
+      "📈 稳步上升"
+    ]
   },
   {
     "id": 29,
@@ -11890,7 +12584,12 @@
       "ko": "마테오 베레티니",
       "es": "Matteo Berrettini",
       "fr": "Matteo Berrettini"
-    }
+    },
+    "tags": [
+      "🎯 发球机器",
+      "⚡ 暴力正手",
+      "🔥 越挫越勇"
+    ]
   },
   {
     "id": 30,
@@ -11915,7 +12614,11 @@
       "ko": "탈론 흐릭스포르",
       "es": "Tallon Griekspoor",
       "fr": "Tallon Griekspoor"
-    }
+    },
+    "tags": [
+      "🎯 发球机器",
+      "📈 稳步上升"
+    ]
   },
   {
     "id": 31,
@@ -11940,7 +12643,11 @@
       "ko": "얀레나르트 슈트루프",
       "es": "Jan-Lennard Struff",
       "fr": "Jan-Lennard Struff"
-    }
+    },
+    "tags": [
+      "🌅 大器晚成",
+      "🎯 发球机器"
+    ]
   },
   {
     "id": 32,
@@ -11965,7 +12672,11 @@
       "ko": "아르튀르 피스",
       "es": "Arthur Fils",
       "fr": "Arthur Fils"
-    }
+    },
+    "tags": [
+      "🚀 天才少年",
+      "📈 稳步上升"
+    ]
   },
   {
     "id": 33,
@@ -11990,7 +12701,11 @@
       "ko": "이르지 레헤치카",
       "es": "Jiri Lehecka",
       "fr": "Jiri Lehecka"
-    }
+    },
+    "tags": [
+      "🚀 天才少年",
+      "📈 稳步上升"
+    ]
   },
   {
     "id": 34,
@@ -12015,7 +12730,11 @@
       "ko": "조던 톰프슨",
       "es": "Jordan Thompson",
       "fr": "Jordan Thompson"
-    }
+    },
+    "tags": [
+      "🏃 防守大师",
+      "🌅 大器晚成"
+    ]
   },
   {
     "id": 35,
@@ -12040,7 +12759,11 @@
       "ko": "마테오 아르날디",
       "es": "Matteo Arnaldi",
       "fr": "Matteo Arnaldi"
-    }
+    },
+    "tags": [
+      "📈 稳步上升",
+      "🧱 红土之王"
+    ]
   },
   {
     "id": 36,
@@ -12065,7 +12788,11 @@
       "ko": "조반니 음페치 페리카르",
       "es": "Giovanni Mpetshi Perricard",
       "fr": "Giovanni Mpetshi Perricard"
-    }
+    },
+    "tags": [
+      "🚀 天才少年",
+      "🎯 发球机器"
+    ]
   },
   {
     "id": 37,
@@ -12090,7 +12817,11 @@
       "ko": "알레한드로 다비도비치 포키나",
       "es": "Alejandro Davidovich Fokina",
       "fr": "Alejandro Davidovich Fokina"
-    }
+    },
+    "tags": [
+      "🧱 红土之王",
+      "🏃 防守大师"
+    ]
   },
   {
     "id": 38,
@@ -12115,7 +12846,11 @@
       "ko": "알렉산더 부블릭",
       "es": "Alexander Bublik",
       "fr": "Alexander Bublik"
-    }
+    },
+    "tags": [
+      "🧠 战术大师",
+      "🎯 发球机器"
+    ]
   },
   {
     "id": 39,
@@ -12140,7 +12875,12 @@
       "ko": "로베르토 바우티스타 아구트",
       "es": "Roberto Bautista Agut",
       "fr": "Roberto Bautista Agut"
-    }
+    },
+    "tags": [
+      "🌅 大器晚成",
+      "🏃 防守大师",
+      "🧱 红土之王"
+    ]
   },
   {
     "id": 40,
@@ -12165,7 +12905,11 @@
       "ko": "루치아노 다르데리",
       "es": "Luciano Darderi",
       "fr": "Luciano Darderi"
-    }
+    },
+    "tags": [
+      "🚀 天才少年",
+      "🧱 红土之王"
+    ]
   },
   {
     "id": 41,
@@ -12190,7 +12934,11 @@
       "ko": "데니스 샤포발로프",
       "es": "Denis Shapovalov",
       "fr": "Denis Shapovalov"
-    }
+    },
+    "tags": [
+      "⚡ 暴力正手",
+      "📉 高开低走"
+    ]
   },
   {
     "id": 42,
@@ -12215,7 +12963,11 @@
       "ko": "누노 보르제스",
       "es": "Nuno Borges",
       "fr": "Nuno Borges"
-    }
+    },
+    "tags": [
+      "📈 稳步上升",
+      "🏃 防守大师"
+    ]
   },
   {
     "id": 43,
@@ -12240,7 +12992,12 @@
       "ko": "파블로 카레뇨 부스타",
       "es": "Pablo Carreno Busta",
       "fr": "Pablo Carreno Busta"
-    }
+    },
+    "tags": [
+      "🌅 大器晚成",
+      "🏃 防守大师",
+      "🧱 红土之王"
+    ]
   },
   {
     "id": 44,
@@ -12265,7 +13022,11 @@
       "ko": "마르코스 히론",
       "es": "Marcos Giron",
       "fr": "Marcos Giron"
-    }
+    },
+    "tags": [
+      "📈 稳步上升",
+      "🏃 防守大师"
+    ]
   },
   {
     "id": 45,
@@ -12290,7 +13051,11 @@
       "ko": "타나시 코키나키스",
       "es": "Thanasi Kokkinakis",
       "fr": "Thanasi Kokkinakis"
-    }
+    },
+    "tags": [
+      "🎯 发球机器",
+      "🔥 越挫越勇"
+    ]
   },
   {
     "id": 46,
@@ -12315,7 +13080,11 @@
       "ko": "다니엘 에반스",
       "es": "Daniel Evans",
       "fr": "Daniel Evans"
-    }
+    },
+    "tags": [
+      "🌅 大器晚成",
+      "🧠 战术大师"
+    ]
   },
   {
     "id": 47,
@@ -12340,7 +13109,11 @@
       "ko": "장즈전",
       "es": "Zhizhen Zhang",
       "fr": "Zhizhen Zhang"
-    }
+    },
+    "tags": [
+      "📈 稳步上升",
+      "🏃 防守大师"
+    ]
   },
   {
     "id": 48,
@@ -12365,7 +13138,11 @@
       "ko": "알렉세이 포피린",
       "es": "Alexei Popyrin",
       "fr": "Alexei Popyrin"
-    }
+    },
+    "tags": [
+      "🎯 发球机器",
+      "📈 稳步上升"
+    ]
   },
   {
     "id": 49,
@@ -12390,7 +13167,11 @@
       "ko": "크리스토퍼 유뱅크스",
       "es": "Christopher Eubanks",
       "fr": "Christopher Eubanks"
-    }
+    },
+    "tags": [
+      "🎯 发球机器",
+      "⚡ 暴力正手"
+    ]
   },
   {
     "id": 50,
@@ -12415,6 +13196,10 @@
       "ko": "미오미르 게츠마노비치",
       "es": "Miomir Kecmanovic",
       "fr": "Miomir Kecmanovic"
-    }
+    },
+    "tags": [
+      "🏃 防守大师",
+      "📈 稳步上升"
+    ]
   }
 ]

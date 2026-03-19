@@ -13,10 +13,12 @@ import {
 } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'expo-router';
+import { useFocusEffect } from '@react-navigation/native';
 import api from '../../lib/api';
 import { getAvatarUrl } from '../../lib/avatars';
 import { useLanguage, LANGUAGE_OPTIONS } from '../../lib/i18n';
 import { SkeletonList, SkeletonBlock } from '../../lib/skeleton';
+import { getFavorites } from '../../lib/favorites';
 import type { Player, MatchWithPlayers } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -66,6 +68,13 @@ function getFormattedDate(): string {
 export default function HomeScreen() {
   const router = useRouter();
   const { language, setLanguage, getPlayerName } = useLanguage();
+  const [favoriteIds, setFavoriteIds] = useState<number[]>([]);
+
+  useFocusEffect(
+    useCallback(() => {
+      getFavorites().then(setFavoriteIds);
+    }, [])
+  );
 
   const {
     data: playersData,
@@ -143,6 +152,47 @@ export default function HomeScreen() {
           </TouchableOpacity>
         ))}
       </ScrollView>
+
+      {/* My Players - Favorites */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>❤️ My Players</Text>
+        {favoriteIds.length === 0 ? (
+          <View style={styles.emptyFavContainer}>
+            <Text style={styles.emptyFavIcon}>🎾</Text>
+            <Text style={styles.emptyFavText}>Follow your favorite players</Text>
+            <Text style={styles.emptyFavSub}>Tap ❤️ on a player's profile to add them here</Text>
+          </View>
+        ) : (
+          <FlatList
+            data={topPlayers.filter((p) => favoriteIds.includes(p.id))}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            keyExtractor={(item) => `fav-${item.id}`}
+            contentContainerStyle={styles.topPlayersList}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                style={styles.favPlayerCard}
+                onPress={() => router.push(`/player/${item.id}`)}
+                activeOpacity={0.7}
+              >
+                <Image
+                  source={{ uri: item.photoUrl || getAvatarUrl(item.name, 120) }}
+                  style={styles.favPlayerAvatar}
+                />
+                <Text style={styles.favPlayerName} numberOfLines={1}>
+                  {getPlayerName(item)}
+                </Text>
+                <Text style={styles.favPlayerRank}>#{item.ranking}</Text>
+              </TouchableOpacity>
+            )}
+            ListEmptyComponent={
+              <View style={styles.emptyFavContainer}>
+                <Text style={styles.emptyFavSub}>Your favorited players will appear here once loaded</Text>
+              </View>
+            }
+          />
+        )}
+      </View>
 
       {/* Top Players - Horizontal Scroll */}
       <View style={styles.section}>
@@ -642,5 +692,66 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     padding: 20,
+  },
+
+  // My Players (favorites)
+  emptyFavContainer: {
+    alignItems: 'center',
+    padding: 20,
+    marginHorizontal: 16,
+    backgroundColor: '#1a1a2e',
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: '#2a2a4e',
+    borderStyle: 'dashed',
+  },
+  emptyFavIcon: {
+    fontSize: 32,
+    marginBottom: 8,
+  },
+  emptyFavText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#ffffff',
+    marginBottom: 4,
+  },
+  emptyFavSub: {
+    fontSize: 13,
+    color: '#6b7280',
+    textAlign: 'center',
+  },
+  favPlayerCard: {
+    backgroundColor: '#1a1a2e',
+    borderRadius: 14,
+    padding: 12,
+    width: 100,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#16a34a',
+    shadowColor: '#16a34a',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 6,
+    elevation: 3,
+  },
+  favPlayerAvatar: {
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    borderWidth: 2,
+    borderColor: '#16a34a',
+    marginBottom: 6,
+  },
+  favPlayerName: {
+    fontSize: 12,
+    color: '#ffffff',
+    fontWeight: '600',
+    textAlign: 'center',
+    marginBottom: 2,
+  },
+  favPlayerRank: {
+    fontSize: 11,
+    color: '#f59e0b',
+    fontWeight: 'bold',
   },
 });

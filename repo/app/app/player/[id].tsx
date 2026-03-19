@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
 import {
   View,
   Text,
@@ -16,6 +16,7 @@ import { getAvatarUrl } from '../../lib/avatars';
 import { useLanguage } from '../../lib/i18n';
 import { SkeletonList, SkeletonBlock } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
+import { isFavorite, toggleFavorite } from '../../lib/favorites';
 import type { PlayerDetail, MatchWithPlayers, SetStats } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -311,11 +312,102 @@ function SetStatsSection({ player }: { player: PlayerDetail }) {
   );
 }
 
+// ─── Player Tags ─────────────────────────────────────────────────────
+function PlayerTags({ tags }: { tags?: string[] }) {
+  if (!tags || tags.length === 0) return null;
+  return (
+    <View style={styles.tagsRow}>
+      {tags.map((tag, i) => (
+        <View key={i} style={styles.tagPill}>
+          <Text style={styles.tagText}>{tag}</Text>
+        </View>
+      ))}
+    </View>
+  );
+}
+
+// ─── Equipment & Sponsors ────────────────────────────────────────────
+function EquipmentSection({ player }: { player: PlayerDetail }) {
+  const equipment = (player as any).equipment;
+  if (!equipment) return null;
+
+  const renderTimeline = (items: { brand: string; from: number; to: number | null }[], icon: string, label: string) => {
+    if (!items || items.length === 0) return null;
+    return (
+      <View style={styles.equipCategory}>
+        <Text style={styles.equipCategoryLabel}>{icon} {label}</Text>
+        {items.map((item, i) => (
+          <View key={i} style={styles.equipTimelineItem}>
+            <View style={styles.equipDot} />
+            {i < items.length - 1 && <View style={styles.equipLine} />}
+            <View style={styles.equipInfo}>
+              <Text style={styles.equipBrand}>{item.brand}</Text>
+              <Text style={styles.equipYears}>
+                {item.from} — {item.to || 'Present'}
+              </Text>
+            </View>
+            {!item.to && (
+              <View style={styles.equipCurrentBadge}>
+                <Text style={styles.equipCurrentText}>Current</Text>
+              </View>
+            )}
+          </View>
+        ))}
+      </View>
+    );
+  };
+
+  return (
+    <View style={styles.infoCard}>
+      <Text style={styles.sectionTitle}>🏷️ Equipment & Sponsors</Text>
+      {renderTimeline(equipment.apparel, '🎽', 'Apparel')}
+      {renderTimeline(equipment.shoes, '👟', 'Shoes')}
+      {equipment.racket && (
+        <View style={styles.equipCategory}>
+          <Text style={styles.equipCategoryLabel}>🎾 Racket</Text>
+          <View style={styles.equipTimelineItem}>
+            <View style={styles.equipDot} />
+            <View style={styles.equipInfo}>
+              <Text style={styles.equipBrand}>{equipment.racket.brand}</Text>
+              <Text style={styles.equipYears}>{equipment.racket.model}</Text>
+            </View>
+          </View>
+        </View>
+      )}
+      {equipment.watch && (
+        <View style={styles.equipCategory}>
+          <Text style={styles.equipCategoryLabel}>⌚ Watch</Text>
+          <View style={styles.equipTimelineItem}>
+            <View style={styles.equipDot} />
+            <View style={styles.equipInfo}>
+              <Text style={styles.equipBrand}>{equipment.watch}</Text>
+            </View>
+          </View>
+        </View>
+      )}
+      {equipment.otherSponsors && equipment.otherSponsors.length > 0 && (
+        <View style={styles.equipCategory}>
+          <Text style={styles.equipCategoryLabel}>🤝 Other Sponsors</Text>
+          <View style={styles.sponsorRow}>
+            {equipment.otherSponsors.map((s: string, i: number) => (
+              <View key={i} style={styles.sponsorPill}>
+                <Text style={styles.sponsorText}>{s}</Text>
+              </View>
+            ))}
+          </View>
+        </View>
+      )}
+    </View>
+  );
+}
+
 // ─── Main Screen ─────────────────────────────────────────────────────
 export default function PlayerDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const { getPlayerName, resolvedLanguage } = useLanguage();
+
+  const [isFav, setIsFav] = useState(false);
 
   const { data: player, isLoading, error } = useQuery<PlayerDetail>({
     queryKey: ['player', id],
@@ -324,6 +416,18 @@ export default function PlayerDetailScreen() {
       return res.data;
     },
   });
+
+  useEffect(() => {
+    if (id) {
+      isFavorite(parseInt(id)).then(setIsFav);
+    }
+  }, [id]);
+
+  const handleToggleFavorite = useCallback(async () => {
+    if (!id) return;
+    const result = await toggleFavorite(parseInt(id));
+    setIsFav(result);
+  }, [id]);
 
   if (isLoading) {
     return (
@@ -349,7 +453,16 @@ export default function PlayerDetailScreen() {
 
   return (
     <>
-      <Stack.Screen options={{ title: getPlayerName(player) }} />
+      <Stack.Screen
+        options={{
+          title: getPlayerName(player),
+          headerRight: () => (
+            <TouchableOpacity onPress={handleToggleFavorite} style={styles.favButton}>
+              <Text style={styles.favIcon}>{isFav ? '❤️' : '🤍'}</Text>
+            </TouchableOpacity>
+          ),
+        }}
+      />
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
         {/* Avatar Section with gradient-like background */}
         <View style={styles.avatarSection}>
@@ -362,6 +475,7 @@ export default function PlayerDetailScreen() {
           {resolvedLanguage !== 'en' && getPlayerName(player) !== player.name && (
             <Text style={styles.playerNameEn}>{player.name}</Text>
           )}
+          <PlayerTags tags={(player as any).tags} />
           <Text style={styles.rankingBig}>#{player.ranking}</Text>
         </View>
 
@@ -406,6 +520,9 @@ export default function PlayerDetailScreen() {
 
         {/* Set Statistics */}
         <SetStatsSection player={player} />
+
+        {/* Equipment & Sponsors */}
+        <EquipmentSection player={player} />
 
         {/* Player Info */}
         <View style={styles.infoCard}>
@@ -544,6 +661,116 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     color: '#f59e0b',
+  },
+
+  // Favorite button
+  favButton: {
+    padding: 8,
+    marginRight: 4,
+  },
+  favIcon: {
+    fontSize: 22,
+  },
+
+  // Tags
+  tagsRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: 6,
+    marginTop: 8,
+    marginBottom: 4,
+    paddingHorizontal: 16,
+  },
+  tagPill: {
+    backgroundColor: 'rgba(22, 163, 74, 0.15)',
+    borderRadius: 12,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderWidth: 1,
+    borderColor: 'rgba(22, 163, 74, 0.3)',
+  },
+  tagText: {
+    fontSize: 12,
+    color: '#16a34a',
+    fontWeight: '600',
+  },
+
+  // Equipment
+  equipCategory: {
+    marginBottom: 16,
+  },
+  equipCategoryLabel: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: '#a0a0b0',
+    marginBottom: 8,
+  },
+  equipTimelineItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingLeft: 8,
+    marginBottom: 8,
+    position: 'relative',
+  },
+  equipDot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: '#16a34a',
+    marginRight: 12,
+    zIndex: 1,
+  },
+  equipLine: {
+    position: 'absolute',
+    left: 12,
+    top: 14,
+    width: 2,
+    height: 28,
+    backgroundColor: '#2a2a4e',
+  },
+  equipInfo: {
+    flex: 1,
+  },
+  equipBrand: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#ffffff',
+  },
+  equipYears: {
+    fontSize: 12,
+    color: '#a0a0b0',
+    marginTop: 1,
+  },
+  equipCurrentBadge: {
+    backgroundColor: 'rgba(22, 163, 74, 0.2)',
+    borderRadius: 8,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+  },
+  equipCurrentText: {
+    fontSize: 10,
+    color: '#16a34a',
+    fontWeight: '700',
+  },
+  sponsorRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    paddingLeft: 8,
+  },
+  sponsorPill: {
+    backgroundColor: '#0f0f23',
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderWidth: 1,
+    borderColor: '#2a2a4e',
+  },
+  sponsorText: {
+    fontSize: 13,
+    color: '#ffffff',
+    fontWeight: '500',
   },
 
   // Compare button

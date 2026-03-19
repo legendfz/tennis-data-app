@@ -1,3 +1,4 @@
+import { useState, useCallback, useMemo } from 'react';
 import {
   View,
   Text,
@@ -5,6 +6,7 @@ import {
   ScrollView,
   Image,
   Dimensions,
+  TouchableOpacity,
 } from 'react-native';
 import { useLocalSearchParams, Stack } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
@@ -13,7 +15,7 @@ import { getAvatarUrl } from '../../lib/avatars';
 import { useLanguage } from '../../lib/i18n';
 import { SkeletonList, SkeletonBlock } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
-import type { H2HData } from '../../../shared/types';
+import type { H2HData, H2HMatchRecord } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const AVATAR_SIZE = 96;
@@ -79,6 +81,187 @@ function ComparisonRow({
       <Text style={[styles.compValue, p1Better && styles.compBetter]}>{value1}</Text>
       <Text style={styles.compLabel}>{label}</Text>
       <Text style={[styles.compValue, p2Better && styles.compBetter]}>{value2}</Text>
+    </View>
+  );
+}
+
+// ─── Quiz Types & Logic ──────────────────────────────────────────────
+interface QuizQuestion {
+  question: string;
+  options: string[];
+  correctIndex: number;
+}
+
+function generateFakeDates(realDate: string, count: number): string[] {
+  const d = new Date(realDate);
+  const fakes: string[] = [];
+  const offsets = [-90, -60, -30, 30, 60, 90, 120, -120];
+  const shuffled = offsets.sort(() => Math.random() - 0.5);
+  for (let i = 0; i < count; i++) {
+    const fake = new Date(d);
+    fake.setDate(fake.getDate() + shuffled[i]);
+    fakes.push(fake.toISOString().split('T')[0]);
+  }
+  return fakes;
+}
+
+function generateQuestions(
+  data: H2HData,
+  p1Name: string,
+  p2Name: string,
+): QuizQuestion[] {
+  const questions: QuizQuestion[] = [];
+  const { matchHistory, bySurface, summary } = data;
+
+  if (matchHistory.length === 0) return [];
+
+  // Q1: When did they last meet?
+  const lastMatch = matchHistory[0];
+  if (lastMatch) {
+    const fakes = generateFakeDates(lastMatch.date, 3);
+    const options = [lastMatch.date, ...fakes].sort(() => Math.random() - 0.5);
+    questions.push({
+      question: 'When did they last meet?',
+      options,
+      correctIndex: options.indexOf(lastMatch.date),
+    });
+  }
+
+  // Q2: Who won at [Tournament] [Year]?
+  const randomMatch = matchHistory[Math.floor(Math.random() * matchHistory.length)];
+  if (randomMatch) {
+    const year = randomMatch.date.split('-')[0];
+    const winnerName = randomMatch.winnerId === data.playerComparison.player1.id ? p1Name : p2Name;
+    const options = [p1Name, p2Name];
+    questions.push({
+      question: `Who won at ${randomMatch.tournament} ${year}?`,
+      options,
+      correctIndex: options.indexOf(winnerName),
+    });
+  }
+
+  // Q3: H2H record on clay
+  const clayRecord = bySurface.clay;
+  if (clayRecord && (clayRecord.p1Wins + clayRecord.p2Wins) > 0) {
+    const correct = `${clayRecord.p1Wins}-${clayRecord.p2Wins}`;
+    const fakeOptions = [
+      `${clayRecord.p1Wins + 1}-${Math.max(0, clayRecord.p2Wins - 1)}`,
+      `${Math.max(0, clayRecord.p1Wins - 1)}-${clayRecord.p2Wins + 1}`,
+      `${clayRecord.p1Wins + 2}-${clayRecord.p2Wins}`,
+    ];
+    const options = [correct, ...fakeOptions].sort(() => Math.random() - 0.5);
+    questions.push({
+      question: "What's their H2H record on clay?",
+      options,
+      correctIndex: options.indexOf(correct),
+    });
+  }
+
+  // Q4: Grand Slam finals count
+  const grandSlamFinals = matchHistory.filter(
+    (m) => m.round === 'Final' && ['Australian Open', 'Roland Garros', 'Wimbledon', 'US Open'].includes(m.tournament)
+  ).length;
+  {
+    const correct = String(grandSlamFinals);
+    const nums = new Set([correct]);
+    while (nums.size < 4) {
+      nums.add(String(Math.max(0, grandSlamFinals + Math.floor(Math.random() * 5) - 2)));
+    }
+    const options = Array.from(nums).sort(() => Math.random() - 0.5);
+    questions.push({
+      question: 'How many times have they met in Grand Slam finals?',
+      options,
+      correctIndex: options.indexOf(correct),
+    });
+  }
+
+  // Shuffle and pick 3
+  return questions.sort(() => Math.random() - 0.5).slice(0, 3);
+}
+
+// ─── Quiz Component ──────────────────────────────────────────────────
+function H2HQuiz({ data, p1Name, p2Name }: { data: H2HData; p1Name: string; p2Name: string }) {
+  const [questions, setQuestions] = useState<QuizQuestion[]>(() =>
+    generateQuestions(data, p1Name, p2Name)
+  );
+  const [answers, setAnswers] = useState<Record<number, number>>({});
+  const [revealed, setRevealed] = useState<Record<number, boolean>>({});
+
+  const handleAnswer = (qIndex: number, optIndex: number) => {
+    if (revealed[qIndex]) return;
+    setAnswers((prev) => ({ ...prev, [qIndex]: optIndex }));
+    setRevealed((prev) => ({ ...prev, [qIndex]: true }));
+  };
+
+  const answeredCount = Object.keys(revealed).length;
+  const correctCount = Object.entries(answers).filter(
+    ([qi, ai]) => questions[parseInt(qi)]?.correctIndex === ai
+  ).length;
+
+  const resetQuiz = () => {
+    setQuestions(generateQuestions(data, p1Name, p2Name));
+    setAnswers({});
+    setRevealed({});
+  };
+
+  if (questions.length === 0) return null;
+
+  return (
+    <View style={styles.card}>
+      <Text style={styles.cardTitle}>🧠 QUIZ</Text>
+      {questions.map((q, qi) => (
+        <View key={qi} style={styles.quizQuestion}>
+          <Text style={styles.quizQuestionText}>
+            {qi + 1}. {q.question}
+          </Text>
+          <View style={styles.quizOptions}>
+            {q.options.map((opt, oi) => {
+              const isRevealed = revealed[qi];
+              const isSelected = answers[qi] === oi;
+              const isCorrect = q.correctIndex === oi;
+              let optStyle = styles.quizOption;
+              let optTextStyle = styles.quizOptionText;
+
+              if (isRevealed) {
+                if (isCorrect) {
+                  optStyle = { ...styles.quizOption, ...styles.quizOptionCorrect };
+                  optTextStyle = { ...styles.quizOptionText, ...styles.quizOptionTextCorrect };
+                } else if (isSelected && !isCorrect) {
+                  optStyle = { ...styles.quizOption, ...styles.quizOptionWrong };
+                  optTextStyle = { ...styles.quizOptionText, ...styles.quizOptionTextWrong };
+                }
+              }
+
+              return (
+                <TouchableOpacity
+                  key={oi}
+                  style={optStyle}
+                  onPress={() => handleAnswer(qi, oi)}
+                  activeOpacity={isRevealed ? 1 : 0.7}
+                  disabled={isRevealed}
+                >
+                  <Text style={optTextStyle}>
+                    {isRevealed && isCorrect ? '✅ ' : ''}
+                    {isRevealed && isSelected && !isCorrect ? '❌ ' : ''}
+                    {opt}
+                  </Text>
+                </TouchableOpacity>
+              );
+            })}
+          </View>
+        </View>
+      ))}
+
+      {answeredCount === questions.length && (
+        <View style={styles.quizResult}>
+          <Text style={styles.quizScore}>
+            Score: {correctCount}/{questions.length}
+          </Text>
+          <TouchableOpacity style={styles.quizNewButton} onPress={resetQuiz} activeOpacity={0.7}>
+            <Text style={styles.quizNewButtonText}>🔄 New Quiz</Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 }
@@ -240,6 +423,11 @@ export default function H2HDetailScreen() {
             <EmptyState message="No head-to-head matches found" icon="🎾" />
           )}
         </View>
+
+        {/* Quiz Section */}
+        {matchHistory.length > 0 && (
+          <H2HQuiz data={data} p1Name={getPlayerName(p1)} p2Name={getPlayerName(p2)} />
+        )}
       </ScrollView>
     </>
   );
@@ -377,4 +565,70 @@ const styles = StyleSheet.create({
   },
   matchDate: { fontSize: 11, color: '#6b7280' },
   matchSurface: { fontSize: 11, color: '#6b7280' },
+
+  // Quiz styles
+  quizQuestion: {
+    marginBottom: 16,
+  },
+  quizQuestionText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#ffffff',
+    marginBottom: 8,
+  },
+  quizOptions: {
+    gap: 6,
+  },
+  quizOption: {
+    backgroundColor: '#0f0f23',
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 14,
+    borderWidth: 1,
+    borderColor: '#2a2a4e',
+  },
+  quizOptionCorrect: {
+    backgroundColor: 'rgba(22, 163, 74, 0.15)',
+    borderColor: '#16a34a',
+  },
+  quizOptionWrong: {
+    backgroundColor: 'rgba(239, 68, 68, 0.15)',
+    borderColor: '#ef4444',
+  },
+  quizOptionText: {
+    fontSize: 14,
+    color: '#ffffff',
+  },
+  quizOptionTextCorrect: {
+    color: '#16a34a',
+    fontWeight: '600',
+  },
+  quizOptionTextWrong: {
+    color: '#ef4444',
+    fontWeight: '600',
+  },
+  quizResult: {
+    alignItems: 'center',
+    marginTop: 12,
+    paddingTop: 12,
+    borderTopWidth: 1,
+    borderTopColor: '#2a2a4e',
+  },
+  quizScore: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#16a34a',
+    marginBottom: 12,
+  },
+  quizNewButton: {
+    backgroundColor: '#16a34a',
+    borderRadius: 12,
+    paddingVertical: 10,
+    paddingHorizontal: 24,
+  },
+  quizNewButtonText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#ffffff',
+  },
 });
