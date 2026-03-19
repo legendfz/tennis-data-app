@@ -16,6 +16,15 @@ import { TournamentLogo } from '../../lib/tournament-logo';
 import { theme } from '../../lib/theme';
 import type { Tournament } from '../../../shared/types';
 
+/** Returns a label like "ATP 500" / "WTA 1000", or null if points should be hidden */
+function getTournamentPointsLabel(tournament: any): string | null {
+  if (!tournament?.points) return null;
+  const points = tournament.points;
+  const category: string = tournament.category || '';
+  if (points >= 1000 && !category.includes('WTA')) return null;
+  return `${category} ${points}`;
+}
+
 export default function TournamentsScreen() {
   const router = useRouter();
 
@@ -77,11 +86,14 @@ export default function TournamentsScreen() {
             <View style={styles.rowRight}>
               <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
                 <Text style={styles.category}>{item.category}</Text>
-                {(item as any).points && (
-                  <View style={styles.pointsBadge}>
-                    <Text style={styles.pointsBadgeText}>{(item as any).points} pts</Text>
-                  </View>
-                )}
+                {(() => {
+                  const label = getTournamentPointsLabel(item);
+                  return label ? (
+                    <View style={styles.pointsBadge}>
+                      <Text style={styles.pointsBadgeText}>{label}</Text>
+                    </View>
+                  ) : null;
+                })()}
               </View>
               <Text style={styles.dates}>{item.startDate} — {item.endDate}</Text>
             </View>

@@ -24,6 +24,17 @@ import { TennisBallIcon } from '../../lib/illustrations';
 import { EmptyMatchesIllustration } from '../../lib/illustrations';
 import type { Player, MatchWithPlayers } from '../../../shared/types';
 
+/** Returns a label like "ATP 500" / "WTA 1000", or null if points should be hidden */
+function getTournamentPointsLabel(tournament: any): string | null {
+  if (!tournament?.points) return null;
+  const points = tournament.points;
+  const category: string = tournament.category || '';
+  // Grand Slam (2000), ATP Finals/WTA Finals (1500), ATP Masters 1000 — hide if points >= 1000 and NOT WTA
+  if (points >= 1000 && !category.includes('WTA')) return null;
+  // Otherwise show e.g. "WTA 1000", "ATP 500", "WTA 250"
+  return `${category} ${points}`;
+}
+
 function LiveDot() {
   const opacity = useRef(new Animated.Value(1)).current;
   useEffect(() => {
@@ -316,11 +327,14 @@ export default function HomeScreen() {
                   {group.tournament?.name?.toUpperCase() || 'OTHER'}
                   {group.tournament?.surface ? ` \u2022 ${group.tournament.surface}` : ''}
                 </Text>
-                {group.tournament?.points && (
-                  <View style={styles.pointsPill}>
-                    <Text style={styles.pointsPillText}>{group.tournament.points} pts</Text>
-                  </View>
-                )}
+                {(() => {
+                  const label = getTournamentPointsLabel(group.tournament);
+                  return label ? (
+                    <View style={styles.pointsPill}>
+                      <Text style={styles.pointsPillText}>{label}</Text>
+                    </View>
+                  ) : null;
+                })()}
               </TouchableOpacity>
               {group.matches.map(renderMatchRow)}
             </View>
