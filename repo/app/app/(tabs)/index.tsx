@@ -11,8 +11,10 @@ import {
 } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'expo-router';
+import { useFocusEffect } from '@react-navigation/native';
 import api from '../../lib/api';
 import { getAvatarUrl } from '../../lib/avatars';
+import { getFavorites } from '../../lib/favorites';
 import { useLanguage } from '../../lib/i18n';
 import { SkeletonList } from '../../lib/skeleton';
 import { TournamentLogo } from '../../lib/tournament-logo';
@@ -77,10 +79,18 @@ export default function HomeScreen() {
     },
   });
 
+  // Load favorites and refresh when tab is focused
+  const [favoriteIds, setFavoriteIds] = useState<number[]>([]);
+  useFocusEffect(
+    useCallback(() => {
+      getFavorites().then(setFavoriteIds);
+    }, [])
+  );
+
   const [refreshing, setRefreshing] = useState(false);
   const onRefresh = useCallback(async () => {
     setRefreshing(true);
-    await refetchMatches();
+    await Promise.all([refetchMatches(), getFavorites().then(setFavoriteIds)]);
     setRefreshing(false);
   }, [refetchMatches]);
 
@@ -88,12 +98,33 @@ export default function HomeScreen() {
     matchesData?.data ??
     (Array.isArray(matchesData) ? (matchesData as MatchWithPlayers[]) : []);
 
-  // Separate live matches
-  const liveMatches = useMemo(() => allMatches.filter((m) => (m as any).isLive), [allMatches]);
+  // Matches involving followed players
+  const favoriteSet = useMemo(() => new Set(favoriteIds), [favoriteIds]);
+  const followingMatches = useMemo(
+    () =>
+      favoriteSet.size === 0
+        ? []
+        : allMatches.filter(
+            (m) => favoriteSet.has(m.player1Id) || favoriteSet.has(m.player2Id)
+          ),
+    [allMatches, favoriteSet]
+  );
+  const followingMatchIds = useMemo(
+    () => new Set(followingMatches.map((m) => m.id)),
+    [followingMatches]
+  );
 
-  // Group non-live matches by tournament
+  // Separate live matches (excluding following)
+  const liveMatches = useMemo(
+    () => allMatches.filter((m) => (m as any).isLive && !followingMatchIds.has(m.id)),
+    [allMatches, followingMatchIds]
+  );
+
+  // Group non-live matches by tournament (excluding following)
   const matchesByTournament = useMemo(() => {
-    const nonLive = allMatches.filter((m) => !(m as any).isLive);
+    const nonLive = allMatches.filter(
+      (m) => !(m as any).isLive && !followingMatchIds.has(m.id)
+    );
     const groups: Record<string, { tournament: any; matches: MatchWithPlayers[] }> = {};
     const order: string[] = [];
     nonLive.forEach((m) => {
@@ -106,7 +137,7 @@ export default function HomeScreen() {
       groups[key].matches.push(m);
     });
     return order.map((name) => groups[name]);
-  }, [allMatches]);
+  }, [allMatches, followingMatchIds]);
 
   const renderMatchRow = (match: MatchWithPlayers) => {
     const isLive = (match as any).isLive;
@@ -253,6 +284,16 @@ export default function HomeScreen() {
         </View>
       ) : (
         <>
+          {/* Following Matches */}
+          {followingMatches.length > 0 && (
+            <View>
+              <View style={styles.sectionHeaderRow}>
+                <Text style={styles.sectionHeaderFollowing}>⭐ MY MATCHES</Text>
+              </View>
+              {followingMatches.map(renderMatchRow)}
+            </View>
+          )}
+
           {/* Live Matches */}
           {liveMatches.length > 0 && (
             <View>
@@ -341,6 +382,13 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     letterSpacing: 0.5,
     flexShrink: 1,
+  },
+  sectionHeaderFollowing: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#f59e0b',
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
   },
   sectionHeaderLive: {
     fontSize: 13,
