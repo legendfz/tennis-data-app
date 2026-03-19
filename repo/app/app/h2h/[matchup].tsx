@@ -8,7 +8,7 @@ import {
   Dimensions,
   TouchableOpacity,
 } from 'react-native';
-import { useLocalSearchParams, Stack } from 'expo-router';
+import { useLocalSearchParams, Stack, useRouter } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
 import api from '../../lib/api';
 import { getPlayerAvatarUrl } from '../../lib/avatars';
@@ -269,6 +269,7 @@ function H2HQuiz({ data, p1Name, p2Name }: { data: H2HData; p1Name: string; p2Na
 
 export default function H2HDetailScreen() {
   const { matchup } = useLocalSearchParams<{ matchup: string }>();
+  const router = useRouter();
   const { getPlayerName } = useLanguage();
 
   const parts = matchup?.split('-vs-') || [];
@@ -318,7 +319,7 @@ export default function H2HDetailScreen() {
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
         {/* Top: Player avatars face-to-face */}
         <View style={styles.topSection}>
-          <View style={styles.playerCol}>
+          <TouchableOpacity style={styles.playerCol} activeOpacity={0.7} onPress={() => router.push(`/player/${p1.id}`)}>
             <Image
               source={{ uri: getPlayerAvatarUrl(p1.name, p1.photoUrl, AVATAR_SIZE * 2) }}
               style={[styles.avatar, p1Leading && styles.avatarLeading]}
@@ -326,7 +327,7 @@ export default function H2HDetailScreen() {
             <Flag country={p1.country} countryFlag={p1.countryFlag} size={16} />
             <Text style={styles.playerName} numberOfLines={2}>{getPlayerName(p1)}</Text>
             <Text style={styles.playerRank}>#{p1.ranking}</Text>
-          </View>
+          </TouchableOpacity>
 
           <View style={styles.vsCol}>
             <View style={styles.vsBubble}>
@@ -334,7 +335,7 @@ export default function H2HDetailScreen() {
             </View>
           </View>
 
-          <View style={styles.playerCol}>
+          <TouchableOpacity style={styles.playerCol} activeOpacity={0.7} onPress={() => router.push(`/player/${p2.id}`)}>
             <Image
               source={{ uri: getPlayerAvatarUrl(p2.name, p2.photoUrl, AVATAR_SIZE * 2) }}
               style={[styles.avatar, p2Leading && styles.avatarLeading]}
@@ -342,7 +343,7 @@ export default function H2HDetailScreen() {
             <Flag country={p2.country} countryFlag={p2.countryFlag} size={16} />
             <Text style={styles.playerName} numberOfLines={2}>{getPlayerName(p2)}</Text>
             <Text style={styles.playerRank}>#{p2.ranking}</Text>
-          </View>
+          </TouchableOpacity>
         </View>
 
         {/* Total Record - Extra large numbers */}

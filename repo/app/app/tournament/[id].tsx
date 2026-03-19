@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   RefreshControl,
 } from 'react-native';
-import { useLocalSearchParams, Stack } from 'expo-router';
+import { useLocalSearchParams, Stack, useRouter } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
 import api from '../../lib/api';
 import { getPlayerAvatarUrl } from '../../lib/avatars';
@@ -81,7 +81,7 @@ function getRoundSortKey(round: string): number {
   return idx >= 0 ? idx : 99;
 }
 
-function PlayerSlot({ player, seed, isWinner }: { player?: Player; seed: number | null; isWinner: boolean }) {
+function PlayerSlot({ player, seed, isWinner, onPress }: { player?: Player; seed: number | null; isWinner: boolean; onPress?: () => void }) {
   if (!player) {
     return (
       <View style={styles.playerSlot}>
@@ -91,7 +91,7 @@ function PlayerSlot({ player, seed, isWinner }: { player?: Player; seed: number 
     );
   }
   return (
-    <View style={[styles.playerSlot, isWinner && styles.winnerSlot]}>
+    <TouchableOpacity style={[styles.playerSlot, isWinner && styles.winnerSlot]} activeOpacity={0.7} onPress={onPress}>
       <Image
         source={{ uri: getPlayerAvatarUrl(player.name, player.photoUrl, MATCH_AVATAR_SIZE * 2) }}
         style={styles.slotAvatar}
@@ -106,30 +106,31 @@ function PlayerSlot({ player, seed, isWinner }: { player?: Player; seed: number 
         {seed ? <Text style={styles.slotSeed}>[{seed}]</Text> : null}
       </View>
       {isWinner && <Text style={styles.winCheck}>✓</Text>}
-    </View>
+    </TouchableOpacity>
   );
 }
 
-function BracketMatch({ match, isFinal }: { match: DrawMatch; isFinal: boolean }) {
+function BracketMatch({ match, isFinal, onPlayerPress }: { match: DrawMatch; isFinal: boolean; onPlayerPress?: (playerId: number) => void }) {
   return (
     <View style={[styles.bracketMatch, isFinal && styles.finalMatch]}>
       {isFinal && (
         <View style={styles.finalBanner}><Text style={styles.finalBannerText}>FINAL</Text></View>
       )}
-      <PlayerSlot player={match.player1} seed={match.seed1} isWinner={match.winnerId === match.player1Id} />
+      <PlayerSlot player={match.player1} seed={match.seed1} isWinner={match.winnerId === match.player1Id} onPress={() => match.player1 && onPlayerPress?.(match.player1Id)} />
       <View style={styles.scoreDivider}>
         <Text style={styles.scoreText}>{match.score}</Text>
       </View>
-      <PlayerSlot player={match.player2} seed={match.seed2} isWinner={match.winnerId === match.player2Id} />
+      <PlayerSlot player={match.player2} seed={match.seed2} isWinner={match.winnerId === match.player2Id} onPress={() => match.player2 && onPlayerPress?.(match.player2Id)} />
     </View>
   );
 }
 
-function ChampionCard({ match }: { match: DrawMatch }) {
+function ChampionCard({ match, onPlayerPress }: { match: DrawMatch; onPlayerPress?: (playerId: number) => void }) {
   const champion = match.winnerId === match.player1Id ? match.player1 : match.player2;
+  const championId = match.winnerId === match.player1Id ? match.player1Id : match.player2Id;
   if (!champion) return null;
   return (
-    <View style={styles.championCard}>
+    <TouchableOpacity style={styles.championCard} activeOpacity={0.7} onPress={() => onPlayerPress?.(championId)}>
       <Text style={styles.championLabel}>CHAMPION</Text>
       <Image source={{ uri: getPlayerAvatarUrl(champion.name, champion.photoUrl, 120) }} style={styles.championAvatar} />
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, justifyContent: 'center' }}>
@@ -137,16 +138,16 @@ function ChampionCard({ match }: { match: DrawMatch }) {
         <Flag country={champion.country} countryFlag={champion.countryFlag} size={16} />
       </View>
       <Text style={styles.championScore}>{match.score}</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 
-function ResultMatch({ match }: { match: MatchWithPlayers }) {
+function ResultMatch({ match, onPlayerPress }: { match: MatchWithPlayers; onPlayerPress?: (playerId: number) => void }) {
   const p1Won = match.winnerId === match.player1Id;
   const p2Won = match.winnerId === match.player2Id;
   return (
     <View style={styles.resultMatch}>
-      <View style={styles.resultRow}>
+      <TouchableOpacity style={styles.resultRow} activeOpacity={0.7} onPress={() => onPlayerPress?.(match.player1Id)}>
         <Image source={{ uri: getPlayerAvatarUrl(match.player1?.name || 'P1', match.player1?.photoUrl, 60) }} style={styles.resultAvatar} />
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4, flex: 1 }}>
           <Text style={[styles.resultName, p1Won && styles.winnerName, !p1Won && styles.loserName]} numberOfLines={1}>
@@ -154,9 +155,9 @@ function ResultMatch({ match }: { match: MatchWithPlayers }) {
           </Text>
           {match.player1?.country && <Flag country={match.player1.country} countryFlag={match.player1.countryFlag} size={12} />}
         </View>
-      </View>
+      </TouchableOpacity>
       <Text style={styles.resultScore}>{match.score}</Text>
-      <View style={styles.resultRow}>
+      <TouchableOpacity style={styles.resultRow} activeOpacity={0.7} onPress={() => onPlayerPress?.(match.player2Id)}>
         <Image source={{ uri: getPlayerAvatarUrl(match.player2?.name || 'P2', match.player2?.photoUrl, 60) }} style={styles.resultAvatar} />
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4, flex: 1 }}>
           <Text style={[styles.resultName, p2Won && styles.winnerName, !p2Won && styles.loserName]} numberOfLines={1}>
@@ -164,7 +165,7 @@ function ResultMatch({ match }: { match: MatchWithPlayers }) {
           </Text>
           {match.player2?.country && <Flag country={match.player2.country} countryFlag={match.player2.countryFlag} size={12} />}
         </View>
-      </View>
+      </TouchableOpacity>
       {match.date && <Text style={styles.resultDate}>{match.date}</Text>}
     </View>
   );
@@ -172,8 +173,13 @@ function ResultMatch({ match }: { match: MatchWithPlayers }) {
 
 export default function TournamentDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState<'bracket' | 'results'>('bracket');
   const [selectedYear, setSelectedYear] = useState(2024);
+
+  const handlePlayerPress = (playerId: number) => {
+    router.push(`/player/${playerId}`);
+  };
 
   const { data: tournament } = useQuery<TournamentDetail>({
     queryKey: ['tournament', id],
@@ -288,7 +294,7 @@ export default function TournamentDetailScreen() {
               <EmptyState message={`No bracket data for ${selectedYear}`} />
             ) : (
               <>
-                {finalRound && finalRound.matches.length > 0 && <ChampionCard match={finalRound.matches[0]} />}
+                {finalRound && finalRound.matches.length > 0 && <ChampionCard match={finalRound.matches[0]} onPlayerPress={handlePlayerPress} />}
                 {sortedRounds.map((round) => (
                   <View key={round.round} style={styles.roundSection}>
                     <View style={styles.roundHeader}>
@@ -296,7 +302,7 @@ export default function TournamentDetailScreen() {
                       <Text style={styles.roundAbbrev}>{getRoundAbbrev(round.round)}</Text>
                     </View>
                     {round.matches.map((match, idx) => (
-                      <BracketMatch key={idx} match={match} isFinal={round.round === 'Final'} />
+                      <BracketMatch key={idx} match={match} isFinal={round.round === 'Final'} onPlayerPress={handlePlayerPress} />
                     ))}
                   </View>
                 ))}
@@ -315,7 +321,7 @@ export default function TournamentDetailScreen() {
                     <Text style={styles.roundAbbrev}>{getRoundAbbrev(group.round)}</Text>
                     <Text style={styles.matchCount}>{group.matches.length} match{group.matches.length !== 1 ? 'es' : ''}</Text>
                   </View>
-                  {group.matches.map((match) => <ResultMatch key={match.id} match={match} />)}
+                  {group.matches.map((match) => <ResultMatch key={match.id} match={match} onPlayerPress={handlePlayerPress} />)}
                 </View>
               ))
             )}

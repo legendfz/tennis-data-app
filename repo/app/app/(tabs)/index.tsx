@@ -152,15 +152,13 @@ export default function HomeScreen() {
     const p2Initials = match.player2 ? getInitials(match.player2.name) : 'P2';
 
     return (
-      <TouchableOpacity
+      <View
         key={match.id}
         style={[styles.matchRow, isLive && styles.matchRowLive]}
-        onPress={() => router.push(`/match/${match.id}`)}
-        activeOpacity={0.7}
       >
         <View style={styles.matchInner}>
           {/* Player 1 */}
-          <View style={styles.matchPlayer}>
+          <TouchableOpacity style={styles.matchPlayer} activeOpacity={0.7} onPress={() => router.push(`/player/${match.player1Id}`)}>
             <View style={[!p1Won && p2Won && { opacity: 0.5 }]}>
               <PlayerAvatar name={match.player1?.name || 'P1'} photoUrl={match.player1?.photoUrl} size={32} />
             </View>
@@ -176,10 +174,10 @@ export default function HomeScreen() {
               {p1Name}
             </Text>
             {p1Won && <View style={styles.winnerBadge} />}
-          </View>
+          </TouchableOpacity>
 
           {/* Score */}
-          <View style={styles.matchScore}>
+          <TouchableOpacity style={styles.matchScore} activeOpacity={0.7} onPress={() => router.push(`/match/${match.id}`)}>
             {isLive ? (
               <>
                 <Text style={styles.scoreLive}>{match.score || '0-0'}</Text>
@@ -199,10 +197,10 @@ export default function HomeScreen() {
                 <Text style={styles.statusScheduled}>Scheduled</Text>
               </>
             )}
-          </View>
+          </TouchableOpacity>
 
           {/* Player 2 */}
-          <View style={[styles.matchPlayer, styles.matchPlayerRight]}>
+          <TouchableOpacity style={[styles.matchPlayer, styles.matchPlayerRight]} activeOpacity={0.7} onPress={() => router.push(`/player/${match.player2Id}`)}>
             <Text
               style={[
                 styles.playerName,
@@ -218,7 +216,7 @@ export default function HomeScreen() {
             <View style={[!p2Won && p1Won && { opacity: 0.5 }]}>
               <PlayerAvatar name={match.player2?.name || 'P2'} photoUrl={match.player2?.photoUrl} size={32} />
             </View>
-          </View>
+          </TouchableOpacity>
         </View>
 
         {/* Court info for scheduled matches */}
@@ -229,7 +227,7 @@ export default function HomeScreen() {
             {(match as any).afterMatch ? ` \u2022 After ${(match as any).afterMatch}` : ''}
           </Text>
         )}
-      </TouchableOpacity>
+      </View>
     );
   };
 

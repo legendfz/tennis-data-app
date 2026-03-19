@@ -9,7 +9,7 @@ import {
   Animated,
   TouchableOpacity,
 } from 'react-native';
-import { useLocalSearchParams, Stack } from 'expo-router';
+import { useLocalSearchParams, Stack, useRouter } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
 import api from '../../lib/api';
 import { PlayerAvatar } from '../../lib/player-avatar';
@@ -205,6 +205,7 @@ function InfoRow({ label, value }: { label: string; value: string }) {
 // ─── Main ────────────────────────────────────────────────────────────
 export default function MatchDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
+  const router = useRouter();
   const { getPlayerName } = useLanguage();
   const [activeTab, setActiveTab] = useState<TabKey>('overview');
 
@@ -278,7 +279,7 @@ export default function MatchDetailScreen() {
 
           <View style={styles.versusRow}>
             {/* Player 1 */}
-            <View style={styles.vsPlayer}>
+            <TouchableOpacity style={styles.vsPlayer} activeOpacity={0.7} onPress={() => router.push(`/player/${match.player1Id}`)}>
               <PlayerAvatar name={match.player1?.name || 'P1'} photoUrl={match.player1?.photoUrl} size={56} />
               <Text style={[styles.vsName, p1Won && styles.vsNameWinner, !p1Won && p2Won && styles.vsNameLoser]} numberOfLines={1}>
                 {p1Short}
@@ -287,7 +288,7 @@ export default function MatchDetailScreen() {
                 <Flag country={match.player1?.country || ''} countryFlag={match.player1?.countryFlag} size={12} />
                 <Text style={styles.vsRank}>#{match.player1?.ranking || '?'}</Text>
               </View>
-            </View>
+            </TouchableOpacity>
 
             {/* Score */}
             <View style={styles.scoreCenterBlock}>
@@ -296,7 +297,7 @@ export default function MatchDetailScreen() {
             </View>
 
             {/* Player 2 */}
-            <View style={styles.vsPlayer}>
+            <TouchableOpacity style={styles.vsPlayer} activeOpacity={0.7} onPress={() => router.push(`/player/${match.player2Id}`)}>
               <PlayerAvatar name={match.player2?.name || 'P2'} photoUrl={match.player2?.photoUrl} size={56} />
               <Text style={[styles.vsName, p2Won && styles.vsNameWinner, !p2Won && p1Won && styles.vsNameLoser]} numberOfLines={1}>
                 {p2Short}
@@ -305,7 +306,7 @@ export default function MatchDetailScreen() {
                 <Flag country={match.player2?.country || ''} countryFlag={match.player2?.countryFlag} size={12} />
                 <Text style={styles.vsRank}>#{match.player2?.ranking || '?'}</Text>
               </View>
-            </View>
+            </TouchableOpacity>
           </View>
         </View>
 
