@@ -36,6 +36,7 @@ import {
   type PlayerComments,
 } from '../../lib/comments';
 import { TournamentLogo } from '../../lib/tournament-logo';
+import { theme } from '../../lib/theme';
 import type { PlayerDetail, MatchWithPlayers, SetStats, TitleEntry, GrandSlamEntry, SeasonMatchEntry, DecidingSetMatchEntry, WinRateByYear } from '../../../shared/types';
 
 if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
@@ -137,10 +138,10 @@ function RankingChart({ history, careerHigh, careerHighDate }: { history: { mont
       </View>
       {careerHigh != null && (
         <View style={{ flexDirection: 'row', alignItems: 'baseline', marginTop: 8, marginBottom: 4, paddingHorizontal: 4, gap: 6 }}>
-          <Text style={{ color: '#888', fontSize: 12 }}>Career High:</Text>
-          <Text style={{ color: '#f59e0b', fontSize: 22, fontWeight: '700' }}>#{careerHigh}</Text>
+          <Text style={{ color: theme.textSecondary, fontSize: 12 }}>Career High:</Text>
+          <Text style={{ color: theme.gold, fontSize: 22, fontWeight: '700' }}>#{careerHigh}</Text>
           {careerHighDate && (
-            <Text style={{ color: '#666', fontSize: 12 }}>
+            <Text style={{ color: theme.textSecondary, fontSize: 12 }}>
               — {(() => {
                 const [y, m] = careerHighDate.split('-');
                 const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -153,23 +154,23 @@ function RankingChart({ history, careerHigh, careerHighDate }: { history: { mont
       <ScrollView ref={scrollRef} horizontal showsHorizontalScrollIndicator contentContainerStyle={{ width: dynamicWidth }} style={{ marginTop: 8 }}>
         <Svg width={dynamicWidth} height={CHART_HEIGHT}>
           {yTicks.map((rank) => (
-            <Line key={`grid-${rank}`} x1={paddingLeft} y1={getY(rank)} x2={dynamicWidth - paddingRight} y2={getY(rank)} stroke="#2a2a2a" strokeWidth={1} />
+            <Line key={`grid-${rank}`} x1={paddingLeft} y1={getY(rank)} x2={dynamicWidth - paddingRight} y2={getY(rank)} stroke={theme.border} strokeWidth={1} />
           ))}
           {vGridIndices.map((idx) => (
-            <Line key={`vgrid-${idx}`} x1={getX(idx)} y1={paddingTop} x2={getX(idx)} y2={paddingTop + plotH} stroke="#2a2a2a" strokeWidth={1} />
+            <Line key={`vgrid-${idx}`} x1={getX(idx)} y1={paddingTop} x2={getX(idx)} y2={paddingTop + plotH} stroke={theme.border} strokeWidth={1} />
           ))}
           {yTicks.map((rank) => (
-            <SvgText key={`ylabel-${rank}`} x={paddingLeft - 6} y={getY(rank) + 4} fill="#666" fontSize={10} textAnchor="end">#{rank}</SvgText>
+            <SvgText key={`ylabel-${rank}`} x={paddingLeft - 6} y={getY(rank) + 4} fill={theme.textSecondary} fontSize={10} textAnchor="end">#{rank}</SvgText>
           ))}
           {xLabels.map(({ index, label }) => (
-            <SvgText key={`xlabel-${index}`} x={getX(index)} y={CHART_HEIGHT - 4} fill="#666" fontSize={9} textAnchor="middle">{label}</SvgText>
+            <SvgText key={`xlabel-${index}`} x={getX(index)} y={CHART_HEIGHT - 4} fill={theme.textSecondary} fontSize={9} textAnchor="middle">{label}</SvgText>
           ))}
-          <Polyline points={polylinePoints} fill="none" stroke="#16a34a" strokeWidth={2} strokeLinejoin="round" strokeLinecap="round" />
+          <Polyline points={polylinePoints} fill="none" stroke={theme.accent} strokeWidth={2} strokeLinejoin="round" strokeLinecap="round" />
           {showAllDots
-            ? points.map((p, i) => <Circle key={`dot-${i}`} cx={p.x} cy={p.y} r={i === lastIdx ? 5 : 3} fill={i === lastIdx ? '#16a34a' : '#121212'} stroke="#16a34a" strokeWidth={1.5} />)
-            : [0, lastIdx].map((i) => <Circle key={`dot-${i}`} cx={points[i].x} cy={points[i].y} r={i === lastIdx ? 5 : 3} fill={i === lastIdx ? '#16a34a' : '#121212'} stroke="#16a34a" strokeWidth={1.5} />)
+            ? points.map((p, i) => <Circle key={`dot-${i}`} cx={p.x} cy={p.y} r={i === lastIdx ? 5 : 3} fill={i === lastIdx ? '#16a34a' : '#121212'} stroke={theme.accent} strokeWidth={1.5} />)
+            : [0, lastIdx].map((i) => <Circle key={`dot-${i}`} cx={points[i].x} cy={points[i].y} r={i === lastIdx ? 5 : 3} fill={i === lastIdx ? '#16a34a' : '#121212'} stroke={theme.accent} strokeWidth={1.5} />)
           }
-          <SvgText x={points[lastIdx].x} y={points[lastIdx].y - 10} fill="#16a34a" fontSize={11} fontWeight="bold" textAnchor="middle">#{filtered[lastIdx].ranking}</SvgText>
+          <SvgText x={points[lastIdx].x} y={points[lastIdx].y - 10} fill={theme.accent} fontSize={11} fontWeight="bold" textAnchor="middle">#{filtered[lastIdx].ranking}</SvgText>
         </Svg>
       </ScrollView>
     </View>
@@ -299,7 +300,7 @@ function SeasonMatchesPanel({ data, router }: { data: SeasonMatchEntry[]; router
               <Text style={styles.detailOpponent}>vs {m.opponent}</Text>
             </TouchableOpacity>
             <View style={{ alignItems: 'flex-end' }}>
-              <Text style={[styles.detailResult, m.result === 'W' ? { color: '#fff' } : { color: '#e53935' }]}>{m.result}</Text>
+              <Text style={[styles.detailResult, m.result === 'W' ? { color: theme.text } : { color: theme.red }]}>{m.result}</Text>
               <Text style={styles.detailScore}>{m.score}</Text>
             </View>
           </MatchRow>
@@ -322,14 +323,14 @@ function PrizeMoneyPanel({ prizeMoney }: { prizeMoney?: string }) {
   return (
     <View style={styles.detailPanel}>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 12, paddingHorizontal: 8 }}>
-        <Text style={{ color: '#888', fontSize: 12, fontWeight: '600' }}>Career Total</Text>
-        <Text style={{ color: '#f59e0b', fontSize: 16, fontWeight: '700' }}>{prizeMoney || '--'}</Text>
+        <Text style={{ color: theme.textSecondary, fontSize: 12, fontWeight: '600' }}>Career Total</Text>
+        <Text style={{ color: theme.gold, fontSize: 16, fontWeight: '700' }}>{prizeMoney || '--'}</Text>
       </View>
       {seasonalData.map((s) => (
         <View key={s.year} style={[styles.detailRow, { borderLeftColor: 'transparent' }]}>
           <Text style={styles.detailYear}>{s.year}</Text>
           <View style={{ flex: 1 }} />
-          <Text style={{ color: '#f59e0b', fontSize: 13, fontWeight: '600' }}>{s.amount}</Text>
+          <Text style={{ color: theme.gold, fontSize: 13, fontWeight: '600' }}>{s.amount}</Text>
         </View>
       ))}
     </View>
@@ -353,11 +354,11 @@ function OverviewTab({ player, router }: { player: PlayerDetail; router: any }) 
 
   const statCards: { key: StatKey; value: string; label: string; color?: string }[] = [
     { key: 'ranking', value: `#${player.ranking}`, label: 'Ranking' },
-    { key: 'grandSlams', value: `${player.grandSlams}`, label: 'Grand Slams', color: '#f59e0b' },
+    { key: 'grandSlams', value: `${player.grandSlams}`, label: 'Grand Slams', color: theme.gold },
     { key: 'titles', value: `${player.titles}`, label: 'Titles' },
     { key: 'winRate', value: winRate, label: 'Win Rate' },
     { key: 'seasonWL', value: seasonWL, label: 'Season W-L' },
-    { key: 'prizeMoney', value: playerPrizeMoney || '--', label: 'Prize Money', color: '#f59e0b' },
+    { key: 'prizeMoney', value: playerPrizeMoney || '--', label: 'Prize Money', color: theme.gold },
   ];
 
   const renderExpandedContent = () => {
@@ -438,7 +439,7 @@ function StatsTab({ player }: { player: PlayerDetail }) {
         <View style={styles.card}>
           <Text style={styles.cardTitle}>Surface Win Rate</Text>
           {[
-            { label: 'Hard', data: record.bySurface.hard, color: '#3b82f6' },
+            { label: 'Hard', data: record.bySurface.hard, color: theme.blue },
             { label: 'Clay', data: record.bySurface.clay, color: '#c17b3a' },
             { label: 'Grass', data: record.bySurface.grass, color: '#4caf50' },
           ].map((s) => {
@@ -806,8 +807,8 @@ export default function PlayerDetailScreen() {
         options={{
           title: getPlayerName(player),
           headerRight: () => (
-            <TouchableOpacity onPress={handleToggleFavorite} style={{ padding: 8, marginRight: 4 }}>
-              <Text style={{ fontSize: 18, color: isFav ? '#ef4444' : '#666' }}>{isFav ? '\u2665' : '\u2661'}</Text>
+            <TouchableOpacity onPress={handleToggleFavorite} activeOpacity={theme.activeOpacity} style={{ padding: 8, marginRight: 4, minWidth: 44, minHeight: 44, alignItems: 'center', justifyContent: 'center' }}>
+              <Text style={{ fontSize: 18, color: isFav ? '#ef4444' : theme.textSecondary }}>{isFav ? '\u2665' : '\u2661'}</Text>
             </TouchableOpacity>
           ),
         }}
@@ -867,9 +868,9 @@ export default function PlayerDetailScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#121212' },
+  container: { flex: 1, backgroundColor: theme.bg },
   content: { paddingBottom: 40 },
-  center: { flex: 1, backgroundColor: '#121212', justifyContent: 'center', alignItems: 'center' },
+  center: { flex: 1, backgroundColor: theme.bg, justifyContent: 'center', alignItems: 'center' },
 
   // Header
   header: {
@@ -877,14 +878,14 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 16,
     paddingHorizontal: 16,
-    background: '#1e1e1e',
+    backgroundColor: theme.card,
   },
   bigAvatar: {
     width: AVATAR_SIZE,
     height: AVATAR_SIZE,
     borderRadius: AVATAR_SIZE / 2,
     borderWidth: 3,
-    borderColor: '#2a2a2a',
+    borderColor: theme.border,
     overflow: 'hidden',
     marginBottom: 12,
   },
@@ -896,12 +897,12 @@ const styles = StyleSheet.create({
   playerName: {
     fontSize: 22,
     fontWeight: '700',
-    color: '#ffffff',
+    color: theme.text,
     marginBottom: 4,
   },
   playerNameEn: {
     fontSize: 14,
-    color: '#666',
+    color: '#888',
     marginBottom: 4,
   },
   subtitle: {
@@ -910,7 +911,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   hotTagBadge: {
-    backgroundColor: '#2a2a2a',
+    backgroundColor: theme.border,
     paddingHorizontal: 12,
     paddingVertical: 4,
     borderRadius: 12,
@@ -925,7 +926,7 @@ const styles = StyleSheet.create({
   tabBar: {
     flexDirection: 'row',
     borderBottomWidth: 1,
-    borderBottomColor: '#2a2a2a',
+    borderBottomColor: theme.border,
   },
   tab: {
     flex: 1,
@@ -940,10 +941,10 @@ const styles = StyleSheet.create({
   tabText: {
     fontSize: 13,
     fontWeight: '500',
-    color: '#666',
+    color: '#888',
   },
   tabTextActive: {
-    color: '#16a34a',
+    color: theme.accent,
     fontWeight: '600',
   },
   tabContent: {
@@ -954,14 +955,14 @@ const styles = StyleSheet.create({
   statsGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    backgroundColor: '#2a2a2a',
+    backgroundColor: theme.border,
     borderRadius: 10,
     overflow: 'hidden',
     gap: 1,
     marginBottom: 16,
   },
   statCell: {
-    backgroundColor: '#1e1e1e',
+    backgroundColor: theme.card,
     width: (SCREEN_WIDTH - 34) / 3,
     paddingVertical: 16,
     paddingHorizontal: 12,
@@ -969,12 +970,12 @@ const styles = StyleSheet.create({
     position: 'relative' as const,
   },
   statCellActive: {
-    backgroundColor: '#2a2a2a',
+    backgroundColor: theme.border,
   },
   statNumber: {
     fontSize: 24,
     fontWeight: '700',
-    color: '#fff',
+    color: theme.text,
   },
   statLabel: {
     fontSize: 11,
@@ -989,13 +990,13 @@ const styles = StyleSheet.create({
     color: '#444',
   },
   statArrowActive: {
-    color: '#fff',
+    color: theme.text,
     transform: [{ rotate: '90deg' }],
   },
 
   // Detail panels
   detailPanel: {
-    backgroundColor: '#1e1e1e',
+    backgroundColor: theme.card,
     borderRadius: 10,
     padding: 12,
     marginBottom: 12,
@@ -1006,7 +1007,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 8,
     borderBottomWidth: 0.5,
-    borderBottomColor: '#2a2a2a',
+    borderBottomColor: theme.border,
     borderLeftWidth: 3,
     borderLeftColor: 'transparent',
   },
@@ -1017,7 +1018,7 @@ const styles = StyleSheet.create({
     borderLeftColor: '#e53935',
   },
   detailEmpty: {
-    color: '#666',
+    color: '#888',
     fontSize: 13,
     textAlign: 'center' as const,
     paddingVertical: 20,
@@ -1029,7 +1030,7 @@ const styles = StyleSheet.create({
     width: 40,
   },
   detailYearHeader: {
-    color: '#fff',
+    color: theme.text,
     fontSize: 12,
     fontWeight: '600' as const,
     marginTop: 8,
@@ -1037,16 +1038,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
   },
   detailTournament: {
-    color: '#fff',
+    color: theme.text,
     fontSize: 13,
     fontWeight: '500' as const,
   },
   detailTournamentLink: {
-    color: '#60a5fa',
+    color: theme.linkBlue,
     textDecorationLine: 'underline' as const,
   },
   detailSurface: {
-    color: '#666',
+    color: '#888',
     fontSize: 11,
     marginTop: 1,
   },
@@ -1060,7 +1061,7 @@ const styles = StyleSheet.create({
     marginTop: 1,
   },
   detailDate: {
-    color: '#666',
+    color: '#888',
     fontSize: 11,
     width: 42,
   },
@@ -1069,27 +1070,27 @@ const styles = StyleSheet.create({
     fontWeight: '700' as const,
   },
   detailWinRate: {
-    color: '#fff',
+    color: theme.text,
     fontSize: 13,
     fontWeight: '700' as const,
     width: 44,
     textAlign: 'right' as const,
   },
   detailRecord: {
-    color: '#666',
+    color: '#888',
     fontSize: 12,
     width: 44,
     textAlign: 'right' as const,
   },
   detailDecidingScore: {
-    color: '#f59e0b',
+    color: theme.gold,
     fontSize: 10,
     marginTop: 1,
   },
 
   // Card
   card: {
-    backgroundColor: '#1e1e1e',
+    backgroundColor: theme.card,
     borderRadius: 10,
     padding: 16,
     marginBottom: 12,
@@ -1097,7 +1098,7 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#ffffff',
+    color: theme.text,
     marginBottom: 12,
   },
 
@@ -1107,68 +1108,68 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingVertical: 8,
     borderBottomWidth: 0.5,
-    borderBottomColor: '#2a2a2a',
+    borderBottomColor: theme.border,
   },
   infoLabel: { fontSize: 14, color: '#888' },
-  infoValue: { fontSize: 14, color: '#ffffff', fontWeight: '500', flexShrink: 1, textAlign: 'right', marginLeft: 12 },
+  infoValue: { fontSize: 14, color: theme.text, fontWeight: '500', flexShrink: 1, textAlign: 'right', marginLeft: 12 },
 
   // Chart pills
   pillRow: { flexDirection: 'row', gap: 6, marginBottom: 4 },
-  pill: { paddingHorizontal: 12, paddingVertical: 5, borderRadius: 8, backgroundColor: '#121212' },
-  pillActive: { backgroundColor: '#16a34a' },
-  pillText: { fontSize: 12, fontWeight: '600', color: '#666' },
-  pillTextActive: { color: '#ffffff' },
+  pill: { paddingHorizontal: 12, paddingVertical: 5, borderRadius: 8, backgroundColor: theme.bg },
+  pillActive: { backgroundColor: theme.accent },
+  pillText: { fontSize: 12, fontWeight: '600', color: '#888' },
+  pillTextActive: { color: theme.text },
 
   // Progress bars
   barRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 12, gap: 8 },
   barLabel: { width: 60, fontSize: 12, color: '#888' },
-  barTrack: { flex: 1, height: 6, backgroundColor: '#2a2a2a', borderRadius: 3, overflow: 'hidden' },
-  barFill: { height: '100%', backgroundColor: '#16a34a', borderRadius: 3 },
-  barValue: { width: 40, fontSize: 13, fontWeight: '600', textAlign: 'right', color: '#fff' },
-  barPct: { width: 44, fontSize: 13, fontWeight: '700', color: '#fff', textAlign: 'right' },
-  barRecord: { width: 56, fontSize: 12, color: '#666', textAlign: 'right' },
+  barTrack: { flex: 1, height: 6, backgroundColor: theme.border, borderRadius: 3, overflow: 'hidden' },
+  barFill: { height: '100%', backgroundColor: theme.accent, borderRadius: 3 },
+  barValue: { width: 40, fontSize: 13, fontWeight: '600', textAlign: 'right', color: theme.text },
+  barPct: { width: 44, fontSize: 13, fontWeight: '700', color: theme.text, textAlign: 'right' },
+  barRecord: { width: 56, fontSize: 12, color: '#888', textAlign: 'right' },
 
   // Match items
-  matchItem: { backgroundColor: '#1e1e1e', borderRadius: 10, padding: 12, marginBottom: 8 },
+  matchItem: { backgroundColor: theme.card, borderRadius: 10, padding: 12, marginBottom: 8 },
   matchMeta: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 6 },
-  matchTournament: { fontSize: 11, color: '#666', textTransform: 'uppercase', letterSpacing: 0.5 },
-  matchTournamentLink: { color: '#60a5fa', textDecorationLine: 'underline' as const },
+  matchTournament: { fontSize: 11, color: '#888', textTransform: 'uppercase', letterSpacing: 0.5 },
+  matchTournamentLink: { color: theme.linkBlue, textDecorationLine: 'underline' as const },
   matchRound: { fontSize: 11, color: '#888' },
   matchContent: { flexDirection: 'row', alignItems: 'center' },
-  matchName: { flex: 1, fontSize: 14, color: '#ffffff', textAlign: 'center' },
-  matchWin: { color: '#fff', fontWeight: '700' },
-  matchLose: { color: '#666' },
-  matchVsScore: { fontSize: 13, fontWeight: '700', color: '#ffffff', marginHorizontal: 8 },
-  matchDate: { textAlign: 'center', color: '#666', fontSize: 11, marginTop: 4 },
+  matchName: { flex: 1, fontSize: 14, color: theme.text, textAlign: 'center' },
+  matchWin: { color: theme.text, fontWeight: '700' },
+  matchLose: { color: '#888' },
+  matchVsScore: { fontSize: 13, fontWeight: '700', color: theme.text, marginHorizontal: 8 },
+  matchDate: { textAlign: 'center', color: '#888', fontSize: 11, marginTop: 4 },
 
   // Equipment
   equipSection: { marginBottom: 14 },
   equipLabel: { fontSize: 13, fontWeight: '600', color: '#888', marginBottom: 8 },
   equipItem: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 8, borderBottomWidth: 1, borderBottomColor: '#1e1e1e' },
-  equipBrand: { fontSize: 13, fontWeight: '500', color: '#3b82f6' },
-  equipYears: { fontSize: 12, color: '#666', marginTop: 1 },
-  currentBadge: { backgroundColor: '#2a2a2a', borderRadius: 8, paddingHorizontal: 8, paddingVertical: 2 },
+  equipBrand: { fontSize: 13, fontWeight: '500', color: theme.blue },
+  equipYears: { fontSize: 12, color: '#888', marginTop: 1 },
+  currentBadge: { backgroundColor: theme.border, borderRadius: 8, paddingHorizontal: 8, paddingVertical: 2 },
   currentText: { fontSize: 11, color: '#aaa', fontWeight: '600' },
   sponsorRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6 },
-  sponsorPill: { backgroundColor: '#121212', borderRadius: 8, paddingHorizontal: 10, paddingVertical: 5, borderWidth: 0.5, borderColor: '#2a2a2a' },
-  sponsorText: { fontSize: 13, color: '#3b82f6' },
+  sponsorPill: { backgroundColor: theme.bg, borderRadius: 8, paddingHorizontal: 10, paddingVertical: 5, borderWidth: 0.5, borderColor: theme.border },
+  sponsorText: { fontSize: 13, color: theme.blue },
 
   // Comments Tab
   tagGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
-  tagBtn: { backgroundColor: '#121212', borderRadius: 10, paddingHorizontal: 14, paddingVertical: 10, borderWidth: 1, borderColor: '#2a2a2a' },
+  tagBtn: { backgroundColor: theme.bg, borderRadius: 10, paddingHorizontal: 14, paddingVertical: 10, borderWidth: 1, borderColor: theme.border },
   tagBtnDisabled: { opacity: 0.5 },
-  tagBtnText: { fontSize: 13, color: '#fff' },
-  cooldownText: { fontSize: 12, color: '#e53935', marginBottom: 8 },
+  tagBtnText: { fontSize: 13, color: theme.text },
+  cooldownText: { fontSize: 12, color: theme.red, marginBottom: 8 },
   customInputRow: { flexDirection: 'row', gap: 8 },
-  customInput: { flex: 1, backgroundColor: '#121212', borderRadius: 10, paddingHorizontal: 12, paddingVertical: 10, color: '#fff', fontSize: 14 },
-  customSubmitBtn: { backgroundColor: '#16a34a', borderRadius: 10, paddingHorizontal: 16, justifyContent: 'center' },
-  customSubmitText: { color: '#fff', fontWeight: '600', fontSize: 14 },
-  tagRankRow: { flexDirection: 'row', alignItems: 'center', paddingVertical: 8, borderBottomWidth: 0.5, borderBottomColor: '#2a2a2a', gap: 8 },
-  tagRankNum: { width: 28, fontSize: 12, color: '#666', fontWeight: '600' },
-  tagRankName: { width: 110, fontSize: 13, color: '#fff' },
-  tagBarWrap: { flex: 1, height: 6, backgroundColor: '#2a2a2a', borderRadius: 3, overflow: 'hidden' },
-  tagBarFill: { height: '100%', borderRadius: 3, backgroundColor: '#16a34a' },
-  tagRankPct: { width: 40, fontSize: 12, fontWeight: '600', color: '#fff', textAlign: 'right' },
-  tagRankCount: { width: 40, fontSize: 11, color: '#666', textAlign: 'right' },
+  customInput: { flex: 1, backgroundColor: theme.bg, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 10, color: theme.text, fontSize: 14 },
+  customSubmitBtn: { backgroundColor: theme.accent, borderRadius: 10, paddingHorizontal: 16, justifyContent: 'center' },
+  customSubmitText: { color: theme.text, fontWeight: '600', fontSize: 14 },
+  tagRankRow: { flexDirection: 'row', alignItems: 'center', paddingVertical: 8, borderBottomWidth: 0.5, borderBottomColor: theme.border, gap: 8 },
+  tagRankNum: { width: 28, fontSize: 12, color: '#888', fontWeight: '600' },
+  tagRankName: { width: 110, fontSize: 13, color: theme.text },
+  tagBarWrap: { flex: 1, height: 6, backgroundColor: theme.border, borderRadius: 3, overflow: 'hidden' },
+  tagBarFill: { height: '100%', borderRadius: 3, backgroundColor: theme.accent },
+  tagRankPct: { width: 40, fontSize: 12, fontWeight: '600', color: theme.text, textAlign: 'right' },
+  tagRankCount: { width: 40, fontSize: 11, color: '#888', textAlign: 'right' },
   roundLabel: { fontSize: 11, color: '#888', fontWeight: '400' as const },
 });

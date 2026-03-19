@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native';
+import { theme } from './theme';
 
 interface EmptyStateProps {
   message?: string;
@@ -27,15 +28,15 @@ const styles = StyleSheet.create({
     minHeight: 200,
   },
   message: {
-    fontSize: 16,
-    fontWeight: '500',
-    color: '#9ca3af',
+    fontSize: theme.fontSize.sectionTitle,
+    fontWeight: theme.fontWeight.medium,
+    color: theme.textMuted,
     textAlign: 'center',
     marginBottom: 6,
   },
   subtitle: {
     fontSize: 13,
-    color: '#6b7280',
+    color: theme.textTertiary,
     textAlign: 'center',
   },
 });

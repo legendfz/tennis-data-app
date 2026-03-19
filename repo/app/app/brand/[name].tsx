@@ -16,6 +16,7 @@ import { Flag } from '../../lib/flags';
 import { useLanguage } from '../../lib/i18n';
 import { SkeletonList } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
+import { theme } from '../../lib/theme';
 import type { Player } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -101,7 +102,7 @@ export default function BrandDetailScreen() {
             <Text style={styles.statLabel}>Total Titles</Text>
           </View>
           <View style={styles.statBox}>
-            <Text style={[styles.statNum, { color: '#f59e0b' }]}>{totalGrandSlams}</Text>
+            <Text style={[styles.statNum, { color: theme.gold }]}>{totalGrandSlams}</Text>
             <Text style={styles.statLabel}>Grand Slams</Text>
           </View>
         </View>
@@ -139,34 +140,34 @@ export default function BrandDetailScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#121212' },
+  container: { flex: 1, backgroundColor: theme.bg },
   content: { paddingBottom: 40 },
 
   header: {
     alignItems: 'center',
     paddingVertical: 24,
-    backgroundColor: '#1e1e1e',
+    backgroundColor: theme.card,
     borderBottomWidth: 1,
-    borderBottomColor: '#2a2a2a',
+    borderBottomColor: theme.border,
   },
   logoPlaceholder: {
     width: 64,
     height: 64,
     borderRadius: 32,
-    backgroundColor: '#2a2a2a',
+    backgroundColor: theme.border,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 12,
   },
   logoText: {
-    fontSize: 22,
+    fontSize: 24,
     fontWeight: '700',
-    color: '#888',
+    color: theme.textSecondary,
   },
   brandTitle: {
-    fontSize: 22,
+    fontSize: 24,
     fontWeight: '700',
-    color: '#fff',
+    color: theme.text,
   },
 
   statsRow: {
@@ -176,7 +177,7 @@ const styles = StyleSheet.create({
   },
   statBox: {
     flex: 1,
-    backgroundColor: '#1e1e1e',
+    backgroundColor: theme.card,
     borderRadius: 10,
     padding: 12,
     alignItems: 'center',
@@ -184,18 +185,18 @@ const styles = StyleSheet.create({
   statNum: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#fff',
+    color: theme.text,
   },
   statLabel: {
     fontSize: 10,
-    color: '#888',
+    color: theme.textSecondary,
     marginTop: 4,
   },
 
   sectionTitle: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#888',
+    color: theme.textSecondary,
     paddingHorizontal: 16,
     paddingBottom: 8,
     textTransform: 'uppercase',
@@ -208,14 +209,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderBottomWidth: 0.5,
-    borderBottomColor: '#1e1e1e',
+    borderBottomColor: theme.card,
     gap: 12,
   },
   avatarCircle: {
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: '#2a2a2a',
+    backgroundColor: theme.border,
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
@@ -228,7 +229,7 @@ const styles = StyleSheet.create({
   avatarInitials: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#fff',
+    color: theme.text,
   },
   nameWrap: {
     flex: 1,
@@ -236,11 +237,11 @@ const styles = StyleSheet.create({
   playerName: {
     fontSize: 15,
     fontWeight: '500',
-    color: '#fff',
+    color: theme.text,
   },
   playerRank: {
     fontSize: 12,
-    color: '#888',
+    color: theme.textSecondary,
     marginTop: 2,
   },
   titlesWrap: {
@@ -249,10 +250,10 @@ const styles = StyleSheet.create({
   titlesNum: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#fff',
+    color: theme.text,
   },
   titlesLabel: {
     fontSize: 10,
-    color: '#666',
+    color: theme.textSecondary,
   },
 });

@@ -14,6 +14,7 @@ import api from '../../lib/api';
 import { useLanguage } from '../../lib/i18n';
 import { SkeletonList } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
+import { theme } from '../../lib/theme';
 import type { MatchWithPlayers, Tournament } from '../../../shared/types';
 
 function getDateGroup(dateStr: string): string {
@@ -117,7 +118,7 @@ export default function MatchesScreen() {
         <TouchableOpacity
           style={[styles.chip, !selectedTournament && styles.chipActive]}
           onPress={() => setSelectedTournament(null)}
-          activeOpacity={0.7}
+          activeOpacity={theme.activeOpacity}
         >
           <Text style={[styles.chipText, !selectedTournament && styles.chipTextActive]}>All</Text>
         </TouchableOpacity>
@@ -126,7 +127,7 @@ export default function MatchesScreen() {
             key={t.id}
             style={[styles.chip, selectedTournament === t.id && styles.chipActive]}
             onPress={() => setSelectedTournament(t.id === selectedTournament ? null : t.id)}
-            activeOpacity={0.7}
+            activeOpacity={theme.activeOpacity}
           >
             <Text
               style={[styles.chipText, selectedTournament === t.id && styles.chipTextActive]}
@@ -145,8 +146,8 @@ export default function MatchesScreen() {
           <RefreshControl
             refreshing={refreshing}
             onRefresh={onRefresh}
-            tintColor="#16a34a"
-            colors={['#16a34a']}
+            tintColor={theme.accent}
+            colors={[theme.accent]}
           />
         }
         renderSectionHeader={({ section }) => (
@@ -165,7 +166,7 @@ export default function MatchesScreen() {
             <TouchableOpacity
               style={styles.matchRow}
               onPress={() => router.push(`/match/${item.id}`)}
-              activeOpacity={0.7}
+              activeOpacity={theme.activeOpacity}
             >
               <View style={styles.matchMeta}>
                 <Text style={styles.matchTournament}>{item.tournament?.name || 'Tournament'}</Text>
@@ -203,12 +204,12 @@ export default function MatchesScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212',
+    backgroundColor: theme.bg,
   },
   filterRow: {
     maxHeight: 48,
     borderBottomWidth: 0.5,
-    borderBottomColor: '#2a2a2a',
+    borderBottomColor: theme.border,
   },
   filterContent: {
     paddingHorizontal: 12,
@@ -216,46 +217,49 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   chip: {
-    backgroundColor: '#1e1e1e',
+    backgroundColor: theme.card,
     borderRadius: 8,
     paddingHorizontal: 12,
     paddingVertical: 6,
+    minHeight: 32,
+    justifyContent: 'center',
   },
   chipActive: {
-    backgroundColor: '#16a34a',
+    backgroundColor: theme.accent,
   },
   chipText: {
     fontSize: 13,
-    color: '#9ca3af',
-    fontWeight: '500',
+    color: theme.textMuted,
+    fontWeight: theme.fontWeight.medium,
   },
   chipTextActive: {
-    color: '#ffffff',
-    fontWeight: '600',
+    color: theme.text,
+    fontWeight: theme.fontWeight.semibold,
   },
   list: {
     paddingBottom: 20,
   },
   sectionHeaderWrap: {
-    backgroundColor: '#121212',
-    paddingHorizontal: 16,
-    paddingTop: 16,
+    backgroundColor: theme.bg,
+    paddingHorizontal: theme.spacing.padding,
+    paddingTop: theme.spacing.padding,
     paddingBottom: 6,
   },
   sectionHeader: {
-    fontSize: 12,
-    fontWeight: '600',
-    color: '#6b7280',
+    fontSize: theme.fontSize.secondary,
+    fontWeight: theme.fontWeight.semibold,
+    color: theme.textTertiary,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
   },
   matchRow: {
-    backgroundColor: '#1e1e1e',
+    backgroundColor: theme.card,
     marginHorizontal: 0,
     borderBottomWidth: 0.5,
-    borderBottomColor: '#2a2a2a',
-    paddingHorizontal: 16,
+    borderBottomColor: theme.border,
+    paddingHorizontal: theme.spacing.padding,
     paddingVertical: 10,
+    minHeight: 56,
   },
   matchMeta: {
     flexDirection: 'row',
@@ -264,11 +268,11 @@ const styles = StyleSheet.create({
   },
   matchTournament: {
     fontSize: 11,
-    color: '#6b7280',
+    color: theme.textTertiary,
   },
   matchRound: {
     fontSize: 11,
-    color: '#6b7280',
+    color: theme.textTertiary,
   },
   matchContent: {
     flexDirection: 'row',
@@ -276,8 +280,8 @@ const styles = StyleSheet.create({
   },
   matchPlayer: {
     flex: 1,
-    fontSize: 14,
-    color: '#ffffff',
+    fontSize: theme.fontSize.body,
+    color: theme.text,
   },
   matchPlayerLeft: {
     textAlign: 'right',
@@ -288,23 +292,23 @@ const styles = StyleSheet.create({
     paddingLeft: 12,
   },
   bold: {
-    fontWeight: '700',
+    fontWeight: theme.fontWeight.bold,
   },
   dim: {
-    color: '#6b7280',
+    color: theme.textTertiary,
   },
   matchCenter: {
     alignItems: 'center',
     minWidth: 70,
   },
   matchScore: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: '#ffffff',
+    fontSize: theme.fontSize.body,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.text,
   },
   ft: {
-    fontSize: 10,
-    color: '#6b7280',
+    fontSize: theme.fontSize.small,
+    color: theme.textTertiary,
     marginTop: 1,
   },
 });

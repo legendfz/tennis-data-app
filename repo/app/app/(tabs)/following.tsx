@@ -17,13 +17,8 @@ import { Flag } from '../../lib/flags';
 import { useLanguage } from '../../lib/i18n';
 import { EmptyState } from '../../lib/empty-state';
 import { getFavorites } from '../../lib/favorites';
+import { theme } from '../../lib/theme';
 import type { Player } from '../../../shared/types';
-
-function getInitials(name: string): string {
-  const parts = name.split(' ');
-  if (parts.length >= 2) return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
-  return name.slice(0, 2).toUpperCase();
-}
 
 export default function FollowingScreen() {
   const [favoriteIds, setFavoriteIds] = useState<number[]>([]);
@@ -65,15 +60,15 @@ export default function FollowingScreen() {
           <RefreshControl
             refreshing={refreshing}
             onRefresh={onRefresh}
-            tintColor="#16a34a"
-            colors={['#16a34a']}
+            tintColor={theme.accent}
+            colors={[theme.accent]}
           />
         }
         renderItem={({ item }) => (
           <TouchableOpacity
             style={styles.playerRow}
             onPress={() => router.push(`/player/${item.id}`)}
-            activeOpacity={0.7}
+            activeOpacity={theme.activeOpacity}
           >
             <PlayerAvatar name={item.name} photoUrl={item.photoUrl} size={40} />
             <View style={styles.nameWrap}>
@@ -103,14 +98,14 @@ export default function FollowingScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212',
+    backgroundColor: theme.bg,
     paddingTop: 50,
   },
   pageTitle: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: '#fff',
-    paddingHorizontal: 16,
+    fontSize: theme.fontSize.pageTitle,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.text,
+    paddingHorizontal: theme.spacing.padding,
     paddingBottom: 12,
   },
   list: {
@@ -119,45 +114,27 @@ const styles = StyleSheet.create({
   playerRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 16,
+    paddingHorizontal: theme.spacing.padding,
     paddingVertical: 12,
     gap: 12,
-  },
-  avatarCircle: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-    backgroundColor: '#2a2a2a',
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-  },
-  avatarImg: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-  },
-  avatarInitials: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#fff',
+    minHeight: 56,
   },
   nameWrap: {
     flex: 1,
   },
   playerName: {
     fontSize: 15,
-    fontWeight: '500',
-    color: '#ffffff',
+    fontWeight: theme.fontWeight.medium,
+    color: theme.text,
   },
   rankText: {
-    fontSize: 12,
-    color: '#888',
+    fontSize: theme.fontSize.secondary,
+    color: theme.textSecondary,
     marginTop: 2,
   },
   separator: {
     height: 0.5,
-    backgroundColor: '#2a2a2a',
+    backgroundColor: theme.border,
     marginLeft: 72,
   },
 });

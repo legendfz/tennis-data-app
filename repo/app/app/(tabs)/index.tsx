@@ -19,6 +19,7 @@ import { getFavorites } from '../../lib/favorites';
 import { useLanguage } from '../../lib/i18n';
 import { SkeletonList } from '../../lib/skeleton';
 import { TournamentLogo } from '../../lib/tournament-logo';
+import { theme } from '../../lib/theme';
 import type { Player, MatchWithPlayers } from '../../../shared/types';
 
 function LiveDot() {
@@ -148,8 +149,6 @@ export default function HomeScreen() {
     const isScheduled = !isFinished && !isLive;
     const p1Name = match.player1 ? getPlayerName(match.player1) : `Player ${match.player1Id}`;
     const p2Name = match.player2 ? getPlayerName(match.player2) : `Player ${match.player2Id}`;
-    const p1Initials = match.player1 ? getInitials(match.player1.name) : 'P1';
-    const p2Initials = match.player2 ? getInitials(match.player2.name) : 'P2';
 
     return (
       <View
@@ -158,7 +157,7 @@ export default function HomeScreen() {
       >
         <View style={styles.matchInner}>
           {/* Player 1 */}
-          <TouchableOpacity style={styles.matchPlayer} activeOpacity={0.7} onPress={() => router.push(`/player/${match.player1Id}`)}>
+          <TouchableOpacity style={styles.matchPlayer} activeOpacity={theme.activeOpacity} onPress={() => router.push(`/player/${match.player1Id}`)}>
             <View style={[!p1Won && p2Won && { opacity: 0.5 }]}>
               <PlayerAvatar name={match.player1?.name || 'P1'} photoUrl={match.player1?.photoUrl} size={32} />
             </View>
@@ -177,7 +176,7 @@ export default function HomeScreen() {
           </TouchableOpacity>
 
           {/* Score */}
-          <TouchableOpacity style={styles.matchScore} activeOpacity={0.7} onPress={() => router.push(`/match/${match.id}`)}>
+          <TouchableOpacity style={styles.matchScore} activeOpacity={theme.activeOpacity} onPress={() => router.push(`/match/${match.id}`)}>
             {isLive ? (
               <>
                 <Text style={styles.scoreLive}>{match.score || '0-0'}</Text>
@@ -203,7 +202,7 @@ export default function HomeScreen() {
           </TouchableOpacity>
 
           {/* Player 2 */}
-          <TouchableOpacity style={[styles.matchPlayer, styles.matchPlayerRight]} activeOpacity={0.7} onPress={() => router.push(`/player/${match.player2Id}`)}>
+          <TouchableOpacity style={[styles.matchPlayer, styles.matchPlayerRight]} activeOpacity={theme.activeOpacity} onPress={() => router.push(`/player/${match.player2Id}`)}>
             <Text
               style={[
                 styles.playerName,
@@ -242,8 +241,8 @@ export default function HomeScreen() {
         <RefreshControl
           refreshing={refreshing}
           onRefresh={onRefresh}
-          tintColor="#16a34a"
-          colors={['#16a34a']}
+          tintColor={theme.accent}
+          colors={[theme.accent]}
         />
       }
     >
@@ -261,7 +260,7 @@ export default function HomeScreen() {
             key={pill.date}
             style={[styles.datePill, selectedDate === pill.date && styles.datePillActive]}
             onPress={() => setSelectedDate(pill.date)}
-            activeOpacity={0.7}
+            activeOpacity={theme.activeOpacity}
           >
             <Text style={[styles.datePillText, selectedDate === pill.date && styles.datePillTextActive]}>
               {pill.label}
@@ -274,7 +273,8 @@ export default function HomeScreen() {
         <SkeletonList count={5} cardHeight={48} />
       ) : allMatches.length === 0 ? (
         <View style={styles.emptyWrap}>
-          <Text style={styles.emptyText}>No matches</Text>
+          <Text style={styles.emptyTitle}>No matches today</Text>
+          <Text style={styles.emptySubtitle}>Try selecting a different date above</Text>
         </View>
       ) : (
         <>
@@ -282,7 +282,7 @@ export default function HomeScreen() {
           {followingMatches.length > 0 && (
             <View>
               <View style={styles.sectionHeaderRow}>
-                <Text style={styles.sectionHeaderFollowing}>⭐ MY MATCHES</Text>
+                <Text style={styles.sectionHeaderFollowing}>MY MATCHES</Text>
               </View>
               {followingMatches.map(renderMatchRow)}
             </View>
@@ -301,7 +301,7 @@ export default function HomeScreen() {
             <View key={idx}>
               <TouchableOpacity
                 style={styles.sectionHeaderRow}
-                activeOpacity={group.tournament?.id ? 0.7 : 1}
+                activeOpacity={group.tournament?.id ? theme.activeOpacity : 1}
                 onPress={() => group.tournament?.id && router.push(`/tournament/${group.tournament.id}`)}
               >
                 {group.tournament && (
@@ -329,17 +329,17 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212',
+    backgroundColor: theme.bg,
   },
   content: {
     paddingBottom: 40,
     paddingTop: 50,
   },
   pageTitle: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: '#fff',
-    paddingHorizontal: 16,
+    fontSize: theme.fontSize.pageTitle,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.text,
+    paddingHorizontal: theme.spacing.padding,
     paddingBottom: 8,
   },
 
@@ -354,55 +354,58 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 20,
-    backgroundColor: '#1e1e1e',
+    backgroundColor: theme.card,
+    minHeight: 36,
+    justifyContent: 'center',
   },
   datePillActive: {
-    backgroundColor: '#16a34a',
+    backgroundColor: theme.accent,
   },
   datePillText: {
     fontSize: 13,
-    fontWeight: '500',
-    color: '#999',
+    fontWeight: theme.fontWeight.medium,
+    color: theme.textMuted,
   },
   datePillTextActive: {
-    color: '#ffffff',
-    fontWeight: '600',
+    color: theme.text,
+    fontWeight: theme.fontWeight.semibold,
   },
 
   // Section Headers
   sectionHeaderRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingTop: 16,
+    paddingHorizontal: theme.spacing.padding,
+    paddingTop: theme.spacing.padding,
     paddingBottom: 8,
     gap: 8,
+    minHeight: 44,
   },
   sectionHeader: {
     fontSize: 13,
-    fontWeight: '600',
-    color: '#888',
+    fontWeight: theme.fontWeight.semibold,
+    color: theme.textSecondary,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
     flexShrink: 1,
   },
   sectionHeaderLink: {
-    color: '#60a5fa',
+    color: theme.linkBlue,
     textDecorationLine: 'underline' as const,
   },
   sectionHeaderFollowing: {
     fontSize: 13,
-    fontWeight: '600',
-    color: '#f59e0b',
+    fontWeight: theme.fontWeight.semibold,
+    color: theme.gold,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
   },
   sectionHeaderLive: {
     fontSize: 13,
-    fontWeight: '600',
-    color: '#e53935',
-    paddingHorizontal: 16,
-    paddingTop: 16,
+    fontWeight: theme.fontWeight.semibold,
+    color: theme.red,
+    paddingHorizontal: theme.spacing.padding,
+    paddingTop: theme.spacing.padding,
     paddingBottom: 8,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
@@ -410,15 +413,16 @@ const styles = StyleSheet.create({
 
   // Match Row
   matchRow: {
-    paddingHorizontal: 16,
+    paddingHorizontal: theme.spacing.padding,
     paddingVertical: 14,
     borderBottomWidth: 1,
-    borderBottomColor: '#1e1e1e',
+    borderBottomColor: theme.card,
+    minHeight: 44,
   },
   matchRowLive: {
     backgroundColor: 'rgba(229,57,53,0.06)',
     borderLeftWidth: 3,
-    borderLeftColor: '#e53935',
+    borderLeftColor: theme.red,
   },
   matchInner: {
     flexDirection: 'row',
@@ -431,51 +435,30 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
+    minHeight: 44,
   },
   matchPlayerRight: {
     justifyContent: 'flex-end',
   },
-  avatar: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: '#2a2a2a',
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-  },
-  avatarImg: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-  },
-  avatarText: {
-    fontSize: 11,
-    color: '#888',
-    fontWeight: '600',
-  },
-  flag: {
-    fontSize: 14,
-  },
   playerName: {
-    fontSize: 14,
-    fontWeight: '500',
-    color: '#fff',
+    fontSize: theme.fontSize.body,
+    fontWeight: theme.fontWeight.medium,
+    color: theme.text,
     flexShrink: 1,
   },
   playerNameWinner: {
-    color: '#fff',
-    fontWeight: '700',
+    color: theme.text,
+    fontWeight: theme.fontWeight.bold,
   },
   playerNameLoser: {
-    color: '#555',
-    fontWeight: '400',
+    color: theme.textSecondary,
+    fontWeight: theme.fontWeight.regular,
   },
   winnerBadge: {
     width: 5,
     height: 5,
     borderRadius: 2.5,
-    backgroundColor: '#fff',
+    backgroundColor: theme.text,
   },
 
   // Score
@@ -483,31 +466,33 @@ const styles = StyleSheet.create({
     width: 90,
     alignItems: 'center',
     flexShrink: 0,
+    minHeight: 44,
+    justifyContent: 'center',
   },
   scoreLive: {
     fontSize: 16,
-    fontWeight: '700',
-    color: '#e53935',
+    fontWeight: theme.fontWeight.bold,
+    color: theme.red,
   },
   scoreFt: {
     fontSize: 15,
-    fontWeight: '700',
-    color: '#fff',
+    fontWeight: theme.fontWeight.bold,
+    color: theme.text,
     letterSpacing: 2,
   },
   scoreTime: {
     fontSize: 15,
-    fontWeight: '600',
-    color: '#888',
+    fontWeight: theme.fontWeight.semibold,
+    color: theme.textSecondary,
   },
   statusFt: {
-    fontSize: 10,
-    color: '#666',
+    fontSize: theme.fontSize.small,
+    color: theme.textSecondary,
     marginTop: 2,
   },
   statusScheduled: {
-    fontSize: 10,
-    color: '#666',
+    fontSize: theme.fontSize.small,
+    color: theme.textSecondary,
     marginTop: 2,
   },
   liveStatus: {
@@ -518,27 +503,27 @@ const styles = StyleSheet.create({
   },
   liveText: {
     fontSize: 11,
-    fontWeight: '600',
-    color: '#e53935',
+    fontWeight: theme.fontWeight.semibold,
+    color: theme.red,
   },
   liveDot: {
     width: 7,
     height: 7,
     borderRadius: 3.5,
-    backgroundColor: '#e53935',
+    backgroundColor: theme.red,
   },
 
   // Round label
   matchRoundLabel: {
-    fontSize: 10,
-    color: '#888',
+    fontSize: theme.fontSize.small,
+    color: theme.textSecondary,
     marginTop: 2,
   },
 
   // Court info
   courtInfo: {
     fontSize: 11,
-    color: '#555',
+    color: theme.textSecondary,
     marginTop: 6,
     paddingLeft: 42,
   },
@@ -548,21 +533,27 @@ const styles = StyleSheet.create({
     padding: 40,
     alignItems: 'center',
   },
-  emptyText: {
-    color: '#666',
-    fontSize: 14,
+  emptyTitle: {
+    color: theme.textMuted,
+    fontSize: theme.fontSize.sectionTitle,
+    fontWeight: theme.fontWeight.medium,
+    marginBottom: 6,
+  },
+  emptySubtitle: {
+    color: theme.textTertiary,
+    fontSize: 13,
   },
 
   // Points pill
   pointsPill: {
-    backgroundColor: '#16a34a',
+    backgroundColor: theme.accent,
     borderRadius: 4,
     paddingHorizontal: 5,
     paddingVertical: 1,
   },
   pointsPillText: {
-    color: '#fff',
+    color: theme.text,
     fontSize: 9,
-    fontWeight: '700',
+    fontWeight: theme.fontWeight.bold,
   },
 });

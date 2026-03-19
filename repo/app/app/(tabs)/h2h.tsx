@@ -15,6 +15,7 @@ import { PlayerAvatar } from '../../lib/player-avatar';
 import { Flag } from '../../lib/flags';
 import { getPlayerAvatarUrl } from '../../lib/avatars';
 import { useLanguage } from '../../lib/i18n';
+import { theme } from '../../lib/theme';
 import type { Player } from '../../../shared/types';
 
 const AVATAR_SIZE = 48;
@@ -56,7 +57,7 @@ function PlayerSelector({
             setSearch('');
             setShowDropdown(false);
           }}
-          activeOpacity={0.7}
+          activeOpacity={theme.activeOpacity}
         >
           <Image
             source={{ uri: getPlayerAvatarUrl(selectedPlayer.name, selectedPlayer.photoUrl, AVATAR_SIZE * 2) }}
@@ -69,14 +70,14 @@ function PlayerSelector({
             </View>
             <Text style={styles.selectedRank}>#{selectedPlayer.ranking}</Text>
           </View>
-          <Text style={styles.changeBtn}>x</Text>
+          <Text style={styles.changeBtn}>{'\u00D7'}</Text>
         </TouchableOpacity>
       ) : (
         <View>
           <TextInput
             style={styles.searchInput}
             placeholder="Search player..."
-            placeholderTextColor="#666"
+            placeholderTextColor={theme.textSecondary}
             value={search}
             onChangeText={(t) => {
               setSearch(t);
@@ -96,7 +97,7 @@ function PlayerSelector({
                       setShowDropdown(false);
                       setSearch('');
                     }}
-                    activeOpacity={0.7}
+                    activeOpacity={theme.activeOpacity}
                   >
                     <Image source={{ uri: getPlayerAvatarUrl(p.name, p.photoUrl, 48) }} style={styles.dropdownAvatar} />
                     <View style={{ flex: 1 }}>
@@ -145,7 +146,7 @@ export default function H2HTabScreen() {
         <TouchableOpacity
           style={styles.compareBtn}
           onPress={() => router.push(`/h2h/${player1!.id}-vs-${player2!.id}` as any)}
-          activeOpacity={0.7}
+          activeOpacity={theme.activeOpacity}
         >
           <Text style={styles.compareBtnText}>Compare</Text>
         </TouchableOpacity>
@@ -164,10 +165,10 @@ export default function H2HTabScreen() {
             key={`${matchup.p1}-${matchup.p2}`}
             style={styles.popularItem}
             onPress={() => router.push(`/h2h/${matchup.p1}-vs-${matchup.p2}` as any)}
-            activeOpacity={0.7}
+            activeOpacity={theme.activeOpacity}
           >
             <Text style={styles.popularLabel}>{matchup.label}</Text>
-            <Text style={styles.popularArrow}>-&gt;</Text>
+            <Text style={styles.popularArrow}>{'\u2192'}</Text>
           </TouchableOpacity>
         ))}
       </View>
@@ -176,25 +177,26 @@ export default function H2HTabScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#121212' },
+  container: { flex: 1, backgroundColor: theme.bg },
   content: { paddingBottom: 40, paddingTop: 50 },
-  pageTitle: { fontSize: 22, fontWeight: '600', color: '#ffffff', textAlign: 'center', marginBottom: 4 },
-  subtitle: { fontSize: 13, color: '#666', textAlign: 'center', marginBottom: 16 },
+  pageTitle: { fontSize: theme.fontSize.pageTitle, fontWeight: theme.fontWeight.semibold, color: theme.text, textAlign: 'center', marginBottom: 4 },
+  subtitle: { fontSize: 13, color: theme.textSecondary, textAlign: 'center', marginBottom: theme.spacing.padding },
   selectorsRow: { flexDirection: 'row', paddingHorizontal: 12, marginTop: 8, zIndex: 10 },
   vsMiddle: { justifyContent: 'center', alignItems: 'center', paddingHorizontal: 6, paddingTop: 28 },
-  vsText: { fontSize: 14, fontWeight: '700', color: '#666' },
-  selectorContainer: { marginBottom: 16 },
-  selectorLabel: { fontSize: 11, fontWeight: '600', color: '#666', marginBottom: 8, textTransform: 'uppercase', letterSpacing: 1 },
+  vsText: { fontSize: 14, fontWeight: theme.fontWeight.bold, color: theme.textSecondary },
+  selectorContainer: { marginBottom: theme.spacing.padding },
+  selectorLabel: { fontSize: 11, fontWeight: theme.fontWeight.semibold, color: theme.textSecondary, marginBottom: 8, textTransform: 'uppercase', letterSpacing: 1 },
   searchInput: {
-    backgroundColor: '#1e1e1e',
+    backgroundColor: theme.card,
     borderRadius: 10,
     paddingHorizontal: 12,
     paddingVertical: 10,
-    color: '#ffffff',
-    fontSize: 14,
+    color: theme.text,
+    fontSize: theme.fontSize.body,
+    minHeight: 44,
   },
   dropdown: {
-    backgroundColor: '#1e1e1e',
+    backgroundColor: theme.card,
     borderRadius: 10,
     marginTop: 4,
     maxHeight: 250,
@@ -206,50 +208,54 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     borderBottomWidth: 0.5,
-    borderBottomColor: '#2a2a2a',
+    borderBottomColor: theme.border,
+    minHeight: 44,
   },
   dropdownAvatar: { width: 28, height: 28, borderRadius: 14, marginRight: 10 },
-  dropdownName: { fontSize: 13, color: '#ffffff', fontWeight: '500' },
-  dropdownRank: { fontSize: 11, color: '#666' },
+  dropdownName: { fontSize: 13, color: theme.text, fontWeight: theme.fontWeight.medium },
+  dropdownRank: { fontSize: 11, color: theme.textSecondary },
   selectedCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#1e1e1e',
+    backgroundColor: theme.card,
     borderRadius: 10,
     padding: 10,
     borderWidth: 1,
-    borderColor: '#16a34a',
+    borderColor: theme.accent,
+    minHeight: 44,
   },
   selectedAvatar: { width: 36, height: 36, borderRadius: 18, marginRight: 10 },
   selectedInfo: { flex: 1 },
-  selectedName: { fontSize: 13, color: '#ffffff', fontWeight: '500' },
-  selectedRank: { fontSize: 11, color: '#888' },
-  changeBtn: { fontSize: 18, color: '#666', paddingHorizontal: 8 },
+  selectedName: { fontSize: 13, color: theme.text, fontWeight: theme.fontWeight.medium },
+  selectedRank: { fontSize: 11, color: theme.textSecondary },
+  changeBtn: { fontSize: 18, color: theme.textSecondary, paddingHorizontal: 8, minWidth: 44, minHeight: 44, textAlign: 'center', lineHeight: 44 },
   compareBtn: {
-    backgroundColor: '#16a34a',
+    backgroundColor: theme.accent,
     borderRadius: 10,
-    marginHorizontal: 16,
+    marginHorizontal: theme.spacing.padding,
     paddingVertical: 14,
     alignItems: 'center',
     marginTop: 8,
+    minHeight: 48,
   },
-  compareBtnText: { fontSize: 16, fontWeight: '600', color: '#ffffff' },
+  compareBtnText: { fontSize: theme.fontSize.sectionTitle, fontWeight: theme.fontWeight.semibold, color: theme.text },
   popularSection: {
     marginTop: 28,
-    marginHorizontal: 16,
-    backgroundColor: '#1e1e1e',
+    marginHorizontal: theme.spacing.padding,
+    backgroundColor: theme.card,
     borderRadius: 10,
-    padding: 16,
+    padding: theme.spacing.padding,
   },
-  popularTitle: { fontSize: 16, fontWeight: '600', color: '#ffffff', marginBottom: 12 },
+  popularTitle: { fontSize: theme.fontSize.sectionTitle, fontWeight: theme.fontWeight.semibold, color: theme.text, marginBottom: 12 },
   popularItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: 12,
     borderBottomWidth: 0.5,
-    borderBottomColor: '#2a2a2a',
+    borderBottomColor: theme.border,
+    minHeight: 44,
   },
-  popularLabel: { fontSize: 14, color: '#ffffff' },
-  popularArrow: { fontSize: 14, color: '#666', fontWeight: '600' },
+  popularLabel: { fontSize: theme.fontSize.body, color: theme.text },
+  popularArrow: { fontSize: theme.fontSize.body, color: theme.textSecondary, fontWeight: theme.fontWeight.semibold },
 });

@@ -13,15 +13,8 @@ import api from '../../lib/api';
 import { SkeletonList } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
 import { TournamentLogo } from '../../lib/tournament-logo';
+import { theme } from '../../lib/theme';
 import type { Tournament } from '../../../shared/types';
-
-function getSurfaceColor(surface: string): string {
-  const lower = surface.toLowerCase();
-  if (lower.includes('clay')) return '#f97316';
-  if (lower.includes('grass')) return '#22c55e';
-  if (lower.includes('hard')) return '#3b82f6';
-  return '#6b7280';
-}
 
 export default function TournamentsScreen() {
   const router = useRouter();
@@ -64,15 +57,15 @@ export default function TournamentsScreen() {
           <RefreshControl
             refreshing={refreshing}
             onRefresh={onRefresh}
-            tintColor="#16a34a"
-            colors={['#16a34a']}
+            tintColor={theme.accent}
+            colors={[theme.accent]}
           />
         }
         renderItem={({ item }) => (
           <TouchableOpacity
             style={styles.row}
             onPress={() => router.push(`/tournament/${item.id}`)}
-            activeOpacity={0.7}
+            activeOpacity={theme.activeOpacity}
           >
             <View style={styles.rowLeft}>
               <TournamentLogo tournament={item} size="md" />
@@ -105,7 +98,7 @@ export default function TournamentsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212',
+    backgroundColor: theme.bg,
   },
   list: {
     paddingBottom: 20,
@@ -114,8 +107,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 16,
+    paddingHorizontal: theme.spacing.padding,
     paddingVertical: 14,
+    minHeight: 56,
   },
   rowLeft: {
     flexDirection: 'row',
@@ -123,24 +117,18 @@ const styles = StyleSheet.create({
     flex: 1,
     gap: 12,
   },
-  surfaceDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    marginRight: 8,
-  },
   rowInfo: {
     flex: 1,
   },
   name: {
     fontSize: 15,
-    fontWeight: '600',
-    color: '#ffffff',
+    fontWeight: theme.fontWeight.semibold,
+    color: theme.text,
     marginBottom: 2,
   },
   meta: {
-    fontSize: 12,
-    color: '#6b7280',
+    fontSize: theme.fontSize.secondary,
+    color: theme.textTertiary,
   },
   rowRight: {
     alignItems: 'flex-end',
@@ -148,28 +136,28 @@ const styles = StyleSheet.create({
   },
   category: {
     fontSize: 11,
-    fontWeight: '600',
-    color: '#888',
+    fontWeight: theme.fontWeight.semibold,
+    color: theme.textSecondary,
     marginBottom: 2,
   },
   dates: {
     fontSize: 11,
-    color: '#6b7280',
+    color: theme.textTertiary,
   },
   separator: {
     height: 0.5,
-    backgroundColor: '#2a2a2a',
+    backgroundColor: theme.border,
     marginLeft: 36,
   },
   pointsBadge: {
-    backgroundColor: '#16a34a',
+    backgroundColor: theme.accent,
     borderRadius: 4,
     paddingHorizontal: 6,
     paddingVertical: 2,
   },
   pointsBadgeText: {
-    color: '#fff',
-    fontSize: 10,
-    fontWeight: '700',
+    color: theme.text,
+    fontSize: theme.fontSize.small,
+    fontWeight: theme.fontWeight.bold,
   },
 });

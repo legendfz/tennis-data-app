@@ -17,6 +17,7 @@ import { Flag } from '../../lib/flags';
 import { SkeletonList } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
 import { TournamentLogo } from '../../lib/tournament-logo';
+import { theme } from '../../lib/theme';
 import type { Player, MatchWithPlayers } from '../../../shared/types';
 
 const MATCH_AVATAR_SIZE = 36;
@@ -208,7 +209,7 @@ function BracketChampion({ match, onPlayerPress }: { match: DrawMatch; onPlayerP
   if (!champion) return null;
   return (
     <TouchableOpacity style={bk.champion} activeOpacity={0.7} onPress={() => onPlayerPress?.(championId)}>
-      <Text style={bk.championLabel}>🏆 CHAMPION</Text>
+      <Text style={bk.championLabel}>CHAMPION</Text>
       <PlayerAvatar name={champion.name} photoUrl={champion.photoUrl} size={56} />
       <Text style={bk.championName}>{champion.name}</Text>
       <Text style={bk.championScore}>{match.score}</Text>
@@ -718,19 +719,19 @@ export default function TournamentDetailScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#121212' },
+  container: { flex: 1, backgroundColor: theme.bg },
 
   // Header
   headerSection: {
     padding: 16,
     alignItems: 'center',
     borderBottomWidth: 0.5,
-    borderBottomColor: '#2a2a2a',
+    borderBottomColor: theme.border,
   },
-  tournamentTitle: { fontSize: 22, fontWeight: '600', color: '#ffffff', textAlign: 'center', marginBottom: 10 },
+  tournamentTitle: { fontSize: 22, fontWeight: '600', color: theme.text, textAlign: 'center', marginBottom: 10 },
   metaRow: { flexDirection: 'row', gap: 8, marginBottom: 8 },
-  categoryBadge: { backgroundColor: '#2a2a2a', borderRadius: 6, paddingHorizontal: 10, paddingVertical: 4 },
-  categoryText: { color: '#ffffff', fontSize: 11, fontWeight: '600' },
+  categoryBadge: { backgroundColor: theme.border, borderRadius: 6, paddingHorizontal: 10, paddingVertical: 4 },
+  categoryText: { color: theme.text, fontSize: 11, fontWeight: '600' },
   surfaceBadge: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -741,24 +742,24 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   surfaceDotSmall: { width: 6, height: 6, borderRadius: 3 },
-  surfaceBadgeText: { color: '#ffffff', fontSize: 11, fontWeight: '500' },
-  locationText: { fontSize: 13, color: '#9ca3af', marginBottom: 2 },
-  dateText: { fontSize: 12, color: '#6b7280' },
+  surfaceBadgeText: { color: theme.text, fontSize: 11, fontWeight: '500' },
+  locationText: { fontSize: 13, color: theme.textMuted, marginBottom: 2 },
+  dateText: { fontSize: 12, color: theme.textTertiary },
 
   // Year
-  yearScroll: { maxHeight: 48, borderBottomWidth: 0.5, borderBottomColor: '#2a2a2a' },
+  yearScroll: { maxHeight: 48, borderBottomWidth: 0.5, borderBottomColor: theme.border },
   yearRow: { paddingHorizontal: 12, paddingVertical: 8, gap: 6 },
-  yearPill: { backgroundColor: '#1e1e1e', borderRadius: 8, paddingHorizontal: 14, paddingVertical: 6 },
-  yearPillActive: { backgroundColor: '#16a34a' },
-  yearPillText: { fontSize: 13, color: '#6b7280', fontWeight: '500' },
-  yearPillTextActive: { color: '#ffffff', fontWeight: '600' },
+  yearPill: { backgroundColor: theme.card, borderRadius: 8, paddingHorizontal: 14, paddingVertical: 6 },
+  yearPillActive: { backgroundColor: theme.accent },
+  yearPillText: { fontSize: 13, color: theme.textTertiary, fontWeight: '500' },
+  yearPillTextActive: { color: theme.text, fontWeight: '600' },
 
   // Tabs
   tabRow: {
     flexDirection: 'row',
-    backgroundColor: '#1e1e1e',
+    backgroundColor: theme.card,
     borderBottomWidth: 0.5,
-    borderBottomColor: '#2a2a2a',
+    borderBottomColor: theme.border,
   },
   tab: {
     flex: 1,
@@ -768,68 +769,68 @@ const styles = StyleSheet.create({
     borderBottomColor: 'transparent',
   },
   tabActive: { borderBottomColor: '#16a34a' },
-  tabText: { fontSize: 13, fontWeight: '500', color: '#6b7280' },
-  tabTextActive: { color: '#16a34a', fontWeight: '600' },
+  tabText: { fontSize: 13, fontWeight: '500', color: theme.textTertiary },
+  tabTextActive: { color: theme.accent, fontWeight: '600' },
 
   // Champion
   championCard: {
-    backgroundColor: '#1e1e1e',
+    backgroundColor: theme.card,
     borderRadius: 10,
     marginHorizontal: 16,
     marginTop: 16,
     padding: 20,
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#f59e0b',
+    borderColor: theme.gold,
   },
-  championLabel: { fontSize: 13, fontWeight: '700', color: '#f59e0b', marginBottom: 10, letterSpacing: 2 },
+  championLabel: { fontSize: 13, fontWeight: '700', color: theme.gold, marginBottom: 10, letterSpacing: 2 },
   championAvatar: { width: 72, height: 72, borderRadius: 36, marginBottom: 10 },
-  championName: { fontSize: 18, fontWeight: '600', color: '#ffffff', marginBottom: 4 },
-  championScore: { fontSize: 13, color: '#6b7280' },
+  championName: { fontSize: 18, fontWeight: '600', color: theme.text, marginBottom: 4 },
+  championScore: { fontSize: 13, color: theme.textTertiary },
 
   // Round
   roundSection: { marginTop: 16, paddingHorizontal: 16 },
   roundHeader: { flexDirection: 'row', alignItems: 'center', marginBottom: 10, gap: 8 },
-  roundTitle: { fontSize: 16, fontWeight: '600', color: '#ffffff' },
-  roundAbbrev: { fontSize: 11, color: '#6b7280', backgroundColor: '#1e1e1e', borderRadius: 4, paddingHorizontal: 6, paddingVertical: 2 },
-  matchCount: { fontSize: 11, color: '#6b7280', marginLeft: 'auto' },
+  roundTitle: { fontSize: 16, fontWeight: '600', color: theme.text },
+  roundAbbrev: { fontSize: 11, color: theme.textTertiary, backgroundColor: theme.card, borderRadius: 4, paddingHorizontal: 6, paddingVertical: 2 },
+  matchCount: { fontSize: 11, color: theme.textTertiary, marginLeft: 'auto' },
 
   // Bracket Match
-  bracketMatch: { backgroundColor: '#1e1e1e', borderRadius: 10, overflow: 'hidden', marginBottom: 8 },
-  finalMatch: { borderWidth: 1, borderColor: '#f59e0b' },
+  bracketMatch: { backgroundColor: theme.card, borderRadius: 10, overflow: 'hidden', marginBottom: 8 },
+  finalMatch: { borderWidth: 1, borderColor: theme.gold },
   finalBanner: { backgroundColor: '#f59e0b', paddingVertical: 4, alignItems: 'center' },
-  finalBannerText: { color: '#ffffff', fontSize: 11, fontWeight: '700', letterSpacing: 1 },
+  finalBannerText: { color: theme.text, fontSize: 11, fontWeight: '700', letterSpacing: 1 },
   playerSlot: { flexDirection: 'row', alignItems: 'center', padding: 8, gap: 8 },
   winnerSlot: { backgroundColor: 'rgba(245, 158, 11, 0.08)' },
   slotAvatar: { width: MATCH_AVATAR_SIZE, height: MATCH_AVATAR_SIZE, borderRadius: MATCH_AVATAR_SIZE / 2 },
-  emptyAvatar: { backgroundColor: '#2a2a2a' },
+  emptyAvatar: { backgroundColor: theme.border },
   slotInfo: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 4 },
-  slotName: { fontSize: 13, color: '#ffffff', fontWeight: '500', flexShrink: 1 },
-  slotNameEmpty: { fontSize: 13, color: '#6b7280' },
-  winnerName: { color: '#fff', fontWeight: '700' },
-  loserName: { color: '#6b7280' },
-  winCheck: { color: '#f59e0b', fontSize: 14, fontWeight: '700', marginRight: 6 },
-  slotSeed: { fontSize: 11, color: '#9ca3af', fontWeight: '600' },
-  scoreDivider: { backgroundColor: '#2a2a2a', paddingVertical: 3, paddingHorizontal: 10, alignItems: 'center' },
-  scoreText: { color: '#ffffff', fontSize: 12, fontWeight: '600' },
+  slotName: { fontSize: 13, color: theme.text, fontWeight: '500', flexShrink: 1 },
+  slotNameEmpty: { fontSize: 13, color: theme.textTertiary },
+  winnerName: { color: theme.text, fontWeight: '700' },
+  loserName: { color: theme.textTertiary },
+  winCheck: { color: theme.gold, fontSize: 14, fontWeight: '700', marginRight: 6 },
+  slotSeed: { fontSize: 11, color: theme.textMuted, fontWeight: '600' },
+  scoreDivider: { backgroundColor: theme.border, paddingVertical: 3, paddingHorizontal: 10, alignItems: 'center' },
+  scoreText: { color: theme.text, fontSize: 12, fontWeight: '600' },
 
   // Results
-  resultMatch: { backgroundColor: '#1e1e1e', borderRadius: 10, marginBottom: 8, padding: 10 },
+  resultMatch: { backgroundColor: theme.card, borderRadius: 10, marginBottom: 8, padding: 10 },
   resultRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 4 },
   resultAvatar: { width: 28, height: 28, borderRadius: 14 },
-  resultName: { fontSize: 13, color: '#ffffff', flex: 1 },
-  resultScore: { textAlign: 'center', color: '#ffffff', fontSize: 12, fontWeight: '700', backgroundColor: '#2a2a2a', borderRadius: 6, paddingVertical: 3, paddingHorizontal: 8, alignSelf: 'center', marginVertical: 4 },
-  resultDate: { textAlign: 'right', color: '#6b7280', fontSize: 11, marginTop: 4 },
+  resultName: { fontSize: 13, color: theme.text, flex: 1 },
+  resultScore: { textAlign: 'center', color: theme.text, fontSize: 12, fontWeight: '700', backgroundColor: theme.border, borderRadius: 6, paddingVertical: 3, paddingHorizontal: 8, alignSelf: 'center', marginVertical: 4 },
+  resultDate: { textAlign: 'right', color: theme.textTertiary, fontSize: 11, marginTop: 4 },
 
   // Points badge
   pointsBadge: {
-    backgroundColor: '#16a34a',
+    backgroundColor: theme.accent,
     borderRadius: 6,
     paddingHorizontal: 8,
     paddingVertical: 3,
   },
   pointsBadgeText: {
-    color: '#fff',
+    color: theme.text,
     fontSize: 11,
     fontWeight: '700',
   },
@@ -839,7 +840,7 @@ const styles = StyleSheet.create({
 const bk = StyleSheet.create({
   cell: {
     width: CELL_W,
-    backgroundColor: '#1e1e1e',
+    backgroundColor: theme.card,
     borderRadius: 6,
     overflow: 'hidden',
   },
@@ -852,11 +853,11 @@ const bk = StyleSheet.create({
     height: 26,
   },
   emptyAvatar: {
-    backgroundColor: '#2a2a2a',
+    backgroundColor: theme.border,
   },
   seed: {
     fontSize: 9,
-    color: '#9ca3af',
+    color: theme.textMuted,
     fontWeight: '600',
   },
   playerName: {
@@ -864,32 +865,32 @@ const bk = StyleSheet.create({
     flex: 1,
   },
   winnerText: {
-    color: '#ffffff',
+    color: theme.text,
     fontWeight: '700',
   },
   loserText: {
-    color: '#666666',
+    color: theme.textSecondary,
     fontWeight: '400',
   },
   scoreRow: {
-    backgroundColor: '#2a2a2a',
+    backgroundColor: theme.border,
     paddingVertical: 2,
     alignItems: 'center',
   },
   scoreText: {
-    color: '#ffffff',
+    color: theme.text,
     fontSize: 10,
     fontWeight: '600',
   },
   roundLabel: {
     fontSize: 11,
-    color: '#6b7280',
+    color: theme.textTertiary,
     fontWeight: '600',
     textAlign: 'center',
   },
   rewardLabel: {
     fontSize: 10,
-    color: '#666666',
+    color: theme.textSecondary,
     textAlign: 'center',
     marginTop: 1,
   },
@@ -901,16 +902,16 @@ const bk = StyleSheet.create({
   championLabel: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#f59e0b',
+    color: theme.gold,
     letterSpacing: 2,
   },
   championName: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#ffffff',
+    color: theme.text,
   },
   championScore: {
     fontSize: 11,
-    color: '#6b7280',
+    color: theme.textTertiary,
   },
 });

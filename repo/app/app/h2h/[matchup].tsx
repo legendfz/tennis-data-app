@@ -16,6 +16,7 @@ import { Flag } from '../../lib/flags';
 import { useLanguage } from '../../lib/i18n';
 import { SkeletonList, SkeletonBlock } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
+import { theme } from '../../lib/theme';
 import type { H2HData, H2HMatchRecord } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -209,7 +210,7 @@ function H2HQuiz({ data, p1Name, p2Name }: { data: H2HData; p1Name: string; p2Na
 
   return (
     <View style={styles.card}>
-      <Text style={styles.cardTitle}>🧠 QUIZ</Text>
+      <Text style={styles.cardTitle}>QUIZ</Text>
       {questions.map((q, qi) => (
         <View key={qi} style={styles.quizQuestion}>
           <Text style={styles.quizQuestionText}>
@@ -242,8 +243,8 @@ function H2HQuiz({ data, p1Name, p2Name }: { data: H2HData; p1Name: string; p2Na
                   disabled={isRevealed}
                 >
                   <Text style={optTextStyle}>
-                    {isRevealed && isCorrect ? '✅ ' : ''}
-                    {isRevealed && isSelected && !isCorrect ? '❌ ' : ''}
+                    {isRevealed && isCorrect ? '\u2713 ' : ''}
+                    {isRevealed && isSelected && !isCorrect ? '\u2717 ' : ''}
                     {opt}
                   </Text>
                 </TouchableOpacity>
@@ -259,7 +260,7 @@ function H2HQuiz({ data, p1Name, p2Name }: { data: H2HData; p1Name: string; p2Na
             Score: {correctCount}/{questions.length}
           </Text>
           <TouchableOpacity style={styles.quizNewButton} onPress={resetQuiz} activeOpacity={0.7}>
-            <Text style={styles.quizNewButtonText}>🔄 New Quiz</Text>
+            <Text style={styles.quizNewButtonText}>New Quiz</Text>
           </TouchableOpacity>
         </View>
       )}
@@ -302,7 +303,7 @@ export default function H2HDetailScreen() {
     return (
       <View style={styles.container}>
         <Stack.Screen options={{ title: 'H2H' }} />
-        <EmptyState message="Failed to load H2H data" icon="😞" />
+        <EmptyState message="Failed to load H2H data" />
       </View>
     );
   }
@@ -433,7 +434,7 @@ export default function H2HDetailScreen() {
             );
           })}
           {matchHistory.length === 0 && (
-            <EmptyState message="No head-to-head matches found" icon="🎾" />
+            <EmptyState message="No head-to-head matches found" />
           )}
         </View>
 
@@ -469,7 +470,7 @@ const styles = StyleSheet.create({
   avatarLeading: { borderColor: '#fff' },
   flag: { fontSize: 30, marginBottom: 4 },
   playerName: { fontSize: 16, fontWeight: 'bold', color: '#ffffff', textAlign: 'center', marginBottom: 2 },
-  playerRank: { fontSize: 14, color: '#888', fontWeight: '600' },
+  playerRank: { fontSize: 14, color: theme.textSecondary, fontWeight: '600' },
   vsCol: { paddingHorizontal: 10, justifyContent: 'center', alignItems: 'center' },
   vsBubble: {
     backgroundColor: '#2a2a4e',
@@ -499,7 +500,7 @@ const styles = StyleSheet.create({
   recordBlue: { color: '#3b82f6' },
   recordDivider: { alignItems: 'center', marginHorizontal: 20 },
   recordDash: { fontSize: 28, color: '#a0a0b0' },
-  recordTotal: { fontSize: 11, color: '#6b7280', marginTop: 4 },
+  recordTotal: { fontSize: 11, color: '#8b91a0', marginTop: 4 },
   overallBar: {
     width: '100%',
     height: 10,
@@ -534,7 +535,7 @@ const styles = StyleSheet.create({
   surfaceBarFill: { height: '100%', borderRadius: 5 },
   surfaceScore: { width: 50, textAlign: 'right', fontSize: 14, color: '#ffffff' },
   winNum: { color: '#fff', fontWeight: 'bold' },
-  loseNum: { color: '#6b7280' },
+  loseNum: { color: '#8b91a0' },
 
   // Comparison
   compRow: {
@@ -571,14 +572,14 @@ const styles = StyleSheet.create({
   },
   matchPlayerLabel: { flex: 1, fontSize: 14, color: '#a0a0b0', textAlign: 'center' },
   matchWinner: { color: '#fff', fontWeight: 'bold' },
-  matchLoserText: { color: '#6b7280' },
+  matchLoserText: { color: '#8b91a0' },
   matchScore: { fontSize: 13, fontWeight: '600', color: '#ffffff', textAlign: 'center', flex: 2 },
   matchBottom: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  matchDate: { fontSize: 11, color: '#6b7280' },
-  matchSurface: { fontSize: 11, color: '#6b7280' },
+  matchDate: { fontSize: 11, color: '#8b91a0' },
+  matchSurface: { fontSize: 11, color: '#8b91a0' },
 
   // Quiz styles
   quizQuestion: {

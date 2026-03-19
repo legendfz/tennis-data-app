@@ -18,6 +18,7 @@ import { useLanguage } from '../../lib/i18n';
 import { SkeletonList } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
 import { getAllHotTags, formatCount, PRESET_TAG_EMOJIS } from '../../lib/comments';
+import { theme } from '../../lib/theme';
 import type { Player } from '../../../shared/types';
 
 function getInitials(name: string): string {
@@ -25,8 +26,6 @@ function getInitials(name: string): string {
   if (parts.length >= 2) return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
   return name.slice(0, 2).toUpperCase();
 }
-
-const AVATAR_COLORS = ['#16a34a', '#1565C0', '#c62828', '#333', '#4a148c', '#e65100', '#1b5e20', '#6a1b9a', '#00695c', '#bf360c'];
 
 export default function PlayersScreen() {
   const [search, setSearch] = useState('');
@@ -91,19 +90,18 @@ export default function PlayersScreen() {
       <Text style={styles.pageTitle}>Rankings</Text>
 
       <View style={styles.searchWrap}>
-        <Text style={styles.searchIcon}>&#x1F50D;</Text>
         <TextInput
           style={styles.searchInput}
           placeholder="Search players..."
-          placeholderTextColor="#666"
+          placeholderTextColor={theme.textSecondary}
           value={search}
           onChangeText={setSearch}
           autoCapitalize="none"
           autoCorrect={false}
         />
         {search.length > 0 && (
-          <TouchableOpacity onPress={() => setSearch('')} style={styles.clearBtn} activeOpacity={0.7}>
-            <Text style={styles.clearText}>x</Text>
+          <TouchableOpacity onPress={() => setSearch('')} style={styles.clearBtn} activeOpacity={theme.activeOpacity}>
+            <Text style={styles.clearText}>\u00D7</Text>
           </TouchableOpacity>
         )}
       </View>
@@ -115,20 +113,19 @@ export default function PlayersScreen() {
           <RefreshControl
             refreshing={refreshing}
             onRefresh={onRefresh}
-            tintColor="#16a34a"
-            colors={['#16a34a']}
+            tintColor={theme.accent}
+            colors={[theme.accent]}
           />
         }
         renderItem={({ item, index }) => {
           const hot = hotTags[item.id];
           const rankChange = (item as any).rankChange;
-          const avatarColor = AVATAR_COLORS[index % AVATAR_COLORS.length];
 
           return (
             <TouchableOpacity
               style={styles.playerRow}
               onPress={() => router.push(`/player/${item.id}`)}
-              activeOpacity={0.7}
+              activeOpacity={theme.activeOpacity}
             >
               <Text style={styles.rank}>{item.ranking}</Text>
               <PlayerAvatar name={item.name} photoUrl={item.photoUrl} size={40} />
@@ -170,42 +167,42 @@ export default function PlayersScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212',
+    backgroundColor: theme.bg,
     paddingTop: 50,
   },
   pageTitle: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: '#fff',
-    paddingHorizontal: 16,
+    fontSize: theme.fontSize.pageTitle,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.text,
+    paddingHorizontal: theme.spacing.padding,
     paddingBottom: 4,
   },
   searchWrap: {
-    marginHorizontal: 16,
-    marginVertical: 12,
-    backgroundColor: '#1e1e1e',
+    marginHorizontal: theme.spacing.padding,
+    marginVertical: theme.spacing.cardGap,
+    backgroundColor: theme.card,
     borderRadius: 10,
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
-  },
-  searchIcon: {
-    fontSize: 14,
-    color: '#666',
-    marginRight: 8,
+    minHeight: 44,
   },
   searchInput: {
     flex: 1,
     paddingVertical: 10,
-    fontSize: 14,
-    color: '#ffffff',
+    fontSize: theme.fontSize.body,
+    color: theme.text,
   },
   clearBtn: {
-    padding: 4,
+    padding: 8,
+    minWidth: 44,
+    minHeight: 44,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   clearText: {
-    color: '#666',
-    fontSize: 16,
+    color: theme.textSecondary,
+    fontSize: 18,
   },
   list: {
     paddingBottom: 20,
@@ -213,34 +210,17 @@ const styles = StyleSheet.create({
   playerRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 16,
+    paddingHorizontal: theme.spacing.padding,
     paddingVertical: 12,
     gap: 12,
+    minHeight: 56,
   },
   rank: {
     width: 28,
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#666',
+    fontSize: theme.fontSize.body,
+    fontWeight: theme.fontWeight.semibold,
+    color: theme.textSecondary,
     textAlign: 'center',
-  },
-  avatarCircle: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-  },
-  avatarImg: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-  },
-  avatarInitials: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#fff',
   },
   nameWrap: {
     flex: 1,
@@ -252,15 +232,15 @@ const styles = StyleSheet.create({
   },
   playerName: {
     fontSize: 15,
-    fontWeight: '500',
-    color: '#ffffff',
+    fontWeight: theme.fontWeight.medium,
+    color: theme.text,
   },
   hotTagWrap: {
     marginTop: 3,
   },
   hotTag: {
-    fontSize: 10,
-    color: '#16a34a',
+    fontSize: theme.fontSize.small,
+    color: theme.accent,
     backgroundColor: 'rgba(22,163,74,0.15)',
     paddingHorizontal: 8,
     paddingVertical: 2,
@@ -270,17 +250,17 @@ const styles = StyleSheet.create({
   },
   rankChange: {
     fontSize: 11,
-    color: '#666',
+    color: theme.textSecondary,
   },
   rankUp: {
-    color: '#16a34a',
+    color: theme.accent,
   },
   rankDown: {
-    color: '#e53935',
+    color: theme.red,
   },
   separator: {
     height: 0.5,
-    backgroundColor: '#1a1a1a',
+    backgroundColor: theme.cardAlt,
     marginLeft: 56,
   },
 });

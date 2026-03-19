@@ -14,6 +14,7 @@ import api from '../lib/api';
 import { getPlayerAvatarUrl } from '../lib/avatars';
 import { Flag } from '../lib/flags';
 import { useLanguage } from '../lib/i18n';
+import { theme } from '../lib/theme';
 import type { Player } from '../../shared/types';
 
 const AVATAR_SIZE = 48;
@@ -75,7 +76,7 @@ function PlayerSelector({
           <TextInput
             style={styles.searchInput}
             placeholder="Search player..."
-            placeholderTextColor="#6b7280"
+            placeholderTextColor={theme.textTertiary}
             value={search}
             onChangeText={(t) => {
               setSearch(t);
@@ -180,26 +181,26 @@ export default function H2HScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#121212' },
+  container: { flex: 1, backgroundColor: theme.bg },
   content: { paddingBottom: 40 },
   header: { alignItems: 'center', paddingVertical: 24 },
-  headerTitle: { fontSize: 22, fontWeight: '600', color: '#ffffff', marginBottom: 4 },
-  headerSubtitle: { fontSize: 13, color: '#6b7280' },
+  headerTitle: { fontSize: 22, fontWeight: '600', color: theme.text, marginBottom: 4 },
+  headerSubtitle: { fontSize: 13, color: theme.textTertiary },
   selectorsRow: { flexDirection: 'row', paddingHorizontal: 12, marginTop: 8, zIndex: 10 },
   vsMiddle: { justifyContent: 'center', alignItems: 'center', paddingHorizontal: 6, paddingTop: 28 },
-  vsText: { fontSize: 14, fontWeight: '700', color: '#6b7280' },
+  vsText: { fontSize: 14, fontWeight: '700', color: theme.textTertiary },
   selectorContainer: { marginBottom: 16 },
-  selectorLabel: { fontSize: 11, fontWeight: '600', color: '#6b7280', marginBottom: 8, textTransform: 'uppercase', letterSpacing: 1 },
+  selectorLabel: { fontSize: 11, fontWeight: '600', color: theme.textTertiary, marginBottom: 8, textTransform: 'uppercase', letterSpacing: 1 },
   searchInput: {
-    backgroundColor: '#1e1e1e',
+    backgroundColor: theme.card,
     borderRadius: 10,
     paddingHorizontal: 12,
     paddingVertical: 10,
-    color: '#ffffff',
+    color: theme.text,
     fontSize: 14,
   },
   dropdown: {
-    backgroundColor: '#1e1e1e',
+    backgroundColor: theme.card,
     borderRadius: 10,
     marginTop: 4,
     maxHeight: 250,
@@ -211,50 +212,50 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     borderBottomWidth: 0.5,
-    borderBottomColor: '#2a2a2a',
+    borderBottomColor: theme.border,
   },
   dropdownAvatar: { width: 28, height: 28, borderRadius: 14, marginRight: 10 },
-  dropdownName: { fontSize: 13, color: '#ffffff', fontWeight: '500' },
-  dropdownRank: { fontSize: 11, color: '#6b7280' },
+  dropdownName: { fontSize: 13, color: theme.text, fontWeight: '500' },
+  dropdownRank: { fontSize: 11, color: theme.textTertiary },
   selectedCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#1e1e1e',
+    backgroundColor: theme.card,
     borderRadius: 10,
     padding: 10,
     borderWidth: 1,
-    borderColor: '#16a34a',
+    borderColor: theme.accent,
   },
   selectedAvatar: { width: 36, height: 36, borderRadius: 18, marginRight: 10 },
   selectedInfo: { flex: 1 },
-  selectedName: { fontSize: 13, color: '#ffffff', fontWeight: '500' },
-  selectedRank: { fontSize: 11, color: '#888' },
-  changeBtn: { fontSize: 18, color: '#6b7280', paddingHorizontal: 8 },
+  selectedName: { fontSize: 13, color: theme.text, fontWeight: '500' },
+  selectedRank: { fontSize: 11, color: theme.textSecondary },
+  changeBtn: { fontSize: 18, color: theme.textTertiary, paddingHorizontal: 8 },
   compareBtn: {
-    backgroundColor: '#16a34a',
+    backgroundColor: theme.accent,
     borderRadius: 10,
     marginHorizontal: 16,
     paddingVertical: 14,
     alignItems: 'center',
     marginTop: 8,
   },
-  compareBtnText: { fontSize: 16, fontWeight: '600', color: '#ffffff' },
+  compareBtnText: { fontSize: 16, fontWeight: '600', color: theme.text },
   popularSection: {
     marginTop: 28,
     marginHorizontal: 16,
-    backgroundColor: '#1e1e1e',
+    backgroundColor: theme.card,
     borderRadius: 10,
     padding: 16,
   },
-  popularTitle: { fontSize: 16, fontWeight: '600', color: '#ffffff', marginBottom: 12 },
+  popularTitle: { fontSize: 16, fontWeight: '600', color: theme.text, marginBottom: 12 },
   popularItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: 12,
     borderBottomWidth: 0.5,
-    borderBottomColor: '#2a2a2a',
+    borderBottomColor: theme.border,
   },
-  popularLabel: { fontSize: 14, color: '#ffffff' },
-  popularArrow: { fontSize: 14, color: '#666', fontWeight: '600' },
+  popularLabel: { fontSize: 14, color: theme.text },
+  popularArrow: { fontSize: 14, color: theme.textSecondary, fontWeight: '600' },
 });

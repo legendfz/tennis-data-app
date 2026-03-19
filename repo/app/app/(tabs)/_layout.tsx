@@ -1,5 +1,6 @@
 import { Tabs } from 'expo-router';
 import { Text, StyleSheet, View } from 'react-native';
+import { theme } from '../../lib/theme';
 
 function TabIcon({ label, focused }: { label: string; focused: boolean }) {
   return (
@@ -15,23 +16,25 @@ const tabStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 4,
+    minHeight: 44,
+    minWidth: 44,
   },
   icon: {
     fontSize: 11,
-    fontWeight: '600',
-    color: '#666',
+    fontWeight: theme.fontWeight.semibold,
+    color: theme.textSecondary,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
   },
   iconActive: {
-    color: '#16a34a',
-    fontWeight: '700',
+    color: theme.accent,
+    fontWeight: theme.fontWeight.bold,
   },
   indicator: {
     width: 20,
     height: 2,
     borderRadius: 1,
-    backgroundColor: '#16a34a',
+    backgroundColor: theme.accent,
     marginTop: 4,
   },
 });
@@ -40,11 +43,11 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: '#16a34a',
-        tabBarInactiveTintColor: '#666',
+        tabBarActiveTintColor: theme.accent,
+        tabBarInactiveTintColor: theme.textSecondary,
         tabBarStyle: {
-          backgroundColor: '#1a1a1a',
-          borderTopColor: '#2a2a2a',
+          backgroundColor: theme.cardAlt,
+          borderTopColor: theme.border,
           borderTopWidth: 1,
           height: 60,
           paddingBottom: 8,
@@ -54,11 +57,11 @@ export default function TabLayout() {
           display: 'none',
         },
         headerStyle: {
-          backgroundColor: '#121212',
+          backgroundColor: theme.bg,
         },
-        headerTintColor: '#ffffff',
+        headerTintColor: theme.text,
         headerTitleStyle: {
-          fontWeight: '600',
+          fontWeight: theme.fontWeight.semibold,
           fontSize: 17,
         },
       }}

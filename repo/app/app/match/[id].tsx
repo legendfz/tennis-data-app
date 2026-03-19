@@ -18,6 +18,7 @@ import { useLanguage } from '../../lib/i18n';
 import { SkeletonBlock } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
 import { TournamentLogo } from '../../lib/tournament-logo';
+import { theme } from '../../lib/theme';
 import type { MatchWithPlayers, ProbabilitySnapshot } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -40,7 +41,7 @@ function getSurfaceColor(surface: string): string {
   if (lower.includes('clay')) return '#f97316';
   if (lower.includes('grass')) return '#22c55e';
   if (lower.includes('hard')) return '#3b82f6';
-  return '#666';
+  return '#888';
 }
 
 // ─── Stat Bar (symmetric) ────────────────────────────────────────────
@@ -349,12 +350,12 @@ export default function MatchDetailScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#121212' },
+  container: { flex: 1, backgroundColor: theme.bg },
   content: { paddingBottom: 40 },
 
   // Match Header
   matchHeader: {
-    backgroundColor: '#1a1a1a',
+    backgroundColor: theme.cardAlt,
     paddingVertical: 20,
     paddingHorizontal: 16,
     alignItems: 'center',
@@ -368,11 +369,11 @@ const styles = StyleSheet.create({
   tournamentLabel: {
     fontSize: 12,
     fontWeight: '500',
-    color: '#888',
+    color: theme.textSecondary,
     flexShrink: 1,
   },
   tournamentLabelLink: {
-    color: '#60a5fa',
+    color: theme.linkBlue,
     textDecorationLine: 'underline' as const,
   },
   versusRow: {
@@ -389,7 +390,7 @@ const styles = StyleSheet.create({
     width: AVATAR_SIZE,
     height: AVATAR_SIZE,
     borderRadius: AVATAR_SIZE / 2,
-    backgroundColor: '#2a2a2a',
+    backgroundColor: theme.border,
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
@@ -403,24 +404,24 @@ const styles = StyleSheet.create({
   vsAvatarText: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#888',
+    color: theme.textSecondary,
   },
   vsName: {
     fontSize: 14,
     fontWeight: '500',
-    color: '#fff',
+    color: theme.text,
     textAlign: 'center',
   },
   vsNameWinner: {
-    color: '#fff',
+    color: theme.text,
     fontWeight: '700',
   },
   vsNameLoser: {
-    color: '#666',
+    color: theme.textSecondary,
   },
   vsRank: {
     fontSize: 11,
-    color: '#888',
+    color: theme.textSecondary,
     marginTop: 2,
   },
   scoreCenterBlock: {
@@ -429,12 +430,12 @@ const styles = StyleSheet.create({
   bigScore: {
     fontSize: 28,
     fontWeight: '700',
-    color: '#fff',
+    color: theme.text,
     letterSpacing: 4,
   },
   ftText: {
     fontSize: 11,
-    color: '#666',
+    color: theme.textSecondary,
     marginTop: 4,
   },
 
@@ -442,7 +443,7 @@ const styles = StyleSheet.create({
   tabBar: {
     flexDirection: 'row',
     borderBottomWidth: 1,
-    borderBottomColor: '#2a2a2a',
+    borderBottomColor: theme.border,
   },
   tab: {
     flex: 1,
@@ -452,24 +453,24 @@ const styles = StyleSheet.create({
     borderBottomColor: 'transparent',
   },
   tabActive: { borderBottomColor: '#16a34a' },
-  tabText: { fontSize: 13, fontWeight: '500', color: '#666' },
-  tabTextActive: { color: '#16a34a', fontWeight: '600' },
+  tabText: { fontSize: 13, fontWeight: '500', color: theme.textSecondary },
+  tabTextActive: { color: theme.accent, fontWeight: '600' },
   tabContent: { padding: 16 },
 
   // Card
-  card: { backgroundColor: '#1e1e1e', borderRadius: 10, padding: 16, marginBottom: 12 },
-  cardTitle: { fontSize: 14, fontWeight: '600', color: '#ffffff', marginBottom: 12 },
+  card: { backgroundColor: theme.card, borderRadius: 10, padding: 16, marginBottom: 12 },
+  cardTitle: { fontSize: 14, fontWeight: '600', color: theme.text, marginBottom: 12 },
 
   // Score
   setsRow: { flexDirection: 'row', gap: 8, flexWrap: 'wrap', justifyContent: 'center' },
-  setBox: { backgroundColor: '#121212', borderRadius: 8, paddingHorizontal: 14, paddingVertical: 8, alignItems: 'center', minWidth: 56 },
-  setLabel: { fontSize: 10, color: '#666', marginBottom: 3 },
-  setScore: { fontSize: 18, fontWeight: '700', color: '#ffffff' },
+  setBox: { backgroundColor: theme.bg, borderRadius: 8, paddingHorizontal: 14, paddingVertical: 8, alignItems: 'center', minWidth: 56 },
+  setLabel: { fontSize: 10, color: theme.textSecondary, marginBottom: 3 },
+  setScore: { fontSize: 18, fontWeight: '700', color: theme.text },
 
   // Info
-  infoRow: { flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 8, borderBottomWidth: 0.5, borderBottomColor: '#2a2a2a' },
-  infoLabel: { fontSize: 14, color: '#888' },
-  infoValue: { fontSize: 14, color: '#ffffff', fontWeight: '500' },
+  infoRow: { flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 8, borderBottomWidth: 0.5, borderBottomColor: theme.border },
+  infoLabel: { fontSize: 14, color: theme.textSecondary },
+  infoValue: { fontSize: 14, color: theme.text, fontWeight: '500' },
 
   // Compare Stats (symmetric)
   compareRow: {
@@ -481,7 +482,7 @@ const styles = StyleSheet.create({
     width: 36,
     fontSize: 15,
     fontWeight: '700',
-    color: '#fff',
+    color: theme.text,
   },
   compareValLeft: {
     textAlign: 'left',
@@ -490,7 +491,7 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
   compareValWin: {
-    color: '#fff',
+    color: theme.text,
     fontWeight: '700',
   },
   compareBars: {
@@ -502,7 +503,7 @@ const styles = StyleSheet.create({
   },
   compareBarLeft: {
     height: 5,
-    backgroundColor: '#16a34a',
+    backgroundColor: theme.accent,
     borderRadius: 3,
   },
   compareBarRight: {
@@ -514,7 +515,7 @@ const styles = StyleSheet.create({
     width: 80,
     textAlign: 'center',
     fontSize: 11,
-    color: '#888',
+    color: theme.textSecondary,
   },
 
   // Probability
@@ -526,10 +527,10 @@ const styles = StyleSheet.create({
   probPct: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#666',
+    color: theme.textSecondary,
   },
   probPctWin: {
-    color: '#fff',
+    color: theme.text,
   },
   probBarOuter: {
     flex: 1,
@@ -540,7 +541,7 @@ const styles = StyleSheet.create({
   },
   probBarInner: {
     height: '100%',
-    backgroundColor: '#16a34a',
+    backgroundColor: theme.accent,
     borderRadius: 4,
   },
 

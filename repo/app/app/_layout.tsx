@@ -2,6 +2,7 @@ import { Stack } from 'expo-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { StatusBar } from 'expo-status-bar';
 import { LanguageProvider } from '../lib/i18n';
+import { theme } from '../lib/theme';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,9 +20,9 @@ export default function RootLayout() {
       <StatusBar style="light" />
       <Stack
         screenOptions={{
-          headerStyle: { backgroundColor: '#121212' },
-          headerTintColor: '#ffffff',
-          contentStyle: { backgroundColor: '#121212' },
+          headerStyle: { backgroundColor: theme.bg },
+          headerTintColor: theme.text,
+          contentStyle: { backgroundColor: theme.bg },
           animation: 'slide_from_right',
         }}
       >
