@@ -86,7 +86,274 @@
         "2.8 km",
         "2.7 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-2",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "1-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-3",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-4",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-5",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "2-6",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-6",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-4",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "2-5",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-5",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-6",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 3,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "4-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-3",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "5-3",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "6-3",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-4",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 4,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-3",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "5-4",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-4",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 5,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-3",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      }
+    ]
   },
   {
     "id": 2,
@@ -175,7 +442,152 @@
         "4.0 km",
         "2.4 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-3",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-3",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "5-4",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-4",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 3,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-0",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-0",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-0",
+            "server": 2,
+            "isBreak": true
+          }
+        ],
+        "tiebreak": null
+      }
+    ]
   },
   {
     "id": 3,
@@ -264,7 +676,254 @@
         "2.3 km",
         "4.1 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-4",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "4-4",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-4",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-5",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-5",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-6",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": {
+          "score": "6-7(5)",
+          "points": "1-0 2-0 2-1 2-2 3-2 3-3 3-4 4-4 4-5 4-6 5-6 5-7"
+        }
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "6-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-3",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 3,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-4",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "4-4",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-4",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-5",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-5",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-6",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": {
+          "score": "7-6(4)",
+          "points": "1-0 2-0 3-0 4-0 5-0 5-1 6-1 6-2 6-3 7-3 7-4"
+        }
+      },
+      {
+        "set": 4,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-3",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "5-4",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-4",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      }
+    ]
   },
   {
     "id": 4,
@@ -353,7 +1012,208 @@
         "3.5 km",
         "3.7 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-3",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-4",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "2-5",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-5",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-6",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 3,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-3",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 4,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-2",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      }
+    ]
   },
   {
     "id": 5,
@@ -442,7 +1302,147 @@
         "3.7 km",
         "3.3 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-0",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "6-1",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-2",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 3,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-3",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      }
+    ]
   },
   {
     "id": 6,
@@ -531,7 +1531,162 @@
         "4.3 km",
         "2.6 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-3",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-3",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "5-4",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-4",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 3,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "4-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "6-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-2",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      }
+    ]
   },
   {
     "id": 7,
@@ -620,7 +1775,226 @@
         "4.1 km",
         "4.2 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-0",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "6-1",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "6-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-3",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 3,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-4",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "4-4",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-4",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-5",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-5",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-6",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": {
+          "score": "6-7(3)",
+          "points": "0-1 0-2 0-3 1-3 1-4 1-5 2-5 2-6 2-7 3-7"
+        }
+      },
+      {
+        "set": 4,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-3",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "5-4",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-4",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      }
+    ]
   },
   {
     "id": 8,
@@ -976,7 +2350,259 @@
         "2.7 km",
         "3.1 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-3",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-3",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "1-4",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-5",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "1-6",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-6",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 3,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-2",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "1-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-3",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-4",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-4",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-4",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "4-5",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "4-6",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "5-6",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-7",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 4,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "2-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-1",
+            "server": 2,
+            "isBreak": true
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 5,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "4-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "6-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-2",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      }
+    ]
   },
   {
     "id": 12,
@@ -1065,7 +2691,264 @@
         "2.0 km",
         "4.2 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-2",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "1-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-4",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "1-5",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-5",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-6",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "6-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-3",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 3,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-2",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "1-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-3",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-4",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-5",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "2-6",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-6",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 4,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-3",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "5-4",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-4",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 5,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-3",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      }
+    ]
   },
   {
     "id": 13,
@@ -1154,7 +3037,203 @@
         "3.8 km",
         "2.5 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-2",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "1-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-4",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "1-5",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-5",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-6",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-2",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 3,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "4-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-3",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "5-3",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "6-3",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-4",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 4,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-2",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      }
+    ]
   },
   {
     "id": 14,
@@ -1866,7 +3945,170 @@
         "4.2 km",
         "4.4 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "4-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "6-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-2",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-2",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 3,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-4",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "4-4",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-4",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-5",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-5",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-6",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": {
+          "score": "7-6(4)",
+          "points": "1-0 2-0 3-0 4-0 5-0 5-1 6-1 6-2 6-3 7-3 7-4"
+        }
+      }
+    ]
   },
   {
     "id": 22,
@@ -1955,7 +4197,259 @@
         "2.1 km",
         "3.6 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-4",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "4-4",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-4",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-5",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-5",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-6",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": {
+          "score": "6-7(3)",
+          "points": "0-1 0-2 0-3 1-3 1-4 1-5 2-5 2-6 2-7 3-7"
+        }
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-3",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "5-4",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-4",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 3,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-4",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "4-4",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-4",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-5",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-5",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-6",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": {
+          "score": "7-6(5)",
+          "points": "1-0 2-0 2-1 3-1 4-1 4-2 5-2 6-2 6-3 6-4 7-4 7-5"
+        }
+      },
+      {
+        "set": 4,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-3",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "5-4",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-4",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      }
+    ]
   },
   {
     "id": 23,
@@ -2044,7 +4538,162 @@
         "3.0 km",
         "3.2 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-3",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-3",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "5-4",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-4",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 3,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "4-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "6-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-2",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      }
+    ]
   },
   {
     "id": 24,
@@ -2756,7 +5405,182 @@
         "2.7 km",
         "4.7 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-3",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-3",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "5-4",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-4",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 3,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "4-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-3",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "4-4",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "5-4",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-4",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "7-4",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "7-5",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      }
+    ]
   },
   {
     "id": 32,
@@ -2845,7 +5669,187 @@
         "3.8 km",
         "4.5 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "4-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-3",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "4-4",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "5-4",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-4",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "7-4",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "7-5",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-4",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "5-4",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "6-4",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-5",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "7-5",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 3,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "4-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "6-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-2",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      }
+    ]
   },
   {
     "id": 33,
@@ -2934,7 +5938,228 @@
         "2.6 km",
         "3.9 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-2",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "1-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-3",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-4",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-5",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "3-5",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "4-5",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-6",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-4",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "5-4",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "6-4",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-5",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "7-5",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 3,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-0",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "6-1",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 4,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-3",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "5-4",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-4",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      }
+    ]
   },
   {
     "id": 34,
@@ -3023,7 +6248,297 @@
         "4.3 km",
         "4.5 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "4-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "6-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-2",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-3",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "1-4",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-4",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-4",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-5",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "3-6",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-6",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 3,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "4-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-3",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "4-4",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "5-4",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-4",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "7-4",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "7-5",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 4,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-3",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-3",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "4-4",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "4-5",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "5-5",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-6",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-6",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": {
+          "score": "6-7(0)",
+          "points": "0-1 0-2 0-3 0-4 0-5 0-6 0-7"
+        }
+      },
+      {
+        "set": 5,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-3",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      }
+    ]
   },
   {
     "id": 35,
@@ -3824,7 +7339,147 @@
         "3.5 km",
         "3.6 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "0-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-4",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "1-5",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-6",
+            "server": 1,
+            "isBreak": true
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "6-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-3",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 3,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "4-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "6-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-2",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      }
+    ]
   },
   {
     "id": 44,
@@ -3913,7 +7568,116 @@
         "2.9 km",
         "4.2 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "4-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-3",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "5-3",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "6-3",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-4",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "6-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-3",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      }
+    ]
   },
   {
     "id": 45,
@@ -4180,7 +7944,157 @@
         "2.1 km",
         "4.3 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-3",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-3",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "1-4",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-5",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "1-6",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-6",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 3,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-3",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      }
+    ]
   },
   {
     "id": 48,
@@ -4536,7 +8450,131 @@
         "3.3 km",
         "2.5 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "4-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-3",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "5-3",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "6-3",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-4",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-4",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "5-4",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "6-4",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-5",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "7-5",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      }
+    ]
   },
   {
     "id": 52,
@@ -4625,7 +8663,129 @@
         "3.7 km",
         "4.5 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-3",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-3",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-3",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "4-4",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "4-5",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "5-5",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-6",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-6",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": {
+          "score": "7-6(1)",
+          "points": "1-0 2-0 3-0 4-0 5-0 6-0 7-0 7-1"
+        }
+      }
+    ]
   },
   {
     "id": 53,
@@ -4714,7 +8874,124 @@
         "3.3 km",
         "3.5 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-4",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "4-4",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-4",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-5",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-5",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-6",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": {
+          "score": "7-6(3)",
+          "points": "1-0 2-0 3-0 4-0 5-0 5-1 6-1 6-2 6-3 7-3"
+        }
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "4-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-2",
+            "server": 1,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      }
+    ]
   },
   {
     "id": 54,
@@ -4803,7 +9080,129 @@
         "4.1 km",
         "3.8 km"
       ]
-    }
+    },
+    "gameByGame": [
+      {
+        "set": 1,
+        "games": [
+          {
+            "score": "1-0",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-3",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "3-4",
+            "server": 1,
+            "isBreak": true
+          },
+          {
+            "score": "4-4",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "5-4",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-5",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "6-5",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-6",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": {
+          "score": "7-6(4)",
+          "points": "1-0 2-0 3-0 4-0 5-0 5-1 6-1 6-2 6-3 7-3 7-4"
+        }
+      },
+      {
+        "set": 2,
+        "games": [
+          {
+            "score": "0-1",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "1-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "2-1",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "3-1",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "3-2",
+            "server": 2,
+            "isBreak": false
+          },
+          {
+            "score": "4-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "5-2",
+            "server": 2,
+            "isBreak": true
+          },
+          {
+            "score": "6-2",
+            "server": 1,
+            "isBreak": false
+          },
+          {
+            "score": "6-3",
+            "server": 2,
+            "isBreak": false
+          }
+        ],
+        "tiebreak": null
+      }
+    ]
   },
   {
     "id": 55,

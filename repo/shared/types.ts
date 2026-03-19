@@ -157,6 +157,23 @@ export interface MatchStats {
   distanceCovered?: [string, string];
 }
 
+export interface GameByGameEntry {
+  score: string;
+  server: 1 | 2;
+  isBreak: boolean;
+}
+
+export interface SetTiebreak {
+  score: string;
+  points: string;
+}
+
+export interface SetGameByGame {
+  set: number;
+  games: GameByGameEntry[];
+  tiebreak: SetTiebreak | null;
+}
+
 export interface Match {
   id: number;
   tournamentId: number;
@@ -168,6 +185,7 @@ export interface Match {
   date: string;
   court?: string;
   statsJson?: MatchStats | null;
+  gameByGame?: SetGameByGame[];
 }
 
 export interface MatchWithPlayers extends Match {

@@ -19,7 +19,7 @@ import { SkeletonBlock } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
 import { TournamentLogo } from '../../lib/tournament-logo';
 import { theme } from '../../lib/theme';
-import type { MatchWithPlayers, MatchStats, ProbabilitySnapshot } from '../../../shared/types';
+import type { MatchWithPlayers, MatchStats, ProbabilitySnapshot, SetGameByGame, GameByGameEntry } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const AVATAR_SIZE = 68;
