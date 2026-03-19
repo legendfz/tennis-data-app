@@ -9,11 +9,24 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background: #0a0a0a; color: #fff; font-family: 'DM Sans', -apple-system, sans-serif; display: flex; gap: 32px; padding: 32px; flex-wrap: wrap; justify-content: center; }
 .phone { width: 390px; height: 844px; background: #0d0d0d; border-radius: 44px; overflow: hidden; border: 2px solid #222; position: relative; }
-.phone::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 0; background-image: 
-  radial-gradient(ellipse 200px 200px at 90% 8%, rgba(200,220,80,0.06) 0%, transparent 70%),
-  radial-gradient(ellipse 150px 150px at 5% 70%, rgba(26,122,58,0.05) 0%, transparent 70%),
-  radial-gradient(ellipse 250px 200px at 50% 40%, rgba(26,122,58,0.03) 0%, transparent 80%),
-  radial-gradient(ellipse 100px 100px at 70% 90%, rgba(200,220,80,0.04) 0%, transparent 70%); }
+.phone::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 0; opacity: 0.04; background-color: #0a3d1a; background-image: 
+  /* Court outline */
+  linear-gradient(to right, transparent 8%, rgba(255,255,255,0.4) 8%, rgba(255,255,255,0.4) 8.3%, transparent 8.3%, transparent 91.7%, rgba(255,255,255,0.4) 91.7%, rgba(255,255,255,0.4) 92%, transparent 92%),
+  linear-gradient(to bottom, transparent 5%, rgba(255,255,255,0.4) 5%, rgba(255,255,255,0.4) 5.3%, transparent 5.3%, transparent 94.7%, rgba(255,255,255,0.4) 94.7%, rgba(255,255,255,0.4) 95%, transparent 95%),
+  /* Net / center line */
+  linear-gradient(to bottom, transparent 49.7%, rgba(255,255,255,0.5) 49.7%, rgba(255,255,255,0.5) 50.3%, transparent 50.3%),
+  /* Service line top */
+  linear-gradient(to bottom, transparent 25%, rgba(255,255,255,0.3) 25%, rgba(255,255,255,0.3) 25.3%, transparent 25.3%),
+  /* Service line bottom */
+  linear-gradient(to bottom, transparent 74.7%, rgba(255,255,255,0.3) 74.7%, rgba(255,255,255,0.3) 75%, transparent 75%),
+  /* Center service line */
+  linear-gradient(to right, transparent 49.7%, rgba(255,255,255,0.3) 49.7%, rgba(255,255,255,0.3) 50.3%, transparent 50.3%),
+  /* Service box left */
+  linear-gradient(to right, transparent 25%, rgba(255,255,255,0.2) 25%, rgba(255,255,255,0.2) 25.3%, transparent 25.3%),
+  /* Service box right */
+  linear-gradient(to right, transparent 74.7%, rgba(255,255,255,0.2) 74.7%, rgba(255,255,255,0.2) 75%, transparent 75%),
+  /* Green court surface gradient */
+  radial-gradient(ellipse at 50% 50%, #0a4d1e 0%, #0a3d1a 50%, #082e14 100%); }
 .phone > * { position: relative; z-index: 1; }
 .phone-label { text-align: center; color: #666; font-size: 13px; margin-bottom: 8px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
 .status-bar { height: 50px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #666; }
