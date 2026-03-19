@@ -20,6 +20,8 @@ import { useLanguage } from '../../lib/i18n';
 import { SkeletonList } from '../../lib/skeleton';
 import { TournamentLogo } from '../../lib/tournament-logo';
 import { theme } from '../../lib/theme';
+import { TennisBallIcon } from '../../lib/illustrations';
+import { EmptyMatchesIllustration } from '../../lib/illustrations';
 import type { Player, MatchWithPlayers } from '../../../shared/types';
 
 function LiveDot() {
@@ -247,7 +249,10 @@ export default function HomeScreen() {
       }
     >
       {/* Title */}
-      <Text style={styles.pageTitle}>Matches</Text>
+      <View style={styles.titleRow}>
+        <Text style={styles.pageTitle}>Matches</Text>
+        <TennisBallIcon size={16} />
+      </View>
 
       {/* Date Selector Pills */}
       <ScrollView
@@ -273,7 +278,7 @@ export default function HomeScreen() {
         <SkeletonList count={5} cardHeight={48} />
       ) : allMatches.length === 0 ? (
         <View style={styles.emptyWrap}>
-          <Text style={styles.emptyTitle}>No matches today</Text>
+          <EmptyMatchesIllustration size={140} />
           <Text style={styles.emptySubtitle}>Try selecting a different date above</Text>
         </View>
       ) : (
@@ -335,12 +340,17 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
     paddingTop: 50,
   },
+  titleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    paddingHorizontal: theme.spacing.padding,
+    paddingBottom: 8,
+  },
   pageTitle: {
     fontSize: theme.fontSize.pageTitle,
     fontWeight: theme.fontWeight.bold,
     color: theme.text,
-    paddingHorizontal: theme.spacing.padding,
-    paddingBottom: 8,
   },
 
   // Date Pills

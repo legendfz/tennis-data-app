@@ -1,11 +1,28 @@
 import { Tabs } from 'expo-router';
 import { Text, StyleSheet, View } from 'react-native';
 import { theme } from '../../lib/theme';
+import {
+  MatchesIcon,
+  PlayersIcon,
+  TournamentsIcon,
+  H2HIcon,
+  FollowingIcon,
+} from '../../lib/tab-icons';
 
-function TabIcon({ label, focused }: { label: string; focused: boolean }) {
+function TabIcon({
+  label,
+  focused,
+  icon: Icon,
+}: {
+  label: string;
+  focused: boolean;
+  icon: React.ComponentType<{ color: string; size?: number }>;
+}) {
+  const color = focused ? theme.accent : theme.textSecondary;
   return (
     <View style={tabStyles.iconWrap}>
-      <Text style={[tabStyles.icon, focused && tabStyles.iconActive]}>{label}</Text>
+      <Icon color={color} size={22} />
+      <Text style={[tabStyles.label, focused && tabStyles.labelActive]}>{label}</Text>
       {focused && <View style={tabStyles.indicator} />}
     </View>
   );
@@ -19,23 +36,24 @@ const tabStyles = StyleSheet.create({
     minHeight: 44,
     minWidth: 44,
   },
-  icon: {
-    fontSize: 11,
-    fontWeight: theme.fontWeight.semibold,
+  label: {
+    fontSize: 10,
+    fontWeight: theme.fontWeight.medium,
     color: theme.textSecondary,
     textTransform: 'uppercase',
-    letterSpacing: 0.5,
+    letterSpacing: 0.3,
+    marginTop: 3,
   },
-  iconActive: {
+  labelActive: {
     color: theme.accent,
-    fontWeight: theme.fontWeight.bold,
+    fontWeight: theme.fontWeight.semibold,
   },
   indicator: {
     width: 20,
     height: 2,
     borderRadius: 1,
     backgroundColor: theme.accent,
-    marginTop: 4,
+    marginTop: 3,
   },
 });
 
@@ -49,7 +67,7 @@ export default function TabLayout() {
           backgroundColor: theme.cardAlt,
           borderTopColor: theme.border,
           borderTopWidth: 1,
-          height: 60,
+          height: 68,
           paddingBottom: 8,
           paddingTop: 4,
         },
@@ -71,7 +89,9 @@ export default function TabLayout() {
         options={{
           title: 'Matches',
           headerShown: false,
-          tabBarIcon: ({ focused }) => <TabIcon label="Matches" focused={focused} />,
+          tabBarIcon: ({ focused }) => (
+            <TabIcon label="Matches" focused={focused} icon={MatchesIcon} />
+          ),
         }}
       />
       <Tabs.Screen
@@ -79,14 +99,18 @@ export default function TabLayout() {
         options={{
           title: 'Players',
           headerShown: false,
-          tabBarIcon: ({ focused }) => <TabIcon label="Players" focused={focused} />,
+          tabBarIcon: ({ focused }) => (
+            <TabIcon label="Players" focused={focused} icon={PlayersIcon} />
+          ),
         }}
       />
       <Tabs.Screen
         name="tournaments"
         options={{
           title: 'Tournaments',
-          tabBarIcon: ({ focused }) => <TabIcon label="Tournaments" focused={focused} />,
+          tabBarIcon: ({ focused }) => (
+            <TabIcon label="Events" focused={focused} icon={TournamentsIcon} />
+          ),
         }}
       />
       <Tabs.Screen
@@ -94,7 +118,9 @@ export default function TabLayout() {
         options={{
           title: 'H2H',
           headerShown: false,
-          tabBarIcon: ({ focused }) => <TabIcon label="H2H" focused={focused} />,
+          tabBarIcon: ({ focused }) => (
+            <TabIcon label="H2H" focused={focused} icon={H2HIcon} />
+          ),
         }}
       />
       <Tabs.Screen
@@ -102,7 +128,9 @@ export default function TabLayout() {
         options={{
           title: 'Following',
           headerShown: false,
-          tabBarIcon: ({ focused }) => <TabIcon label="Following" focused={focused} />,
+          tabBarIcon: ({ focused }) => (
+            <TabIcon label="Following" focused={focused} icon={FollowingIcon} />
+          ),
         }}
       />
       {/* Hide matches tab from tab bar - content merged into index */}

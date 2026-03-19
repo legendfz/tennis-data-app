@@ -16,6 +16,7 @@ import { PlayerAvatar } from '../../lib/player-avatar';
 import { Flag } from '../../lib/flags';
 import { useLanguage } from '../../lib/i18n';
 import { EmptyState } from '../../lib/empty-state';
+import { EmptyFavoritesIllustration } from '../../lib/illustrations';
 import { getFavorites } from '../../lib/favorites';
 import { theme } from '../../lib/theme';
 import type { Player } from '../../../shared/types';
@@ -88,6 +89,7 @@ export default function FollowingScreen() {
           <EmptyState
             message="No followed players"
             subtitle="Follow players from their profile page"
+            illustration={<EmptyFavoritesIllustration size={120} />}
           />
         }
       />

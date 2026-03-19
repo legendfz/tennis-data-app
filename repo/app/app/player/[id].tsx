@@ -36,6 +36,7 @@ import {
   type PlayerComments,
 } from '../../lib/comments';
 import { TournamentLogo } from '../../lib/tournament-logo';
+import { TennisBallIcon } from '../../lib/illustrations';
 import { theme } from '../../lib/theme';
 import type { PlayerDetail, MatchWithPlayers, SetStats, TitleEntry, GrandSlamEntry, SeasonMatchEntry, DecidingSetMatchEntry, WinRateByYear } from '../../../shared/types';
 
@@ -816,6 +817,10 @@ export default function PlayerDetailScreen() {
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
         {/* Header */}
         <View style={styles.header}>
+          {/* Decorative tennis ball */}
+          <View style={styles.headerDecor}>
+            <TennisBallIcon size={60} opacity={0.03} />
+          </View>
           <View style={styles.bigAvatar}>
             <Image source={{ uri: avatarUrl }} style={styles.avatarImage} />
           </View>
@@ -879,6 +884,13 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
     paddingHorizontal: 16,
     backgroundColor: theme.card,
+    position: 'relative' as const,
+    overflow: 'hidden' as const,
+  },
+  headerDecor: {
+    position: 'absolute' as const,
+    top: 10,
+    right: 10,
   },
   bigAvatar: {
     width: AVATAR_SIZE,

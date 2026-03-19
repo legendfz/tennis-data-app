@@ -17,6 +17,7 @@ import { Flag } from '../../lib/flags';
 import { useLanguage } from '../../lib/i18n';
 import { SkeletonList } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
+import { EmptySearchIllustration } from '../../lib/illustrations';
 import { getAllHotTags, formatCount, PRESET_TAG_EMOJIS } from '../../lib/comments';
 import { theme } from '../../lib/theme';
 import type { Player } from '../../../shared/types';
@@ -157,7 +158,11 @@ export default function PlayersScreen() {
         contentContainerStyle={styles.list}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
         ListEmptyComponent={
-          <EmptyState message="No players found" subtitle="Try a different search" />
+          <EmptyState
+            message="No players found"
+            subtitle="Try a different search"
+            illustration={<EmptySearchIllustration size={120} />}
+          />
         }
       />
     </View>
