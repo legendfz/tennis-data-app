@@ -23,18 +23,22 @@ body { background: #0a0a0a; color: #fff; font-family: -apple-system, BlinkMacSys
 .date-pill.active { background: #16a34a; color: #fff; }
 .section-header { padding: 16px 16px 8px; font-size: 13px; color: #16a34a; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
 .match-row { display: flex; align-items: center; padding: 14px 16px; border-bottom: 1px solid #1e1e1e; }
+.match-row.live { background: rgba(229,57,53,0.06); border-left: 3px solid #e53935; }
 .match-player { flex: 1; display: flex; align-items: center; gap: 10px; }
 .match-player.right { justify-content: flex-end; text-direction: rtl; }
 .match-player .avatar { width: 32px; height: 32px; border-radius: 50%; background: #2a2a2a; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #888; flex-shrink: 0; }
 .match-player .name { font-size: 14px; font-weight: 500; }
-.match-player .name.winner { color: #fff; font-weight: 600; }
-.match-player .name.loser { color: #666; }
+.match-player .name.winner { color: #16a34a; font-weight: 700; }
+.match-player .name.loser { color: #555; font-weight: 400; }
+.match-player .winner-badge { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #16a34a; margin-left: 6px; }
 .match-player .flag { font-size: 14px; }
-.match-score { width: 80px; text-align: center; flex-shrink: 0; }
+.match-score { width: 90px; text-align: center; flex-shrink: 0; }
 .match-score .sets { font-size: 15px; font-weight: 600; letter-spacing: 2px; }
+.match-score .sets.ft { color: #999; }
+.match-score .sets.live { color: #16a34a; font-weight: 700; font-size: 16px; }
 .match-score .status { font-size: 10px; color: #666; margin-top: 2px; }
-.match-score .status.live { color: #e53935; }
-.live-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #e53935; margin-right: 4px; animation: pulse 1.5s infinite; }
+.match-score .status.live { color: #e53935; font-weight: 600; font-size: 11px; }
+.live-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #e53935; margin-right: 4px; animation: pulse 1.5s infinite; box-shadow: 0 0 6px rgba(229,57,53,0.6); }
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
 /* ===== PLAYERS LIST ===== */
@@ -112,19 +116,19 @@ body { background: #0a0a0a; color: #fff; font-family: -apple-system, BlinkMacSys
       <div class="date-pill">Fri 21</div>
     </div>
 
-    <div class="section-header">🔴 LIVE</div>
-    <div class="match-row">
+    <div class="section-header" style="color: #e53935;">● LIVE</div>
+    <div class="match-row live">
       <div class="match-player">
         <div class="avatar">JS</div>
         <span class="flag">🇮🇹</span>
-        <span class="name winner">J. Sinner</span>
+        <span class="name" style="color: #fff; font-weight: 600;">J. Sinner</span>
       </div>
       <div class="match-score">
-        <div class="sets" style="color: #16a34a;">6-4 3-2</div>
+        <div class="sets live">6-4 3-2</div>
         <div class="status live"><span class="live-dot"></span>2nd Set</div>
       </div>
       <div class="match-player right">
-        <span class="name loser">C. Alcaraz</span>
+        <span class="name" style="color: #fff; font-weight: 600;">C. Alcaraz</span>
         <span class="flag">🇪🇸</span>
         <div class="avatar">CA</div>
       </div>
@@ -135,30 +139,30 @@ body { background: #0a0a0a; color: #fff; font-family: -apple-system, BlinkMacSys
       <div class="match-player">
         <div class="avatar">ND</div>
         <span class="flag">🇷🇸</span>
-        <span class="name winner">N. Djokovic</span>
+        <span class="name winner">N. Djokovic</span><span class="winner-badge"></span>
       </div>
       <div class="match-score">
-        <div class="sets">6-3 7-5</div>
+        <div class="sets ft">6-3 7-5</div>
         <div class="status">FT</div>
       </div>
       <div class="match-player right">
         <span class="name loser">A. Zverev</span>
         <span class="flag">🇩🇪</span>
-        <div class="avatar">AZ</div>
+        <div class="avatar" style="opacity: 0.5;">AZ</div>
       </div>
     </div>
     <div class="match-row">
       <div class="match-player">
-        <div class="avatar">DM</div>
+        <div class="avatar" style="opacity: 0.5;">DM</div>
         <span class="flag">🇷🇺</span>
         <span class="name loser">D. Medvedev</span>
       </div>
       <div class="match-score">
-        <div class="sets">4-6 6-3 7-6</div>
+        <div class="sets ft">4-6 6-3 7-6</div>
         <div class="status">FT</div>
       </div>
       <div class="match-player right">
-        <span class="name winner">T. Fritz</span>
+        <span class="name winner">T. Fritz</span><span class="winner-badge"></span>
         <span class="flag">🇺🇸</span>
         <div class="avatar">TF</div>
       </div>
