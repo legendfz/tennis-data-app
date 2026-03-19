@@ -18,7 +18,8 @@ body { background: #0a0a0a; color: #fff; font-family: -apple-system, BlinkMacSys
 .tab-item.active .icon { color: #16a34a; }
 
 /* ===== HOME PAGE ===== */
-.date-pills { display: flex; gap: 6px; padding: 12px 16px; overflow-x: auto; }
+.date-pills { display: flex; gap: 6px; padding: 12px 16px; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
+.date-pills::-webkit-scrollbar { display: none; }
 .date-pill { padding: 8px 16px; border-radius: 20px; background: #1e1e1e; color: #999; font-size: 13px; white-space: nowrap; flex-shrink: 0; }
 .date-pill.active { background: #16a34a; color: #fff; }
 .section-header { padding: 16px 16px 8px; font-size: 13px; color: #16a34a; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
