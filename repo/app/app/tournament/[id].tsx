@@ -90,9 +90,56 @@ const COL_GAP = 24;
 const CONNECTOR_COLOR = '#2a2a2a';
 const BRACKET_AVATAR = 28;
 
-const ROUND_KEY_ORDER = ['Round of 64', 'Round of 32', 'Round of 16', 'Quarter-Final', 'Semi-Final', 'Final'];
+const ROUND_KEY_ORDER = ['Round of 128', 'Round of 64', 'Round of 32', 'Round of 16', 'Quarter-Final', 'Semi-Final', 'Final'];
+
+// ── Round rewards data (points & prize money) ──
+type RoundRewardMap = Record<string, { pts: number; prize: number }>;
+
+const GRAND_SLAM_REWARDS: RoundRewardMap = {
+  'Final': { pts: 2000, prize: 4800000 },
+  'Semi-Final': { pts: 1300, prize: 2400000 },
+  'Quarter-Final': { pts: 800, prize: 1200000 },
+  'Round of 16': { pts: 400, prize: 600000 },
+  'Round of 32': { pts: 200, prize: 375000 },
+  'Round of 64': { pts: 100, prize: 230000 },
+  'Round of 128': { pts: 10, prize: 127000 },
+};
+
+const MASTERS_1000_REWARDS: RoundRewardMap = {
+  'Final': { pts: 1000, prize: 1100000 },
+  'Semi-Final': { pts: 600, prize: 550000 },
+  'Quarter-Final': { pts: 360, prize: 275000 },
+  'Round of 16': { pts: 190, prize: 137000 },
+  'Round of 32': { pts: 100, prize: 70000 },
+};
+
+const ATP_500_REWARDS: RoundRewardMap = {
+  'Final': { pts: 500, prize: 400000 },
+  'Semi-Final': { pts: 300, prize: 200000 },
+  'Quarter-Final': { pts: 180, prize: 100000 },
+  'Round of 16': { pts: 90, prize: 50000 },
+};
+
+function getRewardsForCategory(category: string): RoundRewardMap {
+  const cat = category.toLowerCase();
+  if (cat.includes('grand slam')) return GRAND_SLAM_REWARDS;
+  if (cat.includes('1000') || cat.includes('masters')) return MASTERS_1000_REWARDS;
+  if (cat.includes('500')) return ATP_500_REWARDS;
+  return {};
+}
+
+function formatPrize(amount: number): string {
+  if (amount >= 1000000) {
+    const m = amount / 1000000;
+    return `$${m % 1 === 0 ? m.toFixed(0) : m.toFixed(1)}M`;
+  }
+  if (amount >= 1000) {
+    return `$${Math.round(amount / 1000)}K`;
+  }
+  return `$${amount}`;
+}
 const ROUND_ABBREVS: Record<string, string> = {
-  'Round of 64': 'R64', 'Round of 32': 'R32', 'Round of 16': 'R16',
+  'Round of 128': 'R128', 'Round of 64': 'R64', 'Round of 32': 'R32', 'Round of 16': 'R16',
   'Quarter-Final': 'QF', 'Semi-Final': 'SF', Final: 'F',
 };
 
@@ -171,7 +218,8 @@ function VerticalLine({ x, y, height }: { x: number; y: number; height: number }
 }
 
 // ── Build full bracket tree ──
-function NCAAbracket({ draw, onPlayerPress }: { draw: DrawData; onPlayerPress: (id: number) => void }) {
+function NCAAbracket({ draw, onPlayerPress, category }: { draw: DrawData; onPlayerPress: (id: number) => void; category?: string }) {
+  const rewards = category ? getRewardsForCategory(category) : {};
   // Build round map
   const roundMap: Record<string, DrawMatch[]> = {};
   draw.rounds.forEach(r => { roundMap[r.round] = r.matches; });
@@ -224,7 +272,7 @@ function NCAAbracket({ draw, onPlayerPress }: { draw: DrawData; onPlayerPress: (
 
   const colWidth = CELL_W + COL_GAP;
   const championHeight = 90;
-  const headerHeight = 30;
+  const headerHeight = 44;
 
   // Total height based on the earliest (most matches) round
   const baseHeight = maxMatchesPerHalf * cellFullH;
@@ -247,10 +295,18 @@ function NCAAbracket({ draw, onPlayerPress }: { draw: DrawData; onPlayerPress: (
     const colX = 20 + colIdx * colWidth;
 
     // Round label
+    const leftReward = rewards[rd.round];
     leftElements.push(
-      <Text key={`lh-${rd.round}`} style={[bk.roundLabel, { position: 'absolute', left: colX, top: championHeight, width: CELL_W }]}>
-        {ROUND_ABBREVS[rd.round] || rd.round}
-      </Text>
+      <View key={`lh-${rd.round}`} style={{ position: 'absolute', left: colX, top: championHeight, width: CELL_W, alignItems: 'center' }}>
+        <Text style={bk.roundLabel}>
+          {ROUND_ABBREVS[rd.round] || rd.round}
+        </Text>
+        {leftReward && (
+          <Text style={bk.rewardLabel}>
+            {leftReward.pts} pts · {formatPrize(leftReward.prize)}
+          </Text>
+        )}
+      </View>
     );
 
     rd.matches.forEach((match, mi) => {
@@ -297,10 +353,18 @@ function NCAAbracket({ draw, onPlayerPress }: { draw: DrawData; onPlayerPress: (
     // Right side is mirrored: earliest round at far right
     const colX = totalWidth - 20 - CELL_W - colIdx * colWidth;
 
+    const rightReward = rewards[rd.round];
     rightElements.push(
-      <Text key={`rh-${rd.round}`} style={[bk.roundLabel, { position: 'absolute', left: colX, top: championHeight, width: CELL_W }]}>
-        {ROUND_ABBREVS[rd.round] || rd.round}
-      </Text>
+      <View key={`rh-${rd.round}`} style={{ position: 'absolute', left: colX, top: championHeight, width: CELL_W, alignItems: 'center' }}>
+        <Text style={bk.roundLabel}>
+          {ROUND_ABBREVS[rd.round] || rd.round}
+        </Text>
+        {rightReward && (
+          <Text style={bk.rewardLabel}>
+            {rightReward.pts} pts · {formatPrize(rightReward.prize)}
+          </Text>
+        )}
+      </View>
     );
 
     rd.matches.forEach((match, mi) => {
@@ -345,10 +409,16 @@ function NCAAbracket({ draw, onPlayerPress }: { draw: DrawData; onPlayerPress: (
     const finalColX = numLeftCols * colWidth + 20;
     const finalY = getMatchY(preRounds.length > 0 ? preRounds.length - 1 : 0, 0, 1);
 
+    const finalReward = rewards['Final'];
     finalElements.push(
-      <Text key="fh" style={[bk.roundLabel, { position: 'absolute', left: finalColX, top: championHeight, width: CELL_W }]}>
-        FINAL
-      </Text>
+      <View key="fh" style={{ position: 'absolute', left: finalColX, top: championHeight, width: CELL_W, alignItems: 'center' }}>
+        <Text style={bk.roundLabel}>FINAL</Text>
+        {finalReward && (
+          <Text style={bk.rewardLabel}>
+            {finalReward.pts} pts · {formatPrize(finalReward.prize)}
+          </Text>
+        )}
+      </View>
     );
     finalElements.push(
       <View key="final-match" style={{ position: 'absolute', left: finalColX, top: finalY, width: CELL_W }}>
@@ -611,7 +681,7 @@ export default function TournamentDetailScreen() {
             {error || !draw ? (
               <EmptyState message={`No bracket data for ${selectedYear}`} />
             ) : (
-              <NCAAbracket draw={draw} onPlayerPress={handlePlayerPress} />
+              <NCAAbracket draw={draw} onPlayerPress={handlePlayerPress} category={tournament?.category} />
             )}
           </>
         ) : (
@@ -808,6 +878,12 @@ const bk = StyleSheet.create({
     color: '#6b7280',
     fontWeight: '600',
     textAlign: 'center',
+  },
+  rewardLabel: {
+    fontSize: 10,
+    color: '#666666',
+    textAlign: 'center',
+    marginTop: 1,
   },
   champion: {
     alignItems: 'center',
