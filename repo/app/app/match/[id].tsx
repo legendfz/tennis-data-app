@@ -16,6 +16,7 @@ import { getAvatarUrl } from '../../lib/avatars';
 import { useLanguage } from '../../lib/i18n';
 import { SkeletonBlock } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
+import { TournamentLogo } from '../../lib/tournament-logo';
 import type { MatchWithPlayers, ProbabilitySnapshot } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -265,11 +266,14 @@ export default function MatchDetailScreen() {
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
         {/* Match Header */}
         <View style={styles.matchHeader}>
-          <Text style={styles.tournamentLabel}>
-            {match.tournament?.name?.toUpperCase() || 'MATCH'}
-            {match.round ? ` \u2022 ${match.round}` : ''}
-            {match.tournament?.surface ? ` \u2022 ${match.tournament.surface}` : ''}
-          </Text>
+          <View style={styles.tournamentLabelRow}>
+            {match.tournament && <TournamentLogo tournament={match.tournament} size="md" />}
+            <Text style={styles.tournamentLabel}>
+              {match.tournament?.name?.toUpperCase() || 'MATCH'}
+              {match.round ? ` \u2022 ${match.round}` : ''}
+              {match.tournament?.surface ? ` \u2022 ${match.tournament.surface}` : ''}
+            </Text>
+          </View>
 
           <View style={styles.versusRow}>
             {/* Player 1 */}
@@ -355,11 +359,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     alignItems: 'center',
   },
+  tournamentLabelRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginBottom: 16,
+  },
   tournamentLabel: {
     fontSize: 12,
     fontWeight: '500',
     color: '#888',
-    marginBottom: 16,
+    flexShrink: 1,
   },
   versusRow: {
     flexDirection: 'row',

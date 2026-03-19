@@ -12,6 +12,7 @@ import { useRouter } from 'expo-router';
 import api from '../../lib/api';
 import { SkeletonList } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
+import { TournamentLogo } from '../../lib/tournament-logo';
 import type { Tournament } from '../../../shared/types';
 
 function getSurfaceColor(surface: string): string {
@@ -74,7 +75,7 @@ export default function TournamentsScreen() {
             activeOpacity={0.7}
           >
             <View style={styles.rowLeft}>
-              <View style={[styles.surfaceDot, { backgroundColor: getSurfaceColor(item.surface) }]} />
+              <TournamentLogo tournament={item} size="md" />
               <View style={styles.rowInfo}>
                 <Text style={styles.name} numberOfLines={1}>{item.name}</Text>
                 <Text style={styles.meta}>{item.location} · {item.surface}</Text>
@@ -113,12 +114,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
+    gap: 12,
   },
   surfaceDot: {
     width: 8,
     height: 8,
     borderRadius: 4,
-    marginRight: 12,
+    marginRight: 8,
   },
   rowInfo: {
     flex: 1,

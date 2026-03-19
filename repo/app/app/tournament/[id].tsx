@@ -14,6 +14,7 @@ import api from '../../lib/api';
 import { getAvatarUrl } from '../../lib/avatars';
 import { SkeletonList } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
+import { TournamentLogo } from '../../lib/tournament-logo';
 import type { Player, MatchWithPlayers } from '../../../shared/types';
 
 const MATCH_AVATAR_SIZE = 36;
@@ -217,7 +218,10 @@ export default function TournamentDetailScreen() {
       >
         {/* Header */}
         <View style={styles.headerSection}>
-          <Text style={styles.tournamentTitle}>{tournamentName}</Text>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 4 }}>
+            {tournament && <TournamentLogo tournament={tournament as any} size="lg" />}
+            <Text style={[styles.tournamentTitle, { marginBottom: 0 }]}>{tournamentName}</Text>
+          </View>
           {tournament && (
             <>
               <View style={styles.metaRow}>

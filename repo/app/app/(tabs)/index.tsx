@@ -15,6 +15,7 @@ import api from '../../lib/api';
 import { getAvatarUrl } from '../../lib/avatars';
 import { useLanguage } from '../../lib/i18n';
 import { SkeletonList } from '../../lib/skeleton';
+import { TournamentLogo } from '../../lib/tournament-logo';
 import type { Player, MatchWithPlayers } from '../../../shared/types';
 
 function LiveDot() {
@@ -263,10 +264,15 @@ export default function HomeScreen() {
           {/* Matches by Tournament */}
           {matchesByTournament.map((group, idx) => (
             <View key={idx}>
-              <Text style={styles.sectionHeader}>
-                {group.tournament?.name?.toUpperCase() || 'OTHER'}
-                {group.tournament?.surface ? ` \u2022 ${group.tournament.surface}` : ''}
-              </Text>
+              <View style={styles.sectionHeaderRow}>
+                {group.tournament && (
+                  <TournamentLogo tournament={group.tournament} size="sm" />
+                )}
+                <Text style={styles.sectionHeader}>
+                  {group.tournament?.name?.toUpperCase() || 'OTHER'}
+                  {group.tournament?.surface ? ` \u2022 ${group.tournament.surface}` : ''}
+                </Text>
+              </View>
               {group.matches.map(renderMatchRow)}
             </View>
           ))}
@@ -320,15 +326,21 @@ const styles = StyleSheet.create({
   },
 
   // Section Headers
+  sectionHeaderRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingTop: 16,
+    paddingBottom: 8,
+    gap: 8,
+  },
   sectionHeader: {
     fontSize: 13,
     fontWeight: '600',
     color: '#888',
-    paddingHorizontal: 16,
-    paddingTop: 16,
-    paddingBottom: 8,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
+    flexShrink: 1,
   },
   sectionHeaderLive: {
     fontSize: 13,

@@ -118,6 +118,10 @@ export interface Tournament {
   endDate: string;
   year: number;
   drawSize: number;
+  logoUrl?: string | null;
+  abbreviation?: string;
+  color?: string;
+  textColor?: string;
 }
 
 export interface Match {

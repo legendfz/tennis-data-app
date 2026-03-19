@@ -33,6 +33,7 @@ import {
   formatCount,
   type PlayerComments,
 } from '../../lib/comments';
+import { TournamentLogo } from '../../lib/tournament-logo';
 import type { PlayerDetail, MatchWithPlayers, SetStats, TitleEntry, GrandSlamEntry, SeasonMatchEntry, DecidingSetMatchEntry, WinRateByYear } from '../../../shared/types';
 
 if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
@@ -180,7 +181,8 @@ function GrandSlamsPanel({ data }: { data: GrandSlamEntry[] }) {
       {data.map((gs, i) => (
         <MatchRow key={i} result="W">
           <Text style={styles.detailYear}>{gs.year}</Text>
-          <Text style={styles.detailTournament} numberOfLines={1}>{gs.tournament}</Text>
+          <TournamentLogo tournamentName={gs.tournament} size="sm" />
+          <Text style={[styles.detailTournament, { marginLeft: 6 }]} numberOfLines={1}>{gs.tournament}</Text>
           <View style={{ flex: 1, alignItems: 'flex-end' }}>
             <Text style={styles.detailOpponent}>vs {gs.opponent}</Text>
             <Text style={styles.detailScore}>{gs.score}</Text>
@@ -207,7 +209,8 @@ function TitlesPanel({ data }: { data: TitleEntry[] }) {
           <Text style={styles.detailYearHeader}>{year} ({grouped[year].length})</Text>
           {grouped[year].map((t, i) => (
             <MatchRow key={i} result="W">
-              <View style={{ flex: 1 }}>
+              <TournamentLogo tournamentName={t.tournament} size="sm" />
+              <View style={{ flex: 1, marginLeft: 6 }}>
                 <Text style={styles.detailTournament}>{t.tournament}</Text>
                 <Text style={styles.detailSurface}>{t.surface}</Text>
               </View>
@@ -248,7 +251,8 @@ function SeasonMatchesPanel({ data }: { data: SeasonMatchEntry[] }) {
       {data.map((m, i) => (
         <MatchRow key={i} result={m.result}>
           <Text style={styles.detailDate}>{m.date.slice(5)}</Text>
-          <View style={{ flex: 1, marginLeft: 8 }}>
+          <TournamentLogo tournamentName={m.tournament} size="sm" />
+          <View style={{ flex: 1, marginLeft: 6 }}>
             <Text style={styles.detailTournament} numberOfLines={1}>{m.tournament}</Text>
             <Text style={styles.detailOpponent}>vs {m.opponent}</Text>
           </View>
