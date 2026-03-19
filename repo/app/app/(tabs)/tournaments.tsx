@@ -82,7 +82,14 @@ export default function TournamentsScreen() {
               </View>
             </View>
             <View style={styles.rowRight}>
-              <Text style={styles.category}>{item.category}</Text>
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+                <Text style={styles.category}>{item.category}</Text>
+                {(item as any).points && (
+                  <View style={styles.pointsBadge}>
+                    <Text style={styles.pointsBadgeText}>{(item as any).points} pts</Text>
+                  </View>
+                )}
+              </View>
               <Text style={styles.dates}>{item.startDate} — {item.endDate}</Text>
             </View>
           </TouchableOpacity>
@@ -153,5 +160,16 @@ const styles = StyleSheet.create({
     height: 0.5,
     backgroundColor: '#2a2a2a',
     marginLeft: 36,
+  },
+  pointsBadge: {
+    backgroundColor: '#16a34a',
+    borderRadius: 4,
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+  },
+  pointsBadgeText: {
+    color: '#fff',
+    fontSize: 10,
+    fontWeight: '700',
   },
 });

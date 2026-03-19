@@ -311,6 +311,11 @@ export default function HomeScreen() {
                   {group.tournament?.name?.toUpperCase() || 'OTHER'}
                   {group.tournament?.surface ? ` \u2022 ${group.tournament.surface}` : ''}
                 </Text>
+                {group.tournament?.points && (
+                  <View style={styles.pointsPill}>
+                    <Text style={styles.pointsPillText}>{group.tournament.points} pts</Text>
+                  </View>
+                )}
               </TouchableOpacity>
               {group.matches.map(renderMatchRow)}
             </View>
@@ -546,5 +551,18 @@ const styles = StyleSheet.create({
   emptyText: {
     color: '#666',
     fontSize: 14,
+  },
+
+  // Points pill
+  pointsPill: {
+    backgroundColor: '#16a34a',
+    borderRadius: 4,
+    paddingHorizontal: 5,
+    paddingVertical: 1,
+  },
+  pointsPillText: {
+    color: '#fff',
+    fontSize: 9,
+    fontWeight: '700',
   },
 });

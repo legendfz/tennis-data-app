@@ -132,6 +132,7 @@ export interface Tournament {
   abbreviation?: string;
   color?: string;
   textColor?: string;
+  points?: number;
 }
 
 export interface Match {

@@ -12,6 +12,7 @@ import { useLocalSearchParams, Stack, useRouter } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
 import api from '../../lib/api';
 import { getPlayerAvatarUrl } from '../../lib/avatars';
+import { PlayerAvatar } from '../../lib/player-avatar';
 import { Flag } from '../../lib/flags';
 import { SkeletonList } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
@@ -81,6 +82,346 @@ function getRoundSortKey(round: string): number {
   return idx >= 0 ? idx : 99;
 }
 
+// ── NCAA-style bracket constants ──
+const CELL_W = 160;
+const CELL_H = 65;
+const CELL_GAP = 8;
+const COL_GAP = 24;
+const CONNECTOR_COLOR = '#2a2a2a';
+const BRACKET_AVATAR = 28;
+
+const ROUND_KEY_ORDER = ['Round of 64', 'Round of 32', 'Round of 16', 'Quarter-Final', 'Semi-Final', 'Final'];
+const ROUND_ABBREVS: Record<string, string> = {
+  'Round of 64': 'R64', 'Round of 32': 'R32', 'Round of 16': 'R16',
+  'Quarter-Final': 'QF', 'Semi-Final': 'SF', Final: 'F',
+};
+
+function abbreviateName(name: string): string {
+  const parts = name.trim().split(/\s+/);
+  if (parts.length < 2) return name;
+  return parts[0][0] + '. ' + parts.slice(1).join(' ');
+}
+
+// ── Bracket Cell ──
+function BracketCell({
+  match,
+  onPlayerPress,
+}: {
+  match: DrawMatch;
+  onPlayerPress?: (id: number) => void;
+}) {
+  const p1Win = match.winnerId === match.player1Id;
+  const p2Win = match.winnerId === match.player2Id;
+
+  const renderPlayer = (player: Player | undefined, seed: number | null, isWinner: boolean, playerId: number) => (
+    <TouchableOpacity
+      style={bk.playerRow}
+      activeOpacity={0.7}
+      onPress={() => player && onPlayerPress?.(playerId)}
+      disabled={!player}
+    >
+      {player ? (
+        <PlayerAvatar name={player.name} photoUrl={player.photoUrl} size={BRACKET_AVATAR} />
+      ) : (
+        <View style={[bk.emptyAvatar, { width: BRACKET_AVATAR, height: BRACKET_AVATAR, borderRadius: BRACKET_AVATAR / 2 }]} />
+      )}
+      {seed ? <Text style={bk.seed}>[{seed}]</Text> : null}
+      <Text
+        style={[bk.playerName, isWinner ? bk.winnerText : bk.loserText]}
+        numberOfLines={1}
+      >
+        {player ? abbreviateName(player.name) : 'TBD'}
+      </Text>
+    </TouchableOpacity>
+  );
+
+  return (
+    <View style={bk.cell}>
+      {renderPlayer(match.player1, match.seed1, p1Win, match.player1Id)}
+      <View style={bk.scoreRow}>
+        <Text style={bk.scoreText}>{match.score}</Text>
+      </View>
+      {renderPlayer(match.player2, match.seed2, p2Win, match.player2Id)}
+    </View>
+  );
+}
+
+// ── Champion Card (bracket top) ──
+function BracketChampion({ match, onPlayerPress }: { match: DrawMatch; onPlayerPress?: (id: number) => void }) {
+  const champion = match.winnerId === match.player1Id ? match.player1 : match.player2;
+  const championId = match.winnerId === match.player1Id ? match.player1Id : match.player2Id;
+  if (!champion) return null;
+  return (
+    <TouchableOpacity style={bk.champion} activeOpacity={0.7} onPress={() => onPlayerPress?.(championId)}>
+      <Text style={bk.championLabel}>🏆 CHAMPION</Text>
+      <PlayerAvatar name={champion.name} photoUrl={champion.photoUrl} size={56} />
+      <Text style={bk.championName}>{champion.name}</Text>
+      <Text style={bk.championScore}>{match.score}</Text>
+    </TouchableOpacity>
+  );
+}
+
+// ── Connector lines ──
+function HorizontalLine({ x, y, width }: { x: number; y: number; width: number }) {
+  return <View style={{ position: 'absolute', left: x, top: y, width, height: 1, backgroundColor: CONNECTOR_COLOR }} />;
+}
+
+function VerticalLine({ x, y, height }: { x: number; y: number; height: number }) {
+  return <View style={{ position: 'absolute', left: x, top: y, width: 1, height, backgroundColor: CONNECTOR_COLOR }} />;
+}
+
+// ── Build full bracket tree ──
+function NCAAbracket({ draw, onPlayerPress }: { draw: DrawData; onPlayerPress: (id: number) => void }) {
+  // Build round map
+  const roundMap: Record<string, DrawMatch[]> = {};
+  draw.rounds.forEach(r => { roundMap[r.round] = r.matches; });
+
+  // Determine available rounds in order
+  const availableRounds = ROUND_KEY_ORDER.filter(r => roundMap[r] && roundMap[r].length > 0);
+  if (availableRounds.length === 0) return <EmptyState message="No bracket data" />;
+
+  const finalIdx = availableRounds.indexOf('Final');
+  const hasFinal = finalIdx >= 0;
+
+  // For a convergent bracket we need at least 2 rounds before Final, or just show linear
+  // Split: rounds before final go left/right
+  const preRounds = availableRounds.filter(r => r !== 'Final');
+
+  // If only 1 pre-round + final (e.g. SF + F), show simple linear
+  // For full bracket: left half gets top-half matches, right half gets bottom-half matches
+
+  const finalMatch = hasFinal ? roundMap['Final'][0] : null;
+
+  // Calculate column positions
+  const leftRounds = preRounds; // These will appear on both sides
+  const numLeftCols = leftRounds.length;
+  const totalCols = numLeftCols * 2 + (hasFinal ? 1 : 0); // left cols + right cols (mirrored) + final
+
+  // For each round, figure out how many matches per half
+  // In a standard bracket, each round has half the matches of the previous
+  // We split: first half → left, second half → right
+  type HalfData = { round: string; matches: DrawMatch[] }[];
+
+  const leftHalf: HalfData = [];
+  const rightHalf: HalfData = [];
+
+  preRounds.forEach(roundName => {
+    const matches = roundMap[roundName];
+    const half = Math.ceil(matches.length / 2);
+    leftHalf.push({ round: roundName, matches: matches.slice(0, half) });
+    rightHalf.push({ round: roundName, matches: matches.slice(half) });
+  });
+
+  // Calculate layout dimensions
+  // Max matches in earliest round determines height
+  const maxMatchesPerHalf = leftHalf.length > 0 ? leftHalf[0].matches.length : 1;
+  const cellFullH = CELL_H + CELL_GAP;
+
+  // For each round, the vertical spacing doubles
+  // Earliest round: matches stacked tight
+  // Next round: each match centered between 2 previous matches
+  // etc.
+
+  const colWidth = CELL_W + COL_GAP;
+  const championHeight = 90;
+  const headerHeight = 30;
+
+  // Total height based on the earliest (most matches) round
+  const baseHeight = maxMatchesPerHalf * cellFullH;
+  const totalHeight = Math.max(baseHeight, 400) + championHeight + headerHeight + 40;
+  const totalWidth = totalCols * colWidth + 40;
+
+  // Helper: get Y position for a match in a given round index
+  // Round 0 = earliest (most matches), each subsequent round spaces out 2x
+  function getMatchY(roundIdx: number, matchIdx: number, matchesInRound: number): number {
+    const spacing = cellFullH * Math.pow(2, roundIdx);
+    const startOffset = (spacing - cellFullH) / 2;
+    return championHeight + headerHeight + startOffset + matchIdx * spacing;
+  }
+
+  // Render left half (left to right: earliest → latest)
+  const leftElements: JSX.Element[] = [];
+  const leftConnectors: JSX.Element[] = [];
+
+  leftHalf.forEach((rd, colIdx) => {
+    const colX = 20 + colIdx * colWidth;
+
+    // Round label
+    leftElements.push(
+      <Text key={`lh-${rd.round}`} style={[bk.roundLabel, { position: 'absolute', left: colX, top: championHeight, width: CELL_W }]}>
+        {ROUND_ABBREVS[rd.round] || rd.round}
+      </Text>
+    );
+
+    rd.matches.forEach((match, mi) => {
+      const y = getMatchY(colIdx, mi, rd.matches.length);
+      leftElements.push(
+        <View key={`l-${rd.round}-${mi}`} style={{ position: 'absolute', left: colX, top: y, width: CELL_W }}>
+          <BracketCell match={match} onPlayerPress={onPlayerPress} />
+        </View>
+      );
+
+      // Connector to next round
+      if (colIdx < leftHalf.length - 1) {
+        const nextColX = colX + colWidth;
+        const nextMatchIdx = Math.floor(mi / 2);
+        const nextY = getMatchY(colIdx + 1, nextMatchIdx, leftHalf[colIdx + 1].matches.length);
+        const midY = y + CELL_H / 2;
+        const nextMidY = nextY + CELL_H / 2;
+
+        // Horizontal from cell to connector point
+        leftConnectors.push(
+          <HorizontalLine key={`lc-h-${rd.round}-${mi}`} x={colX + CELL_W} y={midY} width={COL_GAP / 2} />
+        );
+        // Vertical connecting pair
+        if (mi % 2 === 0) {
+          const pairY = getMatchY(colIdx, mi + 1, rd.matches.length) + CELL_H / 2;
+          const connX = colX + CELL_W + COL_GAP / 2;
+          leftConnectors.push(
+            <VerticalLine key={`lc-v-${rd.round}-${mi}`} x={connX} y={midY} height={pairY - midY} />
+          );
+          // Horizontal from vertical to next cell
+          leftConnectors.push(
+            <HorizontalLine key={`lc-h2-${rd.round}-${mi}`} x={connX} y={nextMidY} width={COL_GAP / 2} />
+          );
+        }
+      }
+    });
+  });
+
+  // Right half (right to left: earliest → latest, but positioned from right)
+  const rightElements: JSX.Element[] = [];
+  const rightConnectors: JSX.Element[] = [];
+
+  rightHalf.forEach((rd, colIdx) => {
+    // Right side is mirrored: earliest round at far right
+    const colX = totalWidth - 20 - CELL_W - colIdx * colWidth;
+
+    rightElements.push(
+      <Text key={`rh-${rd.round}`} style={[bk.roundLabel, { position: 'absolute', left: colX, top: championHeight, width: CELL_W }]}>
+        {ROUND_ABBREVS[rd.round] || rd.round}
+      </Text>
+    );
+
+    rd.matches.forEach((match, mi) => {
+      const y = getMatchY(colIdx, mi, rd.matches.length);
+      rightElements.push(
+        <View key={`r-${rd.round}-${mi}`} style={{ position: 'absolute', left: colX, top: y, width: CELL_W }}>
+          <BracketCell match={match} onPlayerPress={onPlayerPress} />
+        </View>
+      );
+
+      // Connector to next round (going left)
+      if (colIdx < rightHalf.length - 1) {
+        const nextColX = totalWidth - 20 - CELL_W - (colIdx + 1) * colWidth;
+        const nextMatchIdx = Math.floor(mi / 2);
+        const nextY = getMatchY(colIdx + 1, nextMatchIdx, rightHalf[colIdx + 1].matches.length);
+        const midY = y + CELL_H / 2;
+        const nextMidY = nextY + CELL_H / 2;
+
+        // Horizontal from cell left edge to connector point
+        rightConnectors.push(
+          <HorizontalLine key={`rc-h-${rd.round}-${mi}`} x={colX - COL_GAP / 2} y={midY} width={COL_GAP / 2} />
+        );
+        // Vertical connecting pair
+        if (mi % 2 === 0) {
+          const pairY = getMatchY(colIdx, mi + 1, rd.matches.length) + CELL_H / 2;
+          const connX = colX - COL_GAP / 2;
+          rightConnectors.push(
+            <VerticalLine key={`rc-v-${rd.round}-${mi}`} x={connX} y={midY} height={pairY - midY} />
+          );
+          // Horizontal from vertical to next cell
+          rightConnectors.push(
+            <HorizontalLine key={`rc-h2-${rd.round}-${mi}`} x={nextColX + CELL_W} y={nextMidY} width={connX - (nextColX + CELL_W)} />
+          );
+        }
+      }
+    });
+  });
+
+  // Final in center
+  const finalElements: JSX.Element[] = [];
+  if (finalMatch) {
+    const finalColX = numLeftCols * colWidth + 20;
+    const finalY = getMatchY(preRounds.length > 0 ? preRounds.length - 1 : 0, 0, 1);
+
+    finalElements.push(
+      <Text key="fh" style={[bk.roundLabel, { position: 'absolute', left: finalColX, top: championHeight, width: CELL_W }]}>
+        FINAL
+      </Text>
+    );
+    finalElements.push(
+      <View key="final-match" style={{ position: 'absolute', left: finalColX, top: finalY, width: CELL_W }}>
+        <BracketCell match={finalMatch} onPlayerPress={onPlayerPress} />
+      </View>
+    );
+
+    // Connectors from last left/right rounds to final
+    if (leftHalf.length > 0) {
+      const lastLeftCol = leftHalf.length - 1;
+      const lastLeftX = 20 + lastLeftCol * colWidth;
+      const lastLeftY = getMatchY(lastLeftCol, 0, leftHalf[lastLeftCol].matches.length) + CELL_H / 2;
+      const finalMidY = finalY + CELL_H / 2;
+
+      finalElements.push(
+        <HorizontalLine key="fc-l-h" x={lastLeftX + CELL_W} y={lastLeftY} width={COL_GAP / 2} />
+      );
+      const connX = lastLeftX + CELL_W + COL_GAP / 2;
+      if (Math.abs(lastLeftY - finalMidY) > 1) {
+        finalElements.push(
+          <VerticalLine key="fc-l-v" x={connX} y={Math.min(lastLeftY, finalMidY)} height={Math.abs(finalMidY - lastLeftY)} />
+        );
+      }
+      finalElements.push(
+        <HorizontalLine key="fc-l-h2" x={connX} y={finalMidY} width={finalColX - connX} />
+      );
+    }
+
+    if (rightHalf.length > 0) {
+      const lastRightCol = rightHalf.length - 1;
+      const lastRightX = totalWidth - 20 - CELL_W - lastRightCol * colWidth;
+      const lastRightY = getMatchY(lastRightCol, 0, rightHalf[lastRightCol].matches.length) + CELL_H / 2;
+      const finalMidY = finalY + CELL_H / 2;
+
+      finalElements.push(
+        <HorizontalLine key="fc-r-h" x={lastRightX - COL_GAP / 2} y={lastRightY} width={COL_GAP / 2} />
+      );
+      const connX = lastRightX - COL_GAP / 2;
+      if (Math.abs(lastRightY - finalMidY) > 1) {
+        finalElements.push(
+          <VerticalLine key="fc-r-v" x={connX} y={Math.min(lastRightY, finalMidY)} height={Math.abs(finalMidY - lastRightY)} />
+        );
+      }
+      finalElements.push(
+        <HorizontalLine key="fc-r-h2" x={finalColX + CELL_W} y={finalMidY} width={connX - (finalColX + CELL_W)} />
+      );
+    }
+  }
+
+  return (
+    <ScrollView horizontal showsHorizontalScrollIndicator={true} style={{ flex: 1 }}>
+      <ScrollView showsVerticalScrollIndicator={true} contentContainerStyle={{ minHeight: totalHeight + 40 }}>
+        <View style={{ width: totalWidth, minHeight: totalHeight, position: 'relative' }}>
+          {/* Champion at top center */}
+          {finalMatch && (
+            <View style={{ position: 'absolute', left: totalWidth / 2 - 100, top: 0, width: 200 }}>
+              <BracketChampion match={finalMatch} onPlayerPress={onPlayerPress} />
+            </View>
+          )}
+
+          {leftConnectors}
+          {leftElements}
+          {rightConnectors}
+          {rightElements}
+          {finalElements}
+        </View>
+      </ScrollView>
+    </ScrollView>
+  );
+}
+
+// ── Legacy components kept for Results tab ──
+
 function PlayerSlot({ player, seed, isWinner, onPress }: { player?: Player; seed: number | null; isWinner: boolean; onPress?: () => void }) {
   if (!player) {
     return (
@@ -106,38 +447,6 @@ function PlayerSlot({ player, seed, isWinner, onPress }: { player?: Player; seed
         {seed ? <Text style={styles.slotSeed}>[{seed}]</Text> : null}
       </View>
       {isWinner && <Text style={styles.winCheck}>✓</Text>}
-    </TouchableOpacity>
-  );
-}
-
-function BracketMatch({ match, isFinal, onPlayerPress }: { match: DrawMatch; isFinal: boolean; onPlayerPress?: (playerId: number) => void }) {
-  return (
-    <View style={[styles.bracketMatch, isFinal && styles.finalMatch]}>
-      {isFinal && (
-        <View style={styles.finalBanner}><Text style={styles.finalBannerText}>FINAL</Text></View>
-      )}
-      <PlayerSlot player={match.player1} seed={match.seed1} isWinner={match.winnerId === match.player1Id} onPress={() => match.player1 && onPlayerPress?.(match.player1Id)} />
-      <View style={styles.scoreDivider}>
-        <Text style={styles.scoreText}>{match.score}</Text>
-      </View>
-      <PlayerSlot player={match.player2} seed={match.seed2} isWinner={match.winnerId === match.player2Id} onPress={() => match.player2 && onPlayerPress?.(match.player2Id)} />
-    </View>
-  );
-}
-
-function ChampionCard({ match, onPlayerPress }: { match: DrawMatch; onPlayerPress?: (playerId: number) => void }) {
-  const champion = match.winnerId === match.player1Id ? match.player1 : match.player2;
-  const championId = match.winnerId === match.player1Id ? match.player1Id : match.player2Id;
-  if (!champion) return null;
-  return (
-    <TouchableOpacity style={styles.championCard} activeOpacity={0.7} onPress={() => onPlayerPress?.(championId)}>
-      <Text style={styles.championLabel}>CHAMPION</Text>
-      <Image source={{ uri: getPlayerAvatarUrl(champion.name, champion.photoUrl, 120) }} style={styles.championAvatar} />
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, justifyContent: 'center' }}>
-        <Text style={styles.championName}>{champion.name}</Text>
-        <Flag country={champion.country} countryFlag={champion.countryFlag} size={16} />
-      </View>
-      <Text style={styles.championScore}>{match.score}</Text>
     </TouchableOpacity>
   );
 }
@@ -253,6 +562,11 @@ export default function TournamentDetailScreen() {
                   <View style={[styles.surfaceDotSmall, { backgroundColor: getSurfaceColor(tournament.surface) }]} />
                   <Text style={styles.surfaceBadgeText}>{tournament.surface}</Text>
                 </View>
+                {(tournament as any).points && (
+                  <View style={styles.pointsBadge}>
+                    <Text style={styles.pointsBadgeText}>{(tournament as any).points} pts</Text>
+                  </View>
+                )}
               </View>
               <Text style={styles.locationText}>{tournament.location}</Text>
               <Text style={styles.dateText}>{tournament.startDate} — {tournament.endDate}</Text>
@@ -297,20 +611,7 @@ export default function TournamentDetailScreen() {
             {error || !draw ? (
               <EmptyState message={`No bracket data for ${selectedYear}`} />
             ) : (
-              <>
-                {finalRound && finalRound.matches.length > 0 && <ChampionCard match={finalRound.matches[0]} onPlayerPress={handlePlayerPress} />}
-                {sortedRounds.map((round) => (
-                  <View key={round.round} style={styles.roundSection}>
-                    <View style={styles.roundHeader}>
-                      <Text style={styles.roundTitle}>{round.round}</Text>
-                      <Text style={styles.roundAbbrev}>{getRoundAbbrev(round.round)}</Text>
-                    </View>
-                    {round.matches.map((match, idx) => (
-                      <BracketMatch key={idx} match={match} isFinal={round.round === 'Final'} onPlayerPress={handlePlayerPress} />
-                    ))}
-                  </View>
-                ))}
-              </>
+              <NCAAbracket draw={draw} onPlayerPress={handlePlayerPress} />
             )}
           </>
         ) : (
@@ -441,4 +742,91 @@ const styles = StyleSheet.create({
   resultName: { fontSize: 13, color: '#ffffff', flex: 1 },
   resultScore: { textAlign: 'center', color: '#ffffff', fontSize: 12, fontWeight: '700', backgroundColor: '#2a2a2a', borderRadius: 6, paddingVertical: 3, paddingHorizontal: 8, alignSelf: 'center', marginVertical: 4 },
   resultDate: { textAlign: 'right', color: '#6b7280', fontSize: 11, marginTop: 4 },
+
+  // Points badge
+  pointsBadge: {
+    backgroundColor: '#16a34a',
+    borderRadius: 6,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+  },
+  pointsBadgeText: {
+    color: '#fff',
+    fontSize: 11,
+    fontWeight: '700',
+  },
+});
+
+// ── NCAA Bracket Styles ──
+const bk = StyleSheet.create({
+  cell: {
+    width: CELL_W,
+    backgroundColor: '#1e1e1e',
+    borderRadius: 6,
+    overflow: 'hidden',
+  },
+  playerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 6,
+    paddingVertical: 4,
+    gap: 4,
+    height: 26,
+  },
+  emptyAvatar: {
+    backgroundColor: '#2a2a2a',
+  },
+  seed: {
+    fontSize: 9,
+    color: '#9ca3af',
+    fontWeight: '600',
+  },
+  playerName: {
+    fontSize: 11,
+    flex: 1,
+  },
+  winnerText: {
+    color: '#ffffff',
+    fontWeight: '700',
+  },
+  loserText: {
+    color: '#666666',
+    fontWeight: '400',
+  },
+  scoreRow: {
+    backgroundColor: '#2a2a2a',
+    paddingVertical: 2,
+    alignItems: 'center',
+  },
+  scoreText: {
+    color: '#ffffff',
+    fontSize: 10,
+    fontWeight: '600',
+  },
+  roundLabel: {
+    fontSize: 11,
+    color: '#6b7280',
+    fontWeight: '600',
+    textAlign: 'center',
+  },
+  champion: {
+    alignItems: 'center',
+    padding: 8,
+    gap: 4,
+  },
+  championLabel: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: '#f59e0b',
+    letterSpacing: 2,
+  },
+  championName: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#ffffff',
+  },
+  championScore: {
+    fontSize: 11,
+    color: '#6b7280',
+  },
 });
