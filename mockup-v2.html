@@ -5,10 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TennisHQ v2 - Young & Modern</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: #0a0a0a; color: #fff; font-family: 'Inter', -apple-system, sans-serif; display: flex; gap: 32px; padding: 32px; flex-wrap: wrap; justify-content: center; }
+body { background: #0a0a0a; color: #fff; font-family: 'DM Sans', -apple-system, sans-serif; display: flex; gap: 32px; padding: 32px; flex-wrap: wrap; justify-content: center; }
 .phone { width: 390px; height: 844px; background: #0d0d0d; border-radius: 44px; overflow: hidden; border: 2px solid #222; position: relative; }
+.phone::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.03; pointer-events: none; z-index: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='800'%3E%3Crect fill='none' stroke='%23ffffff' stroke-width='0.5' x='20' y='40' width='360' height='720' rx='0'/%3E%3Cline x1='200' y1='40' x2='200' y2='760' stroke='%23ffffff' stroke-width='0.3'/%3E%3Cline x1='20' y1='400' x2='380' y2='400' stroke='%23ffffff' stroke-width='0.5'/%3E%3Cellipse cx='200' cy='400' rx='60' ry='60' fill='none' stroke='%23ffffff' stroke-width='0.5'/%3E%3Cline x1='20' y1='220' x2='380' y2='220' stroke='%23ffffff' stroke-width='0.3'/%3E%3Cline x1='20' y1='580' x2='380' y2='580' stroke='%23ffffff' stroke-width='0.3'/%3E%3Crect fill='none' stroke='%23ffffff' stroke-width='0.3' x='120' y='40' width='160' height='720' rx='0'/%3E%3Crect fill='none' stroke='%23ffffff' stroke-width='0.3' x='150' y='370' width='100' height='60' rx='0'/%3E%3C/svg%3E"); background-size: cover; background-position: center; }
+.phone > * { position: relative; z-index: 1; }
 .phone-label { text-align: center; color: #666; font-size: 13px; margin-bottom: 8px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
 .status-bar { height: 50px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #666; }
 .content { height: 710px; overflow-y: auto; scrollbar-width: none; }
@@ -31,7 +33,7 @@ body { background: #0a0a0a; color: #fff; font-family: 'Inter', -apple-system, sa
 .gradient-bar { background: linear-gradient(90deg, #1a7a3a, #4a9a8a); border-radius: 4px; }
 
 /* ===== HOME PAGE ===== */
-.page-title { font-size: 32px; font-weight: 900; padding: 8px 16px 4px; letter-spacing: -0.5px; }
+.page-title { font-size: 32px; font-weight: 700; padding: 8px 16px 4px; letter-spacing: -0.5px; font-family: 'Space Grotesk', sans-serif; }
 .page-subtitle { font-size: 13px; color: #555; padding: 0 16px 12px; font-weight: 500; }
 .date-pills { display: flex; gap: 8px; padding: 8px 16px 16px; overflow-x: auto; scrollbar-width: none; }
 .date-pills::-webkit-scrollbar { display: none; }
@@ -82,9 +84,11 @@ body { background: #0a0a0a; color: #fff; font-family: 'Inter', -apple-system, sa
 .rank-down { color: #b71c1c; }
 
 /* ===== PLAYER DETAIL ===== */
-.player-hero { padding: 20px 16px 24px; text-align: center; background: linear-gradient(180deg, #141020 0%, #0d1520 40%, #0d0d0d 100%); }
+.player-hero { padding: 20px 16px 24px; text-align: center; background: linear-gradient(180deg, #141020 0%, #0d1520 40%, #0d0d0d 100%); position: relative; overflow: hidden; }
+.player-hero::before { content: ''; position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.03); }
+.player-hero::after { content: ''; position: absolute; top: -10px; right: -10px; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, rgba(200,220,80,0.04) 0%, transparent 60%); }
 .hero-avatar { width: 110px; height: 110px; border-radius: 28px; background: linear-gradient(135deg, #181822, #222233); margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; font-size: 36px; font-weight: 900; color: #888; border: 3px solid rgba(255,255,255,0.1); box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
-.hero-name { font-size: 28px; font-weight: 900; letter-spacing: -0.5px; }
+.hero-name { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; font-family: 'Space Grotesk', sans-serif; }
 .hero-sub { font-size: 13px; color: #555; margin-top: 4px; font-weight: 500; }
 .hero-tag { font-size: 11px; padding: 4px 12px; border-radius: 10px; display: inline-block; margin-top: 10px; font-weight: 600; }
 .hero-tag.hot { color: #c9a84c; background: rgba(201,168,76,0.12); }
@@ -98,7 +102,7 @@ body { background: #0a0a0a; color: #fff; font-family: 'Inter', -apple-system, sa
 .stats-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; padding: 16px; }
 .stat-cell { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 16px 12px; text-align: center; transition: all 0.2s; position: relative; }
 .stat-cell:hover { background: rgba(255,255,255,0.06); transform: translateY(-2px); }
-.stat-num { font-size: 26px; font-weight: 900; letter-spacing: -0.5px; }
+.stat-num { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; font-family: 'Space Grotesk', sans-serif; }
 .stat-label { font-size: 10px; color: #555; margin-top: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
 .stat-arrow { position: absolute; bottom: 8px; right: 10px; font-size: 10px; color: #333; }
 
@@ -110,7 +114,9 @@ body { background: #0a0a0a; color: #fff; font-family: 'Inter', -apple-system, sa
 .surface-val { width: 36px; font-size: 13px; font-weight: 700; text-align: right; }
 
 /* ===== MATCH DETAIL ===== */
-.match-hero { padding: 20px 16px; text-align: center; background: linear-gradient(180deg, #0d1520 0%, #0d0d0d 100%); }
+.match-hero { padding: 20px 16px; text-align: center; background: linear-gradient(180deg, #0d1520 0%, #0d0d0d 100%); position: relative; overflow: hidden; }
+.match-hero::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 200px; height: 200px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.02); }
+.match-hero::after { content: ''; position: absolute; top: -20px; left: -40px; width: 100px; height: 100px; border-radius: 50%; background: radial-gradient(circle, rgba(200,220,80,0.03) 0%, transparent 60%); }
 .match-tournament { font-size: 12px; color: #1a7a3a; margin-bottom: 16px; font-weight: 600; letter-spacing: 0.5px; }
 .versus { display: flex; align-items: center; justify-content: center; gap: 20px; }
 .vs-player { text-align: center; }
@@ -119,7 +125,7 @@ body { background: #0a0a0a; color: #fff; font-family: 'Inter', -apple-system, sa
 .vs-name.winner { color: #fff; }
 .vs-name.loser { color: #555; }
 .vs-rank { font-size: 11px; color: #444; margin-top: 2px; }
-.big-score { font-size: 36px; font-weight: 900; letter-spacing: 3px; }
+.big-score { font-size: 36px; font-weight: 700; letter-spacing: 3px; font-family: 'Space Grotesk', sans-serif; }
 .match-status { font-size: 11px; color: #555; margin-top: 4px; font-weight: 500; }
 
 /* Compare Stats */
