@@ -17,8 +17,8 @@ body { background: #0a0a0a; color: #fff; font-family: 'Inter', -apple-system, sa
 /* Tab Bar - Glassmorphism */
 .tab-bar { height: 84px; background: rgba(20,20,20,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-top: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: space-around; padding-bottom: 20px; }
 .tab-item { text-align: center; font-size: 11px; color: #555; font-weight: 600; padding: 8px 0; min-width: 60px; transition: all 0.2s; }
-.tab-item.active { color: #16a34a; }
-.tab-item .dot { width: 4px; height: 4px; border-radius: 50%; background: #16a34a; margin: 4px auto 0; display: none; }
+.tab-item.active { color: #1a7a3a; }
+.tab-item .dot { width: 4px; height: 4px; border-radius: 50%; background: #1a7a3a; margin: 4px auto 0; display: none; }
 .tab-item.active .dot { display: block; }
 
 /* ===== GLASSMORPHISM CARDS ===== */
@@ -26,9 +26,9 @@ body { background: #0a0a0a; color: #fff; font-family: 'Inter', -apple-system, sa
 .glass-card-sm { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 14px; }
 
 /* ===== GRADIENTS ===== */
-.gradient-header { background: linear-gradient(135deg, #1a0a2e 0%, #0d1b2a 50%, #0d0d0d 100%); padding: 24px 16px; }
-.gradient-accent { background: linear-gradient(135deg, #16a34a, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.gradient-bar { background: linear-gradient(90deg, #16a34a, #06b6d4); border-radius: 4px; }
+.gradient-header { background: linear-gradient(135deg, #141020 0%, #0d1520 50%, #0d0d0d 100%); padding: 24px 16px; }
+.gradient-accent { background: linear-gradient(135deg, #1a7a3a, #4a9a8a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.gradient-bar { background: linear-gradient(90deg, #1a7a3a, #4a9a8a); border-radius: 4px; }
 
 /* ===== HOME PAGE ===== */
 .page-title { font-size: 32px; font-weight: 900; padding: 8px 16px 4px; letter-spacing: -0.5px; }
@@ -36,28 +36,28 @@ body { background: #0a0a0a; color: #fff; font-family: 'Inter', -apple-system, sa
 .date-pills { display: flex; gap: 8px; padding: 8px 16px 16px; overflow-x: auto; scrollbar-width: none; }
 .date-pills::-webkit-scrollbar { display: none; }
 .date-pill { padding: 10px 20px; border-radius: 24px; background: rgba(255,255,255,0.04); color: #888; font-size: 13px; font-weight: 600; white-space: nowrap; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.06); transition: all 0.2s; }
-.date-pill.active { background: linear-gradient(135deg, #16a34a, #0d9488); color: #fff; border-color: transparent; box-shadow: 0 4px 15px rgba(22,163,74,0.25); }
+.date-pill.active { background: linear-gradient(135deg, #1a7a3a, #0a7a6a); color: #ddd; border-color: transparent; box-shadow: 0 4px 12px rgba(22,120,60,0.15); }
 .section-header { padding: 20px 16px 10px; font-size: 12px; color: #555; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; }
-.section-header.live { color: #e53935; }
+.section-header.live { color: #b71c1c; }
 
 /* Match Rows */
 .match-card { margin: 4px 16px; border-radius: 16px; padding: 14px 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.04); transition: all 0.2s; }
 .match-card:hover { background: rgba(255,255,255,0.06); }
-.match-card.live { background: rgba(229,57,53,0.06); border-color: rgba(229,57,53,0.15); border-left: 3px solid #e53935; }
+.match-card.live { background: rgba(183,28,28,0.06); border-color: rgba(183,28,28,0.15); border-left: 3px solid #b71c1c; }
 .match-inner { display: flex; align-items: center; }
 .m-player { flex: 1; display: flex; align-items: center; gap: 10px; }
 .m-player.right { justify-content: flex-end; }
-.m-avatar { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, #1a1a2e, #2a2a4e); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #888; flex-shrink: 0; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); }
+.m-avatar { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, #181822, #222233); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #888; flex-shrink: 0; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); }
 .m-name { font-size: 14px; font-weight: 600; }
 .m-name.winner { color: #fff; }
 .m-name.loser { color: #555; }
 .m-flag { font-size: 13px; }
 .m-score { width: 80px; text-align: center; flex-shrink: 0; }
 .m-score .sets { font-size: 16px; font-weight: 800; letter-spacing: 1px; }
-.m-score .sets.live { background: linear-gradient(135deg, #16a34a, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.m-score .sets.live { background: linear-gradient(135deg, #1a7a3a, #4a9a8a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .m-score .status { font-size: 10px; color: #555; margin-top: 3px; font-weight: 600; }
-.m-score .status.live { color: #e53935; }
-.live-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #e53935; margin-right: 4px; animation: pulse 1.5s infinite; box-shadow: 0 0 8px rgba(229,57,53,0.5); }
+.m-score .status.live { color: #b71c1c; }
+.live-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #b71c1c; margin-right: 4px; animation: pulse 1.5s infinite; box-shadow: 0 0 8px rgba(183,28,28,0.5); }
 @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
 .match-meta { font-size: 10px; color: #444; margin-top: 8px; padding-left: 50px; }
 
@@ -65,29 +65,29 @@ body { background: #0a0a0a; color: #fff; font-family: 'Inter', -apple-system, sa
 .tournament-header { display: flex; align-items: center; gap: 10px; padding: 16px 16px 8px; }
 .t-logo { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; color: #fff; flex-shrink: 0; }
 .t-name { font-size: 12px; font-weight: 700; color: #888; letter-spacing: 0.5px; }
-.t-pts { font-size: 10px; color: #16a34a; background: rgba(22,163,74,0.1); padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+.t-pts { font-size: 10px; color: #1a7a3a; background: rgba(26,122,58,0.1); padding: 2px 8px; border-radius: 8px; font-weight: 600; }
 
 /* ===== PLAYER LIST ===== */
 .search-box { margin: 8px 16px 16px; padding: 12px 18px; background: rgba(255,255,255,0.04); border-radius: 14px; border: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 10px; color: #444; font-size: 14px; }
 .player-card { display: flex; align-items: center; padding: 12px 16px; gap: 14px; margin: 2px 16px; border-radius: 14px; transition: all 0.2s; }
 .player-card:hover { background: rgba(255,255,255,0.04); }
 .p-rank { width: 32px; font-size: 16px; color: #555; text-align: center; font-weight: 800; }
-.p-avatar { width: 52px; height: 52px; border-radius: 16px; background: linear-gradient(135deg, #1a1a2e, #2a2a4e); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800; color: #888; flex-shrink: 0; border: 2px solid rgba(255,255,255,0.08); }
+.p-avatar { width: 52px; height: 52px; border-radius: 16px; background: linear-gradient(135deg, #181822, #222233); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800; color: #888; flex-shrink: 0; border: 2px solid rgba(255,255,255,0.08); }
 .p-info { flex: 1; }
 .p-name { font-size: 16px; font-weight: 700; }
 .p-sub { font-size: 11px; color: #555; margin-top: 3px; font-weight: 500; }
-.p-tag { font-size: 10px; color: #f59e0b; background: rgba(245,158,11,0.1); padding: 2px 8px; border-radius: 8px; display: inline-block; margin-top: 4px; font-weight: 600; }
+.p-tag { font-size: 10px; color: #c9a84c; background: rgba(201,168,76,0.1); padding: 2px 8px; border-radius: 8px; display: inline-block; margin-top: 4px; font-weight: 600; }
 .rank-change { font-size: 12px; font-weight: 700; }
-.rank-up { color: #16a34a; }
-.rank-down { color: #e53935; }
+.rank-up { color: #1a7a3a; }
+.rank-down { color: #b71c1c; }
 
 /* ===== PLAYER DETAIL ===== */
-.player-hero { padding: 20px 16px 24px; text-align: center; background: linear-gradient(180deg, #1a0a2e 0%, #0d1b2a 40%, #0d0d0d 100%); }
-.hero-avatar { width: 110px; height: 110px; border-radius: 28px; background: linear-gradient(135deg, #1a1a2e, #2a2a4e); margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; font-size: 36px; font-weight: 900; color: #888; border: 3px solid rgba(255,255,255,0.1); box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+.player-hero { padding: 20px 16px 24px; text-align: center; background: linear-gradient(180deg, #141020 0%, #0d1520 40%, #0d0d0d 100%); }
+.hero-avatar { width: 110px; height: 110px; border-radius: 28px; background: linear-gradient(135deg, #181822, #222233); margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; font-size: 36px; font-weight: 900; color: #888; border: 3px solid rgba(255,255,255,0.1); box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
 .hero-name { font-size: 28px; font-weight: 900; letter-spacing: -0.5px; }
 .hero-sub { font-size: 13px; color: #555; margin-top: 4px; font-weight: 500; }
 .hero-tag { font-size: 11px; padding: 4px 12px; border-radius: 10px; display: inline-block; margin-top: 10px; font-weight: 600; }
-.hero-tag.hot { color: #f59e0b; background: rgba(245,158,11,0.12); }
+.hero-tag.hot { color: #c9a84c; background: rgba(201,168,76,0.12); }
 
 /* Detail Tabs */
 .detail-tabs { display: flex; padding: 0 16px; gap: 4px; margin-top: 4px; }
@@ -110,11 +110,11 @@ body { background: #0a0a0a; color: #fff; font-family: 'Inter', -apple-system, sa
 .surface-val { width: 36px; font-size: 13px; font-weight: 700; text-align: right; }
 
 /* ===== MATCH DETAIL ===== */
-.match-hero { padding: 20px 16px; text-align: center; background: linear-gradient(180deg, #0d1b2a 0%, #0d0d0d 100%); }
-.match-tournament { font-size: 12px; color: #16a34a; margin-bottom: 16px; font-weight: 600; letter-spacing: 0.5px; }
+.match-hero { padding: 20px 16px; text-align: center; background: linear-gradient(180deg, #0d1520 0%, #0d0d0d 100%); }
+.match-tournament { font-size: 12px; color: #1a7a3a; margin-bottom: 16px; font-weight: 600; letter-spacing: 0.5px; }
 .versus { display: flex; align-items: center; justify-content: center; gap: 20px; }
 .vs-player { text-align: center; }
-.vs-avatar { width: 72px; height: 72px; border-radius: 20px; background: linear-gradient(135deg, #1a1a2e, #2a2a4e); margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 900; color: #888; border: 2px solid rgba(255,255,255,0.08); }
+.vs-avatar { width: 72px; height: 72px; border-radius: 20px; background: linear-gradient(135deg, #181822, #222233); margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 900; color: #888; border: 2px solid rgba(255,255,255,0.08); }
 .vs-name { font-size: 15px; font-weight: 700; }
 .vs-name.winner { color: #fff; }
 .vs-name.loser { color: #555; }
@@ -142,8 +142,8 @@ body { background: #0a0a0a; color: #fff; font-family: 'Inter', -apple-system, sa
 .prob-fill { height: 100%; border-radius: 5px; }
 .prob-factors { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
 .prob-chip { font-size: 10px; padding: 3px 10px; border-radius: 8px; font-weight: 600; }
-.prob-chip.pos { color: #16a34a; background: rgba(22,163,74,0.1); }
-.prob-chip.neg { color: #e53935; background: rgba(229,57,53,0.1); }
+.prob-chip.pos { color: #1a7a3a; background: rgba(26,122,58,0.1); }
+.prob-chip.neg { color: #b71c1c; background: rgba(183,28,28,0.1); }
 
 /* Game Timeline */
 .timeline-set { margin: 12px 16px; }
@@ -152,9 +152,9 @@ body { background: #0a0a0a; color: #fff; font-family: 'Inter', -apple-system, sa
 .timeline-games::-webkit-scrollbar { display: none; }
 .game-block { width: 48px; min-width: 48px; height: 56px; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; border: 1px solid rgba(255,255,255,0.06); transition: all 0.2s; }
 .game-block.normal { background: rgba(255,255,255,0.03); }
-.game-block.contested { background: rgba(245,158,11,0.08); border-color: rgba(245,158,11,0.15); }
-.game-block.battle { background: rgba(229,57,53,0.08); border-color: rgba(229,57,53,0.15); }
-.game-block.break { border-color: #e53935; }
+.game-block.contested { background: rgba(201,168,76,0.08); border-color: rgba(201,168,76,0.15); }
+.game-block.battle { background: rgba(183,28,28,0.08); border-color: rgba(183,28,28,0.15); }
+.game-block.break { border-color: #b71c1c; }
 .game-dur { font-size: 8px; color: #444; margin-top: 2px; font-weight: 500; }
 </style>
 </head>
@@ -295,7 +295,7 @@ body { background: #0a0a0a; color: #fff; font-family: 'Inter', -apple-system, sa
       <div class="p-info">
         <div class="p-name">Novak Djokovic 🇷🇸</div>
         <div class="p-sub">9,945 pts · 38-8 season</div>
-        <div class="p-tag" style="color:#06b6d4; background:rgba(6,182,212,0.1);">🐐 GOAT (5.8k)</div>
+        <div class="p-tag" style="color:#4a9a8a; background:rgba(74,154,138,0.1);">🐐 GOAT (5.8k)</div>
       </div>
       <div class="rank-change rank-down">▼1</div>
     </div>
@@ -315,7 +315,7 @@ body { background: #0a0a0a; color: #fff; font-family: 'Inter', -apple-system, sa
       <div class="p-info">
         <div class="p-name">Alexander Zverev 🇩🇪</div>
         <div class="p-sub">7,915 pts · 35-12 season</div>
-        <div class="p-tag" style="color:#e53935; background:rgba(229,57,53,0.1);">😤 Choker (890)</div>
+        <div class="p-tag" style="color:#b71c1c; background:rgba(183,28,28,0.1);">😤 Choker (890)</div>
       </div>
       <div class="rank-change rank-up">▲2</div>
     </div>
@@ -325,7 +325,7 @@ body { background: #0a0a0a; color: #fff; font-family: 'Inter', -apple-system, sa
       <div class="p-info">
         <div class="p-name">Daniil Medvedev 🇷🇺</div>
         <div class="p-sub">6,875 pts · 30-14 season</div>
-        <div class="p-tag" style="color:#a78bfa; background:rgba(167,139,250,0.1);">🧠 Tactician (1.2k)</div>
+        <div class="p-tag" style="color:#8a7ab5; background:rgba(138,122,181,0.1);">🧠 Tactician (1.2k)</div>
       </div>
       <div class="rank-change rank-down">▼1</div>
     </div>
@@ -368,7 +368,7 @@ body { background: #0a0a0a; color: #fff; font-family: 'Inter', -apple-system, sa
         <div class="stat-arrow">›</div>
       </div>
       <div class="stat-cell">
-        <div class="stat-num" style="color: #f59e0b;">24</div>
+        <div class="stat-num" style="color: #c9a84c;">24</div>
         <div class="stat-label">Grand Slams</div>
         <div class="stat-arrow">›</div>
       </div>
@@ -388,7 +388,7 @@ body { background: #0a0a0a; color: #fff; font-family: 'Inter', -apple-system, sa
         <div class="stat-arrow">›</div>
       </div>
       <div class="stat-cell">
-        <div class="stat-num" style="color: #f59e0b;">$182M</div>
+        <div class="stat-num" style="color: #c9a84c;">$182M</div>
         <div class="stat-label">Prize Money</div>
         <div class="stat-arrow">›</div>
       </div>
@@ -416,7 +416,7 @@ body { background: #0a0a0a; color: #fff; font-family: 'Inter', -apple-system, sa
       <div style="display:flex; align-items:center; gap:12px; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.04);">
         <span style="font-size:18px;">🎽</span>
         <span style="flex:1; font-size:13px; font-weight:500;">Lacoste</span>
-        <span style="font-size:10px; color:#3b82f6; font-weight:600;">View brand →</span>
+        <span style="font-size:10px; color:#5a7ab5; font-weight:600;">View brand →</span>
       </div>
       <div style="display:flex; align-items:center; gap:12px; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.04);">
         <span style="font-size:18px;">🎾</span>
@@ -506,8 +506,8 @@ body { background: #0a0a0a; color: #fff; font-family: 'Inter', -apple-system, sa
       <div class="compare-val left worse">2</div>
       <div class="compare-bars"><div class="compare-bar-l" style="flex:2; background:rgba(255,255,255,0.15); border-radius:3px;"></div><div class="compare-bar-r" style="flex:5;"></div></div>
       <div class="compare-center">Dbl Faults</div>
-      <div class="compare-bars"><div class="compare-bar-r" style="flex:2;"></div><div class="compare-bar-l" style="flex:5; background:#e53935; opacity:0.3; border-radius:3px;"></div></div>
-      <div class="compare-val right better" style="color:#e53935;">5</div>
+      <div class="compare-bars"><div class="compare-bar-r" style="flex:2;"></div><div class="compare-bar-l" style="flex:5; background:#b71c1c; opacity:0.3; border-radius:3px;"></div></div>
+      <div class="compare-val right better" style="color:#b71c1c;">5</div>
     </div>
 
     <!-- Probability -->
