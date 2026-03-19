@@ -74,8 +74,73 @@ function StatBarComparison({ label, value1, value2 }: { label: string; value1: s
   );
 }
 
+// ─── Game-by-Game Timeline ───────────────────────────────────────────
+function GameByGameTimeline({ gameByGame, p1Short, p2Short }: { gameByGame: SetGameByGame[]; p1Short: string; p2Short: string }) {
+  return (
+    <View style={styles.card}>
+      <Text style={styles.cardTitle}>Game-by-Game</Text>
+      {/* Player legend */}
+      <View style={styles.gbgLegend}>
+        <View style={styles.gbgLegendItem}>
+          <View style={[styles.gbgServerDot, styles.gbgServerDotTop]} />
+          <Text style={styles.gbgLegendText}>{p1Short} serves</Text>
+        </View>
+        <View style={styles.gbgLegendItem}>
+          <View style={[styles.gbgServerDot, styles.gbgServerDotBottom]} />
+          <Text style={styles.gbgLegendText}>{p2Short} serves</Text>
+        </View>
+        <View style={styles.gbgLegendItem}>
+          <View style={[styles.gbgBreakIndicator]} />
+          <Text style={styles.gbgLegendText}>Break</Text>
+        </View>
+      </View>
+      {gameByGame.map((setData) => {
+        const lastGame = setData.games[setData.games.length - 1];
+        const setScore = setData.tiebreak ? setData.tiebreak.score : lastGame?.score || '0-0';
+        return (
+          <View key={setData.set} style={styles.gbgSetContainer}>
+            <Text style={styles.gbgSetTitle}>SET {setData.set}: {setScore}</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.gbgScroll} contentContainerStyle={styles.gbgScrollContent}>
+              {setData.games.map((game, idx) => (
+                <View key={idx} style={styles.gbgGameWrapper}>
+                  {/* Server indicator dot */}
+                  <View style={[styles.gbgServerDot, game.server === 1 ? styles.gbgServerDotTop : styles.gbgServerDotBottom]} />
+                  {/* Score block */}
+                  <View style={[styles.gbgGameBlock, game.isBreak && styles.gbgGameBlockBreak]}>
+                    <Text style={[styles.gbgGameScore, game.isBreak && styles.gbgGameScoreBreak]}>
+                      {game.score}
+                    </Text>
+                  </View>
+                  {game.isBreak && <Text style={styles.gbgBreakStar}>★</Text>}
+                  {/* Arrow connector */}
+                  {idx < setData.games.length - 1 && (
+                    <Text style={styles.gbgArrow}>›</Text>
+                  )}
+                </View>
+              ))}
+              {/* Tiebreak block */}
+              {setData.tiebreak && (
+                <View style={styles.gbgGameWrapper}>
+                  <View style={[styles.gbgGameBlock, styles.gbgTiebreakBlock]}>
+                    <Text style={styles.gbgTiebreakLabel}>TB</Text>
+                    <Text style={styles.gbgGameScore}>{setData.tiebreak.score}</Text>
+                  </View>
+                </View>
+              )}
+            </ScrollView>
+            {/* Tiebreak points detail */}
+            {setData.tiebreak && (
+              <Text style={styles.gbgTiebreakPoints}>{setData.tiebreak.points}</Text>
+            )}
+          </View>
+        );
+      })}
+    </View>
+  );
+}
+
 // ─── Overview Tab ────────────────────────────────────────────────────
-function OverviewTab({ match }: { match: MatchWithPlayers }) {
+function OverviewTab({ match, p1Short, p2Short }: { match: MatchWithPlayers; p1Short: string; p2Short: string }) {
   const sets = parseScore(match.score);
   return (
     <>
@@ -90,6 +155,9 @@ function OverviewTab({ match }: { match: MatchWithPlayers }) {
           ))}
         </View>
       </View>
+      {match.gameByGame && match.gameByGame.length > 0 && (
+        <GameByGameTimeline gameByGame={match.gameByGame} p1Short={p1Short} p2Short={p2Short} />
+      )}
       <View style={styles.card}>
         <Text style={styles.cardTitle}>Details</Text>
         <InfoRow label="Date" value={match.date} />
@@ -364,7 +432,7 @@ export default function MatchDetailScreen() {
 
         {/* Tab Content */}
         <View style={styles.tabContent}>
-          {activeTab === 'overview' && <OverviewTab match={match} />}
+          {activeTab === 'overview' && <OverviewTab match={match} p1Short={p1Short} p2Short={p2Short} />}
           {activeTab === 'stats' && <StatsTabContent match={match} />}
           {activeTab === 'probability' && (
             <ProbabilityTab
@@ -587,4 +655,115 @@ const styles = StyleSheet.create({
   chipText: { fontSize: 11, fontWeight: '600' },
   chipTextPos: { color: '#4caf50' },
   chipTextNeg: { color: '#ef4444' },
+
+  // Game-by-Game Timeline
+  gbgLegend: {
+    flexDirection: 'row',
+    gap: 12,
+    marginBottom: 12,
+    flexWrap: 'wrap',
+  },
+  gbgLegendItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+  },
+  gbgLegendText: {
+    fontSize: 10,
+    color: theme.textSecondary,
+  },
+  gbgBreakIndicator: {
+    width: 10,
+    height: 10,
+    borderRadius: 2,
+    borderWidth: 1.5,
+    borderColor: '#e53935',
+    backgroundColor: 'transparent',
+  },
+  gbgSetContainer: {
+    marginBottom: 14,
+  },
+  gbgSetTitle: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: theme.textSecondary,
+    marginBottom: 8,
+    letterSpacing: 0.5,
+  },
+  gbgScroll: {
+    flexGrow: 0,
+  },
+  gbgScrollContent: {
+    alignItems: 'center',
+    paddingRight: 8,
+    gap: 2,
+  },
+  gbgGameWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  gbgServerDot: {
+    width: 5,
+    height: 5,
+    borderRadius: 3,
+    backgroundColor: theme.accent,
+    marginRight: 2,
+  },
+  gbgServerDotTop: {
+    marginBottom: 12,
+  },
+  gbgServerDotBottom: {
+    marginTop: 12,
+  },
+  gbgGameBlock: {
+    width: 44,
+    height: 36,
+    borderRadius: 6,
+    backgroundColor: '#1e1e1e',
+    borderWidth: 1,
+    borderColor: '#2a2a2a',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  gbgGameBlockBreak: {
+    borderColor: '#e53935',
+    borderWidth: 1.5,
+  },
+  gbgGameScore: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#fff',
+  },
+  gbgGameScoreBreak: {
+    color: '#e53935',
+  },
+  gbgBreakStar: {
+    fontSize: 10,
+    color: '#e53935',
+    marginLeft: -2,
+    marginRight: -2,
+  },
+  gbgArrow: {
+    fontSize: 14,
+    color: '#555',
+    marginHorizontal: 1,
+  },
+  gbgTiebreakBlock: {
+    width: 52,
+    height: 36,
+    backgroundColor: '#1a2a1a',
+    borderColor: theme.accent,
+  },
+  gbgTiebreakLabel: {
+    fontSize: 8,
+    fontWeight: '700',
+    color: theme.accent,
+    marginBottom: -2,
+  },
+  gbgTiebreakPoints: {
+    fontSize: 10,
+    color: theme.textSecondary,
+    marginTop: 4,
+    fontFamily: 'monospace',
+  },
 });
