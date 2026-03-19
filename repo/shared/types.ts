@@ -161,6 +161,8 @@ export interface GameByGameEntry {
   score: string;
   server: 1 | 2;
   isBreak: boolean;
+  points?: number;
+  durationMin?: number;
 }
 
 export interface SetTiebreak {

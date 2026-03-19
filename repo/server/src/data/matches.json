@@ -94,47 +94,65 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 2.6
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.1
           },
           {
             "score": "1-2",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 6.0
           },
           {
             "score": "1-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 4.3
           },
           {
             "score": "2-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 2.6
           },
           {
             "score": "2-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.8
           },
           {
             "score": "2-5",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 4,
+            "durationMin": 1.3
           },
           {
             "score": "2-6",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.9
           },
           {
             "score": "3-6",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.0
           }
         ],
         "tiebreak": null
@@ -145,47 +163,65 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 4.0
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.1
           },
           {
             "score": "1-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.9
           },
           {
             "score": "2-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 10,
+            "durationMin": 6.7
           },
           {
             "score": "2-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.1
           },
           {
             "score": "2-4",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 9,
+            "durationMin": 7.6
           },
           {
             "score": "2-5",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.2
           },
           {
             "score": "3-5",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.9
           },
           {
             "score": "3-6",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.9
           }
         ],
         "tiebreak": null
@@ -196,52 +232,72 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.9
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.7
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.1
           },
           {
             "score": "3-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 3.2
           },
           {
             "score": "4-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.3
           },
           {
             "score": "4-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.4
           },
           {
             "score": "4-3",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 5.1
           },
           {
             "score": "5-3",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 4.6
           },
           {
             "score": "6-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.8
           },
           {
             "score": "6-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.0
           }
         ],
         "tiebreak": null
@@ -252,52 +308,72 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.3
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.4
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 12,
+            "durationMin": 10.6
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.2
           },
           {
             "score": "3-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.3
           },
           {
             "score": "4-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.6
           },
           {
             "score": "5-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 3.2
           },
           {
             "score": "5-3",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 4.9
           },
           {
             "score": "5-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 4.9
           },
           {
             "score": "6-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.2
           }
         ],
         "tiebreak": null
@@ -308,47 +384,65 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 7.1
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.1
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.2
           },
           {
             "score": "2-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.7
           },
           {
             "score": "3-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.0
           },
           {
             "score": "4-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 12,
+            "durationMin": 10.0
           },
           {
             "score": "5-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.1
           },
           {
             "score": "5-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.9
           },
           {
             "score": "6-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.3
           }
         ],
         "tiebreak": null
@@ -450,47 +544,65 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.6
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 12,
+            "durationMin": 10.1
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 10,
+            "durationMin": 8.5
           },
           {
             "score": "2-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.1
           },
           {
             "score": "3-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.6
           },
           {
             "score": "4-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 4.1
           },
           {
             "score": "5-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.7
           },
           {
             "score": "5-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.9
           },
           {
             "score": "6-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 4.8
           }
         ],
         "tiebreak": null
@@ -501,52 +613,72 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 2.9
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 8.5
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 4.1
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 2.9
           },
           {
             "score": "3-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.6
           },
           {
             "score": "4-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.6
           },
           {
             "score": "5-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 4,
+            "durationMin": 1.5
           },
           {
             "score": "5-3",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 4,
+            "durationMin": 2.4
           },
           {
             "score": "5-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.5
           },
           {
             "score": "6-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.6
           }
         ],
         "tiebreak": null
@@ -557,32 +689,44 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.8
           },
           {
             "score": "2-0",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 5,
+            "durationMin": 3.7
           },
           {
             "score": "3-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.1
           },
           {
             "score": "4-0",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 4.4
           },
           {
             "score": "5-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.9
           },
           {
             "score": "6-0",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 4.7
           }
         ],
         "tiebreak": null
@@ -684,62 +828,86 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.0
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.3
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.3
           },
           {
             "score": "2-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 12,
+            "durationMin": 10.6
           },
           {
             "score": "3-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.8
           },
           {
             "score": "3-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.3
           },
           {
             "score": "3-4",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 4.0
           },
           {
             "score": "4-4",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 3.1
           },
           {
             "score": "5-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.9
           },
           {
             "score": "5-5",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.8
           },
           {
             "score": "6-5",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 4.2
           },
           {
             "score": "6-6",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.2
           }
         ],
         "tiebreak": {
@@ -753,47 +921,65 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.8
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 7.5
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 6.4
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 4.6
           },
           {
             "score": "3-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.6
           },
           {
             "score": "4-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.7
           },
           {
             "score": "5-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 6.0
           },
           {
             "score": "6-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 11,
+            "durationMin": 8.4
           },
           {
             "score": "6-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.3
           }
         ],
         "tiebreak": null
@@ -804,62 +990,86 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 4.7
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.6
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.2
           },
           {
             "score": "2-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.8
           },
           {
             "score": "3-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.7
           },
           {
             "score": "3-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 2.6
           },
           {
             "score": "3-4",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 12,
+            "durationMin": 11.3
           },
           {
             "score": "4-4",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 11,
+            "durationMin": 11.7
           },
           {
             "score": "5-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 4.5
           },
           {
             "score": "5-5",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.0
           },
           {
             "score": "6-5",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 2.6
           },
           {
             "score": "6-6",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 5.0
           }
         ],
         "tiebreak": {
@@ -873,52 +1083,72 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.5
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.6
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 11,
+            "durationMin": 12.0
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.3
           },
           {
             "score": "3-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.2
           },
           {
             "score": "4-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 10,
+            "durationMin": 7.5
           },
           {
             "score": "5-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 6.2
           },
           {
             "score": "5-3",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 5,
+            "durationMin": 4.0
           },
           {
             "score": "5-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.6
           },
           {
             "score": "6-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.9
           }
         ],
         "tiebreak": null
@@ -1020,47 +1250,65 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.3
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.2
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.8
           },
           {
             "score": "2-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 4.7
           },
           {
             "score": "3-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.0
           },
           {
             "score": "4-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 5.8
           },
           {
             "score": "5-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.8
           },
           {
             "score": "5-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.3
           },
           {
             "score": "6-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.5
           }
         ],
         "tiebreak": null
@@ -1071,47 +1319,65 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.9
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.4
           },
           {
             "score": "1-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.7
           },
           {
             "score": "2-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 12,
+            "durationMin": 12.0
           },
           {
             "score": "2-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.3
           },
           {
             "score": "2-4",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 4.8
           },
           {
             "score": "2-5",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.6
           },
           {
             "score": "3-5",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.9
           },
           {
             "score": "3-6",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.1
           }
         ],
         "tiebreak": null
@@ -1122,47 +1388,65 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 5.0
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.0
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 4.9
           },
           {
             "score": "2-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.8
           },
           {
             "score": "3-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.2
           },
           {
             "score": "4-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 5,
+            "durationMin": 3.9
           },
           {
             "score": "5-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.0
           },
           {
             "score": "5-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.6
           },
           {
             "score": "6-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.2
           }
         ],
         "tiebreak": null
@@ -1173,42 +1457,58 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.8
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 4.3
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 4.8
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.2
           },
           {
             "score": "4-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 4.8
           },
           {
             "score": "5-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.7
           },
           {
             "score": "5-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 2.5
           },
           {
             "score": "6-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.3
           }
         ],
         "tiebreak": null
@@ -1310,37 +1610,51 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 7.4
           },
           {
             "score": "2-0",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 9,
+            "durationMin": 7.5
           },
           {
             "score": "3-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.2
           },
           {
             "score": "3-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.7
           },
           {
             "score": "4-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.6
           },
           {
             "score": "5-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 9,
+            "durationMin": 6.2
           },
           {
             "score": "6-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.8
           }
         ],
         "tiebreak": null
@@ -1351,42 +1665,58 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.7
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.1
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 4.8
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.9
           },
           {
             "score": "4-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 9,
+            "durationMin": 8.6
           },
           {
             "score": "5-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.1
           },
           {
             "score": "5-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.8
           },
           {
             "score": "6-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.6
           }
         ],
         "tiebreak": null
@@ -1397,47 +1727,65 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 4.8
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.3
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.6
           },
           {
             "score": "2-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.5
           },
           {
             "score": "3-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.3
           },
           {
             "score": "4-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 4.7
           },
           {
             "score": "5-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.3
           },
           {
             "score": "5-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.7
           },
           {
             "score": "6-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 10,
+            "durationMin": 6.5
           }
         ],
         "tiebreak": null
@@ -1539,47 +1887,65 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.5
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 11,
+            "durationMin": 10.1
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 5.9
           },
           {
             "score": "2-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 10,
+            "durationMin": 6.1
           },
           {
             "score": "3-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 10,
+            "durationMin": 6.4
           },
           {
             "score": "4-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 5,
+            "durationMin": 3.6
           },
           {
             "score": "5-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.9
           },
           {
             "score": "5-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.8
           },
           {
             "score": "6-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.9
           }
         ],
         "tiebreak": null
@@ -1590,52 +1956,72 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.3
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.4
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 6.2
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.0
           },
           {
             "score": "3-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.7
           },
           {
             "score": "4-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.0
           },
           {
             "score": "5-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 4.6
           },
           {
             "score": "5-3",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 4.9
           },
           {
             "score": "5-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.5
           },
           {
             "score": "6-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.2
           }
         ],
         "tiebreak": null
@@ -1646,42 +2032,58 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.6
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 7.9
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 7.7
           },
           {
             "score": "3-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 3.9
           },
           {
             "score": "4-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.4
           },
           {
             "score": "5-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 5.7
           },
           {
             "score": "6-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.4
           },
           {
             "score": "6-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.0
           }
         ],
         "tiebreak": null
@@ -1783,37 +2185,51 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.8
           },
           {
             "score": "2-0",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 4.5
           },
           {
             "score": "3-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.8
           },
           {
             "score": "3-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.3
           },
           {
             "score": "4-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.3
           },
           {
             "score": "5-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 4.7
           },
           {
             "score": "6-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.6
           }
         ],
         "tiebreak": null
@@ -1824,47 +2240,65 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.7
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 4.2
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 5.9
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.2
           },
           {
             "score": "3-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.1
           },
           {
             "score": "4-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.0
           },
           {
             "score": "5-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 6.3
           },
           {
             "score": "6-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.6
           },
           {
             "score": "6-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.9
           }
         ],
         "tiebreak": null
@@ -1875,62 +2309,86 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 2.6
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.6
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.5
           },
           {
             "score": "2-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 7.0
           },
           {
             "score": "3-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.9
           },
           {
             "score": "3-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.8
           },
           {
             "score": "3-4",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 5.5
           },
           {
             "score": "4-4",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 9,
+            "durationMin": 7.4
           },
           {
             "score": "5-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.2
           },
           {
             "score": "5-5",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.1
           },
           {
             "score": "6-5",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.1
           },
           {
             "score": "6-6",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.6
           }
         ],
         "tiebreak": {
@@ -1944,52 +2402,72 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.2
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.4
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 3.3
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 2.8
           },
           {
             "score": "3-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.2
           },
           {
             "score": "4-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.2
           },
           {
             "score": "5-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 5.6
           },
           {
             "score": "5-3",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 4.6
           },
           {
             "score": "5-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.8
           },
           {
             "score": "6-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.2
           }
         ],
         "tiebreak": null
@@ -2358,47 +2836,65 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.3
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.5
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.4
           },
           {
             "score": "2-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.9
           },
           {
             "score": "3-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.4
           },
           {
             "score": "4-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 5.8
           },
           {
             "score": "5-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.0
           },
           {
             "score": "5-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 2.6
           },
           {
             "score": "6-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.2
           }
         ],
         "tiebreak": null
@@ -2409,42 +2905,58 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 2.9
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 2.8
           },
           {
             "score": "1-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 2.6
           },
           {
             "score": "1-3",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 5.7
           },
           {
             "score": "1-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.0
           },
           {
             "score": "1-5",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 5,
+            "durationMin": 3.7
           },
           {
             "score": "1-6",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.6
           },
           {
             "score": "2-6",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.3
           }
         ],
         "tiebreak": null
@@ -2455,62 +2967,86 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.1
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.5
           },
           {
             "score": "1-2",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 2.7
           },
           {
             "score": "1-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.8
           },
           {
             "score": "2-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 12,
+            "durationMin": 9.4
           },
           {
             "score": "2-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.3
           },
           {
             "score": "3-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.3
           },
           {
             "score": "4-4",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 10,
+            "durationMin": 6.2
           },
           {
             "score": "4-5",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 4,
+            "durationMin": 1.2
           },
           {
             "score": "4-6",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.0
           },
           {
             "score": "5-6",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.0
           },
           {
             "score": "5-7",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.3
           }
         ],
         "tiebreak": null
@@ -2521,37 +3057,51 @@
           {
             "score": "1-0",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 4.0
           },
           {
             "score": "2-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.3
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.9
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.0
           },
           {
             "score": "4-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 4.2
           },
           {
             "score": "5-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 10,
+            "durationMin": 6.9
           },
           {
             "score": "6-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 4.2
           }
         ],
         "tiebreak": null
@@ -2562,42 +3112,58 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.9
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.2
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.8
           },
           {
             "score": "3-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 5,
+            "durationMin": 5.0
           },
           {
             "score": "4-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.0
           },
           {
             "score": "5-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 5.1
           },
           {
             "score": "6-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.4
           },
           {
             "score": "6-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.5
           }
         ],
         "tiebreak": null
@@ -2699,42 +3265,58 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.4
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.6
           },
           {
             "score": "1-2",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 5.3
           },
           {
             "score": "1-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.9
           },
           {
             "score": "1-4",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 4.5
           },
           {
             "score": "1-5",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.7
           },
           {
             "score": "2-5",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.3
           },
           {
             "score": "2-6",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.6
           }
         ],
         "tiebreak": null
@@ -2745,47 +3327,65 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 4.3
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 4.7
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 5.8
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.6
           },
           {
             "score": "3-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 4.5
           },
           {
             "score": "4-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.5
           },
           {
             "score": "5-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 4.7
           },
           {
             "score": "6-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.8
           },
           {
             "score": "6-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.4
           }
         ],
         "tiebreak": null
@@ -2796,47 +3396,65 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.1
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.4
           },
           {
             "score": "1-2",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 5.9
           },
           {
             "score": "1-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.5
           },
           {
             "score": "2-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.3
           },
           {
             "score": "2-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.9
           },
           {
             "score": "2-5",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 5.4
           },
           {
             "score": "2-6",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.6
           },
           {
             "score": "3-6",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.0
           }
         ],
         "tiebreak": null
@@ -2847,52 +3465,72 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.8
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.8
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 2.8
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.4
           },
           {
             "score": "3-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.0
           },
           {
             "score": "4-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.3
           },
           {
             "score": "5-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 11,
+            "durationMin": 10.1
           },
           {
             "score": "5-3",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 2.8
           },
           {
             "score": "5-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.1
           },
           {
             "score": "6-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.5
           }
         ],
         "tiebreak": null
@@ -2903,47 +3541,65 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.2
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 10,
+            "durationMin": 7.4
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.4
           },
           {
             "score": "2-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.5
           },
           {
             "score": "3-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.7
           },
           {
             "score": "4-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 5.3
           },
           {
             "score": "5-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.6
           },
           {
             "score": "5-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 7.2
           },
           {
             "score": "6-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.2
           }
         ],
         "tiebreak": null
@@ -3045,42 +3701,58 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.9
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.2
           },
           {
             "score": "1-2",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 4.9
           },
           {
             "score": "1-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 12,
+            "durationMin": 8.5
           },
           {
             "score": "1-4",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 5.8
           },
           {
             "score": "1-5",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.7
           },
           {
             "score": "2-5",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.6
           },
           {
             "score": "2-6",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.7
           }
         ],
         "tiebreak": null
@@ -3091,42 +3763,58 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 12,
+            "durationMin": 9.2
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.0
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 6.8
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.0
           },
           {
             "score": "4-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 4.5
           },
           {
             "score": "5-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.7
           },
           {
             "score": "5-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.7
           },
           {
             "score": "6-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.2
           }
         ],
         "tiebreak": null
@@ -3137,52 +3825,72 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.3
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.4
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.8
           },
           {
             "score": "3-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 5.9
           },
           {
             "score": "4-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.8
           },
           {
             "score": "4-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.9
           },
           {
             "score": "4-3",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 6.7
           },
           {
             "score": "5-3",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 9,
+            "durationMin": 5.7
           },
           {
             "score": "6-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.3
           },
           {
             "score": "6-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.7
           }
         ],
         "tiebreak": null
@@ -3193,42 +3901,58 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.8
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.1
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 10,
+            "durationMin": 7.3
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 2.7
           },
           {
             "score": "4-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 4,
+            "durationMin": 1.6
           },
           {
             "score": "5-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.1
           },
           {
             "score": "5-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.4
           },
           {
             "score": "6-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.7
           }
         ],
         "tiebreak": null
@@ -3953,42 +4677,58 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 10,
+            "durationMin": 9.0
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.8
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.1
           },
           {
             "score": "3-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 6.0
           },
           {
             "score": "4-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 6.1
           },
           {
             "score": "5-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 5.9
           },
           {
             "score": "6-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 2.7
           },
           {
             "score": "6-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.3
           }
         ],
         "tiebreak": null
@@ -3999,42 +4739,58 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.6
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.2
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 4.9
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.7
           },
           {
             "score": "4-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 4.9
           },
           {
             "score": "5-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.9
           },
           {
             "score": "5-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.8
           },
           {
             "score": "6-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 11,
+            "durationMin": 10.6
           }
         ],
         "tiebreak": null
@@ -4045,62 +4801,86 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.5
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.4
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.9
           },
           {
             "score": "2-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.6
           },
           {
             "score": "3-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.8
           },
           {
             "score": "3-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.2
           },
           {
             "score": "3-4",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 5,
+            "durationMin": 4.9
           },
           {
             "score": "4-4",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 4.7
           },
           {
             "score": "5-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.9
           },
           {
             "score": "5-5",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 2.7
           },
           {
             "score": "6-5",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 12,
+            "durationMin": 11.7
           },
           {
             "score": "6-6",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 2.8
           }
         ],
         "tiebreak": {
@@ -4205,62 +4985,86 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.5
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.5
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.6
           },
           {
             "score": "2-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 11,
+            "durationMin": 9.0
           },
           {
             "score": "3-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.5
           },
           {
             "score": "3-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 7.3
           },
           {
             "score": "3-4",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 9,
+            "durationMin": 8.5
           },
           {
             "score": "4-4",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 4.5
           },
           {
             "score": "5-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.8
           },
           {
             "score": "5-5",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.6
           },
           {
             "score": "6-5",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.2
           },
           {
             "score": "6-6",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 5.0
           }
         ],
         "tiebreak": {
@@ -4274,52 +5078,72 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 2.9
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.4
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 5.6
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.3
           },
           {
             "score": "3-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.2
           },
           {
             "score": "4-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.1
           },
           {
             "score": "5-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 4.1
           },
           {
             "score": "5-3",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 6.1
           },
           {
             "score": "5-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.2
           },
           {
             "score": "6-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.5
           }
         ],
         "tiebreak": null
@@ -4330,62 +5154,86 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 11,
+            "durationMin": 10.0
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.8
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.7
           },
           {
             "score": "2-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.3
           },
           {
             "score": "3-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.6
           },
           {
             "score": "3-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.2
           },
           {
             "score": "3-4",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 4.5
           },
           {
             "score": "4-4",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 6.9
           },
           {
             "score": "5-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.2
           },
           {
             "score": "5-5",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.6
           },
           {
             "score": "6-5",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.6
           },
           {
             "score": "6-6",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.3
           }
         ],
         "tiebreak": {
@@ -4399,52 +5247,72 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.3
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 4.1
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 5,
+            "durationMin": 4.1
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 9.0
           },
           {
             "score": "3-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.3
           },
           {
             "score": "4-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.0
           },
           {
             "score": "5-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 9,
+            "durationMin": 7.1
           },
           {
             "score": "5-3",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 6.7
           },
           {
             "score": "5-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.2
           },
           {
             "score": "6-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.4
           }
         ],
         "tiebreak": null
@@ -4546,47 +5414,65 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.8
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.5
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.7
           },
           {
             "score": "2-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.9
           },
           {
             "score": "3-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.8
           },
           {
             "score": "4-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 5,
+            "durationMin": 3.7
           },
           {
             "score": "5-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.1
           },
           {
             "score": "5-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.2
           },
           {
             "score": "6-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 7.9
           }
         ],
         "tiebreak": null
@@ -4597,52 +5483,72 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.6
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.0
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 5.3
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.6
           },
           {
             "score": "3-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.5
           },
           {
             "score": "4-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.1
           },
           {
             "score": "5-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 5.7
           },
           {
             "score": "5-3",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 12,
+            "durationMin": 9.2
           },
           {
             "score": "5-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 10,
+            "durationMin": 7.8
           },
           {
             "score": "6-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.9
           }
         ],
         "tiebreak": null
@@ -4653,42 +5559,58 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.2
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.9
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.8
           },
           {
             "score": "3-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 4.5
           },
           {
             "score": "4-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.4
           },
           {
             "score": "5-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 5.9
           },
           {
             "score": "6-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.2
           },
           {
             "score": "6-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.5
           }
         ],
         "tiebreak": null
@@ -5413,47 +6335,65 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.8
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.3
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.9
           },
           {
             "score": "2-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.3
           },
           {
             "score": "3-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.4
           },
           {
             "score": "4-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 2.8
           },
           {
             "score": "5-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.9
           },
           {
             "score": "5-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.8
           },
           {
             "score": "6-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 4.8
           }
         ],
         "tiebreak": null
@@ -5464,52 +6404,72 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.4
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.2
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 2.8
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 10,
+            "durationMin": 6.0
           },
           {
             "score": "3-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 10,
+            "durationMin": 8.5
           },
           {
             "score": "4-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.9
           },
           {
             "score": "5-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 11,
+            "durationMin": 11.2
           },
           {
             "score": "5-3",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 6.4
           },
           {
             "score": "5-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.8
           },
           {
             "score": "6-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.2
           }
         ],
         "tiebreak": null
@@ -5520,62 +6480,86 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.8
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.8
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.4
           },
           {
             "score": "3-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 4,
+            "durationMin": 2.3
           },
           {
             "score": "4-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.8
           },
           {
             "score": "4-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.7
           },
           {
             "score": "4-3",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 9,
+            "durationMin": 8.7
           },
           {
             "score": "4-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.5
           },
           {
             "score": "5-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.4
           },
           {
             "score": "6-4",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 3.7
           },
           {
             "score": "7-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.3
           },
           {
             "score": "7-5",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.7
           }
         ],
         "tiebreak": null
@@ -5677,62 +6661,86 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.2
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 7.0
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.5
           },
           {
             "score": "3-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 4.3
           },
           {
             "score": "4-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.5
           },
           {
             "score": "4-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 10,
+            "durationMin": 5.6
           },
           {
             "score": "4-3",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 5.3
           },
           {
             "score": "4-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 10,
+            "durationMin": 8.5
           },
           {
             "score": "5-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.0
           },
           {
             "score": "6-4",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 6.9
           },
           {
             "score": "7-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.5
           },
           {
             "score": "7-5",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.8
           }
         ],
         "tiebreak": null
@@ -5743,62 +6751,86 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.4
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.9
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 4.1
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.7
           },
           {
             "score": "3-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.8
           },
           {
             "score": "4-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.1
           },
           {
             "score": "4-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.0
           },
           {
             "score": "4-4",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 9,
+            "durationMin": 6.6
           },
           {
             "score": "5-4",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 5,
+            "durationMin": 4.8
           },
           {
             "score": "6-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.3
           },
           {
             "score": "6-5",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.2
           },
           {
             "score": "7-5",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.9
           }
         ],
         "tiebreak": null
@@ -5809,42 +6841,58 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.1
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.2
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.3
           },
           {
             "score": "3-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 2.6
           },
           {
             "score": "4-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.6
           },
           {
             "score": "5-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 5.4
           },
           {
             "score": "6-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.5
           },
           {
             "score": "6-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.8
           }
         ],
         "tiebreak": null
@@ -5946,52 +6994,72 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 5.7
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.6
           },
           {
             "score": "1-2",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 5.4
           },
           {
             "score": "1-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 10,
+            "durationMin": 5.7
           },
           {
             "score": "2-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.5
           },
           {
             "score": "2-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.5
           },
           {
             "score": "2-5",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 10,
+            "durationMin": 5.8
           },
           {
             "score": "3-5",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 5,
+            "durationMin": 4.0
           },
           {
             "score": "4-5",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.4
           },
           {
             "score": "4-6",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.9
           }
         ],
         "tiebreak": null
@@ -6002,62 +7070,86 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 5.0
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.6
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 4.3
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.6
           },
           {
             "score": "3-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.3
           },
           {
             "score": "4-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.6
           },
           {
             "score": "4-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.1
           },
           {
             "score": "4-4",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 3.6
           },
           {
             "score": "5-4",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 4.3
           },
           {
             "score": "6-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.2
           },
           {
             "score": "6-5",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.9
           },
           {
             "score": "7-5",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 5.7
           }
         ],
         "tiebreak": null
@@ -6068,37 +7160,51 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 4.3
           },
           {
             "score": "2-0",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 5,
+            "durationMin": 4.3
           },
           {
             "score": "3-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.7
           },
           {
             "score": "3-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.9
           },
           {
             "score": "4-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.8
           },
           {
             "score": "5-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 6.0
           },
           {
             "score": "6-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.6
           }
         ],
         "tiebreak": null
@@ -6109,52 +7215,72 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.9
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.4
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 4.6
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.7
           },
           {
             "score": "3-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.3
           },
           {
             "score": "4-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.4
           },
           {
             "score": "5-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 6.4
           },
           {
             "score": "5-3",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 9,
+            "durationMin": 8.9
           },
           {
             "score": "5-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.8
           },
           {
             "score": "6-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 2.6
           }
         ],
         "tiebreak": null
@@ -6256,42 +7382,58 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 8.4
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.0
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.9
           },
           {
             "score": "3-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 2.5
           },
           {
             "score": "4-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.7
           },
           {
             "score": "5-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 4.4
           },
           {
             "score": "6-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 2.6
           },
           {
             "score": "6-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.6
           }
         ],
         "tiebreak": null
@@ -6302,52 +7444,72 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.4
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.3
           },
           {
             "score": "1-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.7
           },
           {
             "score": "1-3",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 5,
+            "durationMin": 2.6
           },
           {
             "score": "1-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.0
           },
           {
             "score": "2-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.8
           },
           {
             "score": "3-4",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 5.5
           },
           {
             "score": "3-5",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 4.8
           },
           {
             "score": "3-6",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.3
           },
           {
             "score": "4-6",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.2
           }
         ],
         "tiebreak": null
@@ -6358,62 +7520,86 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.5
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.1
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.0
           },
           {
             "score": "3-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 4,
+            "durationMin": 1.5
           },
           {
             "score": "4-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.8
           },
           {
             "score": "4-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.3
           },
           {
             "score": "4-3",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 4,
+            "durationMin": 2.1
           },
           {
             "score": "4-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.5
           },
           {
             "score": "5-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.5
           },
           {
             "score": "6-4",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 9,
+            "durationMin": 8.3
           },
           {
             "score": "7-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.3
           },
           {
             "score": "7-5",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.0
           }
         ],
         "tiebreak": null
@@ -6424,62 +7610,86 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 8.5
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.9
           },
           {
             "score": "1-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.3
           },
           {
             "score": "2-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.0
           },
           {
             "score": "2-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.5
           },
           {
             "score": "3-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.6
           },
           {
             "score": "4-3",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 10,
+            "durationMin": 5.8
           },
           {
             "score": "4-4",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 9,
+            "durationMin": 6.4
           },
           {
             "score": "4-5",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.8
           },
           {
             "score": "5-5",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.3
           },
           {
             "score": "5-6",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.3
           },
           {
             "score": "6-6",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.8
           }
         ],
         "tiebreak": {
@@ -6493,47 +7703,65 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.8
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 6.7
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.5
           },
           {
             "score": "2-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 4.7
           },
           {
             "score": "3-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.3
           },
           {
             "score": "4-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 6.3
           },
           {
             "score": "5-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.5
           },
           {
             "score": "5-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.5
           },
           {
             "score": "6-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.3
           }
         ],
         "tiebreak": null
@@ -7347,37 +8575,51 @@
           {
             "score": "0-1",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 6.8
           },
           {
             "score": "0-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.1
           },
           {
             "score": "1-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.7
           },
           {
             "score": "1-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 2.9
           },
           {
             "score": "1-4",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 5,
+            "durationMin": 3.6
           },
           {
             "score": "1-5",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.2
           },
           {
             "score": "1-6",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 5,
+            "durationMin": 3.8
           }
         ],
         "tiebreak": null
@@ -7388,47 +8630,65 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.6
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.2
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 5,
+            "durationMin": 4.7
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.8
           },
           {
             "score": "3-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.7
           },
           {
             "score": "4-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.5
           },
           {
             "score": "5-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 9,
+            "durationMin": 7.1
           },
           {
             "score": "6-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.0
           },
           {
             "score": "6-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.7
           }
         ],
         "tiebreak": null
@@ -7439,42 +8699,58 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.7
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.3
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.3
           },
           {
             "score": "3-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 4.5
           },
           {
             "score": "4-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.6
           },
           {
             "score": "5-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 5.6
           },
           {
             "score": "6-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.4
           },
           {
             "score": "6-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.5
           }
         ],
         "tiebreak": null
@@ -7576,52 +8852,72 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.0
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.9
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.1
           },
           {
             "score": "3-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 4.9
           },
           {
             "score": "4-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.0
           },
           {
             "score": "4-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 8.6
           },
           {
             "score": "4-3",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 4.0
           },
           {
             "score": "5-3",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 5,
+            "durationMin": 3.4
           },
           {
             "score": "6-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 10,
+            "durationMin": 7.9
           },
           {
             "score": "6-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.0
           }
         ],
         "tiebreak": null
@@ -7632,47 +8928,65 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 6.6
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.5
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 9,
+            "durationMin": 7.8
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.2
           },
           {
             "score": "3-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.6
           },
           {
             "score": "4-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.6
           },
           {
             "score": "5-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 5.1
           },
           {
             "score": "6-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.0
           },
           {
             "score": "6-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 7.2
           }
         ],
         "tiebreak": null
@@ -7952,47 +9266,65 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.8
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.3
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.2
           },
           {
             "score": "2-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.7
           },
           {
             "score": "3-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.5
           },
           {
             "score": "4-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 4.4
           },
           {
             "score": "5-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.9
           },
           {
             "score": "5-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.3
           },
           {
             "score": "6-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 4.5
           }
         ],
         "tiebreak": null
@@ -8003,42 +9335,58 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.5
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.7
           },
           {
             "score": "1-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.2
           },
           {
             "score": "1-3",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 5.3
           },
           {
             "score": "1-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.3
           },
           {
             "score": "1-5",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 9,
+            "durationMin": 7.1
           },
           {
             "score": "1-6",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.1
           },
           {
             "score": "2-6",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 8.9
           }
         ],
         "tiebreak": null
@@ -8049,47 +9397,65 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.2
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.8
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 10,
+            "durationMin": 8.4
           },
           {
             "score": "2-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 4.4
           },
           {
             "score": "3-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.1
           },
           {
             "score": "4-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 9,
+            "durationMin": 7.4
           },
           {
             "score": "5-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.3
           },
           {
             "score": "5-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 4.9
           },
           {
             "score": "6-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.8
           }
         ],
         "tiebreak": null
@@ -8458,52 +9824,72 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 6.0
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.9
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.6
           },
           {
             "score": "3-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 2.6
           },
           {
             "score": "4-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.8
           },
           {
             "score": "4-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 5.0
           },
           {
             "score": "4-3",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 4.1
           },
           {
             "score": "5-3",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 10,
+            "durationMin": 8.4
           },
           {
             "score": "6-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.5
           },
           {
             "score": "6-4",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.4
           }
         ],
         "tiebreak": null
@@ -8514,62 +9900,86 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 6.1
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.1
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 4.0
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.4
           },
           {
             "score": "3-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.6
           },
           {
             "score": "4-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.6
           },
           {
             "score": "4-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.4
           },
           {
             "score": "4-4",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 2.6
           },
           {
             "score": "5-4",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 6.4
           },
           {
             "score": "6-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 2.8
           },
           {
             "score": "6-5",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 9,
+            "durationMin": 7.6
           },
           {
             "score": "7-5",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.8
           }
         ],
         "tiebreak": null
@@ -8671,47 +10081,65 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.9
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.0
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.5
           },
           {
             "score": "2-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.3
           },
           {
             "score": "3-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 10,
+            "durationMin": 5.7
           },
           {
             "score": "4-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 5.5
           },
           {
             "score": "5-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 11,
+            "durationMin": 10.2
           },
           {
             "score": "5-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.7
           },
           {
             "score": "6-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 5.0
           }
         ],
         "tiebreak": null
@@ -8722,62 +10150,86 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.5
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.0
           },
           {
             "score": "1-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.9
           },
           {
             "score": "2-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.2
           },
           {
             "score": "2-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.6
           },
           {
             "score": "3-3",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.5
           },
           {
             "score": "4-3",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 4.4
           },
           {
             "score": "4-4",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 6.1
           },
           {
             "score": "4-5",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.5
           },
           {
             "score": "5-5",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.2
           },
           {
             "score": "5-6",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.2
           },
           {
             "score": "6-6",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.3
           }
         ],
         "tiebreak": {
@@ -8882,62 +10334,86 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.4
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 5.0
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.1
           },
           {
             "score": "2-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.6
           },
           {
             "score": "3-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.5
           },
           {
             "score": "3-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.0
           },
           {
             "score": "3-4",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 5,
+            "durationMin": 3.4
           },
           {
             "score": "4-4",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 9,
+            "durationMin": 8.1
           },
           {
             "score": "5-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.2
           },
           {
             "score": "5-5",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 10,
+            "durationMin": 7.2
           },
           {
             "score": "6-5",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.8
           },
           {
             "score": "6-6",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.5
           }
         ],
         "tiebreak": {
@@ -8951,42 +10427,58 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 4.2
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.6
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 5.0
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.0
           },
           {
             "score": "4-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 4.0
           },
           {
             "score": "5-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.2
           },
           {
             "score": "5-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 2.6
           },
           {
             "score": "6-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 8,
+            "durationMin": 5.1
           }
         ],
         "tiebreak": null
@@ -9088,62 +10580,86 @@
           {
             "score": "1-0",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 12,
+            "durationMin": 9.1
           },
           {
             "score": "1-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 11,
+            "durationMin": 11.8
           },
           {
             "score": "2-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 2.0
           },
           {
             "score": "2-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.5
           },
           {
             "score": "3-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.9
           },
           {
             "score": "3-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 4,
+            "durationMin": 1.9
           },
           {
             "score": "3-4",
             "server": 1,
-            "isBreak": true
+            "isBreak": true,
+            "points": 8,
+            "durationMin": 4.1
           },
           {
             "score": "4-4",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 5,
+            "durationMin": 4.4
           },
           {
             "score": "5-4",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.5
           },
           {
             "score": "5-5",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 4.0
           },
           {
             "score": "6-5",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 6.8
           },
           {
             "score": "6-6",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.4
           }
         ],
         "tiebreak": {
@@ -9157,47 +10673,65 @@
           {
             "score": "0-1",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 3.8
           },
           {
             "score": "1-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.1
           },
           {
             "score": "2-1",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 6,
+            "durationMin": 2.8
           },
           {
             "score": "3-1",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 7,
+            "durationMin": 5.5
           },
           {
             "score": "3-2",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.9
           },
           {
             "score": "4-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 3.2
           },
           {
             "score": "5-2",
             "server": 2,
-            "isBreak": true
+            "isBreak": true,
+            "points": 7,
+            "durationMin": 7.0
           },
           {
             "score": "6-2",
             "server": 1,
-            "isBreak": false
+            "isBreak": false,
+            "points": 5,
+            "durationMin": 4.8
           },
           {
             "score": "6-3",
             "server": 2,
-            "isBreak": false
+            "isBreak": false,
+            "points": 6,
+            "durationMin": 2.8
           }
         ],
         "tiebreak": null

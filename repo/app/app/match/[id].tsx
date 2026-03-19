@@ -75,6 +75,20 @@ function StatBarComparison({ label, value1, value2 }: { label: string; value1: s
 }
 
 // ─── Game-by-Game Timeline ───────────────────────────────────────────
+function getGameIntensityBg(durationMin?: number): string {
+  if (!durationMin) return '#1e1e1e';
+  if (durationMin < 3) return '#1e1e1e';
+  if (durationMin <= 6) return '#2a2000';
+  return '#2a0000';
+}
+
+function formatDuration(durationMin?: number): string {
+  if (!durationMin) return '';
+  const mins = Math.floor(durationMin);
+  const secs = Math.round((durationMin - mins) * 60);
+  return `${mins}:${secs.toString().padStart(2, '0')}`;
+}
+
 function GameByGameTimeline({ gameByGame, p1Short, p2Short }: { gameByGame: SetGameByGame[]; p1Short: string; p2Short: string }) {
   return (
     <View style={styles.card}>
@@ -93,6 +107,14 @@ function GameByGameTimeline({ gameByGame, p1Short, p2Short }: { gameByGame: SetG
           <View style={[styles.gbgBreakIndicator]} />
           <Text style={styles.gbgLegendText}>Break</Text>
         </View>
+        <View style={styles.gbgLegendItem}>
+          <View style={[styles.gbgIntensityChip, { backgroundColor: '#2a2000' }]} />
+          <Text style={styles.gbgLegendText}>Contested</Text>
+        </View>
+        <View style={styles.gbgLegendItem}>
+          <View style={[styles.gbgIntensityChip, { backgroundColor: '#2a0000' }]} />
+          <Text style={styles.gbgLegendText}>Battle</Text>
+        </View>
       </View>
       {gameByGame.map((setData) => {
         const lastGame = setData.games[setData.games.length - 1];
@@ -105,11 +127,25 @@ function GameByGameTimeline({ gameByGame, p1Short, p2Short }: { gameByGame: SetG
                 <View key={idx} style={styles.gbgGameWrapper}>
                   {/* Server indicator dot */}
                   <View style={[styles.gbgServerDot, game.server === 1 ? styles.gbgServerDotTop : styles.gbgServerDotBottom]} />
-                  {/* Score block */}
-                  <View style={[styles.gbgGameBlock, game.isBreak && styles.gbgGameBlockBreak]}>
-                    <Text style={[styles.gbgGameScore, game.isBreak && styles.gbgGameScoreBreak]}>
-                      {game.score}
-                    </Text>
+                  {/* Points label above */}
+                  <View style={styles.gbgGameColumn}>
+                    {game.points ? (
+                      <Text style={styles.gbgPointsLabel}>{game.points}pts</Text>
+                    ) : (
+                      <View style={{ height: 11 }} />
+                    )}
+                    {/* Score block with intensity color */}
+                    <View style={[styles.gbgGameBlock, { backgroundColor: getGameIntensityBg(game.durationMin) }, game.isBreak && styles.gbgGameBlockBreak]}>
+                      <Text style={[styles.gbgGameScore, game.isBreak && styles.gbgGameScoreBreak]}>
+                        {game.score}
+                      </Text>
+                    </View>
+                    {/* Duration label below */}
+                    {game.durationMin ? (
+                      <Text style={styles.gbgDurationLabel}>{formatDuration(game.durationMin)}</Text>
+                    ) : (
+                      <View style={{ height: 11 }} />
+                    )}
                   </View>
                   {game.isBreak && <Text style={styles.gbgBreakStar}>★</Text>}
                   {/* Arrow connector */}
@@ -121,9 +157,13 @@ function GameByGameTimeline({ gameByGame, p1Short, p2Short }: { gameByGame: SetG
               {/* Tiebreak block */}
               {setData.tiebreak && (
                 <View style={styles.gbgGameWrapper}>
-                  <View style={[styles.gbgGameBlock, styles.gbgTiebreakBlock]}>
-                    <Text style={styles.gbgTiebreakLabel}>TB</Text>
-                    <Text style={styles.gbgGameScore}>{setData.tiebreak.score}</Text>
+                  <View style={styles.gbgGameColumn}>
+                    <View style={{ height: 11 }} />
+                    <View style={[styles.gbgGameBlock, styles.gbgTiebreakBlock]}>
+                      <Text style={styles.gbgTiebreakLabel}>TB</Text>
+                      <Text style={styles.gbgGameScore}>{setData.tiebreak.score}</Text>
+                    </View>
+                    <View style={{ height: 11 }} />
                   </View>
                 </View>
               )}
@@ -701,6 +741,24 @@ const styles = StyleSheet.create({
   gbgGameWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  gbgGameColumn: {
+    alignItems: 'center',
+  },
+  gbgPointsLabel: {
+    fontSize: 9,
+    color: '#888',
+    marginBottom: 2,
+  },
+  gbgDurationLabel: {
+    fontSize: 9,
+    color: '#888',
+    marginTop: 2,
+  },
+  gbgIntensityChip: {
+    width: 10,
+    height: 10,
+    borderRadius: 2,
   },
   gbgServerDot: {
     width: 5,
