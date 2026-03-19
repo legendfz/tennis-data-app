@@ -34,6 +34,23 @@ router.get('/', (req: Request, res: Response) => {
   });
 });
 
+// GET /api/tournaments/lookup?name=... — Find tournament by name
+router.get('/lookup', (req: Request, res: Response) => {
+  const name = (req.query.name as string || '').toLowerCase();
+  if (!name) {
+    res.status(400).json({ error: 'name query parameter required' });
+    return;
+  }
+  const tournament = mockTournaments.find(
+    (t) => t.name.toLowerCase() === name
+  );
+  if (!tournament) {
+    res.status(404).json({ error: 'Tournament not found' });
+    return;
+  }
+  res.json(tournament);
+});
+
 // GET /api/tournaments/:id — Tournament detail
 router.get('/:id', (req: Request, res: Response) => {
   const tournament = mockTournaments.find(

@@ -296,15 +296,19 @@ export default function HomeScreen() {
           {/* Matches by Tournament */}
           {matchesByTournament.map((group, idx) => (
             <View key={idx}>
-              <View style={styles.sectionHeaderRow}>
+              <TouchableOpacity
+                style={styles.sectionHeaderRow}
+                activeOpacity={group.tournament?.id ? 0.7 : 1}
+                onPress={() => group.tournament?.id && router.push(`/tournament/${group.tournament.id}`)}
+              >
                 {group.tournament && (
                   <TournamentLogo tournament={group.tournament} size="sm" />
                 )}
-                <Text style={styles.sectionHeader}>
+                <Text style={[styles.sectionHeader, group.tournament?.id && styles.sectionHeaderLink]}>
                   {group.tournament?.name?.toUpperCase() || 'OTHER'}
                   {group.tournament?.surface ? ` \u2022 ${group.tournament.surface}` : ''}
                 </Text>
-              </View>
+              </TouchableOpacity>
               {group.matches.map(renderMatchRow)}
             </View>
           ))}
@@ -373,6 +377,10 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     letterSpacing: 0.5,
     flexShrink: 1,
+  },
+  sectionHeaderLink: {
+    color: '#60a5fa',
+    textDecorationLine: 'underline' as const,
   },
   sectionHeaderFollowing: {
     fontSize: 13,

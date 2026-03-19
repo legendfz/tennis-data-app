@@ -142,11 +142,15 @@ function ChampionCard({ match, onPlayerPress }: { match: DrawMatch; onPlayerPres
   );
 }
 
-function ResultMatch({ match, onPlayerPress }: { match: MatchWithPlayers; onPlayerPress?: (playerId: number) => void }) {
+function ResultMatch({ match, onPlayerPress, onMatchPress }: { match: MatchWithPlayers; onPlayerPress?: (playerId: number) => void; onMatchPress?: (matchId: number) => void }) {
   const p1Won = match.winnerId === match.player1Id;
   const p2Won = match.winnerId === match.player2Id;
   return (
-    <View style={styles.resultMatch}>
+    <TouchableOpacity
+      style={styles.resultMatch}
+      activeOpacity={0.7}
+      onPress={() => onMatchPress?.(match.id)}
+    >
       <TouchableOpacity style={styles.resultRow} activeOpacity={0.7} onPress={() => onPlayerPress?.(match.player1Id)}>
         <Image source={{ uri: getPlayerAvatarUrl(match.player1?.name || 'P1', match.player1?.photoUrl, 60) }} style={styles.resultAvatar} />
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4, flex: 1 }}>
@@ -167,7 +171,7 @@ function ResultMatch({ match, onPlayerPress }: { match: MatchWithPlayers; onPlay
         </View>
       </TouchableOpacity>
       {match.date && <Text style={styles.resultDate}>{match.date}</Text>}
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -321,7 +325,7 @@ export default function TournamentDetailScreen() {
                     <Text style={styles.roundAbbrev}>{getRoundAbbrev(group.round)}</Text>
                     <Text style={styles.matchCount}>{group.matches.length} match{group.matches.length !== 1 ? 'es' : ''}</Text>
                   </View>
-                  {group.matches.map((match) => <ResultMatch key={match.id} match={match} onPlayerPress={handlePlayerPress} />)}
+                  {group.matches.map((match) => <ResultMatch key={match.id} match={match} onPlayerPress={handlePlayerPress} onMatchPress={(matchId) => router.push(`/match/${matchId}`)} />)}
                 </View>
               ))
             )}

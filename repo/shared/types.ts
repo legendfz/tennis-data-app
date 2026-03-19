@@ -4,6 +4,7 @@ export interface TitleEntry {
   surface: string;
   final_opponent: string;
   score: string;
+  tournamentId?: number;
 }
 
 export interface GrandSlamEntry {
@@ -11,6 +12,7 @@ export interface GrandSlamEntry {
   tournament: string;
   opponent: string;
   score: string;
+  tournamentId?: number;
 }
 
 export interface SeasonMatchEntry {
@@ -19,6 +21,8 @@ export interface SeasonMatchEntry {
   opponent: string;
   result: 'W' | 'L';
   score: string;
+  matchId?: number;
+  tournamentId?: number;
 }
 
 export interface DecidingSetMatchEntry {
@@ -28,6 +32,8 @@ export interface DecidingSetMatchEntry {
   result: 'W' | 'L';
   score: string;
   decidingSetScore: string;
+  matchId?: number;
+  tournamentId?: number;
 }
 
 export interface WinRateByYear {
@@ -188,10 +194,12 @@ export interface H2HPlayerComparison {
 export interface H2HMatchRecord {
   date: string;
   tournament: string;
+  tournamentId: number;
   surface: string;
   round: string;
   score: string;
   winnerId: number;
+  matchId: number | null;
 }
 
 export interface H2HSurfaceRecord {

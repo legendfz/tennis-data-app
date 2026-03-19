@@ -400,9 +400,20 @@ export default function H2HDetailScreen() {
           {matchHistory.map((m, i) => {
             const p1Won = m.winnerId === p1.id;
             return (
-              <View key={i} style={styles.matchItem}>
+              <TouchableOpacity
+                key={i}
+                style={styles.matchItem}
+                activeOpacity={m.matchId ? 0.7 : 1}
+                onPress={() => m.matchId && router.push(`/match/${m.matchId}`)}
+              >
                 <View style={styles.matchTop}>
-                  <Text style={styles.matchTournament}>{m.tournament}</Text>
+                  <TouchableOpacity
+                    activeOpacity={m.tournamentId ? 0.7 : 1}
+                    onPress={(e) => { e.stopPropagation?.(); m.tournamentId && router.push(`/tournament/${m.tournamentId}`); }}
+                    style={{ flex: 1 }}
+                  >
+                    <Text style={[styles.matchTournament, m.tournamentId && styles.matchTournamentLink]}>{m.tournament}</Text>
+                  </TouchableOpacity>
                   <Text style={styles.matchRound}>{m.round}</Text>
                 </View>
                 <View style={styles.matchMiddle}>
@@ -418,7 +429,7 @@ export default function H2HDetailScreen() {
                   <Text style={styles.matchDate}>{m.date}</Text>
                   <Text style={styles.matchSurface}>{m.surface}</Text>
                 </View>
-              </View>
+              </TouchableOpacity>
             );
           })}
           {matchHistory.length === 0 && (
@@ -550,6 +561,7 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   matchTournament: { fontSize: 11, fontWeight: '700', color: '#a0a0b0', textTransform: 'uppercase', flex: 1, letterSpacing: 0.5 },
+  matchTournamentLink: { color: '#60a5fa', textDecorationLine: 'underline' as const },
   matchRound: { fontSize: 11, color: '#a0a0b0' },
   matchMiddle: {
     flexDirection: 'row',

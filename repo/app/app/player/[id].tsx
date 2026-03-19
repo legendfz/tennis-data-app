@@ -176,7 +176,7 @@ function MatchRow({ result, children }: { result?: 'W' | 'L'; children: React.Re
   );
 }
 
-function GrandSlamsPanel({ data }: { data: GrandSlamEntry[] }) {
+function GrandSlamsPanel({ data, router }: { data: GrandSlamEntry[]; router: any }) {
   if (!data || data.length === 0) return <Text style={styles.detailEmpty}>No grand slam data</Text>;
   return (
     <View style={styles.detailPanel}>
@@ -184,7 +184,13 @@ function GrandSlamsPanel({ data }: { data: GrandSlamEntry[] }) {
         <MatchRow key={i} result="W">
           <Text style={styles.detailYear}>{gs.year}</Text>
           <TournamentLogo tournamentName={gs.tournament} size="sm" />
-          <Text style={[styles.detailTournament, { marginLeft: 6 }]} numberOfLines={1}>{gs.tournament}</Text>
+          <TouchableOpacity
+            style={{ marginLeft: 6, flexShrink: 1 }}
+            activeOpacity={gs.tournamentId ? 0.7 : 1}
+            onPress={() => gs.tournamentId && router.push(`/tournament/${gs.tournamentId}`)}
+          >
+            <Text style={[styles.detailTournament, gs.tournamentId && styles.detailTournamentLink]} numberOfLines={1}>{gs.tournament}</Text>
+          </TouchableOpacity>
           <View style={{ flex: 1, alignItems: 'flex-end' }}>
             <Text style={styles.detailOpponent}>vs {gs.opponent}</Text>
             <Text style={styles.detailScore}>{gs.score}</Text>
@@ -195,7 +201,7 @@ function GrandSlamsPanel({ data }: { data: GrandSlamEntry[] }) {
   );
 }
 
-function TitlesPanel({ data }: { data: TitleEntry[] }) {
+function TitlesPanel({ data, router }: { data: TitleEntry[]; router: any }) {
   if (!data || data.length === 0) return <Text style={styles.detailEmpty}>No titles data</Text>;
   const grouped = data.reduce((acc, t) => {
     if (!acc[t.year]) acc[t.year] = [];
@@ -212,10 +218,14 @@ function TitlesPanel({ data }: { data: TitleEntry[] }) {
           {grouped[year].map((t, i) => (
             <MatchRow key={i} result="W">
               <TournamentLogo tournamentName={t.tournament} size="sm" />
-              <View style={{ flex: 1, marginLeft: 6 }}>
-                <Text style={styles.detailTournament}>{t.tournament}</Text>
+              <TouchableOpacity
+                style={{ flex: 1, marginLeft: 6 }}
+                activeOpacity={t.tournamentId ? 0.7 : 1}
+                onPress={() => t.tournamentId && router.push(`/tournament/${t.tournamentId}`)}
+              >
+                <Text style={[styles.detailTournament, t.tournamentId && styles.detailTournamentLink]}>{t.tournament}</Text>
                 <Text style={styles.detailSurface}>{t.surface}</Text>
-              </View>
+              </TouchableOpacity>
               <View style={{ alignItems: 'flex-end' }}>
                 <Text style={styles.detailOpponent}>vs {t.final_opponent}</Text>
                 <Text style={styles.detailScore}>{t.score}</Text>
@@ -246,52 +256,72 @@ function WinRatePanel({ data }: { data: WinRateByYear[] }) {
   );
 }
 
-function SeasonMatchesPanel({ data }: { data: SeasonMatchEntry[] }) {
+function SeasonMatchesPanel({ data, router }: { data: SeasonMatchEntry[]; router: any }) {
   if (!data || data.length === 0) return <Text style={styles.detailEmpty}>No season data</Text>;
   return (
     <View style={styles.detailPanel}>
       {data.map((m, i) => (
-        <MatchRow key={i} result={m.result}>
-          <Text style={styles.detailDate}>{m.date.slice(5)}</Text>
-          <TournamentLogo tournamentName={m.tournament} size="sm" />
-          <View style={{ flex: 1, marginLeft: 6 }}>
-            <Text style={styles.detailTournament} numberOfLines={1}>{m.tournament}</Text>
-            <Text style={styles.detailOpponent}>vs {m.opponent}</Text>
-          </View>
-          <View style={{ alignItems: 'flex-end' }}>
-            <Text style={[styles.detailResult, m.result === 'W' ? { color: '#fff' } : { color: '#e53935' }]}>{m.result}</Text>
-            <Text style={styles.detailScore}>{m.score}</Text>
-          </View>
-        </MatchRow>
+        <TouchableOpacity
+          key={i}
+          activeOpacity={m.matchId ? 0.7 : 1}
+          onPress={() => m.matchId && router.push(`/match/${m.matchId}`)}
+        >
+          <MatchRow result={m.result}>
+            <Text style={styles.detailDate}>{m.date.slice(5)}</Text>
+            <TournamentLogo tournamentName={m.tournament} size="sm" />
+            <TouchableOpacity
+              style={{ flex: 1, marginLeft: 6 }}
+              activeOpacity={m.tournamentId ? 0.7 : 1}
+              onPress={(e) => { e.stopPropagation?.(); m.tournamentId && router.push(`/tournament/${m.tournamentId}`); }}
+            >
+              <Text style={[styles.detailTournament, m.tournamentId && styles.detailTournamentLink]} numberOfLines={1}>{m.tournament}</Text>
+              <Text style={styles.detailOpponent}>vs {m.opponent}</Text>
+            </TouchableOpacity>
+            <View style={{ alignItems: 'flex-end' }}>
+              <Text style={[styles.detailResult, m.result === 'W' ? { color: '#fff' } : { color: '#e53935' }]}>{m.result}</Text>
+              <Text style={styles.detailScore}>{m.score}</Text>
+            </View>
+          </MatchRow>
+        </TouchableOpacity>
       ))}
     </View>
   );
 }
 
-function DecidingSetPanel({ data }: { data: DecidingSetMatchEntry[] }) {
+function DecidingSetPanel({ data, router }: { data: DecidingSetMatchEntry[]; router: any }) {
   if (!data || data.length === 0) return <Text style={styles.detailEmpty}>No deciding set data</Text>;
   return (
     <View style={styles.detailPanel}>
       {data.map((m, i) => (
-        <MatchRow key={i} result={m.result}>
-          <Text style={styles.detailDate}>{m.date.slice(5)}</Text>
-          <View style={{ flex: 1, marginLeft: 8 }}>
-            <Text style={styles.detailTournament} numberOfLines={1}>{m.tournament}</Text>
-            <Text style={styles.detailOpponent}>vs {m.opponent}</Text>
-          </View>
-          <View style={{ alignItems: 'flex-end' }}>
-            <Text style={[styles.detailResult, m.result === 'W' ? { color: '#fff' } : { color: '#e53935' }]}>{m.result}</Text>
-            <Text style={styles.detailScore}>{m.score}</Text>
-            <Text style={styles.detailDecidingScore}>Set: {m.decidingSetScore}</Text>
-          </View>
-        </MatchRow>
+        <TouchableOpacity
+          key={i}
+          activeOpacity={m.matchId ? 0.7 : 1}
+          onPress={() => m.matchId && router.push(`/match/${m.matchId}`)}
+        >
+          <MatchRow result={m.result}>
+            <Text style={styles.detailDate}>{m.date.slice(5)}</Text>
+            <TouchableOpacity
+              style={{ flex: 1, marginLeft: 8 }}
+              activeOpacity={m.tournamentId ? 0.7 : 1}
+              onPress={(e) => { e.stopPropagation?.(); m.tournamentId && router.push(`/tournament/${m.tournamentId}`); }}
+            >
+              <Text style={[styles.detailTournament, m.tournamentId && styles.detailTournamentLink]} numberOfLines={1}>{m.tournament}</Text>
+              <Text style={styles.detailOpponent}>vs {m.opponent}</Text>
+            </TouchableOpacity>
+            <View style={{ alignItems: 'flex-end' }}>
+              <Text style={[styles.detailResult, m.result === 'W' ? { color: '#fff' } : { color: '#e53935' }]}>{m.result}</Text>
+              <Text style={styles.detailScore}>{m.score}</Text>
+              <Text style={styles.detailDecidingScore}>Set: {m.decidingSetScore}</Text>
+            </View>
+          </MatchRow>
+        </TouchableOpacity>
       ))}
     </View>
   );
 }
 
 // ─── Overview Tab ────────────────────────────────────────────────────
-function OverviewTab({ player }: { player: PlayerDetail }) {
+function OverviewTab({ player, router }: { player: PlayerDetail; router: any }) {
   const [expandedStat, setExpandedStat] = useState<StatKey | null>(null);
   const record = player.record;
   const seasonWL = record ? `${record.season.wins}-${record.season.losses}` : '--';
@@ -323,15 +353,15 @@ function OverviewTab({ player }: { player: PlayerDetail }) {
           <RankingChart history={player.rankingHistory} />
         ) : null;
       case 'grandSlams':
-        return <GrandSlamsPanel data={(player as any).grandSlamsList || []} />;
+        return <GrandSlamsPanel data={(player as any).grandSlamsList || []} router={router} />;
       case 'titles':
-        return <TitlesPanel data={(player as any).titlesList || []} />;
+        return <TitlesPanel data={(player as any).titlesList || []} router={router} />;
       case 'winRate':
         return <WinRatePanel data={(player as any).winRateByYear || []} />;
       case 'seasonWL':
-        return <SeasonMatchesPanel data={(player as any).seasonMatches || []} />;
+        return <SeasonMatchesPanel data={(player as any).seasonMatches || []} router={router} />;
       case 'decidingSet':
-        return <DecidingSetPanel data={(player as any).decidingSetMatches || []} />;
+        return <DecidingSetPanel data={(player as any).decidingSetMatches || []} router={router} />;
       default:
         return null;
     }
@@ -459,7 +489,12 @@ function MatchesTab({ player, getPlayerName, router }: { player: PlayerDetail; g
             activeOpacity={0.7}
           >
             <View style={styles.matchMeta}>
-              <Text style={styles.matchTournament}>{match.tournament?.name || 'Tournament'}</Text>
+              <TouchableOpacity
+                activeOpacity={match.tournament?.id ? 0.7 : 1}
+                onPress={(e) => { e.stopPropagation?.(); match.tournament?.id && router.push(`/tournament/${match.tournament.id}`); }}
+              >
+                <Text style={[styles.matchTournament, match.tournament?.id && styles.matchTournamentLink]}>{match.tournament?.name || 'Tournament'}</Text>
+              </TouchableOpacity>
               <Text style={styles.matchRound}>{match.round}</Text>
             </View>
             <View style={styles.matchContent}>
@@ -805,7 +840,7 @@ export default function PlayerDetailScreen() {
 
         {/* Tab Content */}
         <View style={styles.tabContent}>
-          {activeTab === 'overview' && <OverviewTab player={player} />}
+          {activeTab === 'overview' && <OverviewTab player={player} router={router} />}
           {activeTab === 'stats' && <StatsTab player={player} />}
           {activeTab === 'matches' && <MatchesTab player={player} getPlayerName={getPlayerName} router={router} />}
           {activeTab === 'gear' && <GearTab player={player} router={router} />}
@@ -991,6 +1026,10 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '500' as const,
   },
+  detailTournamentLink: {
+    color: '#60a5fa',
+    textDecorationLine: 'underline' as const,
+  },
   detailSurface: {
     color: '#666',
     fontSize: 11,
@@ -1078,6 +1117,7 @@ const styles = StyleSheet.create({
   matchItem: { backgroundColor: '#1e1e1e', borderRadius: 10, padding: 12, marginBottom: 8 },
   matchMeta: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 6 },
   matchTournament: { fontSize: 11, color: '#666', textTransform: 'uppercase', letterSpacing: 0.5 },
+  matchTournamentLink: { color: '#60a5fa', textDecorationLine: 'underline' as const },
   matchRound: { fontSize: 11, color: '#666' },
   matchContent: { flexDirection: 'row', alignItems: 'center' },
   matchName: { flex: 1, fontSize: 14, color: '#ffffff', textAlign: 'center' },

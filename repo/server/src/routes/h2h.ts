@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import { mockPlayers, mockTournaments } from '../mock-data';
+import { mockPlayers, mockTournaments, mockMatches } from '../mock-data';
 import h2hData from '../data/h2h.json';
 
 const router = Router();
@@ -92,13 +92,23 @@ router.get('/:player1Id/:player2Id', (req: Request, res: Response) => {
   const matchHistory = matches
     .map((m) => {
       const tournament = mockTournaments.find((t) => t.id === m.tournamentId);
+      // Try to find actual match record for linking
+      const actualMatch = mockMatches.find(
+        (am) =>
+          am.tournamentId === m.tournamentId &&
+          am.date === m.date &&
+          ((am.player1Id === p1Id && am.player2Id === p2Id) ||
+           (am.player1Id === p2Id && am.player2Id === p1Id))
+      );
       return {
         date: m.date,
         tournament: tournament?.name || 'Unknown',
+        tournamentId: m.tournamentId,
         surface: tournament?.surface || 'Unknown',
         round: m.round,
         score: m.score,
         winnerId: m.winnerId,
+        matchId: actualMatch?.id || null,
       };
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());

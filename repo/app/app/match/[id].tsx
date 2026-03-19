@@ -268,14 +268,18 @@ export default function MatchDetailScreen() {
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
         {/* Match Header */}
         <View style={styles.matchHeader}>
-          <View style={styles.tournamentLabelRow}>
+          <TouchableOpacity
+            style={styles.tournamentLabelRow}
+            activeOpacity={match.tournament?.id ? 0.7 : 1}
+            onPress={() => match.tournament?.id && router.push(`/tournament/${match.tournament.id}`)}
+          >
             {match.tournament && <TournamentLogo tournament={match.tournament} size="md" />}
-            <Text style={styles.tournamentLabel}>
+            <Text style={[styles.tournamentLabel, match.tournament?.id && styles.tournamentLabelLink]}>
               {match.tournament?.name?.toUpperCase() || 'MATCH'}
               {match.round ? ` \u2022 ${match.round}` : ''}
               {match.tournament?.surface ? ` \u2022 ${match.tournament.surface}` : ''}
             </Text>
-          </View>
+          </TouchableOpacity>
 
           <View style={styles.versusRow}>
             {/* Player 1 */}
@@ -366,6 +370,10 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#888',
     flexShrink: 1,
+  },
+  tournamentLabelLink: {
+    color: '#60a5fa',
+    textDecorationLine: 'underline' as const,
   },
   versusRow: {
     flexDirection: 'row',
