@@ -22,7 +22,7 @@ import { theme } from '../../lib/theme';
 import type { MatchWithPlayers, ProbabilitySnapshot } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
-const AVATAR_SIZE = 56;
+const AVATAR_SIZE = 68;
 
 type TabKey = 'overview' | 'stats' | 'probability';
 
@@ -407,7 +407,7 @@ const styles = StyleSheet.create({
     color: theme.textSecondary,
   },
   vsName: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: '500',
     color: theme.text,
     textAlign: 'center',

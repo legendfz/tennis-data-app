@@ -90,7 +90,7 @@ const CELL_H = 65;
 const CELL_GAP = 8;
 const COL_GAP = 24;
 const CONNECTOR_COLOR = '#2a2a2a';
-const BRACKET_AVATAR = 28;
+const BRACKET_AVATAR = 32;
 
 const ROUND_KEY_ORDER = ['Round of 128', 'Round of 64', 'Round of 32', 'Round of 16', 'Quarter-Final', 'Semi-Final', 'Final'];
 
@@ -210,7 +210,7 @@ function BracketChampion({ match, onPlayerPress }: { match: DrawMatch; onPlayerP
   return (
     <TouchableOpacity style={bk.champion} activeOpacity={0.7} onPress={() => onPlayerPress?.(championId)}>
       <Text style={bk.championLabel}>CHAMPION</Text>
-      <PlayerAvatar name={champion.name} photoUrl={champion.photoUrl} size={56} />
+      <PlayerAvatar name={champion.name} photoUrl={champion.photoUrl} size={48} />
       <Text style={bk.championName}>{champion.name}</Text>
       <Text style={bk.championScore}>{match.score}</Text>
     </TouchableOpacity>

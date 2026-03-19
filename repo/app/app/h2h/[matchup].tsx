@@ -20,7 +20,7 @@ import { theme } from '../../lib/theme';
 import type { H2HData, H2HMatchRecord } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
-const AVATAR_SIZE = 96;
+const AVATAR_SIZE = 72;
 
 function SurfaceBar({
   label,
@@ -469,7 +469,7 @@ const styles = StyleSheet.create({
   },
   avatarLeading: { borderColor: '#fff' },
   flag: { fontSize: 30, marginBottom: 4 },
-  playerName: { fontSize: 16, fontWeight: 'bold', color: '#ffffff', textAlign: 'center', marginBottom: 2 },
+  playerName: { fontSize: 18, fontWeight: 'bold', color: '#ffffff', textAlign: 'center', marginBottom: 2 },
   playerRank: { fontSize: 14, color: theme.textSecondary, fontWeight: '600' },
   vsCol: { paddingHorizontal: 10, justifyContent: 'center', alignItems: 'center' },
   vsBubble: {

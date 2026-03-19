@@ -44,7 +44,7 @@ if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental
 }
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
-const AVATAR_SIZE = 80;
+const AVATAR_SIZE = 100;
 const CHART_HEIGHT = 180;
 const PX_PER_POINT = 4;
 const MIN_CHART_WIDTH = SCREEN_WIDTH - 64;
@@ -895,7 +895,7 @@ const styles = StyleSheet.create({
     borderRadius: (AVATAR_SIZE - 6) / 2,
   },
   playerName: {
-    fontSize: 22,
+    fontSize: 26,
     fontWeight: '700',
     color: theme.text,
     marginBottom: 4,

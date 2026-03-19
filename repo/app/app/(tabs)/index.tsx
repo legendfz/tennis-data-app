@@ -159,7 +159,7 @@ export default function HomeScreen() {
           {/* Player 1 */}
           <TouchableOpacity style={styles.matchPlayer} activeOpacity={theme.activeOpacity} onPress={() => router.push(`/player/${match.player1Id}`)}>
             <View style={[!p1Won && p2Won && { opacity: 0.5 }]}>
-              <PlayerAvatar name={match.player1?.name || 'P1'} photoUrl={match.player1?.photoUrl} size={32} />
+              <PlayerAvatar name={match.player1?.name || 'P1'} photoUrl={match.player1?.photoUrl} size={40} />
             </View>
             <Flag country={match.player1?.country || ''} countryFlag={match.player1?.countryFlag} size={12} />
             <Text
@@ -216,7 +216,7 @@ export default function HomeScreen() {
             {p2Won && <View style={styles.winnerBadge} />}
             <Flag country={match.player2?.country || ''} countryFlag={match.player2?.countryFlag} size={12} />
             <View style={[!p2Won && p1Won && { opacity: 0.5 }]}>
-              <PlayerAvatar name={match.player2?.name || 'P2'} photoUrl={match.player2?.photoUrl} size={32} />
+              <PlayerAvatar name={match.player2?.name || 'P2'} photoUrl={match.player2?.photoUrl} size={40} />
             </View>
           </TouchableOpacity>
         </View>
@@ -441,7 +441,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   playerName: {
-    fontSize: theme.fontSize.body,
+    fontSize: 15,
     fontWeight: theme.fontWeight.medium,
     color: theme.text,
     flexShrink: 1,

@@ -128,7 +128,7 @@ export default function PlayersScreen() {
               activeOpacity={theme.activeOpacity}
             >
               <Text style={styles.rank}>{item.ranking}</Text>
-              <PlayerAvatar name={item.name} photoUrl={item.photoUrl} size={40} />
+              <PlayerAvatar name={item.name} photoUrl={item.photoUrl} size={48} />
               <View style={styles.nameWrap}>
                 <View style={styles.nameRow}>
                   <Text style={styles.playerName} numberOfLines={1}>
@@ -211,9 +211,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: theme.spacing.padding,
-    paddingVertical: 12,
+    paddingVertical: 14,
     gap: 12,
-    minHeight: 56,
+    minHeight: 62,
   },
   rank: {
     width: 28,
@@ -231,8 +231,8 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   playerName: {
-    fontSize: 15,
-    fontWeight: theme.fontWeight.medium,
+    fontSize: 17,
+    fontWeight: theme.fontWeight.semibold,
     color: theme.text,
   },
   hotTagWrap: {
