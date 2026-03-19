@@ -72,7 +72,7 @@ function filterByRange(
 }
 
 // ─── Ranking Chart ───────────────────────────────────────────────────
-function RankingChart({ history }: { history: { month: string; ranking: number }[] }) {
+function RankingChart({ history, careerHigh, careerHighDate }: { history: { month: string; ranking: number }[]; careerHigh?: number; careerHighDate?: string }) {
   const [timeRange, setTimeRange] = useState<TimeRange>('All');
   const scrollRef = useRef<ScrollView>(null);
   const filtered = useMemo(() => filterByRange(history, timeRange), [history, timeRange]);
@@ -135,6 +135,21 @@ function RankingChart({ history }: { history: { month: string; ranking: number }
           </TouchableOpacity>
         ))}
       </View>
+      {careerHigh != null && (
+        <View style={{ flexDirection: 'row', alignItems: 'baseline', marginTop: 8, marginBottom: 4, paddingHorizontal: 4, gap: 6 }}>
+          <Text style={{ color: '#888', fontSize: 12 }}>Career High:</Text>
+          <Text style={{ color: '#f59e0b', fontSize: 22, fontWeight: '700' }}>#{careerHigh}</Text>
+          {careerHighDate && (
+            <Text style={{ color: '#666', fontSize: 12 }}>
+              — {(() => {
+                const [y, m] = careerHighDate.split('-');
+                const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+                return `${months[parseInt(m, 10) - 1]} ${y}`;
+              })()}
+            </Text>
+          )}
+        </View>
+      )}
       <ScrollView ref={scrollRef} horizontal showsHorizontalScrollIndicator contentContainerStyle={{ width: dynamicWidth }} style={{ marginTop: 8 }}>
         <Svg width={dynamicWidth} height={CHART_HEIGHT}>
           {yTicks.map((rank) => (
@@ -162,7 +177,7 @@ function RankingChart({ history }: { history: { month: string; ranking: number }
 }
 
 // ─── Stat Detail Panels ──────────────────────────────────────────────
-type StatKey = 'ranking' | 'grandSlams' | 'titles' | 'winRate' | 'seasonWL' | 'decidingSet';
+type StatKey = 'ranking' | 'grandSlams' | 'titles' | 'winRate' | 'seasonWL' | 'prizeMoney';
 
 function MatchRow({ result, children }: { result?: 'W' | 'L'; children: React.ReactNode }) {
   return (
@@ -294,36 +309,28 @@ function SeasonMatchesPanel({ data, router }: { data: SeasonMatchEntry[]; router
   );
 }
 
-function DecidingSetPanel({ data, router }: { data: DecidingSetMatchEntry[]; router: any }) {
-  if (!data || data.length === 0) return <Text style={styles.detailEmpty}>No deciding set data</Text>;
+function PrizeMoneyPanel({ prizeMoney }: { prizeMoney?: string }) {
+  // Mock seasonal prize money data
+  const seasonalData = [
+    { year: 2024, amount: '$12,345,678' },
+    { year: 2023, amount: '$15,234,567' },
+    { year: 2022, amount: '$9,876,543' },
+    { year: 2021, amount: '$7,654,321' },
+    { year: 2020, amount: '$3,210,987' },
+  ];
+
   return (
     <View style={styles.detailPanel}>
-      {data.map((m, i) => (
-        <TouchableOpacity
-          key={i}
-          activeOpacity={m.matchId ? 0.7 : 1}
-          onPress={() => m.matchId && router.push(`/match/${m.matchId}`)}
-        >
-          <MatchRow result={m.result}>
-            <Text style={styles.detailDate}>{m.date.slice(5)}</Text>
-            <TouchableOpacity
-              style={{ flex: 1, marginLeft: 8 }}
-              activeOpacity={m.tournamentId ? 0.7 : 1}
-              onPress={(e) => { e.stopPropagation?.(); m.tournamentId && router.push(`/tournament/${m.tournamentId}`); }}
-            >
-              <Text style={[styles.detailTournament, m.tournamentId && styles.detailTournamentLink]} numberOfLines={1}>
-                {m.tournament}{m.round ? ` \u2022 ` : ''}
-                {m.round ? <Text style={styles.roundLabel}>{m.round}</Text> : null}
-              </Text>
-              <Text style={styles.detailOpponent}>vs {m.opponent}</Text>
-            </TouchableOpacity>
-            <View style={{ alignItems: 'flex-end' }}>
-              <Text style={[styles.detailResult, m.result === 'W' ? { color: '#fff' } : { color: '#e53935' }]}>{m.result}</Text>
-              <Text style={styles.detailScore}>{m.score}</Text>
-              <Text style={styles.detailDecidingScore}>Set: {m.decidingSetScore}</Text>
-            </View>
-          </MatchRow>
-        </TouchableOpacity>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 12, paddingHorizontal: 8 }}>
+        <Text style={{ color: '#888', fontSize: 12, fontWeight: '600' }}>Career Total</Text>
+        <Text style={{ color: '#f59e0b', fontSize: 16, fontWeight: '700' }}>{prizeMoney || '--'}</Text>
+      </View>
+      {seasonalData.map((s) => (
+        <View key={s.year} style={[styles.detailRow, { borderLeftColor: 'transparent' }]}>
+          <Text style={styles.detailYear}>{s.year}</Text>
+          <View style={{ flex: 1 }} />
+          <Text style={{ color: '#f59e0b', fontSize: 13, fontWeight: '600' }}>{s.amount}</Text>
+        </View>
       ))}
     </View>
   );
@@ -337,8 +344,7 @@ function OverviewTab({ player, router }: { player: PlayerDetail; router: any }) 
   const careerWins = record ? record.career.wins : 0;
   const careerTotal = record ? record.career.wins + record.career.losses : 1;
   const winRate = record ? `${((careerWins / careerTotal) * 100).toFixed(0)}%` : '--';
-  const setStats = (player as any).setStats as SetStats | undefined;
-  const decidingPct = setStats?.decidingSet ? `${setStats.decidingSet.winRate.toFixed(1)}%` : '--';
+  const playerPrizeMoney = (player as any).prizeMoney as string | undefined;
 
   const toggleStat = (key: StatKey) => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
@@ -351,7 +357,7 @@ function OverviewTab({ player, router }: { player: PlayerDetail; router: any }) 
     { key: 'titles', value: `${player.titles}`, label: 'Titles' },
     { key: 'winRate', value: winRate, label: 'Win Rate' },
     { key: 'seasonWL', value: seasonWL, label: 'Season W-L' },
-    { key: 'decidingSet', value: decidingPct, label: 'Deciding Set', color: '#f59e0b' },
+    { key: 'prizeMoney', value: playerPrizeMoney || '--', label: 'Prize Money', color: '#f59e0b' },
   ];
 
   const renderExpandedContent = () => {
@@ -359,7 +365,7 @@ function OverviewTab({ player, router }: { player: PlayerDetail; router: any }) 
     switch (expandedStat) {
       case 'ranking':
         return player.rankingHistory && player.rankingHistory.length > 0 ? (
-          <RankingChart history={player.rankingHistory} />
+          <RankingChart history={player.rankingHistory} careerHigh={(player as any).careerHigh} careerHighDate={(player as any).careerHighDate} />
         ) : null;
       case 'grandSlams':
         return <GrandSlamsPanel data={(player as any).grandSlamsList || []} router={router} />;
@@ -369,8 +375,8 @@ function OverviewTab({ player, router }: { player: PlayerDetail; router: any }) 
         return <WinRatePanel data={(player as any).winRateByYear || []} />;
       case 'seasonWL':
         return <SeasonMatchesPanel data={(player as any).seasonMatches || []} router={router} />;
-      case 'decidingSet':
-        return <DecidingSetPanel data={(player as any).decidingSetMatches || []} router={router} />;
+      case 'prizeMoney':
+        return <PrizeMoneyPanel prizeMoney={(player as any).prizeMoney} />;
       default:
         return null;
     }

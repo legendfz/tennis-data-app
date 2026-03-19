@@ -865,7 +865,8 @@
         "winRate": 70.0
       }
     ],
-    "countryCode": "it"
+    "countryCode": "it",
+    "careerHighDate": "2024-06"
   },
   {
     "id": 2,
@@ -2826,7 +2827,8 @@
         "winRate": 93.2
       }
     ],
-    "countryCode": "rs"
+    "countryCode": "rs",
+    "careerHighDate": "2011-07"
   },
   {
     "id": 3,
@@ -3646,7 +3648,8 @@
         "winRate": 73.1
       }
     ],
-    "countryCode": "es"
+    "countryCode": "es",
+    "careerHighDate": "2022-09"
   },
   {
     "id": 4,
@@ -4619,7 +4622,8 @@
         "winRate": 77.9
       }
     ],
-    "countryCode": "de"
+    "countryCode": "de",
+    "careerHighDate": "2022-02"
   },
   {
     "id": 5,
@@ -5562,7 +5566,8 @@
         "winRate": 72.2
       }
     ],
-    "countryCode": "ru"
+    "countryCode": "ru",
+    "careerHighDate": "2022-02"
   },
   {
     "id": 6,
@@ -6479,7 +6484,8 @@
         "winRate": 77.6
       }
     ],
-    "countryCode": "ru"
+    "countryCode": "ru",
+    "careerHighDate": "2023-09"
   },
   {
     "id": 7,
@@ -7353,7 +7359,8 @@
         "winRate": 84.9
       }
     ],
-    "countryCode": "pl"
+    "countryCode": "pl",
+    "careerHighDate": "2024-04"
   },
   {
     "id": 8,
@@ -8119,7 +8126,8 @@
         "winRate": 75.6
       }
     ],
-    "countryCode": "no"
+    "countryCode": "no",
+    "careerHighDate": "2022-09"
   },
   {
     "id": 9,
@@ -8892,7 +8900,8 @@
         "winRate": 76.7
       }
     ],
-    "countryCode": "au"
+    "countryCode": "au",
+    "careerHighDate": "2024-06"
   },
   {
     "id": 10,
@@ -10097,7 +10106,8 @@
         "winRate": 76.6
       }
     ],
-    "countryCode": "bg"
+    "countryCode": "bg",
+    "careerHighDate": "2017-11"
   },
   {
     "id": 11,
@@ -10860,7 +10870,8 @@
         "winRate": 65.9
       }
     ],
-    "countryCode": "gr"
+    "countryCode": "gr",
+    "careerHighDate": "2021-08"
   },
   {
     "id": 12,
@@ -11709,7 +11720,8 @@
         "winRate": 74.5
       }
     ],
-    "countryCode": "us"
+    "countryCode": "us",
+    "careerHighDate": "2024-09"
   },
   {
     "id": 13,
@@ -12542,7 +12554,8 @@
         "winRate": 71.7
       }
     ],
-    "countryCode": "us"
+    "countryCode": "us",
+    "careerHighDate": "2024-03"
   },
   {
     "id": 14,
@@ -13033,7 +13046,8 @@
         "winRate": 72.5
       }
     ],
-    "countryCode": "us"
+    "countryCode": "us",
+    "careerHighDate": "2024-01"
   },
   {
     "id": 15,
@@ -13682,7 +13696,8 @@
         "winRate": 73.5
       }
     ],
-    "countryCode": "dk"
+    "countryCode": "dk",
+    "careerHighDate": "2023-07"
   },
   {
     "id": 16,
@@ -14425,7 +14440,8 @@
         "winRate": 69.8
       }
     ],
-    "countryCode": "fr"
+    "countryCode": "fr",
+    "careerHighDate": "2024-06"
   },
   {
     "id": 17,
@@ -15103,7 +15119,8 @@
         "winRate": 71.4
       }
     ],
-    "countryCode": "us"
+    "countryCode": "us",
+    "careerHighDate": "2024-03"
   },
   {
     "id": 18,
@@ -15973,7 +15990,8 @@
         "winRate": 75.0
       }
     ],
-    "countryCode": "cl"
+    "countryCode": "cl",
+    "careerHighDate": "2024-02"
   },
   {
     "id": 19,
@@ -16931,7 +16949,8 @@
         "winRate": 71.4
       }
     ],
-    "countryCode": "ru"
+    "countryCode": "ru",
+    "careerHighDate": "2019-07"
   },
   {
     "id": 20,
@@ -17667,7 +17686,8 @@
         "winRate": 69.2
       }
     ],
-    "countryCode": "ca"
+    "countryCode": "ca",
+    "careerHighDate": "2022-04"
   },
   {
     "id": 21,
