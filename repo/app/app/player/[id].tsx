@@ -253,7 +253,7 @@ function SeasonMatchesPanel({ data }: { data: SeasonMatchEntry[] }) {
             <Text style={styles.detailOpponent}>vs {m.opponent}</Text>
           </View>
           <View style={{ alignItems: 'flex-end' }}>
-            <Text style={[styles.detailResult, m.result === 'W' ? { color: '#16a34a' } : { color: '#ef4444' }]}>{m.result}</Text>
+            <Text style={[styles.detailResult, m.result === 'W' ? { color: '#fff' } : { color: '#e53935' }]}>{m.result}</Text>
             <Text style={styles.detailScore}>{m.score}</Text>
           </View>
         </MatchRow>
@@ -274,7 +274,7 @@ function DecidingSetPanel({ data }: { data: DecidingSetMatchEntry[] }) {
             <Text style={styles.detailOpponent}>vs {m.opponent}</Text>
           </View>
           <View style={{ alignItems: 'flex-end' }}>
-            <Text style={[styles.detailResult, m.result === 'W' ? { color: '#16a34a' } : { color: '#ef4444' }]}>{m.result}</Text>
+            <Text style={[styles.detailResult, m.result === 'W' ? { color: '#fff' } : { color: '#e53935' }]}>{m.result}</Text>
             <Text style={styles.detailScore}>{m.score}</Text>
             <Text style={styles.detailDecidingScore}>Set: {m.decidingSetScore}</Text>
           </View>
@@ -304,7 +304,7 @@ function OverviewTab({ player }: { player: PlayerDetail }) {
     { key: 'ranking', value: `#${player.ranking}`, label: 'Ranking' },
     { key: 'grandSlams', value: `${player.grandSlams}`, label: 'Grand Slams', color: '#f59e0b' },
     { key: 'titles', value: `${player.titles}`, label: 'Titles' },
-    { key: 'winRate', value: winRate, label: 'Win Rate', color: '#16a34a' },
+    { key: 'winRate', value: winRate, label: 'Win Rate' },
     { key: 'seasonWL', value: seasonWL, label: 'Season W-L' },
     { key: 'decidingSet', value: decidingPct, label: 'Deciding Set', color: '#f59e0b' },
   ];
@@ -851,14 +851,14 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   hotTagBadge: {
-    backgroundColor: 'rgba(22,163,74,0.12)',
+    backgroundColor: '#2a2a2a',
     paddingHorizontal: 12,
     paddingVertical: 4,
     borderRadius: 12,
   },
   hotTagText: {
     fontSize: 11,
-    color: '#16a34a',
+    color: '#aaa',
     fontWeight: '500',
   },
 
@@ -930,7 +930,7 @@ const styles = StyleSheet.create({
     color: '#444',
   },
   statArrowActive: {
-    color: '#16a34a',
+    color: '#fff',
     transform: [{ rotate: '90deg' }],
   },
 
@@ -955,7 +955,7 @@ const styles = StyleSheet.create({
     borderLeftColor: '#16a34a',
   },
   detailRowLoss: {
-    borderLeftColor: '#ef4444',
+    borderLeftColor: '#e53935',
   },
   detailEmpty: {
     color: '#666',
@@ -970,7 +970,7 @@ const styles = StyleSheet.create({
     width: 40,
   },
   detailYearHeader: {
-    color: '#16a34a',
+    color: '#fff',
     fontSize: 12,
     fontWeight: '600' as const,
     marginTop: 8,
@@ -1006,7 +1006,7 @@ const styles = StyleSheet.create({
     fontWeight: '700' as const,
   },
   detailWinRate: {
-    color: '#16a34a',
+    color: '#fff',
     fontSize: 13,
     fontWeight: '700' as const,
     width: 44,
@@ -1062,7 +1062,7 @@ const styles = StyleSheet.create({
   barTrack: { flex: 1, height: 6, backgroundColor: '#2a2a2a', borderRadius: 3, overflow: 'hidden' },
   barFill: { height: '100%', backgroundColor: '#16a34a', borderRadius: 3 },
   barValue: { width: 40, fontSize: 13, fontWeight: '600', textAlign: 'right', color: '#fff' },
-  barPct: { width: 44, fontSize: 13, fontWeight: '700', color: '#16a34a', textAlign: 'right' },
+  barPct: { width: 44, fontSize: 13, fontWeight: '700', color: '#fff', textAlign: 'right' },
   barRecord: { width: 56, fontSize: 12, color: '#666', textAlign: 'right' },
 
   // Match items
@@ -1072,7 +1072,7 @@ const styles = StyleSheet.create({
   matchRound: { fontSize: 11, color: '#666' },
   matchContent: { flexDirection: 'row', alignItems: 'center' },
   matchName: { flex: 1, fontSize: 14, color: '#ffffff', textAlign: 'center' },
-  matchWin: { color: '#16a34a', fontWeight: '700' },
+  matchWin: { color: '#fff', fontWeight: '700' },
   matchLose: { color: '#666' },
   matchVsScore: { fontSize: 13, fontWeight: '700', color: '#ffffff', marginHorizontal: 8 },
   matchDate: { textAlign: 'center', color: '#666', fontSize: 11, marginTop: 4 },
@@ -1081,13 +1081,13 @@ const styles = StyleSheet.create({
   equipSection: { marginBottom: 14 },
   equipLabel: { fontSize: 13, fontWeight: '600', color: '#888', marginBottom: 8 },
   equipItem: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 8, borderBottomWidth: 1, borderBottomColor: '#1e1e1e' },
-  equipBrand: { fontSize: 13, fontWeight: '500', color: '#16a34a' },
+  equipBrand: { fontSize: 13, fontWeight: '500', color: '#3b82f6' },
   equipYears: { fontSize: 12, color: '#666', marginTop: 1 },
-  currentBadge: { backgroundColor: 'rgba(22, 163, 74, 0.12)', borderRadius: 8, paddingHorizontal: 8, paddingVertical: 2 },
-  currentText: { fontSize: 11, color: '#16a34a', fontWeight: '600' },
+  currentBadge: { backgroundColor: '#2a2a2a', borderRadius: 8, paddingHorizontal: 8, paddingVertical: 2 },
+  currentText: { fontSize: 11, color: '#aaa', fontWeight: '600' },
   sponsorRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6 },
   sponsorPill: { backgroundColor: '#121212', borderRadius: 8, paddingHorizontal: 10, paddingVertical: 5, borderWidth: 0.5, borderColor: '#2a2a2a' },
-  sponsorText: { fontSize: 13, color: '#16a34a' },
+  sponsorText: { fontSize: 13, color: '#3b82f6' },
 
   // Comments Tab
   tagGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
@@ -1104,6 +1104,6 @@ const styles = StyleSheet.create({
   tagRankName: { width: 110, fontSize: 13, color: '#fff' },
   tagBarWrap: { flex: 1, height: 6, backgroundColor: '#2a2a2a', borderRadius: 3, overflow: 'hidden' },
   tagBarFill: { height: '100%', borderRadius: 3, backgroundColor: '#16a34a' },
-  tagRankPct: { width: 40, fontSize: 12, fontWeight: '600', color: '#16a34a', textAlign: 'right' },
+  tagRankPct: { width: 40, fontSize: 12, fontWeight: '600', color: '#fff', textAlign: 'right' },
   tagRankCount: { width: 40, fontSize: 11, color: '#666', textAlign: 'right' },
 });

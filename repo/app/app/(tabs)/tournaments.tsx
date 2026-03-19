@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
   category: {
     fontSize: 11,
     fontWeight: '600',
-    color: '#16a34a',
+    color: '#888',
     marginBottom: 2,
   },
   dates: {

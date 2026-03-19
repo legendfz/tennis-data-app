@@ -358,7 +358,7 @@ const styles = StyleSheet.create({
   tournamentLabel: {
     fontSize: 12,
     fontWeight: '500',
-    color: '#16a34a',
+    color: '#888',
     marginBottom: 16,
   },
   versusRow: {
@@ -476,7 +476,8 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
   compareValWin: {
-    color: '#16a34a',
+    color: '#fff',
+    fontWeight: '700',
   },
   compareBars: {
     flex: 1,
@@ -514,7 +515,7 @@ const styles = StyleSheet.create({
     color: '#666',
   },
   probPctWin: {
-    color: '#16a34a',
+    color: '#fff',
   },
   probBarOuter: {
     flex: 1,
@@ -535,6 +536,6 @@ const styles = StyleSheet.create({
   chipPos: { backgroundColor: 'rgba(22, 163, 74, 0.12)' },
   chipNeg: { backgroundColor: 'rgba(239, 68, 68, 0.12)' },
   chipText: { fontSize: 11, fontWeight: '600' },
-  chipTextPos: { color: '#16a34a' },
+  chipTextPos: { color: '#4caf50' },
   chipTextNeg: { color: '#ef4444' },
 });

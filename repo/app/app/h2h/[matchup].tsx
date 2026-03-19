@@ -453,10 +453,10 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 6,
   },
-  avatarLeading: { borderColor: '#16a34a' },
+  avatarLeading: { borderColor: '#fff' },
   flag: { fontSize: 30, marginBottom: 4 },
   playerName: { fontSize: 16, fontWeight: 'bold', color: '#ffffff', textAlign: 'center', marginBottom: 2 },
-  playerRank: { fontSize: 14, color: '#16a34a', fontWeight: '600' },
+  playerRank: { fontSize: 14, color: '#888', fontWeight: '600' },
   vsCol: { paddingHorizontal: 10, justifyContent: 'center', alignItems: 'center' },
   vsBubble: {
     backgroundColor: '#2a2a4e',
@@ -482,7 +482,7 @@ const styles = StyleSheet.create({
   sectionLabel: { fontSize: 11, fontWeight: '700', color: '#a0a0b0', letterSpacing: 2, marginBottom: 16 },
   recordRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center' },
   recordNum: { fontSize: 52, fontWeight: 'bold', color: '#ffffff' },
-  recordGreen: { color: '#16a34a' },
+  recordGreen: { color: '#fff', fontWeight: 'bold' },
   recordBlue: { color: '#3b82f6' },
   recordDivider: { alignItems: 'center', marginHorizontal: 20 },
   recordDash: { fontSize: 28, color: '#a0a0b0' },
@@ -520,7 +520,7 @@ const styles = StyleSheet.create({
   surfaceBarBg: { height: 10, backgroundColor: '#3b82f6', borderRadius: 5, overflow: 'hidden' },
   surfaceBarFill: { height: '100%', borderRadius: 5 },
   surfaceScore: { width: 50, textAlign: 'right', fontSize: 14, color: '#ffffff' },
-  winNum: { color: '#16a34a', fontWeight: 'bold' },
+  winNum: { color: '#fff', fontWeight: 'bold' },
   loseNum: { color: '#6b7280' },
 
   // Comparison
@@ -533,7 +533,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#2a2a4e',
   },
   compValue: { width: 80, fontSize: 16, fontWeight: '600', color: '#ffffff', textAlign: 'center' },
-  compBetter: { color: '#16a34a' },
+  compBetter: { color: '#fff', fontWeight: 'bold' },
   compLabel: { flex: 1, fontSize: 13, color: '#a0a0b0', textAlign: 'center' },
 
   // Match History
@@ -547,7 +547,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: 6,
   },
-  matchTournament: { fontSize: 11, fontWeight: '700', color: '#16a34a', textTransform: 'uppercase', flex: 1, letterSpacing: 0.5 },
+  matchTournament: { fontSize: 11, fontWeight: '700', color: '#a0a0b0', textTransform: 'uppercase', flex: 1, letterSpacing: 0.5 },
   matchRound: { fontSize: 11, color: '#a0a0b0' },
   matchMiddle: {
     flexDirection: 'row',
@@ -556,7 +556,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   matchPlayerLabel: { flex: 1, fontSize: 14, color: '#a0a0b0', textAlign: 'center' },
-  matchWinner: { color: '#16a34a', fontWeight: 'bold' },
+  matchWinner: { color: '#fff', fontWeight: 'bold' },
   matchLoserText: { color: '#6b7280' },
   matchScore: { fontSize: 13, fontWeight: '600', color: '#ffffff', textAlign: 'center', flex: 2 },
   matchBottom: {
@@ -600,7 +600,7 @@ const styles = StyleSheet.create({
     color: '#ffffff',
   },
   quizOptionTextCorrect: {
-    color: '#16a34a',
+    color: '#4caf50',
     fontWeight: '600',
   },
   quizOptionTextWrong: {
@@ -617,7 +617,7 @@ const styles = StyleSheet.create({
   quizScore: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#16a34a',
+    color: '#fff',
     marginBottom: 12,
   },
   quizNewButton: {

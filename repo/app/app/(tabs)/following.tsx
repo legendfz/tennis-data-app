@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: 22,
-    backgroundColor: '#16a34a',
+    backgroundColor: '#2a2a2a',
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
   },
   rankText: {
     fontSize: 12,
-    color: '#16a34a',
+    color: '#888',
     marginTop: 2,
   },
   separator: {

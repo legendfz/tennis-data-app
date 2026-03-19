@@ -323,7 +323,7 @@ const styles = StyleSheet.create({
   sectionHeader: {
     fontSize: 13,
     fontWeight: '600',
-    color: '#16a34a',
+    color: '#888',
     paddingHorizontal: 16,
     paddingTop: 16,
     paddingBottom: 8,
@@ -397,7 +397,7 @@ const styles = StyleSheet.create({
     flexShrink: 1,
   },
   playerNameWinner: {
-    color: '#16a34a',
+    color: '#fff',
     fontWeight: '700',
   },
   playerNameLoser: {
@@ -408,7 +408,7 @@ const styles = StyleSheet.create({
     width: 5,
     height: 5,
     borderRadius: 2.5,
-    backgroundColor: '#16a34a',
+    backgroundColor: '#fff',
   },
 
   // Score
@@ -420,12 +420,12 @@ const styles = StyleSheet.create({
   scoreLive: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#16a34a',
+    color: '#e53935',
   },
   scoreFt: {
     fontSize: 15,
-    fontWeight: '600',
-    color: '#999',
+    fontWeight: '700',
+    color: '#fff',
     letterSpacing: 2,
   },
   scoreTime: {

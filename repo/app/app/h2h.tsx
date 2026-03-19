@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
   selectedAvatar: { width: 36, height: 36, borderRadius: 18, marginRight: 10 },
   selectedInfo: { flex: 1 },
   selectedName: { fontSize: 13, color: '#ffffff', fontWeight: '500' },
-  selectedRank: { fontSize: 11, color: '#16a34a' },
+  selectedRank: { fontSize: 11, color: '#888' },
   changeBtn: { fontSize: 18, color: '#6b7280', paddingHorizontal: 8 },
   compareBtn: {
     backgroundColor: '#16a34a',
@@ -249,5 +249,5 @@ const styles = StyleSheet.create({
     borderBottomColor: '#2a2a2a',
   },
   popularLabel: { fontSize: 14, color: '#ffffff' },
-  popularArrow: { fontSize: 14, color: '#16a34a', fontWeight: '600' },
+  popularArrow: { fontSize: 14, color: '#666', fontWeight: '600' },
 });
