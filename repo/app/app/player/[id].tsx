@@ -9,6 +9,9 @@ import {
   TouchableOpacity,
   TextInput,
   Alert,
+  LayoutAnimation,
+  Platform,
+  UIManager,
 } from 'react-native';
 import { useLocalSearchParams, Stack, useRouter } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
@@ -30,7 +33,11 @@ import {
   formatCount,
   type PlayerComments,
 } from '../../lib/comments';
-import type { PlayerDetail, MatchWithPlayers, SetStats } from '../../../shared/types';
+import type { PlayerDetail, MatchWithPlayers, SetStats, TitleEntry, GrandSlamEntry, SeasonMatchEntry, DecidingSetMatchEntry, WinRateByYear } from '../../../shared/types';
+
+if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+}
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const AVATAR_SIZE = 80;
@@ -151,8 +158,135 @@ function RankingChart({ history }: { history: { month: string; ranking: number }
   );
 }
 
+// ─── Stat Detail Panels ──────────────────────────────────────────────
+type StatKey = 'ranking' | 'grandSlams' | 'titles' | 'winRate' | 'seasonWL' | 'decidingSet';
+
+function MatchRow({ result, children }: { result?: 'W' | 'L'; children: React.ReactNode }) {
+  return (
+    <View style={[
+      styles.detailRow,
+      result === 'W' && styles.detailRowWin,
+      result === 'L' && styles.detailRowLoss,
+    ]}>
+      {children}
+    </View>
+  );
+}
+
+function GrandSlamsPanel({ data }: { data: GrandSlamEntry[] }) {
+  if (!data || data.length === 0) return <Text style={styles.detailEmpty}>No grand slam data</Text>;
+  return (
+    <View style={styles.detailPanel}>
+      {data.map((gs, i) => (
+        <MatchRow key={i} result="W">
+          <Text style={styles.detailYear}>{gs.year}</Text>
+          <Text style={styles.detailTournament} numberOfLines={1}>{gs.tournament}</Text>
+          <View style={{ flex: 1, alignItems: 'flex-end' }}>
+            <Text style={styles.detailOpponent}>vs {gs.opponent}</Text>
+            <Text style={styles.detailScore}>{gs.score}</Text>
+          </View>
+        </MatchRow>
+      ))}
+    </View>
+  );
+}
+
+function TitlesPanel({ data }: { data: TitleEntry[] }) {
+  if (!data || data.length === 0) return <Text style={styles.detailEmpty}>No titles data</Text>;
+  const grouped = data.reduce((acc, t) => {
+    if (!acc[t.year]) acc[t.year] = [];
+    acc[t.year].push(t);
+    return acc;
+  }, {} as Record<number, TitleEntry[]>);
+  const years = Object.keys(grouped).map(Number).sort((a, b) => b - a);
+
+  return (
+    <View style={styles.detailPanel}>
+      {years.map((year) => (
+        <View key={year}>
+          <Text style={styles.detailYearHeader}>{year} ({grouped[year].length})</Text>
+          {grouped[year].map((t, i) => (
+            <MatchRow key={i} result="W">
+              <View style={{ flex: 1 }}>
+                <Text style={styles.detailTournament}>{t.tournament}</Text>
+                <Text style={styles.detailSurface}>{t.surface}</Text>
+              </View>
+              <View style={{ alignItems: 'flex-end' }}>
+                <Text style={styles.detailOpponent}>vs {t.final_opponent}</Text>
+                <Text style={styles.detailScore}>{t.score}</Text>
+              </View>
+            </MatchRow>
+          ))}
+        </View>
+      ))}
+    </View>
+  );
+}
+
+function WinRatePanel({ data }: { data: WinRateByYear[] }) {
+  if (!data || data.length === 0) return <Text style={styles.detailEmpty}>No win rate data</Text>;
+  return (
+    <View style={styles.detailPanel}>
+      {data.map((yr, i) => (
+        <View key={i} style={styles.detailRow}>
+          <Text style={styles.detailYear}>{yr.year}</Text>
+          <View style={[styles.barTrack, { flex: 1, marginHorizontal: 8 }]}>
+            <View style={[styles.barFill, { width: `${yr.winRate}%` }]} />
+          </View>
+          <Text style={styles.detailWinRate}>{yr.winRate}%</Text>
+          <Text style={styles.detailRecord}>{yr.wins}-{yr.losses}</Text>
+        </View>
+      ))}
+    </View>
+  );
+}
+
+function SeasonMatchesPanel({ data }: { data: SeasonMatchEntry[] }) {
+  if (!data || data.length === 0) return <Text style={styles.detailEmpty}>No season data</Text>;
+  return (
+    <View style={styles.detailPanel}>
+      {data.map((m, i) => (
+        <MatchRow key={i} result={m.result}>
+          <Text style={styles.detailDate}>{m.date.slice(5)}</Text>
+          <View style={{ flex: 1, marginLeft: 8 }}>
+            <Text style={styles.detailTournament} numberOfLines={1}>{m.tournament}</Text>
+            <Text style={styles.detailOpponent}>vs {m.opponent}</Text>
+          </View>
+          <View style={{ alignItems: 'flex-end' }}>
+            <Text style={[styles.detailResult, m.result === 'W' ? { color: '#16a34a' } : { color: '#ef4444' }]}>{m.result}</Text>
+            <Text style={styles.detailScore}>{m.score}</Text>
+          </View>
+        </MatchRow>
+      ))}
+    </View>
+  );
+}
+
+function DecidingSetPanel({ data }: { data: DecidingSetMatchEntry[] }) {
+  if (!data || data.length === 0) return <Text style={styles.detailEmpty}>No deciding set data</Text>;
+  return (
+    <View style={styles.detailPanel}>
+      {data.map((m, i) => (
+        <MatchRow key={i} result={m.result}>
+          <Text style={styles.detailDate}>{m.date.slice(5)}</Text>
+          <View style={{ flex: 1, marginLeft: 8 }}>
+            <Text style={styles.detailTournament} numberOfLines={1}>{m.tournament}</Text>
+            <Text style={styles.detailOpponent}>vs {m.opponent}</Text>
+          </View>
+          <View style={{ alignItems: 'flex-end' }}>
+            <Text style={[styles.detailResult, m.result === 'W' ? { color: '#16a34a' } : { color: '#ef4444' }]}>{m.result}</Text>
+            <Text style={styles.detailScore}>{m.score}</Text>
+            <Text style={styles.detailDecidingScore}>Set: {m.decidingSetScore}</Text>
+          </View>
+        </MatchRow>
+      ))}
+    </View>
+  );
+}
+
 // ─── Overview Tab ────────────────────────────────────────────────────
 function OverviewTab({ player }: { player: PlayerDetail }) {
+  const [expandedStat, setExpandedStat] = useState<StatKey | null>(null);
   const record = player.record;
   const seasonWL = record ? `${record.season.wins}-${record.season.losses}` : '--';
   const careerWins = record ? record.career.wins : 0;
@@ -161,40 +295,70 @@ function OverviewTab({ player }: { player: PlayerDetail }) {
   const setStats = (player as any).setStats as SetStats | undefined;
   const decidingPct = setStats?.decidingSet ? `${setStats.decidingSet.winRate.toFixed(1)}%` : '--';
 
+  const toggleStat = (key: StatKey) => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    setExpandedStat(expandedStat === key ? null : key);
+  };
+
+  const statCards: { key: StatKey; value: string; label: string; color?: string }[] = [
+    { key: 'ranking', value: `#${player.ranking}`, label: 'Ranking' },
+    { key: 'grandSlams', value: `${player.grandSlams}`, label: 'Grand Slams', color: '#f59e0b' },
+    { key: 'titles', value: `${player.titles}`, label: 'Titles' },
+    { key: 'winRate', value: winRate, label: 'Win Rate', color: '#16a34a' },
+    { key: 'seasonWL', value: seasonWL, label: 'Season W-L' },
+    { key: 'decidingSet', value: decidingPct, label: 'Deciding Set', color: '#f59e0b' },
+  ];
+
+  const renderExpandedContent = () => {
+    if (!expandedStat) return null;
+    switch (expandedStat) {
+      case 'ranking':
+        return player.rankingHistory && player.rankingHistory.length > 0 ? (
+          <RankingChart history={player.rankingHistory} />
+        ) : null;
+      case 'grandSlams':
+        return <GrandSlamsPanel data={(player as any).grandSlamsList || []} />;
+      case 'titles':
+        return <TitlesPanel data={(player as any).titlesList || []} />;
+      case 'winRate':
+        return <WinRatePanel data={(player as any).winRateByYear || []} />;
+      case 'seasonWL':
+        return <SeasonMatchesPanel data={(player as any).seasonMatches || []} />;
+      case 'decidingSet':
+        return <DecidingSetPanel data={(player as any).decidingSetMatches || []} />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <>
       {/* 6-cell Stats Grid */}
       <View style={styles.statsGrid}>
-        <View style={styles.statCell}>
-          <Text style={styles.statNumber}>#{player.ranking}</Text>
-          <Text style={styles.statLabel}>Ranking</Text>
-        </View>
-        <View style={styles.statCell}>
-          <Text style={[styles.statNumber, { color: '#f59e0b' }]}>{player.grandSlams}</Text>
-          <Text style={styles.statLabel}>Grand Slams</Text>
-        </View>
-        <View style={styles.statCell}>
-          <Text style={styles.statNumber}>{player.titles}</Text>
-          <Text style={styles.statLabel}>Titles</Text>
-        </View>
-        <View style={styles.statCell}>
-          <Text style={[styles.statNumber, { color: '#16a34a' }]}>{winRate}</Text>
-          <Text style={styles.statLabel}>Win Rate</Text>
-        </View>
-        <View style={styles.statCell}>
-          <Text style={styles.statNumber}>{seasonWL}</Text>
-          <Text style={styles.statLabel}>Season W-L</Text>
-        </View>
-        <View style={styles.statCell}>
-          <Text style={[styles.statNumber, { color: '#f59e0b' }]}>{decidingPct}</Text>
-          <Text style={styles.statLabel}>Deciding Set</Text>
-        </View>
+        {statCards.map((card) => (
+          <TouchableOpacity
+            key={card.key}
+            style={[
+              styles.statCell,
+              expandedStat === card.key && styles.statCellActive,
+            ]}
+            onPress={() => toggleStat(card.key)}
+            activeOpacity={0.7}
+          >
+            <Text style={[styles.statNumber, card.color ? { color: card.color } : undefined]}>
+              {card.value}
+            </Text>
+            <Text style={styles.statLabel}>{card.label}</Text>
+            <Text style={[
+              styles.statArrow,
+              expandedStat === card.key && styles.statArrowActive,
+            ]}>›</Text>
+          </TouchableOpacity>
+        ))}
       </View>
 
-      {/* Ranking Chart */}
-      {player.rankingHistory && player.rankingHistory.length > 0 && (
-        <RankingChart history={player.rankingHistory} />
-      )}
+      {/* Expanded Detail */}
+      {renderExpandedContent()}
 
       {/* Bio */}
       <View style={styles.card}>
@@ -743,6 +907,10 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     paddingHorizontal: 12,
     alignItems: 'center',
+    position: 'relative' as const,
+  },
+  statCellActive: {
+    backgroundColor: '#2a2a2a',
   },
   statNumber: {
     fontSize: 24,
@@ -753,6 +921,107 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: '#888',
     marginTop: 4,
+  },
+  statArrow: {
+    position: 'absolute' as const,
+    bottom: 4,
+    right: 6,
+    fontSize: 14,
+    color: '#444',
+  },
+  statArrowActive: {
+    color: '#16a34a',
+    transform: [{ rotate: '90deg' }],
+  },
+
+  // Detail panels
+  detailPanel: {
+    backgroundColor: '#1e1e1e',
+    borderRadius: 10,
+    padding: 12,
+    marginBottom: 12,
+  },
+  detailRow: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    paddingVertical: 8,
+    paddingHorizontal: 8,
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#2a2a2a',
+    borderLeftWidth: 3,
+    borderLeftColor: 'transparent',
+  },
+  detailRowWin: {
+    borderLeftColor: '#16a34a',
+  },
+  detailRowLoss: {
+    borderLeftColor: '#ef4444',
+  },
+  detailEmpty: {
+    color: '#666',
+    fontSize: 13,
+    textAlign: 'center' as const,
+    paddingVertical: 20,
+  },
+  detailYear: {
+    color: '#888',
+    fontSize: 12,
+    fontWeight: '600' as const,
+    width: 40,
+  },
+  detailYearHeader: {
+    color: '#16a34a',
+    fontSize: 12,
+    fontWeight: '600' as const,
+    marginTop: 8,
+    marginBottom: 4,
+    paddingHorizontal: 8,
+  },
+  detailTournament: {
+    color: '#fff',
+    fontSize: 13,
+    fontWeight: '500' as const,
+  },
+  detailSurface: {
+    color: '#666',
+    fontSize: 11,
+    marginTop: 1,
+  },
+  detailOpponent: {
+    color: '#888',
+    fontSize: 12,
+  },
+  detailScore: {
+    color: '#888',
+    fontSize: 11,
+    marginTop: 1,
+  },
+  detailDate: {
+    color: '#666',
+    fontSize: 11,
+    width: 42,
+  },
+  detailResult: {
+    fontSize: 12,
+    fontWeight: '700' as const,
+  },
+  detailWinRate: {
+    color: '#16a34a',
+    fontSize: 13,
+    fontWeight: '700' as const,
+    width: 44,
+    textAlign: 'right' as const,
+  },
+  detailRecord: {
+    color: '#666',
+    fontSize: 12,
+    width: 44,
+    textAlign: 'right' as const,
+  },
+  detailDecidingScore: {
+    color: '#f59e0b',
+    fontSize: 10,
+    marginTop: 1,
   },
 
   // Card

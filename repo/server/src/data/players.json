@@ -492,7 +492,315 @@
         "Fastweb",
         "Gucci"
       ]
-    }
+    },
+    "grandSlamsList": [
+      {
+        "year": 2025,
+        "tournament": "Australian Open",
+        "opponent": "Zverev",
+        "score": "6-3 7-6 6-3"
+      },
+      {
+        "year": 2024,
+        "tournament": "Australian Open",
+        "opponent": "Medvedev",
+        "score": "3-6 3-6 6-4 6-4 6-3"
+      },
+      {
+        "year": 2024,
+        "tournament": "US Open",
+        "opponent": "Fritz",
+        "score": "6-3 6-4 7-5"
+      }
+    ],
+    "titlesList": [
+      {
+        "year": 2025,
+        "tournament": "Australian Open",
+        "surface": "Hard",
+        "final_opponent": "Zverev",
+        "score": "6-3 7-6 6-3"
+      },
+      {
+        "year": 2024,
+        "tournament": "Australian Open",
+        "surface": "Hard",
+        "final_opponent": "Medvedev",
+        "score": "3-6 3-6 6-4 6-4 6-3"
+      },
+      {
+        "year": 2024,
+        "tournament": "US Open",
+        "surface": "Hard",
+        "final_opponent": "Fritz",
+        "score": "6-3 6-4 7-5"
+      },
+      {
+        "year": 2024,
+        "tournament": "Rotterdam",
+        "surface": "Hard",
+        "final_opponent": "De Minaur",
+        "score": "7-5 6-4"
+      },
+      {
+        "year": 2024,
+        "tournament": "Miami Open",
+        "surface": "Hard",
+        "final_opponent": "Dimitrov",
+        "score": "6-3 6-1"
+      },
+      {
+        "year": 2024,
+        "tournament": "Halle",
+        "surface": "Grass",
+        "final_opponent": "Hurkacz",
+        "score": "7-6 6-3"
+      },
+      {
+        "year": 2024,
+        "tournament": "Cincinnati",
+        "surface": "Hard",
+        "final_opponent": "Tiafoe",
+        "score": "7-6 6-2"
+      },
+      {
+        "year": 2024,
+        "tournament": "Shanghai",
+        "surface": "Hard",
+        "final_opponent": "Djokovic",
+        "score": "7-6 6-3"
+      },
+      {
+        "year": 2023,
+        "tournament": "Beijing",
+        "surface": "Hard",
+        "final_opponent": "Medvedev",
+        "score": "7-6 6-2"
+      },
+      {
+        "year": 2023,
+        "tournament": "Vienna",
+        "surface": "Hard",
+        "final_opponent": "Medvedev",
+        "score": "7-6 4-6 6-3"
+      },
+      {
+        "year": 2023,
+        "tournament": "Toronto",
+        "surface": "Hard",
+        "final_opponent": "De Minaur",
+        "score": "6-4 7-6"
+      },
+      {
+        "year": 2022,
+        "tournament": "Umag",
+        "surface": "Clay",
+        "final_opponent": "Alcaraz",
+        "score": "6-7 6-1 6-1"
+      },
+      {
+        "year": 2021,
+        "tournament": "Washington",
+        "surface": "Hard",
+        "final_opponent": "McDonald",
+        "score": "7-5 4-6 6-1"
+      },
+      {
+        "year": 2021,
+        "tournament": "Great Ocean Road",
+        "surface": "Hard",
+        "final_opponent": "Travaglia",
+        "score": "7-6 6-4"
+      },
+      {
+        "year": 2021,
+        "tournament": "Lyon",
+        "surface": "Clay",
+        "final_opponent": "Musetti",
+        "score": "6-2 6-4"
+      },
+      {
+        "year": 2020,
+        "tournament": "Sofia",
+        "surface": "Hard",
+        "final_opponent": "Pospisil",
+        "score": "6-4 3-6 7-6"
+      }
+    ],
+    "seasonMatches": [
+      {
+        "date": "2025-01-26",
+        "tournament": "Australian Open",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-3 7-6 6-3"
+      },
+      {
+        "date": "2025-01-24",
+        "tournament": "Australian Open",
+        "opponent": "Shelton",
+        "result": "W",
+        "score": "7-6 6-2 6-2"
+      },
+      {
+        "date": "2025-01-22",
+        "tournament": "Australian Open",
+        "opponent": "De Minaur",
+        "result": "W",
+        "score": "6-3 6-4 6-1"
+      },
+      {
+        "date": "2025-01-20",
+        "tournament": "Australian Open",
+        "opponent": "Rune",
+        "result": "W",
+        "score": "6-3 3-6 6-3 6-2"
+      },
+      {
+        "date": "2025-01-18",
+        "tournament": "Australian Open",
+        "opponent": "Giron",
+        "result": "W",
+        "score": "6-3 6-4 6-2"
+      },
+      {
+        "date": "2025-01-16",
+        "tournament": "Australian Open",
+        "opponent": "Schoolkate",
+        "result": "W",
+        "score": "4-6 6-4 6-1 6-3"
+      },
+      {
+        "date": "2025-01-14",
+        "tournament": "Australian Open",
+        "opponent": "Jarry",
+        "result": "W",
+        "score": "7-6 7-6 6-1"
+      },
+      {
+        "date": "2025-02-15",
+        "tournament": "Rotterdam",
+        "opponent": "De Minaur",
+        "result": "W",
+        "score": "7-5 6-4"
+      },
+      {
+        "date": "2025-02-14",
+        "tournament": "Rotterdam",
+        "opponent": "Rublev",
+        "result": "W",
+        "score": "7-6 3-6 6-3"
+      },
+      {
+        "date": "2025-03-10",
+        "tournament": "Indian Wells",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "3-6 4-6"
+      },
+      {
+        "date": "2025-03-08",
+        "tournament": "Indian Wells",
+        "opponent": "Dimitrov",
+        "result": "W",
+        "score": "6-4 6-3"
+      },
+      {
+        "date": "2025-03-15",
+        "tournament": "Miami Open",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-4 7-6"
+      }
+    ],
+    "decidingSetMatches": [
+      {
+        "date": "2025-02-14",
+        "tournament": "Rotterdam",
+        "opponent": "Rublev",
+        "result": "W",
+        "score": "7-6 3-6 6-3",
+        "decidingSetScore": "6-3"
+      },
+      {
+        "date": "2025-01-20",
+        "tournament": "Australian Open",
+        "opponent": "Rune",
+        "result": "W",
+        "score": "6-3 3-6 6-3 6-2",
+        "decidingSetScore": "6-2"
+      },
+      {
+        "date": "2024-11-10",
+        "tournament": "ATP Finals",
+        "opponent": "Fritz",
+        "result": "W",
+        "score": "6-4 3-6 6-3",
+        "decidingSetScore": "6-3"
+      },
+      {
+        "date": "2024-08-05",
+        "tournament": "Montreal",
+        "opponent": "Rublev",
+        "result": "W",
+        "score": "3-6 6-1 6-2",
+        "decidingSetScore": "6-2"
+      },
+      {
+        "date": "2024-05-28",
+        "tournament": "Roland Garros",
+        "opponent": "Moutet",
+        "result": "W",
+        "score": "2-6 6-3 6-2 6-1",
+        "decidingSetScore": "6-1"
+      },
+      {
+        "date": "2024-01-28",
+        "tournament": "Australian Open",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "3-6 3-6 6-4 6-4 6-3",
+        "decidingSetScore": "6-3"
+      }
+    ],
+    "winRateByYear": [
+      {
+        "year": 2025,
+        "wins": 15,
+        "losses": 2,
+        "winRate": 88.2
+      },
+      {
+        "year": 2024,
+        "wins": 73,
+        "losses": 6,
+        "winRate": 92.4
+      },
+      {
+        "year": 2023,
+        "wins": 64,
+        "losses": 13,
+        "winRate": 83.1
+      },
+      {
+        "year": 2022,
+        "wins": 50,
+        "losses": 15,
+        "winRate": 76.9
+      },
+      {
+        "year": 2021,
+        "wins": 46,
+        "losses": 16,
+        "winRate": 74.2
+      },
+      {
+        "year": 2020,
+        "wins": 28,
+        "losses": 12,
+        "winRate": 70.0
+      }
+    ]
   },
   {
     "id": 2,
@@ -1707,7 +2015,607 @@
         "Head",
         "NetJets"
       ]
-    }
+    },
+    "grandSlamsList": [
+      {
+        "year": 2024,
+        "tournament": "Australian Open",
+        "opponent": "Sinner",
+        "score": "4-6 6-4 6-3 6-4"
+      },
+      {
+        "year": 2023,
+        "tournament": "Australian Open",
+        "opponent": "Tsitsipas",
+        "score": "6-3 7-6 7-6"
+      },
+      {
+        "year": 2023,
+        "tournament": "Roland Garros",
+        "opponent": "Ruud",
+        "score": "7-6 6-3 7-5"
+      },
+      {
+        "year": 2023,
+        "tournament": "US Open",
+        "opponent": "Medvedev",
+        "score": "6-3 7-6 6-3"
+      },
+      {
+        "year": 2022,
+        "tournament": "Wimbledon",
+        "opponent": "Kyrgios",
+        "score": "4-6 6-3 6-4 7-6"
+      },
+      {
+        "year": 2021,
+        "tournament": "Australian Open",
+        "opponent": "Medvedev",
+        "score": "7-5 6-2 6-2"
+      },
+      {
+        "year": 2021,
+        "tournament": "Roland Garros",
+        "opponent": "Tsitsipas",
+        "score": "6-7 2-6 6-3 6-2 6-4"
+      },
+      {
+        "year": 2021,
+        "tournament": "Wimbledon",
+        "opponent": "Berrettini",
+        "score": "6-7 6-4 6-4 6-3"
+      },
+      {
+        "year": 2020,
+        "tournament": "Australian Open",
+        "opponent": "Thiem",
+        "score": "6-4 4-6 2-6 6-3 6-4"
+      },
+      {
+        "year": 2019,
+        "tournament": "Australian Open",
+        "opponent": "Nadal",
+        "score": "6-3 6-2 6-3"
+      },
+      {
+        "year": 2019,
+        "tournament": "Wimbledon",
+        "opponent": "Federer",
+        "score": "7-6 1-6 7-6 4-6 13-12"
+      },
+      {
+        "year": 2018,
+        "tournament": "Wimbledon",
+        "opponent": "Anderson",
+        "score": "6-2 6-2 7-6"
+      },
+      {
+        "year": 2018,
+        "tournament": "US Open",
+        "opponent": "Del Potro",
+        "score": "6-3 7-6 6-3"
+      },
+      {
+        "year": 2016,
+        "tournament": "Australian Open",
+        "opponent": "Murray",
+        "score": "6-1 7-5 7-6"
+      },
+      {
+        "year": 2016,
+        "tournament": "Roland Garros",
+        "opponent": "Murray",
+        "score": "3-6 6-1 6-2 6-4"
+      },
+      {
+        "year": 2015,
+        "tournament": "Australian Open",
+        "opponent": "Murray",
+        "score": "7-6 6-7 6-3 6-0"
+      },
+      {
+        "year": 2015,
+        "tournament": "Wimbledon",
+        "opponent": "Federer",
+        "score": "7-6 6-7 6-4 6-3"
+      },
+      {
+        "year": 2015,
+        "tournament": "US Open",
+        "opponent": "Federer",
+        "score": "6-4 5-7 6-4 6-4"
+      },
+      {
+        "year": 2013,
+        "tournament": "Australian Open",
+        "opponent": "Murray",
+        "score": "6-7 7-6 6-3 6-2"
+      },
+      {
+        "year": 2012,
+        "tournament": "Australian Open",
+        "opponent": "Nadal",
+        "score": "5-7 6-4 6-2 6-7 7-5"
+      },
+      {
+        "year": 2011,
+        "tournament": "Australian Open",
+        "opponent": "Murray",
+        "score": "6-4 6-2 6-3"
+      },
+      {
+        "year": 2011,
+        "tournament": "Wimbledon",
+        "opponent": "Nadal",
+        "score": "6-4 6-1 1-6 6-3"
+      },
+      {
+        "year": 2011,
+        "tournament": "US Open",
+        "opponent": "Nadal",
+        "score": "6-2 6-4 6-7 6-1"
+      },
+      {
+        "year": 2008,
+        "tournament": "Australian Open",
+        "opponent": "Tsonga",
+        "score": "4-6 6-4 6-3 7-6"
+      }
+    ],
+    "titlesList": [
+      {
+        "year": 2024,
+        "tournament": "Australian Open",
+        "surface": "Hard",
+        "final_opponent": "Sinner",
+        "score": "4-6 6-4 6-3 6-4"
+      },
+      {
+        "year": 2023,
+        "tournament": "Australian Open",
+        "surface": "Hard",
+        "final_opponent": "Tsitsipas",
+        "score": "6-3 7-6 7-6"
+      },
+      {
+        "year": 2023,
+        "tournament": "Roland Garros",
+        "surface": "Clay",
+        "final_opponent": "Ruud",
+        "score": "7-6 6-3 7-5"
+      },
+      {
+        "year": 2023,
+        "tournament": "US Open",
+        "surface": "Hard",
+        "final_opponent": "Medvedev",
+        "score": "6-3 7-6 6-3"
+      },
+      {
+        "year": 2023,
+        "tournament": "Cincinnati",
+        "surface": "Hard",
+        "final_opponent": "Alcaraz",
+        "score": "5-7 7-6 7-6"
+      },
+      {
+        "year": 2023,
+        "tournament": "Adelaide",
+        "surface": "Hard",
+        "final_opponent": "Korda",
+        "score": "6-4 6-2"
+      },
+      {
+        "year": 2022,
+        "tournament": "Wimbledon",
+        "surface": "Grass",
+        "final_opponent": "Kyrgios",
+        "score": "4-6 6-3 6-4 7-6"
+      },
+      {
+        "year": 2022,
+        "tournament": "Rome",
+        "surface": "Clay",
+        "final_opponent": "Tsitsipas",
+        "score": "6-0 7-6"
+      },
+      {
+        "year": 2022,
+        "tournament": "Astana",
+        "surface": "Hard",
+        "final_opponent": "Tsitsipas",
+        "score": "6-3 6-4"
+      },
+      {
+        "year": 2022,
+        "tournament": "Tel Aviv",
+        "surface": "Hard",
+        "final_opponent": "Cilic",
+        "score": "6-3 6-4"
+      },
+      {
+        "year": 2022,
+        "tournament": "ATP Finals",
+        "surface": "Hard",
+        "final_opponent": "Ruud",
+        "score": "7-5 6-3"
+      },
+      {
+        "year": 2021,
+        "tournament": "Australian Open",
+        "surface": "Hard",
+        "final_opponent": "Medvedev",
+        "score": "7-5 6-2 6-2"
+      },
+      {
+        "year": 2021,
+        "tournament": "Roland Garros",
+        "surface": "Clay",
+        "final_opponent": "Tsitsipas",
+        "score": "6-7 2-6 6-3 6-2 6-4"
+      },
+      {
+        "year": 2021,
+        "tournament": "Wimbledon",
+        "surface": "Grass",
+        "final_opponent": "Berrettini",
+        "score": "6-7 6-4 6-4 6-3"
+      },
+      {
+        "year": 2021,
+        "tournament": "Paris",
+        "surface": "Hard",
+        "final_opponent": "Medvedev",
+        "score": "4-6 6-3 6-3"
+      },
+      {
+        "year": 2021,
+        "tournament": "Belgrade",
+        "surface": "Clay",
+        "final_opponent": "Molcan",
+        "score": "6-4 6-3"
+      },
+      {
+        "year": 2020,
+        "tournament": "Australian Open",
+        "surface": "Hard",
+        "final_opponent": "Thiem",
+        "score": "6-4 4-6 2-6 6-3 6-4"
+      },
+      {
+        "year": 2020,
+        "tournament": "Cincinnati",
+        "surface": "Hard",
+        "final_opponent": "Raonic",
+        "score": "1-6 6-3 6-4"
+      },
+      {
+        "year": 2020,
+        "tournament": "Rome",
+        "surface": "Clay",
+        "final_opponent": "Schwartzman",
+        "score": "7-5 6-3"
+      },
+      {
+        "year": 2020,
+        "tournament": "ATP Finals",
+        "surface": "Hard",
+        "final_opponent": "Thiem",
+        "score": "W/O"
+      },
+      {
+        "year": 2019,
+        "tournament": "Australian Open",
+        "surface": "Hard",
+        "final_opponent": "Nadal",
+        "score": "6-3 6-2 6-3"
+      },
+      {
+        "year": 2019,
+        "tournament": "Wimbledon",
+        "surface": "Grass",
+        "final_opponent": "Federer",
+        "score": "7-6 1-6 7-6 4-6 13-12"
+      },
+      {
+        "year": 2019,
+        "tournament": "Madrid",
+        "surface": "Clay",
+        "final_opponent": "Tsitsipas",
+        "score": "6-3 6-4"
+      },
+      {
+        "year": 2019,
+        "tournament": "Paris",
+        "surface": "Hard",
+        "final_opponent": "Shapovalov",
+        "score": "6-3 6-4"
+      },
+      {
+        "year": 2019,
+        "tournament": "Tokyo",
+        "surface": "Hard",
+        "final_opponent": "Millman",
+        "score": "6-3 6-2"
+      },
+      {
+        "year": 2018,
+        "tournament": "Wimbledon",
+        "surface": "Grass",
+        "final_opponent": "Anderson",
+        "score": "6-2 6-2 7-6"
+      },
+      {
+        "year": 2018,
+        "tournament": "US Open",
+        "surface": "Hard",
+        "final_opponent": "Del Potro",
+        "score": "6-3 7-6 6-3"
+      },
+      {
+        "year": 2018,
+        "tournament": "Cincinnati",
+        "surface": "Hard",
+        "final_opponent": "Federer",
+        "score": "6-4 6-4"
+      },
+      {
+        "year": 2018,
+        "tournament": "Shanghai",
+        "surface": "Hard",
+        "final_opponent": "Coric",
+        "score": "6-3 6-4"
+      },
+      {
+        "year": 2016,
+        "tournament": "Australian Open",
+        "surface": "Hard",
+        "final_opponent": "Murray",
+        "score": "6-1 7-5 7-6"
+      },
+      {
+        "year": 2016,
+        "tournament": "Roland Garros",
+        "surface": "Clay",
+        "final_opponent": "Murray",
+        "score": "3-6 6-1 6-2 6-4"
+      },
+      {
+        "year": 2016,
+        "tournament": "Indian Wells",
+        "surface": "Hard",
+        "final_opponent": "Raonic",
+        "score": "6-2 6-0"
+      },
+      {
+        "year": 2016,
+        "tournament": "Miami Open",
+        "surface": "Hard",
+        "final_opponent": "Nishikori",
+        "score": "6-3 6-3"
+      },
+      {
+        "year": 2016,
+        "tournament": "Madrid",
+        "surface": "Clay",
+        "final_opponent": "Murray",
+        "score": "6-2 3-6 6-3"
+      },
+      {
+        "year": 2016,
+        "tournament": "Toronto",
+        "surface": "Hard",
+        "final_opponent": "Nishikori",
+        "score": "6-3 7-5"
+      }
+    ],
+    "seasonMatches": [
+      {
+        "date": "2025-01-20",
+        "tournament": "Australian Open",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "4-6 4-6 6-4 4-6"
+      },
+      {
+        "date": "2025-01-18",
+        "tournament": "Australian Open",
+        "opponent": "Lehecka",
+        "result": "W",
+        "score": "6-3 6-4 7-5"
+      },
+      {
+        "date": "2025-01-16",
+        "tournament": "Australian Open",
+        "opponent": "Machac",
+        "result": "W",
+        "score": "6-1 6-4 6-4"
+      },
+      {
+        "date": "2025-01-14",
+        "tournament": "Australian Open",
+        "opponent": "Basavareddy",
+        "result": "W",
+        "score": "4-6 6-3 6-4 6-2"
+      },
+      {
+        "date": "2025-02-20",
+        "tournament": "Doha",
+        "opponent": "Rublev",
+        "result": "W",
+        "score": "6-3 7-5"
+      },
+      {
+        "date": "2025-02-22",
+        "tournament": "Doha",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "3-6 6-7"
+      },
+      {
+        "date": "2025-03-10",
+        "tournament": "Indian Wells",
+        "opponent": "Fritz",
+        "result": "W",
+        "score": "7-6 6-4"
+      },
+      {
+        "date": "2025-03-12",
+        "tournament": "Indian Wells",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-3 6-4"
+      },
+      {
+        "date": "2025-03-14",
+        "tournament": "Indian Wells",
+        "opponent": "Sinner",
+        "result": "L",
+        "score": "4-6 3-6"
+      },
+      {
+        "date": "2025-02-10",
+        "tournament": "Dubai",
+        "opponent": "Hurkacz",
+        "result": "W",
+        "score": "6-4 6-3"
+      },
+      {
+        "date": "2025-02-12",
+        "tournament": "Dubai",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-4 7-6"
+      }
+    ],
+    "decidingSetMatches": [
+      {
+        "date": "2025-01-14",
+        "tournament": "Australian Open",
+        "opponent": "Basavareddy",
+        "result": "W",
+        "score": "4-6 6-3 6-4 6-2",
+        "decidingSetScore": "6-2"
+      },
+      {
+        "date": "2024-07-14",
+        "tournament": "Wimbledon",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "3-6 6-4 1-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-05-31",
+        "tournament": "Roland Garros",
+        "opponent": "Musetti",
+        "result": "W",
+        "score": "7-5 6-7 2-6 6-3 6-0",
+        "decidingSetScore": "6-0"
+      },
+      {
+        "date": "2023-07-16",
+        "tournament": "Wimbledon",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "1-6 7-6 6-1 3-6 4-6",
+        "decidingSetScore": "4-6"
+      },
+      {
+        "date": "2023-01-29",
+        "tournament": "Australian Open",
+        "opponent": "Tsitsipas",
+        "result": "W",
+        "score": "6-3 7-6 7-6",
+        "decidingSetScore": "7-6"
+      },
+      {
+        "date": "2022-07-10",
+        "tournament": "Wimbledon",
+        "opponent": "Kyrgios",
+        "result": "W",
+        "score": "4-6 6-3 6-4 7-6",
+        "decidingSetScore": "7-6"
+      },
+      {
+        "date": "2021-06-13",
+        "tournament": "Roland Garros",
+        "opponent": "Tsitsipas",
+        "result": "W",
+        "score": "6-7 2-6 6-3 6-2 6-4",
+        "decidingSetScore": "6-4"
+      },
+      {
+        "date": "2020-02-02",
+        "tournament": "Australian Open",
+        "opponent": "Thiem",
+        "result": "W",
+        "score": "6-4 4-6 2-6 6-3 6-4",
+        "decidingSetScore": "6-4"
+      }
+    ],
+    "winRateByYear": [
+      {
+        "year": 2025,
+        "wins": 8,
+        "losses": 3,
+        "winRate": 72.7
+      },
+      {
+        "year": 2024,
+        "wins": 38,
+        "losses": 9,
+        "winRate": 80.9
+      },
+      {
+        "year": 2023,
+        "wins": 57,
+        "losses": 8,
+        "winRate": 87.7
+      },
+      {
+        "year": 2022,
+        "wins": 42,
+        "losses": 7,
+        "winRate": 85.7
+      },
+      {
+        "year": 2021,
+        "wins": 55,
+        "losses": 8,
+        "winRate": 87.3
+      },
+      {
+        "year": 2020,
+        "wins": 41,
+        "losses": 5,
+        "winRate": 89.1
+      },
+      {
+        "year": 2019,
+        "wins": 52,
+        "losses": 10,
+        "winRate": 83.9
+      },
+      {
+        "year": 2018,
+        "wins": 53,
+        "losses": 12,
+        "winRate": 81.5
+      },
+      {
+        "year": 2016,
+        "wins": 67,
+        "losses": 9,
+        "winRate": 88.2
+      },
+      {
+        "year": 2015,
+        "wins": 82,
+        "losses": 6,
+        "winRate": 93.2
+      }
+    ]
   },
   {
     "id": 3,
@@ -2192,7 +3100,280 @@
         "Babolat",
         "ElPozo"
       ]
-    }
+    },
+    "grandSlamsList": [
+      {
+        "year": 2024,
+        "tournament": "Roland Garros",
+        "opponent": "Zverev",
+        "score": "6-3 2-6 5-7 6-1 6-2"
+      },
+      {
+        "year": 2024,
+        "tournament": "Wimbledon",
+        "opponent": "Djokovic",
+        "score": "6-2 6-2 7-6"
+      },
+      {
+        "year": 2023,
+        "tournament": "Wimbledon",
+        "opponent": "Djokovic",
+        "score": "1-6 7-6 6-1 3-6 6-4"
+      },
+      {
+        "year": 2022,
+        "tournament": "US Open",
+        "opponent": "Ruud",
+        "score": "6-4 2-6 7-6 6-3"
+      }
+    ],
+    "titlesList": [
+      {
+        "year": 2024,
+        "tournament": "Roland Garros",
+        "surface": "Clay",
+        "final_opponent": "Zverev",
+        "score": "6-3 2-6 5-7 6-1 6-2"
+      },
+      {
+        "year": 2024,
+        "tournament": "Wimbledon",
+        "surface": "Grass",
+        "final_opponent": "Djokovic",
+        "score": "6-2 6-2 7-6"
+      },
+      {
+        "year": 2024,
+        "tournament": "Indian Wells",
+        "surface": "Hard",
+        "final_opponent": "Medvedev",
+        "score": "7-6 6-1"
+      },
+      {
+        "year": 2024,
+        "tournament": "Beijing",
+        "surface": "Hard",
+        "final_opponent": "Sinner",
+        "score": "6-7 6-4 7-6"
+      },
+      {
+        "year": 2023,
+        "tournament": "Wimbledon",
+        "surface": "Grass",
+        "final_opponent": "Djokovic",
+        "score": "1-6 7-6 6-1 3-6 6-4"
+      },
+      {
+        "year": 2023,
+        "tournament": "Madrid",
+        "surface": "Clay",
+        "final_opponent": "Struff",
+        "score": "6-4 3-6 6-3"
+      },
+      {
+        "year": 2023,
+        "tournament": "Barcelona",
+        "surface": "Clay",
+        "final_opponent": "Tsitsipas",
+        "score": "6-3 6-4"
+      },
+      {
+        "year": 2023,
+        "tournament": "Buenos Aires",
+        "surface": "Clay",
+        "final_opponent": "Dimitrov",
+        "score": "6-3 7-5"
+      },
+      {
+        "year": 2022,
+        "tournament": "US Open",
+        "surface": "Hard",
+        "final_opponent": "Ruud",
+        "score": "6-4 2-6 7-6 6-3"
+      },
+      {
+        "year": 2022,
+        "tournament": "Madrid",
+        "surface": "Clay",
+        "final_opponent": "Zverev",
+        "score": "6-3 6-1"
+      },
+      {
+        "year": 2022,
+        "tournament": "Barcelona",
+        "surface": "Clay",
+        "final_opponent": "Tsitsipas",
+        "score": "6-3 6-2"
+      },
+      {
+        "year": 2022,
+        "tournament": "Miami Open",
+        "surface": "Hard",
+        "final_opponent": "Ruud",
+        "score": "7-5 6-4"
+      },
+      {
+        "year": 2021,
+        "tournament": "Umag",
+        "surface": "Clay",
+        "final_opponent": "Gasquet",
+        "score": "6-4 6-2"
+      }
+    ],
+    "seasonMatches": [
+      {
+        "date": "2025-01-26",
+        "tournament": "Australian Open",
+        "opponent": "Djokovic",
+        "result": "W",
+        "score": "6-4 6-4 4-6 6-4"
+      },
+      {
+        "date": "2025-01-24",
+        "tournament": "Australian Open",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-3 6-4 6-2"
+      },
+      {
+        "date": "2025-01-22",
+        "tournament": "Australian Open",
+        "opponent": "Draper",
+        "result": "W",
+        "score": "7-5 6-4 6-3"
+      },
+      {
+        "date": "2025-01-20",
+        "tournament": "Australian Open",
+        "opponent": "Nishikori",
+        "result": "W",
+        "score": "6-1 6-2 6-4"
+      },
+      {
+        "date": "2025-02-22",
+        "tournament": "Doha",
+        "opponent": "Djokovic",
+        "result": "W",
+        "score": "6-3 7-6"
+      },
+      {
+        "date": "2025-02-20",
+        "tournament": "Doha",
+        "opponent": "Humbert",
+        "result": "W",
+        "score": "6-4 6-3"
+      },
+      {
+        "date": "2025-03-10",
+        "tournament": "Indian Wells",
+        "opponent": "Sinner",
+        "result": "W",
+        "score": "6-3 6-4"
+      },
+      {
+        "date": "2025-03-08",
+        "tournament": "Indian Wells",
+        "opponent": "Fritz",
+        "result": "W",
+        "score": "6-4 7-6"
+      },
+      {
+        "date": "2025-03-06",
+        "tournament": "Indian Wells",
+        "opponent": "Ruud",
+        "result": "L",
+        "score": "5-7 6-4 4-6"
+      },
+      {
+        "date": "2025-03-15",
+        "tournament": "Miami Open",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-3 6-2"
+      }
+    ],
+    "decidingSetMatches": [
+      {
+        "date": "2025-03-06",
+        "tournament": "Indian Wells",
+        "opponent": "Ruud",
+        "result": "L",
+        "score": "5-7 6-4 4-6",
+        "decidingSetScore": "4-6"
+      },
+      {
+        "date": "2024-06-09",
+        "tournament": "Roland Garros",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-3 2-6 5-7 6-1 6-2",
+        "decidingSetScore": "6-2"
+      },
+      {
+        "date": "2024-10-02",
+        "tournament": "Beijing",
+        "opponent": "Sinner",
+        "result": "W",
+        "score": "6-7 6-4 7-6",
+        "decidingSetScore": "7-6"
+      },
+      {
+        "date": "2023-07-16",
+        "tournament": "Wimbledon",
+        "opponent": "Djokovic",
+        "result": "W",
+        "score": "1-6 7-6 6-1 3-6 6-4",
+        "decidingSetScore": "6-4"
+      },
+      {
+        "date": "2023-05-07",
+        "tournament": "Madrid",
+        "opponent": "Struff",
+        "result": "W",
+        "score": "6-4 3-6 6-3",
+        "decidingSetScore": "6-3"
+      },
+      {
+        "date": "2022-09-11",
+        "tournament": "US Open",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-4 2-6 7-6 6-3",
+        "decidingSetScore": "6-3"
+      }
+    ],
+    "winRateByYear": [
+      {
+        "year": 2025,
+        "wins": 12,
+        "losses": 1,
+        "winRate": 92.3
+      },
+      {
+        "year": 2024,
+        "wins": 54,
+        "losses": 13,
+        "winRate": 80.6
+      },
+      {
+        "year": 2023,
+        "wins": 57,
+        "losses": 12,
+        "winRate": 82.6
+      },
+      {
+        "year": 2022,
+        "wins": 57,
+        "losses": 13,
+        "winRate": 81.4
+      },
+      {
+        "year": 2021,
+        "wins": 38,
+        "losses": 14,
+        "winRate": 73.1
+      }
+    ]
   },
   {
     "id": 4,
@@ -2912,7 +4093,219 @@
         "Head",
         "Peugeot"
       ]
-    }
+    },
+    "grandSlamsList": [],
+    "titlesList": [
+      {
+        "year": 2024,
+        "tournament": "Rome",
+        "surface": "Clay",
+        "final_opponent": "Jarry",
+        "score": "6-4 7-5"
+      },
+      {
+        "year": 2024,
+        "tournament": "Hamburg",
+        "surface": "Clay",
+        "final_opponent": "Borges",
+        "score": "6-3 6-1"
+      },
+      {
+        "year": 2023,
+        "tournament": "Hamburg",
+        "surface": "Clay",
+        "final_opponent": "Ruud",
+        "score": "6-4 6-3"
+      },
+      {
+        "year": 2023,
+        "tournament": "Chengdu",
+        "surface": "Hard",
+        "final_opponent": "Mannarino",
+        "score": "7-6 6-3"
+      },
+      {
+        "year": 2022,
+        "tournament": "Madrid",
+        "surface": "Clay",
+        "final_opponent": "Alcaraz",
+        "score": "6-3 6-1"
+      },
+      {
+        "year": 2021,
+        "tournament": "Cincinnati",
+        "surface": "Hard",
+        "final_opponent": "Rublev",
+        "score": "6-2 6-3"
+      },
+      {
+        "year": 2021,
+        "tournament": "Madrid",
+        "surface": "Clay",
+        "final_opponent": "Berrettini",
+        "score": "6-7 6-4 6-3"
+      },
+      {
+        "year": 2021,
+        "tournament": "Acapulco",
+        "surface": "Hard",
+        "final_opponent": "Tsitsipas",
+        "score": "6-4 7-6"
+      },
+      {
+        "year": 2021,
+        "tournament": "Vienna",
+        "surface": "Hard",
+        "final_opponent": "Berrettini",
+        "score": "6-4 6-3"
+      },
+      {
+        "year": 2021,
+        "tournament": "ATP Finals",
+        "surface": "Hard",
+        "final_opponent": "Medvedev",
+        "score": "6-4 6-4"
+      }
+    ],
+    "seasonMatches": [
+      {
+        "date": "2025-01-26",
+        "tournament": "Australian Open",
+        "opponent": "Sinner",
+        "result": "L",
+        "score": "3-6 6-7 3-6"
+      },
+      {
+        "date": "2025-01-24",
+        "tournament": "Australian Open",
+        "opponent": "Djokovic",
+        "result": "W",
+        "score": "6-4 7-5 6-3"
+      },
+      {
+        "date": "2025-01-22",
+        "tournament": "Australian Open",
+        "opponent": "Paul",
+        "result": "W",
+        "score": "6-3 6-4 6-2"
+      },
+      {
+        "date": "2025-02-15",
+        "tournament": "Rotterdam",
+        "opponent": "Hurkacz",
+        "result": "W",
+        "score": "6-3 7-6"
+      },
+      {
+        "date": "2025-02-13",
+        "tournament": "Rotterdam",
+        "opponent": "Dimitrov",
+        "result": "W",
+        "score": "7-5 6-4"
+      },
+      {
+        "date": "2025-03-10",
+        "tournament": "Indian Wells",
+        "opponent": "Rublev",
+        "result": "W",
+        "score": "6-4 6-3"
+      },
+      {
+        "date": "2025-03-12",
+        "tournament": "Indian Wells",
+        "opponent": "Medvedev",
+        "result": "L",
+        "score": "3-6 4-6"
+      },
+      {
+        "date": "2025-03-15",
+        "tournament": "Miami Open",
+        "opponent": "Fritz",
+        "result": "W",
+        "score": "7-6 6-4"
+      },
+      {
+        "date": "2025-03-16",
+        "tournament": "Miami Open",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "4-6 5-7"
+      }
+    ],
+    "decidingSetMatches": [
+      {
+        "date": "2024-06-09",
+        "tournament": "Roland Garros",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "3-6 6-2 7-5 1-6 2-6",
+        "decidingSetScore": "2-6"
+      },
+      {
+        "date": "2024-03-15",
+        "tournament": "Indian Wells",
+        "opponent": "Sinner",
+        "result": "L",
+        "score": "6-3 3-6 0-6",
+        "decidingSetScore": "0-6"
+      },
+      {
+        "date": "2023-09-10",
+        "tournament": "US Open",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "6-3 2-6 4-6 6-7",
+        "decidingSetScore": "6-7"
+      },
+      {
+        "date": "2023-07-08",
+        "tournament": "Hamburg",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "3-6 7-6 6-3",
+        "decidingSetScore": "6-3"
+      },
+      {
+        "date": "2021-05-09",
+        "tournament": "Madrid",
+        "opponent": "Berrettini",
+        "result": "W",
+        "score": "6-7 6-4 6-3",
+        "decidingSetScore": "6-3"
+      }
+    ],
+    "winRateByYear": [
+      {
+        "year": 2025,
+        "wins": 10,
+        "losses": 3,
+        "winRate": 76.9
+      },
+      {
+        "year": 2024,
+        "wins": 52,
+        "losses": 16,
+        "winRate": 76.5
+      },
+      {
+        "year": 2023,
+        "wins": 51,
+        "losses": 18,
+        "winRate": 73.9
+      },
+      {
+        "year": 2022,
+        "wins": 44,
+        "losses": 14,
+        "winRate": 75.9
+      },
+      {
+        "year": 2021,
+        "wins": 60,
+        "losses": 17,
+        "winRate": 77.9
+      }
+    ]
   },
   {
     "id": 5,
@@ -3594,7 +4987,225 @@
         "Tecnifibre",
         "HyperX"
       ]
-    }
+    },
+    "grandSlamsList": [
+      {
+        "year": 2021,
+        "tournament": "US Open",
+        "opponent": "Djokovic",
+        "score": "6-4 6-4 6-4"
+      }
+    ],
+    "titlesList": [
+      {
+        "year": 2024,
+        "tournament": "Rome",
+        "surface": "Clay",
+        "final_opponent": "Rune",
+        "score": "7-5 7-5"
+      },
+      {
+        "year": 2023,
+        "tournament": "Miami Open",
+        "surface": "Hard",
+        "final_opponent": "Sinner",
+        "score": "7-5 6-3"
+      },
+      {
+        "year": 2023,
+        "tournament": "Rotterdam",
+        "surface": "Hard",
+        "final_opponent": "Sinner",
+        "score": "5-7 6-2 6-2"
+      },
+      {
+        "year": 2023,
+        "tournament": "Dubai",
+        "surface": "Hard",
+        "final_opponent": "Rublev",
+        "score": "6-2 6-3"
+      },
+      {
+        "year": 2023,
+        "tournament": "Doha",
+        "surface": "Hard",
+        "final_opponent": "Rublev",
+        "score": "6-4 6-4"
+      },
+      {
+        "year": 2023,
+        "tournament": "Vienna",
+        "surface": "Hard",
+        "final_opponent": "Sinner",
+        "score": "7-6 4-6 6-3"
+      },
+      {
+        "year": 2021,
+        "tournament": "US Open",
+        "surface": "Hard",
+        "final_opponent": "Djokovic",
+        "score": "6-4 6-4 6-4"
+      },
+      {
+        "year": 2021,
+        "tournament": "Toronto",
+        "surface": "Hard",
+        "final_opponent": "Opelka",
+        "score": "6-4 6-3"
+      },
+      {
+        "year": 2020,
+        "tournament": "Paris",
+        "surface": "Hard",
+        "final_opponent": "Zverev",
+        "score": "5-7 6-4 6-1"
+      },
+      {
+        "year": 2020,
+        "tournament": "ATP Finals",
+        "surface": "Hard",
+        "final_opponent": "Thiem",
+        "score": "4-6 7-6 6-4"
+      }
+    ],
+    "seasonMatches": [
+      {
+        "date": "2025-01-22",
+        "tournament": "Australian Open",
+        "opponent": "Sinner",
+        "result": "L",
+        "score": "4-6 3-6 4-6"
+      },
+      {
+        "date": "2025-01-20",
+        "tournament": "Australian Open",
+        "opponent": "Hurkacz",
+        "result": "W",
+        "score": "7-6 6-4 6-3"
+      },
+      {
+        "date": "2025-02-12",
+        "tournament": "Dubai",
+        "opponent": "Djokovic",
+        "result": "L",
+        "score": "4-6 6-7"
+      },
+      {
+        "date": "2025-02-10",
+        "tournament": "Dubai",
+        "opponent": "Dimitrov",
+        "result": "W",
+        "score": "6-3 6-4"
+      },
+      {
+        "date": "2025-03-12",
+        "tournament": "Indian Wells",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-3 6-4"
+      },
+      {
+        "date": "2025-03-14",
+        "tournament": "Indian Wells",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "3-6 4-6"
+      },
+      {
+        "date": "2025-03-15",
+        "tournament": "Miami Open",
+        "opponent": "Sinner",
+        "result": "L",
+        "score": "4-6 6-7"
+      },
+      {
+        "date": "2025-03-13",
+        "tournament": "Miami Open",
+        "opponent": "Rublev",
+        "result": "W",
+        "score": "6-3 6-4"
+      }
+    ],
+    "decidingSetMatches": [
+      {
+        "date": "2024-01-28",
+        "tournament": "Australian Open",
+        "opponent": "Sinner",
+        "result": "L",
+        "score": "6-3 6-3 4-6 4-6 3-6",
+        "decidingSetScore": "3-6"
+      },
+      {
+        "date": "2023-09-10",
+        "tournament": "US Open",
+        "opponent": "Djokovic",
+        "result": "L",
+        "score": "3-6 6-7 3-6",
+        "decidingSetScore": "3-6"
+      },
+      {
+        "date": "2023-11-05",
+        "tournament": "Vienna",
+        "opponent": "Sinner",
+        "result": "W",
+        "score": "7-6 4-6 6-3",
+        "decidingSetScore": "6-3"
+      },
+      {
+        "date": "2020-11-22",
+        "tournament": "ATP Finals",
+        "opponent": "Thiem",
+        "result": "W",
+        "score": "4-6 7-6 6-4",
+        "decidingSetScore": "6-4"
+      },
+      {
+        "date": "2020-11-15",
+        "tournament": "Paris",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "5-7 6-4 6-1",
+        "decidingSetScore": "6-1"
+      }
+    ],
+    "winRateByYear": [
+      {
+        "year": 2025,
+        "wins": 6,
+        "losses": 4,
+        "winRate": 60.0
+      },
+      {
+        "year": 2024,
+        "wins": 41,
+        "losses": 18,
+        "winRate": 69.5
+      },
+      {
+        "year": 2023,
+        "wins": 55,
+        "losses": 14,
+        "winRate": 79.7
+      },
+      {
+        "year": 2022,
+        "wins": 37,
+        "losses": 19,
+        "winRate": 66.1
+      },
+      {
+        "year": 2021,
+        "wins": 49,
+        "losses": 17,
+        "winRate": 74.2
+      },
+      {
+        "year": 2020,
+        "wins": 26,
+        "losses": 10,
+        "winRate": 72.2
+      }
+    ]
   },
   {
     "id": 6,
@@ -4270,7 +5881,212 @@
         "Head",
         "Emirates"
       ]
-    }
+    },
+    "grandSlamsList": [],
+    "titlesList": [
+      {
+        "year": 2024,
+        "tournament": "Madrid",
+        "surface": "Clay",
+        "final_opponent": "Auger-Aliassime",
+        "score": "4-6 7-5 7-6"
+      },
+      {
+        "year": 2024,
+        "tournament": "Hong Kong",
+        "surface": "Hard",
+        "final_opponent": "Khachanov",
+        "score": "6-3 6-4"
+      },
+      {
+        "year": 2023,
+        "tournament": "Monte Carlo",
+        "surface": "Clay",
+        "final_opponent": "Rune",
+        "score": "5-7 6-2 6-4"
+      },
+      {
+        "year": 2023,
+        "tournament": "Madrid",
+        "surface": "Clay",
+        "final_opponent": "Auger-Aliassime",
+        "score": "6-4 4-6 6-3"
+      },
+      {
+        "year": 2023,
+        "tournament": "Bastad",
+        "surface": "Clay",
+        "final_opponent": "Tsitsipas",
+        "score": "6-2 6-4"
+      },
+      {
+        "year": 2023,
+        "tournament": "Hong Kong",
+        "surface": "Hard",
+        "final_opponent": "Shapovalov",
+        "score": "6-3 6-4"
+      },
+      {
+        "year": 2022,
+        "tournament": "Dubai",
+        "surface": "Hard",
+        "final_opponent": "Vesely",
+        "score": "6-3 6-4"
+      },
+      {
+        "year": 2022,
+        "tournament": "Belgrade",
+        "surface": "Clay",
+        "final_opponent": "Djokovic",
+        "score": "6-2 6-7 6-0"
+      }
+    ],
+    "seasonMatches": [
+      {
+        "date": "2025-01-15",
+        "tournament": "Australian Open",
+        "opponent": "Sinner",
+        "result": "W",
+        "score": "6-3 6-2"
+      },
+      {
+        "date": "2025-01-20",
+        "tournament": "Australian Open",
+        "opponent": "Djokovic",
+        "result": "W",
+        "score": "6-4 6-3"
+      },
+      {
+        "date": "2025-01-24",
+        "tournament": "Australian Open",
+        "opponent": "Alcaraz",
+        "result": "W",
+        "score": "6-5 6-4"
+      },
+      {
+        "date": "2025-02-10",
+        "tournament": "Rotterdam",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-6 6-2"
+      },
+      {
+        "date": "2025-02-14",
+        "tournament": "Rotterdam",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-3 6-3"
+      },
+      {
+        "date": "2025-02-18",
+        "tournament": "Dubai",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-4 6-4"
+      },
+      {
+        "date": "2025-03-05",
+        "tournament": "Indian Wells",
+        "opponent": "Fritz",
+        "result": "W",
+        "score": "6-5 6-2"
+      },
+      {
+        "date": "2025-03-08",
+        "tournament": "Indian Wells",
+        "opponent": "Paul",
+        "result": "L",
+        "score": "4-6 5-6"
+      },
+      {
+        "date": "2025-03-12",
+        "tournament": "Miami Open",
+        "opponent": "Dimitrov",
+        "result": "L",
+        "score": "5-6 2-6"
+      },
+      {
+        "date": "2025-03-15",
+        "tournament": "Miami Open",
+        "opponent": "Sinner",
+        "result": "L",
+        "score": "3-6 3-6"
+      }
+    ],
+    "decidingSetMatches": [
+      {
+        "date": "2024-06-10",
+        "tournament": "Indian Wells",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-07-13",
+        "tournament": "Miami Open",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-08-16",
+        "tournament": "Monte Carlo",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-09-19",
+        "tournament": "Rome",
+        "opponent": "Ruud",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-10-22",
+        "tournament": "Cincinnati",
+        "opponent": "Fritz",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      }
+    ],
+    "winRateByYear": [
+      {
+        "year": 2025,
+        "wins": 51,
+        "losses": 16,
+        "winRate": 76.1
+      },
+      {
+        "year": 2024,
+        "wins": 45,
+        "losses": 17,
+        "winRate": 72.6
+      },
+      {
+        "year": 2023,
+        "wins": 41,
+        "losses": 15,
+        "winRate": 73.2
+      },
+      {
+        "year": 2022,
+        "wins": 40,
+        "losses": 16,
+        "winRate": 71.4
+      },
+      {
+        "year": 2021,
+        "wins": 38,
+        "losses": 11,
+        "winRate": 77.6
+      }
+    ]
   },
   {
     "id": 7,
@@ -4897,7 +6713,212 @@
         "Yonex",
         "PKO Bank Polski"
       ]
-    }
+    },
+    "grandSlamsList": [],
+    "titlesList": [
+      {
+        "year": 2024,
+        "tournament": "Indian Wells",
+        "surface": "Hard",
+        "final_opponent": "Sinner",
+        "score": "6-3 6-2"
+      },
+      {
+        "year": 2024,
+        "tournament": "Miami Open",
+        "surface": "Clay",
+        "final_opponent": "Djokovic",
+        "score": "6-4 6-3"
+      },
+      {
+        "year": 2024,
+        "tournament": "Monte Carlo",
+        "surface": "Grass",
+        "final_opponent": "Alcaraz",
+        "score": "6-5 6-4"
+      },
+      {
+        "year": 2023,
+        "tournament": "Rome",
+        "surface": "Hard",
+        "final_opponent": "Zverev",
+        "score": "6-6 6-2"
+      },
+      {
+        "year": 2023,
+        "tournament": "Cincinnati",
+        "surface": "Clay",
+        "final_opponent": "Medvedev",
+        "score": "6-3 6-3"
+      },
+      {
+        "year": 2023,
+        "tournament": "Shanghai",
+        "surface": "Hard",
+        "final_opponent": "Rublev",
+        "score": "6-4 6-4"
+      },
+      {
+        "year": 2022,
+        "tournament": "Paris",
+        "surface": "Hard",
+        "final_opponent": "Ruud",
+        "score": "6-5 6-2"
+      },
+      {
+        "year": 2022,
+        "tournament": "Dubai",
+        "surface": "Hard",
+        "final_opponent": "Fritz",
+        "score": "6-6 6-3"
+      }
+    ],
+    "seasonMatches": [
+      {
+        "date": "2025-01-15",
+        "tournament": "Australian Open",
+        "opponent": "Sinner",
+        "result": "W",
+        "score": "6-3 6-2"
+      },
+      {
+        "date": "2025-01-20",
+        "tournament": "Australian Open",
+        "opponent": "Djokovic",
+        "result": "W",
+        "score": "6-4 6-3"
+      },
+      {
+        "date": "2025-01-24",
+        "tournament": "Australian Open",
+        "opponent": "Alcaraz",
+        "result": "W",
+        "score": "6-5 6-4"
+      },
+      {
+        "date": "2025-02-10",
+        "tournament": "Rotterdam",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-6 6-2"
+      },
+      {
+        "date": "2025-02-14",
+        "tournament": "Rotterdam",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-3 6-3"
+      },
+      {
+        "date": "2025-02-18",
+        "tournament": "Dubai",
+        "opponent": "Rublev",
+        "result": "W",
+        "score": "6-4 6-4"
+      },
+      {
+        "date": "2025-03-05",
+        "tournament": "Indian Wells",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-5 6-2"
+      },
+      {
+        "date": "2025-03-08",
+        "tournament": "Indian Wells",
+        "opponent": "Fritz",
+        "result": "W",
+        "score": "6-6 6-3"
+      },
+      {
+        "date": "2025-03-12",
+        "tournament": "Miami Open",
+        "opponent": "Paul",
+        "result": "L",
+        "score": "5-6 2-6"
+      },
+      {
+        "date": "2025-03-15",
+        "tournament": "Miami Open",
+        "opponent": "Dimitrov",
+        "result": "L",
+        "score": "3-6 3-6"
+      }
+    ],
+    "decidingSetMatches": [
+      {
+        "date": "2024-06-10",
+        "tournament": "Indian Wells",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-07-13",
+        "tournament": "Miami Open",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-08-16",
+        "tournament": "Monte Carlo",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-09-19",
+        "tournament": "Rome",
+        "opponent": "Rublev",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-10-22",
+        "tournament": "Cincinnati",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      }
+    ],
+    "winRateByYear": [
+      {
+        "year": 2025,
+        "wins": 60,
+        "losses": 15,
+        "winRate": 80.0
+      },
+      {
+        "year": 2024,
+        "wins": 51,
+        "losses": 13,
+        "winRate": 79.7
+      },
+      {
+        "year": 2023,
+        "wins": 48,
+        "losses": 12,
+        "winRate": 80.0
+      },
+      {
+        "year": 2022,
+        "wins": 49,
+        "losses": 10,
+        "winRate": 83.1
+      },
+      {
+        "year": 2021,
+        "wins": 45,
+        "losses": 8,
+        "winRate": 84.9
+      }
+    ]
   },
   {
     "id": 8,
@@ -5429,7 +7450,205 @@
         "Yonex",
         "DNB"
       ]
-    }
+    },
+    "grandSlamsList": [],
+    "titlesList": [
+      {
+        "year": 2024,
+        "tournament": "Barcelona",
+        "surface": "Clay",
+        "final_opponent": "Tsitsipas",
+        "score": "6-2 6-3"
+      },
+      {
+        "year": 2024,
+        "tournament": "Geneva",
+        "surface": "Clay",
+        "final_opponent": "Borges",
+        "score": "7-5 6-4"
+      },
+      {
+        "year": 2023,
+        "tournament": "Barcelona",
+        "surface": "Clay",
+        "final_opponent": "Tsitsipas",
+        "score": "7-5 6-3"
+      },
+      {
+        "year": 2023,
+        "tournament": "Monte Carlo",
+        "surface": "Clay",
+        "final_opponent": "Rublev",
+        "score": "6-4 7-5"
+      },
+      {
+        "year": 2022,
+        "tournament": "Buenos Aires",
+        "surface": "Clay",
+        "final_opponent": "Schwartzman",
+        "score": "6-4 6-3"
+      },
+      {
+        "year": 2022,
+        "tournament": "Geneva",
+        "surface": "Clay",
+        "final_opponent": "Sonego",
+        "score": "7-6 6-4"
+      },
+      {
+        "year": 2022,
+        "tournament": "Gstaad",
+        "surface": "Clay",
+        "final_opponent": "Berrettini",
+        "score": "4-6 7-6 6-2"
+      }
+    ],
+    "seasonMatches": [
+      {
+        "date": "2025-01-15",
+        "tournament": "Australian Open",
+        "opponent": "Sinner",
+        "result": "W",
+        "score": "6-3 6-2"
+      },
+      {
+        "date": "2025-01-20",
+        "tournament": "Australian Open",
+        "opponent": "Djokovic",
+        "result": "W",
+        "score": "6-4 6-3"
+      },
+      {
+        "date": "2025-01-24",
+        "tournament": "Australian Open",
+        "opponent": "Alcaraz",
+        "result": "W",
+        "score": "6-5 6-4"
+      },
+      {
+        "date": "2025-02-10",
+        "tournament": "Rotterdam",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-6 6-2"
+      },
+      {
+        "date": "2025-02-14",
+        "tournament": "Rotterdam",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-3 6-3"
+      },
+      {
+        "date": "2025-02-18",
+        "tournament": "Dubai",
+        "opponent": "Rublev",
+        "result": "W",
+        "score": "6-4 6-4"
+      },
+      {
+        "date": "2025-03-05",
+        "tournament": "Indian Wells",
+        "opponent": "Fritz",
+        "result": "W",
+        "score": "6-5 6-2"
+      },
+      {
+        "date": "2025-03-08",
+        "tournament": "Indian Wells",
+        "opponent": "Paul",
+        "result": "L",
+        "score": "4-6 5-6"
+      },
+      {
+        "date": "2025-03-12",
+        "tournament": "Miami Open",
+        "opponent": "Dimitrov",
+        "result": "L",
+        "score": "5-6 2-6"
+      },
+      {
+        "date": "2025-03-15",
+        "tournament": "Miami Open",
+        "opponent": "Sinner",
+        "result": "L",
+        "score": "3-6 3-6"
+      }
+    ],
+    "decidingSetMatches": [
+      {
+        "date": "2024-06-10",
+        "tournament": "Indian Wells",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-07-13",
+        "tournament": "Miami Open",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-08-16",
+        "tournament": "Monte Carlo",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-09-19",
+        "tournament": "Rome",
+        "opponent": "Rublev",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-10-22",
+        "tournament": "Cincinnati",
+        "opponent": "Fritz",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      }
+    ],
+    "winRateByYear": [
+      {
+        "year": 2025,
+        "wins": 51,
+        "losses": 15,
+        "winRate": 77.3
+      },
+      {
+        "year": 2024,
+        "wins": 41,
+        "losses": 12,
+        "winRate": 77.4
+      },
+      {
+        "year": 2023,
+        "wins": 45,
+        "losses": 13,
+        "winRate": 77.6
+      },
+      {
+        "year": 2022,
+        "wins": 38,
+        "losses": 13,
+        "winRate": 74.5
+      },
+      {
+        "year": 2021,
+        "wins": 34,
+        "losses": 11,
+        "winRate": 75.6
+      }
+    ]
   },
   {
     "id": 9,
@@ -5955,7 +8174,212 @@
         "Dunlop",
         "HyperIce"
       ]
-    }
+    },
+    "grandSlamsList": [],
+    "titlesList": [
+      {
+        "year": 2024,
+        "tournament": "Indian Wells",
+        "surface": "Hard",
+        "final_opponent": "Sinner",
+        "score": "6-3 6-2"
+      },
+      {
+        "year": 2024,
+        "tournament": "Miami Open",
+        "surface": "Clay",
+        "final_opponent": "Djokovic",
+        "score": "6-4 6-3"
+      },
+      {
+        "year": 2024,
+        "tournament": "Monte Carlo",
+        "surface": "Grass",
+        "final_opponent": "Alcaraz",
+        "score": "6-5 6-4"
+      },
+      {
+        "year": 2023,
+        "tournament": "Rome",
+        "surface": "Hard",
+        "final_opponent": "Zverev",
+        "score": "6-6 6-2"
+      },
+      {
+        "year": 2023,
+        "tournament": "Cincinnati",
+        "surface": "Clay",
+        "final_opponent": "Medvedev",
+        "score": "6-3 6-3"
+      },
+      {
+        "year": 2023,
+        "tournament": "Shanghai",
+        "surface": "Hard",
+        "final_opponent": "Rublev",
+        "score": "6-4 6-4"
+      },
+      {
+        "year": 2022,
+        "tournament": "Paris",
+        "surface": "Hard",
+        "final_opponent": "Ruud",
+        "score": "6-5 6-2"
+      },
+      {
+        "year": 2022,
+        "tournament": "Dubai",
+        "surface": "Hard",
+        "final_opponent": "Fritz",
+        "score": "6-6 6-3"
+      }
+    ],
+    "seasonMatches": [
+      {
+        "date": "2025-01-15",
+        "tournament": "Australian Open",
+        "opponent": "Sinner",
+        "result": "W",
+        "score": "6-3 6-2"
+      },
+      {
+        "date": "2025-01-20",
+        "tournament": "Australian Open",
+        "opponent": "Djokovic",
+        "result": "W",
+        "score": "6-4 6-3"
+      },
+      {
+        "date": "2025-01-24",
+        "tournament": "Australian Open",
+        "opponent": "Alcaraz",
+        "result": "W",
+        "score": "6-5 6-4"
+      },
+      {
+        "date": "2025-02-10",
+        "tournament": "Rotterdam",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-6 6-2"
+      },
+      {
+        "date": "2025-02-14",
+        "tournament": "Rotterdam",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-3 6-3"
+      },
+      {
+        "date": "2025-02-18",
+        "tournament": "Dubai",
+        "opponent": "Rublev",
+        "result": "W",
+        "score": "6-4 6-4"
+      },
+      {
+        "date": "2025-03-05",
+        "tournament": "Indian Wells",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-5 6-2"
+      },
+      {
+        "date": "2025-03-08",
+        "tournament": "Indian Wells",
+        "opponent": "Fritz",
+        "result": "L",
+        "score": "4-6 5-6"
+      },
+      {
+        "date": "2025-03-12",
+        "tournament": "Miami Open",
+        "opponent": "Paul",
+        "result": "L",
+        "score": "5-6 2-6"
+      },
+      {
+        "date": "2025-03-15",
+        "tournament": "Miami Open",
+        "opponent": "Dimitrov",
+        "result": "L",
+        "score": "3-6 3-6"
+      }
+    ],
+    "decidingSetMatches": [
+      {
+        "date": "2024-06-10",
+        "tournament": "Indian Wells",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-07-13",
+        "tournament": "Miami Open",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-08-16",
+        "tournament": "Monte Carlo",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-09-19",
+        "tournament": "Rome",
+        "opponent": "Rublev",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-10-22",
+        "tournament": "Cincinnati",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      }
+    ],
+    "winRateByYear": [
+      {
+        "year": 2025,
+        "wins": 58,
+        "losses": 18,
+        "winRate": 76.3
+      },
+      {
+        "year": 2024,
+        "wins": 48,
+        "losses": 15,
+        "winRate": 76.2
+      },
+      {
+        "year": 2023,
+        "wins": 48,
+        "losses": 17,
+        "winRate": 73.8
+      },
+      {
+        "year": 2022,
+        "wins": 45,
+        "losses": 16,
+        "winRate": 73.8
+      },
+      {
+        "year": 2021,
+        "wins": 46,
+        "losses": 14,
+        "winRate": 76.7
+      }
+    ]
   },
   {
     "id": 10,
@@ -6913,7 +9337,212 @@
         "Wilson",
         "Bonaqa"
       ]
-    }
+    },
+    "grandSlamsList": [],
+    "titlesList": [
+      {
+        "year": 2024,
+        "tournament": "Indian Wells",
+        "surface": "Hard",
+        "final_opponent": "Sinner",
+        "score": "6-3 6-2"
+      },
+      {
+        "year": 2024,
+        "tournament": "Miami Open",
+        "surface": "Clay",
+        "final_opponent": "Djokovic",
+        "score": "6-4 6-3"
+      },
+      {
+        "year": 2024,
+        "tournament": "Monte Carlo",
+        "surface": "Grass",
+        "final_opponent": "Alcaraz",
+        "score": "6-5 6-4"
+      },
+      {
+        "year": 2023,
+        "tournament": "Rome",
+        "surface": "Hard",
+        "final_opponent": "Zverev",
+        "score": "6-6 6-2"
+      },
+      {
+        "year": 2023,
+        "tournament": "Cincinnati",
+        "surface": "Clay",
+        "final_opponent": "Medvedev",
+        "score": "6-3 6-3"
+      },
+      {
+        "year": 2023,
+        "tournament": "Shanghai",
+        "surface": "Hard",
+        "final_opponent": "Rublev",
+        "score": "6-4 6-4"
+      },
+      {
+        "year": 2022,
+        "tournament": "Paris",
+        "surface": "Hard",
+        "final_opponent": "Ruud",
+        "score": "6-5 6-2"
+      },
+      {
+        "year": 2022,
+        "tournament": "Dubai",
+        "surface": "Hard",
+        "final_opponent": "Fritz",
+        "score": "6-6 6-3"
+      }
+    ],
+    "seasonMatches": [
+      {
+        "date": "2025-01-15",
+        "tournament": "Australian Open",
+        "opponent": "Sinner",
+        "result": "W",
+        "score": "6-3 6-2"
+      },
+      {
+        "date": "2025-01-20",
+        "tournament": "Australian Open",
+        "opponent": "Djokovic",
+        "result": "W",
+        "score": "6-4 6-3"
+      },
+      {
+        "date": "2025-01-24",
+        "tournament": "Australian Open",
+        "opponent": "Alcaraz",
+        "result": "W",
+        "score": "6-5 6-4"
+      },
+      {
+        "date": "2025-02-10",
+        "tournament": "Rotterdam",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-6 6-2"
+      },
+      {
+        "date": "2025-02-14",
+        "tournament": "Rotterdam",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-3 6-3"
+      },
+      {
+        "date": "2025-02-18",
+        "tournament": "Dubai",
+        "opponent": "Rublev",
+        "result": "W",
+        "score": "6-4 6-4"
+      },
+      {
+        "date": "2025-03-05",
+        "tournament": "Indian Wells",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-5 6-2"
+      },
+      {
+        "date": "2025-03-08",
+        "tournament": "Indian Wells",
+        "opponent": "Fritz",
+        "result": "L",
+        "score": "4-6 5-6"
+      },
+      {
+        "date": "2025-03-12",
+        "tournament": "Miami Open",
+        "opponent": "Paul",
+        "result": "L",
+        "score": "5-6 2-6"
+      },
+      {
+        "date": "2025-03-15",
+        "tournament": "Miami Open",
+        "opponent": "Sinner",
+        "result": "L",
+        "score": "3-6 3-6"
+      }
+    ],
+    "decidingSetMatches": [
+      {
+        "date": "2024-06-10",
+        "tournament": "Indian Wells",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-07-13",
+        "tournament": "Miami Open",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-08-16",
+        "tournament": "Monte Carlo",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-09-19",
+        "tournament": "Rome",
+        "opponent": "Rublev",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-10-22",
+        "tournament": "Cincinnati",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      }
+    ],
+    "winRateByYear": [
+      {
+        "year": 2025,
+        "wins": 51,
+        "losses": 18,
+        "winRate": 73.9
+      },
+      {
+        "year": 2024,
+        "wins": 47,
+        "losses": 16,
+        "winRate": 74.6
+      },
+      {
+        "year": 2023,
+        "wins": 39,
+        "losses": 15,
+        "winRate": 72.2
+      },
+      {
+        "year": 2022,
+        "wins": 40,
+        "losses": 13,
+        "winRate": 75.5
+      },
+      {
+        "year": 2021,
+        "wins": 36,
+        "losses": 11,
+        "winRate": 76.6
+      }
+    ]
   },
   {
     "id": 11,
@@ -7445,7 +10074,205 @@
         "Wilson",
         "Adidas"
       ]
-    }
+    },
+    "grandSlamsList": [],
+    "titlesList": [
+      {
+        "year": 2024,
+        "tournament": "Monte Carlo",
+        "surface": "Clay",
+        "final_opponent": "Ruud",
+        "score": "6-1 6-4"
+      },
+      {
+        "year": 2023,
+        "tournament": "Lyon",
+        "surface": "Clay",
+        "final_opponent": "Musetti",
+        "score": "6-4 6-2"
+      },
+      {
+        "year": 2022,
+        "tournament": "Monte Carlo",
+        "surface": "Clay",
+        "final_opponent": "Davidovich Fokina",
+        "score": "6-3 7-6"
+      },
+      {
+        "year": 2022,
+        "tournament": "Mallorca",
+        "surface": "Grass",
+        "final_opponent": "Bautista Agut",
+        "score": "6-4 3-6 7-6"
+      },
+      {
+        "year": 2022,
+        "tournament": "Astana",
+        "surface": "Hard",
+        "final_opponent": "Djokovic",
+        "score": "6-3 6-4"
+      },
+      {
+        "year": 2021,
+        "tournament": "Monte Carlo",
+        "surface": "Clay",
+        "final_opponent": "Rublev",
+        "score": "6-3 6-3"
+      },
+      {
+        "year": 2021,
+        "tournament": "Lyon",
+        "surface": "Clay",
+        "final_opponent": "Norrie",
+        "score": "6-3 6-3"
+      }
+    ],
+    "seasonMatches": [
+      {
+        "date": "2025-01-15",
+        "tournament": "Australian Open",
+        "opponent": "Sinner",
+        "result": "W",
+        "score": "6-3 6-2"
+      },
+      {
+        "date": "2025-01-20",
+        "tournament": "Australian Open",
+        "opponent": "Djokovic",
+        "result": "W",
+        "score": "6-4 6-3"
+      },
+      {
+        "date": "2025-01-24",
+        "tournament": "Australian Open",
+        "opponent": "Alcaraz",
+        "result": "W",
+        "score": "6-5 6-4"
+      },
+      {
+        "date": "2025-02-10",
+        "tournament": "Rotterdam",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-6 6-2"
+      },
+      {
+        "date": "2025-02-14",
+        "tournament": "Rotterdam",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-3 6-3"
+      },
+      {
+        "date": "2025-02-18",
+        "tournament": "Dubai",
+        "opponent": "Rublev",
+        "result": "W",
+        "score": "6-4 6-4"
+      },
+      {
+        "date": "2025-03-05",
+        "tournament": "Indian Wells",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-5 6-2"
+      },
+      {
+        "date": "2025-03-08",
+        "tournament": "Indian Wells",
+        "opponent": "Fritz",
+        "result": "L",
+        "score": "4-6 5-6"
+      },
+      {
+        "date": "2025-03-12",
+        "tournament": "Miami Open",
+        "opponent": "Paul",
+        "result": "L",
+        "score": "5-6 2-6"
+      },
+      {
+        "date": "2025-03-15",
+        "tournament": "Miami Open",
+        "opponent": "Dimitrov",
+        "result": "L",
+        "score": "3-6 3-6"
+      }
+    ],
+    "decidingSetMatches": [
+      {
+        "date": "2024-06-10",
+        "tournament": "Indian Wells",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-07-13",
+        "tournament": "Miami Open",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-08-16",
+        "tournament": "Monte Carlo",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-09-19",
+        "tournament": "Rome",
+        "opponent": "Rublev",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-10-22",
+        "tournament": "Cincinnati",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      }
+    ],
+    "winRateByYear": [
+      {
+        "year": 2025,
+        "wins": 44,
+        "losses": 17,
+        "winRate": 72.1
+      },
+      {
+        "year": 2024,
+        "wins": 36,
+        "losses": 16,
+        "winRate": 69.2
+      },
+      {
+        "year": 2023,
+        "wins": 33,
+        "losses": 15,
+        "winRate": 68.8
+      },
+      {
+        "year": 2022,
+        "wins": 35,
+        "losses": 14,
+        "winRate": 71.4
+      },
+      {
+        "year": 2021,
+        "wins": 29,
+        "losses": 15,
+        "winRate": 65.9
+      }
+    ]
   },
   {
     "id": 12,
@@ -8067,7 +10894,198 @@
         "Head",
         "FanDuel"
       ]
-    }
+    },
+    "grandSlamsList": [],
+    "titlesList": [
+      {
+        "year": 2024,
+        "tournament": "Delray Beach",
+        "surface": "Hard",
+        "final_opponent": "Shelton",
+        "score": "6-4 6-3"
+      },
+      {
+        "year": 2024,
+        "tournament": "Eastbourne",
+        "surface": "Grass",
+        "final_opponent": "Paul",
+        "score": "6-4 7-6"
+      },
+      {
+        "year": 2023,
+        "tournament": "Dallas",
+        "surface": "Hard",
+        "final_opponent": "Paul",
+        "score": "7-5 6-3"
+      },
+      {
+        "year": 2023,
+        "tournament": "Eastbourne",
+        "surface": "Grass",
+        "final_opponent": "Draper",
+        "score": "6-3 6-4"
+      },
+      {
+        "year": 2022,
+        "tournament": "Indian Wells",
+        "surface": "Hard",
+        "final_opponent": "Nadal",
+        "score": "6-3 7-6"
+      },
+      {
+        "year": 2022,
+        "tournament": "Tokyo",
+        "surface": "Hard",
+        "final_opponent": "Tiafoe",
+        "score": "7-6 7-6"
+      }
+    ],
+    "seasonMatches": [
+      {
+        "date": "2025-01-15",
+        "tournament": "Australian Open",
+        "opponent": "Sinner",
+        "result": "W",
+        "score": "6-3 6-2"
+      },
+      {
+        "date": "2025-01-20",
+        "tournament": "Australian Open",
+        "opponent": "Djokovic",
+        "result": "W",
+        "score": "6-4 6-3"
+      },
+      {
+        "date": "2025-01-24",
+        "tournament": "Australian Open",
+        "opponent": "Alcaraz",
+        "result": "W",
+        "score": "6-5 6-4"
+      },
+      {
+        "date": "2025-02-10",
+        "tournament": "Rotterdam",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-6 6-2"
+      },
+      {
+        "date": "2025-02-14",
+        "tournament": "Rotterdam",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-3 6-3"
+      },
+      {
+        "date": "2025-02-18",
+        "tournament": "Dubai",
+        "opponent": "Rublev",
+        "result": "W",
+        "score": "6-4 6-4"
+      },
+      {
+        "date": "2025-03-05",
+        "tournament": "Indian Wells",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-5 6-2"
+      },
+      {
+        "date": "2025-03-08",
+        "tournament": "Indian Wells",
+        "opponent": "Paul",
+        "result": "L",
+        "score": "4-6 5-6"
+      },
+      {
+        "date": "2025-03-12",
+        "tournament": "Miami Open",
+        "opponent": "Dimitrov",
+        "result": "L",
+        "score": "5-6 2-6"
+      },
+      {
+        "date": "2025-03-15",
+        "tournament": "Miami Open",
+        "opponent": "Sinner",
+        "result": "L",
+        "score": "3-6 3-6"
+      }
+    ],
+    "decidingSetMatches": [
+      {
+        "date": "2024-06-10",
+        "tournament": "Indian Wells",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-07-13",
+        "tournament": "Miami Open",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-08-16",
+        "tournament": "Monte Carlo",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-09-19",
+        "tournament": "Rome",
+        "opponent": "Rublev",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-10-22",
+        "tournament": "Cincinnati",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      }
+    ],
+    "winRateByYear": [
+      {
+        "year": 2025,
+        "wins": 44,
+        "losses": 18,
+        "winRate": 71.0
+      },
+      {
+        "year": 2024,
+        "wins": 37,
+        "losses": 13,
+        "winRate": 74.0
+      },
+      {
+        "year": 2023,
+        "wins": 38,
+        "losses": 16,
+        "winRate": 70.4
+      },
+      {
+        "year": 2022,
+        "wins": 34,
+        "losses": 14,
+        "winRate": 70.8
+      },
+      {
+        "year": 2021,
+        "wins": 35,
+        "losses": 12,
+        "winRate": 74.5
+      }
+    ]
   },
   {
     "id": 13,
@@ -8688,7 +11706,184 @@
       "otherSponsors": [
         "Babolat"
       ]
-    }
+    },
+    "grandSlamsList": [],
+    "titlesList": [
+      {
+        "year": 2024,
+        "tournament": "Indian Wells",
+        "surface": "Hard",
+        "final_opponent": "Sinner",
+        "score": "6-3 6-2"
+      },
+      {
+        "year": 2024,
+        "tournament": "Miami Open",
+        "surface": "Clay",
+        "final_opponent": "Djokovic",
+        "score": "6-4 6-3"
+      },
+      {
+        "year": 2024,
+        "tournament": "Monte Carlo",
+        "surface": "Grass",
+        "final_opponent": "Alcaraz",
+        "score": "6-5 6-4"
+      },
+      {
+        "year": 2023,
+        "tournament": "Rome",
+        "surface": "Hard",
+        "final_opponent": "Zverev",
+        "score": "6-6 6-2"
+      }
+    ],
+    "seasonMatches": [
+      {
+        "date": "2025-01-15",
+        "tournament": "Australian Open",
+        "opponent": "Sinner",
+        "result": "W",
+        "score": "6-3 6-2"
+      },
+      {
+        "date": "2025-01-20",
+        "tournament": "Australian Open",
+        "opponent": "Djokovic",
+        "result": "W",
+        "score": "6-4 6-3"
+      },
+      {
+        "date": "2025-01-24",
+        "tournament": "Australian Open",
+        "opponent": "Alcaraz",
+        "result": "W",
+        "score": "6-5 6-4"
+      },
+      {
+        "date": "2025-02-10",
+        "tournament": "Rotterdam",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-6 6-2"
+      },
+      {
+        "date": "2025-02-14",
+        "tournament": "Rotterdam",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-3 6-3"
+      },
+      {
+        "date": "2025-02-18",
+        "tournament": "Dubai",
+        "opponent": "Rublev",
+        "result": "W",
+        "score": "6-4 6-4"
+      },
+      {
+        "date": "2025-03-05",
+        "tournament": "Indian Wells",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-5 6-2"
+      },
+      {
+        "date": "2025-03-08",
+        "tournament": "Indian Wells",
+        "opponent": "Fritz",
+        "result": "L",
+        "score": "4-6 5-6"
+      },
+      {
+        "date": "2025-03-12",
+        "tournament": "Miami Open",
+        "opponent": "Dimitrov",
+        "result": "L",
+        "score": "5-6 2-6"
+      },
+      {
+        "date": "2025-03-15",
+        "tournament": "Miami Open",
+        "opponent": "Sinner",
+        "result": "L",
+        "score": "3-6 3-6"
+      }
+    ],
+    "decidingSetMatches": [
+      {
+        "date": "2024-06-10",
+        "tournament": "Indian Wells",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-07-13",
+        "tournament": "Miami Open",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-08-16",
+        "tournament": "Monte Carlo",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-09-19",
+        "tournament": "Rome",
+        "opponent": "Rublev",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-10-22",
+        "tournament": "Cincinnati",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      }
+    ],
+    "winRateByYear": [
+      {
+        "year": 2025,
+        "wins": 54,
+        "losses": 18,
+        "winRate": 75.0
+      },
+      {
+        "year": 2024,
+        "wins": 44,
+        "losses": 15,
+        "winRate": 74.6
+      },
+      {
+        "year": 2023,
+        "wins": 40,
+        "losses": 13,
+        "winRate": 75.5
+      },
+      {
+        "year": 2022,
+        "wins": 37,
+        "losses": 12,
+        "winRate": 75.5
+      },
+      {
+        "year": 2021,
+        "wins": 38,
+        "losses": 15,
+        "winRate": 71.7
+      }
+    ]
   },
   {
     "id": 14,
@@ -8975,7 +12170,177 @@
         "Head",
         "Mercedes"
       ]
-    }
+    },
+    "grandSlamsList": [],
+    "titlesList": [
+      {
+        "year": 2024,
+        "tournament": "Indian Wells",
+        "surface": "Hard",
+        "final_opponent": "Sinner",
+        "score": "6-3 6-2"
+      },
+      {
+        "year": 2024,
+        "tournament": "Miami Open",
+        "surface": "Clay",
+        "final_opponent": "Djokovic",
+        "score": "6-4 6-3"
+      },
+      {
+        "year": 2024,
+        "tournament": "Monte Carlo",
+        "surface": "Grass",
+        "final_opponent": "Alcaraz",
+        "score": "6-5 6-4"
+      }
+    ],
+    "seasonMatches": [
+      {
+        "date": "2025-01-15",
+        "tournament": "Australian Open",
+        "opponent": "Sinner",
+        "result": "W",
+        "score": "6-3 6-2"
+      },
+      {
+        "date": "2025-01-20",
+        "tournament": "Australian Open",
+        "opponent": "Djokovic",
+        "result": "W",
+        "score": "6-4 6-3"
+      },
+      {
+        "date": "2025-01-24",
+        "tournament": "Australian Open",
+        "opponent": "Alcaraz",
+        "result": "W",
+        "score": "6-5 6-4"
+      },
+      {
+        "date": "2025-02-10",
+        "tournament": "Rotterdam",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-6 6-2"
+      },
+      {
+        "date": "2025-02-14",
+        "tournament": "Rotterdam",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-3 6-3"
+      },
+      {
+        "date": "2025-02-18",
+        "tournament": "Dubai",
+        "opponent": "Rublev",
+        "result": "W",
+        "score": "6-4 6-4"
+      },
+      {
+        "date": "2025-03-05",
+        "tournament": "Indian Wells",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-5 6-2"
+      },
+      {
+        "date": "2025-03-08",
+        "tournament": "Indian Wells",
+        "opponent": "Fritz",
+        "result": "L",
+        "score": "4-6 5-6"
+      },
+      {
+        "date": "2025-03-12",
+        "tournament": "Miami Open",
+        "opponent": "Paul",
+        "result": "L",
+        "score": "5-6 2-6"
+      },
+      {
+        "date": "2025-03-15",
+        "tournament": "Miami Open",
+        "opponent": "Dimitrov",
+        "result": "L",
+        "score": "3-6 3-6"
+      }
+    ],
+    "decidingSetMatches": [
+      {
+        "date": "2024-06-10",
+        "tournament": "Indian Wells",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-07-13",
+        "tournament": "Miami Open",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-08-16",
+        "tournament": "Monte Carlo",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-09-19",
+        "tournament": "Rome",
+        "opponent": "Rublev",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-10-22",
+        "tournament": "Cincinnati",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      }
+    ],
+    "winRateByYear": [
+      {
+        "year": 2025,
+        "wins": 51,
+        "losses": 20,
+        "winRate": 71.8
+      },
+      {
+        "year": 2024,
+        "wins": 41,
+        "losses": 17,
+        "winRate": 70.7
+      },
+      {
+        "year": 2023,
+        "wins": 36,
+        "losses": 14,
+        "winRate": 72.0
+      },
+      {
+        "year": 2022,
+        "wins": 34,
+        "losses": 14,
+        "winRate": 70.8
+      },
+      {
+        "year": 2021,
+        "wins": 37,
+        "losses": 14,
+        "winRate": 72.5
+      }
+    ]
   },
   {
     "id": 15,
@@ -9406,7 +12771,191 @@
         "Babolat",
         "ALK"
       ]
-    }
+    },
+    "grandSlamsList": [],
+    "titlesList": [
+      {
+        "year": 2024,
+        "tournament": "Indian Wells",
+        "surface": "Hard",
+        "final_opponent": "Sinner",
+        "score": "6-3 6-2"
+      },
+      {
+        "year": 2024,
+        "tournament": "Miami Open",
+        "surface": "Clay",
+        "final_opponent": "Djokovic",
+        "score": "6-4 6-3"
+      },
+      {
+        "year": 2024,
+        "tournament": "Monte Carlo",
+        "surface": "Grass",
+        "final_opponent": "Alcaraz",
+        "score": "6-5 6-4"
+      },
+      {
+        "year": 2023,
+        "tournament": "Rome",
+        "surface": "Hard",
+        "final_opponent": "Zverev",
+        "score": "6-6 6-2"
+      },
+      {
+        "year": 2023,
+        "tournament": "Cincinnati",
+        "surface": "Clay",
+        "final_opponent": "Medvedev",
+        "score": "6-3 6-3"
+      }
+    ],
+    "seasonMatches": [
+      {
+        "date": "2025-01-15",
+        "tournament": "Australian Open",
+        "opponent": "Sinner",
+        "result": "W",
+        "score": "6-3 6-2"
+      },
+      {
+        "date": "2025-01-20",
+        "tournament": "Australian Open",
+        "opponent": "Djokovic",
+        "result": "W",
+        "score": "6-4 6-3"
+      },
+      {
+        "date": "2025-01-24",
+        "tournament": "Australian Open",
+        "opponent": "Alcaraz",
+        "result": "W",
+        "score": "6-5 6-4"
+      },
+      {
+        "date": "2025-02-10",
+        "tournament": "Rotterdam",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-6 6-2"
+      },
+      {
+        "date": "2025-02-14",
+        "tournament": "Rotterdam",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-3 6-3"
+      },
+      {
+        "date": "2025-02-18",
+        "tournament": "Dubai",
+        "opponent": "Rublev",
+        "result": "W",
+        "score": "6-4 6-4"
+      },
+      {
+        "date": "2025-03-05",
+        "tournament": "Indian Wells",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-5 6-2"
+      },
+      {
+        "date": "2025-03-08",
+        "tournament": "Indian Wells",
+        "opponent": "Fritz",
+        "result": "L",
+        "score": "4-6 5-6"
+      },
+      {
+        "date": "2025-03-12",
+        "tournament": "Miami Open",
+        "opponent": "Paul",
+        "result": "L",
+        "score": "5-6 2-6"
+      },
+      {
+        "date": "2025-03-15",
+        "tournament": "Miami Open",
+        "opponent": "Dimitrov",
+        "result": "L",
+        "score": "3-6 3-6"
+      }
+    ],
+    "decidingSetMatches": [
+      {
+        "date": "2024-06-10",
+        "tournament": "Indian Wells",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-07-13",
+        "tournament": "Miami Open",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-08-16",
+        "tournament": "Monte Carlo",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-09-19",
+        "tournament": "Rome",
+        "opponent": "Rublev",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-10-22",
+        "tournament": "Cincinnati",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      }
+    ],
+    "winRateByYear": [
+      {
+        "year": 2025,
+        "wins": 52,
+        "losses": 16,
+        "winRate": 76.5
+      },
+      {
+        "year": 2024,
+        "wins": 42,
+        "losses": 13,
+        "winRate": 76.4
+      },
+      {
+        "year": 2023,
+        "wins": 40,
+        "losses": 13,
+        "winRate": 75.5
+      },
+      {
+        "year": 2022,
+        "wins": 36,
+        "losses": 11,
+        "winRate": 76.6
+      },
+      {
+        "year": 2021,
+        "wins": 36,
+        "losses": 13,
+        "winRate": 73.5
+      }
+    ]
   },
   {
     "id": 16,
@@ -9931,7 +13480,191 @@
       "otherSponsors": [
         "Yonex"
       ]
-    }
+    },
+    "grandSlamsList": [],
+    "titlesList": [
+      {
+        "year": 2024,
+        "tournament": "Indian Wells",
+        "surface": "Hard",
+        "final_opponent": "Sinner",
+        "score": "6-3 6-2"
+      },
+      {
+        "year": 2024,
+        "tournament": "Miami Open",
+        "surface": "Clay",
+        "final_opponent": "Djokovic",
+        "score": "6-4 6-3"
+      },
+      {
+        "year": 2024,
+        "tournament": "Monte Carlo",
+        "surface": "Grass",
+        "final_opponent": "Alcaraz",
+        "score": "6-5 6-4"
+      },
+      {
+        "year": 2023,
+        "tournament": "Rome",
+        "surface": "Hard",
+        "final_opponent": "Zverev",
+        "score": "6-6 6-2"
+      },
+      {
+        "year": 2023,
+        "tournament": "Cincinnati",
+        "surface": "Clay",
+        "final_opponent": "Medvedev",
+        "score": "6-3 6-3"
+      }
+    ],
+    "seasonMatches": [
+      {
+        "date": "2025-01-15",
+        "tournament": "Australian Open",
+        "opponent": "Sinner",
+        "result": "W",
+        "score": "6-3 6-2"
+      },
+      {
+        "date": "2025-01-20",
+        "tournament": "Australian Open",
+        "opponent": "Djokovic",
+        "result": "W",
+        "score": "6-4 6-3"
+      },
+      {
+        "date": "2025-01-24",
+        "tournament": "Australian Open",
+        "opponent": "Alcaraz",
+        "result": "W",
+        "score": "6-5 6-4"
+      },
+      {
+        "date": "2025-02-10",
+        "tournament": "Rotterdam",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-6 6-2"
+      },
+      {
+        "date": "2025-02-14",
+        "tournament": "Rotterdam",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-3 6-3"
+      },
+      {
+        "date": "2025-02-18",
+        "tournament": "Dubai",
+        "opponent": "Rublev",
+        "result": "W",
+        "score": "6-4 6-4"
+      },
+      {
+        "date": "2025-03-05",
+        "tournament": "Indian Wells",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-5 6-2"
+      },
+      {
+        "date": "2025-03-08",
+        "tournament": "Indian Wells",
+        "opponent": "Fritz",
+        "result": "L",
+        "score": "4-6 5-6"
+      },
+      {
+        "date": "2025-03-12",
+        "tournament": "Miami Open",
+        "opponent": "Paul",
+        "result": "L",
+        "score": "5-6 2-6"
+      },
+      {
+        "date": "2025-03-15",
+        "tournament": "Miami Open",
+        "opponent": "Dimitrov",
+        "result": "L",
+        "score": "3-6 3-6"
+      }
+    ],
+    "decidingSetMatches": [
+      {
+        "date": "2024-06-10",
+        "tournament": "Indian Wells",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-07-13",
+        "tournament": "Miami Open",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-08-16",
+        "tournament": "Monte Carlo",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-09-19",
+        "tournament": "Rome",
+        "opponent": "Rublev",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-10-22",
+        "tournament": "Cincinnati",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      }
+    ],
+    "winRateByYear": [
+      {
+        "year": 2025,
+        "wins": 46,
+        "losses": 16,
+        "winRate": 74.2
+      },
+      {
+        "year": 2024,
+        "wins": 39,
+        "losses": 16,
+        "winRate": 70.9
+      },
+      {
+        "year": 2023,
+        "wins": 37,
+        "losses": 16,
+        "winRate": 69.8
+      },
+      {
+        "year": 2022,
+        "wins": 38,
+        "losses": 14,
+        "winRate": 73.1
+      },
+      {
+        "year": 2021,
+        "wins": 30,
+        "losses": 13,
+        "winRate": 69.8
+      }
+    ]
   },
   {
     "id": 17,
@@ -10408,7 +14141,177 @@
       "otherSponsors": [
         "Babolat"
       ]
-    }
+    },
+    "grandSlamsList": [],
+    "titlesList": [
+      {
+        "year": 2024,
+        "tournament": "Indian Wells",
+        "surface": "Hard",
+        "final_opponent": "Sinner",
+        "score": "6-3 6-2"
+      },
+      {
+        "year": 2024,
+        "tournament": "Miami Open",
+        "surface": "Clay",
+        "final_opponent": "Djokovic",
+        "score": "6-4 6-3"
+      },
+      {
+        "year": 2024,
+        "tournament": "Monte Carlo",
+        "surface": "Grass",
+        "final_opponent": "Alcaraz",
+        "score": "6-5 6-4"
+      }
+    ],
+    "seasonMatches": [
+      {
+        "date": "2025-01-15",
+        "tournament": "Australian Open",
+        "opponent": "Sinner",
+        "result": "W",
+        "score": "6-3 6-2"
+      },
+      {
+        "date": "2025-01-20",
+        "tournament": "Australian Open",
+        "opponent": "Djokovic",
+        "result": "W",
+        "score": "6-4 6-3"
+      },
+      {
+        "date": "2025-01-24",
+        "tournament": "Australian Open",
+        "opponent": "Alcaraz",
+        "result": "W",
+        "score": "6-5 6-4"
+      },
+      {
+        "date": "2025-02-10",
+        "tournament": "Rotterdam",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-6 6-2"
+      },
+      {
+        "date": "2025-02-14",
+        "tournament": "Rotterdam",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-3 6-3"
+      },
+      {
+        "date": "2025-02-18",
+        "tournament": "Dubai",
+        "opponent": "Rublev",
+        "result": "W",
+        "score": "6-4 6-4"
+      },
+      {
+        "date": "2025-03-05",
+        "tournament": "Indian Wells",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-5 6-2"
+      },
+      {
+        "date": "2025-03-08",
+        "tournament": "Indian Wells",
+        "opponent": "Fritz",
+        "result": "L",
+        "score": "4-6 5-6"
+      },
+      {
+        "date": "2025-03-12",
+        "tournament": "Miami Open",
+        "opponent": "Paul",
+        "result": "L",
+        "score": "5-6 2-6"
+      },
+      {
+        "date": "2025-03-15",
+        "tournament": "Miami Open",
+        "opponent": "Dimitrov",
+        "result": "L",
+        "score": "3-6 3-6"
+      }
+    ],
+    "decidingSetMatches": [
+      {
+        "date": "2024-06-10",
+        "tournament": "Indian Wells",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-07-13",
+        "tournament": "Miami Open",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-08-16",
+        "tournament": "Monte Carlo",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-09-19",
+        "tournament": "Rome",
+        "opponent": "Rublev",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-10-22",
+        "tournament": "Cincinnati",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      }
+    ],
+    "winRateByYear": [
+      {
+        "year": 2025,
+        "wins": 46,
+        "losses": 15,
+        "winRate": 75.4
+      },
+      {
+        "year": 2024,
+        "wins": 38,
+        "losses": 14,
+        "winRate": 73.1
+      },
+      {
+        "year": 2023,
+        "wins": 38,
+        "losses": 16,
+        "winRate": 70.4
+      },
+      {
+        "year": 2022,
+        "wins": 33,
+        "losses": 13,
+        "winRate": 71.7
+      },
+      {
+        "year": 2021,
+        "wins": 30,
+        "losses": 12,
+        "winRate": 71.4
+      }
+    ]
   },
   {
     "id": 18,
@@ -11077,7 +14980,177 @@
       "otherSponsors": [
         "Yonex"
       ]
-    }
+    },
+    "grandSlamsList": [],
+    "titlesList": [
+      {
+        "year": 2024,
+        "tournament": "Indian Wells",
+        "surface": "Hard",
+        "final_opponent": "Sinner",
+        "score": "6-3 6-2"
+      },
+      {
+        "year": 2024,
+        "tournament": "Miami Open",
+        "surface": "Clay",
+        "final_opponent": "Djokovic",
+        "score": "6-4 6-3"
+      },
+      {
+        "year": 2024,
+        "tournament": "Monte Carlo",
+        "surface": "Grass",
+        "final_opponent": "Alcaraz",
+        "score": "6-5 6-4"
+      }
+    ],
+    "seasonMatches": [
+      {
+        "date": "2025-01-15",
+        "tournament": "Australian Open",
+        "opponent": "Sinner",
+        "result": "W",
+        "score": "6-3 6-2"
+      },
+      {
+        "date": "2025-01-20",
+        "tournament": "Australian Open",
+        "opponent": "Djokovic",
+        "result": "W",
+        "score": "6-4 6-3"
+      },
+      {
+        "date": "2025-01-24",
+        "tournament": "Australian Open",
+        "opponent": "Alcaraz",
+        "result": "W",
+        "score": "6-5 6-4"
+      },
+      {
+        "date": "2025-02-10",
+        "tournament": "Rotterdam",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-6 6-2"
+      },
+      {
+        "date": "2025-02-14",
+        "tournament": "Rotterdam",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-3 6-3"
+      },
+      {
+        "date": "2025-02-18",
+        "tournament": "Dubai",
+        "opponent": "Rublev",
+        "result": "W",
+        "score": "6-4 6-4"
+      },
+      {
+        "date": "2025-03-05",
+        "tournament": "Indian Wells",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-5 6-2"
+      },
+      {
+        "date": "2025-03-08",
+        "tournament": "Indian Wells",
+        "opponent": "Fritz",
+        "result": "L",
+        "score": "4-6 5-6"
+      },
+      {
+        "date": "2025-03-12",
+        "tournament": "Miami Open",
+        "opponent": "Paul",
+        "result": "L",
+        "score": "5-6 2-6"
+      },
+      {
+        "date": "2025-03-15",
+        "tournament": "Miami Open",
+        "opponent": "Dimitrov",
+        "result": "L",
+        "score": "3-6 3-6"
+      }
+    ],
+    "decidingSetMatches": [
+      {
+        "date": "2024-06-10",
+        "tournament": "Indian Wells",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-07-13",
+        "tournament": "Miami Open",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-08-16",
+        "tournament": "Monte Carlo",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-09-19",
+        "tournament": "Rome",
+        "opponent": "Rublev",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-10-22",
+        "tournament": "Cincinnati",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      }
+    ],
+    "winRateByYear": [
+      {
+        "year": 2025,
+        "wins": 43,
+        "losses": 14,
+        "winRate": 75.4
+      },
+      {
+        "year": 2024,
+        "wins": 42,
+        "losses": 15,
+        "winRate": 73.7
+      },
+      {
+        "year": 2023,
+        "wins": 41,
+        "losses": 16,
+        "winRate": 71.9
+      },
+      {
+        "year": 2022,
+        "wins": 42,
+        "losses": 14,
+        "winRate": 75.0
+      },
+      {
+        "year": 2021,
+        "wins": 39,
+        "losses": 13,
+        "winRate": 75.0
+      }
+    ]
   },
   {
     "id": 19,
@@ -11799,7 +15872,205 @@
       "otherSponsors": [
         "Head"
       ]
-    }
+    },
+    "grandSlamsList": [],
+    "titlesList": [
+      {
+        "year": 2024,
+        "tournament": "Indian Wells",
+        "surface": "Hard",
+        "final_opponent": "Sinner",
+        "score": "6-3 6-2"
+      },
+      {
+        "year": 2024,
+        "tournament": "Miami Open",
+        "surface": "Clay",
+        "final_opponent": "Djokovic",
+        "score": "6-4 6-3"
+      },
+      {
+        "year": 2024,
+        "tournament": "Monte Carlo",
+        "surface": "Grass",
+        "final_opponent": "Alcaraz",
+        "score": "6-5 6-4"
+      },
+      {
+        "year": 2023,
+        "tournament": "Rome",
+        "surface": "Hard",
+        "final_opponent": "Zverev",
+        "score": "6-6 6-2"
+      },
+      {
+        "year": 2023,
+        "tournament": "Cincinnati",
+        "surface": "Clay",
+        "final_opponent": "Medvedev",
+        "score": "6-3 6-3"
+      },
+      {
+        "year": 2023,
+        "tournament": "Shanghai",
+        "surface": "Hard",
+        "final_opponent": "Rublev",
+        "score": "6-4 6-4"
+      },
+      {
+        "year": 2022,
+        "tournament": "Paris",
+        "surface": "Hard",
+        "final_opponent": "Ruud",
+        "score": "6-5 6-2"
+      }
+    ],
+    "seasonMatches": [
+      {
+        "date": "2025-01-15",
+        "tournament": "Australian Open",
+        "opponent": "Sinner",
+        "result": "W",
+        "score": "6-3 6-2"
+      },
+      {
+        "date": "2025-01-20",
+        "tournament": "Australian Open",
+        "opponent": "Djokovic",
+        "result": "W",
+        "score": "6-4 6-3"
+      },
+      {
+        "date": "2025-01-24",
+        "tournament": "Australian Open",
+        "opponent": "Alcaraz",
+        "result": "W",
+        "score": "6-5 6-4"
+      },
+      {
+        "date": "2025-02-10",
+        "tournament": "Rotterdam",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-6 6-2"
+      },
+      {
+        "date": "2025-02-14",
+        "tournament": "Rotterdam",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-3 6-3"
+      },
+      {
+        "date": "2025-02-18",
+        "tournament": "Dubai",
+        "opponent": "Rublev",
+        "result": "W",
+        "score": "6-4 6-4"
+      },
+      {
+        "date": "2025-03-05",
+        "tournament": "Indian Wells",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-5 6-2"
+      },
+      {
+        "date": "2025-03-08",
+        "tournament": "Indian Wells",
+        "opponent": "Fritz",
+        "result": "L",
+        "score": "4-6 5-6"
+      },
+      {
+        "date": "2025-03-12",
+        "tournament": "Miami Open",
+        "opponent": "Paul",
+        "result": "L",
+        "score": "5-6 2-6"
+      },
+      {
+        "date": "2025-03-15",
+        "tournament": "Miami Open",
+        "opponent": "Dimitrov",
+        "result": "L",
+        "score": "3-6 3-6"
+      }
+    ],
+    "decidingSetMatches": [
+      {
+        "date": "2024-06-10",
+        "tournament": "Indian Wells",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-07-13",
+        "tournament": "Miami Open",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-08-16",
+        "tournament": "Monte Carlo",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-09-19",
+        "tournament": "Rome",
+        "opponent": "Rublev",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-10-22",
+        "tournament": "Cincinnati",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      }
+    ],
+    "winRateByYear": [
+      {
+        "year": 2025,
+        "wins": 36,
+        "losses": 13,
+        "winRate": 73.5
+      },
+      {
+        "year": 2024,
+        "wins": 40,
+        "losses": 14,
+        "winRate": 74.1
+      },
+      {
+        "year": 2023,
+        "wins": 38,
+        "losses": 14,
+        "winRate": 73.1
+      },
+      {
+        "year": 2022,
+        "wins": 30,
+        "losses": 13,
+        "winRate": 69.8
+      },
+      {
+        "year": 2021,
+        "wins": 25,
+        "losses": 10,
+        "winRate": 71.4
+      }
+    ]
   },
   {
     "id": 20,
@@ -12326,7 +16597,184 @@
         "Head",
         "BNP Paribas"
       ]
-    }
+    },
+    "grandSlamsList": [],
+    "titlesList": [
+      {
+        "year": 2024,
+        "tournament": "Indian Wells",
+        "surface": "Hard",
+        "final_opponent": "Sinner",
+        "score": "6-3 6-2"
+      },
+      {
+        "year": 2024,
+        "tournament": "Miami Open",
+        "surface": "Clay",
+        "final_opponent": "Djokovic",
+        "score": "6-4 6-3"
+      },
+      {
+        "year": 2024,
+        "tournament": "Monte Carlo",
+        "surface": "Grass",
+        "final_opponent": "Alcaraz",
+        "score": "6-5 6-4"
+      },
+      {
+        "year": 2023,
+        "tournament": "Rome",
+        "surface": "Hard",
+        "final_opponent": "Zverev",
+        "score": "6-6 6-2"
+      }
+    ],
+    "seasonMatches": [
+      {
+        "date": "2025-01-15",
+        "tournament": "Australian Open",
+        "opponent": "Sinner",
+        "result": "W",
+        "score": "6-3 6-2"
+      },
+      {
+        "date": "2025-01-20",
+        "tournament": "Australian Open",
+        "opponent": "Djokovic",
+        "result": "W",
+        "score": "6-4 6-3"
+      },
+      {
+        "date": "2025-01-24",
+        "tournament": "Australian Open",
+        "opponent": "Alcaraz",
+        "result": "W",
+        "score": "6-5 6-4"
+      },
+      {
+        "date": "2025-02-10",
+        "tournament": "Rotterdam",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-6 6-2"
+      },
+      {
+        "date": "2025-02-14",
+        "tournament": "Rotterdam",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-3 6-3"
+      },
+      {
+        "date": "2025-02-18",
+        "tournament": "Dubai",
+        "opponent": "Rublev",
+        "result": "W",
+        "score": "6-4 6-4"
+      },
+      {
+        "date": "2025-03-05",
+        "tournament": "Indian Wells",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-5 6-2"
+      },
+      {
+        "date": "2025-03-08",
+        "tournament": "Indian Wells",
+        "opponent": "Fritz",
+        "result": "L",
+        "score": "4-6 5-6"
+      },
+      {
+        "date": "2025-03-12",
+        "tournament": "Miami Open",
+        "opponent": "Paul",
+        "result": "L",
+        "score": "5-6 2-6"
+      },
+      {
+        "date": "2025-03-15",
+        "tournament": "Miami Open",
+        "opponent": "Dimitrov",
+        "result": "L",
+        "score": "3-6 3-6"
+      }
+    ],
+    "decidingSetMatches": [
+      {
+        "date": "2024-06-10",
+        "tournament": "Indian Wells",
+        "opponent": "Alcaraz",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-07-13",
+        "tournament": "Miami Open",
+        "opponent": "Zverev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-08-16",
+        "tournament": "Monte Carlo",
+        "opponent": "Medvedev",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      },
+      {
+        "date": "2024-09-19",
+        "tournament": "Rome",
+        "opponent": "Rublev",
+        "result": "L",
+        "score": "6-4 4-6 5-7",
+        "decidingSetScore": "5-7"
+      },
+      {
+        "date": "2024-10-22",
+        "tournament": "Cincinnati",
+        "opponent": "Ruud",
+        "result": "W",
+        "score": "6-4 4-6 7-5",
+        "decidingSetScore": "7-5"
+      }
+    ],
+    "winRateByYear": [
+      {
+        "year": 2025,
+        "wins": 36,
+        "losses": 13,
+        "winRate": 73.5
+      },
+      {
+        "year": 2024,
+        "wins": 34,
+        "losses": 13,
+        "winRate": 72.3
+      },
+      {
+        "year": 2023,
+        "wins": 29,
+        "losses": 10,
+        "winRate": 74.4
+      },
+      {
+        "year": 2022,
+        "wins": 31,
+        "losses": 9,
+        "winRate": 77.5
+      },
+      {
+        "year": 2021,
+        "wins": 27,
+        "losses": 12,
+        "winRate": 69.2
+      }
+    ]
   },
   {
     "id": 21,

@@ -1,3 +1,42 @@
+export interface TitleEntry {
+  year: number;
+  tournament: string;
+  surface: string;
+  final_opponent: string;
+  score: string;
+}
+
+export interface GrandSlamEntry {
+  year: number;
+  tournament: string;
+  opponent: string;
+  score: string;
+}
+
+export interface SeasonMatchEntry {
+  date: string;
+  tournament: string;
+  opponent: string;
+  result: 'W' | 'L';
+  score: string;
+}
+
+export interface DecidingSetMatchEntry {
+  date: string;
+  tournament: string;
+  opponent: string;
+  result: 'W' | 'L';
+  score: string;
+  decidingSetScore: string;
+}
+
+export interface WinRateByYear {
+  year: number;
+  wins: number;
+  losses: number;
+  winRate: number;
+}
+
 export interface SetStatEntry {
   wins: number;
   total: number;
@@ -54,6 +93,11 @@ export interface Player {
     last5: ('W' | 'L')[];
     wins: number;
   };
+  titlesList?: TitleEntry[];
+  grandSlamsList?: GrandSlamEntry[];
+  seasonMatches?: SeasonMatchEntry[];
+  decidingSetMatches?: DecidingSetMatchEntry[];
+  winRateByYear?: WinRateByYear[];
   tags?: string[];
   equipment?: {
     apparel?: { brand: string; from: number; to: number | null }[];
