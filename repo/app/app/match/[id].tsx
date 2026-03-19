@@ -111,6 +111,12 @@ function GameByGameTimeline({ gameByGame, p1Short, p2Short }: { gameByGame: SetG
         <Text style={styles.gbgIntensityLegendItem}><Text style={{ color: 'rgba(183,28,28,0.6)' }}>●</Text> Battle</Text>
         <Text style={styles.gbgIntensityLegendItem}><Text style={{ color: '#e53935' }}>★</Text> Break</Text>
       </View>
+      {/* Difficulty legend */}
+      <View style={styles.gbgIntensityLegend}>
+        <Text style={styles.gbgIntensityLegendItem}><Text style={{ color: '#1a7a3a' }}>━</Text> Love</Text>
+        <Text style={styles.gbgIntensityLegendItem}><Text style={{ color: '#c9a84c' }}>━</Text> Tough</Text>
+        <Text style={styles.gbgIntensityLegendItem}><Text style={{ color: '#b71c1c' }}>━</Text> BP Saved</Text>
+      </View>
       {gameByGame.map((setData) => {
         const lastGame = setData.games[setData.games.length - 1];
         const setScore = setData.tiebreak ? setData.tiebreak.score : lastGame?.score || '0-0';
@@ -125,9 +131,17 @@ function GameByGameTimeline({ gameByGame, p1Short, p2Short }: { gameByGame: SetG
                   <View style={styles.gbgGameColumn}>
                     {/* Score block with intensity color */}
                     <View style={[styles.gbgGameBlock, { backgroundColor: game.isBreak ? 'rgba(183,28,28,0.2)' : getGameIntensityBg(game.durationMin) }, game.isBreak && styles.gbgGameBlockBreak]}>
+                      {game.difficulty === 'bp_saved' && (
+                        <Text style={styles.gbgBpBadge}>BP</Text>
+                      )}
                       <Text style={[styles.gbgGameScore, game.isBreak && styles.gbgGameScoreBreak]}>
                         {game.score}
                       </Text>
+                      {game.difficulty && game.difficulty !== 'easy' && game.difficulty !== 'broken' && (
+                        <View style={[styles.gbgDifficultyStripe, {
+                          backgroundColor: game.difficulty === 'love' ? '#1a7a3a' : game.difficulty === 'tough' ? '#c9a84c' : game.difficulty === 'bp_saved' ? '#b71c1c' : 'transparent'
+                        }]} />
+                      )}
                     </View>
                     {/* Duration label below */}
                     {game.durationMin ? (
@@ -762,6 +776,26 @@ const styles = StyleSheet.create({
     borderColor: '#2a2a2a',
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'hidden',
+    position: 'relative',
+  },
+  gbgDifficultyStripe: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 3,
+    borderBottomLeftRadius: 7,
+    borderBottomRightRadius: 7,
+  },
+  gbgBpBadge: {
+    position: 'absolute',
+    top: 1,
+    right: 2,
+    fontSize: 8,
+    fontWeight: '700',
+    color: '#b71c1c',
+    lineHeight: 10,
   },
   gbgGameBlockBreak: {
     backgroundColor: 'rgba(183,28,28,0.2)',

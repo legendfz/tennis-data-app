@@ -163,6 +163,7 @@ export interface GameByGameEntry {
   isBreak: boolean;
   points?: number;
   durationMin?: number;
+  difficulty?: string;
 }
 
 export interface SetTiebreak {
