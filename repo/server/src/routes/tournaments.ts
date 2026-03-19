@@ -85,15 +85,25 @@ router.get('/:id/draw', (req: Request, res: Response) => {
     return;
   }
 
-  // Enrich draw with player data
+  // Enrich draw with player data and matchId
   const enrichedRounds = draw.rounds.map((round) => ({
     round: round.round,
-    matches: round.matches.map((m) => ({
-      ...m,
-      player1: mockPlayers.find((p) => p.id === m.player1Id),
-      player2: mockPlayers.find((p) => p.id === m.player2Id),
-      winner: mockPlayers.find((p) => p.id === m.winnerId),
-    })),
+    matches: round.matches.map((m) => {
+      // Find matching match by tournamentId + player pair
+      const foundMatch = mockMatches.find(
+        (mt) =>
+          mt.tournamentId === tournamentId &&
+          ((mt.player1Id === m.player1Id && mt.player2Id === m.player2Id) ||
+           (mt.player1Id === m.player2Id && mt.player2Id === m.player1Id))
+      );
+      return {
+        ...m,
+        matchId: foundMatch?.id ?? null,
+        player1: mockPlayers.find((p) => p.id === m.player1Id),
+        player2: mockPlayers.find((p) => p.id === m.player2Id),
+        winner: mockPlayers.find((p) => p.id === m.winnerId),
+      };
+    }),
   }));
 
   res.json({

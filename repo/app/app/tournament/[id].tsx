@@ -28,6 +28,7 @@ interface DrawMatch {
   score: string;
   seed1: number | null;
   seed2: number | null;
+  matchId?: number | null;
   player1?: Player;
   player2?: Player;
   winner?: Player;
@@ -153,9 +154,11 @@ function abbreviateName(name: string): string {
 function BracketCell({
   match,
   onPlayerPress,
+  onMatchPress,
 }: {
   match: DrawMatch;
   onPlayerPress?: (id: number) => void;
+  onMatchPress?: (matchId: number) => void;
 }) {
   const p1Win = match.winnerId === match.player1Id;
   const p2Win = match.winnerId === match.player2Id;
@@ -185,9 +188,14 @@ function BracketCell({
   return (
     <View style={bk.cell}>
       {renderPlayer(match.player1, match.seed1, p1Win, match.player1Id)}
-      <View style={bk.scoreRow}>
+      <TouchableOpacity
+        style={bk.scoreRow}
+        activeOpacity={0.7}
+        onPress={() => match.matchId && onMatchPress?.(match.matchId)}
+        disabled={!match.matchId}
+      >
         <Text style={bk.scoreText}>{match.score}</Text>
-      </View>
+      </TouchableOpacity>
       {renderPlayer(match.player2, match.seed2, p2Win, match.player2Id)}
     </View>
   );
@@ -218,7 +226,7 @@ function VerticalLine({ x, y, height }: { x: number; y: number; height: number }
 }
 
 // ── Build full bracket tree ──
-function NCAAbracket({ draw, onPlayerPress, category }: { draw: DrawData; onPlayerPress: (id: number) => void; category?: string }) {
+function NCAAbracket({ draw, onPlayerPress, onMatchPress, category }: { draw: DrawData; onPlayerPress: (id: number) => void; onMatchPress: (matchId: number) => void; category?: string }) {
   const rewards = category ? getRewardsForCategory(category) : {};
   // Build round map
   const roundMap: Record<string, DrawMatch[]> = {};
@@ -313,7 +321,7 @@ function NCAAbracket({ draw, onPlayerPress, category }: { draw: DrawData; onPlay
       const y = getMatchY(colIdx, mi, rd.matches.length);
       leftElements.push(
         <View key={`l-${rd.round}-${mi}`} style={{ position: 'absolute', left: colX, top: y, width: CELL_W }}>
-          <BracketCell match={match} onPlayerPress={onPlayerPress} />
+          <BracketCell match={match} onPlayerPress={onPlayerPress} onMatchPress={onMatchPress} />
         </View>
       );
 
@@ -371,7 +379,7 @@ function NCAAbracket({ draw, onPlayerPress, category }: { draw: DrawData; onPlay
       const y = getMatchY(colIdx, mi, rd.matches.length);
       rightElements.push(
         <View key={`r-${rd.round}-${mi}`} style={{ position: 'absolute', left: colX, top: y, width: CELL_W }}>
-          <BracketCell match={match} onPlayerPress={onPlayerPress} />
+          <BracketCell match={match} onPlayerPress={onPlayerPress} onMatchPress={onMatchPress} />
         </View>
       );
 
@@ -422,7 +430,7 @@ function NCAAbracket({ draw, onPlayerPress, category }: { draw: DrawData; onPlay
     );
     finalElements.push(
       <View key="final-match" style={{ position: 'absolute', left: finalColX, top: finalY, width: CELL_W }}>
-        <BracketCell match={finalMatch} onPlayerPress={onPlayerPress} />
+        <BracketCell match={finalMatch} onPlayerPress={onPlayerPress} onMatchPress={onMatchPress} />
       </View>
     );
 
@@ -681,7 +689,7 @@ export default function TournamentDetailScreen() {
             {error || !draw ? (
               <EmptyState message={`No bracket data for ${selectedYear}`} />
             ) : (
-              <NCAAbracket draw={draw} onPlayerPress={handlePlayerPress} category={tournament?.category} />
+              <NCAAbracket draw={draw} onPlayerPress={handlePlayerPress} onMatchPress={(matchId) => router.push(`/match/${matchId}`)} category={tournament?.category} />
             )}
           </>
         ) : (
