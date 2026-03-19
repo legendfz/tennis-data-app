@@ -13,7 +13,8 @@ import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'expo-router';
 import { useFocusEffect } from '@react-navigation/native';
 import api from '../../lib/api';
-import { getAvatarUrl } from '../../lib/avatars';
+import { PlayerAvatar } from '../../lib/player-avatar';
+import { Flag } from '../../lib/flags';
 import { getFavorites } from '../../lib/favorites';
 import { useLanguage } from '../../lib/i18n';
 import { SkeletonList } from '../../lib/skeleton';
@@ -160,14 +161,10 @@ export default function HomeScreen() {
         <View style={styles.matchInner}>
           {/* Player 1 */}
           <View style={styles.matchPlayer}>
-            <View style={[styles.avatar, !p1Won && p2Won && { opacity: 0.5 }]}>
-              {match.player1?.photoUrl ? (
-                <Image source={{ uri: match.player1.photoUrl }} style={styles.avatarImg} />
-              ) : (
-                <Text style={styles.avatarText}>{p1Initials}</Text>
-              )}
+            <View style={[!p1Won && p2Won && { opacity: 0.5 }]}>
+              <PlayerAvatar name={match.player1?.name || 'P1'} photoUrl={match.player1?.photoUrl} size={32} />
             </View>
-            <Text style={styles.flag}>{match.player1?.countryFlag || ''}</Text>
+            <Flag country={match.player1?.country || ''} countryFlag={match.player1?.countryFlag} size={12} />
             <Text
               style={[
                 styles.playerName,
@@ -217,13 +214,9 @@ export default function HomeScreen() {
               {p2Name}
             </Text>
             {p2Won && <View style={styles.winnerBadge} />}
-            <Text style={styles.flag}>{match.player2?.countryFlag || ''}</Text>
-            <View style={[styles.avatar, !p2Won && p1Won && { opacity: 0.5 }]}>
-              {match.player2?.photoUrl ? (
-                <Image source={{ uri: match.player2.photoUrl }} style={styles.avatarImg} />
-              ) : (
-                <Text style={styles.avatarText}>{p2Initials}</Text>
-              )}
+            <Flag country={match.player2?.country || ''} countryFlag={match.player2?.countryFlag} size={12} />
+            <View style={[!p2Won && p1Won && { opacity: 0.5 }]}>
+              <PlayerAvatar name={match.player2?.name || 'P2'} photoUrl={match.player2?.photoUrl} size={32} />
             </View>
           </View>
         </View>

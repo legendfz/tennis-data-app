@@ -12,7 +12,8 @@ import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'expo-router';
 import { useFocusEffect } from '@react-navigation/native';
 import api from '../../lib/api';
-import { getAvatarUrl } from '../../lib/avatars';
+import { PlayerAvatar } from '../../lib/player-avatar';
+import { Flag } from '../../lib/flags';
 import { useLanguage } from '../../lib/i18n';
 import { EmptyState } from '../../lib/empty-state';
 import { getFavorites } from '../../lib/favorites';
@@ -74,17 +75,14 @@ export default function FollowingScreen() {
             onPress={() => router.push(`/player/${item.id}`)}
             activeOpacity={0.7}
           >
-            <View style={styles.avatarCircle}>
-              {item.photoUrl ? (
-                <Image source={{ uri: item.photoUrl }} style={styles.avatarImg} />
-              ) : (
-                <Text style={styles.avatarInitials}>{getInitials(item.name)}</Text>
-              )}
-            </View>
+            <PlayerAvatar name={item.name} photoUrl={item.photoUrl} size={40} />
             <View style={styles.nameWrap}>
-              <Text style={styles.playerName} numberOfLines={1}>
-                {getPlayerName(item)} {item.countryFlag}
-              </Text>
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+                <Text style={styles.playerName} numberOfLines={1}>
+                  {getPlayerName(item)}
+                </Text>
+                <Flag country={item.country} countryFlag={item.countryFlag} size={14} />
+              </View>
               <Text style={styles.rankText}>#{item.ranking}</Text>
             </View>
           </TouchableOpacity>

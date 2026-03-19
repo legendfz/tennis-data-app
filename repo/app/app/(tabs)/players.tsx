@@ -12,7 +12,8 @@ import {
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'expo-router';
 import api from '../../lib/api';
-import { getAvatarUrl } from '../../lib/avatars';
+import { PlayerAvatar } from '../../lib/player-avatar';
+import { Flag } from '../../lib/flags';
 import { useLanguage } from '../../lib/i18n';
 import { SkeletonList } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
@@ -130,17 +131,14 @@ export default function PlayersScreen() {
               activeOpacity={0.7}
             >
               <Text style={styles.rank}>{item.ranking}</Text>
-              <View style={[styles.avatarCircle, { backgroundColor: avatarColor }]}>
-                {item.photoUrl ? (
-                  <Image source={{ uri: item.photoUrl }} style={styles.avatarImg} />
-                ) : (
-                  <Text style={styles.avatarInitials}>{getInitials(item.name)}</Text>
-                )}
-              </View>
+              <PlayerAvatar name={item.name} photoUrl={item.photoUrl} size={40} />
               <View style={styles.nameWrap}>
-                <Text style={styles.playerName} numberOfLines={1}>
-                  {getPlayerName(item)} {item.countryFlag}
-                </Text>
+                <View style={styles.nameRow}>
+                  <Text style={styles.playerName} numberOfLines={1}>
+                    {getPlayerName(item)}
+                  </Text>
+                  <Flag country={item.country} countryFlag={item.countryFlag} size={14} />
+                </View>
                 {hot && (
                   <View style={styles.hotTagWrap}>
                     <Text style={styles.hotTag}>
@@ -246,6 +244,11 @@ const styles = StyleSheet.create({
   },
   nameWrap: {
     flex: 1,
+  },
+  nameRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
   },
   playerName: {
     fontSize: 15,

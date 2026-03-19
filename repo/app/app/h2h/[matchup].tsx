@@ -11,7 +11,8 @@ import {
 import { useLocalSearchParams, Stack } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
 import api from '../../lib/api';
-import { getAvatarUrl } from '../../lib/avatars';
+import { getPlayerAvatarUrl } from '../../lib/avatars';
+import { Flag } from '../../lib/flags';
 import { useLanguage } from '../../lib/i18n';
 import { SkeletonList, SkeletonBlock } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
@@ -319,10 +320,10 @@ export default function H2HDetailScreen() {
         <View style={styles.topSection}>
           <View style={styles.playerCol}>
             <Image
-              source={{ uri: p1.photoUrl || getAvatarUrl(p1.name, AVATAR_SIZE * 2) }}
+              source={{ uri: getPlayerAvatarUrl(p1.name, p1.photoUrl, AVATAR_SIZE * 2) }}
               style={[styles.avatar, p1Leading && styles.avatarLeading]}
             />
-            <Text style={styles.flag}>{p1.countryFlag}</Text>
+            <Flag country={p1.country} countryFlag={p1.countryFlag} size={16} />
             <Text style={styles.playerName} numberOfLines={2}>{getPlayerName(p1)}</Text>
             <Text style={styles.playerRank}>#{p1.ranking}</Text>
           </View>
@@ -335,10 +336,10 @@ export default function H2HDetailScreen() {
 
           <View style={styles.playerCol}>
             <Image
-              source={{ uri: p2.photoUrl || getAvatarUrl(p2.name, AVATAR_SIZE * 2) }}
+              source={{ uri: getPlayerAvatarUrl(p2.name, p2.photoUrl, AVATAR_SIZE * 2) }}
               style={[styles.avatar, p2Leading && styles.avatarLeading]}
             />
-            <Text style={styles.flag}>{p2.countryFlag}</Text>
+            <Flag country={p2.country} countryFlag={p2.countryFlag} size={16} />
             <Text style={styles.playerName} numberOfLines={2}>{getPlayerName(p2)}</Text>
             <Text style={styles.playerRank}>#{p2.ranking}</Text>
           </View>

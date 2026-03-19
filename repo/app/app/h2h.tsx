@@ -11,7 +11,8 @@ import { Stack, useRouter } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import api from '../lib/api';
-import { getAvatarUrl } from '../lib/avatars';
+import { getPlayerAvatarUrl } from '../lib/avatars';
+import { Flag } from '../lib/flags';
 import { useLanguage } from '../lib/i18n';
 import type { Player } from '../../shared/types';
 
@@ -57,11 +58,14 @@ function PlayerSelector({
           activeOpacity={0.7}
         >
           <Image
-            source={{ uri: selectedPlayer.photoUrl || getAvatarUrl(selectedPlayer.name, AVATAR_SIZE * 2) }}
+            source={{ uri: getPlayerAvatarUrl(selectedPlayer.name, selectedPlayer.photoUrl, AVATAR_SIZE * 2) }}
             style={styles.selectedAvatar}
           />
           <View style={styles.selectedInfo}>
-            <Text style={styles.selectedName}>{selectedPlayer.countryFlag} {localizedName(selectedPlayer)}</Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+              <Flag country={selectedPlayer.country} countryFlag={selectedPlayer.countryFlag} size={14} />
+              <Text style={styles.selectedName}>{localizedName(selectedPlayer)}</Text>
+            </View>
             <Text style={styles.selectedRank}>#{selectedPlayer.ranking}</Text>
           </View>
           <Text style={styles.changeBtn}>×</Text>
@@ -93,9 +97,12 @@ function PlayerSelector({
                     }}
                     activeOpacity={0.7}
                   >
-                    <Image source={{ uri: p.photoUrl || getAvatarUrl(p.name, 48) }} style={styles.dropdownAvatar} />
+                    <Image source={{ uri: getPlayerAvatarUrl(p.name, p.photoUrl, 48) }} style={styles.dropdownAvatar} />
                     <View style={{ flex: 1 }}>
-                      <Text style={styles.dropdownName}>{p.countryFlag} {localizedName(p)}</Text>
+                      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+                        <Flag country={p.country} countryFlag={p.countryFlag} size={12} />
+                        <Text style={styles.dropdownName}>{localizedName(p)}</Text>
+                      </View>
                       <Text style={styles.dropdownRank}>#{p.ranking}</Text>
                     </View>
                   </TouchableOpacity>

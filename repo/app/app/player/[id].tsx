@@ -17,7 +17,9 @@ import { useLocalSearchParams, Stack, useRouter } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
 import Svg, { Polyline, Circle, Line, Text as SvgText } from 'react-native-svg';
 import api from '../../lib/api';
-import { getAvatarUrl } from '../../lib/avatars';
+import { getPlayerAvatarUrl } from '../../lib/avatars';
+import { PlayerAvatar } from '../../lib/player-avatar';
+import { Flag } from '../../lib/flags';
 import { useLanguage } from '../../lib/i18n';
 import { SkeletonBlock } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
@@ -367,7 +369,7 @@ function OverviewTab({ player }: { player: PlayerDetail }) {
       {/* Bio */}
       <View style={styles.card}>
         <Text style={styles.cardTitle}>Info</Text>
-        <InfoRow label="Nationality" value={`${player.countryFlag} ${player.country}`} />
+        <InfoRow label="Nationality" value={`${player.country}`} />
         <InfoRow label="Height" value={`${player.height} cm`} />
         <InfoRow label="Weight" value={`${player.weight} kg`} />
         <InfoRow label="Plays" value={player.plays} />
@@ -735,7 +737,7 @@ export default function PlayerDetailScreen() {
     );
   }
 
-  const avatarUrl = player.photoUrl || getAvatarUrl(player.name, AVATAR_SIZE * 2);
+  const avatarUrl = getPlayerAvatarUrl(player.name, player.photoUrl, AVATAR_SIZE * 2);
   const tabs: { key: TabKey; label: string }[] = [
     { key: 'overview', label: 'Overview' },
     { key: 'stats', label: 'Stats' },
@@ -770,11 +772,14 @@ export default function PlayerDetailScreen() {
           {resolvedLanguage !== 'en' && getPlayerName(player) !== player.name && (
             <Text style={styles.playerNameEn}>{player.name}</Text>
           )}
-          <Text style={styles.subtitle}>
-            {player.countryFlag} {player.country}
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, justifyContent: 'center' }}>
+            <Flag country={player.country} countryFlag={player.countryFlag} size={16} />
+            <Text style={styles.subtitle}>
+            {player.country}
             {age ? ` \u2022 Age ${age}` : ''}
             {player.plays ? ` \u2022 ${player.plays}` : ''}
           </Text>
+          </View>
           {hotTag && (
             <View style={styles.hotTagBadge}>
               <Text style={styles.hotTagText}>

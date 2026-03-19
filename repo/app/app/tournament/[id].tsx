@@ -11,7 +11,8 @@ import {
 import { useLocalSearchParams, Stack } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
 import api from '../../lib/api';
-import { getAvatarUrl } from '../../lib/avatars';
+import { getPlayerAvatarUrl } from '../../lib/avatars';
+import { Flag } from '../../lib/flags';
 import { SkeletonList } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
 import { TournamentLogo } from '../../lib/tournament-logo';
@@ -92,13 +93,16 @@ function PlayerSlot({ player, seed, isWinner }: { player?: Player; seed: number 
   return (
     <View style={[styles.playerSlot, isWinner && styles.winnerSlot]}>
       <Image
-        source={{ uri: player.photoUrl || getAvatarUrl(player.name, MATCH_AVATAR_SIZE * 2) }}
+        source={{ uri: getPlayerAvatarUrl(player.name, player.photoUrl, MATCH_AVATAR_SIZE * 2) }}
         style={styles.slotAvatar}
       />
       <View style={styles.slotInfo}>
-        <Text style={[styles.slotName, isWinner && styles.winnerName]} numberOfLines={1}>
-          {player.name} {player.countryFlag}
-        </Text>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+          <Text style={[styles.slotName, isWinner && styles.winnerName]} numberOfLines={1}>
+            {player.name}
+          </Text>
+          <Flag country={player.country} countryFlag={player.countryFlag} size={12} />
+        </View>
         {seed ? <Text style={styles.slotSeed}>[{seed}]</Text> : null}
       </View>
       {isWinner && <Text style={styles.winCheck}>✓</Text>}
@@ -127,8 +131,11 @@ function ChampionCard({ match }: { match: DrawMatch }) {
   return (
     <View style={styles.championCard}>
       <Text style={styles.championLabel}>CHAMPION</Text>
-      <Image source={{ uri: champion.photoUrl || getAvatarUrl(champion.name, 120) }} style={styles.championAvatar} />
-      <Text style={styles.championName}>{champion.name} {champion.countryFlag}</Text>
+      <Image source={{ uri: getPlayerAvatarUrl(champion.name, champion.photoUrl, 120) }} style={styles.championAvatar} />
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, justifyContent: 'center' }}>
+        <Text style={styles.championName}>{champion.name}</Text>
+        <Flag country={champion.country} countryFlag={champion.countryFlag} size={16} />
+      </View>
       <Text style={styles.championScore}>{match.score}</Text>
     </View>
   );
@@ -140,17 +147,23 @@ function ResultMatch({ match }: { match: MatchWithPlayers }) {
   return (
     <View style={styles.resultMatch}>
       <View style={styles.resultRow}>
-        <Image source={{ uri: match.player1?.photoUrl || getAvatarUrl(match.player1?.name || 'P1', 60) }} style={styles.resultAvatar} />
-        <Text style={[styles.resultName, p1Won && styles.winnerName, !p1Won && styles.loserName]} numberOfLines={1}>
-          {match.player1?.name || 'TBD'} {match.player1?.countryFlag || ''}
-        </Text>
+        <Image source={{ uri: getPlayerAvatarUrl(match.player1?.name || 'P1', match.player1?.photoUrl, 60) }} style={styles.resultAvatar} />
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4, flex: 1 }}>
+          <Text style={[styles.resultName, p1Won && styles.winnerName, !p1Won && styles.loserName]} numberOfLines={1}>
+            {match.player1?.name || 'TBD'}
+          </Text>
+          {match.player1?.country && <Flag country={match.player1.country} countryFlag={match.player1.countryFlag} size={12} />}
+        </View>
       </View>
       <Text style={styles.resultScore}>{match.score}</Text>
       <View style={styles.resultRow}>
-        <Image source={{ uri: match.player2?.photoUrl || getAvatarUrl(match.player2?.name || 'P2', 60) }} style={styles.resultAvatar} />
-        <Text style={[styles.resultName, p2Won && styles.winnerName, !p2Won && styles.loserName]} numberOfLines={1}>
-          {match.player2?.name || 'TBD'} {match.player2?.countryFlag || ''}
-        </Text>
+        <Image source={{ uri: getPlayerAvatarUrl(match.player2?.name || 'P2', match.player2?.photoUrl, 60) }} style={styles.resultAvatar} />
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4, flex: 1 }}>
+          <Text style={[styles.resultName, p2Won && styles.winnerName, !p2Won && styles.loserName]} numberOfLines={1}>
+            {match.player2?.name || 'TBD'}
+          </Text>
+          {match.player2?.country && <Flag country={match.player2.country} countryFlag={match.player2.countryFlag} size={12} />}
+        </View>
       </View>
       {match.date && <Text style={styles.resultDate}>{match.date}</Text>}
     </View>

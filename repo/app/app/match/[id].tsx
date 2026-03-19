@@ -12,7 +12,8 @@ import {
 import { useLocalSearchParams, Stack } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
 import api from '../../lib/api';
-import { getAvatarUrl } from '../../lib/avatars';
+import { PlayerAvatar } from '../../lib/player-avatar';
+import { Flag } from '../../lib/flags';
 import { useLanguage } from '../../lib/i18n';
 import { SkeletonBlock } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
@@ -278,17 +279,14 @@ export default function MatchDetailScreen() {
           <View style={styles.versusRow}>
             {/* Player 1 */}
             <View style={styles.vsPlayer}>
-              <View style={styles.vsAvatar}>
-                {match.player1?.photoUrl ? (
-                  <Image source={{ uri: match.player1.photoUrl }} style={styles.vsAvatarImg} />
-                ) : (
-                  <Text style={styles.vsAvatarText}>{p1Initials}</Text>
-                )}
-              </View>
+              <PlayerAvatar name={match.player1?.name || 'P1'} photoUrl={match.player1?.photoUrl} size={56} />
               <Text style={[styles.vsName, p1Won && styles.vsNameWinner, !p1Won && p2Won && styles.vsNameLoser]} numberOfLines={1}>
                 {p1Short}
               </Text>
-              <Text style={styles.vsRank}>{match.player1?.countryFlag} #{match.player1?.ranking || '?'}</Text>
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+                <Flag country={match.player1?.country || ''} countryFlag={match.player1?.countryFlag} size={12} />
+                <Text style={styles.vsRank}>#{match.player1?.ranking || '?'}</Text>
+              </View>
             </View>
 
             {/* Score */}
@@ -299,17 +297,14 @@ export default function MatchDetailScreen() {
 
             {/* Player 2 */}
             <View style={styles.vsPlayer}>
-              <View style={styles.vsAvatar}>
-                {match.player2?.photoUrl ? (
-                  <Image source={{ uri: match.player2.photoUrl }} style={styles.vsAvatarImg} />
-                ) : (
-                  <Text style={styles.vsAvatarText}>{p2Initials}</Text>
-                )}
-              </View>
+              <PlayerAvatar name={match.player2?.name || 'P2'} photoUrl={match.player2?.photoUrl} size={56} />
               <Text style={[styles.vsName, p2Won && styles.vsNameWinner, !p2Won && p1Won && styles.vsNameLoser]} numberOfLines={1}>
                 {p2Short}
               </Text>
-              <Text style={styles.vsRank}>{match.player2?.countryFlag} #{match.player2?.ranking || '?'}</Text>
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+                <Flag country={match.player2?.country || ''} countryFlag={match.player2?.countryFlag} size={12} />
+                <Text style={styles.vsRank}>#{match.player2?.ranking || '?'}</Text>
+              </View>
             </View>
           </View>
         </View>

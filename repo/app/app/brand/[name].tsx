@@ -11,7 +11,8 @@ import {
 import { useLocalSearchParams, Stack, useRouter } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
 import api from '../../lib/api';
-import { getAvatarUrl } from '../../lib/avatars';
+import { PlayerAvatar } from '../../lib/player-avatar';
+import { Flag } from '../../lib/flags';
 import { useLanguage } from '../../lib/i18n';
 import { SkeletonList } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
@@ -117,15 +118,12 @@ export default function BrandDetailScreen() {
               onPress={() => router.push(`/player/${player.id}`)}
               activeOpacity={0.7}
             >
-              <View style={styles.avatarCircle}>
-                {player.photoUrl ? (
-                  <Image source={{ uri: player.photoUrl }} style={styles.avatarImg} />
-                ) : (
-                  <Text style={styles.avatarInitials}>{getInitials(player.name)}</Text>
-                )}
-              </View>
+              <PlayerAvatar name={player.name} photoUrl={player.photoUrl} size={40} />
               <View style={styles.nameWrap}>
-                <Text style={styles.playerName}>{getPlayerName(player)} {player.countryFlag}</Text>
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+                  <Text style={styles.playerName}>{getPlayerName(player)}</Text>
+                  <Flag country={player.country} countryFlag={player.countryFlag} size={14} />
+                </View>
                 <Text style={styles.playerRank}>#{player.ranking}</Text>
               </View>
               <View style={styles.titlesWrap}>
