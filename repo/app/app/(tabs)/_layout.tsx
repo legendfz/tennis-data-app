@@ -8,6 +8,7 @@ import {
   TournamentsIcon,
   H2HIcon,
   FollowingIcon,
+  FantasyIcon,
 } from '../../lib/tab-icons';
 
 function TabIcon({
@@ -127,16 +128,22 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="following"
+        name="fantasy"
         options={{
-          title: t('following'),
+          title: 'Fantasy',
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <TabIcon label={t('following')} focused={focused} icon={FollowingIcon} />
+            <TabIcon label="Fantasy" focused={focused} icon={FantasyIcon} />
           ),
         }}
       />
-      {/* Hide matches tab from tab bar - content merged into index */}
+      {/* Hidden tabs */}
+      <Tabs.Screen
+        name="following"
+        options={{
+          href: null,
+        }}
+      />
       <Tabs.Screen
         name="matches"
         options={{

@@ -59,6 +59,38 @@ export default function RootLayout() {
             animation: 'slide_from_right',
           }}
         />
+        <Stack.Screen
+          name="fantasy/create"
+          options={{
+            title: 'Create Team',
+            headerBackTitle: 'Back',
+            animation: 'slide_from_right',
+          }}
+        />
+        <Stack.Screen
+          name="fantasy/team"
+          options={{
+            title: 'My Team',
+            headerBackTitle: 'Back',
+            animation: 'slide_from_right',
+          }}
+        />
+        <Stack.Screen
+          name="fantasy/leaderboard"
+          options={{
+            title: 'Leaderboard',
+            headerBackTitle: 'Back',
+            animation: 'slide_from_right',
+          }}
+        />
+        <Stack.Screen
+          name="fantasy/rules"
+          options={{
+            title: 'Scoring Rules',
+            headerBackTitle: 'Back',
+            animation: 'slide_from_right',
+          }}
+        />
       </Stack>
       </LanguageProvider>
     </QueryClientProvider>

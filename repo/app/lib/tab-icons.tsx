@@ -77,6 +77,24 @@ export function H2HIcon({ color, size = 24 }: TabIconProps) {
   );
 }
 
+// Fantasy — star/sparkles
+export function FantasyIcon({ color, size = 24 }: TabIconProps) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      {/* Main star */}
+      <Path
+        d="M12 2 L14.5 9 L22 9.5 L16 14.5 L18 22 L12 17.5 L6 22 L8 14.5 L2 9.5 L9.5 9 Z"
+        stroke={color}
+        strokeWidth="1.8"
+        fill="none"
+        strokeLinejoin="round"
+      />
+      {/* Sparkle top-right */}
+      <Path d="M19 2 L19.5 4 L21 4.5 L19.5 5 L19 7 L18.5 5 L17 4.5 L18.5 4 Z" stroke={color} strokeWidth="1" fill={color} />
+    </Svg>
+  );
+}
+
 // Following — heart
 export function FollowingIcon({ color, size = 24 }: TabIconProps) {
   return (
