@@ -101,7 +101,7 @@ router.get('/player-values', (_req: Request, res: Response) => {
 // BRACKET PREDICTION APIs
 // =============================================
 
-// Grand Slam QF brackets with real players (8 seeds each)
+// Grand Slam tournaments
 const PREDICTION_TOURNAMENTS = [
   {
     id: 101,
@@ -111,6 +111,7 @@ const PREDICTION_TOURNAMENTS = [
     emoji: '🇦🇺',
     startDate: '2025-01-13',
     endDate: '2025-01-26',
+    drawSize: 128,
   },
   {
     id: 102,
@@ -120,6 +121,7 @@ const PREDICTION_TOURNAMENTS = [
     emoji: '🇫🇷',
     startDate: '2025-05-25',
     endDate: '2025-06-08',
+    drawSize: 128,
   },
   {
     id: 103,
@@ -129,6 +131,7 @@ const PREDICTION_TOURNAMENTS = [
     emoji: '🇬🇧',
     startDate: '2025-06-30',
     endDate: '2025-07-13',
+    drawSize: 128,
   },
   {
     id: 104,
@@ -138,10 +141,165 @@ const PREDICTION_TOURNAMENTS = [
     emoji: '🇺🇸',
     startDate: '2025-08-25',
     endDate: '2025-09-07',
+    drawSize: 128,
   },
 ];
 
-// QF Brackets: 8 players per tournament, 4 matchups
+// =============================================
+// Helper: Generate 128-player draw from ATP players
+// =============================================
+
+// ATP players sorted by ranking (IDs 1-100)
+const atpPlayers = mockPlayers
+  .filter((p) => p.id <= 100)
+  .sort((a, b) => a.ranking - b.ranking);
+
+interface DrawEntry {
+  position: number;
+  playerId: number;
+  seed: number | null;
+  name: string;
+  ranking: number;
+  country: string;
+}
+
+/**
+ * Standard 128-draw seeding positions (where seeds are placed).
+ * Seed 1 at position 1, Seed 2 at position 128, etc.
+ * This follows the standard Grand Slam draw placement.
+ */
+const SEED_POSITIONS: Record<number, number> = {
+  1: 1, 2: 128, 3: 33, 4: 96,
+  5: 64, 6: 65, 7: 32, 8: 97,
+  9: 16, 10: 17, 11: 48, 12: 49,
+  13: 80, 14: 81, 15: 112, 16: 113,
+  17: 8, 18: 9, 19: 24, 20: 25,
+  21: 40, 22: 41, 23: 56, 24: 57,
+  25: 72, 26: 73, 27: 88, 28: 89,
+  29: 104, 30: 105, 31: 120, 32: 121,
+};
+
+function generateDraw128(tournamentId: number, _shuffleSeed: number): DrawEntry[] {
+  const draw: DrawEntry[] = [];
+  const usedPositions = new Set<number>();
+  const usedPlayerIds = new Set<number>();
+
+  // Place 32 seeds
+  for (let seed = 1; seed <= 32; seed++) {
+    const player = atpPlayers[seed - 1]; // ranking = seed
+    const position = SEED_POSITIONS[seed];
+    draw.push({
+      position,
+      playerId: player.id,
+      seed,
+      name: player.name,
+      ranking: player.ranking,
+      country: player.country,
+    });
+    usedPositions.add(position);
+    usedPlayerIds.add(player.id);
+  }
+
+  // Fill remaining 96 positions with remaining ATP players (33-100) + some recycled
+  const remainingPlayers = atpPlayers.filter((p) => !usedPlayerIds.has(p.id));
+  // We need 96 more but only have 68 remaining ATP. We'll cycle through
+  let playerIdx = 0;
+  
+  // Deterministic shuffle based on tournamentId
+  const shuffled = [...remainingPlayers];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = ((tournamentId * 7 + i * 13) % (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  for (let pos = 1; pos <= 128; pos++) {
+    if (usedPositions.has(pos)) continue;
+    const player = shuffled[playerIdx % shuffled.length];
+    playerIdx++;
+    draw.push({
+      position: pos,
+      playerId: player.id,
+      seed: null,
+      name: player.name,
+      ranking: player.ranking,
+      country: player.country,
+    });
+  }
+
+  return draw.sort((a, b) => a.position - b.position);
+}
+
+// Pre-generate draws for each tournament
+const DRAWS_128: Record<number, DrawEntry[]> = {
+  101: generateDraw128(101, 1),
+  102: generateDraw128(102, 2),
+  103: generateDraw128(103, 3),
+  104: generateDraw128(104, 4),
+};
+
+// =============================================
+// Simulate realistic 128-draw results
+// =============================================
+
+function simulateResults(draw: DrawEntry[], tournamentId: number): Record<string, number[]> {
+  const rounds = ['R128', 'R64', 'R32', 'R16', 'QF', 'SF', 'Final'];
+  const results: Record<string, number[]> = {};
+  
+  // Start with all 128 players in position order
+  let currentPlayers = draw.map((d) => ({
+    playerId: d.playerId,
+    seed: d.seed,
+    ranking: d.ranking,
+  }));
+
+  for (const round of rounds) {
+    const winners: typeof currentPlayers = [];
+    const winnerIds: number[] = [];
+    
+    for (let i = 0; i < currentPlayers.length; i += 2) {
+      const p1 = currentPlayers[i];
+      const p2 = currentPlayers[i + 1];
+      
+      // Higher seed / lower ranking wins more often
+      // Add some deterministic "randomness" based on tournament + match index
+      const matchHash = (tournamentId * 31 + i * 17 + (p1.playerId * 7)) % 100;
+      
+      let winner: typeof p1;
+      if (p1.seed && p2.seed) {
+        // Both seeded: lower seed number wins ~70%
+        winner = p1.seed < p2.seed ? (matchHash < 70 ? p1 : p2) : (matchHash < 70 ? p2 : p1);
+      } else if (p1.seed && !p2.seed) {
+        // Seeded vs unseeded: seed wins ~80%
+        winner = matchHash < 80 ? p1 : p2;
+      } else if (!p1.seed && p2.seed) {
+        winner = matchHash < 80 ? p2 : p1;
+      } else {
+        // Both unseeded: lower ranking wins ~60%
+        winner = p1.ranking < p2.ranking ? (matchHash < 60 ? p1 : p2) : (matchHash < 60 ? p2 : p1);
+      }
+      
+      winners.push(winner);
+      winnerIds.push(winner.playerId);
+    }
+    
+    results[round] = winnerIds;
+    currentPlayers = winners;
+  }
+
+  return results;
+}
+
+const RESULTS_128: Record<number, Record<string, number[]>> = {
+  101: simulateResults(DRAWS_128[101], 101),
+  102: simulateResults(DRAWS_128[102], 102),
+  103: simulateResults(DRAWS_128[103], 103),
+  104: simulateResults(DRAWS_128[104], 104),
+};
+
+// =============================================
+// Legacy QF brackets (kept for backward compat)
+// =============================================
+
 const BRACKETS: Record<number, {
   players: { id: number; name: string; ranking: number; country: string; seed: number }[];
   matchups: { top: number; bottom: number }[];
@@ -158,10 +316,10 @@ const BRACKETS: Record<number, {
       { id: 5, name: 'Daniil Medvedev', ranking: 5, country: 'RUS', seed: 5 },
     ],
     matchups: [
-      { top: 1, bottom: 9 },   // Sinner vs de Minaur
-      { top: 2, bottom: 3 },   // Djokovic vs Alcaraz
-      { top: 4, bottom: 13 },  // Zverev vs Paul
-      { top: 14, bottom: 5 },  // Shelton vs Medvedev
+      { top: 1, bottom: 9 },
+      { top: 2, bottom: 3 },
+      { top: 4, bottom: 13 },
+      { top: 14, bottom: 5 },
     ],
   },
   102: {
@@ -176,10 +334,10 @@ const BRACKETS: Record<number, {
       { id: 5, name: 'Daniil Medvedev', ranking: 5, country: 'RUS', seed: 5 },
     ],
     matchups: [
-      { top: 1, bottom: 11 },  // Sinner vs Tsitsipas
-      { top: 3, bottom: 8 },   // Alcaraz vs Ruud
-      { top: 4, bottom: 6 },   // Zverev vs Rublev
-      { top: 2, bottom: 5 },   // Djokovic vs Medvedev
+      { top: 1, bottom: 11 },
+      { top: 3, bottom: 8 },
+      { top: 4, bottom: 6 },
+      { top: 2, bottom: 5 },
     ],
   },
   103: {
@@ -220,45 +378,28 @@ const BRACKETS: Record<number, {
   },
 };
 
-// "Correct answers" — actual tournament results
 const RESULTS: Record<number, {
-  qf: number[];     // 4 QF winners
-  sf: number[];     // 2 SF winners
-  final: number[];  // 1 finalist (the winner)
+  qf: number[];
+  sf: number[];
+  final: number[];
   champion: number;
 }> = {
-  101: {
-    qf: [1, 2, 4, 14],       // Sinner, Djokovic, Zverev, Shelton
-    sf: [1, 4],               // Sinner, Zverev
-    final: [1],               // Sinner
-    champion: 1,              // Sinner wins AO 2025
-  },
-  102: {
-    qf: [1, 3, 4, 2],        // Sinner, Alcaraz, Zverev, Djokovic
-    sf: [3, 4],               // Alcaraz, Zverev
-    final: [3],               // Alcaraz
-    champion: 3,              // Alcaraz wins RG 2025
-  },
-  103: {
-    qf: [1, 3, 2, 4],        // Sinner, Alcaraz, Djokovic, Zverev
-    sf: [3, 2],               // Alcaraz, Djokovic
-    final: [3],               // Alcaraz
-    champion: 3,              // Alcaraz wins Wimbledon 2025
-  },
-  104: {
-    qf: [1, 3, 4, 2],        // Sinner, Alcaraz, Zverev, Djokovic
-    sf: [1, 2],               // Sinner, Djokovic
-    final: [1],               // Sinner
-    champion: 1,              // Sinner wins USO 2025
-  },
+  101: { qf: [1, 2, 4, 14], sf: [1, 4], final: [1], champion: 1 },
+  102: { qf: [1, 3, 4, 2], sf: [3, 4], final: [3], champion: 3 },
+  103: { qf: [1, 3, 2, 4], sf: [3, 2], final: [3], champion: 3 },
+  104: { qf: [1, 3, 4, 2], sf: [1, 2], final: [1], champion: 1 },
 };
+
+// =============================================
+// API Routes
+// =============================================
 
 // GET /api/fantasy/predictions/tournaments
 router.get('/predictions/tournaments', (_req: Request, res: Response) => {
   res.json({ data: PREDICTION_TOURNAMENTS });
 });
 
-// GET /api/fantasy/predictions/:tournamentId/bracket
+// GET /api/fantasy/predictions/:tournamentId/bracket (legacy QF)
 router.get('/predictions/:tournamentId/bracket', (req: Request, res: Response) => {
   const tid = parseInt(req.params.tournamentId, 10);
   const bracket = BRACKETS[tid];
@@ -278,7 +419,28 @@ router.get('/predictions/:tournamentId/bracket', (req: Request, res: Response) =
   });
 });
 
-// GET /api/fantasy/predictions/:tournamentId/results
+// GET /api/fantasy/predictions/:tournamentId/bracket128
+router.get('/predictions/:tournamentId/bracket128', (req: Request, res: Response) => {
+  const tid = parseInt(req.params.tournamentId, 10);
+  const draw = DRAWS_128[tid];
+  const tournament = PREDICTION_TOURNAMENTS.find((t) => t.id === tid);
+
+  if (!draw || !tournament) {
+    return res.status(404).json({ error: 'Tournament not found' });
+  }
+
+  res.json({
+    data: {
+      tournamentId: tid,
+      tournamentName: tournament.name,
+      drawSize: 128,
+      seeds: draw,
+      rounds: ['R128', 'R64', 'R32', 'R16', 'QF', 'SF', 'Final'],
+    },
+  });
+});
+
+// GET /api/fantasy/predictions/:tournamentId/results (legacy QF)
 router.get('/predictions/:tournamentId/results', (req: Request, res: Response) => {
   const tid = parseInt(req.params.tournamentId, 10);
   const result = RESULTS[tid];
@@ -295,6 +457,32 @@ router.get('/predictions/:tournamentId/results', (req: Request, res: Response) =
       tournamentName: tournament.name,
       players: bracket.players,
       results: result,
+    },
+  });
+});
+
+// GET /api/fantasy/predictions/:tournamentId/results128
+router.get('/predictions/:tournamentId/results128', (req: Request, res: Response) => {
+  const tid = parseInt(req.params.tournamentId, 10);
+  const results = RESULTS_128[tid];
+  const draw = DRAWS_128[tid];
+  const tournament = PREDICTION_TOURNAMENTS.find((t) => t.id === tid);
+
+  if (!results || !draw || !tournament) {
+    return res.status(404).json({ error: 'Results not found' });
+  }
+
+  // Champion is the last remaining winner
+  const champion = results['Final'][0];
+
+  res.json({
+    data: {
+      tournamentId: tid,
+      tournamentName: tournament.name,
+      drawSize: 128,
+      draw,
+      results,
+      champion,
     },
   });
 });

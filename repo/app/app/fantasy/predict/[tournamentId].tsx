@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -7,41 +7,55 @@ import {
   ScrollView,
   ActivityIndicator,
   Alert,
+  Dimensions,
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { theme } from '../../../lib/theme';
 import { PlayerAvatar } from '../../../lib/player-avatar';
 import api from '../../../lib/api';
-import { savePrediction, loadPrediction, BracketPrediction } from '../../../lib/predictions';
+import {
+  ROUND_NAMES,
+  ROUND_MATCH_COUNTS,
+  PREDICTION_SCORING_128,
+  BracketPrediction128,
+  savePrediction128,
+  loadPrediction128,
+} from '../../../lib/predictions';
 
-interface BracketPlayer {
-  id: number;
+interface DrawEntry {
+  position: number;
+  playerId: number;
+  seed: number | null;
   name: string;
   ranking: number;
   country: string;
-  seed: number;
 }
 
 interface BracketData {
   tournamentId: number;
   tournamentName: string;
-  players: BracketPlayer[];
-  matchups: { top: number; bottom: number }[]; // QF matchups by player id
+  drawSize: number;
+  seeds: DrawEntry[];
+  rounds: string[];
 }
+
+const QUARTER_LABELS = ['Q1 (Top)', 'Q2', 'Q3', 'Q4 (Bottom)'];
 
 export default function PredictBracketScreen() {
   const { tournamentId } = useLocalSearchParams<{ tournamentId: string }>();
   const router = useRouter();
-  const tid = parseInt(tournamentId || '1', 10);
+  const tid = parseInt(tournamentId || '101', 10);
+  const scrollRef = useRef<ScrollView>(null);
 
   const [bracket, setBracket] = useState<BracketData | null>(null);
   const [loading, setLoading] = useState(true);
-
-  // Prediction state
-  const [qfWinners, setQfWinners] = useState<(number | null)[]>([null, null, null, null]);
-  const [sfWinners, setSfWinners] = useState<(number | null)[]>([null, null]);
-  const [finalist, setFinalist] = useState<number | null>(null);
+  const [currentRound, setCurrentRound] = useState(0);
+  const [roundWinners, setRoundWinners] = useState<Record<string, number[]>>({});
   const [locked, setLocked] = useState(false);
+  const [activeQuarter, setActiveQuarter] = useState(0);
+
+  // Player lookup
+  const [playerMap, setPlayerMap] = useState<Record<number, DrawEntry>>({});
 
   useEffect(() => {
     loadBracket();
@@ -49,106 +63,176 @@ export default function PredictBracketScreen() {
 
   const loadBracket = async () => {
     try {
-      const res = await api.get(`/api/fantasy/predictions/${tid}/bracket`);
-      setBracket(res.data.data);
+      const res = await api.get(`/api/fantasy/predictions/${tid}/bracket128`);
+      const data: BracketData = res.data.data;
+      setBracket(data);
+
+      // Build player map
+      const map: Record<number, DrawEntry> = {};
+      data.seeds.forEach((s) => { map[s.playerId] = s; });
+      setPlayerMap(map);
 
       // Load existing prediction
-      const existing = await loadPrediction(tid);
+      const existing = await loadPrediction128(tid);
       if (existing) {
-        setQfWinners(existing.qf.map((id) => id));
-        setSfWinners(existing.sf.map((id) => id));
-        setFinalist(existing.champion);
+        setRoundWinners(existing.rounds);
+        setCurrentRound(existing.currentRound);
         setLocked(existing.locked);
       }
-    } catch {
-      console.error('Failed to load bracket');
+    } catch (e) {
+      console.error('Failed to load bracket', e);
     } finally {
       setLoading(false);
     }
   };
 
-  const getPlayer = (id: number): BracketPlayer | undefined =>
-    bracket?.players.find((p) => p.id === id);
+  // Get matchups for current round
+  const getMatchups = (): { player1: DrawEntry; player2: DrawEntry; matchIndex: number }[] => {
+    if (!bracket) return [];
+    const round = ROUND_NAMES[currentRound];
+    const matchups: { player1: DrawEntry; player2: DrawEntry; matchIndex: number }[] = [];
 
-  const selectQfWinner = (matchIndex: number, playerId: number) => {
-    if (locked) return;
-    const newQf = [...qfWinners];
-    const oldWinner = newQf[matchIndex];
-    newQf[matchIndex] = playerId;
-    setQfWinners(newQf);
-
-    // Clear downstream if changed
-    if (oldWinner !== playerId) {
-      const sfIndex = Math.floor(matchIndex / 2);
-      const newSf = [...sfWinners];
-      if (newSf[sfIndex] === oldWinner) {
-        newSf[sfIndex] = null;
-        setSfWinners(newSf);
-        if (finalist === oldWinner) setFinalist(null);
+    if (currentRound === 0) {
+      // R128: pair positions 1v2, 3v4, etc.
+      const seeds = bracket.seeds;
+      for (let i = 0; i < seeds.length; i += 2) {
+        matchups.push({
+          player1: seeds[i],
+          player2: seeds[i + 1],
+          matchIndex: i / 2,
+        });
+      }
+    } else {
+      // Later rounds: pair from previous round winners
+      const prevRound = ROUND_NAMES[currentRound - 1];
+      const prevWinners = roundWinners[prevRound] || [];
+      for (let i = 0; i < prevWinners.length; i += 2) {
+        const p1 = playerMap[prevWinners[i]];
+        const p2 = playerMap[prevWinners[i + 1]];
+        if (p1 && p2) {
+          matchups.push({ player1: p1, player2: p2, matchIndex: i / 2 });
+        }
       }
     }
+    return matchups;
   };
 
-  const selectSfWinner = (matchIndex: number, playerId: number) => {
+  const currentRoundName = ROUND_NAMES[currentRound];
+  const matchups = getMatchups();
+  const expectedMatches = ROUND_MATCH_COUNTS[currentRoundName] || 0;
+
+  // Current round selections
+  const currentSelections = roundWinners[currentRoundName] || [];
+
+  // Get matchups for a specific quarter (for R128/R64 which have many matches)
+  const getQuarterMatchups = () => {
+    if (matchups.length <= 8) return [matchups]; // No need for quarters if few matches
+    const quarterSize = Math.ceil(matchups.length / 4);
+    const quarters: typeof matchups[] = [];
+    for (let i = 0; i < 4; i++) {
+      quarters.push(matchups.slice(i * quarterSize, (i + 1) * quarterSize));
+    }
+    return quarters;
+  };
+
+  const quarters = getQuarterMatchups();
+  const useQuarters = matchups.length > 8;
+  const displayMatchups = useQuarters ? (quarters[activeQuarter] || []) : matchups;
+
+  const selectWinner = (matchIndex: number, playerId: number) => {
     if (locked) return;
-    // Verify player is a QF winner in this half
-    const qfIdx1 = matchIndex * 2;
-    const qfIdx2 = matchIndex * 2 + 1;
-    if (playerId !== qfWinners[qfIdx1] && playerId !== qfWinners[qfIdx2]) return;
+    const round = currentRoundName;
+    const newSelections = [...(roundWinners[round] || new Array(expectedMatches).fill(null))];
 
-    const newSf = [...sfWinners];
-    const oldWinner = newSf[matchIndex];
-    newSf[matchIndex] = playerId;
-    setSfWinners(newSf);
+    // Ensure array is the right size
+    while (newSelections.length < expectedMatches) newSelections.push(null);
 
-    if (oldWinner !== playerId && finalist === oldWinner) {
-      setFinalist(null);
+    newSelections[matchIndex] = playerId;
+    setRoundWinners({ ...roundWinners, [round]: newSelections });
+  };
+
+  const isRoundComplete = () => {
+    const selections = roundWinners[currentRoundName] || [];
+    return selections.length === expectedMatches && selections.every((s) => s !== null && s !== undefined);
+  };
+
+  const handleNextRound = async () => {
+    if (!isRoundComplete()) return;
+
+    if (currentRound < ROUND_NAMES.length - 1) {
+      const nextRound = currentRound + 1;
+      setCurrentRound(nextRound);
+      setActiveQuarter(0);
+      scrollRef.current?.scrollTo({ y: 0, animated: true });
+
+      // Auto-save progress
+      await savePrediction128(tid, {
+        tournamentId: tid,
+        version: 128,
+        rounds: roundWinners,
+        champion: null,
+        locked: false,
+        totalPoints: 0,
+        currentRound: nextRound,
+      });
     }
   };
 
-  const selectFinalist = (playerId: number) => {
-    if (locked) return;
-    if (playerId !== sfWinners[0] && playerId !== sfWinners[1]) return;
-    setFinalist(playerId);
-  };
-
-  const isComplete = qfWinners.every((w) => w !== null) && sfWinners.every((w) => w !== null) && finalist !== null;
-
   const handleSubmit = async () => {
-    if (!isComplete || !bracket) return;
+    if (!isRoundComplete()) return;
 
-    const prediction: BracketPrediction = {
+    const finalWinners = roundWinners['Final'] || [];
+    const champion = finalWinners[0];
+
+    if (!champion) return;
+
+    const prediction: BracketPrediction128 = {
       tournamentId: tid,
-      qf: qfWinners as number[],
-      sf: sfWinners as number[],
-      final: [finalist!],
-      champion: finalist!,
+      version: 128,
+      rounds: roundWinners,
+      champion,
       locked: true,
       totalPoints: 0,
+      currentRound: ROUND_NAMES.length - 1,
     };
 
-    await savePrediction(tid, prediction);
+    await savePrediction128(tid, prediction);
     setLocked(true);
-    Alert.alert('Prediction Locked!', 'Your bracket prediction has been saved. Good luck! 🎾', [
+    Alert.alert('Prediction Locked! 🎾', 'Your full 128-draw bracket has been saved. Good luck!', [
       { text: 'OK' },
     ]);
   };
 
-  const handleReset = async () => {
-    if (locked) {
-      Alert.alert('Reset Prediction?', 'This will unlock and clear your prediction.', [
-        { text: 'Cancel', style: 'cancel' },
-        {
-          text: 'Reset',
-          style: 'destructive',
-          onPress: () => {
-            setQfWinners([null, null, null, null]);
-            setSfWinners([null, null]);
-            setFinalist(null);
-            setLocked(false);
-          },
+  const handleReset = () => {
+    Alert.alert('Reset Prediction?', 'This will clear all your picks across all rounds.', [
+      { text: 'Cancel', style: 'cancel' },
+      {
+        text: 'Reset',
+        style: 'destructive',
+        onPress: async () => {
+          setRoundWinners({});
+          setCurrentRound(0);
+          setLocked(false);
+          setActiveQuarter(0);
+          await savePrediction128(tid, {
+            tournamentId: tid,
+            version: 128,
+            rounds: {},
+            champion: null,
+            locked: false,
+            totalPoints: 0,
+            currentRound: 0,
+          });
         },
-      ]);
+      },
+    ]);
+  };
+
+  const handlePrevRound = () => {
+    if (currentRound > 0 && !locked) {
+      setCurrentRound(currentRound - 1);
+      setActiveQuarter(0);
+      scrollRef.current?.scrollTo({ y: 0, animated: true });
     }
   };
 
@@ -160,150 +244,256 @@ export default function PredictBracketScreen() {
     );
   }
 
-  const renderPlayerSlot = (
-    playerId: number | null,
-    onPress: () => void,
-    isSelected: boolean,
-    isWinner: boolean = false
-  ) => {
-    const player = playerId ? getPlayer(playerId) : null;
-    return (
-      <TouchableOpacity
-        style={[
-          styles.playerSlot,
-          isSelected && styles.playerSlotSelected,
-          isWinner && styles.playerSlotWinner,
-          !playerId && styles.playerSlotEmpty,
-        ]}
-        activeOpacity={locked ? 1 : theme.activeOpacity}
-        onPress={onPress}
-        disabled={locked || !playerId}
-      >
-        {player ? (
-          <View style={styles.playerRow}>
-            <PlayerAvatar name={player.name} size={28} />
-            <View style={styles.playerInfo}>
-              <Text style={[styles.playerName, isSelected && styles.playerNameSelected]} numberOfLines={1}>
-                [{player.seed}] {player.name}
-              </Text>
-              <Text style={styles.playerRank}>#{player.ranking} {player.country}</Text>
-            </View>
-          </View>
-        ) : (
-          <Text style={styles.emptyText}>—</Text>
-        )}
-      </TouchableOpacity>
-    );
+  const selectedInMatch = (matchIndex: number): number | null => {
+    const selections = roundWinners[currentRoundName] || [];
+    return selections[matchIndex] ?? null;
   };
+
+  const completedCount = (roundWinners[currentRoundName] || []).filter(
+    (s) => s !== null && s !== undefined
+  ).length;
+
+  const isLastRound = currentRound === ROUND_NAMES.length - 1;
 
   return (
     <View style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scroll}>
+      {/* Round Progress Bar */}
+      <View style={styles.progressBar}>
+        {ROUND_NAMES.map((round, i) => {
+          const isCompleted = roundWinners[round]?.length === ROUND_MATCH_COUNTS[round] &&
+            roundWinners[round]?.every((s) => s !== null);
+          const isCurrent = i === currentRound;
+          return (
+            <TouchableOpacity
+              key={round}
+              style={[
+                styles.progressDot,
+                isCompleted && styles.progressDotDone,
+                isCurrent && styles.progressDotCurrent,
+              ]}
+              onPress={() => {
+                if (!locked && i <= currentRound) {
+                  setCurrentRound(i);
+                  setActiveQuarter(0);
+                }
+              }}
+            >
+              <Text
+                style={[
+                  styles.progressLabel,
+                  isCompleted && styles.progressLabelDone,
+                  isCurrent && styles.progressLabelCurrent,
+                ]}
+              >
+                {round}
+              </Text>
+            </TouchableOpacity>
+          );
+        })}
+      </View>
+
+      <ScrollView ref={scrollRef} contentContainerStyle={styles.scroll}>
         <Text style={styles.title}>{bracket.tournamentName}</Text>
         <Text style={styles.subtitle}>
-          {locked ? '🔒 Prediction locked' : 'Tap a player to advance them to the next round'}
+          {locked
+            ? '🔒 Prediction locked'
+            : `${currentRoundName} — Pick winners (${completedCount}/${expectedMatches})`}
         </Text>
 
-        {/* BRACKET LAYOUT */}
-        <View style={styles.bracketContainer}>
-          {/* QF Column */}
-          <View style={styles.column}>
-            <Text style={styles.roundLabel}>QF</Text>
-            {bracket.matchups.map((matchup, i) => (
-              <View key={`qf-${i}`} style={styles.matchup}>
-                {renderPlayerSlot(
-                  matchup.top,
-                  () => selectQfWinner(i, matchup.top),
-                  qfWinners[i] === matchup.top,
-                  false
-                )}
-                <Text style={styles.vs}>vs</Text>
-                {renderPlayerSlot(
-                  matchup.bottom,
-                  () => selectQfWinner(i, matchup.bottom),
-                  qfWinners[i] === matchup.bottom,
-                  false
-                )}
-              </View>
-            ))}
-          </View>
-
-          {/* SF Column */}
-          <View style={styles.column}>
-            <Text style={styles.roundLabel}>SF</Text>
-            {[0, 1].map((sfIdx) => {
-              const topQfWinner = qfWinners[sfIdx * 2];
-              const bottomQfWinner = qfWinners[sfIdx * 2 + 1];
+        {/* Quarter Tabs (for large rounds) */}
+        {useQuarters && (
+          <View style={styles.quarterTabs}>
+            {quarters.map((_, qi) => {
+              const qMatches = quarters[qi] || [];
+              const qSelections = qMatches.filter((m) => {
+                const sel = (roundWinners[currentRoundName] || [])[m.matchIndex];
+                return sel !== null && sel !== undefined;
+              }).length;
+              const qDone = qSelections === qMatches.length;
               return (
-                <View key={`sf-${sfIdx}`} style={[styles.matchup, styles.matchupSF]}>
-                  {renderPlayerSlot(
-                    topQfWinner,
-                    () => topQfWinner && selectSfWinner(sfIdx, topQfWinner),
-                    sfWinners[sfIdx] === topQfWinner && topQfWinner !== null,
-                    false
-                  )}
-                  <Text style={styles.vs}>vs</Text>
-                  {renderPlayerSlot(
-                    bottomQfWinner,
-                    () => bottomQfWinner && selectSfWinner(sfIdx, bottomQfWinner),
-                    sfWinners[sfIdx] === bottomQfWinner && bottomQfWinner !== null,
-                    false
-                  )}
-                </View>
+                <TouchableOpacity
+                  key={qi}
+                  style={[
+                    styles.quarterTab,
+                    qi === activeQuarter && styles.quarterTabActive,
+                    qDone && styles.quarterTabDone,
+                  ]}
+                  onPress={() => setActiveQuarter(qi)}
+                >
+                  <Text
+                    style={[
+                      styles.quarterTabText,
+                      qi === activeQuarter && styles.quarterTabTextActive,
+                    ]}
+                  >
+                    {QUARTER_LABELS[qi]}
+                  </Text>
+                  <Text style={styles.quarterTabCount}>
+                    {qSelections}/{qMatches.length}
+                  </Text>
+                </TouchableOpacity>
               );
             })}
           </View>
+        )}
 
-          {/* Final Column */}
-          <View style={styles.column}>
-            <Text style={styles.roundLabel}>Final</Text>
-            <View style={[styles.matchup, styles.matchupFinal]}>
-              {renderPlayerSlot(
-                sfWinners[0],
-                () => sfWinners[0] && selectFinalist(sfWinners[0]),
-                finalist === sfWinners[0] && sfWinners[0] !== null,
-                false
-              )}
-              <Text style={styles.vs}>vs</Text>
-              {renderPlayerSlot(
-                sfWinners[1],
-                () => sfWinners[1] && selectFinalist(sfWinners[1]),
-                finalist === sfWinners[1] && sfWinners[1] !== null,
-                false
-              )}
-            </View>
-          </View>
+        {/* Matchup List */}
+        <View style={styles.matchupList}>
+          {displayMatchups.map((m) => {
+            const selected = selectedInMatch(m.matchIndex);
+            return (
+              <View key={m.matchIndex} style={styles.matchCard}>
+                <Text style={styles.matchNumber}>Match {m.matchIndex + 1}</Text>
+                <View style={styles.matchRow}>
+                  <TouchableOpacity
+                    style={[
+                      styles.playerSlot,
+                      selected === m.player1.playerId && styles.playerSlotSelected,
+                    ]}
+                    activeOpacity={locked ? 1 : theme.activeOpacity}
+                    onPress={() => selectWinner(m.matchIndex, m.player1.playerId)}
+                    disabled={locked}
+                  >
+                    <PlayerAvatar name={m.player1.name} size={28} />
+                    <View style={styles.playerInfo}>
+                      <Text
+                        style={[
+                          styles.playerName,
+                          selected === m.player1.playerId && styles.playerNameSelected,
+                        ]}
+                        numberOfLines={1}
+                      >
+                        {m.player1.seed ? `[${m.player1.seed}] ` : ''}
+                        {m.player1.name}
+                      </Text>
+                      <Text style={styles.playerRank}>
+                        #{m.player1.ranking} {m.player1.country}
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
 
-          {/* Champion */}
-          <View style={styles.column}>
-            <Text style={styles.roundLabel}>🏆 Champion</Text>
-            <View style={styles.championBox}>
-              {finalist ? (
-                <View style={styles.championContent}>
-                  <PlayerAvatar name={getPlayer(finalist)?.name || ''} size={48} />
-                  <Text style={styles.championName}>{getPlayer(finalist)?.name}</Text>
-                  <Text style={styles.championCountry}>{getPlayer(finalist)?.country}</Text>
+                  <Text style={styles.vs}>VS</Text>
+
+                  <TouchableOpacity
+                    style={[
+                      styles.playerSlot,
+                      selected === m.player2.playerId && styles.playerSlotSelected,
+                    ]}
+                    activeOpacity={locked ? 1 : theme.activeOpacity}
+                    onPress={() => selectWinner(m.matchIndex, m.player2.playerId)}
+                    disabled={locked}
+                  >
+                    <PlayerAvatar name={m.player2.name} size={28} />
+                    <View style={styles.playerInfo}>
+                      <Text
+                        style={[
+                          styles.playerName,
+                          selected === m.player2.playerId && styles.playerNameSelected,
+                        ]}
+                        numberOfLines={1}
+                      >
+                        {m.player2.seed ? `[${m.player2.seed}] ` : ''}
+                        {m.player2.name}
+                      </Text>
+                      <Text style={styles.playerRank}>
+                        #{m.player2.ranking} {m.player2.country}
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
                 </View>
-              ) : (
-                <Text style={styles.emptyChampion}>Pick your champion</Text>
-              )}
-            </View>
-          </View>
+              </View>
+            );
+          })}
         </View>
 
-        {/* Actions */}
+        {/* Scoring Info */}
+        <View style={styles.scoringCard}>
+          <Text style={styles.scoringTitle}>Points per correct pick</Text>
+          <Text style={styles.scoringValue}>
+            {currentRoundName}: {PREDICTION_SCORING_128[currentRoundName]} pts each
+          </Text>
+        </View>
+
+        {/* Champion Display (on final round) */}
+        {isLastRound && isRoundComplete() && (
+          <View style={styles.championBox}>
+            <Text style={styles.championTitle}>🏆 Your Champion</Text>
+            {(() => {
+              const champId = (roundWinners['Final'] || [])[0];
+              const champ = champId ? playerMap[champId] : null;
+              if (!champ) return null;
+              return (
+                <View style={styles.championContent}>
+                  <PlayerAvatar name={champ.name} size={48} />
+                  <Text style={styles.championName}>{champ.name}</Text>
+                  <Text style={styles.championCountry}>
+                    {champ.country} · Seed {champ.seed || 'Unseeded'}
+                  </Text>
+                  <Text style={styles.championPts}>+{PREDICTION_SCORING_128.Champion} pts</Text>
+                </View>
+              );
+            })()}
+          </View>
+        )}
+
+        {/* Navigation Buttons */}
         <View style={styles.actions}>
           {!locked ? (
-            <TouchableOpacity
-              style={[styles.submitBtn, !isComplete && styles.submitBtnDisabled]}
-              activeOpacity={theme.activeOpacity}
-              onPress={handleSubmit}
-              disabled={!isComplete}
-            >
-              <Text style={styles.submitBtnText}>
-                {isComplete ? '🔒 Lock Prediction' : 'Complete all picks to submit'}
-              </Text>
-            </TouchableOpacity>
+            <>
+              <View style={styles.navRow}>
+                {currentRound > 0 && (
+                  <TouchableOpacity
+                    style={styles.prevBtn}
+                    activeOpacity={theme.activeOpacity}
+                    onPress={handlePrevRound}
+                  >
+                    <Text style={styles.prevBtnText}>← Previous</Text>
+                  </TouchableOpacity>
+                )}
+
+                {!isLastRound ? (
+                  <TouchableOpacity
+                    style={[
+                      styles.nextBtn,
+                      !isRoundComplete() && styles.nextBtnDisabled,
+                    ]}
+                    activeOpacity={theme.activeOpacity}
+                    onPress={handleNextRound}
+                    disabled={!isRoundComplete()}
+                  >
+                    <Text style={styles.nextBtnText}>
+                      {isRoundComplete()
+                        ? `Next: ${ROUND_NAMES[currentRound + 1]} →`
+                        : `${completedCount}/${expectedMatches} picked`}
+                    </Text>
+                  </TouchableOpacity>
+                ) : (
+                  <TouchableOpacity
+                    style={[
+                      styles.submitBtn,
+                      !isRoundComplete() && styles.submitBtnDisabled,
+                    ]}
+                    activeOpacity={theme.activeOpacity}
+                    onPress={handleSubmit}
+                    disabled={!isRoundComplete()}
+                  >
+                    <Text style={styles.submitBtnText}>
+                      {isRoundComplete() ? '🔒 Lock Prediction' : `${completedCount}/${expectedMatches} picked`}
+                    </Text>
+                  </TouchableOpacity>
+                )}
+              </View>
+
+              {Object.keys(roundWinners).length > 0 && (
+                <TouchableOpacity
+                  style={styles.resetBtn}
+                  activeOpacity={theme.activeOpacity}
+                  onPress={handleReset}
+                >
+                  <Text style={styles.resetBtnText}>Reset All</Text>
+                </TouchableOpacity>
+              )}
+            </>
           ) : (
             <View style={styles.lockedActions}>
               <TouchableOpacity
@@ -339,9 +529,42 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  progressBar: {
+    flexDirection: 'row',
+    paddingHorizontal: 8,
+    paddingVertical: 10,
+    backgroundColor: theme.card,
+    borderBottomWidth: 1,
+    borderBottomColor: theme.border,
+    justifyContent: 'space-around',
+  },
+  progressDot: {
+    paddingHorizontal: 6,
+    paddingVertical: 4,
+    borderRadius: 6,
+  },
+  progressDotDone: {
+    backgroundColor: theme.accent + '30',
+  },
+  progressDotCurrent: {
+    backgroundColor: theme.accent + '50',
+    borderWidth: 1,
+    borderColor: theme.accent,
+  },
+  progressLabel: {
+    fontSize: 10,
+    fontWeight: theme.fontWeight.semibold,
+    color: theme.textSecondary,
+  },
+  progressLabelDone: {
+    color: theme.accent,
+  },
+  progressLabelCurrent: {
+    color: '#fff',
+  },
   scroll: {
     padding: theme.spacing.padding,
-    paddingBottom: 60,
+    paddingBottom: 80,
   },
   title: {
     fontSize: 20,
@@ -352,42 +575,65 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: theme.fontSize.secondary,
     color: theme.textSecondary,
-    marginBottom: 20,
+    marginBottom: 16,
   },
-  bracketContainer: {
-    gap: 20,
+  quarterTabs: {
+    flexDirection: 'row',
+    gap: 6,
+    marginBottom: 16,
   },
-  column: {
-    marginBottom: 8,
+  quarterTab: {
+    flex: 1,
+    paddingVertical: 8,
+    paddingHorizontal: 4,
+    borderRadius: 8,
+    backgroundColor: theme.card,
+    borderWidth: 1,
+    borderColor: theme.border,
+    alignItems: 'center',
   },
-  roundLabel: {
-    fontSize: 13,
+  quarterTabActive: {
+    borderColor: theme.accent,
+    backgroundColor: theme.accent + '20',
+  },
+  quarterTabDone: {
+    borderColor: theme.accent + '60',
+  },
+  quarterTabText: {
+    fontSize: 10,
     fontWeight: theme.fontWeight.semibold,
-    color: theme.accent,
-    marginBottom: 8,
-    letterSpacing: 0.5,
+    color: theme.textSecondary,
   },
-  matchup: {
+  quarterTabTextActive: {
+    color: theme.accent,
+  },
+  quarterTabCount: {
+    fontSize: 9,
+    color: theme.textSecondary,
+    marginTop: 2,
+  },
+  matchupList: {
+    gap: 8,
+  },
+  matchCard: {
     backgroundColor: theme.card,
     borderRadius: 10,
-    padding: 8,
-    marginBottom: 8,
+    padding: 10,
     borderWidth: 1,
     borderColor: theme.border,
   },
-  matchupSF: {
-    borderColor: theme.accent + '30',
-  },
-  matchupFinal: {
-    borderColor: theme.gold + '40',
-  },
-  vs: {
-    fontSize: 10,
+  matchNumber: {
+    fontSize: 9,
     color: theme.textSecondary,
-    textAlign: 'center',
-    marginVertical: 2,
+    marginBottom: 6,
+    letterSpacing: 0.5,
+  },
+  matchRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   playerSlot: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     padding: 8,
@@ -400,23 +646,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: theme.accent,
   },
-  playerSlotWinner: {
-    backgroundColor: theme.accent + '15',
-  },
-  playerSlotEmpty: {
-    opacity: 0.4,
-  },
-  playerRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-  },
   playerInfo: {
     marginLeft: 8,
     flex: 1,
   },
   playerName: {
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: theme.fontWeight.semibold,
     color: theme.text,
   },
@@ -424,16 +659,37 @@ const styles = StyleSheet.create({
     color: theme.accent,
   },
   playerRank: {
+    fontSize: 9,
+    color: theme.textSecondary,
+  },
+  vs: {
+    fontSize: 10,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.textSecondary,
+    marginHorizontal: 6,
+  },
+  scoringCard: {
+    marginTop: 16,
+    backgroundColor: theme.card,
+    borderRadius: 8,
+    padding: 12,
+    borderWidth: 1,
+    borderColor: theme.border,
+    alignItems: 'center',
+  },
+  scoringTitle: {
     fontSize: 10,
     color: theme.textSecondary,
+    letterSpacing: 0.5,
   },
-  emptyText: {
-    color: theme.textSecondary,
+  scoringValue: {
     fontSize: 14,
-    textAlign: 'center',
-    width: '100%',
+    fontWeight: theme.fontWeight.bold,
+    color: theme.accent,
+    marginTop: 4,
   },
   championBox: {
+    marginTop: 16,
     backgroundColor: theme.card,
     borderRadius: 12,
     padding: 20,
@@ -441,11 +697,17 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: theme.gold + '40',
   },
+  championTitle: {
+    fontSize: 16,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.gold,
+    marginBottom: 12,
+  },
   championContent: {
     alignItems: 'center',
   },
   championName: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: theme.fontWeight.bold,
     color: theme.gold,
     marginTop: 8,
@@ -455,15 +717,52 @@ const styles = StyleSheet.create({
     color: theme.textSecondary,
     marginTop: 2,
   },
-  emptyChampion: {
+  championPts: {
     fontSize: 14,
-    color: theme.textSecondary,
-    fontStyle: 'italic',
+    fontWeight: theme.fontWeight.bold,
+    color: theme.accent,
+    marginTop: 6,
   },
   actions: {
     marginTop: 24,
+    gap: 10,
+  },
+  navRow: {
+    flexDirection: 'row',
+    gap: 10,
+  },
+  prevBtn: {
+    backgroundColor: theme.card,
+    borderRadius: 10,
+    padding: 14,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: theme.border,
+  },
+  prevBtnText: {
+    fontSize: 14,
+    fontWeight: theme.fontWeight.semibold,
+    color: theme.textSecondary,
+  },
+  nextBtn: {
+    flex: 1,
+    backgroundColor: theme.accent,
+    borderRadius: 10,
+    padding: 14,
+    alignItems: 'center',
+  },
+  nextBtnDisabled: {
+    backgroundColor: theme.card,
+    borderWidth: 1,
+    borderColor: theme.border,
+  },
+  nextBtnText: {
+    fontSize: 14,
+    fontWeight: theme.fontWeight.semibold,
+    color: '#fff',
   },
   submitBtn: {
+    flex: 1,
     backgroundColor: theme.accent,
     borderRadius: 10,
     padding: 16,

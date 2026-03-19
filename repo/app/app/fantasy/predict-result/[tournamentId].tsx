@@ -5,41 +5,53 @@ import {
   StyleSheet,
   ScrollView,
   ActivityIndicator,
+  TouchableOpacity,
 } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
 import { theme } from '../../../lib/theme';
 import { PlayerAvatar } from '../../../lib/player-avatar';
 import api from '../../../lib/api';
-import { loadPrediction, savePrediction, PREDICTION_SCORING } from '../../../lib/predictions';
+import {
+  loadPrediction128,
+  savePrediction128,
+  PREDICTION_SCORING_128,
+  ROUND_NAMES,
+  ROUND_MATCH_COUNTS,
+} from '../../../lib/predictions';
 
-interface ResultPlayer {
-  id: number;
+interface DrawEntry {
+  position: number;
+  playerId: number;
+  seed: number | null;
   name: string;
   ranking: number;
   country: string;
-  seed: number;
 }
 
-interface TournamentResults {
+interface ResultsData {
   tournamentId: number;
   tournamentName: string;
-  players: ResultPlayer[];
-  results: {
-    qf: number[];
-    sf: number[];
-    final: number[];
-    champion: number;
-  };
+  drawSize: number;
+  draw: DrawEntry[];
+  results: Record<string, number[]>;
+  champion: number;
 }
 
 export default function PredictResultScreen() {
   const { tournamentId } = useLocalSearchParams<{ tournamentId: string }>();
-  const tid = parseInt(tournamentId || '1', 10);
+  const tid = parseInt(tournamentId || '101', 10);
 
-  const [results, setResults] = useState<TournamentResults | null>(null);
+  const [results, setResults] = useState<ResultsData | null>(null);
   const [prediction, setPrediction] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [totalPoints, setTotalPoints] = useState(0);
+  const [expandedRound, setExpandedRound] = useState<string | null>(null);
+  const [playerMap, setPlayerMap] = useState<Record<number, DrawEntry>>({});
+
+  // Round-level stats
+  const [roundStats, setRoundStats] = useState<
+    Record<string, { correct: number; total: number; points: number }>
+  >({});
 
   useEffect(() => {
     loadData();
@@ -48,45 +60,61 @@ export default function PredictResultScreen() {
   const loadData = async () => {
     try {
       const [resResults, pred] = await Promise.all([
-        api.get(`/api/fantasy/predictions/${tid}/results`),
-        loadPrediction(tid),
+        api.get(`/api/fantasy/predictions/${tid}/results128`),
+        loadPrediction128(tid),
       ]);
-      const r = resResults.data.data;
+
+      const r: ResultsData = resResults.data.data;
       setResults(r);
       setPrediction(pred);
 
+      // Build player map
+      const map: Record<number, DrawEntry> = {};
+      r.draw.forEach((d) => { map[d.playerId] = d; });
+      setPlayerMap(map);
+
       if (pred && r) {
-        let pts = 0;
-        // QF points
-        pred.qf.forEach((id: number) => {
-          if (r.results.qf.includes(id)) pts += PREDICTION_SCORING.qf;
-        });
-        // SF points
-        pred.sf.forEach((id: number) => {
-          if (r.results.sf.includes(id)) pts += PREDICTION_SCORING.sf;
-        });
-        // Final points
-        pred.final.forEach((id: number) => {
-          if (r.results.final.includes(id)) pts += PREDICTION_SCORING.final;
-        });
-        // Champion points
-        if (pred.champion === r.results.champion) pts += PREDICTION_SCORING.champion;
-        setTotalPoints(pts);
+        let total = 0;
+        const stats: Record<string, { correct: number; total: number; points: number }> = {};
+
+        for (const round of ROUND_NAMES) {
+          const predicted = pred.rounds[round] || [];
+          const actual = r.results[round] || [];
+          const matchCount = ROUND_MATCH_COUNTS[round];
+          const ptsPerCorrect = PREDICTION_SCORING_128[round];
+
+          let correctCount = 0;
+          for (let i = 0; i < predicted.length; i++) {
+            // Check if predicted winner at position i matches actual
+            if (predicted[i] && actual[i] && predicted[i] === actual[i]) {
+              correctCount++;
+            }
+          }
+
+          const roundPts = correctCount * ptsPerCorrect;
+          total += roundPts;
+          stats[round] = { correct: correctCount, total: matchCount, points: roundPts };
+        }
+
+        // Champion bonus
+        if (pred.champion === r.champion) {
+          total += PREDICTION_SCORING_128.Champion;
+        }
+
+        setTotalPoints(total);
+        setRoundStats(stats);
 
         // Update stored prediction with points
-        if (pred.totalPoints !== pts) {
-          await savePrediction(tid, { ...pred, totalPoints: pts });
+        if (pred.totalPoints !== total) {
+          await savePrediction128(tid, { ...pred, totalPoints: total });
         }
       }
-    } catch {
-      console.error('Failed to load results');
+    } catch (e) {
+      console.error('Failed to load results', e);
     } finally {
       setLoading(false);
     }
   };
-
-  const getPlayer = (id: number): ResultPlayer | undefined =>
-    results?.players.find((p) => p.id === id);
 
   if (loading || !results) {
     return (
@@ -105,87 +133,166 @@ export default function PredictResultScreen() {
     );
   }
 
-  const renderRoundComparison = (
-    roundName: string,
-    predicted: number[],
-    actual: number[],
-    pointsPerCorrect: number
-  ) => (
-    <View style={styles.roundSection}>
-      <Text style={styles.roundTitle}>
-        {roundName} ({pointsPerCorrect} pts each)
-      </Text>
-      {predicted.map((predId, i) => {
-        const correct = actual.includes(predId);
-        const player = getPlayer(predId);
-        return (
-          <View key={`${roundName}-${i}`} style={styles.predictionRow}>
-            <View style={styles.predictionPlayer}>
-              {player && <PlayerAvatar name={player.name} size={28} />}
-              <Text style={[styles.predictionName, correct ? styles.correctText : styles.wrongText]}>
-                {player?.name || `Player #${predId}`}
-              </Text>
-            </View>
-            <View style={styles.predictionResult}>
-              <Text style={correct ? styles.correctIcon : styles.wrongIcon}>
-                {correct ? '✓' : '✗'}
-              </Text>
-              <Text style={correct ? styles.correctPts : styles.wrongPts}>
-                {correct ? `+${pointsPerCorrect}` : '0'}
-              </Text>
-            </View>
-          </View>
-        );
-      })}
-    </View>
-  );
+  const maxPoints =
+    Object.entries(ROUND_MATCH_COUNTS).reduce(
+      (sum, [round, count]) => sum + count * PREDICTION_SCORING_128[round],
+      0
+    ) + PREDICTION_SCORING_128.Champion;
+
+  const championCorrect = prediction.champion === results.champion;
 
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scroll}>
         <Text style={styles.title}>{results.tournamentName}</Text>
-        <Text style={styles.subtitle}>Your Prediction Results</Text>
+        <Text style={styles.subtitle}>128-Draw Prediction Results</Text>
 
         {/* Total Points Card */}
         <View style={styles.totalCard}>
           <Text style={styles.totalLabel}>TOTAL POINTS</Text>
           <Text style={styles.totalValue}>{totalPoints}</Text>
-          <Text style={styles.totalMax}>
-            / {(PREDICTION_SCORING.qf * 4 + PREDICTION_SCORING.sf * 2 + PREDICTION_SCORING.final + PREDICTION_SCORING.champion)} max
-          </Text>
+          <Text style={styles.totalMax}>/ {maxPoints} max</Text>
         </View>
 
-        {/* Champion */}
+        {/* Champion Result */}
         <View style={styles.championSection}>
-          <Text style={styles.roundTitle}>🏆 Champion ({PREDICTION_SCORING.champion} pts)</Text>
-          <View style={styles.championCard}>
-            {(() => {
-              const correct = prediction.champion === results.results.champion;
-              const player = getPlayer(prediction.champion);
-              return (
-                <View style={styles.championContent}>
-                  {player && <PlayerAvatar name={player.name} size={48} />}
-                  <Text style={[styles.championName, correct ? styles.correctText : styles.wrongText]}>
-                    {player?.name}
+          <Text style={styles.sectionTitle}>
+            🏆 Champion ({PREDICTION_SCORING_128.Champion} pts)
+          </Text>
+          <View style={[styles.championCard, championCorrect ? styles.championCorrect : styles.championWrong]}>
+            <View style={styles.championContent}>
+              {prediction.champion && playerMap[prediction.champion] && (
+                <>
+                  <PlayerAvatar name={playerMap[prediction.champion].name} size={48} />
+                  <Text
+                    style={[
+                      styles.championName,
+                      championCorrect ? styles.correctText : styles.wrongText,
+                    ]}
+                  >
+                    {playerMap[prediction.champion].name}
                   </Text>
-                  <Text style={correct ? styles.correctIcon : styles.wrongIcon}>
-                    {correct ? '✓ Correct!' : '✗ Wrong'}
-                  </Text>
-                  {!correct && (
-                    <Text style={styles.actualText}>
-                      Actual: {getPlayer(results.results.champion)?.name}
-                    </Text>
-                  )}
-                </View>
-              );
-            })()}
+                </>
+              )}
+              <Text style={championCorrect ? styles.correctIcon : styles.wrongIcon}>
+                {championCorrect ? '✓ Correct!' : '✗ Wrong'}
+              </Text>
+              {!championCorrect && playerMap[results.champion] && (
+                <Text style={styles.actualText}>
+                  Actual: {playerMap[results.champion].name}
+                </Text>
+              )}
+              <Text style={championCorrect ? styles.correctPts : styles.zeroPts}>
+                {championCorrect ? `+${PREDICTION_SCORING_128.Champion}` : '+0'}
+              </Text>
+            </View>
           </View>
         </View>
 
-        {/* Round by round */}
-        {renderRoundComparison('Quarter-Finals', prediction.qf, results.results.qf, PREDICTION_SCORING.qf)}
-        {renderRoundComparison('Semi-Finals', prediction.sf, results.results.sf, PREDICTION_SCORING.sf)}
-        {renderRoundComparison('Final', prediction.final, results.results.final, PREDICTION_SCORING.final)}
+        {/* Round-by-Round Summary */}
+        <Text style={styles.sectionTitle}>Round-by-Round Breakdown</Text>
+        {ROUND_NAMES.map((round) => {
+          const stat = roundStats[round] || { correct: 0, total: 0, points: 0 };
+          const accuracy = stat.total > 0 ? Math.round((stat.correct / stat.total) * 100) : 0;
+          const isExpanded = expandedRound === round;
+
+          return (
+            <View key={round}>
+              <TouchableOpacity
+                style={styles.roundSummary}
+                activeOpacity={theme.activeOpacity}
+                onPress={() => setExpandedRound(isExpanded ? null : round)}
+              >
+                <View style={styles.roundHeader}>
+                  <Text style={styles.roundName}>{round}</Text>
+                  <Text style={styles.roundPtsLabel}>
+                    {PREDICTION_SCORING_128[round]} pts each
+                  </Text>
+                </View>
+                <View style={styles.roundStats}>
+                  <Text style={styles.roundCorrect}>
+                    {stat.correct}/{stat.total}
+                  </Text>
+                  <View style={styles.accuracyBar}>
+                    <View
+                      style={[styles.accuracyFill, { width: `${accuracy}%` }]}
+                    />
+                  </View>
+                  <Text style={styles.roundPoints}>+{stat.points}</Text>
+                  <Text style={styles.expandIcon}>{isExpanded ? '▲' : '▼'}</Text>
+                </View>
+              </TouchableOpacity>
+
+              {/* Expanded detail */}
+              {isExpanded && (
+                <View style={styles.roundDetail}>
+                  {(prediction.rounds[round] || []).map((predId: number, i: number) => {
+                    const actualId = (results.results[round] || [])[i];
+                    const correct = predId === actualId;
+                    const predPlayer = predId ? playerMap[predId] : null;
+                    const actualPlayer = actualId ? playerMap[actualId] : null;
+                    return (
+                      <View key={i} style={styles.detailRow}>
+                        <View style={styles.detailPlayer}>
+                          {predPlayer && <PlayerAvatar name={predPlayer.name} size={22} />}
+                          <Text
+                            style={[
+                              styles.detailName,
+                              correct ? styles.correctText : styles.wrongText,
+                            ]}
+                            numberOfLines={1}
+                          >
+                            {predPlayer?.name || '—'}
+                          </Text>
+                        </View>
+                        <View style={styles.detailResult}>
+                          <Text style={correct ? styles.correctIcon : styles.wrongIcon}>
+                            {correct ? '✓' : '✗'}
+                          </Text>
+                          {!correct && actualPlayer && (
+                            <Text style={styles.detailActual} numberOfLines={1}>
+                              → {actualPlayer.name}
+                            </Text>
+                          )}
+                        </View>
+                      </View>
+                    );
+                  })}
+                </View>
+              )}
+            </View>
+          );
+        })}
+
+        {/* Points Breakdown */}
+        <View style={styles.breakdownCard}>
+          <Text style={styles.breakdownTitle}>Points Breakdown</Text>
+          {ROUND_NAMES.map((round) => {
+            const stat = roundStats[round] || { correct: 0, total: 0, points: 0 };
+            return (
+              <View key={round} style={styles.breakdownRow}>
+                <Text style={styles.breakdownRound}>{round}</Text>
+                <Text style={styles.breakdownScore}>
+                  {stat.correct} × {PREDICTION_SCORING_128[round]}
+                </Text>
+                <Text style={styles.breakdownPts}>{stat.points}</Text>
+              </View>
+            );
+          })}
+          <View style={styles.breakdownRow}>
+            <Text style={styles.breakdownRound}>Champion</Text>
+            <Text style={styles.breakdownScore}>
+              {championCorrect ? '1' : '0'} × {PREDICTION_SCORING_128.Champion}
+            </Text>
+            <Text style={styles.breakdownPts}>
+              {championCorrect ? PREDICTION_SCORING_128.Champion : 0}
+            </Text>
+          </View>
+          <View style={[styles.breakdownRow, styles.breakdownTotal]}>
+            <Text style={styles.breakdownTotalLabel}>TOTAL</Text>
+            <Text style={styles.breakdownTotalValue}>{totalPoints}</Text>
+          </View>
+        </View>
       </ScrollView>
     </View>
   );
@@ -254,6 +361,13 @@ const styles = StyleSheet.create({
     color: theme.textSecondary,
     marginTop: 4,
   },
+  sectionTitle: {
+    fontSize: 14,
+    fontWeight: theme.fontWeight.semibold,
+    color: theme.accent,
+    marginBottom: 10,
+    marginTop: 4,
+  },
   championSection: {
     marginBottom: 20,
   },
@@ -263,7 +377,12 @@ const styles = StyleSheet.create({
     padding: 20,
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: theme.gold + '40',
+  },
+  championCorrect: {
+    borderColor: theme.accent + '60',
+  },
+  championWrong: {
+    borderColor: theme.red + '40',
   },
   championContent: {
     alignItems: 'center',
@@ -278,64 +397,184 @@ const styles = StyleSheet.create({
     color: theme.textSecondary,
     marginTop: 4,
   },
-  roundSection: {
-    marginBottom: 16,
-  },
-  roundTitle: {
-    fontSize: 14,
-    fontWeight: theme.fontWeight.semibold,
-    color: theme.accent,
-    marginBottom: 8,
-  },
-  predictionRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: theme.card,
-    borderRadius: 8,
-    padding: 10,
-    marginBottom: 6,
-    borderWidth: 1,
-    borderColor: theme.border,
-  },
-  predictionPlayer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-  },
-  predictionName: {
-    fontSize: 13,
-    fontWeight: theme.fontWeight.semibold,
-    marginLeft: 8,
-  },
-  predictionResult: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-  },
-  correctText: {
-    color: theme.accent,
-  },
-  wrongText: {
-    color: theme.red,
-  },
+  correctText: { color: theme.accent },
+  wrongText: { color: theme.red },
   correctIcon: {
     fontSize: 16,
     fontWeight: theme.fontWeight.bold,
     color: theme.accent,
+    marginTop: 4,
   },
   wrongIcon: {
     fontSize: 16,
     fontWeight: theme.fontWeight.bold,
     color: theme.red,
+    marginTop: 4,
   },
   correctPts: {
-    fontSize: 13,
-    fontWeight: theme.fontWeight.semibold,
+    fontSize: 14,
+    fontWeight: theme.fontWeight.bold,
     color: theme.accent,
+    marginTop: 4,
   },
-  wrongPts: {
-    fontSize: 13,
+  zeroPts: {
+    fontSize: 14,
     color: theme.textSecondary,
+    marginTop: 4,
+  },
+  roundSummary: {
+    backgroundColor: theme.card,
+    borderRadius: 10,
+    padding: 12,
+    marginBottom: 6,
+    borderWidth: 1,
+    borderColor: theme.border,
+  },
+  roundHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 6,
+  },
+  roundName: {
+    fontSize: 14,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.text,
+  },
+  roundPtsLabel: {
+    fontSize: 10,
+    color: theme.textSecondary,
+  },
+  roundStats: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  roundCorrect: {
+    fontSize: 12,
+    fontWeight: theme.fontWeight.semibold,
+    color: theme.text,
+    minWidth: 36,
+  },
+  accuracyBar: {
+    flex: 1,
+    height: 6,
+    backgroundColor: theme.bg,
+    borderRadius: 3,
+    overflow: 'hidden',
+  },
+  accuracyFill: {
+    height: '100%',
+    backgroundColor: theme.accent,
+    borderRadius: 3,
+  },
+  roundPoints: {
+    fontSize: 13,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.accent,
+    minWidth: 40,
+    textAlign: 'right',
+  },
+  expandIcon: {
+    fontSize: 10,
+    color: theme.textSecondary,
+  },
+  roundDetail: {
+    backgroundColor: theme.card,
+    borderRadius: 8,
+    marginBottom: 8,
+    marginTop: -2,
+    padding: 8,
+    borderWidth: 1,
+    borderColor: theme.border,
+    borderTopWidth: 0,
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
+  },
+  detailRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 4,
+    borderBottomWidth: 1,
+    borderBottomColor: theme.border,
+  },
+  detailPlayer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+  },
+  detailName: {
+    fontSize: 11,
+    fontWeight: theme.fontWeight.semibold,
+    marginLeft: 6,
+    flex: 1,
+  },
+  detailResult: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+  },
+  detailActual: {
+    fontSize: 10,
+    color: theme.textSecondary,
+    maxWidth: 100,
+  },
+  breakdownCard: {
+    marginTop: 20,
+    backgroundColor: theme.card,
+    borderRadius: 12,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: theme.border,
+  },
+  breakdownTitle: {
+    fontSize: 14,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.text,
+    marginBottom: 12,
+  },
+  breakdownRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 6,
+    borderBottomWidth: 1,
+    borderBottomColor: theme.border,
+  },
+  breakdownRound: {
+    fontSize: 12,
+    color: theme.text,
+    flex: 1,
+  },
+  breakdownScore: {
+    fontSize: 11,
+    color: theme.textSecondary,
+    flex: 1,
+    textAlign: 'center',
+  },
+  breakdownPts: {
+    fontSize: 13,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.accent,
+    minWidth: 40,
+    textAlign: 'right',
+  },
+  breakdownTotal: {
+    borderBottomWidth: 0,
+    marginTop: 6,
+    paddingTop: 10,
+    borderTopWidth: 2,
+    borderTopColor: theme.accent + '40',
+  },
+  breakdownTotalLabel: {
+    fontSize: 13,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.text,
+    flex: 1,
+  },
+  breakdownTotalValue: {
+    fontSize: 20,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.accent,
   },
 });
