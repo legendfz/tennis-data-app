@@ -19,7 +19,7 @@ const tabStyles = StyleSheet.create({
   icon: {
     fontSize: 11,
     fontWeight: '600',
-    color: '#6b7280',
+    color: '#666',
     textTransform: 'uppercase',
     letterSpacing: 0.5,
   },
@@ -41,14 +41,14 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: '#16a34a',
-        tabBarInactiveTintColor: '#6b7280',
+        tabBarInactiveTintColor: '#666',
         tabBarStyle: {
-          backgroundColor: '#121212',
-          borderTopColor: '#1e1e1e',
+          backgroundColor: '#1a1a1a',
+          borderTopColor: '#2a2a2a',
           borderTopWidth: 1,
-          height: 56,
-          paddingBottom: 6,
-          paddingTop: 2,
+          height: 60,
+          paddingBottom: 8,
+          paddingTop: 4,
         },
         tabBarLabelStyle: {
           display: 'none',
@@ -66,29 +66,47 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ focused }) => <TabIcon label="Home" focused={focused} />,
+          title: 'Matches',
+          headerShown: false,
+          tabBarIcon: ({ focused }) => <TabIcon label="Matches" focused={focused} />,
         }}
       />
       <Tabs.Screen
         name="players"
         options={{
           title: 'Players',
+          headerShown: false,
           tabBarIcon: ({ focused }) => <TabIcon label="Players" focused={focused} />,
-        }}
-      />
-      <Tabs.Screen
-        name="matches"
-        options={{
-          title: 'Matches',
-          tabBarIcon: ({ focused }) => <TabIcon label="Matches" focused={focused} />,
         }}
       />
       <Tabs.Screen
         name="tournaments"
         options={{
-          title: 'Events',
-          tabBarIcon: ({ focused }) => <TabIcon label="Events" focused={focused} />,
+          title: 'Tournaments',
+          tabBarIcon: ({ focused }) => <TabIcon label="Tournaments" focused={focused} />,
+        }}
+      />
+      <Tabs.Screen
+        name="h2h"
+        options={{
+          title: 'H2H',
+          headerShown: false,
+          tabBarIcon: ({ focused }) => <TabIcon label="H2H" focused={focused} />,
+        }}
+      />
+      <Tabs.Screen
+        name="following"
+        options={{
+          title: 'Following',
+          headerShown: false,
+          tabBarIcon: ({ focused }) => <TabIcon label="Following" focused={focused} />,
+        }}
+      />
+      {/* Hide matches tab from tab bar - content merged into index */}
+      <Tabs.Screen
+        name="matches"
+        options={{
+          href: null,
         }}
       />
     </Tabs>

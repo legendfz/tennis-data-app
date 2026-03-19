@@ -50,6 +50,14 @@ export default function RootLayout() {
             animation: 'slide_from_right',
           }}
         />
+        <Stack.Screen
+          name="brand/[name]"
+          options={{
+            title: 'Brand',
+            headerBackTitle: 'Back',
+            animation: 'slide_from_right',
+          }}
+        />
       </Stack>
       </LanguageProvider>
     </QueryClientProvider>

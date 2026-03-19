@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import {
   View,
   Text,
@@ -11,26 +11,31 @@ import {
 } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'expo-router';
-import { useFocusEffect } from '@react-navigation/native';
 import api from '../../lib/api';
 import { getAvatarUrl } from '../../lib/avatars';
 import { useLanguage } from '../../lib/i18n';
 import { SkeletonList } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
-import { getFavorites } from '../../lib/favorites';
+import { getAllHotTags, formatCount, PRESET_TAG_EMOJIS } from '../../lib/comments';
 import type { Player } from '../../../shared/types';
+
+function getInitials(name: string): string {
+  const parts = name.split(' ');
+  if (parts.length >= 2) return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  return name.slice(0, 2).toUpperCase();
+}
+
+const AVATAR_COLORS = ['#16a34a', '#1565C0', '#c62828', '#333', '#4a148c', '#e65100', '#1b5e20', '#6a1b9a', '#00695c', '#bf360c'];
 
 export default function PlayersScreen() {
   const [search, setSearch] = useState('');
-  const [favoriteIds, setFavoriteIds] = useState<number[]>([]);
+  const [hotTags, setHotTags] = useState<Record<number, { tag: string; emoji: string; count: number }>>({});
   const router = useRouter();
   const { getPlayerName } = useLanguage();
 
-  useFocusEffect(
-    useCallback(() => {
-      getFavorites().then(setFavoriteIds);
-    }, [])
-  );
+  useEffect(() => {
+    getAllHotTags().then(setHotTags);
+  }, []);
 
   const { data, isLoading, error, refetch } = useQuery<{ data: Player[] }>({
     queryKey: ['players'],
@@ -44,6 +49,7 @@ export default function PlayersScreen() {
   const onRefresh = useCallback(async () => {
     setRefreshing(true);
     await refetch();
+    getAllHotTags().then(setHotTags);
     setRefreshing(false);
   }, [refetch]);
 
@@ -63,7 +69,9 @@ export default function PlayersScreen() {
   if (isLoading) {
     return (
       <View style={styles.container}>
-        <SkeletonList count={10} cardHeight={52} />
+        <View style={{ paddingTop: 50 }}>
+          <SkeletonList count={10} cardHeight={52} />
+        </View>
       </View>
     );
   }
@@ -79,11 +87,14 @@ export default function PlayersScreen() {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.pageTitle}>Rankings</Text>
+
       <View style={styles.searchWrap}>
+        <Text style={styles.searchIcon}>&#x1F50D;</Text>
         <TextInput
           style={styles.searchInput}
-          placeholder="Search players"
-          placeholderTextColor="#6b7280"
+          placeholder="Search players..."
+          placeholderTextColor="#666"
           value={search}
           onChangeText={setSearch}
           autoCapitalize="none"
@@ -91,7 +102,7 @@ export default function PlayersScreen() {
         />
         {search.length > 0 && (
           <TouchableOpacity onPress={() => setSearch('')} style={styles.clearBtn} activeOpacity={0.7}>
-            <Text style={styles.clearText}>×</Text>
+            <Text style={styles.clearText}>x</Text>
           </TouchableOpacity>
         )}
       </View>
@@ -107,26 +118,47 @@ export default function PlayersScreen() {
             colors={['#16a34a']}
           />
         }
-        renderItem={({ item }) => (
-          <TouchableOpacity
-            style={styles.playerRow}
-            onPress={() => router.push(`/player/${item.id}`)}
-            activeOpacity={0.7}
-          >
-            <Text style={styles.rank}>#{item.ranking}</Text>
-            <Image
-              source={{ uri: item.photoUrl || getAvatarUrl(item.name, 72) }}
-              style={styles.avatar}
-            />
-            <View style={styles.nameWrap}>
-              <Text style={styles.playerName} numberOfLines={1}>
-                {getPlayerName(item)}
+        renderItem={({ item, index }) => {
+          const hot = hotTags[item.id];
+          const rankChange = (item as any).rankChange;
+          const avatarColor = AVATAR_COLORS[index % AVATAR_COLORS.length];
+
+          return (
+            <TouchableOpacity
+              style={styles.playerRow}
+              onPress={() => router.push(`/player/${item.id}`)}
+              activeOpacity={0.7}
+            >
+              <Text style={styles.rank}>{item.ranking}</Text>
+              <View style={[styles.avatarCircle, { backgroundColor: avatarColor }]}>
+                {item.photoUrl ? (
+                  <Image source={{ uri: item.photoUrl }} style={styles.avatarImg} />
+                ) : (
+                  <Text style={styles.avatarInitials}>{getInitials(item.name)}</Text>
+                )}
+              </View>
+              <View style={styles.nameWrap}>
+                <Text style={styles.playerName} numberOfLines={1}>
+                  {getPlayerName(item)} {item.countryFlag}
+                </Text>
+                {hot && (
+                  <View style={styles.hotTagWrap}>
+                    <Text style={styles.hotTag}>
+                      {hot.emoji} {hot.tag}
+                    </Text>
+                  </View>
+                )}
+              </View>
+              <Text style={[
+                styles.rankChange,
+                rankChange > 0 && styles.rankUp,
+                rankChange < 0 && styles.rankDown,
+              ]}>
+                {rankChange > 0 ? `\u25B2 ${rankChange}` : rankChange < 0 ? `\u25BC ${Math.abs(rankChange)}` : '\u2014'}
               </Text>
-              <Text style={styles.country}>{item.country}</Text>
-            </View>
-            <Text style={styles.flag}>{item.countryFlag}</Text>
-          </TouchableOpacity>
-        )}
+            </TouchableOpacity>
+          );
+        }}
         contentContainerStyle={styles.list}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
         ListEmptyComponent={
@@ -141,30 +173,41 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#121212',
+    paddingTop: 50,
+  },
+  pageTitle: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: '#fff',
+    paddingHorizontal: 16,
+    paddingBottom: 4,
   },
   searchWrap: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
+    marginHorizontal: 16,
+    marginVertical: 12,
+    backgroundColor: '#1e1e1e',
+    borderRadius: 10,
     flexDirection: 'row',
     alignItems: 'center',
+    paddingHorizontal: 12,
+  },
+  searchIcon: {
+    fontSize: 14,
+    color: '#666',
+    marginRight: 8,
   },
   searchInput: {
     flex: 1,
-    backgroundColor: '#1e1e1e',
-    borderRadius: 10,
-    paddingHorizontal: 14,
     paddingVertical: 10,
     fontSize: 14,
     color: '#ffffff',
   },
   clearBtn: {
-    position: 'absolute',
-    right: 24,
     padding: 4,
   },
   clearText: {
-    color: '#6b7280',
-    fontSize: 18,
+    color: '#666',
+    fontSize: 16,
   },
   list: {
     paddingBottom: 20,
@@ -173,40 +216,68 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 16,
-    paddingVertical: 10,
+    paddingVertical: 12,
+    gap: 12,
   },
   rank: {
-    width: 36,
-    fontSize: 13,
+    width: 28,
+    fontSize: 14,
     fontWeight: '600',
-    color: '#6b7280',
+    color: '#666',
+    textAlign: 'center',
   },
-  avatar: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    marginRight: 12,
+  avatarCircle: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+  },
+  avatarImg: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+  },
+  avatarInitials: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#fff',
   },
   nameWrap: {
     flex: 1,
   },
   playerName: {
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: '500',
     color: '#ffffff',
   },
-  country: {
-    fontSize: 12,
-    color: '#6b7280',
-    marginTop: 1,
+  hotTagWrap: {
+    marginTop: 3,
   },
-  flag: {
-    fontSize: 16,
-    marginLeft: 8,
+  hotTag: {
+    fontSize: 10,
+    color: '#16a34a',
+    backgroundColor: 'rgba(22,163,74,0.15)',
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 10,
+    alignSelf: 'flex-start',
+    overflow: 'hidden',
+  },
+  rankChange: {
+    fontSize: 11,
+    color: '#666',
+  },
+  rankUp: {
+    color: '#16a34a',
+  },
+  rankDown: {
+    color: '#e53935',
   },
   separator: {
     height: 0.5,
-    backgroundColor: '#2a2a2a',
-    marginLeft: 64,
+    backgroundColor: '#1a1a1a',
+    marginLeft: 56,
   },
 });

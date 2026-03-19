@@ -7,6 +7,8 @@ import {
   Image,
   Dimensions,
   TouchableOpacity,
+  TextInput,
+  Alert,
 } from 'react-native';
 import { useLocalSearchParams, Stack, useRouter } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
@@ -17,16 +19,33 @@ import { useLanguage } from '../../lib/i18n';
 import { SkeletonBlock } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
 import { isFavorite, toggleFavorite } from '../../lib/favorites';
+import {
+  getPlayerComments,
+  voteTag,
+  addCustomTag,
+  canVote,
+  getHotTag,
+  PRESET_TAGS,
+  PRESET_TAG_EMOJIS,
+  formatCount,
+  type PlayerComments,
+} from '../../lib/comments';
 import type { PlayerDetail, MatchWithPlayers, SetStats } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
-const AVATAR_SIZE = 100;
+const AVATAR_SIZE = 80;
 const CHART_HEIGHT = 180;
 const PX_PER_POINT = 4;
 const MIN_CHART_WIDTH = SCREEN_WIDTH - 64;
 
-type TabKey = 'overview' | 'stats' | 'matches' | 'equipment';
+type TabKey = 'overview' | 'stats' | 'matches' | 'gear' | 'comments';
 type TimeRange = '1Y' | '5Y' | '10Y' | 'All';
+
+function getInitials(name: string): string {
+  const parts = name.split(' ');
+  if (parts.length >= 2) return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  return name.slice(0, 2).toUpperCase();
+}
 
 function filterByRange(
   history: { month: string; ranking: number }[],
@@ -43,7 +62,7 @@ function filterByRange(
 }
 
 // ─── Ranking Chart ───────────────────────────────────────────────────
-function RankingChart({ history, currentRanking }: { history: { month: string; ranking: number }[]; currentRanking: number }) {
+function RankingChart({ history }: { history: { month: string; ranking: number }[] }) {
   const [timeRange, setTimeRange] = useState<TimeRange>('All');
   const scrollRef = useRef<ScrollView>(null);
   const filtered = useMemo(() => filterByRange(history, timeRange), [history, timeRange]);
@@ -83,12 +102,7 @@ function RankingChart({ history, currentRanking }: { history: { month: string; r
       }
     } else if (mon === 1 && !seenYears.has(year)) {
       seenYears.add(year);
-      const yearNum = parseInt(year, 10);
-      if (filtered.length > 180) {
-        if (yearNum % 2 === 0) xLabels.push({ index: i, label: year });
-      } else {
-        xLabels.push({ index: i, label: year });
-      }
+      xLabels.push({ index: i, label: year });
     }
   });
 
@@ -120,10 +134,10 @@ function RankingChart({ history, currentRanking }: { history: { month: string; r
             <Line key={`vgrid-${idx}`} x1={getX(idx)} y1={paddingTop} x2={getX(idx)} y2={paddingTop + plotH} stroke="#2a2a2a" strokeWidth={1} />
           ))}
           {yTicks.map((rank) => (
-            <SvgText key={`ylabel-${rank}`} x={paddingLeft - 6} y={getY(rank) + 4} fill="#6b7280" fontSize={10} textAnchor="end">#{rank}</SvgText>
+            <SvgText key={`ylabel-${rank}`} x={paddingLeft - 6} y={getY(rank) + 4} fill="#666" fontSize={10} textAnchor="end">#{rank}</SvgText>
           ))}
           {xLabels.map(({ index, label }) => (
-            <SvgText key={`xlabel-${index}`} x={getX(index)} y={CHART_HEIGHT - 4} fill="#6b7280" fontSize={9} textAnchor="middle">{label}</SvgText>
+            <SvgText key={`xlabel-${index}`} x={getX(index)} y={CHART_HEIGHT - 4} fill="#666" fontSize={9} textAnchor="middle">{label}</SvgText>
           ))}
           <Polyline points={polylinePoints} fill="none" stroke="#16a34a" strokeWidth={2} strokeLinejoin="round" strokeLinecap="round" />
           {showAllDots
@@ -139,21 +153,47 @@ function RankingChart({ history, currentRanking }: { history: { month: string; r
 
 // ─── Overview Tab ────────────────────────────────────────────────────
 function OverviewTab({ player }: { player: PlayerDetail }) {
+  const record = player.record;
+  const seasonWL = record ? `${record.season.wins}-${record.season.losses}` : '--';
+  const careerWins = record ? record.career.wins : 0;
+  const careerTotal = record ? record.career.wins + record.career.losses : 1;
+  const winRate = record ? `${((careerWins / careerTotal) * 100).toFixed(0)}%` : '--';
+  const setStats = (player as any).setStats as SetStats | undefined;
+  const decidingPct = setStats?.decidingSet ? `${setStats.decidingSet.winRate.toFixed(1)}%` : '--';
+
   return (
     <>
-      {/* Key Stats Grid */}
+      {/* 6-cell Stats Grid */}
       <View style={styles.statsGrid}>
-        <StatCard label="Ranking" value={`#${player.ranking}`} />
-        <StatCard label="Grand Slams" value={String(player.grandSlams)} />
-        <StatCard label="Titles" value={String(player.titles)} />
-        <StatCard label="Prize Money" value={player.prizeMoney} />
-        <StatCard label="Career High" value={`#${player.careerHigh}`} />
-        <StatCard label="Turned Pro" value={String(player.turnedPro)} />
+        <View style={styles.statCell}>
+          <Text style={styles.statNumber}>#{player.ranking}</Text>
+          <Text style={styles.statLabel}>Ranking</Text>
+        </View>
+        <View style={styles.statCell}>
+          <Text style={[styles.statNumber, { color: '#f59e0b' }]}>{player.grandSlams}</Text>
+          <Text style={styles.statLabel}>Grand Slams</Text>
+        </View>
+        <View style={styles.statCell}>
+          <Text style={styles.statNumber}>{player.titles}</Text>
+          <Text style={styles.statLabel}>Titles</Text>
+        </View>
+        <View style={styles.statCell}>
+          <Text style={[styles.statNumber, { color: '#16a34a' }]}>{winRate}</Text>
+          <Text style={styles.statLabel}>Win Rate</Text>
+        </View>
+        <View style={styles.statCell}>
+          <Text style={styles.statNumber}>{seasonWL}</Text>
+          <Text style={styles.statLabel}>Season W-L</Text>
+        </View>
+        <View style={styles.statCell}>
+          <Text style={[styles.statNumber, { color: '#f59e0b' }]}>{decidingPct}</Text>
+          <Text style={styles.statLabel}>Deciding Set</Text>
+        </View>
       </View>
 
       {/* Ranking Chart */}
       {player.rankingHistory && player.rankingHistory.length > 0 && (
-        <RankingChart history={player.rankingHistory} currentRanking={player.ranking} />
+        <RankingChart history={player.rankingHistory} />
       )}
 
       {/* Bio */}
@@ -167,13 +207,6 @@ function OverviewTab({ player }: { player: PlayerDetail }) {
         {player.birthplace && <InfoRow label="Birthplace" value={player.birthplace} />}
         {player.coach && <InfoRow label="Coach" value={player.coach} />}
       </View>
-
-      {player.recentForm && (
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>Recent Form</Text>
-          <Text style={styles.formText}>{player.recentForm}</Text>
-        </View>
-      )}
     </>
   );
 }
@@ -185,49 +218,31 @@ function StatsTab({ player }: { player: PlayerDetail }) {
 
   return (
     <>
+      {/* Surface Win Rate */}
       {record && (
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>Win / Loss</Text>
-          <View style={styles.wlRow}>
-            <View style={styles.wlBox}>
-              <Text style={styles.wlValue}>{record.season.wins}-{record.season.losses}</Text>
-              <Text style={styles.wlLabel}>Season</Text>
-              <View style={styles.winBar}>
-                <View style={[styles.winBarFill, { width: `${(record.season.wins / Math.max(record.season.wins + record.season.losses, 1)) * 100}%` }]} />
-              </View>
-            </View>
-            <View style={styles.wlBox}>
-              <Text style={styles.wlValue}>{record.career.wins}-{record.career.losses}</Text>
-              <Text style={styles.wlLabel}>Career</Text>
-              <View style={styles.winBar}>
-                <View style={[styles.winBarFill, { width: `${(record.career.wins / Math.max(record.career.wins + record.career.losses, 1)) * 100}%` }]} />
-              </View>
-            </View>
-          </View>
-
-          <Text style={styles.subTitle}>By Surface</Text>
+          <Text style={styles.cardTitle}>Surface Win Rate</Text>
           {[
             { label: 'Hard', data: record.bySurface.hard, color: '#3b82f6' },
-            { label: 'Clay', data: record.bySurface.clay, color: '#f97316' },
-            { label: 'Grass', data: record.bySurface.grass, color: '#22c55e' },
+            { label: 'Clay', data: record.bySurface.clay, color: '#c17b3a' },
+            { label: 'Grass', data: record.bySurface.grass, color: '#4caf50' },
           ].map((s) => {
             const total = s.data.wins + s.data.losses;
-            const pct = total > 0 ? ((s.data.wins / total) * 100).toFixed(0) : '0';
+            const pct = total > 0 ? Math.round((s.data.wins / total) * 100) : 0;
             return (
-              <View key={s.label} style={styles.surfaceRow}>
-                <View style={[styles.surfaceDot, { backgroundColor: s.color }]} />
-                <Text style={styles.surfaceLabel}>{s.label}</Text>
-                <View style={styles.surfaceBarWrap}>
-                  <View style={[styles.surfaceBarFill, { width: `${pct}%`, backgroundColor: s.color }]} />
+              <View key={s.label} style={styles.barRow}>
+                <Text style={styles.barLabel}>{s.label}</Text>
+                <View style={styles.barTrack}>
+                  <View style={[styles.barFill, { width: `${pct}%`, backgroundColor: s.color }]} />
                 </View>
-                <Text style={styles.surfaceWL}>{s.data.wins}-{s.data.losses}</Text>
-                <Text style={styles.surfacePct}>{pct}%</Text>
+                <Text style={styles.barValue}>{pct}%</Text>
               </View>
             );
           })}
         </View>
       )}
 
+      {/* Set Statistics */}
       {setStats && (
         <View style={styles.card}>
           <Text style={styles.cardTitle}>Set Statistics</Text>
@@ -240,25 +255,16 @@ function StatsTab({ player }: { player: PlayerDetail }) {
           ].map((row) => {
             const losses = row.data.total - row.data.wins;
             return (
-              <View key={row.key} style={styles.setRow}>
-                <Text style={styles.setLabel}>{row.label}</Text>
-                <View style={styles.setBarWrap}>
-                  <View style={[styles.setBarFill, { width: `${row.data.winRate}%` }]} />
+              <View key={row.key} style={styles.barRow}>
+                <Text style={[styles.barLabel, { width: 100 }]}>{row.label}</Text>
+                <View style={styles.barTrack}>
+                  <View style={[styles.barFill, { width: `${row.data.winRate}%` }]} />
                 </View>
-                <Text style={styles.setPct}>{row.data.winRate.toFixed(1)}%</Text>
-                <Text style={styles.setRecord}>({row.data.wins}-{losses})</Text>
+                <Text style={styles.barPct}>{row.data.winRate.toFixed(1)}%</Text>
+                <Text style={styles.barRecord}>({row.data.wins}-{losses})</Text>
               </View>
             );
           })}
-        </View>
-      )}
-
-      {player.stats && (
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>Season Stats</Text>
-          <InfoRow label="Win-Loss" value={player.stats.winLoss} />
-          <InfoRow label="Titles This Year" value={String(player.stats.titlesThisYear)} />
-          <InfoRow label="Best Result" value={player.stats.bestResult} />
         </View>
       )}
     </>
@@ -303,24 +309,32 @@ function MatchesTab({ player, getPlayerName, router }: { player: PlayerDetail; g
   );
 }
 
-// ─── Equipment Tab ───────────────────────────────────────────────────
-function EquipmentTab({ player }: { player: PlayerDetail }) {
+// ─── Gear Tab ────────────────────────────────────────────────────────
+function GearTab({ player, router }: { player: PlayerDetail; router: any }) {
   const equipment = (player as any).equipment;
   if (!equipment) return <EmptyState message="No equipment data" />;
 
-  const renderTimeline = (items: { brand: string; from: number; to: number | null }[], label: string) => {
+  const renderTimeline = (items: { brand: string; from: number; to: number | null }[], label: string, icon: string) => {
     if (!items || items.length === 0) return null;
     return (
       <View style={styles.equipSection}>
         <Text style={styles.equipLabel}>{label}</Text>
         {items.map((item, i) => (
           <View key={i} style={styles.equipItem}>
-            <View style={styles.equipDot} />
-            <View style={styles.equipInfo}>
+            <Text style={{ fontSize: 16 }}>{icon}</Text>
+            <TouchableOpacity
+              style={{ flex: 1 }}
+              onPress={() => router.push(`/brand/${encodeURIComponent(item.brand)}`)}
+              activeOpacity={0.7}
+            >
               <Text style={styles.equipBrand}>{item.brand}</Text>
               <Text style={styles.equipYears}>{item.from} — {item.to || 'Present'}</Text>
-            </View>
-            {!item.to && <View style={styles.currentBadge}><Text style={styles.currentText}>Current</Text></View>}
+            </TouchableOpacity>
+            {!item.to && (
+              <View style={styles.currentBadge}>
+                <Text style={styles.currentText}>Current</Text>
+              </View>
+            )}
           </View>
         ))}
       </View>
@@ -330,17 +344,21 @@ function EquipmentTab({ player }: { player: PlayerDetail }) {
   return (
     <View style={styles.card}>
       <Text style={styles.cardTitle}>Equipment & Sponsors</Text>
-      {renderTimeline(equipment.apparel, 'Apparel')}
-      {renderTimeline(equipment.shoes, 'Shoes')}
+      {renderTimeline(equipment.apparel, 'Apparel', '')}
+      {renderTimeline(equipment.shoes, 'Shoes', '')}
       {equipment.racket && (
         <View style={styles.equipSection}>
           <Text style={styles.equipLabel}>Racket</Text>
           <View style={styles.equipItem}>
-            <View style={styles.equipDot} />
-            <View style={styles.equipInfo}>
+            <Text style={{ fontSize: 16 }}>{'\uD83C\uDFBE'}</Text>
+            <TouchableOpacity
+              style={{ flex: 1 }}
+              onPress={() => router.push(`/brand/${encodeURIComponent(equipment.racket.brand)}`)}
+              activeOpacity={0.7}
+            >
               <Text style={styles.equipBrand}>{equipment.racket.brand}</Text>
               <Text style={styles.equipYears}>{equipment.racket.model}</Text>
-            </View>
+            </TouchableOpacity>
           </View>
         </View>
       )}
@@ -348,8 +366,14 @@ function EquipmentTab({ player }: { player: PlayerDetail }) {
         <View style={styles.equipSection}>
           <Text style={styles.equipLabel}>Watch</Text>
           <View style={styles.equipItem}>
-            <View style={styles.equipDot} />
-            <View style={styles.equipInfo}><Text style={styles.equipBrand}>{equipment.watch}</Text></View>
+            <Text style={{ fontSize: 16 }}>{'\u231A'}</Text>
+            <TouchableOpacity
+              style={{ flex: 1 }}
+              onPress={() => router.push(`/brand/${encodeURIComponent(equipment.watch)}`)}
+              activeOpacity={0.7}
+            >
+              <Text style={styles.equipBrand}>{equipment.watch}</Text>
+            </TouchableOpacity>
           </View>
         </View>
       )}
@@ -358,7 +382,14 @@ function EquipmentTab({ player }: { player: PlayerDetail }) {
           <Text style={styles.equipLabel}>Other Sponsors</Text>
           <View style={styles.sponsorRow}>
             {equipment.otherSponsors.map((s: string, i: number) => (
-              <View key={i} style={styles.sponsorPill}><Text style={styles.sponsorText}>{s}</Text></View>
+              <TouchableOpacity
+                key={i}
+                style={styles.sponsorPill}
+                onPress={() => router.push(`/brand/${encodeURIComponent(s)}`)}
+                activeOpacity={0.7}
+              >
+                <Text style={styles.sponsorText}>{s}</Text>
+              </TouchableOpacity>
             ))}
           </View>
         </View>
@@ -367,16 +398,117 @@ function EquipmentTab({ player }: { player: PlayerDetail }) {
   );
 }
 
-// ─── Helpers ─────────────────────────────────────────────────────────
-function StatCard({ label, value }: { label: string; value: string }) {
+// ─── Comments Tab ────────────────────────────────────────────────────
+function CommentsTab({ playerId }: { playerId: number }) {
+  const [comments, setComments] = useState<PlayerComments | null>(null);
+  const [votable, setVotable] = useState(true);
+  const [customInput, setCustomInput] = useState('');
+
+  useEffect(() => {
+    loadComments();
+  }, [playerId]);
+
+  const loadComments = async () => {
+    const c = await getPlayerComments(playerId);
+    setComments(c);
+    const cv = await canVote(playerId);
+    setVotable(cv);
+  };
+
+  const handleVote = async (tag: string) => {
+    if (!votable) {
+      Alert.alert('Cooldown', 'You can vote again in 24 hours');
+      return;
+    }
+    const success = await voteTag(playerId, tag);
+    if (success) {
+      await loadComments();
+    }
+  };
+
+  const handleCustomTag = async () => {
+    const tag = customInput.trim();
+    if (!tag) return;
+    if (!votable) {
+      Alert.alert('Cooldown', 'You can vote again in 24 hours');
+      return;
+    }
+    await addCustomTag(playerId, tag);
+    setCustomInput('');
+    await loadComments();
+  };
+
+  const totalVotes = comments ? Object.values(comments.tags).reduce((a, b) => a + b, 0) : 0;
+  const sortedTags = comments
+    ? Object.entries(comments.tags).sort((a, b) => b[1] - a[1])
+    : [];
+
   return (
-    <View style={styles.statCard}>
-      <Text style={styles.statValue}>{value}</Text>
-      <Text style={styles.statLabel}>{label}</Text>
-    </View>
+    <>
+      {/* Preset Tag Buttons */}
+      <View style={styles.card}>
+        <Text style={styles.cardTitle}>Quick Vote</Text>
+        {!votable && <Text style={styles.cooldownText}>You voted recently. Try again in 24h.</Text>}
+        <View style={styles.tagGrid}>
+          {PRESET_TAGS.map((tag) => (
+            <TouchableOpacity
+              key={tag}
+              style={[styles.tagBtn, !votable && styles.tagBtnDisabled]}
+              onPress={() => handleVote(tag)}
+              activeOpacity={0.7}
+            >
+              <Text style={styles.tagBtnText}>
+                {PRESET_TAG_EMOJIS[tag]} {tag}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </View>
+
+      {/* Custom Tag Input */}
+      <View style={styles.card}>
+        <Text style={styles.cardTitle}>Custom Tag</Text>
+        <View style={styles.customInputRow}>
+          <TextInput
+            style={styles.customInput}
+            placeholder="Add your tag..."
+            placeholderTextColor="#666"
+            value={customInput}
+            onChangeText={setCustomInput}
+            maxLength={30}
+          />
+          <TouchableOpacity style={styles.customSubmitBtn} onPress={handleCustomTag} activeOpacity={0.7}>
+            <Text style={styles.customSubmitText}>Add</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      {/* Rankings */}
+      {sortedTags.length > 0 && (
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>Popular Tags</Text>
+          {sortedTags.map(([tag, count], idx) => {
+            const pct = totalVotes > 0 ? ((count / totalVotes) * 100).toFixed(1) : '0';
+            const emoji = PRESET_TAG_EMOJIS[tag] || '';
+            return (
+              <View key={tag} style={styles.tagRankRow}>
+                <Text style={styles.tagRankNum}>#{idx + 1}</Text>
+                <Text style={styles.tagRankName}>{emoji} {tag}</Text>
+                <View style={styles.tagBarWrap}>
+                  <View style={[styles.tagBarFill, { width: `${pct}%` }]} />
+                </View>
+                <Text style={styles.tagRankPct}>{pct}%</Text>
+                <Text style={styles.tagRankCount}>{formatCount(count)}</Text>
+              </View>
+            );
+          })}
+        </View>
+      )}
+    </>
   );
 }
 
+// ─── Helpers ─────────────────────────────────────────────────────────
 function InfoRow({ label, value }: { label: string; value: string }) {
   return (
     <View style={styles.infoRow}>
@@ -393,6 +525,7 @@ export default function PlayerDetailScreen() {
   const { getPlayerName, resolvedLanguage } = useLanguage();
   const [isFav, setIsFav] = useState(false);
   const [activeTab, setActiveTab] = useState<TabKey>('overview');
+  const [hotTag, setHotTag] = useState<{ tag: string; emoji: string; count: number } | null>(null);
 
   const { data: player, isLoading, error } = useQuery<PlayerDetail>({
     queryKey: ['player', id],
@@ -403,7 +536,10 @@ export default function PlayerDetailScreen() {
   });
 
   useEffect(() => {
-    if (id) isFavorite(parseInt(id)).then(setIsFav);
+    if (id) {
+      isFavorite(parseInt(id)).then(setIsFav);
+      getHotTag(parseInt(id)).then(setHotTag);
+    }
   }, [id]);
 
   const handleToggleFavorite = useCallback(async () => {
@@ -436,8 +572,13 @@ export default function PlayerDetailScreen() {
     { key: 'overview', label: 'Overview' },
     { key: 'stats', label: 'Stats' },
     { key: 'matches', label: 'Matches' },
-    { key: 'equipment', label: 'Equipment' },
+    { key: 'gear', label: 'Gear' },
+    { key: 'comments', label: 'Comments' },
   ];
+
+  // Calculate age
+  const birthYear = player.birthdate ? new Date(player.birthdate).getFullYear() : null;
+  const age = birthYear ? new Date().getFullYear() - birthYear : null;
 
   return (
     <>
@@ -446,7 +587,7 @@ export default function PlayerDetailScreen() {
           title: getPlayerName(player),
           headerRight: () => (
             <TouchableOpacity onPress={handleToggleFavorite} style={{ padding: 8, marginRight: 4 }}>
-              <Text style={{ fontSize: 18, color: isFav ? '#ef4444' : '#6b7280' }}>{isFav ? '♥' : '♡'}</Text>
+              <Text style={{ fontSize: 18, color: isFav ? '#ef4444' : '#666' }}>{isFav ? '\u2665' : '\u2661'}</Text>
             </TouchableOpacity>
           ),
         }}
@@ -454,13 +595,25 @@ export default function PlayerDetailScreen() {
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
         {/* Header */}
         <View style={styles.header}>
-          <Image source={{ uri: avatarUrl }} style={styles.avatar} />
+          <View style={styles.bigAvatar}>
+            <Image source={{ uri: avatarUrl }} style={styles.avatarImage} />
+          </View>
           <Text style={styles.playerName}>{getPlayerName(player)}</Text>
           {resolvedLanguage !== 'en' && getPlayerName(player) !== player.name && (
             <Text style={styles.playerNameEn}>{player.name}</Text>
           )}
-          <Text style={styles.playerCountry}>{player.countryFlag} {player.country}</Text>
-          <Text style={styles.rankBig}>#{player.ranking}</Text>
+          <Text style={styles.subtitle}>
+            {player.countryFlag} {player.country}
+            {age ? ` \u2022 Age ${age}` : ''}
+            {player.plays ? ` \u2022 ${player.plays}` : ''}
+          </Text>
+          {hotTag && (
+            <View style={styles.hotTagBadge}>
+              <Text style={styles.hotTagText}>
+                {hotTag.emoji} {hotTag.tag} ({formatCount(hotTag.count)})
+              </Text>
+            </View>
+          )}
         </View>
 
         {/* Tab Bar */}
@@ -482,7 +635,8 @@ export default function PlayerDetailScreen() {
           {activeTab === 'overview' && <OverviewTab player={player} />}
           {activeTab === 'stats' && <StatsTab player={player} />}
           {activeTab === 'matches' && <MatchesTab player={player} getPlayerName={getPlayerName} router={router} />}
-          {activeTab === 'equipment' && <EquipmentTab player={player} />}
+          {activeTab === 'gear' && <GearTab player={player} router={router} />}
+          {activeTab === 'comments' && <CommentsTab playerId={parseInt(id)} />}
         </View>
       </ScrollView>
     </>
@@ -499,43 +653,55 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 20,
     paddingBottom: 16,
-    backgroundColor: '#1e1e1e',
-    borderBottomWidth: 0.5,
-    borderBottomColor: '#2a2a2a',
+    paddingHorizontal: 16,
+    background: '#1e1e1e',
   },
-  avatar: {
+  bigAvatar: {
     width: AVATAR_SIZE,
     height: AVATAR_SIZE,
     borderRadius: AVATAR_SIZE / 2,
+    borderWidth: 3,
+    borderColor: '#2a2a2a',
+    overflow: 'hidden',
     marginBottom: 12,
+  },
+  avatarImage: {
+    width: AVATAR_SIZE - 6,
+    height: AVATAR_SIZE - 6,
+    borderRadius: (AVATAR_SIZE - 6) / 2,
   },
   playerName: {
     fontSize: 22,
-    fontWeight: '600',
+    fontWeight: '700',
     color: '#ffffff',
-    marginBottom: 2,
+    marginBottom: 4,
   },
   playerNameEn: {
     fontSize: 14,
-    color: '#6b7280',
-    marginBottom: 2,
+    color: '#666',
+    marginBottom: 4,
   },
-  playerCountry: {
-    fontSize: 14,
-    color: '#9ca3af',
-    marginBottom: 6,
+  subtitle: {
+    fontSize: 13,
+    color: '#888',
+    marginBottom: 8,
   },
-  rankBig: {
-    fontSize: 24,
-    fontWeight: '700',
+  hotTagBadge: {
+    backgroundColor: 'rgba(22,163,74,0.12)',
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    borderRadius: 12,
+  },
+  hotTagText: {
+    fontSize: 11,
     color: '#16a34a',
+    fontWeight: '500',
   },
 
   // Tab Bar
   tabBar: {
     flexDirection: 'row',
-    backgroundColor: '#1e1e1e',
-    borderBottomWidth: 0.5,
+    borderBottomWidth: 1,
     borderBottomColor: '#2a2a2a',
   },
   tab: {
@@ -551,7 +717,7 @@ const styles = StyleSheet.create({
   tabText: {
     fontSize: 13,
     fontWeight: '500',
-    color: '#6b7280',
+    color: '#666',
   },
   tabTextActive: {
     color: '#16a34a',
@@ -561,29 +727,32 @@ const styles = StyleSheet.create({
     padding: 16,
   },
 
-  // Stats Grid
+  // Stats Grid (6-cell, 3 columns)
   statsGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 8,
+    backgroundColor: '#2a2a2a',
+    borderRadius: 10,
+    overflow: 'hidden',
+    gap: 1,
     marginBottom: 16,
   },
-  statCard: {
+  statCell: {
     backgroundColor: '#1e1e1e',
-    borderRadius: 10,
-    padding: 14,
-    width: (SCREEN_WIDTH - 48) / 2,
+    width: (SCREEN_WIDTH - 34) / 3,
+    paddingVertical: 16,
+    paddingHorizontal: 12,
     alignItems: 'center',
   },
-  statValue: {
-    fontSize: 22,
+  statNumber: {
+    fontSize: 24,
     fontWeight: '700',
-    color: '#ffffff',
-    marginBottom: 4,
+    color: '#fff',
   },
   statLabel: {
-    fontSize: 12,
-    color: '#6b7280',
+    fontSize: 11,
+    color: '#888',
+    marginTop: 4,
   },
 
   // Card
@@ -594,17 +763,10 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   cardTitle: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: '600',
     color: '#ffffff',
     marginBottom: 12,
-  },
-  subTitle: {
-    fontSize: 13,
-    fontWeight: '500',
-    color: '#9ca3af',
-    marginTop: 12,
-    marginBottom: 8,
   },
 
   // Info rows
@@ -615,67 +777,64 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: '#2a2a2a',
   },
-  infoLabel: { fontSize: 14, color: '#9ca3af' },
+  infoLabel: { fontSize: 14, color: '#888' },
   infoValue: { fontSize: 14, color: '#ffffff', fontWeight: '500', flexShrink: 1, textAlign: 'right', marginLeft: 12 },
-
-  // Form
-  formText: { fontSize: 13, color: '#9ca3af', lineHeight: 20, fontStyle: 'italic' },
 
   // Chart pills
   pillRow: { flexDirection: 'row', gap: 6, marginBottom: 4 },
   pill: { paddingHorizontal: 12, paddingVertical: 5, borderRadius: 8, backgroundColor: '#121212' },
   pillActive: { backgroundColor: '#16a34a' },
-  pillText: { fontSize: 12, fontWeight: '600', color: '#6b7280' },
+  pillText: { fontSize: 12, fontWeight: '600', color: '#666' },
   pillTextActive: { color: '#ffffff' },
 
-  // Win/Loss
-  wlRow: { flexDirection: 'row', gap: 8, marginBottom: 4 },
-  wlBox: { flex: 1, backgroundColor: '#121212', borderRadius: 10, padding: 12, alignItems: 'center' },
-  wlValue: { fontSize: 20, fontWeight: '700', color: '#ffffff', marginBottom: 2 },
-  wlLabel: { fontSize: 11, color: '#6b7280', marginBottom: 6 },
-  winBar: { width: '100%', height: 4, backgroundColor: '#ef4444', borderRadius: 2, overflow: 'hidden' },
-  winBarFill: { height: '100%', backgroundColor: '#16a34a', borderRadius: 2 },
-
-  // Surface
-  surfaceRow: { flexDirection: 'row', alignItems: 'center', paddingVertical: 8, borderBottomWidth: 0.5, borderBottomColor: '#2a2a2a' },
-  surfaceDot: { width: 8, height: 8, borderRadius: 4, marginRight: 8 },
-  surfaceLabel: { width: 50, fontSize: 13, color: '#ffffff' },
-  surfaceBarWrap: { flex: 1, height: 6, backgroundColor: '#2a2a2a', borderRadius: 3, overflow: 'hidden', marginHorizontal: 8 },
-  surfaceBarFill: { height: '100%', borderRadius: 3 },
-  surfaceWL: { fontSize: 13, color: '#ffffff', fontWeight: '600', marginRight: 8 },
-  surfacePct: { fontSize: 12, color: '#16a34a', fontWeight: '600', width: 36, textAlign: 'right' },
-
-  // Set stats
-  setRow: { flexDirection: 'row', alignItems: 'center', paddingVertical: 8, borderBottomWidth: 0.5, borderBottomColor: '#2a2a2a' },
-  setLabel: { width: 100, fontSize: 13, color: '#ffffff' },
-  setBarWrap: { flex: 1, height: 6, backgroundColor: '#2a2a2a', borderRadius: 3, overflow: 'hidden', marginHorizontal: 8 },
-  setBarFill: { height: '100%', borderRadius: 3, backgroundColor: '#16a34a' },
-  setPct: { width: 44, fontSize: 13, fontWeight: '700', color: '#16a34a', textAlign: 'right' },
-  setRecord: { width: 56, fontSize: 12, color: '#6b7280', textAlign: 'right' },
+  // Progress bars
+  barRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 12, gap: 8 },
+  barLabel: { width: 60, fontSize: 12, color: '#888' },
+  barTrack: { flex: 1, height: 6, backgroundColor: '#2a2a2a', borderRadius: 3, overflow: 'hidden' },
+  barFill: { height: '100%', backgroundColor: '#16a34a', borderRadius: 3 },
+  barValue: { width: 40, fontSize: 13, fontWeight: '600', textAlign: 'right', color: '#fff' },
+  barPct: { width: 44, fontSize: 13, fontWeight: '700', color: '#16a34a', textAlign: 'right' },
+  barRecord: { width: 56, fontSize: 12, color: '#666', textAlign: 'right' },
 
   // Match items
   matchItem: { backgroundColor: '#1e1e1e', borderRadius: 10, padding: 12, marginBottom: 8 },
   matchMeta: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 6 },
-  matchTournament: { fontSize: 11, color: '#6b7280', textTransform: 'uppercase', letterSpacing: 0.5 },
-  matchRound: { fontSize: 11, color: '#6b7280' },
+  matchTournament: { fontSize: 11, color: '#666', textTransform: 'uppercase', letterSpacing: 0.5 },
+  matchRound: { fontSize: 11, color: '#666' },
   matchContent: { flexDirection: 'row', alignItems: 'center' },
   matchName: { flex: 1, fontSize: 14, color: '#ffffff', textAlign: 'center' },
   matchWin: { color: '#16a34a', fontWeight: '700' },
-  matchLose: { color: '#6b7280' },
+  matchLose: { color: '#666' },
   matchVsScore: { fontSize: 13, fontWeight: '700', color: '#ffffff', marginHorizontal: 8 },
-  matchDate: { textAlign: 'center', color: '#6b7280', fontSize: 11, marginTop: 4 },
+  matchDate: { textAlign: 'center', color: '#666', fontSize: 11, marginTop: 4 },
 
   // Equipment
   equipSection: { marginBottom: 14 },
-  equipLabel: { fontSize: 13, fontWeight: '600', color: '#9ca3af', marginBottom: 8 },
-  equipItem: { flexDirection: 'row', alignItems: 'center', paddingLeft: 4, marginBottom: 8 },
-  equipDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: '#16a34a', marginRight: 12 },
-  equipInfo: { flex: 1 },
-  equipBrand: { fontSize: 14, fontWeight: '500', color: '#ffffff' },
-  equipYears: { fontSize: 12, color: '#6b7280', marginTop: 1 },
-  currentBadge: { backgroundColor: 'rgba(22, 163, 74, 0.15)', borderRadius: 6, paddingHorizontal: 8, paddingVertical: 2 },
-  currentText: { fontSize: 10, color: '#16a34a', fontWeight: '600' },
-  sponsorRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, paddingLeft: 4 },
+  equipLabel: { fontSize: 13, fontWeight: '600', color: '#888', marginBottom: 8 },
+  equipItem: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 8, borderBottomWidth: 1, borderBottomColor: '#1e1e1e' },
+  equipBrand: { fontSize: 13, fontWeight: '500', color: '#16a34a' },
+  equipYears: { fontSize: 12, color: '#666', marginTop: 1 },
+  currentBadge: { backgroundColor: 'rgba(22, 163, 74, 0.12)', borderRadius: 8, paddingHorizontal: 8, paddingVertical: 2 },
+  currentText: { fontSize: 11, color: '#16a34a', fontWeight: '600' },
+  sponsorRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6 },
   sponsorPill: { backgroundColor: '#121212', borderRadius: 8, paddingHorizontal: 10, paddingVertical: 5, borderWidth: 0.5, borderColor: '#2a2a2a' },
-  sponsorText: { fontSize: 13, color: '#ffffff' },
+  sponsorText: { fontSize: 13, color: '#16a34a' },
+
+  // Comments Tab
+  tagGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
+  tagBtn: { backgroundColor: '#121212', borderRadius: 10, paddingHorizontal: 14, paddingVertical: 10, borderWidth: 1, borderColor: '#2a2a2a' },
+  tagBtnDisabled: { opacity: 0.5 },
+  tagBtnText: { fontSize: 13, color: '#fff' },
+  cooldownText: { fontSize: 12, color: '#e53935', marginBottom: 8 },
+  customInputRow: { flexDirection: 'row', gap: 8 },
+  customInput: { flex: 1, backgroundColor: '#121212', borderRadius: 10, paddingHorizontal: 12, paddingVertical: 10, color: '#fff', fontSize: 14 },
+  customSubmitBtn: { backgroundColor: '#16a34a', borderRadius: 10, paddingHorizontal: 16, justifyContent: 'center' },
+  customSubmitText: { color: '#fff', fontWeight: '600', fontSize: 14 },
+  tagRankRow: { flexDirection: 'row', alignItems: 'center', paddingVertical: 8, borderBottomWidth: 0.5, borderBottomColor: '#2a2a2a', gap: 8 },
+  tagRankNum: { width: 28, fontSize: 12, color: '#666', fontWeight: '600' },
+  tagRankName: { width: 110, fontSize: 13, color: '#fff' },
+  tagBarWrap: { flex: 1, height: 6, backgroundColor: '#2a2a2a', borderRadius: 3, overflow: 'hidden' },
+  tagBarFill: { height: '100%', borderRadius: 3, backgroundColor: '#16a34a' },
+  tagRankPct: { width: 40, fontSize: 12, fontWeight: '600', color: '#16a34a', textAlign: 'right' },
+  tagRankCount: { width: 40, fontSize: 11, color: '#666', textAlign: 'right' },
 });
