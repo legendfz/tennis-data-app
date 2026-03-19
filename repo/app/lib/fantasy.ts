@@ -1,5 +1,8 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+// Bracket Prediction scoring (re-exported from predictions.ts for convenience)
+export { PREDICTION_SCORING } from './predictions';
+
 export const SCORING_RULES = {
   matchWin: 10,
   straightSetsBonus: 5,

@@ -113,6 +113,24 @@ export default function FantasyScreen() {
           </TouchableOpacity>
         )}
 
+        {/* Bracket Prediction Entry */}
+        <TouchableOpacity
+          style={[styles.card, styles.predictionCard]}
+          activeOpacity={theme.activeOpacity}
+          onPress={() => router.push('/fantasy/predictions')}
+        >
+          <View style={styles.predictionRow}>
+            <Text style={styles.predictionIcon}>🏆</Text>
+            <View style={styles.predictionInfo}>
+              <Text style={styles.predictionTitle}>Bracket Prediction</Text>
+              <Text style={styles.predictionSubtitle}>
+                Predict QF → Champion for Grand Slams and earn points!
+              </Text>
+            </View>
+            <Text style={styles.arrow}>→</Text>
+          </View>
+        </TouchableOpacity>
+
         {/* Quick Links */}
         <View style={styles.linksRow}>
           <TouchableOpacity
@@ -305,5 +323,34 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: theme.fontWeight.semibold,
     color: theme.accent,
+  },
+  predictionCard: {
+    borderColor: theme.gold + '40',
+  },
+  predictionRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  predictionIcon: {
+    fontSize: 28,
+    marginRight: 12,
+  },
+  predictionInfo: {
+    flex: 1,
+  },
+  predictionTitle: {
+    fontSize: 16,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.text,
+    marginBottom: 3,
+  },
+  predictionSubtitle: {
+    fontSize: theme.fontSize.secondary,
+    color: theme.textSecondary,
+  },
+  arrow: {
+    fontSize: 18,
+    color: theme.textSecondary,
+    marginLeft: 8,
   },
 });

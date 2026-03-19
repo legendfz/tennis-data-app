@@ -91,6 +91,30 @@ export default function RootLayout() {
             animation: 'slide_from_right',
           }}
         />
+        <Stack.Screen
+          name="fantasy/predictions"
+          options={{
+            title: 'Bracket Predictions',
+            headerBackTitle: 'Back',
+            animation: 'slide_from_right',
+          }}
+        />
+        <Stack.Screen
+          name="fantasy/predict/[tournamentId]"
+          options={{
+            title: 'Predict Bracket',
+            headerBackTitle: 'Back',
+            animation: 'slide_from_right',
+          }}
+        />
+        <Stack.Screen
+          name="fantasy/predict-result/[tournamentId]"
+          options={{
+            title: 'Prediction Results',
+            headerBackTitle: 'Back',
+            animation: 'slide_from_right',
+          }}
+        />
       </Stack>
       </LanguageProvider>
     </QueryClientProvider>
