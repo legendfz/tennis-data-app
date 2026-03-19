@@ -4,6 +4,7 @@ export interface TitleEntry {
   surface: string;
   final_opponent: string;
   score: string;
+  round?: string;
   tournamentId?: number;
 }
 
@@ -12,6 +13,7 @@ export interface GrandSlamEntry {
   tournament: string;
   opponent: string;
   score: string;
+  round?: string;
   tournamentId?: number;
 }
 
@@ -21,6 +23,7 @@ export interface SeasonMatchEntry {
   opponent: string;
   result: 'W' | 'L';
   score: string;
+  round?: string;
   matchId?: number;
   tournamentId?: number;
 }
@@ -32,6 +35,7 @@ export interface DecidingSetMatchEntry {
   result: 'W' | 'L';
   score: string;
   decidingSetScore: string;
+  round?: string;
   matchId?: number;
   tournamentId?: number;
 }

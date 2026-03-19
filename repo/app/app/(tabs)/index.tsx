@@ -185,16 +185,19 @@ export default function HomeScreen() {
                   <LiveDot />
                   <Text style={styles.liveText}>LIVE</Text>
                 </View>
+                {match.round ? <Text style={styles.matchRoundLabel}>{match.round}</Text> : null}
               </>
             ) : isFinished ? (
               <>
                 <Text style={styles.scoreFt}>{match.score}</Text>
                 <Text style={styles.statusFt}>FT</Text>
+                {match.round ? <Text style={styles.matchRoundLabel}>{match.round}</Text> : null}
               </>
             ) : (
               <>
                 <Text style={styles.scoreTime}>{(match as any).scheduledTime || '--:--'}</Text>
                 <Text style={styles.statusScheduled}>Scheduled</Text>
+                {match.round ? <Text style={styles.matchRoundLabel}>{match.round}</Text> : null}
               </>
             )}
           </TouchableOpacity>
@@ -518,6 +521,13 @@ const styles = StyleSheet.create({
     height: 7,
     borderRadius: 3.5,
     backgroundColor: '#e53935',
+  },
+
+  // Round label
+  matchRoundLabel: {
+    fontSize: 10,
+    color: '#888',
+    marginTop: 2,
   },
 
   // Court info

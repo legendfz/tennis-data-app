@@ -189,7 +189,10 @@ function GrandSlamsPanel({ data, router }: { data: GrandSlamEntry[]; router: any
             activeOpacity={gs.tournamentId ? 0.7 : 1}
             onPress={() => gs.tournamentId && router.push(`/tournament/${gs.tournamentId}`)}
           >
-            <Text style={[styles.detailTournament, gs.tournamentId && styles.detailTournamentLink]} numberOfLines={1}>{gs.tournament}</Text>
+            <Text style={[styles.detailTournament, gs.tournamentId && styles.detailTournamentLink]} numberOfLines={1}>
+              {gs.tournament}{gs.round ? ` \u2022 ` : ''}
+              {gs.round ? <Text style={styles.roundLabel}>{gs.round}</Text> : null}
+            </Text>
           </TouchableOpacity>
           <View style={{ flex: 1, alignItems: 'flex-end' }}>
             <Text style={styles.detailOpponent}>vs {gs.opponent}</Text>
@@ -274,7 +277,10 @@ function SeasonMatchesPanel({ data, router }: { data: SeasonMatchEntry[]; router
               activeOpacity={m.tournamentId ? 0.7 : 1}
               onPress={(e) => { e.stopPropagation?.(); m.tournamentId && router.push(`/tournament/${m.tournamentId}`); }}
             >
-              <Text style={[styles.detailTournament, m.tournamentId && styles.detailTournamentLink]} numberOfLines={1}>{m.tournament}</Text>
+              <Text style={[styles.detailTournament, m.tournamentId && styles.detailTournamentLink]} numberOfLines={1}>
+                {m.tournament}{m.round ? ` \u2022 ` : ''}
+                {m.round ? <Text style={styles.roundLabel}>{m.round}</Text> : null}
+              </Text>
               <Text style={styles.detailOpponent}>vs {m.opponent}</Text>
             </TouchableOpacity>
             <View style={{ alignItems: 'flex-end' }}>
@@ -305,7 +311,10 @@ function DecidingSetPanel({ data, router }: { data: DecidingSetMatchEntry[]; rou
               activeOpacity={m.tournamentId ? 0.7 : 1}
               onPress={(e) => { e.stopPropagation?.(); m.tournamentId && router.push(`/tournament/${m.tournamentId}`); }}
             >
-              <Text style={[styles.detailTournament, m.tournamentId && styles.detailTournamentLink]} numberOfLines={1}>{m.tournament}</Text>
+              <Text style={[styles.detailTournament, m.tournamentId && styles.detailTournamentLink]} numberOfLines={1}>
+                {m.tournament}{m.round ? ` \u2022 ` : ''}
+                {m.round ? <Text style={styles.roundLabel}>{m.round}</Text> : null}
+              </Text>
               <Text style={styles.detailOpponent}>vs {m.opponent}</Text>
             </TouchableOpacity>
             <View style={{ alignItems: 'flex-end' }}>
@@ -1118,7 +1127,7 @@ const styles = StyleSheet.create({
   matchMeta: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 6 },
   matchTournament: { fontSize: 11, color: '#666', textTransform: 'uppercase', letterSpacing: 0.5 },
   matchTournamentLink: { color: '#60a5fa', textDecorationLine: 'underline' as const },
-  matchRound: { fontSize: 11, color: '#666' },
+  matchRound: { fontSize: 11, color: '#888' },
   matchContent: { flexDirection: 'row', alignItems: 'center' },
   matchName: { flex: 1, fontSize: 14, color: '#ffffff', textAlign: 'center' },
   matchWin: { color: '#fff', fontWeight: '700' },
@@ -1155,4 +1164,5 @@ const styles = StyleSheet.create({
   tagBarFill: { height: '100%', borderRadius: 3, backgroundColor: '#16a34a' },
   tagRankPct: { width: 40, fontSize: 12, fontWeight: '600', color: '#fff', textAlign: 'right' },
   tagRankCount: { width: 40, fontSize: 11, color: '#666', textAlign: 'right' },
+  roundLabel: { fontSize: 11, color: '#888', fontWeight: '400' as const },
 });
