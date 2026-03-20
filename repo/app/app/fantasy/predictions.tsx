@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   card: {
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 12,
     padding: 16,
     marginBottom: 12,

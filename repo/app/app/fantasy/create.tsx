@@ -237,7 +237,7 @@ const styles = StyleSheet.create({
     backgroundColor: theme.bg,
   },
   summary: {
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     padding: 16,
     borderBottomWidth: 1,
     borderBottomColor: theme.border,
@@ -302,7 +302,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   searchInput: {
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 8,
     paddingHorizontal: 14,
     paddingVertical: 10,

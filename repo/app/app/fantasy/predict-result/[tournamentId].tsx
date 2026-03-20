@@ -336,7 +336,7 @@ const styles = StyleSheet.create({
     marginTop: 6,
   },
   totalCard: {
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 12,
     padding: 24,
     alignItems: 'center',
@@ -372,7 +372,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   championCard: {
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 12,
     padding: 20,
     alignItems: 'center',
@@ -423,7 +423,7 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   roundSummary: {
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 10,
     padding: 12,
     marginBottom: 6,
@@ -479,7 +479,7 @@ const styles = StyleSheet.create({
     color: theme.textSecondary,
   },
   roundDetail: {
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 8,
     marginBottom: 8,
     marginTop: -2,
@@ -521,7 +521,7 @@ const styles = StyleSheet.create({
   },
   breakdownCard: {
     marginTop: 20,
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 12,
     padding: 16,
     borderWidth: 1,

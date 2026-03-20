@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   },
   pageTitle: {
     fontSize: theme.fontSize.pageTitle,
-    fontWeight: theme.fontWeight.bold,
+    fontWeight: theme.fontWeight.black,
     color: theme.text,
     paddingHorizontal: theme.spacing.padding,
     paddingBottom: 12,

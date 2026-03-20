@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
   },
   pageTitle: {
     fontSize: theme.fontSize.pageTitle,
-    fontWeight: theme.fontWeight.bold,
+    fontWeight: theme.fontWeight.black,
     color: theme.text,
     paddingHorizontal: theme.spacing.padding,
     paddingBottom: 12,
@@ -184,12 +184,14 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   card: {
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 12,
     padding: 16,
     marginBottom: 12,
     borderWidth: 1,
-    borderColor: theme.border,
+    borderColor: theme.glassBorder,
+    borderTopColor: theme.glassBorderTop,
+    ...theme.glassCardShadow,
   },
   cardHeader: {
     flexDirection: 'row',
@@ -295,12 +297,14 @@ const styles = StyleSheet.create({
   },
   linkCard: {
     flex: 1,
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 12,
     padding: 16,
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: theme.border,
+    borderColor: theme.glassBorder,
+    borderTopColor: theme.glassBorderTop,
+    ...theme.glassCardShadow,
   },
   linkIcon: {
     fontSize: 24,
@@ -312,12 +316,13 @@ const styles = StyleSheet.create({
     color: theme.text,
   },
   editButton: {
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 10,
     padding: 14,
     alignItems: 'center',
     borderWidth: 1,
     borderColor: theme.accent + '40',
+    ...theme.glassCardShadow,
   },
   editButtonText: {
     fontSize: 14,

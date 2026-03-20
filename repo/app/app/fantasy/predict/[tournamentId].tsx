@@ -533,7 +533,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 8,
     paddingVertical: 10,
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderBottomWidth: 1,
     borderBottomColor: theme.border,
     justifyContent: 'space-around',
@@ -587,7 +587,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 4,
     borderRadius: 8,
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderWidth: 1,
     borderColor: theme.border,
     alignItems: 'center',
@@ -616,7 +616,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   matchCard: {
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 10,
     padding: 10,
     borderWidth: 1,
@@ -670,7 +670,7 @@ const styles = StyleSheet.create({
   },
   scoringCard: {
     marginTop: 16,
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 8,
     padding: 12,
     borderWidth: 1,
@@ -690,7 +690,7 @@ const styles = StyleSheet.create({
   },
   championBox: {
     marginTop: 16,
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 12,
     padding: 20,
     alignItems: 'center',
@@ -732,7 +732,7 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   prevBtn: {
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 10,
     padding: 14,
     alignItems: 'center',
@@ -752,7 +752,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   nextBtnDisabled: {
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderWidth: 1,
     borderColor: theme.border,
   },
@@ -769,7 +769,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   submitBtnDisabled: {
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderWidth: 1,
     borderColor: theme.border,
   },
@@ -793,7 +793,7 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   resetBtn: {
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 10,
     padding: 14,
     alignItems: 'center',

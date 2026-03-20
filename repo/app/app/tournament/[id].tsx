@@ -749,7 +749,7 @@ const styles = StyleSheet.create({
   // Year
   yearScroll: { maxHeight: 48, borderBottomWidth: 0.5, borderBottomColor: theme.border },
   yearRow: { paddingHorizontal: 12, paddingVertical: 8, gap: 6 },
-  yearPill: { backgroundColor: theme.card, borderRadius: 8, paddingHorizontal: 14, paddingVertical: 6 },
+  yearPill: { backgroundColor: theme.glass, borderRadius: 8, paddingHorizontal: 14, paddingVertical: 6 },
   yearPillActive: { backgroundColor: theme.accent },
   yearPillText: { fontSize: 13, color: theme.textTertiary, fontWeight: '500' },
   yearPillTextActive: { color: theme.text, fontWeight: '600' },
@@ -757,7 +757,7 @@ const styles = StyleSheet.create({
   // Tabs
   tabRow: {
     flexDirection: 'row',
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderBottomWidth: 0.5,
     borderBottomColor: theme.border,
   },
@@ -774,7 +774,7 @@ const styles = StyleSheet.create({
 
   // Champion
   championCard: {
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 10,
     marginHorizontal: 16,
     marginTop: 16,
@@ -792,11 +792,11 @@ const styles = StyleSheet.create({
   roundSection: { marginTop: 16, paddingHorizontal: 16 },
   roundHeader: { flexDirection: 'row', alignItems: 'center', marginBottom: 10, gap: 8 },
   roundTitle: { fontSize: 16, fontWeight: '600', color: theme.text },
-  roundAbbrev: { fontSize: 11, color: theme.textTertiary, backgroundColor: theme.card, borderRadius: 4, paddingHorizontal: 6, paddingVertical: 2 },
+  roundAbbrev: { fontSize: 11, color: theme.textTertiary, backgroundColor: theme.glass, borderRadius: 4, paddingHorizontal: 6, paddingVertical: 2 },
   matchCount: { fontSize: 11, color: theme.textTertiary, marginLeft: 'auto' },
 
   // Bracket Match
-  bracketMatch: { backgroundColor: theme.card, borderRadius: 10, overflow: 'hidden', marginBottom: 8 },
+  bracketMatch: { backgroundColor: theme.glass, borderRadius: 10, overflow: 'hidden', marginBottom: 8 },
   finalMatch: { borderWidth: 1, borderColor: theme.gold },
   finalBanner: { backgroundColor: '#f59e0b', paddingVertical: 4, alignItems: 'center' },
   finalBannerText: { color: theme.text, fontSize: 11, fontWeight: '700', letterSpacing: 1 },
@@ -815,7 +815,7 @@ const styles = StyleSheet.create({
   scoreText: { color: theme.text, fontSize: 12, fontWeight: '600' },
 
   // Results
-  resultMatch: { backgroundColor: theme.card, borderRadius: 10, marginBottom: 8, padding: 10 },
+  resultMatch: { backgroundColor: theme.glass, borderRadius: 10, marginBottom: 8, padding: 10 },
   resultRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 4 },
   resultAvatar: { width: 28, height: 28, borderRadius: 14 },
   resultName: { fontSize: 13, color: theme.text, flex: 1 },
@@ -840,7 +840,7 @@ const styles = StyleSheet.create({
 const bk = StyleSheet.create({
   cell: {
     width: CELL_W,
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 6,
     overflow: 'hidden',
   },

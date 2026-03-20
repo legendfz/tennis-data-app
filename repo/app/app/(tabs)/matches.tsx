@@ -217,8 +217,10 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   chip: {
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 8,
+    borderWidth: 1,
+    borderColor: theme.glassBorder,
     paddingHorizontal: 12,
     paddingVertical: 6,
     minHeight: 32,
@@ -242,7 +244,7 @@ const styles = StyleSheet.create({
   sectionHeaderWrap: {
     backgroundColor: theme.bg,
     paddingHorizontal: theme.spacing.padding,
-    paddingTop: theme.spacing.padding,
+    paddingTop: 20,
     paddingBottom: 6,
   },
   sectionHeader: {
@@ -253,13 +255,17 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
   },
   matchRow: {
-    backgroundColor: theme.card,
-    marginHorizontal: 0,
-    borderBottomWidth: 0.5,
-    borderBottomColor: theme.border,
+    backgroundColor: theme.glass,
+    marginHorizontal: theme.spacing.padding,
+    marginVertical: 4,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: theme.glassBorder,
+    borderTopColor: theme.glassBorderTop,
     paddingHorizontal: theme.spacing.padding,
     paddingVertical: 10,
     minHeight: 56,
+    ...theme.glassCardShadow,
   },
   matchMeta: {
     flexDirection: 'row',
@@ -268,7 +274,8 @@ const styles = StyleSheet.create({
   },
   matchTournament: {
     fontSize: 11,
-    color: theme.textTertiary,
+    color: '#555',
+    letterSpacing: 1,
   },
   matchRound: {
     fontSize: 11,
@@ -293,22 +300,26 @@ const styles = StyleSheet.create({
   },
   bold: {
     fontWeight: theme.fontWeight.bold,
+    color: theme.winnerText,
   },
   dim: {
-    color: theme.textTertiary,
+    color: theme.loserText,
+    fontWeight: theme.fontWeight.regular,
   },
   matchCenter: {
     alignItems: 'center',
     minWidth: 70,
   },
   matchScore: {
-    fontSize: theme.fontSize.body,
-    fontWeight: theme.fontWeight.bold,
+    fontSize: 17,
+    fontWeight: theme.fontWeight.extrabold,
     color: theme.text,
   },
   ft: {
     fontSize: theme.fontSize.small,
     color: theme.textTertiary,
+    fontWeight: theme.fontWeight.regular,
+    opacity: 0.5,
     marginTop: 1,
   },
 });

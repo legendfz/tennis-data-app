@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   table: {
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 10,
     overflow: 'hidden',
     borderWidth: 1,
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     color: theme.gold,
   },
   card: {
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 10,
     padding: 14,
     marginBottom: 12,
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     fontWeight: theme.fontWeight.bold,
   },
   faqItem: {
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 10,
     padding: 14,
     marginBottom: 10,

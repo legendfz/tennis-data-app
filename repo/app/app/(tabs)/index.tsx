@@ -231,7 +231,7 @@ export default function HomeScreen() {
             accessibilityLabel={`View ${p1Name}`}
             accessibilityRole="link"
           >
-            <View style={[!p1Won && p2Won && { opacity: 0.5 }]}>
+            <View style={[!p1Won && p2Won && { opacity: 0.35 }]}>
               <PlayerAvatar name={match.player1?.name || 'P1'} photoUrl={match.player1?.photoUrl} size={40} ranking={match.player1?.ranking} />
             </View>
             <Flag country={match.player1?.country || ''} countryFlag={match.player1?.countryFlag} size={12} />
@@ -314,7 +314,7 @@ export default function HomeScreen() {
             </Text>
             {p2Won && <View style={styles.winnerBadge} />}
             <Flag country={match.player2?.country || ''} countryFlag={match.player2?.countryFlag} size={12} />
-            <View style={[!p2Won && p1Won && { opacity: 0.5 }]}>
+            <View style={[!p2Won && p1Won && { opacity: 0.35 }]}>
               <PlayerAvatar name={match.player2?.name || 'P2'} photoUrl={match.player2?.photoUrl} size={40} ranking={match.player2?.ranking} />
             </View>
           </TouchableOpacity>
@@ -393,6 +393,9 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <CourtBackground />
+      {/* Subtle background glow orbs */}
+      <View style={styles.glowOrb1} pointerEvents="none" />
+      <View style={styles.glowOrb2} pointerEvents="none" />
       <ScrollView
         style={styles.scroll}
         contentContainerStyle={styles.content}
@@ -517,6 +520,9 @@ export default function HomeScreen() {
 }
 
 const cursor = Platform.OS === 'web' ? ({ cursor: 'pointer' } as any) : {};
+const webGlass = Platform.OS === 'web'
+  ? ({ backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' } as any)
+  : {};
 
 const styles = StyleSheet.create({
   container: {
@@ -540,8 +546,26 @@ const styles = StyleSheet.create({
   },
   pageTitle: {
     fontSize: theme.fontSize.pageTitle,
-    fontWeight: theme.fontWeight.bold,
+    fontWeight: theme.fontWeight.black,
     color: theme.text,
+  },
+  glowOrb1: {
+    position: 'absolute',
+    top: 0,
+    left: '20%',
+    width: 300,
+    height: 300,
+    borderRadius: 150,
+    backgroundColor: 'rgba(26,122,58,0.03)',
+  },
+  glowOrb2: {
+    position: 'absolute',
+    bottom: 100,
+    right: 0,
+    width: 200,
+    height: 200,
+    borderRadius: 100,
+    backgroundColor: 'rgba(74,154,138,0.02)',
   },
 
   // Tour Filter
@@ -579,7 +603,8 @@ const styles = StyleSheet.create({
   // Date Pills
   datePillsRow: {
     paddingHorizontal: 12,
-    paddingVertical: 12,
+    paddingTop: 4,
+    paddingBottom: 12,
     gap: 6,
     flexDirection: 'row',
   },
@@ -597,6 +622,10 @@ const styles = StyleSheet.create({
   datePillActive: {
     backgroundColor: theme.accent,
     borderColor: theme.accent,
+    shadowColor: '#1a7a3a',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
   },
   datePillText: {
     fontSize: 13,
@@ -613,18 +642,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: theme.spacing.padding,
-    paddingTop: theme.spacing.padding,
+    paddingTop: 20,
     paddingBottom: 8,
     gap: 8,
     minHeight: 44,
     ...cursor,
   },
   sectionHeader: {
-    fontSize: 13,
+    fontSize: 11,
     fontWeight: theme.fontWeight.semibold,
-    color: theme.textSecondary,
+    color: '#555',
     textTransform: 'uppercase',
-    letterSpacing: 0.5,
+    letterSpacing: 1,
     flexShrink: 1,
   },
   sectionHeaderLink: {
@@ -659,7 +688,10 @@ const styles = StyleSheet.create({
     backgroundColor: theme.glass,
     borderWidth: 1,
     borderColor: theme.glassBorder,
+    borderTopColor: theme.glassBorderTop,
     minHeight: 44,
+    ...theme.glassCardShadow,
+    ...webGlass,
     ...cursor,
   },
   matchRowLive: {
@@ -701,18 +733,18 @@ const styles = StyleSheet.create({
     flexShrink: 1,
   },
   playerNameWinner: {
-    color: theme.text,
+    color: theme.winnerText,
     fontWeight: theme.fontWeight.bold,
   },
   playerNameLoser: {
-    color: theme.textSecondary,
+    color: theme.loserText,
     fontWeight: theme.fontWeight.regular,
   },
   winnerBadge: {
     width: 5,
     height: 5,
     borderRadius: 2.5,
-    backgroundColor: theme.text,
+    backgroundColor: theme.winnerDot,
   },
 
   // Score
@@ -730,7 +762,7 @@ const styles = StyleSheet.create({
     color: theme.red,
   },
   scoreFt: {
-    fontSize: 15,
+    fontSize: 17,
     fontWeight: theme.fontWeight.extrabold,
     color: theme.text,
     letterSpacing: 2,
@@ -743,11 +775,15 @@ const styles = StyleSheet.create({
   statusFt: {
     fontSize: theme.fontSize.small,
     color: theme.textSecondary,
+    fontWeight: theme.fontWeight.regular,
+    opacity: 0.5,
     marginTop: 2,
   },
   statusScheduled: {
     fontSize: theme.fontSize.small,
     color: theme.textSecondary,
+    fontWeight: theme.fontWeight.regular,
+    opacity: 0.5,
     marginTop: 2,
   },
   liveStatus: {
@@ -772,6 +808,8 @@ const styles = StyleSheet.create({
   matchRoundLabel: {
     fontSize: theme.fontSize.small,
     color: theme.textSecondary,
+    fontWeight: theme.fontWeight.regular,
+    opacity: 0.5,
     marginTop: 2,
   },
 

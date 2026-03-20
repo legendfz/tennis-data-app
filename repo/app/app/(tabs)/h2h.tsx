@@ -181,7 +181,7 @@ export default function H2HTabScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: theme.bg },
   content: { paddingBottom: 40, paddingTop: 50 },
-  pageTitle: { fontSize: theme.fontSize.pageTitle, fontWeight: theme.fontWeight.semibold, color: theme.text, textAlign: 'center', marginBottom: 4 },
+  pageTitle: { fontSize: theme.fontSize.pageTitle, fontWeight: theme.fontWeight.black, color: theme.text, textAlign: 'center', marginBottom: 4 },
   subtitle: { fontSize: 13, color: theme.textSecondary, textAlign: 'center', marginBottom: theme.spacing.padding },
   selectorsRow: { flexDirection: 'row', paddingHorizontal: 12, marginTop: 8, zIndex: 10 },
   vsMiddle: { justifyContent: 'center', alignItems: 'center', paddingHorizontal: 6, paddingTop: 28 },
@@ -189,8 +189,10 @@ const styles = StyleSheet.create({
   selectorContainer: { marginBottom: theme.spacing.padding },
   selectorLabel: { fontSize: 11, fontWeight: theme.fontWeight.semibold, color: theme.textSecondary, marginBottom: 8, textTransform: 'uppercase', letterSpacing: 1 },
   searchInput: {
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 10,
+    borderWidth: 1,
+    borderColor: theme.glassBorder,
     paddingHorizontal: 12,
     paddingVertical: 10,
     color: theme.text,
@@ -203,6 +205,7 @@ const styles = StyleSheet.create({
     marginTop: 4,
     maxHeight: 250,
     zIndex: 100,
+    ...theme.glassCardShadow,
   },
   dropdownScroll: { maxHeight: 250 },
   dropdownItem: {
@@ -219,12 +222,13 @@ const styles = StyleSheet.create({
   selectedCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 10,
     padding: 10,
     borderWidth: 1,
     borderColor: theme.accent,
     minHeight: 44,
+    ...theme.glassCardShadow,
   },
   selectedAvatar: { width: 36, height: 36, borderRadius: 18, marginRight: 10 },
   selectedInfo: { flex: 1 },
@@ -244,9 +248,13 @@ const styles = StyleSheet.create({
   popularSection: {
     marginTop: 28,
     marginHorizontal: theme.spacing.padding,
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 10,
     padding: theme.spacing.padding,
+    borderWidth: 1,
+    borderColor: theme.glassBorder,
+    borderTopColor: theme.glassBorderTop,
+    ...theme.glassCardShadow,
   },
   popularTitle: { fontSize: theme.fontSize.sectionTitle, fontWeight: theme.fontWeight.semibold, color: theme.text, marginBottom: 12 },
   popularItem: {

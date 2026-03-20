@@ -57,11 +57,15 @@ const tabStyles = StyleSheet.create({
     borderRadius: 1,
     backgroundColor: theme.accent,
     marginTop: 3,
+    shadowColor: theme.accent,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.6,
+    shadowRadius: 6,
   },
 });
 
 const webBlur = Platform.OS === 'web'
-  ? ({ backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)' } as any)
+  ? ({ backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)' } as any)
   : {};
 
 export default function TabLayout() {
@@ -74,7 +78,7 @@ export default function TabLayout() {
         tabBarInactiveTintColor: theme.textSecondary,
         tabBarStyle: {
           backgroundColor: theme.tabBarBg,
-          borderTopColor: theme.glassBorder,
+          borderTopColor: theme.tabBarBorder,
           borderTopWidth: 1,
           height: 68,
           paddingBottom: 8,

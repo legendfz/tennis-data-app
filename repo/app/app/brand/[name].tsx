@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
   header: {
     alignItems: 'center',
     paddingVertical: 24,
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderBottomWidth: 1,
     borderBottomColor: theme.border,
   },
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
   },
   statBox: {
     flex: 1,
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 10,
     padding: 12,
     alignItems: 'center',

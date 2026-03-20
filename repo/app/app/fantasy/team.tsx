@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
   },
   statBox: {
     flex: 1,
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 10,
     padding: 12,
     alignItems: 'center',
@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
   },
   editButton: {
     margin: 16,
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     borderRadius: 10,
     padding: 14,
     alignItems: 'center',

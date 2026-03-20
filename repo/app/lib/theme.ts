@@ -13,9 +13,11 @@ export const theme = {
   skeleton: '#1e1e1e',
 
   // Glass
-  glass: 'rgba(255,255,255,0.03)',
+  glass: 'rgba(255,255,255,0.04)',
   glassBorder: 'rgba(255,255,255,0.06)',
-  tabBarBg: 'rgba(18,18,18,0.92)',
+  glassBorderTop: 'rgba(255,255,255,0.08)',
+  tabBarBg: 'rgba(13,13,13,0.88)',
+  tabBarBorder: 'rgba(255,255,255,0.04)',
 
   // Text — #f0f0f0 instead of pure white to reduce eye strain
   text: '#f0f0f0',
@@ -57,12 +59,26 @@ export const theme = {
     regular: '400' as const,
   },
 
+  // Winner/loser
+  winnerText: '#f0f0f0',
+  loserText: '#3a3a3a',
+  winnerDot: '#1a7a3a',
+
   // Spacing
   spacing: {
     sectionGap: 24,
     cardGap: 12,
     padding: 16,
   },
+
+  // Glass card shadow
+  glassCardShadow: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 12,
+    elevation: 8,
+  } as const,
 
   // Touch targets
   minTouchTarget: 44,
