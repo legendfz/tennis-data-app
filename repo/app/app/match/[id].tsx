@@ -449,6 +449,15 @@ export default function MatchDetailScreen() {
               {match.tournament?.surface ? ` \u2022 ${match.tournament.surface}` : ''}
             </Text>
           </TouchableOpacity>
+          {match.tournament?.id && (
+            <TouchableOpacity
+              activeOpacity={0.7}
+              onPress={() => router.push(`/tournament/${match.tournament!.id}`)}
+              style={styles.viewInDrawRow}
+            >
+              <Text style={styles.viewInDrawText}>View in Draw →</Text>
+            </TouchableOpacity>
+          )}
 
           {/* Next Round Info */}
           {(() => {
@@ -616,6 +625,14 @@ const styles = StyleSheet.create({
   tournamentLabelLink: {
     color: theme.linkBlue,
     textDecorationLine: 'underline' as const,
+  },
+  viewInDrawRow: {
+    marginBottom: 8,
+  },
+  viewInDrawText: {
+    fontSize: 12,
+    color: theme.linkBlue,
+    fontWeight: '500',
   },
   nextRoundDetail: {
     fontSize: 12,

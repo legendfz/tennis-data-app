@@ -211,12 +211,24 @@ export default function HomeScreen() {
                   <Text style={styles.liveText}>{t('live')}</Text>
                 </View>
                 {match.round ? <Text style={styles.matchRoundLabel}>{match.round}</Text> : null}
+                {match.tournament?.id && (
+                  <Text
+                    style={styles.drawLink}
+                    onPress={(e) => { e.stopPropagation(); router.push(`/tournament/${match.tournament!.id}`); }}
+                  >Draw</Text>
+                )}
               </>
             ) : isFinished ? (
               <>
                 <Text style={styles.scoreFt}>{match.score}</Text>
                 <Text style={styles.statusFt}>{t('ft')}</Text>
                 {match.round ? <Text style={styles.matchRoundLabel}>{match.round}</Text> : null}
+                {match.tournament?.id && (
+                  <Text
+                    style={styles.drawLink}
+                    onPress={(e) => { e.stopPropagation(); router.push(`/tournament/${match.tournament!.id}`); }}
+                  >Draw</Text>
+                )}
               </>
             ) : (
               <>
@@ -662,6 +674,11 @@ const styles = StyleSheet.create({
   watchLink: {
     fontSize: 11,
     color: theme.linkBlue,
+  },
+  drawLink: {
+    fontSize: 11,
+    color: theme.linkBlue,
+    marginTop: 2,
   },
 
   // Empty
