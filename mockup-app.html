@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=390, initial-scale=1.0, maximum-scale=1.0">
+<title>TennisHQ — App Preview</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { width: 390px; height: 844px; overflow: hidden; background: #0d0d0d; color: #f0f0f0; font-family: 'DM Sans', -apple-system, sans-serif; }
+.app { width: 390px; height: 844px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+
+/* Status bar */
+.statusbar { height: 54px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 8px; font-size: 12px; color: #888; font-weight: 600; }
+
+/* Content */
+.content { flex: 1; overflow-y: auto; scrollbar-width: none; position: relative; }
+.content::-webkit-scrollbar { display: none; }
+
+/* Background glow */
+.bg-glow { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 0; }
+.bg-glow::before { content: ''; position: absolute; top: -50px; left: 20%; width: 250px; height: 250px; border-radius: 50%; background: rgba(26,122,58,0.025); }
+.bg-glow::after { content: ''; position: absolute; bottom: 80px; right: -30px; width: 180px; height: 180px; border-radius: 50%; background: rgba(74,154,138,0.02); }
+
+/* Glass Tab Bar */
+.tabbar { height: 82px; background: rgba(13,13,13,0.88); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-top: 1px solid rgba(255,255,255,0.04); display: flex; align-items: flex-start; justify-content: space-around; padding-top: 10px; flex-shrink: 0; }
+.tab { text-align: center; font-size: 10px; color: #3a3a3a; font-weight: 600; padding: 6px 0; width: 64px; cursor: pointer; transition: color 0.2s; letter-spacing: 0.2px; }
+.tab.active { color: #1a7a3a; }
+.tab .dot { width: 4px; height: 4px; border-radius: 50%; margin: 3px auto 0; }
+.tab.active .dot { background: #1a7a3a; box-shadow: 0 0 6px rgba(26,122,58,0.4); }
+.tab-icon { font-size: 18px; margin-bottom: 2px; }
+
+/* Page header */
+.page-header { padding: 8px 20px 4px; position: relative; z-index: 1; }
+.page-title { font-size: 28px; font-weight: 900; font-family: 'Space Grotesk', sans-serif; }
+.page-sub { font-size: 11px; color: #3a3a3a; margin-top: 1px; font-weight: 500; }
+
+/* Tour filter */
+.tour-filter { display: flex; gap: 6px; padding: 10px 20px 4px; position: relative; z-index: 1; }
+.tour-pill { padding: 6px 16px; border-radius: 18px; font-size: 11px; font-weight: 600; color: #444; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.04); }
+.tour-pill.active { background: rgba(26,122,58,0.12); color: #1a7a3a; border-color: rgba(26,122,58,0.2); }
+
+/* Date pills */
+.dates { display: flex; gap: 6px; padding: 8px 20px 14px; overflow-x: auto; scrollbar-width: none; position: relative; z-index: 1; }
+.dates::-webkit-scrollbar { display: none; }
+.date { padding: 7px 16px; border-radius: 18px; background: rgba(255,255,255,0.03); color: #444; font-size: 12px; font-weight: 600; white-space: nowrap; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.04); }
+.date.active { background: rgba(26,122,58,0.1); color: #1a7a3a; border-color: rgba(26,122,58,0.2); box-shadow: 0 0 8px rgba(26,122,58,0.15); }
+
+/* Section header */
+.section { padding: 18px 20px 6px; display: flex; align-items: center; gap: 8px; position: relative; z-index: 1; }
+.section .logo { width: 22px; height: 22px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 7px; font-weight: 800; color: #fff; flex-shrink: 0; }
+.section .name { font-size: 11px; font-weight: 700; color: #444; letter-spacing: 0.8px; }
+
+/* Glass match card */
+.match { margin: 3px 16px; border-radius: 16px; padding: 14px 14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-top-color: rgba(255,255,255,0.07); position: relative; z-index: 1; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.25); }
+.match.live { border-left: 3px solid rgba(183,28,28,0.5); background: rgba(183,28,28,0.03); }
+.match-inner { display: flex; align-items: center; }
+.m-player { flex: 1; display: flex; align-items: center; gap: 8px; }
+.m-player.right { justify-content: flex-end; }
+.avatar { width: 38px; height: 38px; border-radius: 12px; background: linear-gradient(135deg, #181822, #222233); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #555; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.06); }
+.m-info .name { font-size: 13px; font-weight: 700; color: #f0f0f0; }
+.m-info .name.loser { color: #3a3a3a; font-weight: 400; }
+.m-info .rank { font-size: 9px; color: #3a3a3a; margin-top: 1px; }
+.m-score { width: 76px; text-align: center; flex-shrink: 0; }
+.m-score .sets { font-size: 16px; font-weight: 800; font-family: 'Space Grotesk', sans-serif; color: #f0f0f0; }
+.m-score .sets.live { color: #1a7a3a; }
+.m-score .info { font-size: 9px; color: #3a3a3a; margin-top: 2px; font-weight: 400; opacity: 0.6; }
+.m-meta { font-size: 9px; color: #2a2a2a; margin-top: 6px; padding-left: 46px; }
+.m-meta .link { color: #5a7ab5; }
+.live-dot { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #b71c1c; margin-right: 3px; animation: pulse 1.5s infinite; box-shadow: 0 0 5px rgba(183,28,28,0.3); }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.avatar.loser { opacity: 0.35; }
+.winner-dot { display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: #1a7a3a; margin-left: 4px; vertical-align: middle; }
+
+/* Pages indicator */
+.pages { display: flex; gap: 16px; justify-content: center; padding: 20px; }
+.page-dot { width: 6px; height: 6px; border-radius: 50%; background: #222; }
+.page-dot.active { background: #1a7a3a; }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <div class="statusbar">9:41</div>
+  
+  <div class="content">
+    <div class="bg-glow"></div>
+    
+    <div class="page-header">
+      <div class="page-title">Matches</div>
+      <div class="page-sub">Tuesday, March 18</div>
+    </div>
+
+    <div class="tour-filter">
+      <div class="tour-pill active">ALL</div>
+      <div class="tour-pill">ATP</div>
+      <div class="tour-pill">WTA</div>
+    </div>
+
+    <div class="dates">
+      <div class="date">Mon 17</div>
+      <div class="date active">Tue 18</div>
+      <div class="date">Wed 19</div>
+      <div class="date">Thu 20</div>
+      <div class="date">Fri 21</div>
+      <div class="date">Sat 22</div>
+    </div>
+
+    <!-- LIVE -->
+    <div class="section">
+      <span style="font-size:10px; color:#b71c1c; font-weight:700;"><span class="live-dot"></span> LIVE</span>
+    </div>
+    <div class="match live">
+      <div class="match-inner">
+        <div class="m-player">
+          <div class="avatar">JS</div>
+          <div class="m-info">
+            <div class="name">J. Sinner<span class="winner-dot"></span></div>
+            <div class="rank">🇮🇹 #1</div>
+          </div>
+        </div>
+        <div class="m-score">
+          <div class="sets live">6-4 3-2</div>
+          <div class="info"><span class="live-dot"></span>2nd Set</div>
+        </div>
+        <div class="m-player right">
+          <div class="m-info" style="text-align:right;">
+            <div class="name">C. Alcaraz</div>
+            <div class="rank">🇪🇸 #3</div>
+          </div>
+          <div class="avatar">CA</div>
+        </div>
+      </div>
+      <div class="m-meta">Next: vs Djokovic or Zverev (SF) · <span class="link">Watch →</span> · <span class="link">Draw</span></div>
+    </div>
+
+    <!-- AO -->
+    <div class="section">
+      <div class="logo" style="background:#0091D2;">AO</div>
+      <span class="name">AUSTRALIAN OPEN</span>
+    </div>
+    <div class="match">
+      <div class="match-inner">
+        <div class="m-player">
+          <div class="avatar">ND</div>
+          <div class="m-info">
+            <div class="name">N. Djokovic<span class="winner-dot"></span></div>
+            <div class="rank">🇷🇸 #2</div>
+          </div>
+        </div>
+        <div class="m-score">
+          <div class="sets">6-3 7-5</div>
+          <div class="info">Final · FT · <span class="link" style="color:#5a7ab5;">Draw</span></div>
+        </div>
+        <div class="m-player right">
+          <div class="m-info" style="text-align:right;">
+            <div class="name loser">A. Zverev</div>
+            <div class="rank">🇩🇪 #4</div>
+          </div>
+          <div class="avatar loser">AZ</div>
+        </div>
+      </div>
+    </div>
+    <div class="match">
+      <div class="match-inner">
+        <div class="m-player">
+          <div class="avatar loser">DM</div>
+          <div class="m-info">
+            <div class="name loser">D. Medvedev</div>
+            <div class="rank">🇷🇺 #5</div>
+          </div>
+        </div>
+        <div class="m-score">
+          <div class="sets">4-6 6-3 7-6</div>
+          <div class="info">SF · FT</div>
+        </div>
+        <div class="m-player right">
+          <div class="m-info" style="text-align:right;">
+            <div class="name">T. Fritz<span class="winner-dot"></span></div>
+            <div class="rank">🇺🇸 #12</div>
+          </div>
+          <div class="avatar">TF</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RG -->
+    <div class="section">
+      <div class="logo" style="background:#D2691E;">RG</div>
+      <span class="name">ROLAND GARROS</span>
+    </div>
+    <div class="match">
+      <div class="match-inner">
+        <div class="m-player">
+          <div class="avatar">CA</div>
+          <div class="m-info">
+            <div class="name">C. Alcaraz</div>
+            <div class="rank">🇪🇸 #3</div>
+          </div>
+        </div>
+        <div class="m-score">
+          <div class="sets" style="color:#444;">18:00</div>
+          <div class="info">QF</div>
+        </div>
+        <div class="m-player right">
+          <div class="m-info" style="text-align:right;">
+            <div class="name">S. Tsitsipas</div>
+            <div class="rank">🇬🇷 #11</div>
+          </div>
+          <div class="avatar">ST</div>
+        </div>
+      </div>
+      <div class="m-meta">Ct. Philippe-Chatrier · 2nd match · After Rune vs Ruud</div>
+    </div>
+    <div class="match">
+      <div class="match-inner">
+        <div class="m-player">
+          <div class="avatar">IS</div>
+          <div class="m-info">
+            <div class="name">I. Swiatek</div>
+            <div class="rank">🇵🇱 #1 WTA</div>
+          </div>
+        </div>
+        <div class="m-score">
+          <div class="sets" style="color:#444;">20:30</div>
+          <div class="info">QF</div>
+        </div>
+        <div class="m-player right">
+          <div class="m-info" style="text-align:right;">
+            <div class="name">C. Gauff</div>
+            <div class="rank">🇺🇸 #3 WTA</div>
+          </div>
+          <div class="avatar">CG</div>
+        </div>
+      </div>
+      <div class="m-meta">Ct. Suzanne-Lenglen · 1st match</div>
+    </div>
+
+    <div style="height:20px;"></div>
+  </div>
+
+  <div class="tabbar">
+    <div class="tab active"><div class="tab-icon">⚡</div>Matches<div class="dot"></div></div>
+    <div class="tab"><div class="tab-icon">👤</div>Players</div>
+    <div class="tab"><div class="tab-icon">🏆</div>Tournaments</div>
+    <div class="tab"><div class="tab-icon">⚔️</div>H2H</div>
+    <div class="tab"><div class="tab-icon">⭐</div>Fantasy</div>
+  </div>
+</div>
+
+</body>
+</html>
