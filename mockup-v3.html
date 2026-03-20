@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TennisHQ v3 - After Deep UX Learning</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #080808; color: #f0f0f0; font-family: 'DM Sans', -apple-system, sans-serif; display: flex; gap: 32px; padding: 32px; flex-wrap: wrap; justify-content: center; }
+h2.section-label { color: #666; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin: 24px 0 12px; width: 100%; text-align: center; }
+.phone { width: 390px; height: 844px; background: #0d0d0d; border-radius: 44px; overflow: hidden; border: 2px solid #1a1a1a; position: relative; }
+.phone-label { text-align: center; color: #555; font-size: 11px; margin-bottom: 8px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; }
+.status-bar { height: 50px; }
+.content { height: 710px; overflow-y: auto; scrollbar-width: none; }
+.content::-webkit-scrollbar { display: none; }
+
+/* ===== GLASSMORPHISM TAB BAR ===== */
+.tab-bar { height: 84px; background: rgba(13,13,13,0.92); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-top: 1px solid rgba(255,255,255,0.04); display: flex; align-items: flex-start; justify-content: space-around; padding-top: 10px; }
+.tab-item { text-align: center; font-size: 10px; color: #444; font-weight: 600; padding: 6px 12px; cursor: pointer; transition: all 0.2s; letter-spacing: 0.3px; }
+.tab-item:hover { color: #666; }
+.tab-item.active { color: #1a7a3a; }
+.tab-item .indicator { width: 4px; height: 4px; border-radius: 50%; margin: 3px auto 0; }
+.tab-item.active .indicator { background: #1a7a3a; }
+
+/* ===== GLASS CARD ===== */
+.glass { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.04); backdrop-filter: blur(8px); transition: background 0.2s; }
+.glass:hover { background: rgba(255,255,255,0.045); }
+
+/* ===== TYPOGRAPHY ===== */
+.title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; }
+.score { font-family: 'Space Grotesk', sans-serif; font-weight: 800; }
+.label { font-size: 10px; color: #555; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+.body { font-size: 14px; color: #f0f0f0; }
+.muted { color: #666; }
+.link { color: #5a7ab5; cursor: pointer; }
+.link:hover { text-decoration: underline; }
+
+/* ===== SQUIRCLE AVATARS ===== */
+.avatar { display: flex; align-items: center; justify-content: center; font-weight: 700; color: #666; flex-shrink: 0; overflow: hidden; border: 1.5px solid rgba(255,255,255,0.06); background: linear-gradient(135deg, #181822 0%, #222233 100%); }
+.avatar-sm { width: 40px; height: 40px; border-radius: 12px; font-size: 12px; }
+.avatar-md { width: 52px; height: 52px; border-radius: 16px; font-size: 15px; }
+.avatar-lg { width: 100px; height: 100px; border-radius: 28px; font-size: 32px; }
+.avatar-match { width: 68px; height: 68px; border-radius: 20px; font-size: 20px; }
+
+/* ===== HOME ===== */
+.page-header { padding: 12px 20px 4px; }
+.page-title { font-size: 28px; font-weight: 700; font-family: 'Space Grotesk', sans-serif; color: #f0f0f0; }
+.page-sub { font-size: 12px; color: #444; margin-top: 2px; font-weight: 500; }
+
+/* Tour filter */
+.tour-filter { display: flex; gap: 6px; padding: 12px 20px 4px; }
+.tour-pill { padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; color: #555; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.04); cursor: pointer; transition: all 0.2s; }
+.tour-pill:hover { background: rgba(255,255,255,0.06); }
+.tour-pill.active { background: rgba(26,122,58,0.15); color: #1a7a3a; border-color: rgba(26,122,58,0.3); }
+
+/* Date pills */
+.date-pills { display: flex; gap: 6px; padding: 8px 20px 16px; overflow-x: auto; scrollbar-width: none; }
+.date-pills::-webkit-scrollbar { display: none; }
+.date-pill { padding: 8px 18px; border-radius: 20px; background: rgba(255,255,255,0.03); color: #555; font-size: 12px; font-weight: 600; white-space: nowrap; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.04); cursor: pointer; transition: all 0.2s; }
+.date-pill:hover { background: rgba(255,255,255,0.06); color: #888; }
+.date-pill.active { background: rgba(26,122,58,0.12); color: #1a7a3a; border-color: rgba(26,122,58,0.25); }
+
+/* Tournament header */
+.t-header { display: flex; align-items: center; gap: 10px; padding: 18px 20px 8px; }
+.t-logo { width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 800; color: #fff; }
+.t-name { font-size: 11px; font-weight: 700; color: #555; letter-spacing: 0.8px; cursor: pointer; }
+.t-name:hover { color: #888; }
+
+/* Match card */
+.match-card { margin: 3px 16px; border-radius: 16px; padding: 14px 16px; cursor: pointer; transition: all 0.2s; }
+.match-card:hover { background: rgba(255,255,255,0.045); }
+.match-card.live { border-left: 3px solid rgba(183,28,28,0.6); background: rgba(183,28,28,0.04); }
+.match-inner { display: flex; align-items: center; }
+.m-player { flex: 1; display: flex; align-items: center; gap: 10px; }
+.m-player.right { justify-content: flex-end; }
+.m-name { font-size: 13px; font-weight: 600; }
+.m-name.winner { color: #f0f0f0; font-weight: 700; }
+.m-name.loser { color: #444; }
+.m-rank { font-size: 10px; color: #444; }
+.m-score { width: 80px; text-align: center; flex-shrink: 0; }
+.m-score .sets { font-size: 15px; font-weight: 800; font-family: 'Space Grotesk', sans-serif; color: #f0f0f0; }
+.m-score .sets.live { color: #1a7a3a; }
+.m-score .round { font-size: 9px; color: #444; margin-top: 2px; font-weight: 500; }
+.m-meta { font-size: 10px; color: #333; margin-top: 6px; padding-left: 50px; }
+.live-dot { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #b71c1c; margin-right: 3px; animation: pulse 1.5s infinite; box-shadow: 0 0 6px rgba(183,28,28,0.4); }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+/* ===== PLAYER LIST ===== */
+.search-box { margin: 8px 20px 4px; padding: 11px 16px; border-radius: 14px; color: #444; font-size: 13px; }
+.player-row { display: flex; align-items: center; padding: 10px 20px; gap: 12px; border-radius: 12px; margin: 1px 8px; cursor: pointer; transition: all 0.15s; }
+.player-row:hover { background: rgba(255,255,255,0.03); }
+.p-rank { width: 28px; font-size: 15px; color: #444; text-align: center; font-weight: 800; font-family: 'Space Grotesk', sans-serif; }
+.p-info { flex: 1; }
+.p-name { font-size: 15px; font-weight: 600; color: #f0f0f0; }
+.p-sub { font-size: 11px; color: #444; margin-top: 2px; }
+.p-tag { font-size: 9px; padding: 2px 8px; border-radius: 8px; display: inline-block; margin-top: 3px; font-weight: 600; }
+.rank-change { font-size: 11px; font-weight: 700; }
+
+/* ===== PLAYER DETAIL ===== */
+.hero { padding: 24px 20px; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, #141020 0%, #0d1520 40%, #0d0d0d 100%); z-index: 0; }
+.hero::after { content: ''; position: absolute; top: -20px; right: -20px; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle, rgba(200,220,80,0.03) 0%, transparent 60%); z-index: 0; }
+.hero > * { position: relative; z-index: 1; }
+.hero-name { font-size: 26px; font-weight: 700; font-family: 'Space Grotesk', sans-serif; color: #f0f0f0; margin-top: 14px; }
+.hero-sub { font-size: 12px; color: #555; margin-top: 4px; }
+.hero-tag { font-size: 10px; padding: 4px 12px; border-radius: 10px; display: inline-block; margin-top: 10px; font-weight: 600; }
+
+/* Detail tabs */
+.d-tabs { display: flex; padding: 4px 16px; gap: 4px; }
+.d-tab { flex: 1; text-align: center; padding: 10px 0; font-size: 11px; color: #444; font-weight: 700; border-radius: 12px; cursor: pointer; transition: all 0.2s; letter-spacing: 0.3px; }
+.d-tab:hover { background: rgba(255,255,255,0.03); color: #666; }
+.d-tab.active { color: #f0f0f0; background: rgba(255,255,255,0.05); }
+
+/* Stats grid */
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; padding: 14px 16px; }
+.stat-cell { border-radius: 16px; padding: 16px 10px; text-align: center; cursor: pointer; transition: all 0.2s; position: relative; }
+.stat-cell:hover { background: rgba(255,255,255,0.05); transform: translateY(-1px); }
+.stat-num { font-size: 24px; font-weight: 700; font-family: 'Space Grotesk', sans-serif; color: #f0f0f0; }
+.stat-label { font-size: 9px; color: #555; margin-top: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.stat-arrow { position: absolute; bottom: 6px; right: 8px; font-size: 9px; color: #333; }
+
+/* Surface bars */
+.surf-row { display: flex; align-items: center; padding: 8px 20px; gap: 10px; }
+.surf-label { width: 44px; font-size: 11px; color: #555; font-weight: 600; }
+.surf-track { flex: 1; height: 6px; background: rgba(255,255,255,0.04); border-radius: 3px; overflow: hidden; }
+.surf-fill { height: 100%; border-radius: 3px; }
+.surf-val { width: 36px; font-size: 12px; font-weight: 700; text-align: right; color: #f0f0f0; }
+
+/* ===== MATCH DETAIL ===== */
+.match-hero { padding: 20px; text-align: center; position: relative; overflow: hidden; }
+.match-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, #0d1520 0%, #0d0d0d 100%); z-index: 0; }
+.match-hero > * { position: relative; z-index: 1; }
+.match-tournament { font-size: 11px; color: #1a7a3a; margin-bottom: 16px; font-weight: 600; letter-spacing: 0.5px; cursor: pointer; }
+.versus { display: flex; align-items: center; justify-content: center; gap: 16px; }
+.vs-player { text-align: center; cursor: pointer; }
+.vs-player:hover .vs-name { color: #888; }
+.vs-name { font-size: 14px; font-weight: 700; transition: color 0.15s; }
+.vs-name.winner { color: #f0f0f0; }
+.vs-name.loser { color: #444; }
+.vs-rank { font-size: 10px; color: #444; margin-top: 2px; }
+.big-score { font-size: 32px; font-weight: 800; font-family: 'Space Grotesk', sans-serif; letter-spacing: 3px; color: #f0f0f0; }
+.match-status { font-size: 10px; color: #444; margin-top: 4px; }
+.next-round { font-size: 11px; color: #444; margin-top: 10px; }
+.next-round .link { font-size: 11px; }
+
+/* Compare stats */
+.compare-section { padding: 4px 20px; }
+.compare-title { font-size: 10px; color: #555; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 12px 0 6px; }
+.compare-row { display: flex; align-items: center; padding: 6px 0; }
+.compare-val { width: 40px; font-size: 13px; font-weight: 800; font-family: 'Space Grotesk', sans-serif; }
+.compare-val.left { text-align: right; }
+.compare-val.right { text-align: left; }
+.compare-val.better { color: #f0f0f0; }
+.compare-val.worse { color: #333; }
+.compare-center { width: 72px; text-align: center; font-size: 10px; color: #444; }
+.compare-bars { flex: 1; display: flex; gap: 2px; height: 4px; margin: 0 6px; }
+.bar-l { height: 100%; border-radius: 2px; background: linear-gradient(90deg, #1a7a3a, #4a9a8a); }
+.bar-r { height: 100%; border-radius: 2px; background: rgba(255,255,255,0.04); }
+
+/* Timeline */
+.timeline-header { padding: 14px 20px 4px; font-size: 12px; font-weight: 700; color: #555; font-family: 'Space Grotesk', sans-serif; }
+.timeline-row { display: flex; padding: 0 20px; gap: 4px; overflow-x: auto; scrollbar-width: none; margin-bottom: 2px; }
+.timeline-row::-webkit-scrollbar { display: none; }
+.timeline-label { width: 36px; font-size: 9px; color: #444; font-weight: 700; display: flex; align-items: center; flex-shrink: 0; }
+.game-block { width: 48px; min-width: 48px; height: 38px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; font-family: 'Space Grotesk', sans-serif; border: 1px solid rgba(255,255,255,0.04); color: #f0f0f0; }
+.game-block.empty { background: transparent; border: none; }
+.game-block.normal { background: rgba(255,255,255,0.025); }
+.game-block.contested { background: rgba(201,168,76,0.05); border-color: rgba(201,168,76,0.1); }
+.game-block.battle { background: rgba(183,28,28,0.06); border-color: rgba(183,28,28,0.1); }
+.game-block.break { border-color: rgba(183,28,28,0.4); background: rgba(183,28,28,0.12); }
+.game-dur { font-size: 8px; color: #333; margin-top: 1px; font-weight: 500; font-family: 'DM Sans', sans-serif; }
+.diff-bar { width: 80%; height: 2px; border-radius: 1px; margin-top: 2px; }
+
+/* Probability */
+.prob-card { margin: 12px 16px; padding: 16px; border-radius: 16px; }
+.prob-bar { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+.prob-pct { font-size: 24px; font-weight: 800; font-family: 'Space Grotesk', sans-serif; }
+.prob-track { flex: 1; height: 8px; background: rgba(255,255,255,0.04); border-radius: 4px; overflow: hidden; }
+.prob-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, #1a7a3a, #4a9a8a); }
+.prob-factors { display: flex; gap: 4px; margin-top: 10px; flex-wrap: wrap; }
+.prob-chip { font-size: 9px; padding: 3px 8px; border-radius: 6px; font-weight: 600; }
+.prob-chip.pos { color: #1a7a3a; background: rgba(26,122,58,0.08); }
+.prob-chip.neg { color: #b71c1c; background: rgba(183,28,28,0.08); }
+</style>
+</head>
+<body>
+
+<!-- ===== HOME ===== -->
+<div>
+<div class="phone-label">Home</div>
+<div class="phone">
+  <div class="status-bar"></div>
+  <div class="content">
+    <div class="page-header">
+      <div class="page-title title">Matches</div>
+      <div class="page-sub">Tuesday, March 18</div>
+    </div>
+    <div class="tour-filter">
+      <div class="tour-pill active">ALL</div>
+      <div class="tour-pill">ATP</div>
+      <div class="tour-pill">WTA</div>
+    </div>
+    <div class="date-pills">
+      <div class="date-pill">Mon 17</div>
+      <div class="date-pill active">Tue 18</div>
+      <div class="date-pill">Wed 19</div>
+      <div class="date-pill">Thu 20</div>
+      <div class="date-pill">Fri 21</div>
+    </div>
+
+    <div class="t-header">
+      <div style="font-size:10px; color:#b71c1c; font-weight:700;"><span class="live-dot"></span> LIVE</div>
+    </div>
+    <div class="match-card glass live">
+      <div class="match-inner">
+        <div class="m-player">
+          <div class="avatar avatar-sm">JS</div>
+          <div><div class="m-name winner">J. Sinner</div><div class="m-rank">#1</div></div>
+        </div>
+        <div class="m-score">
+          <div class="sets live score">6-4 3-2</div>
+          <div class="round"><span class="live-dot"></span>2nd Set</div>
+        </div>
+        <div class="m-player right">
+          <div style="text-align:right;"><div class="m-name winner">C. Alcaraz</div><div class="m-rank">#3</div></div>
+          <div class="avatar avatar-sm">CA</div>
+        </div>
+      </div>
+      <div class="m-meta">Next: vs Djokovic or Zverev (SF) · <span class="link">Watch →</span></div>
+    </div>
+
+    <div class="t-header">
+      <div class="t-logo" style="background:#0091D2;">AO</div>
+      <span class="t-name">AUSTRALIAN OPEN</span>
+    </div>
+    <div class="match-card glass">
+      <div class="match-inner">
+        <div class="m-player">
+          <div class="avatar avatar-sm">ND</div>
+          <div><div class="m-name winner">N. Djokovic</div><div class="m-rank">#2</div></div>
+        </div>
+        <div class="m-score">
+          <div class="sets score">6-3 7-5</div>
+          <div class="round">Final · FT · <span class="link">Draw</span></div>
+        </div>
+        <div class="m-player right">
+          <div style="text-align:right;"><div class="m-name loser">A. Zverev</div><div class="m-rank">#4</div></div>
+          <div class="avatar avatar-sm" style="opacity:0.4;">AZ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-header">
+      <div class="t-logo" style="background:#D2691E;">RG</div>
+      <span class="t-name">ROLAND GARROS</span>
+    </div>
+    <div class="match-card glass">
+      <div class="match-inner">
+        <div class="m-player">
+          <div class="avatar avatar-sm">CA</div>
+          <div><div class="m-name">C. Alcaraz</div><div class="m-rank">#3</div></div>
+        </div>
+        <div class="m-score">
+          <div class="sets score" style="color:#555;">18:00</div>
+          <div class="round">QF</div>
+        </div>
+        <div class="m-player right">
+          <div style="text-align:right;"><div class="m-name">S. Tsitsipas</div><div class="m-rank">#11</div></div>
+          <div class="avatar avatar-sm">ST</div>
+        </div>
+      </div>
+      <div class="m-meta">Ct. Philippe-Chatrier · 2nd match · After Rune vs Ruud</div>
+    </div>
+  </div>
+  <div class="tab-bar">
+    <div class="tab-item active">Matches<div class="indicator"></div></div>
+    <div class="tab-item">Players</div>
+    <div class="tab-item">Events</div>
+    <div class="tab-item">H2H</div>
+    <div class="tab-item">Fantasy</div>
+  </div>
+</div>
+</div>
+
+<!-- ===== PLAYERS ===== -->
+<div>
+<div class="phone-label">Players</div>
+<div class="phone">
+  <div class="status-bar"></div>
+  <div class="content">
+    <div class="page-header">
+      <div class="page-title title">Rankings</div>
+      <div class="page-sub">ATP Singles · Updated Today</div>
+    </div>
+    <div class="tour-filter">
+      <div class="tour-pill active">ALL</div>
+      <div class="tour-pill">ATP</div>
+      <div class="tour-pill">WTA</div>
+    </div>
+    <div class="search-box glass" style="display:flex;align-items:center;gap:8px;">Search players...</div>
+
+    <div class="player-row">
+      <div class="p-rank">1</div>
+      <div class="avatar avatar-md">JS</div>
+      <div class="p-info">
+        <div class="p-name">Jannik Sinner 🇮🇹</div>
+        <div class="p-sub">11,830 pts · 45-12</div>
+        <div class="p-tag" style="color:#c9a84c; background:rgba(201,168,76,0.08);">On Fire (2.1k)</div>
+      </div>
+      <div class="rank-change" style="color:#1a7a3a;">▲1</div>
+    </div>
+    <div class="player-row">
+      <div class="p-rank">2</div>
+      <div class="avatar avatar-md" style="background:linear-gradient(135deg,#1a2a1a,#223322);">ND</div>
+      <div class="p-info">
+        <div class="p-name">Novak Djokovic 🇷🇸</div>
+        <div class="p-sub">9,945 pts · 38-8</div>
+        <div class="p-tag" style="color:#4a9a8a; background:rgba(74,154,138,0.08);">GOAT (5.8k)</div>
+      </div>
+      <div class="rank-change" style="color:#b71c1c;">▼1</div>
+    </div>
+    <div class="player-row">
+      <div class="p-rank">3</div>
+      <div class="avatar avatar-md" style="background:linear-gradient(135deg,#2a1a1a,#332222);">CA</div>
+      <div class="p-info">
+        <div class="p-name">Carlos Alcaraz 🇪🇸</div>
+        <div class="p-sub">9,010 pts · 42-10</div>
+        <div class="p-tag" style="color:#8a7ab5; background:rgba(138,122,181,0.08);">Explosive (1.5k)</div>
+      </div>
+      <div class="rank-change" style="color:#333;">—</div>
+    </div>
+    <div class="player-row">
+      <div class="p-rank">4</div>
+      <div class="avatar avatar-md">AZ</div>
+      <div class="p-info">
+        <div class="p-name">Alexander Zverev 🇩🇪</div>
+        <div class="p-sub">7,915 pts · 35-12</div>
+      </div>
+      <div class="rank-change" style="color:#1a7a3a;">▲2</div>
+    </div>
+    <div class="player-row">
+      <div class="p-rank">5</div>
+      <div class="avatar avatar-md" style="background:linear-gradient(135deg,#1a1a22,#222233);">DM</div>
+      <div class="p-info">
+        <div class="p-name">Daniil Medvedev 🇷🇺</div>
+        <div class="p-sub">6,875 pts · 30-14</div>
+      </div>
+      <div class="rank-change" style="color:#b71c1c;">▼1</div>
+    </div>
+  </div>
+  <div class="tab-bar">
+    <div class="tab-item">Matches</div>
+    <div class="tab-item active">Players<div class="indicator"></div></div>
+    <div class="tab-item">Events</div>
+    <div class="tab-item">H2H</div>
+    <div class="tab-item">Fantasy</div>
+  </div>
+</div>
+</div>
+
+<!-- ===== PLAYER DETAIL ===== -->
+<div>
+<div class="phone-label">Player Detail</div>
+<div class="phone">
+  <div class="status-bar"></div>
+  <div class="content">
+    <div class="hero">
+      <div class="avatar avatar-lg" style="margin:0 auto; box-shadow:0 8px 32px rgba(0,0,0,0.4);">ND</div>
+      <div class="hero-name">Novak Djokovic</div>
+      <div class="hero-sub">🇷🇸 Serbia · 37 · Right-Handed</div>
+      <div class="hero-tag" style="color:#c9a84c; background:rgba(201,168,76,0.1);">GOAT · 5.8k votes today</div>
+    </div>
+    <div class="d-tabs">
+      <div class="d-tab active">Overview</div>
+      <div class="d-tab">Stats</div>
+      <div class="d-tab">Matches</div>
+      <div class="d-tab">Gear</div>
+      <div class="d-tab">Votes</div>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-cell glass"><div class="stat-num">#2</div><div class="stat-label">Ranking</div><div class="stat-arrow">›</div></div>
+      <div class="stat-cell glass"><div class="stat-num" style="color:#c9a84c;">24</div><div class="stat-label">Grand Slams</div><div class="stat-arrow">›</div></div>
+      <div class="stat-cell glass"><div class="stat-num">99</div><div class="stat-label">Titles</div><div class="stat-arrow">›</div></div>
+      <div class="stat-cell glass"><div class="stat-num">82%</div><div class="stat-label">Win Rate</div><div class="stat-arrow">›</div></div>
+      <div class="stat-cell glass"><div class="stat-num">45-12</div><div class="stat-label">Season</div><div class="stat-arrow">›</div></div>
+      <div class="stat-cell glass"><div class="stat-num" style="color:#c9a84c;">$182M</div><div class="stat-label">Prize Money</div><div class="stat-arrow">›</div></div>
+    </div>
+    <div style="padding:4px 20px;"><div class="label">Surface Win Rate</div></div>
+    <div class="surf-row"><div class="surf-label">Hard</div><div class="surf-track"><div class="surf-fill" style="width:76%;background:linear-gradient(90deg,#1a7a3a,#4a9a8a);"></div></div><div class="surf-val">76%</div></div>
+    <div class="surf-row"><div class="surf-label">Clay</div><div class="surf-track"><div class="surf-fill" style="width:75%;background:linear-gradient(90deg,#8a5a2a,#c9a84c);"></div></div><div class="surf-val">75%</div></div>
+    <div class="surf-row"><div class="surf-label">Grass</div><div class="surf-track"><div class="surf-fill" style="width:79%;background:linear-gradient(90deg,#1a5a2a,#3a8a4a);"></div></div><div class="surf-val">79%</div></div>
+  </div>
+  <div class="tab-bar">
+    <div class="tab-item">Matches</div>
+    <div class="tab-item active">Players<div class="indicator"></div></div>
+    <div class="tab-item">Events</div>
+    <div class="tab-item">H2H</div>
+    <div class="tab-item">Fantasy</div>
+  </div>
+</div>
+</div>
+
+<!-- ===== MATCH DETAIL ===== -->
+<div>
+<div class="phone-label">Match Detail</div>
+<div class="phone">
+  <div class="status-bar"></div>
+  <div class="content">
+    <div class="match-hero">
+      <div class="match-tournament">AUSTRALIAN OPEN · Final · Hard · <span class="link">View in Draw →</span></div>
+      <div class="versus">
+        <div class="vs-player">
+          <div class="avatar avatar-match" style="margin:0 auto 6px;">ND</div>
+          <div class="vs-name winner">Djokovic</div>
+          <div class="vs-rank">🇷🇸 #2</div>
+        </div>
+        <div>
+          <div class="big-score">6-3 7-5</div>
+          <div class="match-status">FT · 1h 52m</div>
+        </div>
+        <div class="vs-player">
+          <div class="avatar avatar-match" style="margin:0 auto 6px; opacity:0.5;">AZ</div>
+          <div class="vs-name loser">Zverev</div>
+          <div class="vs-rank">🇩🇪 #4</div>
+        </div>
+      </div>
+      <div class="next-round">Djokovic advanced to face <span class="link">Alcaraz (#3)</span> in SF</div>
+    </div>
+    <div class="d-tabs">
+      <div class="d-tab active">Overview</div>
+      <div class="d-tab">Stats</div>
+      <div class="d-tab">Probability</div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline-header">Set 1: 6-3</div>
+    <div style="padding: 0 8px 2px;">
+      <div style="display:flex;">
+        <div class="timeline-label">DJO</div>
+        <div style="display:flex;gap:3px;">
+          <div class="game-block normal">1-0<div class="game-dur">2:15</div><div class="diff-bar" style="background:#1a7a3a;"></div></div>
+          <div class="game-block empty"></div>
+          <div class="game-block contested">2-1<div class="game-dur">4:45</div><div class="diff-bar" style="background:#c9a84c;"></div></div>
+          <div class="game-block empty"></div>
+          <div class="game-block battle break">3-2★<div class="game-dur">7:12</div></div>
+          <div class="game-block normal">4-2<div class="game-dur">1:50</div></div>
+          <div class="game-block empty"></div>
+          <div class="game-block normal">5-3<div class="game-dur">2:45</div></div>
+          <div class="game-block normal">6-3<div class="game-dur">3:10</div></div>
+        </div>
+      </div>
+      <div style="display:flex;">
+        <div class="timeline-label">ZVE</div>
+        <div style="display:flex;gap:3px;">
+          <div class="game-block empty"></div>
+          <div class="game-block normal">1-1<div class="game-dur">3:02</div></div>
+          <div class="game-block empty"></div>
+          <div class="game-block normal">2-2<div class="game-dur">2:30</div></div>
+          <div class="game-block empty"></div>
+          <div class="game-block empty"></div>
+          <div class="game-block contested">4-3<div class="game-dur">5:20</div><div class="diff-bar" style="background:#c9a84c;"></div></div>
+          <div class="game-block empty"></div>
+          <div class="game-block empty"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="compare-section">
+      <div class="compare-title">Serve Stats</div>
+      <div class="compare-row">
+        <div class="compare-val left better">12</div>
+        <div class="compare-bars"><div class="bar-l" style="flex:12;"></div><div class="bar-r" style="flex:8;"></div></div>
+        <div class="compare-center">Aces</div>
+        <div class="compare-bars"><div class="bar-r" style="flex:12;"></div><div class="bar-l" style="flex:8;opacity:0.3;"></div></div>
+        <div class="compare-val right worse">8</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-val left better">72%</div>
+        <div class="compare-bars"><div class="bar-l" style="flex:72;"></div><div class="bar-r" style="flex:28;"></div></div>
+        <div class="compare-center">1st Serve</div>
+        <div class="compare-bars"><div class="bar-r" style="flex:35;"></div><div class="bar-l" style="flex:65;opacity:0.3;"></div></div>
+        <div class="compare-val right worse">65%</div>
+      </div>
+    </div>
+
+    <div class="prob-card glass">
+      <div class="label">Win Probability</div>
+      <div class="prob-bar">
+        <div class="prob-pct" style="color:#1a7a3a;">73%</div>
+        <div class="prob-track"><div class="prob-fill" style="width:73%;"></div></div>
+        <div class="prob-pct" style="color:#333;">27%</div>
+      </div>
+      <div class="prob-factors">
+        <div class="prob-chip pos">Surface +3%</div>
+        <div class="prob-chip pos">Form +2%</div>
+        <div class="prob-chip neg">Weather -1%</div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-bar">
+    <div class="tab-item active">Matches<div class="indicator"></div></div>
+    <div class="tab-item">Players</div>
+    <div class="tab-item">Events</div>
+    <div class="tab-item">H2H</div>
+    <div class="tab-item">Fantasy</div>
+  </div>
+</div>
+</div>
+
+</body>
+</html>
