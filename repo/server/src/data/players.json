@@ -867,7 +867,9 @@
     ],
     "countryCode": "it",
     "careerHighDate": "2024-06",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 0,
+    "previousRanking": 1
   },
   {
     "id": 2,
@@ -2830,7 +2832,9 @@
     ],
     "countryCode": "rs",
     "careerHighDate": "2011-07",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 0,
+    "previousRanking": 2
   },
   {
     "id": 3,
@@ -3652,7 +3656,9 @@
     ],
     "countryCode": "es",
     "careerHighDate": "2022-09",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 1,
+    "previousRanking": 2
   },
   {
     "id": 4,
@@ -4627,7 +4633,9 @@
     ],
     "countryCode": "de",
     "careerHighDate": "2022-02",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": -1,
+    "previousRanking": 5
   },
   {
     "id": 5,
@@ -5572,7 +5580,9 @@
     ],
     "countryCode": "ru",
     "careerHighDate": "2022-02",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": -1,
+    "previousRanking": 6
   },
   {
     "id": 6,
@@ -6491,7 +6501,9 @@
     ],
     "countryCode": "ru",
     "careerHighDate": "2023-09",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": -1,
+    "previousRanking": 7
   },
   {
     "id": 7,
@@ -7367,7 +7379,9 @@
     ],
     "countryCode": "pl",
     "careerHighDate": "2024-04",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 1,
+    "previousRanking": 6
   },
   {
     "id": 8,
@@ -8135,7 +8149,9 @@
     ],
     "countryCode": "no",
     "careerHighDate": "2022-09",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": -2,
+    "previousRanking": 10
   },
   {
     "id": 9,
@@ -8910,7 +8926,9 @@
     ],
     "countryCode": "au",
     "careerHighDate": "2024-06",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 1,
+    "previousRanking": 8
   },
   {
     "id": 10,
@@ -10117,7 +10135,9 @@
     ],
     "countryCode": "bg",
     "careerHighDate": "2017-11",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 1,
+    "previousRanking": 9
   },
   {
     "id": 11,
@@ -10882,7 +10902,9 @@
     ],
     "countryCode": "gr",
     "careerHighDate": "2021-08",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 3,
+    "previousRanking": 8
   },
   {
     "id": 12,
@@ -11733,7 +11755,9 @@
     ],
     "countryCode": "us",
     "careerHighDate": "2024-09",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": -2,
+    "previousRanking": 14
   },
   {
     "id": 13,
@@ -12568,7 +12592,9 @@
     ],
     "countryCode": "us",
     "careerHighDate": "2024-03",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 1,
+    "previousRanking": 12
   },
   {
     "id": 14,
@@ -13061,7 +13087,9 @@
     ],
     "countryCode": "us",
     "careerHighDate": "2024-01",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": -3,
+    "previousRanking": 17
   },
   {
     "id": 15,
@@ -13712,7 +13740,9 @@
     ],
     "countryCode": "dk",
     "careerHighDate": "2023-07",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": -3,
+    "previousRanking": 18
   },
   {
     "id": 16,
@@ -14457,7 +14487,9 @@
     ],
     "countryCode": "fr",
     "careerHighDate": "2024-06",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": -2,
+    "previousRanking": 18
   },
   {
     "id": 17,
@@ -15137,7 +15169,9 @@
     ],
     "countryCode": "us",
     "careerHighDate": "2024-03",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 0,
+    "previousRanking": 17
   },
   {
     "id": 18,
@@ -16009,7 +16043,9 @@
     ],
     "countryCode": "cl",
     "careerHighDate": "2024-02",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 0,
+    "previousRanking": 18
   },
   {
     "id": 19,
@@ -16969,7 +17005,9 @@
     ],
     "countryCode": "ru",
     "careerHighDate": "2019-07",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 3,
+    "previousRanking": 16
   },
   {
     "id": 20,
@@ -17707,7 +17745,9 @@
     ],
     "countryCode": "ca",
     "careerHighDate": "2022-04",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": -3,
+    "previousRanking": 23
   },
   {
     "id": 21,
@@ -17739,7 +17779,9 @@
       "📈 稳步上升"
     ],
     "countryCode": "gb",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 3,
+    "previousRanking": 18
   },
   {
     "id": 22,
@@ -17770,7 +17812,9 @@
       "🔥 越挫越勇"
     ],
     "countryCode": "us",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 0,
+    "previousRanking": 22
   },
   {
     "id": 23,
@@ -17801,7 +17845,9 @@
       "🧠 战术大师"
     ],
     "countryCode": "it",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 3,
+    "previousRanking": 20
   },
   {
     "id": 24,
@@ -17832,7 +17878,9 @@
       "🧱 红土之王"
     ],
     "countryCode": "cl",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 1,
+    "previousRanking": 23
   },
   {
     "id": 25,
@@ -17863,7 +17911,9 @@
       "🏃 防守大师"
     ],
     "countryCode": "fr",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 0,
+    "previousRanking": 25
   },
   {
     "id": 26,
@@ -17894,7 +17944,9 @@
       "⚡ 暴力正手"
     ],
     "countryCode": "cz",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 2,
+    "previousRanking": 24
   },
   {
     "id": 27,
@@ -17925,7 +17977,9 @@
       "📈 稳步上升"
     ],
     "countryCode": "it",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 0,
+    "previousRanking": 27
   },
   {
     "id": 28,
@@ -17956,7 +18010,9 @@
       "📈 稳步上升"
     ],
     "countryCode": "ar",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": -3,
+    "previousRanking": 31
   },
   {
     "id": 29,
@@ -17988,7 +18044,9 @@
       "🔥 越挫越勇"
     ],
     "countryCode": "it",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": -1,
+    "previousRanking": 30
   },
   {
     "id": 30,
@@ -18019,7 +18077,9 @@
       "📈 稳步上升"
     ],
     "countryCode": "nl",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 1,
+    "previousRanking": 29
   },
   {
     "id": 31,
@@ -18050,7 +18110,9 @@
       "🎯 发球机器"
     ],
     "countryCode": "de",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 0,
+    "previousRanking": 31
   },
   {
     "id": 32,
@@ -18081,7 +18143,9 @@
       "📈 稳步上升"
     ],
     "countryCode": "fr",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 0,
+    "previousRanking": 32
   },
   {
     "id": 33,
@@ -18112,7 +18176,9 @@
       "📈 稳步上升"
     ],
     "countryCode": "cz",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": -2,
+    "previousRanking": 35
   },
   {
     "id": 34,
@@ -18143,7 +18209,9 @@
       "🌅 大器晚成"
     ],
     "countryCode": "au",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": -1,
+    "previousRanking": 35
   },
   {
     "id": 35,
@@ -18174,7 +18242,9 @@
       "🧱 红土之王"
     ],
     "countryCode": "it",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 0,
+    "previousRanking": 35
   },
   {
     "id": 36,
@@ -18205,7 +18275,9 @@
       "🎯 发球机器"
     ],
     "countryCode": "fr",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": -3,
+    "previousRanking": 39
   },
   {
     "id": 37,
@@ -18236,7 +18308,9 @@
       "🏃 防守大师"
     ],
     "countryCode": "es",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": -3,
+    "previousRanking": 40
   },
   {
     "id": 38,
@@ -18267,7 +18341,9 @@
       "🎯 发球机器"
     ],
     "countryCode": "kz",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 1,
+    "previousRanking": 37
   },
   {
     "id": 39,
@@ -18299,7 +18375,9 @@
       "🧱 红土之王"
     ],
     "countryCode": "es",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": -3,
+    "previousRanking": 42
   },
   {
     "id": 40,
@@ -18330,7 +18408,9 @@
       "🧱 红土之王"
     ],
     "countryCode": "it",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 0,
+    "previousRanking": 40
   },
   {
     "id": 41,
@@ -18361,7 +18441,9 @@
       "📉 高开低走"
     ],
     "countryCode": "ca",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 0,
+    "previousRanking": 41
   },
   {
     "id": 42,
@@ -18392,7 +18474,9 @@
       "🏃 防守大师"
     ],
     "countryCode": "pt",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 5,
+    "previousRanking": 37
   },
   {
     "id": 43,
@@ -18424,7 +18508,9 @@
       "🧱 红土之王"
     ],
     "countryCode": "es",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 0,
+    "previousRanking": 43
   },
   {
     "id": 44,
@@ -18455,7 +18541,9 @@
       "🏃 防守大师"
     ],
     "countryCode": "us",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": -5,
+    "previousRanking": 49
   },
   {
     "id": 45,
@@ -18486,7 +18574,9 @@
       "🔥 越挫越勇"
     ],
     "countryCode": "au",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 2,
+    "previousRanking": 43
   },
   {
     "id": 46,
@@ -18517,7 +18607,9 @@
       "🧠 战术大师"
     ],
     "countryCode": "gb",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 3,
+    "previousRanking": 43
   },
   {
     "id": 47,
@@ -18548,7 +18640,9 @@
       "🏃 防守大师"
     ],
     "countryCode": "cn",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": -3,
+    "previousRanking": 50
   },
   {
     "id": 48,
@@ -18579,7 +18673,9 @@
       "📈 稳步上升"
     ],
     "countryCode": "au",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 1,
+    "previousRanking": 47
   },
   {
     "id": 49,
@@ -18610,7 +18706,9 @@
       "⚡ 暴力正手"
     ],
     "countryCode": "us",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": -3,
+    "previousRanking": 52
   },
   {
     "id": 50,
@@ -18641,7 +18739,9 @@
       "📈 稳步上升"
     ],
     "countryCode": "rs",
-    "tour": "ATP"
+    "tour": "ATP",
+    "rankChange": 3,
+    "previousRanking": 47
   },
   {
     "id": 51,
@@ -18673,7 +18773,9 @@
       1,
       0
     ],
-    "age": 23
+    "age": 23,
+    "rankChange": 0,
+    "previousRanking": 51
   },
   {
     "id": 52,
@@ -18705,7 +18807,9 @@
       1,
       0
     ],
-    "age": 26
+    "age": 26,
+    "rankChange": 5,
+    "previousRanking": 47
   },
   {
     "id": 53,
@@ -18737,7 +18841,9 @@
       1,
       0
     ],
-    "age": 25
+    "age": 25,
+    "rankChange": 0,
+    "previousRanking": 53
   },
   {
     "id": 54,
@@ -18769,7 +18875,9 @@
       1,
       0
     ],
-    "age": 28
+    "age": 28,
+    "rankChange": 5,
+    "previousRanking": 49
   },
   {
     "id": 55,
@@ -18801,7 +18909,9 @@
       1,
       0
     ],
-    "age": 27
+    "age": 27,
+    "rankChange": -1,
+    "previousRanking": 56
   },
   {
     "id": 56,
@@ -18833,7 +18943,9 @@
       1,
       0
     ],
-    "age": 34
+    "age": 34,
+    "rankChange": -3,
+    "previousRanking": 59
   },
   {
     "id": 57,
@@ -18865,7 +18977,9 @@
       1,
       0
     ],
-    "age": 20
+    "age": 20,
+    "rankChange": -5,
+    "previousRanking": 62
   },
   {
     "id": 58,
@@ -18897,7 +19011,9 @@
       1,
       0
     ],
-    "age": 24
+    "age": 24,
+    "rankChange": -1,
+    "previousRanking": 59
   },
   {
     "id": 59,
@@ -18929,7 +19045,9 @@
       1,
       0
     ],
-    "age": 27
+    "age": 27,
+    "rankChange": 0,
+    "previousRanking": 59
   },
   {
     "id": 60,
@@ -18961,7 +19079,9 @@
       1,
       0
     ],
-    "age": 23
+    "age": 23,
+    "rankChange": -3,
+    "previousRanking": 63
   },
   {
     "id": 61,
@@ -18993,7 +19113,9 @@
       1,
       0
     ],
-    "age": 31
+    "age": 31,
+    "rankChange": -1,
+    "previousRanking": 62
   },
   {
     "id": 62,
@@ -19025,7 +19147,9 @@
       1,
       0
     ],
-    "age": 24
+    "age": 24,
+    "rankChange": -3,
+    "previousRanking": 65
   },
   {
     "id": 63,
@@ -19057,7 +19181,9 @@
       1,
       0
     ],
-    "age": 24
+    "age": 24,
+    "rankChange": 1,
+    "previousRanking": 62
   },
   {
     "id": 64,
@@ -19089,7 +19215,9 @@
       1,
       0
     ],
-    "age": 21
+    "age": 21,
+    "rankChange": 0,
+    "previousRanking": 64
   },
   {
     "id": 65,
@@ -19121,7 +19249,9 @@
       1,
       0
     ],
-    "age": 22
+    "age": 22,
+    "rankChange": 2,
+    "previousRanking": 63
   },
   {
     "id": 66,
@@ -19153,7 +19283,9 @@
       1,
       0
     ],
-    "age": 19
+    "age": 19,
+    "rankChange": 0,
+    "previousRanking": 66
   },
   {
     "id": 67,
@@ -19185,7 +19317,9 @@
       1,
       0
     ],
-    "age": 25
+    "age": 25,
+    "rankChange": -2,
+    "previousRanking": 69
   },
   {
     "id": 68,
@@ -19217,7 +19351,9 @@
       1,
       0
     ],
-    "age": 36
+    "age": 36,
+    "rankChange": 0,
+    "previousRanking": 68
   },
   {
     "id": 69,
@@ -19249,7 +19385,9 @@
       1,
       0
     ],
-    "age": 29
+    "age": 29,
+    "rankChange": 0,
+    "previousRanking": 69
   },
   {
     "id": 70,
@@ -19281,7 +19419,9 @@
       1,
       0
     ],
-    "age": 24
+    "age": 24,
+    "rankChange": -1,
+    "previousRanking": 71
   },
   {
     "id": 71,
@@ -19313,7 +19453,9 @@
       1,
       0
     ],
-    "age": 23
+    "age": 23,
+    "rankChange": 0,
+    "previousRanking": 71
   },
   {
     "id": 72,
@@ -19345,7 +19487,9 @@
       1,
       0
     ],
-    "age": 27
+    "age": 27,
+    "rankChange": -3,
+    "previousRanking": 75
   },
   {
     "id": 73,
@@ -19377,7 +19521,9 @@
       1,
       0
     ],
-    "age": 34
+    "age": 34,
+    "rankChange": 5,
+    "previousRanking": 68
   },
   {
     "id": 74,
@@ -19409,7 +19555,9 @@
       1,
       0
     ],
-    "age": 28
+    "age": 28,
+    "rankChange": -2,
+    "previousRanking": 76
   },
   {
     "id": 75,
@@ -19441,7 +19589,9 @@
       1,
       0
     ],
-    "age": 27
+    "age": 27,
+    "rankChange": 3,
+    "previousRanking": 72
   },
   {
     "id": 76,
@@ -19473,7 +19623,9 @@
       1,
       0
     ],
-    "age": 27
+    "age": 27,
+    "rankChange": -1,
+    "previousRanking": 77
   },
   {
     "id": 77,
@@ -19505,7 +19657,9 @@
       1,
       0
     ],
-    "age": 30
+    "age": 30,
+    "rankChange": -2,
+    "previousRanking": 79
   },
   {
     "id": 78,
@@ -19537,7 +19691,9 @@
       1,
       0
     ],
-    "age": 28
+    "age": 28,
+    "rankChange": 2,
+    "previousRanking": 76
   },
   {
     "id": 79,
@@ -19569,7 +19725,9 @@
       1,
       0
     ],
-    "age": 26
+    "age": 26,
+    "rankChange": 1,
+    "previousRanking": 78
   },
   {
     "id": 80,
@@ -19601,7 +19759,9 @@
       1,
       0
     ],
-    "age": 33
+    "age": 33,
+    "rankChange": 0,
+    "previousRanking": 80
   },
   {
     "id": 81,
@@ -19633,7 +19793,9 @@
       1,
       0
     ],
-    "age": 23
+    "age": 23,
+    "rankChange": 3,
+    "previousRanking": 78
   },
   {
     "id": 82,
@@ -19665,7 +19827,9 @@
       1,
       0
     ],
-    "age": 28
+    "age": 28,
+    "rankChange": -1,
+    "previousRanking": 83
   },
   {
     "id": 83,
@@ -19697,7 +19861,9 @@
       1,
       0
     ],
-    "age": 25
+    "age": 25,
+    "rankChange": 0,
+    "previousRanking": 83
   },
   {
     "id": 84,
@@ -19729,7 +19895,9 @@
       1,
       0
     ],
-    "age": 27
+    "age": 27,
+    "rankChange": -5,
+    "previousRanking": 89
   },
   {
     "id": 85,
@@ -19761,7 +19929,9 @@
       1,
       0
     ],
-    "age": 27
+    "age": 27,
+    "rankChange": -1,
+    "previousRanking": 86
   },
   {
     "id": 86,
@@ -19793,7 +19963,9 @@
       1,
       0
     ],
-    "age": 28
+    "age": 28,
+    "rankChange": -5,
+    "previousRanking": 91
   },
   {
     "id": 87,
@@ -19825,7 +19997,9 @@
       1,
       0
     ],
-    "age": 20
+    "age": 20,
+    "rankChange": 0,
+    "previousRanking": 87
   },
   {
     "id": 88,
@@ -19857,7 +20031,9 @@
       1,
       0
     ],
-    "age": 30
+    "age": 30,
+    "rankChange": 1,
+    "previousRanking": 87
   },
   {
     "id": 89,
@@ -19889,7 +20065,9 @@
       1,
       0
     ],
-    "age": 36
+    "age": 36,
+    "rankChange": 0,
+    "previousRanking": 89
   },
   {
     "id": 90,
@@ -19921,7 +20099,9 @@
       1,
       0
     ],
-    "age": 29
+    "age": 29,
+    "rankChange": -3,
+    "previousRanking": 93
   },
   {
     "id": 91,
@@ -19953,7 +20133,9 @@
       1,
       0
     ],
-    "age": 32
+    "age": 32,
+    "rankChange": -1,
+    "previousRanking": 92
   },
   {
     "id": 92,
@@ -19985,7 +20167,9 @@
       1,
       0
     ],
-    "age": 22
+    "age": 22,
+    "rankChange": 5,
+    "previousRanking": 87
   },
   {
     "id": 93,
@@ -20017,7 +20201,9 @@
       1,
       0
     ],
-    "age": 33
+    "age": 33,
+    "rankChange": 0,
+    "previousRanking": 93
   },
   {
     "id": 94,
@@ -20049,7 +20235,9 @@
       1,
       0
     ],
-    "age": 29
+    "age": 29,
+    "rankChange": -1,
+    "previousRanking": 95
   },
   {
     "id": 95,
@@ -20081,7 +20269,9 @@
       1,
       0
     ],
-    "age": 24
+    "age": 24,
+    "rankChange": 2,
+    "previousRanking": 93
   },
   {
     "id": 96,
@@ -20113,7 +20303,9 @@
       1,
       0
     ],
-    "age": 24
+    "age": 24,
+    "rankChange": 1,
+    "previousRanking": 95
   },
   {
     "id": 97,
@@ -20145,7 +20337,9 @@
       1,
       0
     ],
-    "age": 21
+    "age": 21,
+    "rankChange": 2,
+    "previousRanking": 95
   },
   {
     "id": 98,
@@ -20177,7 +20371,9 @@
       1,
       0
     ],
-    "age": 29
+    "age": 29,
+    "rankChange": -2,
+    "previousRanking": 100
   },
   {
     "id": 99,
@@ -20209,7 +20405,9 @@
       1,
       0
     ],
-    "age": 28
+    "age": 28,
+    "rankChange": 0,
+    "previousRanking": 99
   },
   {
     "id": 100,
@@ -20241,7 +20439,9 @@
       1,
       0
     ],
-    "age": 29
+    "age": 29,
+    "rankChange": -2,
+    "previousRanking": 102
   },
   {
     "id": 201,
@@ -20273,7 +20473,9 @@
       1,
       0
     ],
-    "age": 23
+    "age": 23,
+    "rankChange": 0,
+    "previousRanking": 1
   },
   {
     "id": 202,
@@ -20305,7 +20507,9 @@
       1,
       0
     ],
-    "age": 26
+    "age": 26,
+    "rankChange": 1,
+    "previousRanking": 1
   },
   {
     "id": 203,
@@ -20337,7 +20541,9 @@
       1,
       0
     ],
-    "age": 20
+    "age": 20,
+    "rankChange": -1,
+    "previousRanking": 4
   },
   {
     "id": 204,
@@ -20369,7 +20575,9 @@
       1,
       0
     ],
-    "age": 25
+    "age": 25,
+    "rankChange": 1,
+    "previousRanking": 3
   },
   {
     "id": 205,
@@ -20401,7 +20609,9 @@
       1,
       0
     ],
-    "age": 31
+    "age": 31,
+    "rankChange": 0,
+    "previousRanking": 5
   },
   {
     "id": 206,
@@ -20433,7 +20643,9 @@
       1,
       0
     ],
-    "age": 22
+    "age": 22,
+    "rankChange": 0,
+    "previousRanking": 6
   },
   {
     "id": 207,
@@ -20465,7 +20677,9 @@
       1,
       0
     ],
-    "age": 29
+    "age": 29,
+    "rankChange": -1,
+    "previousRanking": 8
   },
   {
     "id": 208,
@@ -20497,7 +20711,9 @@
       1,
       0
     ],
-    "age": 23
+    "age": 23,
+    "rankChange": -1,
+    "previousRanking": 9
   },
   {
     "id": 209,
@@ -20529,7 +20745,9 @@
       1,
       0
     ],
-    "age": 27
+    "age": 27,
+    "rankChange": 1,
+    "previousRanking": 8
   },
   {
     "id": 210,
@@ -20561,7 +20779,9 @@
       1,
       0
     ],
-    "age": 29
+    "age": 29,
+    "rankChange": 0,
+    "previousRanking": 10
   },
   {
     "id": 211,
@@ -20593,7 +20813,9 @@
       1,
       0
     ],
-    "age": 31
+    "age": 31,
+    "rankChange": -2,
+    "previousRanking": 13
   },
   {
     "id": 212,
@@ -20625,7 +20847,9 @@
       1,
       0
     ],
-    "age": 26
+    "age": 26,
+    "rankChange": -3,
+    "previousRanking": 15
   },
   {
     "id": 213,
@@ -20657,7 +20881,9 @@
       1,
       0
     ],
-    "age": 30
+    "age": 30,
+    "rankChange": -2,
+    "previousRanking": 15
   },
   {
     "id": 214,
@@ -20689,7 +20915,9 @@
       1,
       0
     ],
-    "age": 30
+    "age": 30,
+    "rankChange": -1,
+    "previousRanking": 15
   },
   {
     "id": 215,
@@ -20721,7 +20949,9 @@
       1,
       0
     ],
-    "age": 17
+    "age": 17,
+    "rankChange": -1,
+    "previousRanking": 16
   },
   {
     "id": 216,
@@ -20753,7 +20983,9 @@
       1,
       0
     ],
-    "age": 28
+    "age": 28,
+    "rankChange": 1,
+    "previousRanking": 15
   },
   {
     "id": 217,
@@ -20785,7 +21017,9 @@
       1,
       0
     ],
-    "age": 28
+    "age": 28,
+    "rankChange": -2,
+    "previousRanking": 19
   },
   {
     "id": 218,
@@ -20817,7 +21051,9 @@
       1,
       0
     ],
-    "age": 22
+    "age": 22,
+    "rankChange": 1,
+    "previousRanking": 17
   },
   {
     "id": 219,
@@ -20849,7 +21085,9 @@
       1,
       0
     ],
-    "age": 35
+    "age": 35,
+    "rankChange": 1,
+    "previousRanking": 18
   },
   {
     "id": 220,
@@ -20881,7 +21119,9 @@
       1,
       0
     ],
-    "age": 26
+    "age": 26,
+    "rankChange": 2,
+    "previousRanking": 18
   },
   {
     "id": 221,
@@ -20913,7 +21153,9 @@
       1,
       0
     ],
-    "age": 22
+    "age": 22,
+    "rankChange": 3,
+    "previousRanking": 18
   },
   {
     "id": 222,
@@ -20945,7 +21187,9 @@
       1,
       0
     ],
-    "age": 27
+    "age": 27,
+    "rankChange": 0,
+    "previousRanking": 22
   },
   {
     "id": 223,
@@ -20977,7 +21221,9 @@
       1,
       0
     ],
-    "age": 20
+    "age": 20,
+    "rankChange": 3,
+    "previousRanking": 20
   },
   {
     "id": 224,
@@ -21009,7 +21255,9 @@
       1,
       0
     ],
-    "age": 30
+    "age": 30,
+    "rankChange": -3,
+    "previousRanking": 27
   },
   {
     "id": 225,
@@ -21041,7 +21289,9 @@
       1,
       0
     ],
-    "age": 30
+    "age": 30,
+    "rankChange": -2,
+    "previousRanking": 27
   },
   {
     "id": 226,
@@ -21073,7 +21323,9 @@
       1,
       0
     ],
-    "age": 28
+    "age": 28,
+    "rankChange": 3,
+    "previousRanking": 23
   },
   {
     "id": 227,
@@ -21105,7 +21357,9 @@
       1,
       0
     ],
-    "age": 27
+    "age": 27,
+    "rankChange": 0,
+    "previousRanking": 27
   },
   {
     "id": 228,
@@ -21137,7 +21391,9 @@
       1,
       0
     ],
-    "age": 25
+    "age": 25,
+    "rankChange": 1,
+    "previousRanking": 27
   },
   {
     "id": 229,
@@ -21169,7 +21425,9 @@
       1,
       0
     ],
-    "age": 31
+    "age": 31,
+    "rankChange": -2,
+    "previousRanking": 31
   },
   {
     "id": 230,
@@ -21201,7 +21459,9 @@
       1,
       0
     ],
-    "age": 28
+    "age": 28,
+    "rankChange": 0,
+    "previousRanking": 30
   },
   {
     "id": 231,
@@ -21233,7 +21493,9 @@
       1,
       0
     ],
-    "age": 31
+    "age": 31,
+    "rankChange": 1,
+    "previousRanking": 30
   },
   {
     "id": 232,
@@ -21265,7 +21527,9 @@
       1,
       0
     ],
-    "age": 33
+    "age": 33,
+    "rankChange": -2,
+    "previousRanking": 34
   },
   {
     "id": 233,
@@ -21297,7 +21561,9 @@
       1,
       0
     ],
-    "age": 27
+    "age": 27,
+    "rankChange": 2,
+    "previousRanking": 31
   },
   {
     "id": 234,
@@ -21329,7 +21595,9 @@
       1,
       0
     ],
-    "age": 26
+    "age": 26,
+    "rankChange": -5,
+    "previousRanking": 39
   },
   {
     "id": 235,
@@ -21361,7 +21629,9 @@
       1,
       0
     ],
-    "age": 23
+    "age": 23,
+    "rankChange": 0,
+    "previousRanking": 35
   },
   {
     "id": 236,
@@ -21393,7 +21663,9 @@
       1,
       0
     ],
-    "age": 23
+    "age": 23,
+    "rankChange": 3,
+    "previousRanking": 33
   },
   {
     "id": 237,
@@ -21425,7 +21697,9 @@
       1,
       0
     ],
-    "age": 33
+    "age": 33,
+    "rankChange": -2,
+    "previousRanking": 39
   },
   {
     "id": 238,
@@ -21457,7 +21731,9 @@
       1,
       0
     ],
-    "age": 22
+    "age": 22,
+    "rankChange": 3,
+    "previousRanking": 35
   },
   {
     "id": 239,
@@ -21489,7 +21765,9 @@
       1,
       0
     ],
-    "age": 19
+    "age": 19,
+    "rankChange": -3,
+    "previousRanking": 42
   },
   {
     "id": 240,
@@ -21521,7 +21799,9 @@
       1,
       0
     ],
-    "age": 23
+    "age": 23,
+    "rankChange": 0,
+    "previousRanking": 40
   },
   {
     "id": 241,
@@ -21553,7 +21833,9 @@
       1,
       0
     ],
-    "age": 26
+    "age": 26,
+    "rankChange": 3,
+    "previousRanking": 38
   },
   {
     "id": 242,
@@ -21585,7 +21867,9 @@
       1,
       0
     ],
-    "age": 29
+    "age": 29,
+    "rankChange": 5,
+    "previousRanking": 37
   },
   {
     "id": 243,
@@ -21617,7 +21901,9 @@
       1,
       0
     ],
-    "age": 30
+    "age": 30,
+    "rankChange": -1,
+    "previousRanking": 44
   },
   {
     "id": 244,
@@ -21649,7 +21935,9 @@
       1,
       0
     ],
-    "age": 22
+    "age": 22,
+    "rankChange": -2,
+    "previousRanking": 46
   },
   {
     "id": 245,
@@ -21681,7 +21969,9 @@
       1,
       0
     ],
-    "age": 26
+    "age": 26,
+    "rankChange": 0,
+    "previousRanking": 45
   },
   {
     "id": 246,
@@ -21713,7 +22003,9 @@
       1,
       0
     ],
-    "age": 23
+    "age": 23,
+    "rankChange": -2,
+    "previousRanking": 48
   },
   {
     "id": 247,
@@ -21745,7 +22037,9 @@
       1,
       0
     ],
-    "age": 31
+    "age": 31,
+    "rankChange": 3,
+    "previousRanking": 44
   },
   {
     "id": 248,
@@ -21777,7 +22071,9 @@
       1,
       0
     ],
-    "age": 24
+    "age": 24,
+    "rankChange": 3,
+    "previousRanking": 45
   },
   {
     "id": 249,
@@ -21809,7 +22105,9 @@
       1,
       0
     ],
-    "age": 28
+    "age": 28,
+    "rankChange": -5,
+    "previousRanking": 54
   },
   {
     "id": 250,
@@ -21841,7 +22139,9 @@
       1,
       0
     ],
-    "age": 23
+    "age": 23,
+    "rankChange": 5,
+    "previousRanking": 45
   },
   {
     "id": 251,
@@ -21873,7 +22173,9 @@
       1,
       0
     ],
-    "age": 34
+    "age": 34,
+    "rankChange": 0,
+    "previousRanking": 51
   },
   {
     "id": 252,
@@ -21905,7 +22207,9 @@
       1,
       0
     ],
-    "age": 27
+    "age": 27,
+    "rankChange": 2,
+    "previousRanking": 50
   },
   {
     "id": 253,
@@ -21937,7 +22241,9 @@
       1,
       0
     ],
-    "age": 28
+    "age": 28,
+    "rankChange": -5,
+    "previousRanking": 58
   },
   {
     "id": 254,
@@ -21969,7 +22275,9 @@
       1,
       0
     ],
-    "age": 27
+    "age": 27,
+    "rankChange": -3,
+    "previousRanking": 57
   },
   {
     "id": 255,
@@ -22001,7 +22309,9 @@
       1,
       0
     ],
-    "age": 28
+    "age": 28,
+    "rankChange": 0,
+    "previousRanking": 55
   },
   {
     "id": 256,
@@ -22033,7 +22343,9 @@
       1,
       0
     ],
-    "age": 24
+    "age": 24,
+    "rankChange": 0,
+    "previousRanking": 56
   },
   {
     "id": 257,
@@ -22065,7 +22377,9 @@
       1,
       0
     ],
-    "age": 34
+    "age": 34,
+    "rankChange": -1,
+    "previousRanking": 58
   },
   {
     "id": 258,
@@ -22097,7 +22411,9 @@
       1,
       0
     ],
-    "age": 24
+    "age": 24,
+    "rankChange": -5,
+    "previousRanking": 63
   },
   {
     "id": 259,
@@ -22129,7 +22445,9 @@
       1,
       0
     ],
-    "age": 34
+    "age": 34,
+    "rankChange": -1,
+    "previousRanking": 60
   },
   {
     "id": 260,
@@ -22161,7 +22479,9 @@
       1,
       0
     ],
-    "age": 31
+    "age": 31,
+    "rankChange": 5,
+    "previousRanking": 55
   },
   {
     "id": 261,
@@ -22193,7 +22513,9 @@
       1,
       0
     ],
-    "age": 25
+    "age": 25,
+    "rankChange": -3,
+    "previousRanking": 64
   },
   {
     "id": 262,
@@ -22225,7 +22547,9 @@
       1,
       0
     ],
-    "age": 26
+    "age": 26,
+    "rankChange": -3,
+    "previousRanking": 65
   },
   {
     "id": 263,
@@ -22257,7 +22581,9 @@
       1,
       0
     ],
-    "age": 37
+    "age": 37,
+    "rankChange": 2,
+    "previousRanking": 61
   },
   {
     "id": 264,
@@ -22289,7 +22615,9 @@
       1,
       0
     ],
-    "age": 35
+    "age": 35,
+    "rankChange": -3,
+    "previousRanking": 67
   },
   {
     "id": 265,
@@ -22321,7 +22649,9 @@
       1,
       0
     ],
-    "age": 31
+    "age": 31,
+    "rankChange": 3,
+    "previousRanking": 62
   },
   {
     "id": 266,
@@ -22353,7 +22683,9 @@
       1,
       0
     ],
-    "age": 32
+    "age": 32,
+    "rankChange": -2,
+    "previousRanking": 68
   },
   {
     "id": 267,
@@ -22385,7 +22717,9 @@
       1,
       0
     ],
-    "age": 23
+    "age": 23,
+    "rankChange": -2,
+    "previousRanking": 69
   },
   {
     "id": 268,
@@ -22417,7 +22751,9 @@
       1,
       0
     ],
-    "age": 32
+    "age": 32,
+    "rankChange": 2,
+    "previousRanking": 66
   },
   {
     "id": 269,
@@ -22449,7 +22785,9 @@
       1,
       0
     ],
-    "age": 28
+    "age": 28,
+    "rankChange": 3,
+    "previousRanking": 66
   },
   {
     "id": 270,
@@ -22481,7 +22819,9 @@
       1,
       0
     ],
-    "age": 36
+    "age": 36,
+    "rankChange": -2,
+    "previousRanking": 72
   },
   {
     "id": 271,
@@ -22513,7 +22853,9 @@
       1,
       0
     ],
-    "age": 27
+    "age": 27,
+    "rankChange": 0,
+    "previousRanking": 71
   },
   {
     "id": 272,
@@ -22545,7 +22887,9 @@
       1,
       0
     ],
-    "age": 28
+    "age": 28,
+    "rankChange": 3,
+    "previousRanking": 69
   },
   {
     "id": 273,
@@ -22577,7 +22921,9 @@
       1,
       0
     ],
-    "age": 26
+    "age": 26,
+    "rankChange": 5,
+    "previousRanking": 68
   },
   {
     "id": 274,
@@ -22609,7 +22955,9 @@
       1,
       0
     ],
-    "age": 23
+    "age": 23,
+    "rankChange": 1,
+    "previousRanking": 73
   },
   {
     "id": 275,
@@ -22641,7 +22989,9 @@
       1,
       0
     ],
-    "age": 26
+    "age": 26,
+    "rankChange": -1,
+    "previousRanking": 76
   },
   {
     "id": 276,
@@ -22673,7 +23023,9 @@
       1,
       0
     ],
-    "age": 29
+    "age": 29,
+    "rankChange": 3,
+    "previousRanking": 73
   },
   {
     "id": 277,
@@ -22705,7 +23057,9 @@
       1,
       0
     ],
-    "age": 25
+    "age": 25,
+    "rankChange": -1,
+    "previousRanking": 78
   },
   {
     "id": 278,
@@ -22737,7 +23091,9 @@
       1,
       0
     ],
-    "age": 22
+    "age": 22,
+    "rankChange": 0,
+    "previousRanking": 78
   },
   {
     "id": 279,
@@ -22769,7 +23125,9 @@
       1,
       0
     ],
-    "age": 23
+    "age": 23,
+    "rankChange": 1,
+    "previousRanking": 78
   },
   {
     "id": 280,
@@ -22801,7 +23159,9 @@
       1,
       0
     ],
-    "age": 26
+    "age": 26,
+    "rankChange": 0,
+    "previousRanking": 80
   },
   {
     "id": 281,
@@ -22833,7 +23193,9 @@
       1,
       0
     ],
-    "age": 34
+    "age": 34,
+    "rankChange": 2,
+    "previousRanking": 79
   },
   {
     "id": 282,
@@ -22865,7 +23227,9 @@
       1,
       0
     ],
-    "age": 29
+    "age": 29,
+    "rankChange": 3,
+    "previousRanking": 79
   },
   {
     "id": 283,
@@ -22897,7 +23261,9 @@
       1,
       0
     ],
-    "age": 28
+    "age": 28,
+    "rankChange": 2,
+    "previousRanking": 81
   },
   {
     "id": 284,
@@ -22929,7 +23295,9 @@
       1,
       0
     ],
-    "age": 28
+    "age": 28,
+    "rankChange": -3,
+    "previousRanking": 87
   },
   {
     "id": 285,
@@ -22961,7 +23329,9 @@
       1,
       0
     ],
-    "age": 31
+    "age": 31,
+    "rankChange": -1,
+    "previousRanking": 86
   },
   {
     "id": 286,
@@ -22993,7 +23363,9 @@
       1,
       0
     ],
-    "age": 23
+    "age": 23,
+    "rankChange": -1,
+    "previousRanking": 87
   },
   {
     "id": 287,
@@ -23025,7 +23397,9 @@
       1,
       0
     ],
-    "age": 32
+    "age": 32,
+    "rankChange": -3,
+    "previousRanking": 90
   },
   {
     "id": 288,
@@ -23057,7 +23431,9 @@
       1,
       0
     ],
-    "age": 36
+    "age": 36,
+    "rankChange": 0,
+    "previousRanking": 88
   },
   {
     "id": 289,
@@ -23089,7 +23465,9 @@
       1,
       0
     ],
-    "age": 27
+    "age": 27,
+    "rankChange": -5,
+    "previousRanking": 94
   },
   {
     "id": 290,
@@ -23121,7 +23499,9 @@
       1,
       0
     ],
-    "age": 35
+    "age": 35,
+    "rankChange": 5,
+    "previousRanking": 85
   },
   {
     "id": 291,
@@ -23153,7 +23533,9 @@
       1,
       0
     ],
-    "age": 30
+    "age": 30,
+    "rankChange": 3,
+    "previousRanking": 88
   },
   {
     "id": 292,
@@ -23185,7 +23567,9 @@
       1,
       0
     ],
-    "age": 27
+    "age": 27,
+    "rankChange": -1,
+    "previousRanking": 93
   },
   {
     "id": 293,
@@ -23217,7 +23601,9 @@
       1,
       0
     ],
-    "age": 23
+    "age": 23,
+    "rankChange": 5,
+    "previousRanking": 88
   },
   {
     "id": 294,
@@ -23249,7 +23635,9 @@
       1,
       0
     ],
-    "age": 30
+    "age": 30,
+    "rankChange": -1,
+    "previousRanking": 95
   },
   {
     "id": 295,
@@ -23281,7 +23669,9 @@
       1,
       0
     ],
-    "age": 22
+    "age": 22,
+    "rankChange": -5,
+    "previousRanking": 100
   },
   {
     "id": 296,
@@ -23313,7 +23703,9 @@
       1,
       0
     ],
-    "age": 24
+    "age": 24,
+    "rankChange": -3,
+    "previousRanking": 99
   },
   {
     "id": 297,
@@ -23345,7 +23737,9 @@
       1,
       0
     ],
-    "age": 20
+    "age": 20,
+    "rankChange": -5,
+    "previousRanking": 102
   },
   {
     "id": 298,
@@ -23377,7 +23771,9 @@
       1,
       0
     ],
-    "age": 28
+    "age": 28,
+    "rankChange": -1,
+    "previousRanking": 99
   },
   {
     "id": 299,
@@ -23409,7 +23805,9 @@
       1,
       0
     ],
-    "age": 35
+    "age": 35,
+    "rankChange": -3,
+    "previousRanking": 102
   },
   {
     "id": 300,
@@ -23441,6 +23839,8 @@
       1,
       0
     ],
-    "age": 26
+    "age": 26,
+    "rankChange": -5,
+    "previousRanking": 105
   }
 ]
