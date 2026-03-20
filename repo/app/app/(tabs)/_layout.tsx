@@ -123,7 +123,7 @@ export default function TabLayout() {
         options={{
           title: t('tournaments'),
           tabBarIcon: ({ focused }) => (
-            <TabIcon label={t('events')} focused={focused} icon={TournamentsIcon} />
+            <TabIcon label={t('tournaments')} focused={focused} icon={TournamentsIcon} />
           ),
         }}
       />
