@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Image,
   RefreshControl,
+  Platform,
 } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'expo-router';
@@ -19,7 +20,7 @@ import { SkeletonList } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
 import { EmptySearchIllustration } from '../../lib/illustrations';
 import { getAllHotTags, formatCount, PRESET_TAG_EMOJIS } from '../../lib/comments';
-import { theme } from '../../lib/theme';
+import { theme, radii } from '../../lib/theme';
 import type { Player } from '../../../shared/types';
 
 function getInitials(name: string): string {
@@ -30,6 +31,8 @@ function getInitials(name: string): string {
 
 const TOUR_FILTERS = ['ALL', 'ATP', 'WTA'] as const;
 type TourFilter = typeof TOUR_FILTERS[number];
+
+const cursor = Platform.OS === 'web' ? ({ cursor: 'pointer' } as any) : {};
 
 export default function PlayersScreen() {
   const [search, setSearch] = useState('');
@@ -104,10 +107,18 @@ export default function PlayersScreen() {
           onChangeText={setSearch}
           autoCapitalize="none"
           autoCorrect={false}
+          accessibilityLabel="Search players"
+          accessibilityRole="search"
         />
         {search.length > 0 && (
-          <TouchableOpacity onPress={() => setSearch('')} style={styles.clearBtn} activeOpacity={theme.activeOpacity}>
-            <Text style={styles.clearText}>\u00D7</Text>
+          <TouchableOpacity
+            onPress={() => setSearch('')}
+            style={styles.clearBtn}
+            activeOpacity={theme.activeOpacity}
+            accessibilityLabel="Clear search"
+            accessibilityRole="button"
+          >
+            <Text style={styles.clearText}>{'\u00D7'}</Text>
           </TouchableOpacity>
         )}
       </View>
@@ -119,6 +130,9 @@ export default function PlayersScreen() {
             style={[styles.tourPill, tourFilter === tf && styles.tourPillActive]}
             onPress={() => setTourFilter(tf)}
             activeOpacity={theme.activeOpacity}
+            accessibilityLabel={`Filter: ${tf}`}
+            accessibilityRole="button"
+            accessibilityState={{ selected: tourFilter === tf }}
           >
             <Text style={[styles.tourPillText, tourFilter === tf && styles.tourPillTextActive]}>
               {tf}
@@ -147,9 +161,11 @@ export default function PlayersScreen() {
               style={styles.playerRow}
               onPress={() => router.push(`/player/${item.id}`)}
               activeOpacity={theme.activeOpacity}
+              accessibilityLabel={`${getPlayerName(item)}, Rank ${item.ranking}${hot ? `, ${hot.tag}` : ''}`}
+              accessibilityRole="link"
             >
               <Text style={styles.rank}>{item.ranking}</Text>
-              <PlayerAvatar name={item.name} photoUrl={item.photoUrl} size={48} />
+              <PlayerAvatar name={item.name} photoUrl={item.photoUrl} size={48} ranking={item.ranking} />
               <View style={styles.nameWrap}>
                 <View style={styles.nameRow}>
                   <Text style={styles.playerName} numberOfLines={1}>
@@ -165,11 +181,14 @@ export default function PlayersScreen() {
                   </View>
                 )}
               </View>
-              <Text style={[
-                styles.rankChange,
-                rankChange > 0 && styles.rankUp,
-                rankChange < 0 && styles.rankDown,
-              ]}>
+              <Text
+                style={[
+                  styles.rankChange,
+                  rankChange > 0 && styles.rankUp,
+                  rankChange < 0 && styles.rankDown,
+                ]}
+                accessibilityLabel={rankChange > 0 ? `Up ${rankChange}` : rankChange < 0 ? `Down ${Math.abs(rankChange)}` : 'Unchanged'}
+              >
                 {rankChange > 0 ? `\u25B2 ${rankChange}` : rankChange < 0 ? `\u25BC ${Math.abs(rankChange)}` : '\u2014'}
               </Text>
             </TouchableOpacity>
@@ -211,13 +230,17 @@ const styles = StyleSheet.create({
   tourPill: {
     paddingHorizontal: 16,
     paddingVertical: 6,
-    borderRadius: 16,
-    backgroundColor: theme.card,
+    borderRadius: radii.pill,
+    backgroundColor: theme.glass,
+    borderWidth: 1,
+    borderColor: theme.glassBorder,
     minHeight: 32,
     justifyContent: 'center',
+    ...cursor,
   },
   tourPillActive: {
     backgroundColor: theme.accent,
+    borderColor: theme.accent,
   },
   tourPillText: {
     fontSize: 13,
@@ -231,8 +254,10 @@ const styles = StyleSheet.create({
   searchWrap: {
     marginHorizontal: theme.spacing.padding,
     marginVertical: theme.spacing.cardGap,
-    backgroundColor: theme.card,
-    borderRadius: 10,
+    backgroundColor: theme.glass,
+    borderRadius: radii.card,
+    borderWidth: 1,
+    borderColor: theme.glassBorder,
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
@@ -250,6 +275,7 @@ const styles = StyleSheet.create({
     minHeight: 44,
     alignItems: 'center',
     justifyContent: 'center',
+    ...cursor,
   },
   clearText: {
     color: theme.textSecondary,
@@ -265,6 +291,7 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     gap: 12,
     minHeight: 62,
+    ...cursor,
   },
   rank: {
     width: 28,

@@ -8,6 +8,8 @@ import {
   TouchableOpacity,
   RefreshControl,
   Animated,
+  Platform,
+  useWindowDimensions,
 } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'expo-router';
@@ -19,19 +21,52 @@ import { getFavorites } from '../../lib/favorites';
 import { useLanguage, TranslationKey } from '../../lib/i18n';
 import { SkeletonList } from '../../lib/skeleton';
 import { TournamentLogo } from '../../lib/tournament-logo';
-import { theme } from '../../lib/theme';
+import { theme, radii, breakpoints } from '../../lib/theme';
 import { TennisBallIcon } from '../../lib/illustrations';
 import { EmptyMatchesIllustration } from '../../lib/illustrations';
 import type { Player, MatchWithPlayers, NextRoundInfo } from '../../../shared/types';
+
+// ─── Court Background ────────────────────────────────────────────────
+function CourtBackground() {
+  return (
+    <View style={courtStyles.wrap} pointerEvents="none" accessibilityElementsHidden>
+      {/* Green tint */}
+      <View style={courtStyles.tint} />
+      {/* Outer boundary */}
+      <View style={courtStyles.boundaryH_top} />
+      <View style={courtStyles.boundaryH_bot} />
+      <View style={courtStyles.boundaryV_left} />
+      <View style={courtStyles.boundaryV_right} />
+      {/* Net / center horizontal */}
+      <View style={courtStyles.net} />
+      {/* Service lines */}
+      <View style={courtStyles.serviceLine_top} />
+      <View style={courtStyles.serviceLine_bot} />
+      {/* Center service line */}
+      <View style={courtStyles.centerService} />
+    </View>
+  );
+}
+const CL = 'rgba(255,255,255,0.35)';
+const courtStyles = StyleSheet.create({
+  wrap: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, opacity: 0.025, overflow: 'hidden' },
+  tint: { ...StyleSheet.absoluteFillObject, backgroundColor: '#0a3d1a' },
+  boundaryH_top: { position: 'absolute', top: '5%', left: '8%', right: '8%', height: 1, backgroundColor: CL },
+  boundaryH_bot: { position: 'absolute', bottom: '5%', left: '8%', right: '8%', height: 1, backgroundColor: CL },
+  boundaryV_left: { position: 'absolute', top: '5%', left: '8%', bottom: '5%', width: 1, backgroundColor: CL },
+  boundaryV_right: { position: 'absolute', top: '5%', right: '8%', bottom: '5%', width: 1, backgroundColor: CL },
+  net: { position: 'absolute', top: '50%', left: '8%', right: '8%', height: 1.5, backgroundColor: CL },
+  serviceLine_top: { position: 'absolute', top: '25%', left: '25%', right: '25%', height: 1, backgroundColor: CL },
+  serviceLine_bot: { position: 'absolute', bottom: '25%', left: '25%', right: '25%', height: 1, backgroundColor: CL },
+  centerService: { position: 'absolute', top: '25%', left: '50%', bottom: '25%', width: 1, backgroundColor: CL },
+});
 
 /** Returns a label like "ATP 500" / "WTA 1000", or null if points should be hidden */
 function getTournamentPointsLabel(tournament: any): string | null {
   if (!tournament?.points) return null;
   const points = tournament.points;
   const category: string = tournament.category || '';
-  // Grand Slam (2000), ATP Finals/WTA Finals (1500), ATP Masters 1000 — hide if points >= 1000 and NOT WTA
   if (points >= 1000 && !category.includes('WTA')) return null;
-  // Otherwise show e.g. "WTA 1000", "ATP 500", "WTA 250"
   return `${category} ${points}`;
 }
 
@@ -47,7 +82,7 @@ function LiveDot() {
     anim.start();
     return () => anim.stop();
   }, [opacity]);
-  return <Animated.View style={[styles.liveDot, { opacity }]} />;
+  return <Animated.View style={[styles.liveDot, { opacity }]} accessibilityLabel="Live" />;
 }
 
 function getInitials(name: string): string {
@@ -85,6 +120,8 @@ export default function HomeScreen() {
   const { getPlayerName, t } = useLanguage();
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().slice(0, 10));
   const datePills = useMemo(() => getDatePills(t), [t]);
+  const { width: screenWidth } = useWindowDimensions();
+  const isWide = screenWidth >= breakpoints.md;
 
   const {
     data: matchesData,
@@ -98,7 +135,6 @@ export default function HomeScreen() {
     },
   });
 
-  // Load favorites and refresh when tab is focused
   const [favoriteIds, setFavoriteIds] = useState<number[]>([]);
   useFocusEffect(
     useCallback(() => {
@@ -126,7 +162,6 @@ export default function HomeScreen() {
     });
   }, [rawMatches, tourFilter]);
 
-  // Matches involving followed players
   const favoriteSet = useMemo(() => new Set(favoriteIds), [favoriteIds]);
   const followingMatches = useMemo(
     () =>
@@ -142,13 +177,11 @@ export default function HomeScreen() {
     [followingMatches]
   );
 
-  // Separate live matches (excluding following)
   const liveMatches = useMemo(
     () => allMatches.filter((m) => (m as any).isLive && !followingMatchIds.has(m.id)),
     [allMatches, followingMatchIds]
   );
 
-  // Group non-live matches by tournament (excluding following)
   const matchesByTournament = useMemo(() => {
     const nonLive = allMatches.filter(
       (m) => !(m as any).isLive && !followingMatchIds.has(m.id)
@@ -176,16 +209,30 @@ export default function HomeScreen() {
     const p1Name = match.player1 ? getPlayerName(match.player1) : `Player ${match.player1Id}`;
     const p2Name = match.player2 ? getPlayerName(match.player2) : `Player ${match.player2Id}`;
 
+    const a11yLabel = isLive
+      ? `${p1Name} vs ${p2Name}, ${match.score || '0-0'}, Live`
+      : isFinished
+        ? `${p1Name} vs ${p2Name}, ${match.score}, Finished`
+        : `${p1Name} vs ${p2Name}, Scheduled`;
+
     return (
       <View
         key={match.id}
         style={[styles.matchRow, isLive && styles.matchRowLive]}
+        accessibilityLabel={a11yLabel}
+        accessibilityRole="button"
       >
         <View style={styles.matchInner}>
           {/* Player 1 */}
-          <TouchableOpacity style={styles.matchPlayer} activeOpacity={theme.activeOpacity} onPress={() => router.push(`/player/${match.player1Id}`)}>
+          <TouchableOpacity
+            style={styles.matchPlayer}
+            activeOpacity={theme.activeOpacity}
+            onPress={() => router.push(`/player/${match.player1Id}`)}
+            accessibilityLabel={`View ${p1Name}`}
+            accessibilityRole="link"
+          >
             <View style={[!p1Won && p2Won && { opacity: 0.5 }]}>
-              <PlayerAvatar name={match.player1?.name || 'P1'} photoUrl={match.player1?.photoUrl} size={40} />
+              <PlayerAvatar name={match.player1?.name || 'P1'} photoUrl={match.player1?.photoUrl} size={40} ranking={match.player1?.ranking} />
             </View>
             <Flag country={match.player1?.country || ''} countryFlag={match.player1?.countryFlag} size={12} />
             <Text
@@ -202,7 +249,13 @@ export default function HomeScreen() {
           </TouchableOpacity>
 
           {/* Score */}
-          <TouchableOpacity style={styles.matchScore} activeOpacity={theme.activeOpacity} onPress={() => router.push(`/match/${match.id}`)}>
+          <TouchableOpacity
+            style={styles.matchScore}
+            activeOpacity={theme.activeOpacity}
+            onPress={() => router.push(`/match/${match.id}`)}
+            accessibilityLabel={`Match details: ${match.score || 'Scheduled'}`}
+            accessibilityRole="link"
+          >
             {isLive ? (
               <>
                 <Text style={styles.scoreLive}>{match.score || '0-0'}</Text>
@@ -215,6 +268,7 @@ export default function HomeScreen() {
                   <Text
                     style={styles.drawLink}
                     onPress={(e) => { e.stopPropagation(); router.push(`/tournament/${match.tournament!.id}`); }}
+                    accessibilityLabel="View draw"
                   >Draw</Text>
                 )}
               </>
@@ -227,6 +281,7 @@ export default function HomeScreen() {
                   <Text
                     style={styles.drawLink}
                     onPress={(e) => { e.stopPropagation(); router.push(`/tournament/${match.tournament!.id}`); }}
+                    accessibilityLabel="View draw"
                   >Draw</Text>
                 )}
               </>
@@ -240,7 +295,13 @@ export default function HomeScreen() {
           </TouchableOpacity>
 
           {/* Player 2 */}
-          <TouchableOpacity style={[styles.matchPlayer, styles.matchPlayerRight]} activeOpacity={theme.activeOpacity} onPress={() => router.push(`/player/${match.player2Id}`)}>
+          <TouchableOpacity
+            style={[styles.matchPlayer, styles.matchPlayerRight]}
+            activeOpacity={theme.activeOpacity}
+            onPress={() => router.push(`/player/${match.player2Id}`)}
+            accessibilityLabel={`View ${p2Name}`}
+            accessibilityRole="link"
+          >
             <Text
               style={[
                 styles.playerName,
@@ -254,7 +315,7 @@ export default function HomeScreen() {
             {p2Won && <View style={styles.winnerBadge} />}
             <Flag country={match.player2?.country || ''} countryFlag={match.player2?.countryFlag} size={12} />
             <View style={[!p2Won && p1Won && { opacity: 0.5 }]}>
-              <PlayerAvatar name={match.player2?.name || 'P2'} photoUrl={match.player2?.photoUrl} size={40} />
+              <PlayerAvatar name={match.player2?.name || 'P2'} photoUrl={match.player2?.photoUrl} size={40} ranking={match.player2?.ranking} />
             </View>
           </TouchableOpacity>
         </View>
@@ -314,125 +375,157 @@ export default function HomeScreen() {
     );
   };
 
+  /** Wrap match rows in 2-column grid when screen is wide enough */
+  const renderMatchList = (matches: MatchWithPlayers[]) => {
+    if (!isWide) return matches.map(renderMatchRow);
+    const pairs: MatchWithPlayers[][] = [];
+    for (let i = 0; i < matches.length; i += 2) {
+      pairs.push(matches.slice(i, i + 2));
+    }
+    return pairs.map((pair, idx) => (
+      <View key={idx} style={styles.twoColRow}>
+        <View style={styles.twoColItem}>{renderMatchRow(pair[0])}</View>
+        {pair[1] ? <View style={styles.twoColItem}>{renderMatchRow(pair[1])}</View> : <View style={styles.twoColItem} />}
+      </View>
+    ));
+  };
+
   return (
-    <ScrollView
-      style={styles.container}
-      contentContainerStyle={styles.content}
-      refreshControl={
-        <RefreshControl
-          refreshing={refreshing}
-          onRefresh={onRefresh}
-          tintColor={theme.accent}
-          colors={[theme.accent]}
-        />
-      }
-    >
-      {/* Title */}
-      <View style={styles.titleRow}>
-        <Text style={styles.pageTitle}>{t('matches')}</Text>
-        <TennisBallIcon size={16} />
-      </View>
-
-      {/* Tour Filter Pills */}
-      <View style={styles.tourFilterRow}>
-        {TOUR_FILTERS.map((tf) => (
-          <TouchableOpacity
-            key={tf}
-            style={[styles.tourPill, tourFilter === tf && styles.tourPillActive]}
-            onPress={() => setTourFilter(tf)}
-            activeOpacity={theme.activeOpacity}
-          >
-            <Text style={[styles.tourPillText, tourFilter === tf && styles.tourPillTextActive]}>
-              {tf}
-            </Text>
-          </TouchableOpacity>
-        ))}
-      </View>
-
-      {/* Date Selector Pills */}
+    <View style={styles.container}>
+      <CourtBackground />
       <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.datePillsRow}
+        style={styles.scroll}
+        contentContainerStyle={styles.content}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            tintColor={theme.accent}
+            colors={[theme.accent]}
+          />
+        }
       >
-        {datePills.map((pill) => (
-          <TouchableOpacity
-            key={pill.date}
-            style={[styles.datePill, selectedDate === pill.date && styles.datePillActive]}
-            onPress={() => setSelectedDate(pill.date)}
-            activeOpacity={theme.activeOpacity}
-          >
-            <Text style={[styles.datePillText, selectedDate === pill.date && styles.datePillTextActive]}>
-              {pill.label}
-            </Text>
-          </TouchableOpacity>
-        ))}
-      </ScrollView>
-
-      {matchesLoading ? (
-        <SkeletonList count={5} cardHeight={48} />
-      ) : allMatches.length === 0 ? (
-        <View style={styles.emptyWrap}>
-          <EmptyMatchesIllustration size={140} />
-          <Text style={styles.emptySubtitle}>{t('tryDifferentDate')}</Text>
+        {/* Title */}
+        <View style={styles.titleRow}>
+          <Text style={styles.pageTitle}>{t('matches')}</Text>
+          <TennisBallIcon size={16} />
         </View>
-      ) : (
-        <>
-          {/* Following Matches */}
-          {followingMatches.length > 0 && (
-            <View>
-              <View style={styles.sectionHeaderRow}>
-                <Text style={styles.sectionHeaderFollowing}>{t('myMatches')}</Text>
-              </View>
-              {followingMatches.map(renderMatchRow)}
-            </View>
-          )}
 
-          {/* Live Matches */}
-          {liveMatches.length > 0 && (
-            <View>
-              <Text style={styles.sectionHeaderLive}>{t('live')}</Text>
-              {liveMatches.map(renderMatchRow)}
-            </View>
-          )}
-
-          {/* Matches by Tournament */}
-          {matchesByTournament.map((group, idx) => (
-            <View key={idx}>
-              <TouchableOpacity
-                style={styles.sectionHeaderRow}
-                activeOpacity={group.tournament?.id ? theme.activeOpacity : 1}
-                onPress={() => group.tournament?.id && router.push(`/tournament/${group.tournament.id}`)}
-              >
-                {group.tournament && (
-                  <TournamentLogo tournament={group.tournament} size="sm" />
-                )}
-                <Text style={[styles.sectionHeader, group.tournament?.id && styles.sectionHeaderLink]}>
-                  {group.tournament?.name?.toUpperCase() || 'OTHER'}
-                  {group.tournament?.surface ? ` \u2022 ${group.tournament.surface}` : ''}
-                </Text>
-                {(() => {
-                  const label = getTournamentPointsLabel(group.tournament);
-                  return label ? (
-                    <View style={styles.pointsPill}>
-                      <Text style={styles.pointsPillText}>{label}</Text>
-                    </View>
-                  ) : null;
-                })()}
-              </TouchableOpacity>
-              {group.matches.map(renderMatchRow)}
-            </View>
+        {/* Tour Filter Pills */}
+        <View style={styles.tourFilterRow}>
+          {TOUR_FILTERS.map((tf) => (
+            <TouchableOpacity
+              key={tf}
+              style={[styles.tourPill, tourFilter === tf && styles.tourPillActive]}
+              onPress={() => setTourFilter(tf)}
+              activeOpacity={theme.activeOpacity}
+              accessibilityLabel={`Filter: ${tf}`}
+              accessibilityRole="button"
+              accessibilityState={{ selected: tourFilter === tf }}
+            >
+              <Text style={[styles.tourPillText, tourFilter === tf && styles.tourPillTextActive]}>
+                {tf}
+              </Text>
+            </TouchableOpacity>
           ))}
-        </>
-      )}
-    </ScrollView>
+        </View>
+
+        {/* Date Selector Pills */}
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.datePillsRow}
+        >
+          {datePills.map((pill) => (
+            <TouchableOpacity
+              key={pill.date}
+              style={[styles.datePill, selectedDate === pill.date && styles.datePillActive]}
+              onPress={() => setSelectedDate(pill.date)}
+              activeOpacity={theme.activeOpacity}
+              accessibilityLabel={pill.label}
+              accessibilityRole="button"
+              accessibilityState={{ selected: selectedDate === pill.date }}
+            >
+              <Text style={[styles.datePillText, selectedDate === pill.date && styles.datePillTextActive]}>
+                {pill.label}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+
+        {matchesLoading ? (
+          <SkeletonList count={5} cardHeight={48} />
+        ) : allMatches.length === 0 ? (
+          <View style={styles.emptyWrap}>
+            <EmptyMatchesIllustration size={140} />
+            <Text style={styles.emptySubtitle}>{t('tryDifferentDate')}</Text>
+          </View>
+        ) : (
+          <>
+            {/* Following Matches */}
+            {followingMatches.length > 0 && (
+              <View>
+                <View style={styles.sectionHeaderRow}>
+                  <Text style={styles.sectionHeaderFollowing}>{t('myMatches')}</Text>
+                </View>
+                {renderMatchList(followingMatches)}
+              </View>
+            )}
+
+            {/* Live Matches */}
+            {liveMatches.length > 0 && (
+              <View>
+                <Text style={styles.sectionHeaderLive}>{t('live')}</Text>
+                {renderMatchList(liveMatches)}
+              </View>
+            )}
+
+            {/* Matches by Tournament */}
+            {matchesByTournament.map((group, idx) => (
+              <View key={idx}>
+                <TouchableOpacity
+                  style={styles.sectionHeaderRow}
+                  activeOpacity={group.tournament?.id ? theme.activeOpacity : 1}
+                  onPress={() => group.tournament?.id && router.push(`/tournament/${group.tournament.id}`)}
+                  accessibilityLabel={`Tournament: ${group.tournament?.name || 'Other'}`}
+                  accessibilityRole="link"
+                >
+                  {group.tournament && (
+                    <TournamentLogo tournament={group.tournament} size="sm" />
+                  )}
+                  <Text style={[styles.sectionHeader, group.tournament?.id && styles.sectionHeaderLink]}>
+                    {group.tournament?.name?.toUpperCase() || 'OTHER'}
+                    {group.tournament?.surface ? ` \u2022 ${group.tournament.surface}` : ''}
+                  </Text>
+                  {(() => {
+                    const label = getTournamentPointsLabel(group.tournament);
+                    return label ? (
+                      <View style={styles.pointsPill}>
+                        <Text style={styles.pointsPillText}>{label}</Text>
+                      </View>
+                    ) : null;
+                  })()}
+                </TouchableOpacity>
+                {renderMatchList(group.matches)}
+              </View>
+            ))}
+          </>
+        )}
+      </ScrollView>
+    </View>
   );
 }
+
+const cursor = Platform.OS === 'web' ? ({ cursor: 'pointer' } as any) : {};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.bg,
+    position: 'relative' as const,
+  },
+  scroll: {
+    flex: 1,
   },
   content: {
     paddingBottom: 40,
@@ -461,13 +554,17 @@ const styles = StyleSheet.create({
   tourPill: {
     paddingHorizontal: 16,
     paddingVertical: 6,
-    borderRadius: 16,
-    backgroundColor: theme.card,
+    borderRadius: radii.pill,
+    backgroundColor: theme.glass,
+    borderWidth: 1,
+    borderColor: theme.glassBorder,
     minHeight: 32,
     justifyContent: 'center',
+    ...cursor,
   },
   tourPillActive: {
     backgroundColor: theme.accent,
+    borderColor: theme.accent,
   },
   tourPillText: {
     fontSize: 13,
@@ -489,13 +586,17 @@ const styles = StyleSheet.create({
   datePill: {
     paddingHorizontal: 16,
     paddingVertical: 8,
-    borderRadius: 20,
-    backgroundColor: theme.card,
+    borderRadius: radii.pill,
+    backgroundColor: theme.glass,
+    borderWidth: 1,
+    borderColor: theme.glassBorder,
     minHeight: 36,
     justifyContent: 'center',
+    ...cursor,
   },
   datePillActive: {
     backgroundColor: theme.accent,
+    borderColor: theme.accent,
   },
   datePillText: {
     fontSize: 13,
@@ -516,6 +617,7 @@ const styles = StyleSheet.create({
     paddingBottom: 8,
     gap: 8,
     minHeight: 44,
+    ...cursor,
   },
   sectionHeader: {
     fontSize: 13,
@@ -547,13 +649,18 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
   },
 
-  // Match Row
+  // Match Row — glass card
   matchRow: {
-    paddingHorizontal: theme.spacing.padding,
+    marginHorizontal: theme.spacing.padding,
+    marginVertical: 4,
+    paddingHorizontal: 14,
     paddingVertical: 14,
-    borderBottomWidth: 1,
-    borderBottomColor: theme.card,
+    borderRadius: radii.card,
+    backgroundColor: theme.glass,
+    borderWidth: 1,
+    borderColor: theme.glassBorder,
     minHeight: 44,
+    ...cursor,
   },
   matchRowLive: {
     backgroundColor: 'rgba(229,57,53,0.06)',
@@ -565,6 +672,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
+  // Two-column responsive
+  twoColRow: {
+    flexDirection: 'row',
+    gap: 8,
+    paddingHorizontal: 0,
+  },
+  twoColItem: {
+    flex: 1,
+  },
+
   // Player
   matchPlayer: {
     flex: 1,
@@ -572,6 +689,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 8,
     minHeight: 44,
+    ...cursor,
   },
   matchPlayerRight: {
     justifyContent: 'flex-end',
@@ -604,15 +722,16 @@ const styles = StyleSheet.create({
     flexShrink: 0,
     minHeight: 44,
     justifyContent: 'center',
+    ...cursor,
   },
   scoreLive: {
     fontSize: 16,
-    fontWeight: theme.fontWeight.bold,
+    fontWeight: theme.fontWeight.extrabold,
     color: theme.red,
   },
   scoreFt: {
     fontSize: 15,
-    fontWeight: theme.fontWeight.bold,
+    fontWeight: theme.fontWeight.extrabold,
     color: theme.text,
     letterSpacing: 2,
   },
@@ -679,6 +798,7 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: theme.linkBlue,
     marginTop: 2,
+    ...cursor,
   },
 
   // Empty

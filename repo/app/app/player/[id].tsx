@@ -12,6 +12,8 @@ import {
   LayoutAnimation,
   Platform,
   UIManager,
+  AccessibilityInfo,
+  useWindowDimensions,
 } from 'react-native';
 import { useLocalSearchParams, Stack, useRouter } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
@@ -37,7 +39,8 @@ import {
 } from '../../lib/comments';
 import { TournamentLogo } from '../../lib/tournament-logo';
 import { TennisBallIcon } from '../../lib/illustrations';
-import { theme } from '../../lib/theme';
+import { theme, radii, breakpoints } from '../../lib/theme';
+import { useReducedMotion } from '../../lib/useReducedMotion';
 import type { PlayerDetail, MatchWithPlayers, SetStats, TitleEntry, GrandSlamEntry, SeasonMatchEntry, DecidingSetMatchEntry, WinRateByYear } from '../../../shared/types';
 
 if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
@@ -49,6 +52,9 @@ const AVATAR_SIZE = 100;
 const CHART_HEIGHT = 180;
 const PX_PER_POINT = 4;
 const MIN_CHART_WIDTH = SCREEN_WIDTH - 64;
+
+const cursor = Platform.OS === 'web' ? ({ cursor: 'pointer' } as any) : {};
+const webBlur = Platform.OS === 'web' ? ({ backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)' } as any) : {};
 
 type TabKey = 'overview' | 'stats' | 'matches' | 'gear' | 'comments';
 type TimeRange = '1Y' | '5Y' | '10Y' | 'All';
@@ -348,6 +354,9 @@ function PrizeMoneyPanel({ prizeMoney }: { prizeMoney?: string }) {
 function OverviewTab({ player, router }: { player: PlayerDetail; router: any }) {
   const { t } = useLanguage();
   const [expandedStat, setExpandedStat] = useState<StatKey | null>(null);
+  const reduceMotion = useReducedMotion();
+  const { width: screenW } = useWindowDimensions();
+  const isLg = screenW >= breakpoints.lg;
   const record = player.record;
   const seasonWL = record ? `${record.season.wins}-${record.season.losses}` : '--';
   const careerWins = record ? record.career.wins : 0;
@@ -356,7 +365,9 @@ function OverviewTab({ player, router }: { player: PlayerDetail; router: any }) 
   const playerPrizeMoney = (player as any).prizeMoney as string | undefined;
 
   const toggleStat = (key: StatKey) => {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    if (!reduceMotion) {
+      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    }
     setExpandedStat(expandedStat === key ? null : key);
   };
 
@@ -393,17 +404,21 @@ function OverviewTab({ player, router }: { player: PlayerDetail; router: any }) 
 
   return (
     <>
-      {/* 6-cell Stats Grid */}
-      <View style={styles.statsGrid}>
+      {/* 6-cell Stats Grid — responsive: 3x2 default, 6x1 at lg+ */}
+      <View style={[styles.statsGrid, isLg && styles.statsGridWide]}>
         {statCards.map((card) => (
           <TouchableOpacity
             key={card.key}
             style={[
               styles.statCell,
+              isLg && styles.statCellWide,
               expandedStat === card.key && styles.statCellActive,
             ]}
             onPress={() => toggleStat(card.key)}
             activeOpacity={0.7}
+            accessibilityLabel={`${card.label}: ${card.value}`}
+            accessibilityRole="button"
+            accessibilityHint="Tap to expand details"
           >
             <Text style={[styles.statNumber, card.color ? { color: card.color } : undefined]}>
               {card.value}
@@ -819,21 +834,37 @@ export default function PlayerDetailScreen() {
         options={{
           title: getPlayerName(player),
           headerRight: () => (
-            <TouchableOpacity onPress={handleToggleFavorite} activeOpacity={theme.activeOpacity} style={{ padding: 8, marginRight: 4, minWidth: 44, minHeight: 44, alignItems: 'center', justifyContent: 'center' }}>
+            <TouchableOpacity
+              onPress={handleToggleFavorite}
+              activeOpacity={theme.activeOpacity}
+              style={{ padding: 8, marginRight: 4, minWidth: 44, minHeight: 44, alignItems: 'center', justifyContent: 'center', ...(Platform.OS === 'web' ? { cursor: 'pointer' } as any : {}) }}
+              accessibilityLabel={isFav ? 'Remove from favorites' : 'Add to favorites'}
+              accessibilityRole="button"
+            >
               <Text style={{ fontSize: 18, color: isFav ? '#ef4444' : theme.textSecondary }}>{isFav ? '\u2665' : '\u2661'}</Text>
             </TouchableOpacity>
           ),
         }}
       />
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-        {/* Header */}
+        {/* Header — gradient layers */}
         <View style={styles.header}>
+          {/* Gradient simulation: purple -> blue -> bg */}
+          <View style={styles.gradientLayer1} />
+          <View style={styles.gradientLayer2} />
+          <View style={styles.gradientLayer3} />
           {/* Decorative tennis ball */}
           <View style={styles.headerDecor}>
             <TennisBallIcon size={60} opacity={0.03} />
           </View>
+          {/* Decorative circle */}
+          <View style={styles.headerCircle} />
           <View style={styles.bigAvatar}>
-            <Image source={{ uri: avatarUrl }} style={styles.avatarImage} />
+            <Image
+              source={{ uri: avatarUrl }}
+              style={styles.avatarImage}
+              accessibilityLabel={`${getPlayerName(player)} photo`}
+            />
           </View>
           <Text style={styles.playerName}>{getPlayerName(player)}</Text>
           {resolvedLanguage !== 'en' && getPlayerName(player) !== player.name && (
@@ -888,56 +919,96 @@ const styles = StyleSheet.create({
   content: { paddingBottom: 40 },
   center: { flex: 1, backgroundColor: theme.bg, justifyContent: 'center', alignItems: 'center' },
 
-  // Header
+  // Header — gradient background
   header: {
     alignItems: 'center',
     paddingTop: 20,
     paddingBottom: 16,
     paddingHorizontal: 16,
-    backgroundColor: theme.card,
+    backgroundColor: theme.bg,
     position: 'relative' as const,
     overflow: 'hidden' as const,
+  },
+  gradientLayer1: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: '#141020',
+    opacity: 0.7,
+  },
+  gradientLayer2: {
+    position: 'absolute' as const,
+    top: '30%',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: '#0d1520',
+    opacity: 0.6,
+  },
+  gradientLayer3: {
+    position: 'absolute' as const,
+    top: '60%',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: theme.bg,
+  },
+  headerCircle: {
+    position: 'absolute' as const,
+    top: -30,
+    right: -30,
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    borderWidth: 2,
+    borderColor: 'rgba(255,255,255,0.03)',
   },
   headerDecor: {
     position: 'absolute' as const,
     top: 10,
     right: 10,
+    zIndex: 1,
   },
   bigAvatar: {
     width: AVATAR_SIZE,
     height: AVATAR_SIZE,
-    borderRadius: AVATAR_SIZE / 2,
+    borderRadius: radii.avatarLg,
     borderWidth: 3,
-    borderColor: theme.border,
+    borderColor: 'rgba(255,255,255,0.1)',
     overflow: 'hidden',
     marginBottom: 12,
+    zIndex: 1,
+    // elevation shadow
+    ...(Platform.OS === 'web' ? { boxShadow: '0 8px 32px rgba(0,0,0,0.5)' } as any : {}),
   },
   avatarImage: {
     width: AVATAR_SIZE - 6,
     height: AVATAR_SIZE - 6,
-    borderRadius: (AVATAR_SIZE - 6) / 2,
+    borderRadius: radii.avatarLg - 2,
   },
   playerName: {
     fontSize: 26,
     fontWeight: '700',
     color: theme.text,
     marginBottom: 4,
+    zIndex: 1,
   },
   playerNameEn: {
     fontSize: 14,
     color: '#888',
     marginBottom: 4,
+    zIndex: 1,
   },
   subtitle: {
     fontSize: 13,
     color: '#888',
     marginBottom: 8,
+    zIndex: 1,
   },
   hotTagBadge: {
-    backgroundColor: theme.border,
+    backgroundColor: 'rgba(201,168,76,0.12)',
     paddingHorizontal: 12,
     paddingVertical: 4,
     borderRadius: 12,
+    zIndex: 1,
   },
   hotTagText: {
     fontSize: 11,
@@ -957,6 +1028,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderBottomWidth: 2,
     borderBottomColor: 'transparent',
+    ...cursor,
   },
   tabActive: {
     borderBottomColor: '#16a34a',
@@ -974,26 +1046,35 @@ const styles = StyleSheet.create({
     padding: 16,
   },
 
-  // Stats Grid (6-cell, 3 columns)
+  // Stats Grid (6-cell, 3 columns default, 6x1 at lg+)
   statsGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     backgroundColor: theme.border,
-    borderRadius: 10,
+    borderRadius: radii.card,
     overflow: 'hidden',
     gap: 1,
     marginBottom: 16,
   },
+  statsGridWide: {
+    flexWrap: 'nowrap',
+  },
   statCell: {
-    backgroundColor: theme.card,
+    backgroundColor: theme.glass,
     width: (SCREEN_WIDTH - 34) / 3,
     paddingVertical: 16,
     paddingHorizontal: 12,
     alignItems: 'center',
     position: 'relative' as const,
+    ...cursor,
+    ...webBlur,
+  },
+  statCellWide: {
+    flex: 1,
+    width: 'auto' as any,
   },
   statCellActive: {
-    backgroundColor: theme.border,
+    backgroundColor: theme.cardHover,
   },
   statNumber: {
     fontSize: 24,
@@ -1019,10 +1100,13 @@ const styles = StyleSheet.create({
 
   // Detail panels
   detailPanel: {
-    backgroundColor: theme.card,
-    borderRadius: 10,
+    backgroundColor: theme.glass,
+    borderRadius: radii.card,
+    borderWidth: 1,
+    borderColor: theme.glassBorder,
     padding: 12,
     marginBottom: 12,
+    ...webBlur,
   },
   detailRow: {
     flexDirection: 'row' as const,
@@ -1111,12 +1195,15 @@ const styles = StyleSheet.create({
     marginTop: 1,
   },
 
-  // Card
+  // Card — glass effect
   card: {
-    backgroundColor: theme.card,
-    borderRadius: 10,
+    backgroundColor: theme.glass,
+    borderRadius: radii.card,
+    borderWidth: 1,
+    borderColor: theme.glassBorder,
     padding: 16,
     marginBottom: 12,
+    ...webBlur,
   },
   cardTitle: {
     fontSize: 14,
@@ -1152,8 +1239,8 @@ const styles = StyleSheet.create({
   barPct: { width: 44, fontSize: 13, fontWeight: '700', color: theme.text, textAlign: 'right' },
   barRecord: { width: 56, fontSize: 12, color: '#888', textAlign: 'right' },
 
-  // Match items
-  matchItem: { backgroundColor: theme.card, borderRadius: 10, padding: 12, marginBottom: 8 },
+  // Match items — glass
+  matchItem: { backgroundColor: theme.glass, borderRadius: radii.card, borderWidth: 1, borderColor: theme.glassBorder, padding: 12, marginBottom: 8, ...cursor },
   matchMeta: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 6 },
   matchTournament: { fontSize: 11, color: '#888', textTransform: 'uppercase', letterSpacing: 0.5 },
   matchTournamentLink: { color: theme.linkBlue, textDecorationLine: 'underline' as const },

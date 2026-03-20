@@ -8,6 +8,7 @@ import {
   Dimensions,
   Animated,
   TouchableOpacity,
+  Platform,
 } from 'react-native';
 import { useLocalSearchParams, Stack, useRouter } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
@@ -18,11 +19,13 @@ import { useLanguage, TranslationKey } from '../../lib/i18n';
 import { SkeletonBlock } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
 import { TournamentLogo } from '../../lib/tournament-logo';
-import { theme } from '../../lib/theme';
+import { theme, radii } from '../../lib/theme';
 import type { MatchWithPlayers, MatchStats, ProbabilitySnapshot, SetGameByGame, GameByGameEntry, NextRoundInfo } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const AVATAR_SIZE = 68;
+const cursor = Platform.OS === 'web' ? ({ cursor: 'pointer' } as any) : {};
+const webBlur = Platform.OS === 'web' ? ({ backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)' } as any) : {};
 
 type TabKey = 'overview' | 'stats' | 'probability';
 
@@ -435,12 +438,19 @@ export default function MatchDetailScreen() {
     <>
       <Stack.Screen options={{ title: match.tournament?.name || 'Match' }} />
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-        {/* Match Header */}
+        {/* Match Header — gradient */}
         <View style={styles.matchHeader}>
+          {/* Gradient layers */}
+          <View style={styles.gradientLayer1} />
+          <View style={styles.gradientLayer2} />
+          {/* Decorative circle */}
+          <View style={styles.headerCircle} />
           <TouchableOpacity
             style={styles.tournamentLabelRow}
             activeOpacity={match.tournament?.id ? 0.7 : 1}
             onPress={() => match.tournament?.id && router.push(`/tournament/${match.tournament.id}`)}
+            accessibilityLabel={`Tournament: ${match.tournament?.name || 'Match'}`}
+            accessibilityRole="link"
           >
             {match.tournament && <TournamentLogo tournament={match.tournament} size="md" />}
             <Text style={[styles.tournamentLabel, match.tournament?.id && styles.tournamentLabelLink]}>
@@ -534,8 +544,8 @@ export default function MatchDetailScreen() {
 
           <View style={styles.versusRow}>
             {/* Player 1 */}
-            <TouchableOpacity style={styles.vsPlayer} activeOpacity={0.7} onPress={() => router.push(`/player/${match.player1Id}`)}>
-              <PlayerAvatar name={match.player1?.name || 'P1'} photoUrl={match.player1?.photoUrl} size={56} />
+            <TouchableOpacity style={styles.vsPlayer} activeOpacity={0.7} onPress={() => router.push(`/player/${match.player1Id}`)} accessibilityLabel={`View ${p1Name}, Rank ${match.player1?.ranking || '?'}`} accessibilityRole="link">
+              <PlayerAvatar name={match.player1?.name || 'P1'} photoUrl={match.player1?.photoUrl} size={56} ranking={match.player1?.ranking} />
               <Text style={[styles.vsName, p1Won && styles.vsNameWinner, !p1Won && p2Won && styles.vsNameLoser]} numberOfLines={1}>
                 {p1Short}
               </Text>
@@ -552,8 +562,8 @@ export default function MatchDetailScreen() {
             </View>
 
             {/* Player 2 */}
-            <TouchableOpacity style={styles.vsPlayer} activeOpacity={0.7} onPress={() => router.push(`/player/${match.player2Id}`)}>
-              <PlayerAvatar name={match.player2?.name || 'P2'} photoUrl={match.player2?.photoUrl} size={56} />
+            <TouchableOpacity style={styles.vsPlayer} activeOpacity={0.7} onPress={() => router.push(`/player/${match.player2Id}`)} accessibilityLabel={`View ${p2Name}, Rank ${match.player2?.ranking || '?'}`} accessibilityRole="link">
+              <PlayerAvatar name={match.player2?.name || 'P2'} photoUrl={match.player2?.photoUrl} size={56} ranking={match.player2?.ranking} />
               <Text style={[styles.vsName, p2Won && styles.vsNameWinner, !p2Won && p1Won && styles.vsNameLoser]} numberOfLines={1}>
                 {p2Short}
               </Text>
@@ -603,18 +613,47 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: theme.bg },
   content: { paddingBottom: 40 },
 
-  // Match Header
+  // Match Header — gradient
   matchHeader: {
-    backgroundColor: theme.cardAlt,
+    backgroundColor: theme.bg,
     paddingVertical: 20,
     paddingHorizontal: 16,
     alignItems: 'center',
+    position: 'relative' as const,
+    overflow: 'hidden' as const,
+  },
+  gradientLayer1: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: '#0d1520',
+    opacity: 0.8,
+  },
+  gradientLayer2: {
+    position: 'absolute' as const,
+    top: '50%',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: theme.bg,
+  },
+  headerCircle: {
+    position: 'absolute' as const,
+    top: '50%',
+    left: '50%',
+    width: 200,
+    height: 200,
+    borderRadius: 100,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.02)',
+    marginLeft: -100,
+    marginTop: -100,
   },
   tournamentLabelRow: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
     marginBottom: 16,
+    zIndex: 1,
+    ...cursor,
   },
   tournamentLabel: {
     fontSize: 12,
@@ -628,6 +667,8 @@ const styles = StyleSheet.create({
   },
   viewInDrawRow: {
     marginBottom: 8,
+    zIndex: 1,
+    ...cursor,
   },
   viewInDrawText: {
     fontSize: 12,
@@ -639,6 +680,7 @@ const styles = StyleSheet.create({
     color: theme.textSecondary,
     marginBottom: 12,
     textAlign: 'center',
+    zIndex: 1,
   },
   nextRoundPlayerLink: {
     color: theme.linkBlue,
@@ -654,10 +696,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 16,
+    zIndex: 1,
   },
   vsPlayer: {
     alignItems: 'center',
     flex: 1,
+    ...cursor,
   },
   vsAvatar: {
     width: AVATAR_SIZE,
@@ -699,10 +743,11 @@ const styles = StyleSheet.create({
   },
   scoreCenterBlock: {
     alignItems: 'center',
+    zIndex: 1,
   },
   bigScore: {
     fontSize: 28,
-    fontWeight: '700',
+    fontWeight: theme.fontWeight.extrabold,
     color: theme.text,
     letterSpacing: 4,
   },
@@ -724,20 +769,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderBottomWidth: 2,
     borderBottomColor: 'transparent',
+    ...cursor,
   },
   tabActive: { borderBottomColor: '#16a34a' },
   tabText: { fontSize: 13, fontWeight: '500', color: theme.textSecondary },
   tabTextActive: { color: theme.accent, fontWeight: '600' },
   tabContent: { padding: 16 },
 
-  // Card
-  card: { backgroundColor: theme.card, borderRadius: 10, padding: 16, marginBottom: 12 },
+  // Card — glass
+  card: { backgroundColor: theme.glass, borderRadius: radii.card, borderWidth: 1, borderColor: theme.glassBorder, padding: 16, marginBottom: 12, ...webBlur },
   cardTitle: { fontSize: 14, fontWeight: '600', color: theme.text, marginBottom: 12 },
   statsSectionTitle: { fontSize: 13, fontWeight: '600', color: theme.accent, marginBottom: 12, textTransform: 'uppercase' as const, letterSpacing: 1 },
 
   // Score
   setsRow: { flexDirection: 'row', gap: 8, flexWrap: 'wrap', justifyContent: 'center' },
-  setBox: { backgroundColor: theme.bg, borderRadius: 8, paddingHorizontal: 14, paddingVertical: 8, alignItems: 'center', minWidth: 56 },
+  setBox: { backgroundColor: theme.bg, borderRadius: radii.avatarSm, paddingHorizontal: 14, paddingVertical: 8, alignItems: 'center', minWidth: 56 },
   setLabel: { fontSize: 10, color: theme.textSecondary, marginBottom: 3 },
   setScore: { fontSize: 18, fontWeight: '700', color: theme.text },
 

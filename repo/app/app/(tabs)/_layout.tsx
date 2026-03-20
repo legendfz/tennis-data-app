@@ -1,5 +1,6 @@
+import React from 'react';
 import { Tabs } from 'expo-router';
-import { Text, StyleSheet, View } from 'react-native';
+import { Text, StyleSheet, View, Platform } from 'react-native';
 import { theme } from '../../lib/theme';
 import { useLanguage } from '../../lib/i18n';
 import {
@@ -22,7 +23,7 @@ function TabIcon({
 }) {
   const color = focused ? theme.accent : theme.textSecondary;
   return (
-    <View style={tabStyles.iconWrap}>
+    <View style={tabStyles.iconWrap} accessibilityLabel={label} accessibilityRole="tab">
       <Icon color={color} size={22} />
       <Text style={[tabStyles.label, focused && tabStyles.labelActive]}>{label}</Text>
       {focused && <View style={tabStyles.indicator} />}
@@ -59,6 +60,10 @@ const tabStyles = StyleSheet.create({
   },
 });
 
+const webBlur = Platform.OS === 'web'
+  ? ({ backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)' } as any)
+  : {};
+
 export default function TabLayout() {
   const { t } = useLanguage();
 
@@ -68,12 +73,13 @@ export default function TabLayout() {
         tabBarActiveTintColor: theme.accent,
         tabBarInactiveTintColor: theme.textSecondary,
         tabBarStyle: {
-          backgroundColor: theme.cardAlt,
-          borderTopColor: theme.border,
+          backgroundColor: theme.tabBarBg,
+          borderTopColor: theme.glassBorder,
           borderTopWidth: 1,
           height: 68,
           paddingBottom: 8,
           paddingTop: 4,
+          ...webBlur,
         },
         tabBarLabelStyle: {
           display: 'none',
