@@ -26,12 +26,14 @@ function PlayerSelector({
   onSelect,
   excludeId,
   localizedName,
+  t,
 }: {
   label: string;
   selectedPlayer: Player | null;
   onSelect: (player: Player) => void;
   excludeId?: number;
   localizedName: (player: any) => string;
+  t: (key: string) => string;
 }) {
   const [search, setSearch] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
@@ -132,13 +134,13 @@ export default function H2HTabScreen() {
 
       <View style={styles.selectorsRow}>
         <View style={{ flex: 1 }}>
-          <PlayerSelector label={t('player1')} selectedPlayer={player1} onSelect={setPlayer1} excludeId={player2?.id} localizedName={getPlayerName} />
+          <PlayerSelector label={t('player1')} selectedPlayer={player1} onSelect={setPlayer1} excludeId={player2?.id} localizedName={getPlayerName} t={t} />
         </View>
         <View style={styles.vsMiddle}>
           <Text style={styles.vsText}>{t('vs')}</Text>
         </View>
         <View style={{ flex: 1 }}>
-          <PlayerSelector label={t('player2')} selectedPlayer={player2} onSelect={setPlayer2} excludeId={player1?.id} localizedName={getPlayerName} />
+          <PlayerSelector label={t('player2')} selectedPlayer={player2} onSelect={setPlayer2} excludeId={player1?.id} localizedName={getPlayerName} t={t} />
         </View>
       </View>
 
