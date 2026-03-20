@@ -199,6 +199,19 @@ export interface MatchWithPlayers extends Match {
   tournament: Tournament;
 }
 
+export interface NextRoundOpponent {
+  id: number;
+  name: string;
+  ranking: number;
+}
+
+export interface NextRoundInfo {
+  round: string;
+  opponent?: NextRoundOpponent;
+  or?: NextRoundOpponent;
+  status: 'confirmed' | 'pending';
+}
+
 export interface DrawRoundMatch {
   player1Id: number;
   player2Id: number;

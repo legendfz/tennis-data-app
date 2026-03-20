@@ -22,7 +22,7 @@ import { TournamentLogo } from '../../lib/tournament-logo';
 import { theme } from '../../lib/theme';
 import { TennisBallIcon } from '../../lib/illustrations';
 import { EmptyMatchesIllustration } from '../../lib/illustrations';
-import type { Player, MatchWithPlayers } from '../../../shared/types';
+import type { Player, MatchWithPlayers, NextRoundInfo } from '../../../shared/types';
 
 /** Returns a label like "ATP 500" / "WTA 1000", or null if points should be hidden */
 function getTournamentPointsLabel(tournament: any): string | null {
@@ -255,6 +255,35 @@ export default function HomeScreen() {
             {(match as any).afterMatch ? ` \u2022 After ${(match as any).afterMatch}` : ''}
           </Text>
         )}
+
+        {/* Next round opponent info */}
+        {(() => {
+          const nr = (match as any).nextRound as NextRoundInfo | undefined;
+          if (!nr) return null;
+          const shortRound = nr.round.replace('Semi-Final', 'SF').replace('Quarter-Final', 'QF').replace('Round of 16', 'R16').replace('Round of 32', 'R32');
+          if (isFinished && match.winnerId) {
+            const winnerName = match.winnerId === match.player1Id ? p1Name : p2Name;
+            const winnerShort = winnerName.split(/[\s·]+/).pop() || winnerName;
+            if (nr.status === 'confirmed' && nr.opponent) {
+              const oppShort = nr.opponent.name.split(/[\s·]+/).pop() || nr.opponent.name;
+              return <Text style={styles.nextRoundText}>{winnerShort} → vs {oppShort} ({shortRound})</Text>;
+            } else if (nr.opponent && nr.or) {
+              const opp1Short = nr.opponent.name.split(/[\s·]+/).pop() || nr.opponent.name;
+              const opp2Short = nr.or.name.split(/[\s·]+/).pop() || nr.or.name;
+              return <Text style={styles.nextRoundText}>{winnerShort} → vs {opp1Short} or {opp2Short} ({shortRound})</Text>;
+            }
+          } else {
+            if (nr.status === 'confirmed' && nr.opponent) {
+              const oppShort = nr.opponent.name.split(/[\s·]+/).pop() || nr.opponent.name;
+              return <Text style={styles.nextRoundText}>Next: vs {oppShort} ({shortRound})</Text>;
+            } else if (nr.opponent && nr.or) {
+              const opp1Short = nr.opponent.name.split(/[\s·]+/).pop() || nr.opponent.name;
+              const opp2Short = nr.or.name.split(/[\s·]+/).pop() || nr.or.name;
+              return <Text style={styles.nextRoundText}>Next: vs {opp1Short} or {opp2Short} ({shortRound})</Text>;
+            }
+          }
+          return null;
+        })()}
       </View>
     );
   };
@@ -607,6 +636,14 @@ const styles = StyleSheet.create({
     color: theme.textSecondary,
     marginTop: 6,
     paddingLeft: 42,
+  },
+
+  // Next round info
+  nextRoundText: {
+    fontSize: 11,
+    color: theme.textSecondary,
+    marginTop: 4,
+    textAlign: 'center',
   },
 
   // Empty

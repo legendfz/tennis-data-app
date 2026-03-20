@@ -1,9 +1,89 @@
 import { Router, Request, Response } from 'express';
-import { mockMatches, mockPlayers, mockTournaments } from '../mock-data';
+import { mockMatches, mockPlayers, mockTournaments, mockDraws } from '../mock-data';
 import { calculateWinProbability, ScoreState, calculateAdvancedProbability, AdvancedProbInput } from '../lib/win-probability';
 import probabilitySnapshots from '../data/probability-snapshots.json';
+import type { NextRoundInfo } from '../../../shared/types';
 
 const router = Router();
+
+// Round progression order (lower index = later in tournament)
+const ROUND_ORDER = ['Final', 'Semi-Final', 'Quarter-Final', 'Round of 16', 'Round of 32', 'Round of 64', 'Round Robin'];
+
+function getNextRoundInfo(match: typeof mockMatches[0]): NextRoundInfo | null {
+  // Find the draw for this tournament
+  const draw = mockDraws.find((d) => d.tournamentId === match.tournamentId);
+  if (!draw) return null;
+
+  // Find which round this match is in within the draw
+  const currentRoundName = match.round;
+  const currentRoundIdx = ROUND_ORDER.indexOf(currentRoundName);
+  if (currentRoundIdx < 0) return null; // Unknown round
+  if (currentRoundIdx === 0) return null; // Already the Final, no next round
+
+  const nextRoundName = ROUND_ORDER[currentRoundIdx - 1];
+  if (!nextRoundName) return null;
+
+  // Find the current match in the draw to identify the player's position
+  const currentDrawRound = draw.rounds.find((r) => r.round === currentRoundName);
+  if (!currentDrawRound) return null;
+
+  // Find the draw match that corresponds to this match
+  const drawMatch = currentDrawRound.matches.find(
+    (dm) =>
+      (dm.player1Id === match.player1Id && dm.player2Id === match.player2Id) ||
+      (dm.player1Id === match.player2Id && dm.player2Id === match.player1Id)
+  );
+  if (!drawMatch) return null;
+
+  // Get the index of this match within the round
+  const matchIdx = currentDrawRound.matches.indexOf(drawMatch);
+
+  // In a standard bracket, match 0 and 1 feed into next round match 0,
+  // match 2 and 3 feed into next round match 1, etc.
+  const nextMatchIdx = Math.floor(matchIdx / 2);
+
+  const nextDrawRound = draw.rounds.find((r) => r.round === nextRoundName);
+  if (!nextDrawRound) return null;
+
+  const nextDrawMatch = nextDrawRound.matches[nextMatchIdx];
+  if (!nextDrawMatch) return null;
+
+  // Determine the winner of our current match
+  const winnerId = match.winnerId;
+
+  // The opponent in the next round comes from the sibling match
+  // Sibling match is the other match that feeds into the same next-round match
+  const siblingIdx = matchIdx % 2 === 0 ? matchIdx + 1 : matchIdx - 1;
+  const siblingMatch = currentDrawRound.matches[siblingIdx];
+
+  if (!siblingMatch) {
+    // No sibling match means it's a bye or single entry
+    return null;
+  }
+
+  // Check if the sibling match has a winner
+  if (siblingMatch.winnerId) {
+    // Opponent is confirmed
+    const opponent = mockPlayers.find((p) => p.id === siblingMatch.winnerId);
+    if (!opponent) return null;
+    return {
+      round: nextRoundName,
+      opponent: { id: opponent.id, name: opponent.name, ranking: opponent.ranking },
+      status: 'confirmed',
+    };
+  } else {
+    // Opponent is pending - show both potential opponents
+    const potentialA = mockPlayers.find((p) => p.id === siblingMatch.player1Id);
+    const potentialB = mockPlayers.find((p) => p.id === siblingMatch.player2Id);
+    if (!potentialA || !potentialB) return null;
+    return {
+      round: nextRoundName,
+      opponent: { id: potentialA.id, name: potentialA.name, ranking: potentialA.ranking },
+      or: { id: potentialB.id, name: potentialB.name, ranking: potentialB.ranking },
+      status: 'pending',
+    };
+  }
+}
 
 // GET /api/matches — Match list with tournament filter
 router.get('/', (req: Request, res: Response) => {
@@ -43,7 +123,8 @@ router.get('/', (req: Request, res: Response) => {
     const player2 = mockPlayers.find((p) => p.id === m.player2Id);
     const winner = mockPlayers.find((p) => p.id === m.winnerId);
     const tournament = mockTournaments.find((t) => t.id === m.tournamentId);
-    return { ...m, player1, player2, winner, tournament };
+    const nextRound = getNextRoundInfo(m);
+    return { ...m, player1, player2, winner, tournament, nextRound };
   });
 
   res.json({
@@ -66,8 +147,9 @@ router.get('/:id', (req: Request, res: Response) => {
   const player2 = mockPlayers.find((p) => p.id === match.player2Id);
   const winner = mockPlayers.find((p) => p.id === match.winnerId);
   const tournament = mockTournaments.find((t) => t.id === match.tournamentId);
+  const nextRound = getNextRoundInfo(match);
 
-  res.json({ ...match, player1, player2, winner, tournament });
+  res.json({ ...match, player1, player2, winner, tournament, nextRound });
 });
 
 // GET /api/matches/:id/probability-history — Get probability snapshots for historical match

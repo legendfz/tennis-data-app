@@ -19,7 +19,7 @@ import { SkeletonBlock } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
 import { TournamentLogo } from '../../lib/tournament-logo';
 import { theme } from '../../lib/theme';
-import type { MatchWithPlayers, MatchStats, ProbabilitySnapshot, SetGameByGame, GameByGameEntry } from '../../../shared/types';
+import type { MatchWithPlayers, MatchStats, ProbabilitySnapshot, SetGameByGame, GameByGameEntry, NextRoundInfo } from '../../../shared/types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const AVATAR_SIZE = 68;
@@ -450,6 +450,69 @@ export default function MatchDetailScreen() {
             </Text>
           </TouchableOpacity>
 
+          {/* Next Round Info */}
+          {(() => {
+            const nr = (match as any).nextRound as NextRoundInfo | undefined;
+            if (!nr) return null;
+            const isFinished = match.winnerId != null;
+            if (isFinished && match.winnerId) {
+              const winnerPlayer = match.winnerId === match.player1Id ? match.player1 : match.player2;
+              const winnerShort = winnerPlayer ? (winnerPlayer.name.split(/[\s·]+/).pop() || winnerPlayer.name) : 'Winner';
+              if (nr.status === 'confirmed' && nr.opponent) {
+                return (
+                  <Text style={styles.nextRoundDetail}>
+                    {winnerShort} advanced to face{' '}
+                    <Text style={styles.nextRoundPlayerLink} onPress={() => router.push(`/player/${nr.opponent!.id}`)}>
+                      {nr.opponent.name.split(/[\s·]+/).pop()} (#{nr.opponent.ranking})
+                    </Text>
+                    {' '}in {nr.round}
+                  </Text>
+                );
+              } else if (nr.opponent && nr.or) {
+                return (
+                  <Text style={styles.nextRoundDetail}>
+                    {winnerShort} advanced to face{' '}
+                    <Text style={styles.nextRoundPlayerLink} onPress={() => router.push(`/player/${nr.opponent!.id}`)}>
+                      {nr.opponent.name.split(/[\s·]+/).pop()} (#{nr.opponent.ranking})
+                    </Text>
+                    {' '}or{' '}
+                    <Text style={styles.nextRoundPlayerLink} onPress={() => router.push(`/player/${nr.or!.id}`)}>
+                      {nr.or.name.split(/[\s·]+/).pop()} (#{nr.or.ranking})
+                    </Text>
+                    {' '}in {nr.round}
+                  </Text>
+                );
+              }
+            } else {
+              if (nr.status === 'confirmed' && nr.opponent) {
+                return (
+                  <Text style={styles.nextRoundDetail}>
+                    Winner faces:{' '}
+                    <Text style={styles.nextRoundPlayerLink} onPress={() => router.push(`/player/${nr.opponent!.id}`)}>
+                      {nr.opponent.name.split(/[\s·]+/).pop()} (#{nr.opponent.ranking})
+                    </Text>
+                    {' '}in {nr.round}
+                  </Text>
+                );
+              } else if (nr.opponent && nr.or) {
+                return (
+                  <Text style={styles.nextRoundDetail}>
+                    Winner faces:{' '}
+                    <Text style={styles.nextRoundPlayerLink} onPress={() => router.push(`/player/${nr.opponent!.id}`)}>
+                      {nr.opponent.name.split(/[\s·]+/).pop()} (#{nr.opponent.ranking})
+                    </Text>
+                    {' '}or{' '}
+                    <Text style={styles.nextRoundPlayerLink} onPress={() => router.push(`/player/${nr.or!.id}`)}>
+                      {nr.or.name.split(/[\s·]+/).pop()} (#{nr.or.ranking})
+                    </Text>
+                    {' '}in {nr.round}
+                  </Text>
+                );
+              }
+            }
+            return null;
+          })()}
+
           <View style={styles.versusRow}>
             {/* Player 1 */}
             <TouchableOpacity style={styles.vsPlayer} activeOpacity={0.7} onPress={() => router.push(`/player/${match.player1Id}`)}>
@@ -541,6 +604,16 @@ const styles = StyleSheet.create({
     flexShrink: 1,
   },
   tournamentLabelLink: {
+    color: theme.linkBlue,
+    textDecorationLine: 'underline' as const,
+  },
+  nextRoundDetail: {
+    fontSize: 12,
+    color: theme.textSecondary,
+    marginBottom: 12,
+    textAlign: 'center',
+  },
+  nextRoundPlayerLink: {
     color: theme.linkBlue,
     textDecorationLine: 'underline' as const,
   },
