@@ -470,17 +470,22 @@ export default function MatchDetailScreen() {
                 );
               } else if (nr.opponent && nr.or) {
                 return (
-                  <Text style={styles.nextRoundDetail}>
-                    {winnerShort} advanced to face{' '}
-                    <Text style={styles.nextRoundPlayerLink} onPress={() => router.push(`/player/${nr.opponent!.id}`)}>
-                      {nr.opponent.name.split(/[\s·]+/).pop()} (#{nr.opponent.ranking})
+                  <View style={{ alignItems: 'center', marginBottom: 12 }}>
+                    <Text style={styles.nextRoundDetail}>
+                      {winnerShort} advanced to face{' '}
+                      <Text style={styles.nextRoundPlayerLink} onPress={() => router.push(`/player/${nr.opponent!.id}`)}>
+                        {nr.opponent.name.split(/[\s·]+/).pop()} (#{nr.opponent.ranking})
+                      </Text>
+                      {' '}or{' '}
+                      <Text style={styles.nextRoundPlayerLink} onPress={() => router.push(`/player/${nr.or!.id}`)}>
+                        {nr.or.name.split(/[\s·]+/).pop()} (#{nr.or.ranking})
+                      </Text>
+                      {' '}in {nr.round}
                     </Text>
-                    {' '}or{' '}
-                    <Text style={styles.nextRoundPlayerLink} onPress={() => router.push(`/player/${nr.or!.id}`)}>
-                      {nr.or.name.split(/[\s·]+/).pop()} (#{nr.or.ranking})
-                    </Text>
-                    {' '}in {nr.round}
-                  </Text>
+                    {nr.matchId != null && (
+                      <Text style={styles.seeMatchLink} onPress={() => router.push(`/match/${nr.matchId}`)}>See match →</Text>
+                    )}
+                  </View>
                 );
               }
             } else {
@@ -496,17 +501,22 @@ export default function MatchDetailScreen() {
                 );
               } else if (nr.opponent && nr.or) {
                 return (
-                  <Text style={styles.nextRoundDetail}>
-                    Winner faces:{' '}
-                    <Text style={styles.nextRoundPlayerLink} onPress={() => router.push(`/player/${nr.opponent!.id}`)}>
-                      {nr.opponent.name.split(/[\s·]+/).pop()} (#{nr.opponent.ranking})
+                  <View style={{ alignItems: 'center', marginBottom: 12 }}>
+                    <Text style={styles.nextRoundDetail}>
+                      Winner faces:{' '}
+                      <Text style={styles.nextRoundPlayerLink} onPress={() => router.push(`/player/${nr.opponent!.id}`)}>
+                        {nr.opponent.name.split(/[\s·]+/).pop()} (#{nr.opponent.ranking})
+                      </Text>
+                      {' '}or{' '}
+                      <Text style={styles.nextRoundPlayerLink} onPress={() => router.push(`/player/${nr.or!.id}`)}>
+                        {nr.or.name.split(/[\s·]+/).pop()} (#{nr.or.ranking})
+                      </Text>
+                      {' '}in {nr.round}
                     </Text>
-                    {' '}or{' '}
-                    <Text style={styles.nextRoundPlayerLink} onPress={() => router.push(`/player/${nr.or!.id}`)}>
-                      {nr.or.name.split(/[\s·]+/).pop()} (#{nr.or.ranking})
-                    </Text>
-                    {' '}in {nr.round}
-                  </Text>
+                    {nr.matchId != null && (
+                      <Text style={styles.seeMatchLink} onPress={() => router.push(`/match/${nr.matchId}`)}>See match →</Text>
+                    )}
+                  </View>
                 );
               }
             }
@@ -616,6 +626,11 @@ const styles = StyleSheet.create({
   nextRoundPlayerLink: {
     color: theme.linkBlue,
     textDecorationLine: 'underline' as const,
+  },
+  seeMatchLink: {
+    fontSize: 11,
+    color: theme.linkBlue,
+    marginTop: 2,
   },
   versusRow: {
     flexDirection: 'row',

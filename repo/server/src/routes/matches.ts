@@ -61,6 +61,15 @@ function getNextRoundInfo(match: typeof mockMatches[0]): NextRoundInfo | null {
     return null;
   }
 
+  // Find the actual match ID for the sibling match
+  const siblingRealMatch = mockMatches.find(
+    (m) =>
+      m.tournamentId === match.tournamentId &&
+      m.round === currentRoundName &&
+      ((m.player1Id === siblingMatch.player1Id && m.player2Id === siblingMatch.player2Id) ||
+       (m.player1Id === siblingMatch.player2Id && m.player2Id === siblingMatch.player1Id))
+  );
+
   // Check if the sibling match has a winner
   if (siblingMatch.winnerId) {
     // Opponent is confirmed
@@ -81,6 +90,7 @@ function getNextRoundInfo(match: typeof mockMatches[0]): NextRoundInfo | null {
       opponent: { id: potentialA.id, name: potentialA.name, ranking: potentialA.ranking },
       or: { id: potentialB.id, name: potentialB.name, ranking: potentialB.ranking },
       status: 'pending',
+      matchId: siblingRealMatch?.id,
     };
   }
 }

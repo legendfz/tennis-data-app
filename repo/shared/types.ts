@@ -210,6 +210,7 @@ export interface NextRoundInfo {
   opponent?: NextRoundOpponent;
   or?: NextRoundOpponent;
   status: 'confirmed' | 'pending';
+  matchId?: number;
 }
 
 export interface DrawRoundMatch {

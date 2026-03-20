@@ -270,7 +270,14 @@ export default function HomeScreen() {
             } else if (nr.opponent && nr.or) {
               const opp1Short = nr.opponent.name.split(/[\s·]+/).pop() || nr.opponent.name;
               const opp2Short = nr.or.name.split(/[\s·]+/).pop() || nr.or.name;
-              return <Text style={styles.nextRoundText}>{winnerShort} → vs {opp1Short} or {opp2Short} ({shortRound})</Text>;
+              return (
+                <Text style={styles.nextRoundText}>
+                  {winnerShort} → vs {opp1Short} or {opp2Short} ({shortRound})
+                  {nr.matchId != null && (
+                    <Text style={styles.watchLink} onPress={() => router.push(`/match/${nr.matchId}`)}> Watch →</Text>
+                  )}
+                </Text>
+              );
             }
           } else {
             if (nr.status === 'confirmed' && nr.opponent) {
@@ -279,7 +286,14 @@ export default function HomeScreen() {
             } else if (nr.opponent && nr.or) {
               const opp1Short = nr.opponent.name.split(/[\s·]+/).pop() || nr.opponent.name;
               const opp2Short = nr.or.name.split(/[\s·]+/).pop() || nr.or.name;
-              return <Text style={styles.nextRoundText}>Next: vs {opp1Short} or {opp2Short} ({shortRound})</Text>;
+              return (
+                <Text style={styles.nextRoundText}>
+                  Next: vs {opp1Short} or {opp2Short} ({shortRound})
+                  {nr.matchId != null && (
+                    <Text style={styles.watchLink} onPress={() => router.push(`/match/${nr.matchId}`)}> Watch →</Text>
+                  )}
+                </Text>
+              );
             }
           }
           return null;
@@ -644,6 +658,10 @@ const styles = StyleSheet.create({
     color: theme.textSecondary,
     marginTop: 4,
     textAlign: 'center',
+  },
+  watchLink: {
+    fontSize: 11,
+    color: theme.linkBlue,
   },
 
   // Empty
