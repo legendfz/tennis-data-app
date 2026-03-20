@@ -29,14 +29,14 @@ function getInitials(name: string): string {
   return name.slice(0, 2).toUpperCase();
 }
 
-const TOUR_FILTERS = ['ALL', 'ATP', 'WTA'] as const;
+const TOUR_FILTERS = ['ATP', 'WTA'] as const;
 type TourFilter = typeof TOUR_FILTERS[number];
 
 const cursor = Platform.OS === 'web' ? ({ cursor: 'pointer' } as any) : {};
 
 export default function PlayersScreen() {
   const [search, setSearch] = useState('');
-  const [tourFilter, setTourFilter] = useState<TourFilter>('ALL');
+  const [tourFilter, setTourFilter] = useState<TourFilter>('ATP');
   const [hotTags, setHotTags] = useState<Record<number, { tag: string; emoji: string; count: number }>>({});
   const router = useRouter();
   const { getPlayerName, t } = useLanguage();
@@ -48,7 +48,7 @@ export default function PlayersScreen() {
   const { data, isLoading, error, refetch } = useQuery<{ data: Player[] }>({
     queryKey: ['players', tourFilter],
     queryFn: async () => {
-      const params = tourFilter !== 'ALL' ? `?tour=${tourFilter}` : '';
+      const params = `?tour=${tourFilter}`;
       const res = await api.get(`/api/players${params}`);
       return res.data;
     },
