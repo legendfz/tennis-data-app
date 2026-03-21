@@ -8,24 +8,27 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#0d0d0d"
+      "backgroundColor": "#0d0d0d",
+      "resizeMode": "contain"
     },
     "ios": {
-      "supportsTablet": true,
       "bundleIdentifier": "com.tennishq.app",
+      "buildNumber": "1",
+      "supportsTablet": true,
       "infoPlist": {
+        "NSCameraUsageDescription": "TennisHQ needs camera access to scan QR codes",
+        "ITSAppUsesNonExemptEncryption": false,
         "UIBackgroundModes": ["remote-notification"]
       }
     },
     "android": {
+      "package": "com.tennishq.app",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#16a34a"
+        "backgroundColor": "#0d0d0d"
       },
-      "package": "com.tennishq.app",
-      "permissions": ["NOTIFICATIONS"]
+      "permissions": ["INTERNET"]
     },
     "web": {
       "bundler": "metro",
