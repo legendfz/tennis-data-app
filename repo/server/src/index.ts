@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from 'express';
 import cors from 'cors';
 import playersRouter from './routes/players';
@@ -7,6 +10,7 @@ import h2hRouter from './routes/h2h';
 import brandsRouter from './routes/brands';
 import fantasyRouter from './routes/fantasy';
 import searchRouter from './routes/search';
+import imagesRouter from './routes/images';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -23,6 +27,7 @@ app.use('/api/h2h', h2hRouter);
 app.use('/api/brands', brandsRouter);
 app.use('/api/fantasy', fantasyRouter);
 app.use('/api/search', searchRouter);
+app.use('/api/images', imagesRouter);
 
 // Health check
 app.get('/api/health', (_req, res) => {
