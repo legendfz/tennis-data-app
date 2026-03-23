@@ -120,6 +120,7 @@ router.get('/:id', (req: Request, res: Response) => {
     },
     // Pass through extended fields
     rankingHistory: (player as any).rankingHistory || [],
+    rankingPoints: (player as any).rankingPoints || [],
     record: (player as any).record || null,
     birthplace: (player as any).birthplace || null,
     coach: (player as any).coach || null,

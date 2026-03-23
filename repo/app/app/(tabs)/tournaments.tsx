@@ -26,6 +26,18 @@ function getTournamentPointsLabel(tournament: any): string | null {
   return `${category} ${points}`;
 }
 
+function getCountdownText(startDate: string): string | null {
+  const now = new Date();
+  const start = new Date(startDate + 'T00:00:00');
+  const diff = start.getTime() - now.getTime();
+  if (diff <= 0) return null;
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  if (days > 0) return `Starts in ${days} day${days === 1 ? '' : 's'}`;
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  return `Starts in ${hours}h ${mins}m`;
+}
+
 export default function TournamentsScreen() {
   const router = useRouter();
   const { t } = useLanguage();
@@ -97,7 +109,16 @@ export default function TournamentsScreen() {
                   ) : null;
                 })()}
               </View>
-              <Text style={styles.dates}>{item.startDate} — {item.endDate}</Text>
+              {(() => {
+                const countdown = getCountdownText(item.startDate);
+                return countdown ? (
+                  <View style={styles.countdownBadge}>
+                    <Text style={styles.countdownText}>{countdown}</Text>
+                  </View>
+                ) : (
+                  <Text style={styles.dates}>{item.startDate} — {item.endDate}</Text>
+                );
+              })()}
             </View>
           </TouchableOpacity>
         )}
@@ -162,6 +183,18 @@ const styles = StyleSheet.create({
     height: 0.5,
     backgroundColor: theme.border,
     marginLeft: 36,
+  },
+  countdownBadge: {
+    backgroundColor: 'rgba(22,163,74,0.12)',
+    borderRadius: 6,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    marginTop: 2,
+  },
+  countdownText: {
+    fontSize: 11,
+    fontWeight: theme.fontWeight.semibold,
+    color: theme.accent,
   },
   pointsBadge: {
     backgroundColor: theme.accent,

@@ -24,7 +24,8 @@ import { TournamentLogo } from '../../lib/tournament-logo';
 import { theme, radii, breakpoints } from '../../lib/theme';
 import { TennisBallIcon } from '../../lib/illustrations';
 import { EmptyMatchesIllustration } from '../../lib/illustrations';
-import type { Player, MatchWithPlayers, NextRoundInfo } from '../../../shared/types';
+import { useTheme } from '../../lib/theme-provider';
+import type { Player, MatchWithPlayers, NextRoundInfo, Tournament } from '../../../shared/types';
 
 // ─── Court Background ────────────────────────────────────────────────
 function CourtBackground() {
@@ -114,10 +115,23 @@ function getDatePills(t: (key: TranslationKey) => string): { label: string; date
 const TOUR_FILTERS = ['ALL', 'ATP', 'WTA'] as const;
 type TourFilter = typeof TOUR_FILTERS[number];
 
+function getCountdownText(startDate: string): string | null {
+  const now = new Date();
+  const start = new Date(startDate + 'T00:00:00');
+  const diff = start.getTime() - now.getTime();
+  if (diff <= 0) return null;
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  if (days > 0) return `Starts in ${days} day${days === 1 ? '' : 's'}`;
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  return `Starts in ${hours}h ${mins}m`;
+}
+
 export default function HomeScreen() {
   const router = useRouter();
   const [tourFilter, setTourFilter] = useState<TourFilter>('ALL');
   const { getPlayerName, t } = useLanguage();
+  const { mode, toggleTheme } = useTheme();
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().slice(0, 10));
   const datePills = useMemo(() => getDatePills(t), [t]);
   const { width: screenWidth } = useWindowDimensions();
@@ -134,6 +148,24 @@ export default function HomeScreen() {
       return res.data;
     },
   });
+
+  // Fetch tournaments for countdown
+  const { data: tournamentsData } = useQuery<{ data: Tournament[] }>({
+    queryKey: ['tournaments-countdown'],
+    queryFn: async () => {
+      const res = await api.get('/api/tournaments');
+      return res.data;
+    },
+  });
+
+  const nextTournament = useMemo(() => {
+    const tournaments = tournamentsData?.data ?? (Array.isArray(tournamentsData) ? tournamentsData : []) as Tournament[];
+    const now = new Date();
+    const upcoming = tournaments
+      .filter((t: Tournament) => new Date(t.startDate + 'T00:00:00') > now)
+      .sort((a: Tournament, b: Tournament) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
+    return upcoming[0] || null;
+  }, [tournamentsData]);
 
   const [favoriteIds, setFavoriteIds] = useState<number[]>([]);
   useFocusEffect(
@@ -408,11 +440,52 @@ export default function HomeScreen() {
           />
         }
       >
-        {/* Title */}
+        {/* Title + actions */}
         <View style={styles.titleRow}>
           <Text style={styles.pageTitle}>{t('matches')}</Text>
           <TennisBallIcon size={16} />
+          <View style={{ flex: 1 }} />
+          <TouchableOpacity
+            onPress={toggleTheme}
+            activeOpacity={theme.activeOpacity}
+            style={styles.headerBtn}
+            accessibilityLabel="Toggle theme"
+          >
+            <Text style={{ fontSize: 18 }}>{mode === 'dark' ? '☀️' : '🌙'}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => router.push('/search')}
+            activeOpacity={theme.activeOpacity}
+            style={styles.headerBtn}
+            accessibilityLabel="Search"
+          >
+            <Text style={{ fontSize: 18 }}>🔍</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => router.push('/calendar')}
+            activeOpacity={theme.activeOpacity}
+            style={styles.headerBtn}
+            accessibilityLabel="Calendar"
+          >
+            <Text style={{ fontSize: 18 }}>📅</Text>
+          </TouchableOpacity>
         </View>
+
+        {/* Next Tournament Countdown */}
+        {nextTournament && getCountdownText(nextTournament.startDate) && (
+          <TouchableOpacity
+            style={styles.countdownCard}
+            activeOpacity={theme.activeOpacity}
+            onPress={() => router.push(`/tournament/${nextTournament.id}`)}
+          >
+            <TournamentLogo tournament={nextTournament} size="md" />
+            <View style={styles.countdownInfo}>
+              <Text style={styles.countdownName}>{nextTournament.name}</Text>
+              <Text style={styles.countdownTime}>{getCountdownText(nextTournament.startDate)}</Text>
+            </View>
+            <Text style={styles.countdownArrow}>→</Text>
+          </TouchableOpacity>
+        )}
 
         {/* Tour Filter Pills */}
         <View style={styles.tourFilterRow}>
@@ -853,6 +926,49 @@ const styles = StyleSheet.create({
   emptySubtitle: {
     color: theme.textTertiary,
     fontSize: 13,
+  },
+
+  // Header buttons
+  headerBtn: {
+    padding: 6,
+    minWidth: 36,
+    minHeight: 36,
+    alignItems: 'center' as const,
+    justifyContent: 'center' as const,
+    ...cursor,
+  },
+
+  // Countdown card
+  countdownCard: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    marginHorizontal: theme.spacing.padding,
+    marginBottom: 12,
+    padding: 14,
+    borderRadius: radii.card,
+    backgroundColor: 'rgba(22,163,74,0.08)',
+    borderWidth: 1,
+    borderColor: 'rgba(22,163,74,0.2)',
+    gap: 12,
+    ...cursor,
+  },
+  countdownInfo: {
+    flex: 1,
+  },
+  countdownName: {
+    fontSize: 14,
+    fontWeight: theme.fontWeight.semibold,
+    color: theme.text,
+  },
+  countdownTime: {
+    fontSize: 12,
+    fontWeight: theme.fontWeight.medium,
+    color: theme.accent,
+    marginTop: 2,
+  },
+  countdownArrow: {
+    fontSize: 16,
+    color: theme.accent,
   },
 
   // Points pill

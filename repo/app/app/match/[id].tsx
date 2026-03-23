@@ -19,6 +19,7 @@ import { useLanguage, TranslationKey } from '../../lib/i18n';
 import { SkeletonBlock } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
 import { TournamentLogo } from '../../lib/tournament-logo';
+import { shareMatch } from '../../lib/share';
 import { theme, radii } from '../../lib/theme';
 import type { MatchWithPlayers, MatchStats, ProbabilitySnapshot, SetGameByGame, GameByGameEntry, NextRoundInfo } from '../../../shared/types';
 
@@ -436,7 +437,29 @@ export default function MatchDetailScreen() {
 
   return (
     <>
-      <Stack.Screen options={{ title: match.tournament?.name || 'Match' }} />
+      <Stack.Screen options={{
+        title: match.tournament?.name || 'Match',
+        headerRight: () => match.winnerId ? (
+          <TouchableOpacity
+            onPress={() => {
+              const winner = p1Won ? p1Name : p2Name;
+              const loser = p1Won ? p2Name : p1Name;
+              shareMatch({
+                winner,
+                loser,
+                score: match.score,
+                tournament: match.tournament?.name || 'Tournament',
+                round: match.round,
+              });
+            }}
+            activeOpacity={0.7}
+            style={{ padding: 8, marginRight: 4, minWidth: 44, minHeight: 44, alignItems: 'center', justifyContent: 'center' }}
+            accessibilityLabel="Share match"
+          >
+            <Text style={{ fontSize: 18 }}>📤</Text>
+          </TouchableOpacity>
+        ) : null,
+      }} />
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
         {/* Match Header — gradient */}
         <View style={styles.matchHeader}>

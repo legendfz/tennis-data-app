@@ -951,6 +951,62 @@
         "score": "1-6 6-3 6-2",
         "significance": "Comeback win over rival in desert heat"
       }
+    ],
+    "rankingPoints": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "round": "Winner",
+        "points": 2000
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "round": "Winner",
+        "points": 2000
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "round": "Winner",
+        "points": 1000
+      },
+      {
+        "tournament": "Cincinnati Masters",
+        "tournamentId": 11,
+        "round": "Winner",
+        "points": 1000
+      },
+      {
+        "tournament": "Indian Wells Masters",
+        "tournamentId": 5,
+        "round": "Semi-Final",
+        "points": 600
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "round": "Semi-Final",
+        "points": 720
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "round": "Quarter-Final",
+        "points": 360
+      },
+      {
+        "tournament": "Shanghai Masters",
+        "tournamentId": 12,
+        "round": "Final",
+        "points": 600
+      },
+      {
+        "tournament": "ATP Finals",
+        "tournamentId": 14,
+        "round": "Semi-Final",
+        "points": 400
+      }
     ]
   },
   {
@@ -3007,6 +3063,56 @@
         "score": "3-6 6-3 7-6 6-2",
         "significance": "Ended Nadal's dominance at Roland Garros"
       }
+    ],
+    "rankingPoints": [
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "round": "Winner",
+        "points": 2000
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "round": "Final",
+        "points": 1200
+      },
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "round": "Semi-Final",
+        "points": 720
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "round": "Quarter-Final",
+        "points": 360
+      },
+      {
+        "tournament": "Paris Masters",
+        "tournamentId": 13,
+        "round": "Winner",
+        "points": 1000
+      },
+      {
+        "tournament": "ATP Finals",
+        "tournamentId": 14,
+        "round": "Winner",
+        "points": 1500
+      },
+      {
+        "tournament": "Italian Open",
+        "tournamentId": 9,
+        "round": "Winner",
+        "points": 1000
+      },
+      {
+        "tournament": "Monte-Carlo Masters",
+        "tournamentId": 7,
+        "round": "Semi-Final",
+        "points": 300
+      }
     ]
   },
   {
@@ -3912,6 +4018,50 @@
         "round": "Final",
         "score": "6-4 2-6 7-6 6-3",
         "significance": "First Grand Slam and world #1 at 19"
+      }
+    ],
+    "rankingPoints": [
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "round": "Winner",
+        "points": 2000
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "round": "Winner",
+        "points": 2000
+      },
+      {
+        "tournament": "Indian Wells Masters",
+        "tournamentId": 5,
+        "round": "Winner",
+        "points": 1000
+      },
+      {
+        "tournament": "Madrid Open",
+        "tournamentId": 8,
+        "round": "Winner",
+        "points": 1000
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "round": "Quarter-Final",
+        "points": 360
+      },
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "round": "Quarter-Final",
+        "points": 360
+      },
+      {
+        "tournament": "Shanghai Masters",
+        "tournamentId": 12,
+        "round": "Semi-Final",
+        "points": 300
       }
     ]
   },
@@ -4972,6 +5122,56 @@
         "score": "6-3 2-6 5-7 6-1 6-2",
         "significance": "Reached first RG final"
       }
+    ],
+    "rankingPoints": [
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "round": "Final",
+        "points": 1200
+      },
+      {
+        "tournament": "Italian Open",
+        "tournamentId": 9,
+        "round": "Winner",
+        "points": 1000
+      },
+      {
+        "tournament": "Paris Masters",
+        "tournamentId": 13,
+        "round": "Final",
+        "points": 600
+      },
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "round": "Semi-Final",
+        "points": 720
+      },
+      {
+        "tournament": "Indian Wells Masters",
+        "tournamentId": 5,
+        "round": "Final",
+        "points": 600
+      },
+      {
+        "tournament": "Shanghai Masters",
+        "tournamentId": 12,
+        "round": "Quarter-Final",
+        "points": 180
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "round": "Round of 16",
+        "points": 180
+      },
+      {
+        "tournament": "Canadian Open",
+        "tournamentId": 10,
+        "round": "Semi-Final",
+        "points": 300
+      }
     ]
   },
   {
@@ -6001,6 +6201,50 @@
         "score": "7-5 6-3",
         "significance": "5th Masters 1000 title"
       }
+    ],
+    "rankingPoints": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "round": "Final",
+        "points": 1200
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "round": "Final",
+        "points": 600
+      },
+      {
+        "tournament": "Indian Wells Masters",
+        "tournamentId": 5,
+        "round": "Winner",
+        "points": 1000
+      },
+      {
+        "tournament": "Italian Open",
+        "tournamentId": 9,
+        "round": "Semi-Final",
+        "points": 300
+      },
+      {
+        "tournament": "Cincinnati Masters",
+        "tournamentId": 11,
+        "round": "Quarter-Final",
+        "points": 180
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "round": "Round of 16",
+        "points": 180
+      },
+      {
+        "tournament": "Shanghai Masters",
+        "tournamentId": 12,
+        "round": "Winner",
+        "points": 1000
+      }
     ]
   },
   {
@@ -6995,6 +7239,44 @@
         "score": "5-7 6-2 6-4",
         "significance": "First Masters title on clay"
       }
+    ],
+    "rankingPoints": [
+      {
+        "tournament": "Monte-Carlo Masters",
+        "tournamentId": 7,
+        "round": "Winner",
+        "points": 1000
+      },
+      {
+        "tournament": "Madrid Open",
+        "tournamentId": 8,
+        "round": "Winner",
+        "points": 1000
+      },
+      {
+        "tournament": "Canadian Open",
+        "tournamentId": 10,
+        "round": "Final",
+        "points": 600
+      },
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "round": "Quarter-Final",
+        "points": 360
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "round": "Round of 16",
+        "points": 180
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "round": "Quarter-Final",
+        "points": 360
+      }
     ]
   },
   {
@@ -7946,6 +8228,44 @@
         "score": "6-3 6-2",
         "significance": "Won second Masters title"
       }
+    ],
+    "rankingPoints": [
+      {
+        "tournament": "Shanghai Masters",
+        "tournamentId": 12,
+        "round": "Final",
+        "points": 600
+      },
+      {
+        "tournament": "Canadian Open",
+        "tournamentId": 10,
+        "round": "Winner",
+        "points": 1000
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "round": "Semi-Final",
+        "points": 300
+      },
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "round": "Round of 16",
+        "points": 180
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "round": "Semi-Final",
+        "points": 720
+      },
+      {
+        "tournament": "Indian Wells Masters",
+        "tournamentId": 5,
+        "round": "Quarter-Final",
+        "points": 180
+      }
     ]
   },
   {
@@ -8788,6 +9108,38 @@
         "round": "Round Robin",
         "score": "6-7 6-4 7-6",
         "significance": "Thrilling comeback at season finale"
+      }
+    ],
+    "rankingPoints": [
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "round": "Final",
+        "points": 1200
+      },
+      {
+        "tournament": "Monte-Carlo Masters",
+        "tournamentId": 7,
+        "round": "Final",
+        "points": 600
+      },
+      {
+        "tournament": "Italian Open",
+        "tournamentId": 9,
+        "round": "Semi-Final",
+        "points": 300
+      },
+      {
+        "tournament": "Madrid Open",
+        "tournamentId": 8,
+        "round": "Quarter-Final",
+        "points": 180
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "round": "Semi-Final",
+        "points": 720
       }
     ]
   },
@@ -9638,6 +9990,44 @@
         "round": "Final",
         "score": "6-4 3-6 6-3",
         "significance": "Sixth ATP title, career-best season"
+      }
+    ],
+    "rankingPoints": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "round": "Quarter-Final",
+        "points": 360
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "round": "Quarter-Final",
+        "points": 360
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "round": "Round of 16",
+        "points": 180
+      },
+      {
+        "tournament": "Canadian Open",
+        "tournamentId": 10,
+        "round": "Semi-Final",
+        "points": 300
+      },
+      {
+        "tournament": "Cincinnati Masters",
+        "tournamentId": 11,
+        "round": "Semi-Final",
+        "points": 300
+      },
+      {
+        "tournament": "Shanghai Masters",
+        "tournamentId": 12,
+        "round": "Quarter-Final",
+        "points": 180
       }
     ]
   },
@@ -10921,6 +11311,38 @@
         "score": "3-6 7-6 6-3",
         "significance": "Won first Masters 1000 title after decade on tour"
       }
+    ],
+    "rankingPoints": [
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "round": "Winner",
+        "points": 1000
+      },
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "round": "Semi-Final",
+        "points": 720
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "round": "Quarter-Final",
+        "points": 360
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "round": "Round of 16",
+        "points": 180
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "round": "Round of 16",
+        "points": 180
+      }
     ]
   },
   {
@@ -11769,6 +12191,38 @@
         "round": "Final",
         "score": "6-3 7-6",
         "significance": "Third consecutive Monte Carlo title"
+      }
+    ],
+    "rankingPoints": [
+      {
+        "tournament": "Monte-Carlo Masters",
+        "tournamentId": 7,
+        "round": "Winner",
+        "points": 1000
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "round": "Semi-Final",
+        "points": 720
+      },
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "round": "Round of 16",
+        "points": 180
+      },
+      {
+        "tournament": "Italian Open",
+        "tournamentId": 9,
+        "round": "Final",
+        "points": 600
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "round": "Round of 16",
+        "points": 180
       }
     ]
   },
@@ -12696,6 +13150,38 @@
         "score": "6-4 6-3",
         "significance": "Dominant straight sets win over 24-time Slam champion"
       }
+    ],
+    "rankingPoints": [
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "round": "Semi-Final",
+        "points": 720
+      },
+      {
+        "tournament": "Indian Wells Masters",
+        "tournamentId": 5,
+        "round": "Semi-Final",
+        "points": 300
+      },
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "round": "Quarter-Final",
+        "points": 360
+      },
+      {
+        "tournament": "Cincinnati Masters",
+        "tournamentId": 11,
+        "round": "Final",
+        "points": 600
+      },
+      {
+        "tournament": "Canadian Open",
+        "tournamentId": 10,
+        "round": "Quarter-Final",
+        "points": 180
+      }
     ]
   },
   {
@@ -13606,6 +14092,38 @@
         "score": "6-3 7-5 6-2",
         "significance": "Dominant grass court performance"
       }
+    ],
+    "rankingPoints": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "round": "Semi-Final",
+        "points": 720
+      },
+      {
+        "tournament": "Canadian Open",
+        "tournamentId": 10,
+        "round": "Quarter-Final",
+        "points": 180
+      },
+      {
+        "tournament": "Indian Wells Masters",
+        "tournamentId": 5,
+        "round": "Quarter-Final",
+        "points": 180
+      },
+      {
+        "tournament": "Shanghai Masters",
+        "tournamentId": 12,
+        "round": "Round of 16",
+        "points": 90
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "round": "Round of 16",
+        "points": 180
+      }
     ]
   },
   {
@@ -14173,6 +14691,32 @@
         "round": "R16",
         "score": "6-4 6-3",
         "significance": "Biggest Masters upset of the season"
+      }
+    ],
+    "rankingPoints": [
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "round": "Quarter-Final",
+        "points": 360
+      },
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "round": "Semi-Final",
+        "points": 720
+      },
+      {
+        "tournament": "Shanghai Masters",
+        "tournamentId": 12,
+        "round": "Semi-Final",
+        "points": 300
+      },
+      {
+        "tournament": "Cincinnati Masters",
+        "tournamentId": 11,
+        "round": "Quarter-Final",
+        "points": 180
       }
     ]
   },
@@ -14899,6 +15443,38 @@
         "round": "Quarter-Final",
         "score": "6-3 6-4",
         "significance": "Beat world #1 en route to title"
+      }
+    ],
+    "rankingPoints": [
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "round": "Quarter-Final",
+        "points": 360
+      },
+      {
+        "tournament": "Monte-Carlo Masters",
+        "tournamentId": 7,
+        "round": "Semi-Final",
+        "points": 300
+      },
+      {
+        "tournament": "Paris Masters",
+        "tournamentId": 13,
+        "round": "Semi-Final",
+        "points": 300
+      },
+      {
+        "tournament": "Madrid Open",
+        "tournamentId": 8,
+        "round": "Semi-Final",
+        "points": 300
+      },
+      {
+        "tournament": "Italian Open",
+        "tournamentId": 9,
+        "round": "Quarter-Final",
+        "points": 180
       }
     ]
   },
@@ -15720,6 +16296,32 @@
         "score": "7-6 6-3",
         "significance": "Breakthrough season top 20 result"
       }
+    ],
+    "rankingPoints": [
+      {
+        "tournament": "Paris Masters",
+        "tournamentId": 13,
+        "round": "Quarter-Final",
+        "points": 180
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "round": "Round of 16",
+        "points": 180
+      },
+      {
+        "tournament": "Shanghai Masters",
+        "tournamentId": 12,
+        "round": "Semi-Final",
+        "points": 300
+      },
+      {
+        "tournament": "Canadian Open",
+        "tournamentId": 10,
+        "round": "Winner",
+        "points": 1000
+      }
     ]
   },
   {
@@ -16474,6 +17076,32 @@
         "round": "R16",
         "score": "6-4 7-5",
         "significance": "Continued family legacy at elite level"
+      }
+    ],
+    "rankingPoints": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "round": "Quarter-Final",
+        "points": 360
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "round": "Round of 16",
+        "points": 180
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "round": "Semi-Final",
+        "points": 300
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "round": "Round of 16",
+        "points": 180
       }
     ]
   },
@@ -17421,6 +18049,32 @@
         "round": "Final",
         "score": "6-4 7-6",
         "significance": "Won hometown title in Chile"
+      }
+    ],
+    "rankingPoints": [
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "round": "Quarter-Final",
+        "points": 360
+      },
+      {
+        "tournament": "Italian Open",
+        "tournamentId": 9,
+        "round": "Quarter-Final",
+        "points": 180
+      },
+      {
+        "tournament": "Madrid Open",
+        "tournamentId": 8,
+        "round": "Semi-Final",
+        "points": 300
+      },
+      {
+        "tournament": "Monte-Carlo Masters",
+        "tournamentId": 7,
+        "round": "Quarter-Final",
+        "points": 180
       }
     ]
   },
@@ -18457,6 +19111,32 @@
         "score": "7-6 6-3 3-6 6-3",
         "significance": "Career-best Slam result in Melbourne"
       }
+    ],
+    "rankingPoints": [
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "round": "Semi-Final",
+        "points": 720
+      },
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "round": "Round of 16",
+        "points": 180
+      },
+      {
+        "tournament": "Indian Wells Masters",
+        "tournamentId": 5,
+        "round": "Quarter-Final",
+        "points": 180
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "round": "Round of 16",
+        "points": 180
+      }
     ]
   },
   {
@@ -19269,6 +19949,32 @@
         "round": "R16",
         "score": "6-3 6-3",
         "significance": "Beat Nadal on clay in Madrid"
+      }
+    ],
+    "rankingPoints": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "round": "Round of 16",
+        "points": 180
+      },
+      {
+        "tournament": "Madrid Open",
+        "tournamentId": 8,
+        "round": "Final",
+        "points": 600
+      },
+      {
+        "tournament": "Canadian Open",
+        "tournamentId": 10,
+        "round": "Semi-Final",
+        "points": 300
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "round": "Round of 16",
+        "points": 180
       }
     ]
   },

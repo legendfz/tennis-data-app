@@ -16,6 +16,7 @@ import { Flag } from '../../lib/flags';
 import { useLanguage } from '../../lib/i18n';
 import { SkeletonList, SkeletonBlock } from '../../lib/skeleton';
 import { EmptyState } from '../../lib/empty-state';
+import { shareH2H } from '../../lib/share';
 import { theme } from '../../lib/theme';
 import type { H2HData, H2HMatchRecord } from '../../../shared/types';
 
@@ -316,7 +317,25 @@ export default function H2HDetailScreen() {
 
   return (
     <>
-      <Stack.Screen options={{ title: `${getPlayerName(p1)} vs ${getPlayerName(p2)}` }} />
+      <Stack.Screen options={{
+        title: `${getPlayerName(p1)} vs ${getPlayerName(p2)}`,
+        headerRight: () => (
+          <TouchableOpacity
+            onPress={() => shareH2H({
+              player1: getPlayerName(p1),
+              player2: getPlayerName(p2),
+              p1Wins: summary.player1Wins,
+              p2Wins: summary.player2Wins,
+              totalMatches: summary.totalMatches,
+            })}
+            activeOpacity={0.7}
+            style={{ padding: 8, marginRight: 4, minWidth: 44, minHeight: 44, alignItems: 'center', justifyContent: 'center' }}
+            accessibilityLabel="Share H2H"
+          >
+            <Text style={{ fontSize: 18 }}>📤</Text>
+          </TouchableOpacity>
+        ),
+      }} />
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
         {/* Top: Player avatars face-to-face */}
         <View style={styles.topSection}>

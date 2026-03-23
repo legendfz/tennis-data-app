@@ -6,6 +6,7 @@ import tournamentsRouter from './routes/tournaments';
 import h2hRouter from './routes/h2h';
 import brandsRouter from './routes/brands';
 import fantasyRouter from './routes/fantasy';
+import searchRouter from './routes/search';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -21,6 +22,7 @@ app.use('/api/tournaments', tournamentsRouter);
 app.use('/api/h2h', h2hRouter);
 app.use('/api/brands', brandsRouter);
 app.use('/api/fantasy', fantasyRouter);
+app.use('/api/search', searchRouter);
 
 // Health check
 app.get('/api/health', (_req, res) => {

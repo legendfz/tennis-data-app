@@ -2,6 +2,7 @@ import { Stack } from 'expo-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { StatusBar } from 'expo-status-bar';
 import { LanguageProvider } from '../lib/i18n';
+import { ThemeProvider } from '../lib/theme-provider';
 import { theme } from '../lib/theme';
 
 const queryClient = new QueryClient({
@@ -16,6 +17,7 @@ const queryClient = new QueryClient({
 export default function RootLayout() {
   return (
     <QueryClientProvider client={queryClient}>
+      <ThemeProvider>
       <LanguageProvider>
       <StatusBar style="light" />
       <Stack
@@ -27,6 +29,23 @@ export default function RootLayout() {
         }}
       >
         <Stack.Screen name="(tabs)" options={{ headerShown: false, animation: 'none' }} />
+        <Stack.Screen name="onboarding" options={{ headerShown: false, animation: 'fade' }} />
+        <Stack.Screen
+          name="search"
+          options={{
+            title: 'Search',
+            headerBackTitle: 'Back',
+            animation: 'slide_from_right',
+          }}
+        />
+        <Stack.Screen
+          name="calendar"
+          options={{
+            title: 'Calendar',
+            headerBackTitle: 'Back',
+            animation: 'slide_from_right',
+          }}
+        />
         <Stack.Screen
           name="player/[id]"
           options={{
@@ -117,6 +136,7 @@ export default function RootLayout() {
         />
       </Stack>
       </LanguageProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }

@@ -39,6 +39,7 @@ import {
 } from '../../lib/comments';
 import { TournamentLogo } from '../../lib/tournament-logo';
 import { TennisBallIcon } from '../../lib/illustrations';
+import { sharePlayer } from '../../lib/share';
 import { theme, radii, breakpoints } from '../../lib/theme';
 import { useReducedMotion } from '../../lib/useReducedMotion';
 import type { PlayerDetail, MatchWithPlayers, SetStats, TitleEntry, GrandSlamEntry, SeasonMatchEntry, DecidingSetMatchEntry, WinRateByYear, TournamentBestResult, CareerBestWin } from '../../../shared/types';
@@ -350,6 +351,57 @@ function PrizeMoneyPanel({ prizeMoney }: { prizeMoney?: string }) {
   );
 }
 
+// ─── Ranking Points Panel ────────────────────────────────────────────
+interface RankingPointEntry {
+  tournament: string;
+  tournamentId: number;
+  round: string;
+  points: number;
+}
+
+function RankingPointsPanel({ points, router }: { points: RankingPointEntry[]; router: any }) {
+  const sorted = [...points].sort((a, b) => b.points - a.points);
+  const total = sorted.reduce((sum, p) => sum + p.points, 0);
+
+  return (
+    <View style={styles.detailPanel}>
+      <Text style={{ fontSize: 13, fontWeight: '600' as const, color: theme.text, marginBottom: 10 }}>
+        Ranking Points Breakdown
+      </Text>
+      {sorted.map((p, i) => (
+        <View key={i} style={styles.detailRow}>
+          <TournamentLogo tournamentName={p.tournament} size="sm" />
+          <TouchableOpacity
+            style={{ flex: 1, marginLeft: 6 }}
+            activeOpacity={p.tournamentId ? 0.7 : 1}
+            onPress={() => p.tournamentId && router.push(`/tournament/${p.tournamentId}`)}
+          >
+            <Text style={[styles.detailTournament, p.tournamentId && styles.detailTournamentLink]} numberOfLines={1}>
+              {p.tournament}
+            </Text>
+            <Text style={{ fontSize: 11, color: '#888', marginTop: 1 }}>{p.round}</Text>
+          </TouchableOpacity>
+          <View style={{ alignItems: 'flex-end' }}>
+            <Text style={{ fontSize: 14, fontWeight: '700' as const, color: theme.gold }}>{p.points}</Text>
+            <Text style={{ fontSize: 10, color: '#888' }}>pts</Text>
+          </View>
+        </View>
+      ))}
+      <View style={{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingTop: 10,
+        marginTop: 6,
+        borderTopWidth: 1,
+        borderTopColor: theme.border,
+      }}>
+        <Text style={{ fontSize: 13, fontWeight: '600' as const, color: theme.text }}>Total Points</Text>
+        <Text style={{ fontSize: 16, fontWeight: '700' as const, color: theme.gold }}>{total.toLocaleString()}</Text>
+      </View>
+    </View>
+  );
+}
+
 // ─── Overview Tab ────────────────────────────────────────────────────
 function OverviewTab({ player, router }: { player: PlayerDetail; router: any }) {
   const { t } = useLanguage();
@@ -384,9 +436,16 @@ function OverviewTab({ player, router }: { player: PlayerDetail; router: any }) 
     if (!expandedStat) return null;
     switch (expandedStat) {
       case 'ranking':
-        return player.rankingHistory && player.rankingHistory.length > 0 ? (
-          <RankingChart history={player.rankingHistory} careerHigh={(player as any).careerHigh} careerHighDate={(player as any).careerHighDate} />
-        ) : null;
+        return (
+          <>
+            {player.rankingHistory && player.rankingHistory.length > 0 && (
+              <RankingChart history={player.rankingHistory} careerHigh={(player as any).careerHigh} careerHighDate={(player as any).careerHighDate} />
+            )}
+            {(player as any).rankingPoints && (player as any).rankingPoints.length > 0 && (
+              <RankingPointsPanel points={(player as any).rankingPoints} router={router} />
+            )}
+          </>
+        );
       case 'grandSlams':
         return <GrandSlamsPanel data={(player as any).grandSlamsList || []} router={router} />;
       case 'titles':
@@ -917,15 +976,31 @@ export default function PlayerDetailScreen() {
         options={{
           title: getPlayerName(player),
           headerRight: () => (
-            <TouchableOpacity
-              onPress={handleToggleFavorite}
-              activeOpacity={theme.activeOpacity}
-              style={{ padding: 8, marginRight: 4, minWidth: 44, minHeight: 44, alignItems: 'center', justifyContent: 'center', ...(Platform.OS === 'web' ? { cursor: 'pointer' } as any : {}) }}
-              accessibilityLabel={isFav ? 'Remove from favorites' : 'Add to favorites'}
-              accessibilityRole="button"
-            >
-              <Text style={{ fontSize: 18, color: isFav ? '#ef4444' : theme.textSecondary }}>{isFav ? '\u2665' : '\u2661'}</Text>
-            </TouchableOpacity>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <TouchableOpacity
+                onPress={() => sharePlayer({
+                  name: getPlayerName(player),
+                  ranking: player.ranking,
+                  grandSlams: player.grandSlams,
+                  titles: player.titles,
+                })}
+                activeOpacity={theme.activeOpacity}
+                style={{ padding: 8, minWidth: 44, minHeight: 44, alignItems: 'center', justifyContent: 'center', ...(Platform.OS === 'web' ? { cursor: 'pointer' } as any : {}) }}
+                accessibilityLabel="Share player"
+                accessibilityRole="button"
+              >
+                <Text style={{ fontSize: 18 }}>📤</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={handleToggleFavorite}
+                activeOpacity={theme.activeOpacity}
+                style={{ padding: 8, marginRight: 4, minWidth: 44, minHeight: 44, alignItems: 'center', justifyContent: 'center', ...(Platform.OS === 'web' ? { cursor: 'pointer' } as any : {}) }}
+                accessibilityLabel={isFav ? 'Remove from favorites' : 'Add to favorites'}
+                accessibilityRole="button"
+              >
+                <Text style={{ fontSize: 18, color: isFav ? '#ef4444' : theme.textSecondary }}>{isFav ? '\u2665' : '\u2661'}</Text>
+              </TouchableOpacity>
+            </View>
           ),
         }}
       />
