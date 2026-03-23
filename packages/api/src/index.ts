@@ -17,6 +17,21 @@ await app.register(cors, { origin: true });
 // Health
 app.get('/api/health', async () => ({ status: 'ok', timestamp: new Date().toISOString() }));
 
+// Rate limit status
+import { globalRateLimiter } from './client.js';
+import { globalCache } from './cache.js';
+app.get('/api/status', async () => ({
+  rateLimit: {
+    remaining: globalRateLimiter.remaining,
+    maxPerHour: 3,
+    nextAvailableIn: `${Math.ceil(globalRateLimiter.nextAvailableIn / 60000)}min`,
+  },
+  cache: {
+    entries: globalCache.size(),
+  },
+  timestamp: new Date().toISOString(),
+}));
+
 // Matches
 app.get('/api/matches/live', async (_req, reply) => {
   try {

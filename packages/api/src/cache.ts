@@ -71,11 +71,12 @@ export class Cache {
 }
 
 // TTL constants (seconds)
+// Conservative mode: max ~3 API calls/hour, rely heavily on cache
 export const TTL = {
-  LIVE: 60,           // 1 min  — live match data
-  SHORT: 300,         // 5 min  — recent events / today's schedule
-  MEDIUM: 1_800,      // 30 min — player details, H2H
-  LONG: 3_600,        // 1 hr   — rankings, tournament info / static data
+  LIVE: 1_200,        // 20 min — live match data (was 60s)
+  SHORT: 3_600,       // 1 hr   — today's schedule, recent events
+  MEDIUM: 7_200,      // 2 hr   — player details, H2H
+  LONG: 21_600,       // 6 hr   — rankings, tournament info, static data
 } as const;
 
 // Singleton shared across the process
