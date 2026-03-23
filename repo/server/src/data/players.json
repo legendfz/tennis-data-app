@@ -869,7 +869,89 @@
     "careerHighDate": "2024-06",
     "tour": "ATP",
     "rankChange": 0,
-    "previousRanking": 1
+    "previousRanking": 1,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Winner",
+        "year": 2024,
+        "count": 5
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Semi-Final",
+        "year": 2024,
+        "count": 5
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "Winner",
+        "year": 2024,
+        "count": 5
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Winner",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Winner",
+        "year": 2024,
+        "count": 4
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Daniil Medvedev",
+        "opponentId": 5,
+        "tournament": "Australian Open",
+        "year": 2024,
+        "round": "Final",
+        "score": "3-6 3-6 6-4 6-4 6-3",
+        "significance": "First Grand Slam title, comeback from 2 sets down"
+      },
+      {
+        "opponent": "Taylor Fritz",
+        "opponentId": 12,
+        "tournament": "US Open",
+        "year": 2024,
+        "round": "Final",
+        "score": "6-3 6-4 7-5",
+        "significance": "Second Grand Slam, dominant display"
+      },
+      {
+        "opponent": "Novak Djokovic",
+        "opponentId": 2,
+        "tournament": "ATP Finals",
+        "year": 2023,
+        "round": "Final",
+        "score": "6-3 6-3",
+        "significance": "Beat world #1 to win ATP Finals"
+      },
+      {
+        "opponent": "Carlos Alcaraz",
+        "opponentId": 3,
+        "tournament": "Indian Wells",
+        "year": 2024,
+        "round": "Semi-Final",
+        "score": "1-6 6-3 6-2",
+        "significance": "Comeback win over rival in desert heat"
+      }
+    ]
   },
   {
     "id": 2,
@@ -2834,7 +2916,98 @@
     "careerHighDate": "2011-07",
     "tour": "ATP",
     "rankChange": 0,
-    "previousRanking": 2
+    "previousRanking": 2,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Winner",
+        "year": 2023,
+        "count": 20
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Winner",
+        "year": 2023,
+        "count": 19
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "Winner",
+        "year": 2024,
+        "count": 20
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "Winner",
+        "year": 2023,
+        "count": 19
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Winner",
+        "year": 2016,
+        "count": 12
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Winner",
+        "year": 2016,
+        "count": 14
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Rafael Nadal",
+        "opponentId": null,
+        "tournament": "Australian Open",
+        "year": 2012,
+        "round": "Final",
+        "score": "5-7 6-4 6-2 6-7 7-5",
+        "significance": "Longest Grand Slam final in history (5h53m)"
+      },
+      {
+        "opponent": "Roger Federer",
+        "opponentId": null,
+        "tournament": "Wimbledon",
+        "year": 2019,
+        "round": "Final",
+        "score": "7-6 1-6 7-6 4-6 13-12",
+        "significance": "Saved 2 championship points, longest Wimbledon final"
+      },
+      {
+        "opponent": "Stefanos Tsitsipas",
+        "opponentId": 11,
+        "tournament": "Roland Garros",
+        "year": 2021,
+        "round": "Final",
+        "score": "6-7 2-6 6-3 6-2 6-4",
+        "significance": "Comeback from 2 sets down for 19th Slam"
+      },
+      {
+        "opponent": "Carlos Alcaraz",
+        "opponentId": 3,
+        "tournament": "US Open",
+        "year": 2023,
+        "round": "Final",
+        "score": "6-3 7-6 6-1",
+        "significance": "24th Grand Slam title, record-breaking"
+      },
+      {
+        "opponent": "Rafael Nadal",
+        "opponentId": null,
+        "tournament": "Roland Garros",
+        "year": 2021,
+        "round": "Semi-Final",
+        "score": "3-6 6-3 7-6 6-2",
+        "significance": "Ended Nadal's dominance at Roland Garros"
+      }
+    ]
   },
   {
     "id": 3,
@@ -3658,7 +3831,89 @@
     "careerHighDate": "2022-09",
     "tour": "ATP",
     "rankChange": 1,
-    "previousRanking": 2
+    "previousRanking": 2,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Winner",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "Winner",
+        "year": 2024,
+        "count": 3
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "Winner",
+        "year": 2022,
+        "count": 4
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Winner",
+        "year": 2023,
+        "count": 3
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Semi-Final",
+        "year": 2022,
+        "count": 3
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Novak Djokovic",
+        "opponentId": 2,
+        "tournament": "Wimbledon",
+        "year": 2024,
+        "round": "Final",
+        "score": "6-2 6-2 7-6",
+        "significance": "Dominated #1 to retain Wimbledon title"
+      },
+      {
+        "opponent": "Novak Djokovic",
+        "opponentId": 2,
+        "tournament": "Wimbledon",
+        "year": 2023,
+        "round": "Final",
+        "score": "1-6 7-6 6-1 3-6 6-4",
+        "significance": "First Wimbledon title at age 20"
+      },
+      {
+        "opponent": "Alexander Zverev",
+        "opponentId": 4,
+        "tournament": "Roland Garros",
+        "year": 2024,
+        "round": "Final",
+        "score": "6-3 2-6 5-7 6-1 6-2",
+        "significance": "First Roland Garros title, youngest to complete 3 Slams"
+      },
+      {
+        "opponent": "Casper Ruud",
+        "opponentId": 8,
+        "tournament": "US Open",
+        "year": 2022,
+        "round": "Final",
+        "score": "6-4 2-6 7-6 6-3",
+        "significance": "First Grand Slam and world #1 at 19"
+      }
+    ]
   },
   {
     "id": 4,
@@ -4635,7 +4890,89 @@
     "careerHighDate": "2022-02",
     "tour": "ATP",
     "rankChange": -1,
-    "previousRanking": 5
+    "previousRanking": 5,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Semi-Final",
+        "year": 2024,
+        "count": 8
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Final",
+        "year": 2024,
+        "count": 8
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "R16",
+        "year": 2021,
+        "count": 6
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "Final",
+        "year": 2020,
+        "count": 7
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Final",
+        "year": 2021,
+        "count": 5
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Quarter-Final",
+        "year": 2023,
+        "count": 6
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Novak Djokovic",
+        "opponentId": 2,
+        "tournament": "ATP Finals",
+        "year": 2021,
+        "round": "Semi-Final",
+        "score": "7-6 4-6 6-3",
+        "significance": "Beat #1 en route to ATP Finals title"
+      },
+      {
+        "opponent": "Novak Djokovic",
+        "opponentId": 2,
+        "tournament": "Olympics",
+        "year": 2021,
+        "round": "Semi-Final",
+        "score": "1-6 6-3 6-1",
+        "significance": "Olympic gold medal run, ended Djokovic's Golden Slam bid"
+      },
+      {
+        "opponent": "Rafael Nadal",
+        "opponentId": null,
+        "tournament": "Roland Garros",
+        "year": 2024,
+        "round": "Semi-Final",
+        "score": "6-2 6-3 3-6 1-0 ret.",
+        "significance": "Beat Nadal in his final Roland Garros"
+      },
+      {
+        "opponent": "Carlos Alcaraz",
+        "opponentId": 3,
+        "tournament": "Roland Garros",
+        "year": 2024,
+        "round": "Semi-Final",
+        "score": "6-3 2-6 5-7 6-1 6-2",
+        "significance": "Reached first RG final"
+      }
+    ]
   },
   {
     "id": 5,
@@ -5582,7 +5919,89 @@
     "careerHighDate": "2022-02",
     "tour": "ATP",
     "rankChange": -1,
-    "previousRanking": 6
+    "previousRanking": 6,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Final",
+        "year": 2024,
+        "count": 7
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 7
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "Semi-Final",
+        "year": 2023,
+        "count": 5
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "Winner",
+        "year": 2021,
+        "count": 7
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Winner",
+        "year": 2021,
+        "count": 5
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Winner",
+        "year": 2023,
+        "count": 6
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Novak Djokovic",
+        "opponentId": 2,
+        "tournament": "US Open",
+        "year": 2021,
+        "round": "Final",
+        "score": "6-4 6-4 6-4",
+        "significance": "Denied Djokovic Calendar Slam, first Grand Slam title"
+      },
+      {
+        "opponent": "Rafael Nadal",
+        "opponentId": null,
+        "tournament": "Australian Open",
+        "year": 2022,
+        "round": "Semi-Final",
+        "score": "6-7 6-3 7-6 7-5",
+        "significance": "Comeback from match point down"
+      },
+      {
+        "opponent": "Carlos Alcaraz",
+        "opponentId": 3,
+        "tournament": "US Open",
+        "year": 2023,
+        "round": "Semi-Final",
+        "score": "7-6 6-1 3-6 6-3",
+        "significance": "Beat defending champion to reach final"
+      },
+      {
+        "opponent": "Jannik Sinner",
+        "opponentId": 1,
+        "tournament": "Miami Open",
+        "year": 2023,
+        "round": "Final",
+        "score": "7-5 6-3",
+        "significance": "5th Masters 1000 title"
+      }
+    ]
   },
   {
     "id": 6,
@@ -6503,7 +6922,80 @@
     "careerHighDate": "2023-09",
     "tour": "ATP",
     "rankChange": -1,
-    "previousRanking": 7
+    "previousRanking": 7,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Quarter-Final",
+        "year": 2023,
+        "count": 6
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Quarter-Final",
+        "year": 2023,
+        "count": 6
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "Quarter-Final",
+        "year": 2023,
+        "count": 5
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "Quarter-Final",
+        "year": 2023,
+        "count": 7
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Winner",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Quarter-Final",
+        "year": 2022,
+        "count": 5
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Novak Djokovic",
+        "opponentId": 2,
+        "tournament": "Serbia Open",
+        "year": 2022,
+        "round": "Final",
+        "score": "6-2 6-7 6-0",
+        "significance": "Beat Djokovic on his home turf"
+      },
+      {
+        "opponent": "Carlos Alcaraz",
+        "opponentId": 3,
+        "tournament": "Indian Wells",
+        "year": 2024,
+        "round": "Final",
+        "score": "7-5 6-2",
+        "significance": "Won biggest title of career"
+      },
+      {
+        "opponent": "Daniil Medvedev",
+        "opponentId": 5,
+        "tournament": "Monte Carlo",
+        "year": 2023,
+        "round": "Final",
+        "score": "5-7 6-2 6-4",
+        "significance": "First Masters title on clay"
+      }
+    ]
   },
   {
     "id": 7,
@@ -7381,7 +7873,80 @@
     "careerHighDate": "2024-04",
     "tour": "ATP",
     "rankChange": 1,
-    "previousRanking": 6
+    "previousRanking": 6,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 6
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "R16",
+        "year": 2023,
+        "count": 5
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "Semi-Final",
+        "year": 2021,
+        "count": 5
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "R16",
+        "year": 2023,
+        "count": 6
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Winner",
+        "year": 2023,
+        "count": 5
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Winner",
+        "year": 2021,
+        "count": 5
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Roger Federer",
+        "opponentId": null,
+        "tournament": "Wimbledon",
+        "year": 2021,
+        "round": "Quarter-Final",
+        "score": "6-3 7-6 6-0",
+        "significance": "Ended Federer's last Wimbledon run"
+      },
+      {
+        "opponent": "Daniil Medvedev",
+        "opponentId": 5,
+        "tournament": "Miami Open",
+        "year": 2021,
+        "round": "Final",
+        "score": "7-6 6-3",
+        "significance": "First Masters 1000 title"
+      },
+      {
+        "opponent": "Jannik Sinner",
+        "opponentId": 1,
+        "tournament": "Indian Wells",
+        "year": 2023,
+        "round": "Final",
+        "score": "6-3 6-2",
+        "significance": "Won second Masters title"
+      }
+    ]
   },
   {
     "id": 8,
@@ -8151,7 +8716,80 @@
     "careerHighDate": "2022-09",
     "tour": "ATP",
     "rankChange": -2,
-    "previousRanking": 10
+    "previousRanking": 10,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 6
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Final",
+        "year": 2022,
+        "count": 6
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "R32",
+        "year": 2023,
+        "count": 5
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "Final",
+        "year": 2022,
+        "count": 6
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "R16",
+        "year": 2023,
+        "count": 4
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Final",
+        "year": 2023,
+        "count": 5
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Novak Djokovic",
+        "opponentId": 2,
+        "tournament": "Monte Carlo",
+        "year": 2023,
+        "round": "Semi-Final",
+        "score": "6-4 6-3",
+        "significance": "Beat #1 on clay en route to title defense"
+      },
+      {
+        "opponent": "Alexander Zverev",
+        "opponentId": 4,
+        "tournament": "Roland Garros",
+        "year": 2022,
+        "round": "Semi-Final",
+        "score": "6-3 4-6 6-3 6-4",
+        "significance": "Reached first Grand Slam final"
+      },
+      {
+        "opponent": "Daniil Medvedev",
+        "opponentId": 5,
+        "tournament": "ATP Finals",
+        "year": 2022,
+        "round": "Round Robin",
+        "score": "6-7 6-4 7-6",
+        "significance": "Thrilling comeback at season finale"
+      }
+    ]
   },
   {
     "id": 9,
@@ -8928,7 +9566,80 @@
     "careerHighDate": "2024-06",
     "tour": "ATP",
     "rankChange": 1,
-    "previousRanking": 8
+    "previousRanking": 8,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 6
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 5
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 5
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 6
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 5
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 5
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Daniil Medvedev",
+        "opponentId": 5,
+        "tournament": "Australian Open",
+        "year": 2024,
+        "round": "R16",
+        "score": "7-6 6-3 6-1",
+        "significance": "Beat top seed in front of home crowd"
+      },
+      {
+        "opponent": "Alexander Zverev",
+        "opponentId": 4,
+        "tournament": "United Cup",
+        "year": 2024,
+        "round": "Final",
+        "score": "6-4 6-4",
+        "significance": "Led Australia to United Cup title"
+      },
+      {
+        "opponent": "Holger Rune",
+        "opponentId": 15,
+        "tournament": "Acapulco",
+        "year": 2024,
+        "round": "Final",
+        "score": "6-4 3-6 6-3",
+        "significance": "Sixth ATP title, career-best season"
+      }
+    ]
   },
   {
     "id": 10,
@@ -10137,7 +10848,80 @@
     "careerHighDate": "2017-11",
     "tour": "ATP",
     "rankChange": 1,
-    "previousRanking": 9
+    "previousRanking": 9,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Semi-Final",
+        "year": 2023,
+        "count": 12
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 11
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "Semi-Final",
+        "year": 2014,
+        "count": 11
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "Semi-Final",
+        "year": 2019,
+        "count": 11
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Final",
+        "year": 2024,
+        "count": 9
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Winner",
+        "year": 2023,
+        "count": 10
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Novak Djokovic",
+        "opponentId": 2,
+        "tournament": "Paris Masters",
+        "year": 2019,
+        "round": "Semi-Final",
+        "score": "6-3 6-2",
+        "significance": "Dominant win over world #2"
+      },
+      {
+        "opponent": "Roger Federer",
+        "opponentId": null,
+        "tournament": "US Open",
+        "year": 2019,
+        "round": "Quarter-Final",
+        "score": "3-6 6-4 3-6 6-4 6-2",
+        "significance": "Five-set classic, ended Federer's run"
+      },
+      {
+        "opponent": "Andrey Rublev",
+        "opponentId": 6,
+        "tournament": "Miami Open",
+        "year": 2023,
+        "round": "Final",
+        "score": "3-6 7-6 6-3",
+        "significance": "Won first Masters 1000 title after decade on tour"
+      }
+    ]
   },
   {
     "id": 11,
@@ -10904,7 +11688,89 @@
     "careerHighDate": "2021-08",
     "tour": "ATP",
     "rankChange": 3,
-    "previousRanking": 8
+    "previousRanking": 8,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Final",
+        "year": 2023,
+        "count": 7
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Final",
+        "year": 2021,
+        "count": 7
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "R16",
+        "year": 2023,
+        "count": 6
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 7
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Final",
+        "year": 2024,
+        "count": 6
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Quarter-Final",
+        "year": 2022,
+        "count": 5
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Rafael Nadal",
+        "opponentId": null,
+        "tournament": "Australian Open",
+        "year": 2021,
+        "round": "Quarter-Final",
+        "score": "3-6 2-6 7-6 6-4 7-5",
+        "significance": "Comeback from 2 sets down vs Nadal"
+      },
+      {
+        "opponent": "Novak Djokovic",
+        "opponentId": 2,
+        "tournament": "Roland Garros",
+        "year": 2021,
+        "round": "Semi-Final",
+        "score": "6-3 6-2",
+        "significance": "Led 2-0 before final heartbreak (counts as best performance)"
+      },
+      {
+        "opponent": "Roger Federer",
+        "opponentId": null,
+        "tournament": "ATP Finals",
+        "year": 2019,
+        "round": "Semi-Final",
+        "score": "6-3 6-4",
+        "significance": "Won ATP Finals at 21, youngest champion since 2001"
+      },
+      {
+        "opponent": "Alexander Zverev",
+        "opponentId": 4,
+        "tournament": "Monte Carlo",
+        "year": 2022,
+        "round": "Final",
+        "score": "6-3 7-6",
+        "significance": "Third consecutive Monte Carlo title"
+      }
+    ]
   },
   {
     "id": 12,
@@ -11757,7 +12623,80 @@
     "careerHighDate": "2024-09",
     "tour": "ATP",
     "rankChange": -2,
-    "previousRanking": 14
+    "previousRanking": 14,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 7
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "R16",
+        "year": 2023,
+        "count": 6
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 6
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "Final",
+        "year": 2024,
+        "count": 7
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Winner",
+        "year": 2022,
+        "count": 6
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 6
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Rafael Nadal",
+        "opponentId": null,
+        "tournament": "Indian Wells",
+        "year": 2022,
+        "round": "Final",
+        "score": "6-3 7-6",
+        "significance": "Beat Nadal to win first Masters on home soil"
+      },
+      {
+        "opponent": "Alexander Zverev",
+        "opponentId": 4,
+        "tournament": "US Open",
+        "year": 2024,
+        "round": "Quarter-Final",
+        "score": "7-6 3-6 6-4 7-6",
+        "significance": "First American in US Open final since 2006"
+      },
+      {
+        "opponent": "Novak Djokovic",
+        "opponentId": 2,
+        "tournament": "ATP Finals",
+        "year": 2024,
+        "round": "Round Robin",
+        "score": "6-4 6-3",
+        "significance": "Dominant straight sets win over 24-time Slam champion"
+      }
+    ]
   },
   {
     "id": 13,
@@ -12594,7 +13533,80 @@
     "careerHighDate": "2024-03",
     "tour": "ATP",
     "rankChange": 1,
-    "previousRanking": 12
+    "previousRanking": 12,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Semi-Final",
+        "year": 2023,
+        "count": 5
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "R32",
+        "year": 2024,
+        "count": 5
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 5
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 6
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 4
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Novak Djokovic",
+        "opponentId": 2,
+        "tournament": "Eastbourne",
+        "year": 2024,
+        "round": "Semi-Final",
+        "score": "6-2 6-4",
+        "significance": "Beat Djokovic on grass in straight sets"
+      },
+      {
+        "opponent": "Ben Shelton",
+        "opponentId": 14,
+        "tournament": "Australian Open",
+        "year": 2023,
+        "round": "Quarter-Final",
+        "score": "7-6 6-3 5-7 6-4",
+        "significance": "First Grand Slam semi-final"
+      },
+      {
+        "opponent": "Alexander Zverev",
+        "opponentId": 4,
+        "tournament": "Wimbledon",
+        "year": 2024,
+        "round": "R16",
+        "score": "6-3 7-5 6-2",
+        "significance": "Dominant grass court performance"
+      }
+    ]
   },
   {
     "id": 14,
@@ -13089,7 +14101,80 @@
     "careerHighDate": "2024-01",
     "tour": "ATP",
     "rankChange": -3,
-    "previousRanking": 17
+    "previousRanking": 17,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Semi-Final",
+        "year": 2024,
+        "count": 3
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "R32",
+        "year": 2024,
+        "count": 3
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "R32",
+        "year": 2024,
+        "count": 2
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "Semi-Final",
+        "year": 2023,
+        "count": 3
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 2
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 2
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Stefanos Tsitsipas",
+        "opponentId": 11,
+        "tournament": "US Open",
+        "year": 2023,
+        "round": "Quarter-Final",
+        "score": "6-4 3-6 7-6 7-6",
+        "significance": "Reached first Grand Slam semi-final at 20"
+      },
+      {
+        "opponent": "Jannik Sinner",
+        "opponentId": 1,
+        "tournament": "Australian Open",
+        "year": 2024,
+        "round": "Quarter-Final",
+        "score": "7-6 6-2",
+        "significance": "Beat future champion in Melbourne"
+      },
+      {
+        "opponent": "Daniil Medvedev",
+        "opponentId": 5,
+        "tournament": "Shanghai",
+        "year": 2024,
+        "round": "R16",
+        "score": "6-4 6-3",
+        "significance": "Biggest Masters upset of the season"
+      }
+    ]
   },
   {
     "id": 15,
@@ -13742,7 +14827,80 @@
     "careerHighDate": "2023-07",
     "tour": "ATP",
     "rankChange": -3,
-    "previousRanking": 18
+    "previousRanking": 18,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Quarter-Final",
+        "year": 2023,
+        "count": 4
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 3
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "R16",
+        "year": 2023,
+        "count": 4
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 3
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 3
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Novak Djokovic",
+        "opponentId": 2,
+        "tournament": "Paris Masters",
+        "year": 2022,
+        "round": "Final",
+        "score": "3-6 6-3 7-5",
+        "significance": "Beat Djokovic for first Masters title at 19"
+      },
+      {
+        "opponent": "Stefanos Tsitsipas",
+        "opponentId": 11,
+        "tournament": "Roland Garros",
+        "year": 2023,
+        "round": "R16",
+        "score": "7-5 3-6 6-3 6-4",
+        "significance": "Upset seeded player at French Open"
+      },
+      {
+        "opponent": "Carlos Alcaraz",
+        "opponentId": 3,
+        "tournament": "Paris Masters",
+        "year": 2022,
+        "round": "Quarter-Final",
+        "score": "6-3 6-4",
+        "significance": "Beat world #1 en route to title"
+      }
+    ]
   },
   {
     "id": 16,
@@ -14489,7 +15647,80 @@
     "careerHighDate": "2024-06",
     "tour": "ATP",
     "rankChange": -2,
-    "previousRanking": 18
+    "previousRanking": 18,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 5
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "R32",
+        "year": 2024,
+        "count": 6
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 5
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 5
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "R32",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 4
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Daniil Medvedev",
+        "opponentId": 5,
+        "tournament": "Paris Masters",
+        "year": 2023,
+        "round": "Quarter-Final",
+        "score": "6-4 7-5",
+        "significance": "Career-best result at home Masters"
+      },
+      {
+        "opponent": "Stefanos Tsitsipas",
+        "opponentId": 11,
+        "tournament": "Halle",
+        "year": 2023,
+        "round": "Final",
+        "score": "6-4 6-2",
+        "significance": "Won grass court title over top 5 player"
+      },
+      {
+        "opponent": "Casper Ruud",
+        "opponentId": 8,
+        "tournament": "Dubai",
+        "year": 2024,
+        "round": "Semi-Final",
+        "score": "7-6 6-3",
+        "significance": "Breakthrough season top 20 result"
+      }
+    ]
   },
   {
     "id": 17,
@@ -15171,7 +16402,80 @@
     "careerHighDate": "2024-03",
     "tour": "ATP",
     "rankChange": 0,
-    "previousRanking": 17
+    "previousRanking": 17,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Quarter-Final",
+        "year": 2023,
+        "count": 4
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "R16",
+        "year": 2020,
+        "count": 4
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "R32",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 4
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Daniil Medvedev",
+        "opponentId": 5,
+        "tournament": "Australian Open",
+        "year": 2023,
+        "round": "R16",
+        "score": "7-6 6-3 7-6",
+        "significance": "Upset world #7 for first Slam QF"
+      },
+      {
+        "opponent": "Andrey Rublev",
+        "opponentId": 6,
+        "tournament": "Adelaide",
+        "year": 2024,
+        "round": "Final",
+        "score": "6-3 6-2",
+        "significance": "Won third ATP title"
+      },
+      {
+        "opponent": "Cameron Norrie",
+        "opponentId": null,
+        "tournament": "Indian Wells",
+        "year": 2024,
+        "round": "R16",
+        "score": "6-4 7-5",
+        "significance": "Continued family legacy at elite level"
+      }
+    ]
   },
   {
     "id": 18,
@@ -16045,7 +17349,80 @@
     "careerHighDate": "2024-02",
     "tour": "ATP",
     "rankChange": 0,
-    "previousRanking": 18
+    "previousRanking": 18,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "R32",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "R32",
+        "year": 2024,
+        "count": 3
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "R32",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "R32",
+        "year": 2024,
+        "count": 3
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 3
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Andrey Rublev",
+        "opponentId": 6,
+        "tournament": "Rome",
+        "year": 2024,
+        "round": "Final",
+        "score": "7-5 6-4",
+        "significance": "Won first Masters 1000 title"
+      },
+      {
+        "opponent": "Holger Rune",
+        "opponentId": 15,
+        "tournament": "Rome",
+        "year": 2024,
+        "round": "Semi-Final",
+        "score": "6-3 6-2",
+        "significance": "Dominant run to biggest final"
+      },
+      {
+        "opponent": "Hubert Hurkacz",
+        "opponentId": 7,
+        "tournament": "Santiago",
+        "year": 2024,
+        "round": "Final",
+        "score": "6-4 7-6",
+        "significance": "Won hometown title in Chile"
+      }
+    ]
   },
   {
     "id": 19,
@@ -17007,7 +18384,80 @@
     "careerHighDate": "2019-07",
     "tour": "ATP",
     "rankChange": 3,
-    "previousRanking": 16
+    "previousRanking": 16,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Semi-Final",
+        "year": 2023,
+        "count": 7
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "R16",
+        "year": 2023,
+        "count": 7
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "R16",
+        "year": 2023,
+        "count": 6
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "Semi-Final",
+        "year": 2022,
+        "count": 7
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Quarter-Final",
+        "year": 2019,
+        "count": 5
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "R16",
+        "year": 2019,
+        "count": 5
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Novak Djokovic",
+        "opponentId": 2,
+        "tournament": "Paris Masters",
+        "year": 2018,
+        "round": "Final",
+        "score": "7-5 6-4",
+        "significance": "Won Paris Masters, biggest career title"
+      },
+      {
+        "opponent": "Nick Kyrgios",
+        "opponentId": null,
+        "tournament": "US Open",
+        "year": 2022,
+        "round": "Quarter-Final",
+        "score": "7-5 4-6 7-5 6-7 6-4",
+        "significance": "Five-set thriller to reach first Slam SF"
+      },
+      {
+        "opponent": "Sebastian Korda",
+        "opponentId": 17,
+        "tournament": "Australian Open",
+        "year": 2023,
+        "round": "Quarter-Final",
+        "score": "7-6 6-3 3-6 6-3",
+        "significance": "Career-best Slam result in Melbourne"
+      }
+    ]
   },
   {
     "id": 20,
@@ -17747,7 +19197,80 @@
     "careerHighDate": "2022-04",
     "tour": "ATP",
     "rankChange": -3,
-    "previousRanking": 23
+    "previousRanking": 23,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Quarter-Final",
+        "year": 2022,
+        "count": 6
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "R16",
+        "year": 2022,
+        "count": 5
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "Quarter-Final",
+        "year": 2022,
+        "count": 5
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "Semi-Final",
+        "year": 2021,
+        "count": 6
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Quarter-Final",
+        "year": 2021,
+        "count": 5
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Semi-Final",
+        "year": 2022,
+        "count": 5
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Carlos Alcaraz",
+        "opponentId": 3,
+        "tournament": "Davis Cup",
+        "year": 2022,
+        "round": "Semi-Final",
+        "score": "6-7 6-4 7-6",
+        "significance": "Beat world #1 in epic Davis Cup clash"
+      },
+      {
+        "opponent": "Daniil Medvedev",
+        "opponentId": 5,
+        "tournament": "ATP Finals",
+        "year": 2022,
+        "round": "Round Robin",
+        "score": "6-3 6-4",
+        "significance": "First ATP Finals victory"
+      },
+      {
+        "opponent": "Rafael Nadal",
+        "opponentId": null,
+        "tournament": "Madrid",
+        "year": 2022,
+        "round": "R16",
+        "score": "6-3 6-3",
+        "significance": "Beat Nadal on clay in Madrid"
+      }
+    ]
   },
   {
     "id": 21,
@@ -20475,7 +21998,89 @@
     ],
     "age": 23,
     "rankChange": 0,
-    "previousRanking": 1
+    "previousRanking": 1,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Semi-Final",
+        "year": 2022,
+        "count": 5
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Winner",
+        "year": 2024,
+        "count": 5
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "Quarter-Final",
+        "year": 2023,
+        "count": 5
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "Winner",
+        "year": 2022,
+        "count": 5
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Winner",
+        "year": 2022,
+        "count": 4
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Winner",
+        "year": 2022,
+        "count": 4
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Sofia Kenin",
+        "opponentId": null,
+        "tournament": "Roland Garros",
+        "year": 2020,
+        "round": "Final",
+        "score": "6-4 6-1",
+        "significance": "First Grand Slam title at age 19"
+      },
+      {
+        "opponent": "Ons Jabeur",
+        "opponentId": 214,
+        "tournament": "US Open",
+        "year": 2022,
+        "round": "Final",
+        "score": "6-2 7-6",
+        "significance": "Completed dominant 37-match win streak season"
+      },
+      {
+        "opponent": "Jasmine Paolini",
+        "opponentId": 207,
+        "tournament": "Roland Garros",
+        "year": 2024,
+        "round": "Final",
+        "score": "6-2 6-1",
+        "significance": "Fourth Roland Garros title, matching Justine Henin"
+      },
+      {
+        "opponent": "Coco Gauff",
+        "opponentId": 203,
+        "tournament": "Roland Garros",
+        "year": 2022,
+        "round": "Final",
+        "score": "6-1 6-3",
+        "significance": "Dominant defense of French Open crown"
+      }
+    ]
   },
   {
     "id": 202,
@@ -20509,7 +22114,89 @@
     ],
     "age": 26,
     "rankChange": 1,
-    "previousRanking": 1
+    "previousRanking": 1,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Winner",
+        "year": 2024,
+        "count": 6
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Semi-Final",
+        "year": 2023,
+        "count": 5
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "Semi-Final",
+        "year": 2023,
+        "count": 5
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "Winner",
+        "year": 2024,
+        "count": 6
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Winner",
+        "year": 2023,
+        "count": 5
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 5
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Qinwen Zheng",
+        "opponentId": 206,
+        "tournament": "Australian Open",
+        "year": 2024,
+        "round": "Final",
+        "score": "6-3 6-2",
+        "significance": "Defended Australian Open title"
+      },
+      {
+        "opponent": "Elena Rybakina",
+        "opponentId": 204,
+        "tournament": "Australian Open",
+        "year": 2023,
+        "round": "Final",
+        "score": "4-6 6-3 6-4",
+        "significance": "First Grand Slam title"
+      },
+      {
+        "opponent": "Jessica Pegula",
+        "opponentId": 205,
+        "tournament": "US Open",
+        "year": 2024,
+        "round": "Final",
+        "score": "7-5 7-5",
+        "significance": "First US Open title, world #1"
+      },
+      {
+        "opponent": "Coco Gauff",
+        "opponentId": 203,
+        "tournament": "US Open",
+        "year": 2023,
+        "round": "Semi-Final",
+        "score": "6-1 6-4",
+        "significance": "Dominant win over defending champion"
+      }
+    ]
   },
   {
     "id": 203,
@@ -20543,7 +22230,89 @@
     ],
     "age": 20,
     "rankChange": -1,
-    "previousRanking": 4
+    "previousRanking": 4,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Semi-Final",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Final",
+        "year": 2022,
+        "count": 4
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "R16",
+        "year": 2023,
+        "count": 4
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "Winner",
+        "year": 2023,
+        "count": 5
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 3
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 3
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Aryna Sabalenka",
+        "opponentId": 202,
+        "tournament": "US Open",
+        "year": 2023,
+        "round": "Final",
+        "score": "2-6 6-3 6-2",
+        "significance": "First Grand Slam title at 19, comeback from a set down"
+      },
+      {
+        "opponent": "Venus Williams",
+        "opponentId": null,
+        "tournament": "Wimbledon",
+        "year": 2019,
+        "round": "R128",
+        "score": "6-4 6-4",
+        "significance": "Beat her idol at age 15 in Wimbledon debut"
+      },
+      {
+        "opponent": "Iga Swiatek",
+        "opponentId": 201,
+        "tournament": "WTA Finals",
+        "year": 2023,
+        "round": "Semi-Final",
+        "score": "6-3 4-6 6-3",
+        "significance": "Beat world #1 en route to WTA Finals title"
+      },
+      {
+        "opponent": "Ons Jabeur",
+        "opponentId": 214,
+        "tournament": "Auckland",
+        "year": 2024,
+        "round": "Final",
+        "score": "6-3 6-3",
+        "significance": "Started 2024 season with dominant title win"
+      }
+    ]
   },
   {
     "id": 204,
@@ -20577,7 +22346,80 @@
     ],
     "age": 25,
     "rankChange": 1,
-    "previousRanking": 3
+    "previousRanking": 3,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Final",
+        "year": 2023,
+        "count": 5
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 5
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "Winner",
+        "year": 2022,
+        "count": 4
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "R16",
+        "year": 2023,
+        "count": 5
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Winner",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Final",
+        "year": 2024,
+        "count": 4
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Ons Jabeur",
+        "opponentId": 214,
+        "tournament": "Wimbledon",
+        "year": 2022,
+        "round": "Final",
+        "score": "3-6 6-2 6-2",
+        "significance": "Won first Grand Slam title at Wimbledon"
+      },
+      {
+        "opponent": "Aryna Sabalenka",
+        "opponentId": 202,
+        "tournament": "Indian Wells",
+        "year": 2024,
+        "round": "Final",
+        "score": "7-6 6-2",
+        "significance": "Beat world #2 for biggest WTA 1000 title"
+      },
+      {
+        "opponent": "Iga Swiatek",
+        "opponentId": 201,
+        "tournament": "Australian Open",
+        "year": 2023,
+        "round": "R16",
+        "score": "6-4 6-4",
+        "significance": "Ended Swiatek's run in Melbourne"
+      }
+    ]
   },
   {
     "id": 205,
@@ -20611,7 +22453,80 @@
     ],
     "age": 31,
     "rankChange": 0,
-    "previousRanking": 5
+    "previousRanking": 5,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Quarter-Final",
+        "year": 2023,
+        "count": 5
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Quarter-Final",
+        "year": 2023,
+        "count": 5
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 5
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "Final",
+        "year": 2024,
+        "count": 6
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 5
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 5
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Iga Swiatek",
+        "opponentId": 201,
+        "tournament": "US Open",
+        "year": 2024,
+        "round": "Quarter-Final",
+        "score": "6-2 6-4",
+        "significance": "Beat world #1 for first Slam final"
+      },
+      {
+        "opponent": "Coco Gauff",
+        "opponentId": 203,
+        "tournament": "Canadian Open",
+        "year": 2023,
+        "round": "Final",
+        "score": "6-1 6-3",
+        "significance": "Won biggest WTA title"
+      },
+      {
+        "opponent": "Elena Rybakina",
+        "opponentId": 204,
+        "tournament": "Australian Open",
+        "year": 2023,
+        "round": "Quarter-Final",
+        "score": "7-6 6-3",
+        "significance": "Beat defending finalist in Melbourne"
+      }
+    ]
   },
   {
     "id": 206,
@@ -20645,7 +22560,80 @@
     ],
     "age": 22,
     "rankChange": 0,
-    "previousRanking": 6
+    "previousRanking": 6,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Final",
+        "year": 2024,
+        "count": 3
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Semi-Final",
+        "year": 2023,
+        "count": 3
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 3
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 3
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 3
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "R32",
+        "year": 2024,
+        "count": 3
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Anna Kalinskaya",
+        "opponentId": 212,
+        "tournament": "Australian Open",
+        "year": 2024,
+        "round": "Semi-Final",
+        "score": "6-4 6-2",
+        "significance": "Reached first Grand Slam final"
+      },
+      {
+        "opponent": "Iga Swiatek",
+        "opponentId": 201,
+        "tournament": "Roland Garros",
+        "year": 2023,
+        "round": "Semi-Final",
+        "score": "6-3 7-6",
+        "significance": "Beat world #1 on clay"
+      },
+      {
+        "opponent": "Donna Vekic",
+        "opponentId": 217,
+        "tournament": "Olympics",
+        "year": 2024,
+        "round": "Final",
+        "score": "6-2 6-3",
+        "significance": "Won Olympic gold medal for China"
+      }
+    ]
   },
   {
     "id": 207,
@@ -20679,7 +22667,80 @@
     ],
     "age": 29,
     "rankChange": -1,
-    "previousRanking": 8
+    "previousRanking": 8,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Final",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "Final",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "R32",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "R32",
+        "year": 2024,
+        "count": 3
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 3
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Elena Rybakina",
+        "opponentId": 204,
+        "tournament": "Roland Garros",
+        "year": 2024,
+        "round": "Quarter-Final",
+        "score": "6-2 4-6 6-4",
+        "significance": "Beat Wimbledon champ on path to RG final"
+      },
+      {
+        "opponent": "Mirra Andreeva",
+        "opponentId": 215,
+        "tournament": "Roland Garros",
+        "year": 2024,
+        "round": "Semi-Final",
+        "score": "6-3 6-1",
+        "significance": "First Italian woman in RG final since 2012"
+      },
+      {
+        "opponent": "Donna Vekic",
+        "opponentId": 217,
+        "tournament": "Wimbledon",
+        "year": 2024,
+        "round": "Semi-Final",
+        "score": "2-6 6-4 7-6",
+        "significance": "Historic back-to-back Grand Slam finals"
+      }
+    ]
   },
   {
     "id": 208,
@@ -20713,7 +22774,80 @@
     ],
     "age": 23,
     "rankChange": -1,
-    "previousRanking": 9
+    "previousRanking": 9,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "R32",
+        "year": 2024,
+        "count": 3
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 3
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 2
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "Semi-Final",
+        "year": 2024,
+        "count": 3
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "R32",
+        "year": 2024,
+        "count": 2
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 2
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Coco Gauff",
+        "opponentId": 203,
+        "tournament": "Wimbledon",
+        "year": 2024,
+        "round": "R16",
+        "score": "6-4 6-3",
+        "significance": "Beat defending US Open champion at Wimbledon"
+      },
+      {
+        "opponent": "Iga Swiatek",
+        "opponentId": 201,
+        "tournament": "US Open",
+        "year": 2024,
+        "round": "R16",
+        "score": "6-3 4-6 6-3",
+        "significance": "Defeated world #1 at home Slam"
+      },
+      {
+        "opponent": "Coco Gauff",
+        "opponentId": 203,
+        "tournament": "US Open",
+        "year": 2024,
+        "round": "R16",
+        "score": "6-3 4-6 7-5",
+        "significance": "Beat defending champion in NYC again"
+      }
+    ]
   },
   {
     "id": 209,
@@ -20747,7 +22881,80 @@
     ],
     "age": 27,
     "rankChange": 1,
-    "previousRanking": 8
+    "previousRanking": 8,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 7
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Semi-Final",
+        "year": 2022,
+        "count": 7
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "R16",
+        "year": 2018,
+        "count": 6
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 7
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Winner",
+        "year": 2018,
+        "count": 5
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 6
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Aryna Sabalenka",
+        "opponentId": 202,
+        "tournament": "Roland Garros",
+        "year": 2022,
+        "round": "R16",
+        "score": "6-4 6-1",
+        "significance": "Dominant win en route to career-best Slam SF"
+      },
+      {
+        "opponent": "Venus Williams",
+        "opponentId": null,
+        "tournament": "Indian Wells",
+        "year": 2018,
+        "round": "Final",
+        "score": "6-4 6-4",
+        "significance": "Won biggest title of career at 20"
+      },
+      {
+        "opponent": "Jessica Pegula",
+        "opponentId": 205,
+        "tournament": "Eastbourne",
+        "year": 2023,
+        "round": "Final",
+        "score": "6-4 3-6 6-1",
+        "significance": "Retained grass court title"
+      }
+    ]
   },
   {
     "id": 210,
@@ -20781,7 +22988,80 @@
     ],
     "age": 29,
     "rankChange": 0,
-    "previousRanking": 10
+    "previousRanking": 10,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Quarter-Final",
+        "year": 2022,
+        "count": 5
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Winner",
+        "year": 2021,
+        "count": 5
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "Winner",
+        "year": 2024,
+        "count": 5
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "R16",
+        "year": 2021,
+        "count": 5
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "R32",
+        "year": 2022,
+        "count": 3
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 4
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Jasmine Paolini",
+        "opponentId": 207,
+        "tournament": "Wimbledon",
+        "year": 2024,
+        "round": "Final",
+        "score": "6-2 2-6 6-4",
+        "significance": "Won second Grand Slam at Wimbledon"
+      },
+      {
+        "opponent": "Anastasia Pavlyuchenkova",
+        "opponentId": null,
+        "tournament": "Roland Garros",
+        "year": 2021,
+        "round": "Final",
+        "score": "6-1 2-6 6-4",
+        "significance": "First Grand Slam title, remarkable underdog run"
+      },
+      {
+        "opponent": "Coco Gauff",
+        "opponentId": 203,
+        "tournament": "Roland Garros",
+        "year": 2021,
+        "round": "Semi-Final",
+        "score": "7-6 6-3",
+        "significance": "Beat rising star to reach first Slam final"
+      }
+    ]
   },
   {
     "id": 211,
@@ -20815,7 +23095,80 @@
     ],
     "age": 31,
     "rankChange": -2,
-    "previousRanking": 13
+    "previousRanking": 13,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Final",
+        "year": 2022,
+        "count": 6
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "R16",
+        "year": 2020,
+        "count": 5
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "R16",
+        "year": 2023,
+        "count": 5
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "R16",
+        "year": 2023,
+        "count": 6
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 5
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Winner",
+        "year": 2024,
+        "count": 5
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Iga Swiatek",
+        "opponentId": 201,
+        "tournament": "Australian Open",
+        "year": 2022,
+        "round": "Semi-Final",
+        "score": "6-4 6-1",
+        "significance": "Beat world #1 to reach first Slam final"
+      },
+      {
+        "opponent": "Elena Rybakina",
+        "opponentId": 204,
+        "tournament": "Miami Open",
+        "year": 2024,
+        "round": "Final",
+        "score": "7-5 6-3",
+        "significance": "Won biggest title in farewell season"
+      },
+      {
+        "opponent": "Jessica Pegula",
+        "opponentId": 205,
+        "tournament": "Miami Open",
+        "year": 2024,
+        "round": "Semi-Final",
+        "score": "6-2 6-4",
+        "significance": "Dominant run to Miami title"
+      }
+    ]
   },
   {
     "id": 212,
@@ -20849,7 +23202,80 @@
     ],
     "age": 26,
     "rankChange": -3,
-    "previousRanking": 15
+    "previousRanking": 15,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Semi-Final",
+        "year": 2024,
+        "count": 3
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "R32",
+        "year": 2024,
+        "count": 3
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "R32",
+        "year": 2024,
+        "count": 2
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "R32",
+        "year": 2024,
+        "count": 3
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 3
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 3
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Coco Gauff",
+        "opponentId": 203,
+        "tournament": "Australian Open",
+        "year": 2024,
+        "round": "Quarter-Final",
+        "score": "6-3 6-2",
+        "significance": "Beat US Open champion for first Slam SF"
+      },
+      {
+        "opponent": "Jasmine Paolini",
+        "opponentId": 207,
+        "tournament": "Dubai",
+        "year": 2024,
+        "round": "Final",
+        "score": "6-2 6-4",
+        "significance": "Won biggest WTA title of career"
+      },
+      {
+        "opponent": "Elena Rybakina",
+        "opponentId": 204,
+        "tournament": "Abu Dhabi",
+        "year": 2024,
+        "round": "Final",
+        "score": "6-4 3-6 6-3",
+        "significance": "Beat top 5 player for breakthrough title"
+      }
+    ]
   },
   {
     "id": 213,
@@ -20883,7 +23309,80 @@
     ],
     "age": 30,
     "rankChange": -2,
-    "previousRanking": 15
+    "previousRanking": 15,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Winner",
+        "year": 2025,
+        "count": 8
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Quarter-Final",
+        "year": 2019,
+        "count": 8
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "Quarter-Final",
+        "year": 2023,
+        "count": 8
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "Final",
+        "year": 2017,
+        "count": 9
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Final",
+        "year": 2024,
+        "count": 7
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 7
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Aryna Sabalenka",
+        "opponentId": 202,
+        "tournament": "Australian Open",
+        "year": 2025,
+        "round": "Final",
+        "score": "6-3 2-6 7-5",
+        "significance": "Won first Grand Slam title at age 29"
+      },
+      {
+        "opponent": "Iga Swiatek",
+        "opponentId": 201,
+        "tournament": "Australian Open",
+        "year": 2025,
+        "round": "Semi-Final",
+        "score": "5-7 6-1 7-6",
+        "significance": "Comeback win over world #2 in epic semi"
+      },
+      {
+        "opponent": "Coco Gauff",
+        "opponentId": 203,
+        "tournament": "US Open",
+        "year": 2017,
+        "round": "Semi-Final",
+        "score": "6-3 6-3",
+        "significance": "Reached first US Open final"
+      }
+    ]
   },
   {
     "id": 214,
@@ -20917,7 +23416,80 @@
     ],
     "age": 30,
     "rankChange": -1,
-    "previousRanking": 15
+    "previousRanking": 15,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Quarter-Final",
+        "year": 2020,
+        "count": 6
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Quarter-Final",
+        "year": 2023,
+        "count": 6
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "Final",
+        "year": 2023,
+        "count": 6
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "Final",
+        "year": 2022,
+        "count": 6
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Quarter-Final",
+        "year": 2022,
+        "count": 4
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Quarter-Final",
+        "year": 2023,
+        "count": 5
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Aryna Sabalenka",
+        "opponentId": 202,
+        "tournament": "Wimbledon",
+        "year": 2023,
+        "round": "Semi-Final",
+        "score": "6-7 6-4 6-3",
+        "significance": "Reached second consecutive Wimbledon final"
+      },
+      {
+        "opponent": "Coco Gauff",
+        "opponentId": 203,
+        "tournament": "US Open",
+        "year": 2022,
+        "round": "Quarter-Final",
+        "score": "7-6 6-1",
+        "significance": "First Arab/African woman in US Open final"
+      },
+      {
+        "opponent": "Jessica Pegula",
+        "opponentId": 205,
+        "tournament": "US Open",
+        "year": 2022,
+        "round": "Semi-Final",
+        "score": "6-4 6-3",
+        "significance": "Historic run to first major final"
+      }
+    ]
   },
   {
     "id": 215,
@@ -20951,7 +23523,80 @@
     ],
     "age": 17,
     "rankChange": -1,
-    "previousRanking": 16
+    "previousRanking": 16,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 2
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Semi-Final",
+        "year": 2024,
+        "count": 2
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 2
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "R32",
+        "year": 2024,
+        "count": 2
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "R32",
+        "year": 2024,
+        "count": 2
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 2
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Aryna Sabalenka",
+        "opponentId": 202,
+        "tournament": "Roland Garros",
+        "year": 2024,
+        "round": "Quarter-Final",
+        "score": "6-7 6-4 6-4",
+        "significance": "Beat world #2 at age 17 for first Slam SF"
+      },
+      {
+        "opponent": "Ons Jabeur",
+        "opponentId": 214,
+        "tournament": "Roland Garros",
+        "year": 2023,
+        "round": "R32",
+        "score": "6-0 6-3",
+        "significance": "Youngest player to beat top 10 at Slam since 2006"
+      },
+      {
+        "opponent": "Donna Vekic",
+        "opponentId": 217,
+        "tournament": "Roland Garros",
+        "year": 2024,
+        "round": "R16",
+        "score": "6-2 6-3",
+        "significance": "Dominant win in breakthrough Roland Garros run"
+      }
+    ]
   },
   {
     "id": 216,
@@ -20985,7 +23630,80 @@
     ],
     "age": 28,
     "rankChange": 1,
-    "previousRanking": 15
+    "previousRanking": 15,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 5
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Quarter-Final",
+        "year": 2023,
+        "count": 5
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "R16",
+        "year": 2023,
+        "count": 4
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "R16",
+        "year": 2023,
+        "count": 5
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "R32",
+        "year": 2023,
+        "count": 4
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Quarter-Final",
+        "year": 2023,
+        "count": 4
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Iga Swiatek",
+        "opponentId": 201,
+        "tournament": "Roland Garros",
+        "year": 2023,
+        "round": "R16",
+        "score": "6-2 7-6",
+        "significance": "Shocked world #1 on clay at Roland Garros"
+      },
+      {
+        "opponent": "Elena Rybakina",
+        "opponentId": 204,
+        "tournament": "Canadian Open",
+        "year": 2023,
+        "round": "Semi-Final",
+        "score": "6-1 6-3",
+        "significance": "Dominant win over Slam champion"
+      },
+      {
+        "opponent": "Jessica Pegula",
+        "opponentId": 205,
+        "tournament": "Nottingham",
+        "year": 2023,
+        "round": "Final",
+        "score": "6-4 6-4",
+        "significance": "Won biggest grass court title"
+      }
+    ]
   },
   {
     "id": 217,
@@ -21019,7 +23737,80 @@
     ],
     "age": 28,
     "rankChange": -2,
-    "previousRanking": 19
+    "previousRanking": 19,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 7
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "R32",
+        "year": 2023,
+        "count": 7
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "R16",
+        "year": 2023,
+        "count": 7
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "Semi-Final",
+        "year": 2024,
+        "count": 7
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 5
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "R32",
+        "year": 2024,
+        "count": 5
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Jessica Pegula",
+        "opponentId": 205,
+        "tournament": "US Open",
+        "year": 2024,
+        "round": "Quarter-Final",
+        "score": "6-4 6-3",
+        "significance": "First Grand Slam semi-final after 10 years on tour"
+      },
+      {
+        "opponent": "Jasmine Paolini",
+        "opponentId": 207,
+        "tournament": "Olympics",
+        "year": 2024,
+        "round": "Semi-Final",
+        "score": "7-6 6-3",
+        "significance": "Won Olympic silver medal for Croatia"
+      },
+      {
+        "opponent": "Coco Gauff",
+        "opponentId": 203,
+        "tournament": "US Open",
+        "year": 2024,
+        "round": "R16",
+        "score": "4-6 6-2 6-3",
+        "significance": "Beat defending champion in best season of career"
+      }
+    ]
   },
   {
     "id": 218,
@@ -21053,7 +23844,80 @@
     ],
     "age": 22,
     "rankChange": 1,
-    "previousRanking": 17
+    "previousRanking": 17,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 5
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "R32",
+        "year": 2023,
+        "count": 4
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "R16",
+        "year": 2023,
+        "count": 5
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 4
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Aryna Sabalenka",
+        "opponentId": 202,
+        "tournament": "Stuttgart",
+        "year": 2023,
+        "round": "Quarter-Final",
+        "score": "7-6 6-4",
+        "significance": "Biggest top 5 upset of her career"
+      },
+      {
+        "opponent": "Elena Rybakina",
+        "opponentId": 204,
+        "tournament": "Roland Garros",
+        "year": 2024,
+        "round": "R16",
+        "score": "6-4 3-6 6-3",
+        "significance": "Beat Wimbledon champion at French Open"
+      },
+      {
+        "opponent": "Ons Jabeur",
+        "opponentId": 214,
+        "tournament": "San Diego",
+        "year": 2023,
+        "round": "Semi-Final",
+        "score": "6-4 7-5",
+        "significance": "Beat top 10 player for career-best result"
+      }
+    ]
   },
   {
     "id": 219,
@@ -21087,7 +23951,89 @@
     ],
     "age": 35,
     "rankChange": 1,
-    "previousRanking": 18
+    "previousRanking": 18,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "Winner",
+        "year": 2013,
+        "count": 15
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "Semi-Final",
+        "year": 2013,
+        "count": 14
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "Semi-Final",
+        "year": 2012,
+        "count": 14
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "Final",
+        "year": 2020,
+        "count": 15
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Winner",
+        "year": 2016,
+        "count": 12
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Winner",
+        "year": 2016,
+        "count": 13
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Maria Sharapova",
+        "opponentId": null,
+        "tournament": "Australian Open",
+        "year": 2012,
+        "round": "Final",
+        "score": "6-3 6-0",
+        "significance": "Won first Grand Slam title, became world #1"
+      },
+      {
+        "opponent": "Li Na",
+        "opponentId": null,
+        "tournament": "Australian Open",
+        "year": 2013,
+        "round": "Final",
+        "score": "4-6 6-4 6-3",
+        "significance": "Defended Australian Open title"
+      },
+      {
+        "opponent": "Serena Williams",
+        "opponentId": null,
+        "tournament": "Indian Wells",
+        "year": 2016,
+        "round": "Final",
+        "score": "6-4 6-4",
+        "significance": "Beat world #1 for biggest comeback title after becoming a mother"
+      },
+      {
+        "opponent": "Naomi Osaka",
+        "opponentId": null,
+        "tournament": "US Open",
+        "year": 2020,
+        "round": "Semi-Final",
+        "score": "1-6 6-3 6-3",
+        "significance": "Comeback from a set down to reach US Open final at 31"
+      }
+    ]
   },
   {
     "id": 220,
@@ -21121,7 +24067,80 @@
     ],
     "age": 26,
     "rankChange": 2,
-    "previousRanking": 18
+    "previousRanking": 18,
+    "tournamentBestResults": [
+      {
+        "tournament": "Australian Open",
+        "tournamentId": 1,
+        "bestRound": "R16",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "Roland Garros",
+        "tournamentId": 2,
+        "bestRound": "R32",
+        "year": 2023,
+        "count": 4
+      },
+      {
+        "tournament": "Wimbledon",
+        "tournamentId": 3,
+        "bestRound": "R16",
+        "year": 2023,
+        "count": 4
+      },
+      {
+        "tournament": "US Open",
+        "tournamentId": 4,
+        "bestRound": "R16",
+        "year": 2023,
+        "count": 4
+      },
+      {
+        "tournament": "Indian Wells",
+        "tournamentId": 5,
+        "bestRound": "Quarter-Final",
+        "year": 2024,
+        "count": 4
+      },
+      {
+        "tournament": "Miami Open",
+        "tournamentId": 6,
+        "bestRound": "Quarter-Final",
+        "year": 2023,
+        "count": 4
+      }
+    ],
+    "careerBestWins": [
+      {
+        "opponent": "Coco Gauff",
+        "opponentId": 203,
+        "tournament": "Washington DC",
+        "year": 2023,
+        "round": "Final",
+        "score": "6-1 6-4",
+        "significance": "Beat top 10 player for biggest title"
+      },
+      {
+        "opponent": "Ons Jabeur",
+        "opponentId": 214,
+        "tournament": "Montreal",
+        "year": 2023,
+        "round": "Final",
+        "score": "6-2 6-4",
+        "significance": "Won first WTA 1000 title"
+      },
+      {
+        "opponent": "Elena Rybakina",
+        "opponentId": 204,
+        "tournament": "Tokyo",
+        "year": 2023,
+        "round": "Semi-Final",
+        "score": "6-4 6-3",
+        "significance": "Beat Wimbledon champion in impressive run"
+      }
+    ]
   },
   {
     "id": 221,

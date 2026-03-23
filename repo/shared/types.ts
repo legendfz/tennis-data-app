@@ -1,3 +1,21 @@
+export interface TournamentBestResult {
+  tournament: string;
+  tournamentId: number;
+  bestRound: string;
+  year: number;
+  count: number;
+}
+
+export interface CareerBestWin {
+  opponent: string;
+  opponentId: number | null;
+  tournament: string;
+  year: number;
+  round: string;
+  score: string;
+  significance: string;
+}
+
 export interface TitleEntry {
   year: number;
   tournament: string;
@@ -109,6 +127,8 @@ export interface Player {
   seasonMatches?: SeasonMatchEntry[];
   decidingSetMatches?: DecidingSetMatchEntry[];
   winRateByYear?: WinRateByYear[];
+  tournamentBestResults?: TournamentBestResult[];
+  careerBestWins?: CareerBestWin[];
   tags?: string[];
   equipment?: {
     apparel?: { brand: string; from: number; to: number | null }[];

@@ -41,7 +41,7 @@ import { TournamentLogo } from '../../lib/tournament-logo';
 import { TennisBallIcon } from '../../lib/illustrations';
 import { theme, radii, breakpoints } from '../../lib/theme';
 import { useReducedMotion } from '../../lib/useReducedMotion';
-import type { PlayerDetail, MatchWithPlayers, SetStats, TitleEntry, GrandSlamEntry, SeasonMatchEntry, DecidingSetMatchEntry, WinRateByYear } from '../../../shared/types';
+import type { PlayerDetail, MatchWithPlayers, SetStats, TitleEntry, GrandSlamEntry, SeasonMatchEntry, DecidingSetMatchEntry, WinRateByYear, TournamentBestResult, CareerBestWin } from '../../../shared/types';
 
 if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
@@ -450,11 +450,35 @@ function OverviewTab({ player, router }: { player: PlayerDetail; router: any }) 
   );
 }
 
+// ─── Round sorting helper ────────────────────────────────────────────
+const ROUND_ORDER: Record<string, number> = {
+  'Winner': 0, 'Final': 1, 'Semi-Final': 2, 'Quarter-Final': 3,
+  'R16': 4, 'R32': 5, 'R64': 6, 'R128': 7,
+};
+
+function getRoundColor(round: string): string {
+  if (round === 'Winner') return '#c9a84c';
+  if (round === 'Final') return '#ffffff';
+  return '#888';
+}
+
 // ─── Stats Tab ───────────────────────────────────────────────────────
 function StatsTab({ player }: { player: PlayerDetail }) {
   const { t } = useLanguage();
+  const router = useRouter();
   const record = player.record;
   const setStats = (player as any).setStats as SetStats | undefined;
+  const tournamentResults = (player as any).tournamentBestResults as TournamentBestResult[] | undefined;
+  const careerBestWins = (player as any).careerBestWins as CareerBestWin[] | undefined;
+
+  const sortedResults = useMemo(() => {
+    if (!tournamentResults) return [];
+    return [...tournamentResults].sort((a, b) => {
+      const orderA = ROUND_ORDER[a.bestRound] ?? 99;
+      const orderB = ROUND_ORDER[b.bestRound] ?? 99;
+      return orderA - orderB;
+    });
+  }, [tournamentResults]);
 
   return (
     <>
@@ -505,6 +529,65 @@ function StatsTab({ player }: { player: PlayerDetail }) {
               </View>
             );
           })}
+        </View>
+      )}
+
+      {/* Tournament Results */}
+      {sortedResults.length > 0 && (
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>Tournament Results</Text>
+          {sortedResults.map((tr, i) => (
+            <View key={i} style={styles.tournamentResultRow}>
+              <TournamentLogo tournamentName={tr.tournament} size="sm" />
+              <TouchableOpacity
+                style={{ flex: 1, marginLeft: 8 }}
+                activeOpacity={tr.tournamentId ? 0.7 : 1}
+                onPress={() => tr.tournamentId && router.push(`/tournament/${tr.tournamentId}`)}
+              >
+                <Text style={[styles.tournamentResultName, tr.tournamentId && styles.detailTournamentLink]} numberOfLines={1}>
+                  {tr.tournament}
+                </Text>
+              </TouchableOpacity>
+              <View style={[styles.roundBadge, { backgroundColor: tr.bestRound === 'Winner' ? 'rgba(201,168,76,0.15)' : 'rgba(255,255,255,0.06)' }]}>
+                <Text style={[styles.roundBadgeText, { color: getRoundColor(tr.bestRound) }]}>
+                  {tr.bestRound}
+                </Text>
+              </View>
+              <Text style={styles.tournamentResultYear}>{tr.year}</Text>
+              <Text style={styles.tournamentResultCount}>{tr.count}×</Text>
+            </View>
+          ))}
+        </View>
+      )}
+
+      {/* Career Best Wins */}
+      {careerBestWins && careerBestWins.length > 0 && (
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>Career Best Wins</Text>
+          {careerBestWins.slice(0, 5).map((win, i) => (
+            <View key={i} style={styles.careerWinCard}>
+              <View style={styles.careerWinHeader}>
+                <Text style={styles.careerWinTournament}>{win.tournament}</Text>
+                <Text style={styles.careerWinMeta}>{win.year} · {win.round}</Text>
+              </View>
+              <View style={styles.careerWinBody}>
+                <Text style={styles.careerWinVs}>vs </Text>
+                {win.opponentId ? (
+                  <TouchableOpacity
+                    activeOpacity={0.7}
+                    onPress={() => router.push(`/player/${win.opponentId}`)}
+                  >
+                    <Text style={[styles.careerWinOpponent, styles.detailTournamentLink]}>{win.opponent}</Text>
+                  </TouchableOpacity>
+                ) : (
+                  <Text style={styles.careerWinOpponent}>{win.opponent}</Text>
+                )}
+                <View style={{ flex: 1 }} />
+                <Text style={styles.careerWinScore}>{win.score}</Text>
+              </View>
+              <Text style={styles.careerWinSignificance}>{win.significance}</Text>
+            </View>
+          ))}
         </View>
       )}
     </>
@@ -1282,4 +1365,90 @@ const styles = StyleSheet.create({
   tagRankPct: { width: 40, fontSize: 12, fontWeight: '600', color: theme.text, textAlign: 'right' },
   tagRankCount: { width: 40, fontSize: 11, color: '#888', textAlign: 'right' },
   roundLabel: { fontSize: 11, color: '#888', fontWeight: '400' as const },
+
+  // Tournament Results
+  tournamentResultRow: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    paddingVertical: 10,
+    borderBottomWidth: 0.5,
+    borderBottomColor: theme.border,
+    gap: 6,
+  },
+  tournamentResultName: {
+    fontSize: 13,
+    fontWeight: '500' as const,
+    color: theme.text,
+  },
+  roundBadge: {
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 6,
+  },
+  roundBadgeText: {
+    fontSize: 11,
+    fontWeight: '600' as const,
+  },
+  tournamentResultYear: {
+    fontSize: 11,
+    color: '#888',
+    width: 34,
+    textAlign: 'right' as const,
+  },
+  tournamentResultCount: {
+    fontSize: 11,
+    color: '#888',
+    width: 24,
+    textAlign: 'right' as const,
+  },
+
+  // Career Best Wins
+  careerWinCard: {
+    backgroundColor: 'rgba(255,255,255,0.03)',
+    borderRadius: 8,
+    padding: 12,
+    marginBottom: 8,
+    borderWidth: 0.5,
+    borderColor: theme.border,
+  },
+  careerWinHeader: {
+    flexDirection: 'row' as const,
+    justifyContent: 'space-between' as const,
+    alignItems: 'center' as const,
+    marginBottom: 6,
+  },
+  careerWinTournament: {
+    fontSize: 12,
+    fontWeight: '600' as const,
+    color: theme.text,
+  },
+  careerWinMeta: {
+    fontSize: 11,
+    color: '#888',
+  },
+  careerWinBody: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    marginBottom: 4,
+  },
+  careerWinVs: {
+    fontSize: 12,
+    color: '#888',
+  },
+  careerWinOpponent: {
+    fontSize: 13,
+    fontWeight: '500' as const,
+    color: theme.text,
+  },
+  careerWinScore: {
+    fontSize: 13,
+    fontWeight: '700' as const,
+    color: theme.text,
+  },
+  careerWinSignificance: {
+    fontSize: 11,
+    fontStyle: 'italic' as const,
+    color: '#666',
+    marginTop: 2,
+  },
 });
